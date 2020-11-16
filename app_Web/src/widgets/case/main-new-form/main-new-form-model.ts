@@ -121,6 +121,11 @@ export default class MainNewModel {
         dataType: 'ACID',
       },
       {
+        name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
+      },
+      {
         name: 'case',
         prop: 'id',
         dataType: 'FONTKEY',

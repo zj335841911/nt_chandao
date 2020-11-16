@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import ModuleService from '@/service/module/module-service';
 import ModuleAuthService from '@/authservice/module/module-auth-service';
@@ -48,7 +48,7 @@ export class ModuleEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ModuleEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class ModuleEditViewBase extends EditViewBase {
      *
      * @memberof ModuleEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class ModuleEditViewBase extends EditViewBase {
         srfCaption: 'entities.module.views.editview.caption',
         srfTitle: 'entities.module.views.editview.title',
         srfSubTitle: 'entities.module.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class ModuleEditViewBase extends EditViewBase {
      * @memberof ModuleEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -106,7 +112,7 @@ export class ModuleEditViewBase extends EditViewBase {
      * @memberof ModuleEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -117,9 +123,18 @@ export class ModuleEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ModuleEditViewBase
      */
 	protected viewtag: string = '2671388d4c12a6f139e6fd806c524dc7';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ModuleEditViewBase
+     */ 
+    protected viewName: string = "ModuleEditView";
 
 
     /**
@@ -138,7 +153,9 @@ export class ModuleEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ModuleEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

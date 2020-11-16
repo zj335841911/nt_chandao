@@ -21,6 +21,13 @@ export default class BurnUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  BurnUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  BurnUIServiceBase
@@ -89,7 +96,6 @@ export default class BurnUIServiceBase extends UIService {
      * @memberof  BurnUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'chartview',srfappde:'burns',component:'burn-chart-view'});
     }
 
     /**
@@ -136,6 +142,8 @@ export default class BurnUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{BURN:"0"});
+        Object.assign(params,{burn:"0"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { burn: '%burn%' });
@@ -167,7 +175,6 @@ export default class BurnUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '更新燃尽图成功' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import StoryUIService from '@/uiservice/story/story-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class StoryGridView9_AssignedToMeBase extends GridView9Base {
      * @type {string}
      * @memberof StoryGridView9_AssignedToMeBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,14 @@ export class StoryGridView9_AssignedToMeBase extends GridView9Base {
 	 * @memberof StoryGridView9_AssignedToMeBase
 	 */
     protected customViewParams: any = {
-        'n_assignedto_eq': { isRawValue: false, value: 'srfloginname' }
+        'n_assignedto_eq': {
+            isRawValue: false,
+            value: 'srfloginname',
+        },
+        'size': {
+            isRawValue: true,
+            value: '5',
+        }
     };
 
     /**
@@ -91,8 +98,8 @@ export class StoryGridView9_AssignedToMeBase extends GridView9Base {
         srfCaption: 'entities.story.views.gridview9_assignedtome.caption',
         srfTitle: 'entities.story.views.gridview9_assignedtome.title',
         srfSubTitle: 'entities.story.views.gridview9_assignedtome.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,7 +109,10 @@ export class StoryGridView9_AssignedToMeBase extends GridView9Base {
      * @memberof StoryGridView9_AssignedToMeBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -111,9 +121,18 @@ export class StoryGridView9_AssignedToMeBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryGridView9_AssignedToMeBase
      */
 	protected viewtag: string = '4b82e9acf6c784b138b365d6011b296b';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryGridView9_AssignedToMeBase
+     */ 
+    protected viewName: string = "StoryGridView9_AssignedToMe";
 
 
     /**
@@ -132,7 +151,9 @@ export class StoryGridView9_AssignedToMeBase extends GridView9Base {
      * @type {Array<*>}
      * @memberof StoryGridView9_AssignedToMeBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -143,11 +164,11 @@ export class StoryGridView9_AssignedToMeBase extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'story',

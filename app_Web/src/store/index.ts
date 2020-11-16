@@ -6,11 +6,11 @@ import { rootstate } from './state';
 import * as mutations from './mutations';
 import * as getters from './getters';
 
-import viewaction from './modules/view-action'
-import authresource from './modules/auth-resource'
+import viewaction from './modules/view-action';
+import authresource from './modules/auth-resource';
 
 const state = {
-    ...rootstate
+    ...rootstate,
 };
 
 Vue.use(Vuex);
@@ -22,7 +22,7 @@ const store = new Vuex.Store({
     getters,
     modules: {
         viewaction,
-        authresource
+        authresource,
     },
 });
 

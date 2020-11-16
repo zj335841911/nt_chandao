@@ -1,12 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, SearchFormControlBase } from '@/studio-core';
 import ProductSumService from '@/service/product-sum/product-sum-service';
 import DefaultService from './default-searchform-service';
 import ProductSumUIService from '@/uiservice/product-sum/product-sum-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-
 
 /**
  * searchform部件基类
@@ -16,7 +16,6 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
  * @extends {DefaultSearchFormBase}
  */
 export class DefaultSearchFormBase extends SearchFormControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +65,7 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
      * @type {ProductSumUIService}
      * @memberof DefaultBase
      */  
-    public appUIService:ProductSumUIService = new ProductSumUIService(this.$store);
+    public appUIService: ProductSumUIService = new ProductSumUIService(this.$store);
 
 
     /**

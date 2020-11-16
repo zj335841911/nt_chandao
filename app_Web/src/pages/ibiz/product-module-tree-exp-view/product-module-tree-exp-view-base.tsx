@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { TreeExpViewBase } from '@/studio-core';
 import ProductModuleService from '@/service/product-module/product-module-service';
 import ProductModuleAuthService from '@/authservice/product-module/product-module-auth-service';
@@ -65,7 +65,10 @@ export class ProductModuleTreeExpViewBase extends TreeExpViewBase {
 	 * @memberof ProductModuleTreeExpViewBase
 	 */
     protected customViewNavContexts: any = {
-        'MODULETYPE': { isRawValue: true, value: 'story' }
+        'MODULETYPE': {
+            isRawValue: true,
+            value: 'story',
+        }
     };
 
     /**
@@ -73,7 +76,7 @@ export class ProductModuleTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof ProductModuleTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -86,8 +89,8 @@ export class ProductModuleTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.productmodule.views.treeexpview.caption',
         srfTitle: 'entities.productmodule.views.treeexpview.title',
         srfSubTitle: 'entities.productmodule.views.treeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -97,7 +100,10 @@ export class ProductModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProductModuleTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
     /**
@@ -107,9 +113,9 @@ export class ProductModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProductModuleTreeExpView
      */
     public treeexpviewtreeexpbar_toolbarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '修复', 'isShowCaption': true, 'isShowIcon': true, tooltip: '修复', iconcls: 'fa fa-wrench', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Fix', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '修复', 'isShowCaption': true, 'isShowIcon': true, tooltip: '修复', iconcls: 'fa fa-wrench', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Fix', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'RefreshAll', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'RefreshAll', target: '', class: '' } },
 
     };
 
@@ -120,9 +126,18 @@ export class ProductModuleTreeExpViewBase extends TreeExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductModuleTreeExpViewBase
      */
 	protected viewtag: string = '84104216ff9049079f9442c9cbd54342';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductModuleTreeExpViewBase
+     */ 
+    protected viewName: string = "ProductModuleTreeExpView";
 
 
     /**
@@ -141,7 +156,9 @@ export class ProductModuleTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof ProductModuleTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

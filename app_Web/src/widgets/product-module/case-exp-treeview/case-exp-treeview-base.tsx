@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProductModuleService from '@/service/product-module/product-module-service';
 import CaseExpService from './case-exp-treeview-service';
 import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * treeexpbar_tree部件基类
@@ -15,7 +14,6 @@ import { ViewTool } from '@/utils';
  * @extends {CaseExpTreeBase}
  */
 export class CaseExpTreeBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class CaseExpTreeBase extends MainControlBase {
      * @type {ProductModuleUIService}
      * @memberof CaseExpBase
      */  
-    public appUIService:ProductModuleUIService = new ProductModuleUIService(this.$store);
+    public appUIService: ProductModuleUIService = new ProductModuleUIService(this.$store);
 
 
     /**
@@ -708,7 +706,7 @@ export class CaseExpTreeBase extends MainControlBase {
             let flag:boolean = false;
             if(Object.values(result).length>0){
                 flag =Object.values(result).some((item:any) =>{
-                    return item.visabled === true;
+                    return item.visible === true;
                 })
             }
             if(flag){

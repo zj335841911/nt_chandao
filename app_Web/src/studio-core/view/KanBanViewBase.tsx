@@ -7,6 +7,4 @@ import { MDViewBase } from './MDViewBase';
  * @class KanBanViewBase
  * @extends {MDViewBase}
  */
-export class KanBanViewBase extends MDViewBase {
-
-}
+export class KanBanViewBase extends MDViewBase {}

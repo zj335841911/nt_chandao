@@ -164,6 +164,17 @@ public class TestTaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-MobTestTaskCounter-all')")
+    @ApiOperation(value = "移动端测试版本计数器", tags = {"测试版本" },  notes = "移动端测试版本计数器")
+	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/mobtesttaskcounter")
+    public ResponseEntity<TestTaskDTO> mobTestTaskCounter(@PathVariable("testtask_id") Long testtask_id, @RequestBody TestTaskDTO testtaskdto) {
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setId(testtask_id);
+        domain = testtaskService.mobTestTaskCounter(domain);
+        testtaskdto = testtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Save-all')")
     @ApiOperation(value = "保存测试版本", tags = {"测试版本" },  notes = "保存测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/save")
@@ -219,6 +230,28 @@ public class TestTaskResource {
     @RequestMapping(method= RequestMethod.POST , value="/testtasks/searchdefault")
 	public ResponseEntity<Page<TestTaskDTO>> searchDefault(@RequestBody TestTaskSearchContext context) {
         Page<TestTask> domains = testtaskService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchMyTestTaskPc-all')")
+	@ApiOperation(value = "获取我的测试单", tags = {"测试版本" } ,notes = "获取我的测试单")
+    @RequestMapping(method= RequestMethod.GET , value="/testtasks/fetchmytesttaskpc")
+	public ResponseEntity<List<TestTaskDTO>> fetchMyTestTaskPc(TestTaskSearchContext context) {
+        Page<TestTask> domains = testtaskService.searchMyTestTaskPc(context) ;
+        List<TestTaskDTO> list = testtaskMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchMyTestTaskPc-all')")
+	@ApiOperation(value = "查询我的测试单", tags = {"测试版本" } ,notes = "查询我的测试单")
+    @RequestMapping(method= RequestMethod.POST , value="/testtasks/searchmytesttaskpc")
+	public ResponseEntity<Page<TestTaskDTO>> searchMyTestTaskPc(@RequestBody TestTaskSearchContext context) {
+        Page<TestTask> domains = testtaskService.searchMyTestTaskPc(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -353,6 +386,17 @@ public class TestTaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-MobTestTaskCounter-all')")
+    @ApiOperation(value = "根据产品测试版本", tags = {"测试版本" },  notes = "根据产品测试版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/mobtesttaskcounter")
+    public ResponseEntity<TestTaskDTO> mobTestTaskCounterByProduct(@PathVariable("product_id") Long product_id, @PathVariable("testtask_id") Long testtask_id, @RequestBody TestTaskDTO testtaskdto) {
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setProduct(product_id);
+        domain = testtaskService.mobTestTaskCounter(domain) ;
+        testtaskdto = testtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Save-all')")
     @ApiOperation(value = "根据产品保存测试版本", tags = {"测试版本" },  notes = "根据产品保存测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/save")
@@ -416,6 +460,29 @@ public class TestTaskResource {
 	public ResponseEntity<Page<TestTaskDTO>> searchTestTaskDefaultByProduct(@PathVariable("product_id") Long product_id, @RequestBody TestTaskSearchContext context) {
         context.setN_product_eq(product_id);
         Page<TestTask> domains = testtaskService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchMyTestTaskPc-all')")
+	@ApiOperation(value = "根据产品获取我的测试单", tags = {"测试版本" } ,notes = "根据产品获取我的测试单")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testtasks/fetchmytesttaskpc")
+	public ResponseEntity<List<TestTaskDTO>> fetchTestTaskMyTestTaskPcByProduct(@PathVariable("product_id") Long product_id,TestTaskSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<TestTask> domains = testtaskService.searchMyTestTaskPc(context) ;
+        List<TestTaskDTO> list = testtaskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchMyTestTaskPc-all')")
+	@ApiOperation(value = "根据产品查询我的测试单", tags = {"测试版本" } ,notes = "根据产品查询我的测试单")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testtasks/searchmytesttaskpc")
+	public ResponseEntity<Page<TestTaskDTO>> searchTestTaskMyTestTaskPcByProduct(@PathVariable("product_id") Long product_id, @RequestBody TestTaskSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<TestTask> domains = testtaskService.searchMyTestTaskPc(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -548,6 +615,17 @@ public class TestTaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-MobTestTaskCounter-all')")
+    @ApiOperation(value = "根据项目测试版本", tags = {"测试版本" },  notes = "根据项目测试版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/mobtesttaskcounter")
+    public ResponseEntity<TestTaskDTO> mobTestTaskCounterByProject(@PathVariable("project_id") Long project_id, @PathVariable("testtask_id") Long testtask_id, @RequestBody TestTaskDTO testtaskdto) {
+        TestTask domain = testtaskMapping.toDomain(testtaskdto);
+        domain.setProject(project_id);
+        domain = testtaskService.mobTestTaskCounter(domain) ;
+        testtaskdto = testtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testtaskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-Save-all')")
     @ApiOperation(value = "根据项目保存测试版本", tags = {"测试版本" },  notes = "根据项目保存测试版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/save")
@@ -614,5 +692,46 @@ public class TestTaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchMyTestTaskPc-all')")
+	@ApiOperation(value = "根据项目获取我的测试单", tags = {"测试版本" } ,notes = "根据项目获取我的测试单")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/testtasks/fetchmytesttaskpc")
+	public ResponseEntity<List<TestTaskDTO>> fetchTestTaskMyTestTaskPcByProject(@PathVariable("project_id") Long project_id,TestTaskSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<TestTask> domains = testtaskService.searchMyTestTaskPc(context) ;
+        List<TestTaskDTO> list = testtaskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestTask-searchMyTestTaskPc-all')")
+	@ApiOperation(value = "根据项目查询我的测试单", tags = {"测试版本" } ,notes = "根据项目查询我的测试单")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/testtasks/searchmytesttaskpc")
+	public ResponseEntity<Page<TestTaskDTO>> searchTestTaskMyTestTaskPcByProject(@PathVariable("project_id") Long project_id, @RequestBody TestTaskSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<TestTask> domains = testtaskService.searchMyTestTaskPc(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @Autowired
+    cn.ibizlab.pms.core.zentao.mapping.TestTaskDataImport dataimportImpMapping;
+
+    @RequestMapping(method = RequestMethod.POST, value = "/testtasks/import")
+    public ResponseEntity<JSONObject> importData(@RequestParam(value = "config") String config , @RequestBody List<TestTask> dtos){
+        JSONObject rs=new JSONObject();
+        if(dtos.size()==0){
+            rs.put("rst", 1);
+            rs.put("msg", "未传入内容");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(rs);
+        }
+        else{
+            if("DataImport".equals(config)){
+                rs=testtaskService.importData(dataimportImpMapping.toDomain(dtos),1000,false);
+            }
+            return ResponseEntity.status(HttpStatus.OK).body(rs);
+        }
+    }
 }
 

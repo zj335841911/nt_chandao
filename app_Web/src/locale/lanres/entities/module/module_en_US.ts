@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     root: "所属根",
@@ -15,6 +14,8 @@ export default {
     parentname: "上级模块",
     branch: "平台/分支",
     parent: "上级模块",
+    mdeptid: "部门标识",
+    orgid: "组织标识",
   },
 	views: {
 		editview: {
@@ -64,6 +65,7 @@ export default {
 		},
 	},
 	line_grid: {
+		nodata: "",
 		columns: {
 			name: "名称",
 			short: "简称",
@@ -72,6 +74,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			name: "模块名称",
 			parentname: "上级模块",

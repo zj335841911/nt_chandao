@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import AssignedToMeStoryService from './assigned-to-me-story-portlet-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * dashboard_sysportlet5部件基类
@@ -17,7 +16,6 @@ import { ViewTool } from '@/utils';
  * @extends {AssignedToMeStoryPortletBase}
  */
 export class AssignedToMeStoryPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,35 @@ export class AssignedToMeStoryPortletBase extends MainControlBase {
      * @type {StoryUIService}
      * @memberof AssignedToMeStoryBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet5_u39f0981_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_More(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
 
 
     /**
@@ -100,6 +126,7 @@ export class AssignedToMeStoryPortletBase extends MainControlBase {
      * @memberof AssignedToMeStoryBase
      */
     public uiactionModel: any = {
+        more: {name: 'more', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'More', target: 'NONE' } },
     }
 
 
@@ -146,7 +173,7 @@ export class AssignedToMeStoryPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '200px';
+            return 'auto';
         }
     }
 
@@ -218,6 +245,16 @@ export class AssignedToMeStoryPortletBase extends MainControlBase {
         }
     }
 
+    /**
+     * 执行界面行为
+     *
+     * @memberof AssignedToMeStoryBase
+     */
+    public uiAction(tag:string,event:any){
+        if(Object.is(tag,'u39f0981')){
+            this.dashboard_sysportlet5_u39f0981_click(null,tag,event);
+        }
+    }
 
     /**
      * 刷新

@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import CaseUIService from '@/uiservice/case/case-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseCurTestTaskGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
 	 * @memberof CaseCurTestTaskGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'TASK': { isRawValue: false, value: 'srfparentkey' }
+        'TASK': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
 	/**
@@ -88,7 +91,10 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
 	 * @memberof CaseCurTestTaskGridViewBase
 	 */
     protected customViewParams: any = {
-        'task': { isRawValue: false, value: 'srfparentkey' }
+        'task': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
     /**
@@ -102,8 +108,8 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
         srfCaption: 'entities.case.views.curtesttaskgridview.caption',
         srfTitle: 'entities.case.views.curtesttaskgridview.title',
         srfSubTitle: 'entities.case.views.curtesttaskgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -113,8 +119,14 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
      * @memberof CaseCurTestTaskGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -124,9 +136,9 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
      * @memberof CaseCurTestTaskGridView
      */
     public toolBarModels: any = {
-        deuiaction1_linkcasec: { name: 'deuiaction1_linkcasec', caption: '关联用例', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联用例', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', uiaction: { tag: 'LinkCaseC', target: 'NONE', class: '' } },
+        deuiaction1_linkcasec: { name: 'deuiaction1_linkcasec', caption: '关联用例', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联用例', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', uiaction: { tag: 'LinkCaseC', target: 'NONE', class: '' } },
 
-        deuiaction7: { name: 'deuiaction7', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction7: { name: 'deuiaction7', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
     };
 
@@ -137,9 +149,18 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseCurTestTaskGridViewBase
      */
 	protected viewtag: string = '36337c95eb6a21369e5673e64e708925';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseCurTestTaskGridViewBase
+     */ 
+    protected viewName: string = "CaseCurTestTaskGridView";
 
 
     /**
@@ -158,7 +179,9 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof CaseCurTestTaskGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -169,11 +192,11 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'case',
@@ -454,14 +477,14 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'CaseTestTaskQuickpachet', codelistType: 'STATIC' };
-        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
+        if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {
                 this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
             } else {
                 console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
             }
-        } else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
+        } else if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
             this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
                 this.quickGroupModel = res;
             }).catch((error:any) => {

@@ -1,9 +1,9 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TestPortalView_dbService from './test-portal-view-db-dashboard-service';
 import UtilService from '@/utilservice/util-service';
-
 
 /**
  * dashboard部件基类
@@ -13,7 +13,6 @@ import UtilService from '@/utilservice/util-service';
  * @extends {TestPortalView_dbDashboardBase}
  */
 export class TestPortalView_dbDashboardBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *

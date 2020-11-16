@@ -1,4 +1,5 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import ProductSumService from '@/service/product-sum/product-sum-service';
 import ProductBugcnt_QAModel from './product-bugcnt-qa-chart-model';

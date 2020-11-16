@@ -191,7 +191,7 @@
     name='desc' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="desc_item"  
     :itemValue="this.data.desc" 
     v-show="detailsModel.desc.visible" 
@@ -199,9 +199,10 @@
     :caption="$t('todo.mobnew_form.details.desc')"  
     :labelWidth="130"  
     :isShowCaption="true"
+    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"todo",version:"editor"}' :exportparams='{objecttype:"todo",version:"editor"}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"todo",version:"editor"}' :exportparams='{objecttype:"todo",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -478,6 +479,16 @@ export default class MobNewBase extends Vue implements ControlInterface {
      * @memberof MobNew
      */
     protected formState: Subject<any> = new Subject();
+
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobNewBase
+     */
+    public appStateEvent: Subscription | undefined;
 
     /**
      * 忽略表单项值变化
@@ -1243,6 +1254,16 @@ export default class MobNewBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Todo")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1265,6 +1286,9 @@ export default class MobNewBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1474,7 +1498,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

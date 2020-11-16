@@ -61,6 +61,21 @@ export class MobMainModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'scmpath',
+                prop: 'scmpath',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'filepath',
+                prop: 'filepath',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'desc',
+                prop: 'desc',
+                dataType: 'LONGTEXT',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

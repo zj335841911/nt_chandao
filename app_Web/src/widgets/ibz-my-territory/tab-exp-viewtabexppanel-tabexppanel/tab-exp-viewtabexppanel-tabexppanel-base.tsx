@@ -1,10 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TabExpPanelControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import TabExpViewtabexppanelService from './tab-exp-viewtabexppanel-tabexppanel-service';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
-
+import IbzMyTerritoryAuthService from '@/authservice/ibz-my-territory/ibz-my-territory-auth-service';
+import { Environment } from '@/environments/environment';
 
 /**
  * tabexppanel部件基类
@@ -14,7 +16,6 @@ import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territo
  * @extends {TabExpViewtabexppanelTabexppanelBase}
  */
 export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,23 +65,26 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @type {IbzMyTerritoryUIService}
      * @memberof TabExpViewtabexppanelBase
      */  
-    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+    public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
     /**
      * 是否初始化
      *
      * @protected
      * @returns {any}
-     * @memberof TabExpViewtabexppanel
+     * @memberof TabExpViewtabexppanelBase
      */
     protected isInit: any = {
         tabviewpanel:  true ,
+        tabviewpanel10:  false ,
         tabviewpanel3:  false ,
         tabviewpanel4:  false ,
         tabviewpanel5:  false ,
         tabviewpanel6:  false ,
         tabviewpanel2:  false ,
         tabviewpanel7:  false ,
+        tabviewpanel9:  false ,
+        tabviewpanel8:  false ,
     }
 
     /**
@@ -88,15 +92,33 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      *
      * @protected
      * @type {string}
-     * @memberof TabExpViewtabexppanel
+     * @memberof TabExpViewtabexppanelBase
      */
     protected activatedTabViewPanel: string = 'tabviewpanel';
+
+    /**
+     * 实体权限服务对象
+     *
+     * @protected
+     * @type IbzMyTerritoryAuthServiceBase
+     * @memberof TabExpViewtabexppanelBase
+     */
+    protected appAuthService: IbzMyTerritoryAuthService = new IbzMyTerritoryAuthService();
+
+    /**
+     * 分页面板权限标识存储对象
+     *
+     * @protected
+     * @type {*}
+     * @memberof TabExpViewtabexppanelBase
+     */
+    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visible: true,disabled: false},'tabviewpanel10':{resourcetag:null,visible: true,disabled: false},'tabviewpanel3':{resourcetag:null,visible: true,disabled: false},'tabviewpanel4':{resourcetag:null,visible: true,disabled: false},'tabviewpanel5':{resourcetag:null,visible: true,disabled: false},'tabviewpanel6':{resourcetag:null,visible: true,disabled: false},'tabviewpanel2':{resourcetag:null,visible: true,disabled: false},'tabviewpanel7':{resourcetag:null,visible: true,disabled: false},'tabviewpanel9':{resourcetag:null,visible: true,disabled: false},'tabviewpanel8':{resourcetag:null,visible: true,disabled: false}};
 
     /**
      * 组件创建完毕
      *
      * @protected
-     * @memberof TabExpViewtabexppanel
+     * @memberof TabExpViewtabexppanelBase
      */
     protected ctrlCreated(): void {
         //设置分页导航srfparentdename和srfparentkey

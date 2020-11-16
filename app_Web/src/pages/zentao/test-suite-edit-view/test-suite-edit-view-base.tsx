@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import TestSuiteService from '@/service/test-suite/test-suite-service';
 import TestSuiteAuthService from '@/authservice/test-suite/test-suite-auth-service';
@@ -48,7 +48,7 @@ export class TestSuiteEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestSuiteEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class TestSuiteEditViewBase extends EditViewBase {
 	 * @memberof TestSuiteEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PRODUCT': { isRawValue: false, value: 'product' }
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class TestSuiteEditViewBase extends EditViewBase {
 	 * @memberof TestSuiteEditViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
     /**
@@ -93,7 +99,7 @@ export class TestSuiteEditViewBase extends EditViewBase {
      *
      * @memberof TestSuiteEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -106,8 +112,8 @@ export class TestSuiteEditViewBase extends EditViewBase {
         srfCaption: 'entities.testsuite.views.editview.caption',
         srfTitle: 'entities.testsuite.views.editview.title',
         srfSubTitle: 'entities.testsuite.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,8 +123,14 @@ export class TestSuiteEditViewBase extends EditViewBase {
      * @memberof TestSuiteEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +140,7 @@ export class TestSuiteEditViewBase extends EditViewBase {
      * @memberof TestSuiteEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -139,9 +151,18 @@ export class TestSuiteEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestSuiteEditViewBase
      */
 	protected viewtag: string = '7a983ef690626958a9897f58efe15e58';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestSuiteEditViewBase
+     */ 
+    protected viewName: string = "TestSuiteEditView";
 
 
     /**
@@ -160,7 +181,9 @@ export class TestSuiteEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TestSuiteEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

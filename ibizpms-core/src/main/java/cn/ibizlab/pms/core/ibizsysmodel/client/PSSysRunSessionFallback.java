@@ -17,65 +17,65 @@ import org.springframework.stereotype.Component;
  * 实体[PSSysRunSession] 服务对象接口
  */
 @Component
-public class PSSysRunSessionFallback implements PSSysRunSessionFeignClient{
+public class PSSysRunSessionFallback implements PSSysRunSessionFeignClient {
 
-    public Page<PSSysRunSession> select(){
-            return null;
-     }
+    public Page<PSSysRunSession> select() {
+        return null;
+    }
 
-    public PSSysRunSession create(PSSysRunSession pssysrunsession){
-            return null;
-     }
-    public Boolean createBatch(List<PSSysRunSession> pssysrunsessions){
-            return false;
-     }
+    public PSSysRunSession create(PSSysRunSession pssysrunsession) {
+        return null;
+    }
+    public Boolean createBatch(List<PSSysRunSession> pssysrunsessions) {
+        return false;
+    }
 
-    public PSSysRunSession update(String pssysrunsessionid, PSSysRunSession pssysrunsession){
-            return null;
-     }
-    public Boolean updateBatch(List<PSSysRunSession> pssysrunsessions){
-            return false;
-     }
-
-
-    public Boolean remove(String pssysrunsessionid){
-            return false;
-     }
-    public Boolean removeBatch(Collection<String> idList){
-            return false;
-     }
-
-    public PSSysRunSession get(String pssysrunsessionid){
-            return null;
-     }
+    public PSSysRunSession update(String pssysrunsessionid, PSSysRunSession pssysrunsession) {
+        return null;
+    }
+    public Boolean updateBatch(List<PSSysRunSession> pssysrunsessions) {
+        return false;
+    }
 
 
-    public String getByCodeName(String codeName){
+    public Boolean remove(String pssysrunsessionid) {
+        return false;
+    }
+    public Boolean removeBatch(Collection<String> idList) {
+        return false;
+    }
+
+    public PSSysRunSession get(String pssysrunsessionid) {
+        return null;
+    }
+
+
+    public String getByCodeName(String codeName) {
             return null;
     }
 
 
     public PSSysRunSession getDraft(){
-            return null;
+        return null;
     }
 
 
 
-    public Boolean checkKey(PSSysRunSession pssysrunsession){
-            return false;
-     }
+    public Boolean checkKey(PSSysRunSession pssysrunsession) {
+        return false;
+    }
 
 
-    public Boolean save(PSSysRunSession pssysrunsession){
-            return false;
-     }
-    public Boolean saveBatch(List<PSSysRunSession> pssysrunsessions){
-            return false;
-     }
+    public Boolean save(PSSysRunSession pssysrunsession) {
+        return false;
+    }
+    public Boolean saveBatch(List<PSSysRunSession> pssysrunsessions) {
+        return false;
+    }
 
-    public Page<PSSysRunSession> searchDefault(PSSysRunSessionSearchContext context){
-            return null;
-     }
+    public Page<PSSysRunSession> searchDefault(PSSysRunSessionSearchContext context) {
+        return null;
+    }
 
 
 }

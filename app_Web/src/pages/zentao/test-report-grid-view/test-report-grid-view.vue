@@ -1,5 +1,5 @@
-<template src="./test-report-grid-view.html"/>
-<script lang='tsx'>
+<template src="./test-report-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestReportGridViewBase } from './test-report-grid-view-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/test-report/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestReportGridView extends TestReportGridViewBase { }
+export default class TestReportGridView extends TestReportGridViewBase {}
 </script>

@@ -1,5 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, PanelControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskKanBanService from './task-kan-ban-panel-service';
@@ -7,8 +8,6 @@ import TaskUIService from '@/uiservice/task/task-ui-service';
 import { PanelDetailModel,PanelRawitemModel,PanelTabPanelModel,PanelTabPageModel,PanelFieldModel,PanelContainerModel,PanelControlModel,PanelUserControlModel,PanelButtonModel } from '@/model/panel-detail';
 import TaskKanBanModel from './task-kan-ban-panel-model';
 import CodeListService from "@service/app/codelist-service";
-import { ViewTool } from '@/utils';
-
 
 /**
  * itemlayoutpanel部件基类
@@ -18,7 +17,6 @@ import { ViewTool } from '@/utils';
  * @extends {TaskKanBanPanelBase}
  */
 export class TaskKanBanPanelBase extends PanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -68,7 +66,7 @@ export class TaskKanBanPanelBase extends PanelControlBase {
      * @type {TaskUIService}
      * @memberof TaskKanBanBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 逻辑事件
@@ -110,7 +108,7 @@ export class TaskKanBanPanelBase extends PanelControlBase {
 ,
         rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem1', panel: this })
 ,
-        button1: new PanelButtonModel({ caption: '指派', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'AssignTask',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__TASK_ASSIGN_BUT',visabled: true,disabled: false} })
+        button1: new PanelButtonModel({ caption: '指派', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'AssignTask',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__TASK_ASSIGN_BUT',visible: true,disabled: false} })
 ,
         assignedto: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'assignedto', panel: this })
 ,
@@ -122,7 +120,7 @@ export class TaskKanBanPanelBase extends PanelControlBase {
 ,
         container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
 ,
-        estimate: new PanelFieldModel({ caption: 'h', itemType: 'FIELD',visible: true, disabled: false, name: 'estimate', panel: this })
+        left: new PanelFieldModel({ caption: 'h', itemType: 'FIELD',visible: true, disabled: false, name: 'left', panel: this })
 ,
         rawitem3: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem3', panel: this })
 ,

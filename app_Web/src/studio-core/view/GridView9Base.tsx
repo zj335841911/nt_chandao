@@ -7,6 +7,4 @@ import { GridViewBase } from './GridViewBase';
  * @class GridView9Base
  * @extends {GridViewBase}
  */
-export class GridView9Base extends GridViewBase {
-
-}
+export class GridView9Base extends GridViewBase {}

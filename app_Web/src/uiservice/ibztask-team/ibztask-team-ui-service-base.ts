@@ -21,6 +21,13 @@ export default class IBZTaskTeamUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  IBZTaskTeamUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  IBZTaskTeamUIServiceBase
@@ -89,8 +96,6 @@ export default class IBZTaskTeamUIServiceBase extends UIService {
      * @memberof  IBZTaskTeamUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'ibztaskteams',component:'task-team-grid-view9'});
-        this.allViewMap.set(':',{viewname:'gridview9_edit',srfappde:'ibztaskteams',component:'task-team-grid-view9-edit'});
     }
 
     /**

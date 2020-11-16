@@ -27,14 +27,18 @@
     v-show="detailsModel.name.visible" 
     :itemRules="this.rules.name" 
     :caption="$t('testsuite.mobmain_form.details.name')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.name.disabled"
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.name" 
-    :context="context" 
+    v-if="data.name"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.name" 
     :itemParam="{}"/>
 </app-form-item>
@@ -51,17 +55,21 @@
     v-show="detailsModel.type.visible" 
     :itemRules="this.rules.type" 
     :caption="$t('testsuite.mobmain_form.details.type')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.type.disabled"
     :error="detailsModel.type.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Testsuite__type"
     :isCache="false" 
-    v-if="data.type" 
-    :context="context" 
+    v-if="data.type"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.type" 
     :itemParam="{}"/>
 </app-form-item>
@@ -78,17 +86,21 @@
     v-show="detailsModel.addedby.visible" 
     :itemRules="this.rules.addedby" 
     :caption="$t('testsuite.mobmain_form.details.addedby')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.addedby.disabled"
     :error="detailsModel.addedby.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.addedby" 
-    :context="context" 
+    v-if="data.addedby"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.addedby" 
     :itemParam="{}"/>
 </app-form-item>
@@ -105,14 +117,18 @@
     v-show="detailsModel.addeddate.visible" 
     :itemRules="this.rules.addeddate" 
     :caption="$t('testsuite.mobmain_form.details.addeddate')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.addeddate.disabled"
     :error="detailsModel.addeddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.addeddate" 
-    :context="context" 
+    v-if="data.addeddate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.addeddate" 
     :itemParam="{}"/>
 </app-form-item>
@@ -129,17 +145,21 @@
     v-show="detailsModel.lasteditedby.visible" 
     :itemRules="this.rules.lasteditedby" 
     :caption="$t('testsuite.mobmain_form.details.lasteditedby')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.lasteditedby.disabled"
     :error="detailsModel.lasteditedby.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.lasteditedby" 
-    :context="context" 
+    v-if="data.lasteditedby"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.lasteditedby" 
     :itemParam="{}"/>
 </app-form-item>
@@ -156,17 +176,65 @@
     v-show="detailsModel.lastediteddate.visible" 
     :itemRules="this.rules.lastediteddate" 
     :caption="$t('testsuite.mobmain_form.details.lastediteddate')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.lastediteddate.disabled"
     :error="detailsModel.lastediteddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.lastediteddate" 
-    :context="context" 
+    v-if="data.lastediteddate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.lastediteddate" 
     :itemParam="{}"/>
 </app-form-item>
+
+
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel1.visible" 
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
+    :caption="$t('testsuite.mobmain_form.details.grouppanel1')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="1" 
+    :isInfoGroupMode="true" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='testsuite' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
+    :caption="$t('testsuite.mobmain_form.details.druipart1')"  
+    paramItem='testsuite' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_TESTSUITE","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
+    ]" 
+    tempMode='0'
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
 
 
     
@@ -442,6 +510,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     protected formState: Subject<any> = new Subject();
 
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobMainBase
+     */
+    public appStateEvent: Subscription | undefined;
+
     /**
      * 忽略表单项值变化
      *
@@ -630,6 +708,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel1: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'testsuite.mobmain_form', extractMode: 'ITEM', details: [] } })
+, 
         group1: new FormGroupPanelModel({ caption: '测试套件基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'testsuite.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -882,6 +964,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
 
 
 
@@ -1190,6 +1274,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"TestSuite")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1212,6 +1306,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1395,7 +1492,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 0;
+            this.drcounter = 1;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();
@@ -1421,7 +1518,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"TestSuite",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"TestSuite",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

@@ -3,14 +3,14 @@
  */
 const viewEvent = {
     // 模型加载
-    MODEL_LOADED: 'ModelLoaded'
+    MODEL_LOADED: 'ModelLoaded',
 };
 /**
  * 部件事件
  */
 const ctrlEvent = {
     // 部件加载
-    LOAD: 'load'
+    LOAD: 'load',
 };
 /**
  * 导出事件
@@ -105,7 +105,7 @@ const ctrlType = {
     // 门户部件
     Portlet: 'PORTLET',
     // 面板
-    Panel: 'PANEL'
+    Panel: 'PANEL',
 };
 /**
  * 部件类型

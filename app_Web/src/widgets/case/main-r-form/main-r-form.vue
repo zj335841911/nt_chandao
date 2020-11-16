@@ -1,5 +1,5 @@
-<template src="./main-r-form.html"/>
-<script lang='tsx'>
+<template src="./main-r-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainREditFormBase } from './main-r-form-base';
@@ -15,11 +15,11 @@ import { MainREditFormBase } from './main-r-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MainREditForm extends MainREditFormBase { }
+export default class MainREditForm extends MainREditFormBase {}
 </script>
-<style lang='less'>
+<style lang="less">
 @import './main-r-form.less';
 </style>

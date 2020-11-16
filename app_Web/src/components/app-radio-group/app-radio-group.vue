@@ -1,13 +1,20 @@
 <template>
-  <radio-group class="app-radio-group" v-model="value" >                 
-    <radio v-for="(_item,index) in items" :key = "index" :label="_item.value" :disabled="isDisabled || _item.disabled">
-        <span>{{Object.is(codelistType,'STATIC') ? $t('codelist.'+tag+'.'+_item.value) : _item.text}}</span>
-    </radio>
-  </radio-group>
+    <radio-group class="app-radio-group" v-model="value">
+        <radio
+            v-for="(_item, index) in items"
+            :key="index"
+            :label="_item.value"
+            :disabled="isDisabled || _item.disabled"
+        >
+            <span>{{
+                Object.is(codelistType, 'STATIC') ? $t('codelist.' + tag + '.' + _item.value) : _item.text
+            }}</span>
+        </radio>
+    </radio-group>
 </template>
-<script lang = 'ts'>
-import { Component, Vue, Prop, Model,Watch } from 'vue-property-decorator';
-import CodeListService from "@service/app/codelist-service";
+<script lang="ts">
+import { Component, Vue, Prop, Model, Watch } from 'vue-property-decorator';
+import CodeListService from '@service/app/codelist-service';
 
 @Component({})
 export default class AppRadioGroup extends Vue {
@@ -16,8 +23,8 @@ export default class AppRadioGroup extends Vue {
      *
      * @type {CodeListService}
      * @memberof AppRadioGroup
-     */  
-    public codeListService:CodeListService = new CodeListService({ $store: this.$store });
+     */
+    public codeListService: CodeListService = new CodeListService({ $store: this.$store });
 
     /**
      * 双向绑定值
@@ -71,27 +78,30 @@ export default class AppRadioGroup extends Vue {
 
     /**
      * 监听表单数据变化
-     * 
+     *
      * @memberof AppRadioGroup
      */
-    @Watch('data',{immediate:true,deep:true})
+    @Watch('data', { immediate: true, deep: true })
     onDataChange(newVal: any, oldVal: any) {
-      if(newVal){
-          if(this.tag && this.codelistType == 'DYNAMIC'){
-              // 公共参数处理
-              let data: any = {};
-              this.handlePublicParams(data);
-              // 参数处理
-              let _context = data.context;
-              let _param = data.param;
-              console.log("app-radio-group")
-              this.codeListService.getItems(this.tag,_context,_param).then((res:any) => {
-                  this.items = res;
-              }).catch((error:any)=>{
-                  console.log(`----${this.tag}----${(this.$t('app.commonWords.codeNotExist') as string)}`);
-              })
-          }
-      }
+        if (newVal) {
+            if (this.tag && this.codelistType == 'DYNAMIC') {
+                // 公共参数处理
+                let data: any = {};
+                this.handlePublicParams(data);
+                // 参数处理
+                let _context = data.context;
+                let _param = data.param;
+                console.log('app-radio-group');
+                this.codeListService
+                    .getItems(this.tag, _context, _param)
+                    .then((res: any) => {
+                        this.items = res;
+                    })
+                    .catch((error: any) => {
+                        console.log(`----${this.tag}----${this.$t('app.commonWords.codeNotExist') as string}`);
+                    });
+            }
+        }
     }
 
     /**
@@ -104,19 +114,19 @@ export default class AppRadioGroup extends Vue {
 
     /**
      * 局部上下文导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppRadioGroup
      */
-    @Prop() public localContext!:any;
+    @Prop() public localContext!: any;
 
     /**
      * 局部导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppRadioGroup
      */
-    @Prop() public localParam!:any;
+    @Prop() public localParam!: any;
 
     /**
      * 视图上下文
@@ -176,13 +186,13 @@ export default class AppRadioGroup extends Vue {
         arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
         arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
         // 附加参数处理
-        if (this.localContext && Object.keys(this.localContext).length >0) {
-            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
-            Object.assign(arg.context,_context);
+        if (this.localContext && Object.keys(this.localContext).length > 0) {
+            let _context = this.$util.computedNavData(this.data, arg.context, arg.param, this.localContext);
+            Object.assign(arg.context, _context);
         }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
-            Object.assign(arg.param,_param);
+        if (this.localParam && Object.keys(this.localParam).length > 0) {
+            let _param = this.$util.computedNavData(this.data, arg.param, arg.param, this.localParam);
+            Object.assign(arg.param, _param);
         }
     }
 
@@ -192,20 +202,23 @@ export default class AppRadioGroup extends Vue {
      * @memberof AppRadioGroup
      */
     public created() {
-        if(this.tag && this.codelistType == 'STATIC'){
-            this.items  = this.$store.getters.getCodeListItems(this.tag);
-        }else if(this.tag && this.codelistType == 'DYNAMIC'){
+        if (this.tag && this.codelistType == 'STATIC') {
+            this.items = this.$store.getters.getCodeListItems(this.tag);
+        } else if (this.tag && this.codelistType == 'DYNAMIC') {
             // 公共参数处理
             let data: any = {};
             this.handlePublicParams(data);
             // 参数处理
             let _context = data.context;
             let _param = data.param;
-            this.codeListService.getItems(this.tag,_context,_param).then((res:any) => {
-                this.items = res;
-            }).catch((error:any)=>{
-                console.log(`----${this.tag}----${(this.$t('app.commonWords.codeNotExist') as string)}`);
-            })
+            this.codeListService
+                .getItems(this.tag, _context, _param)
+                .then((res: any) => {
+                    this.items = res;
+                })
+                .catch((error: any) => {
+                    console.log(`----${this.tag}----${this.$t('app.commonWords.codeNotExist') as string}`);
+                });
         }
     }
 }

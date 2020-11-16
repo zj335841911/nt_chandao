@@ -1,3 +1,5 @@
+import { Util } from '@/utils/util/util';
+import zhCNUser from '../user/zh-CN.user';
 import productplan_zh_CN from '@locale/lanres/entities/product-plan/product-plan_zh_CN';
 import projectproduct_zh_CN from '@locale/lanres/entities/project-product/project-product_zh_CN';
 import case_zh_CN from '@locale/lanres/entities/case/case_zh_CN';
@@ -13,11 +15,13 @@ import suitecase_zh_CN from '@locale/lanres/entities/suite-case/suite-case_zh_CN
 import burn_zh_CN from '@locale/lanres/entities/burn/burn_zh_CN';
 import substory_zh_CN from '@locale/lanres/entities/sub-story/sub-story_zh_CN';
 import subproductplan_zh_CN from '@locale/lanres/entities/sub-product-plan/sub-product-plan_zh_CN';
-import employeeload_zh_CN from '@locale/lanres/entities/employ-eeload/employ-eeload_zh_CN';
+import employeeload_zh_CN from '@locale/lanres/entities/emp-loyeeload/emp-loyeeload_zh_CN';
+import doccontent_zh_CN from '@locale/lanres/entities/doc-content/doc-content_zh_CN';
 import storyspec_zh_CN from '@locale/lanres/entities/story-spec/story-spec_zh_CN';
 import usertpl_zh_CN from '@locale/lanres/entities/user-tpl/user-tpl_zh_CN';
 import ibzfavorites_zh_CN from '@locale/lanres/entities/ibz-favorites/ibz-favorites_zh_CN';
 import branch_zh_CN from '@locale/lanres/entities/branch/branch_zh_CN';
+import sysdepartment_zh_CN from '@locale/lanres/entities/sys-department/sys-department_zh_CN';
 import productstats_zh_CN from '@locale/lanres/entities/product-stats/product-stats_zh_CN';
 import ibzprojectmember_zh_CN from '@locale/lanres/entities/ibz-project-member/ibz-project-member_zh_CN';
 import action_zh_CN from '@locale/lanres/entities/action/action_zh_CN';
@@ -42,7 +46,9 @@ import doclib_zh_CN from '@locale/lanres/entities/doc-lib/doc-lib_zh_CN';
 import productmodule_zh_CN from '@locale/lanres/entities/product-module/product-module_zh_CN';
 import module_zh_CN from '@locale/lanres/entities/module/module_zh_CN';
 import testmodule_zh_CN from '@locale/lanres/entities/test-module/test-module_zh_CN';
+import doclibmodule_zh_CN from '@locale/lanres/entities/doc-lib-module/doc-lib-module_zh_CN';
 import productlife_zh_CN from '@locale/lanres/entities/product-life/product-life_zh_CN';
+import usercontact_zh_CN from '@locale/lanres/entities/user-contact/user-contact_zh_CN';
 import task_zh_CN from '@locale/lanres/entities/task/task_zh_CN';
 import build_zh_CN from '@locale/lanres/entities/build/build_zh_CN';
 import testresult_zh_CN from '@locale/lanres/entities/test-result/test-result_zh_CN';
@@ -57,19 +63,23 @@ import testreport_zh_CN from '@locale/lanres/entities/test-report/test-report_zh
 import projectstats_zh_CN from '@locale/lanres/entities/project-stats/project-stats_zh_CN';
 import testrun_zh_CN from '@locale/lanres/entities/test-run/test-run_zh_CN';
 import ibzmyterritory_zh_CN from '@locale/lanres/entities/ibz-my-territory/ibz-my-territory_zh_CN';
+import sysupdatelog_zh_CN from '@locale/lanres/entities/sys-update-log/sys-update-log_zh_CN';
+import doc_zh_CN from '@locale/lanres/entities/doc/doc_zh_CN';
 import bug_zh_CN from '@locale/lanres/entities/bug/bug_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/entities/project-module/project-module_zh_CN';
 import ibzdoc_zh_CN from '@locale/lanres/entities/ibz-doc/ibz-doc_zh_CN';
 import pssysapp_zh_CN from '@locale/lanres/entities/pssys-app/pssys-app_zh_CN';
 import ibzcase_zh_CN from '@locale/lanres/entities/ibz-case/ibz-case_zh_CN';
 import pssystemdbcfg_zh_CN from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_zh_CN';
+import sysupdatefeatures_zh_CN from '@locale/lanres/entities/sys-update-features/sys-update-features_zh_CN';
 import release_zh_CN from '@locale/lanres/entities/release/release_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_zh_CN';
+import sysemployee_zh_CN from '@locale/lanres/entities/sys-employee/sys-employee_zh_CN';
 import components_zh_CN from '@locale/lanres/components/components_zh_CN';
 import codelist_zh_CN from '@locale/lanres/codelist/codelist_zh_CN';
 import userCustom_zh_CN from '@locale/lanres/userCustom/userCustom_zh_CN';
 
-export default {
+const data: any = {
     app: {
         commonWords:{
             error: "失败",
@@ -89,7 +99,9 @@ export default {
             deleteError: "删除失败！",
             delDataFail: "删除数据失败",
             noData: "暂无数据",
-            startsuccess:"启动成功"
+            startsuccess:"启动成功",
+            createFailed: '无法创建',
+            isExist: '已存在'
         },
         local:{
             new: "新建",
@@ -204,15 +216,13 @@ export default {
                 menuitem3: "产品主页",
                 menuitem2: "项目主页",
                 menuitem1: "测试主页",
+                menuitem16: "文档",
                 menuitem22: "统计",
                 menuitem25: "年度统计",
                 menuitem10: "用例库",
                 menuitem11: "用户",
                 menuitem7: "iBiz软件生产管理",
-                menuitem16: "plus",
-                menuitem19: "产品",
-                menuitem21: "模块",
-                menuitem17: "需求",
+                menuitem8: "更新日志",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
                 menuitem5: "项目",
@@ -340,10 +350,12 @@ export default {
         substory: substory_zh_CN,
         subproductplan: subproductplan_zh_CN,
         employeeload: employeeload_zh_CN,
+        doccontent: doccontent_zh_CN,
         storyspec: storyspec_zh_CN,
         usertpl: usertpl_zh_CN,
         ibzfavorites: ibzfavorites_zh_CN,
         branch: branch_zh_CN,
+        sysdepartment: sysdepartment_zh_CN,
         productstats: productstats_zh_CN,
         ibzprojectmember: ibzprojectmember_zh_CN,
         action: action_zh_CN,
@@ -368,7 +380,9 @@ export default {
         productmodule: productmodule_zh_CN,
         module: module_zh_CN,
         testmodule: testmodule_zh_CN,
+        doclibmodule: doclibmodule_zh_CN,
         productlife: productlife_zh_CN,
+        usercontact: usercontact_zh_CN,
         task: task_zh_CN,
         build: build_zh_CN,
         testresult: testresult_zh_CN,
@@ -383,16 +397,24 @@ export default {
         projectstats: projectstats_zh_CN,
         testrun: testrun_zh_CN,
         ibzmyterritory: ibzmyterritory_zh_CN,
+        sysupdatelog: sysupdatelog_zh_CN,
+        doc: doc_zh_CN,
         bug: bug_zh_CN,
         projectmodule: projectmodule_zh_CN,
         ibzdoc: ibzdoc_zh_CN,
         pssysapp: pssysapp_zh_CN,
         ibzcase: ibzcase_zh_CN,
         pssystemdbcfg: pssystemdbcfg_zh_CN,
+        sysupdatefeatures: sysupdatefeatures_zh_CN,
         release: release_zh_CN,
         dynadashboard: dynadashboard_zh_CN,
+        sysemployee: sysemployee_zh_CN,
     },
     components: components_zh_CN,
     codelist: codelist_zh_CN,
     userCustom: userCustom_zh_CN,
 };
+// 合并用户自定义多语言
+Util.mergeDeepObject(data, zhCNUser);
+// 默认导出
+export default data;

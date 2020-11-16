@@ -1,13 +1,13 @@
 
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { KanBanViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
 import KanBanViewEngine from '@engine/view/kan-ban-view-engine';
 import StoryUIService from '@/uiservice/story/story-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -52,7 +52,7 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      * @type {string}
      * @memberof StoryKanbanViewBase
      */ 
-    protected dataControl:string = "kanban";
+    protected dataControl: string = "kanban";
 
     /**
      * 实体服务对象
@@ -81,8 +81,8 @@ export class StoryKanbanViewBase extends KanBanViewBase {
         srfCaption: 'entities.story.views.kanbanview.caption',
         srfTitle: 'entities.story.views.kanbanview.title',
         srfSubTitle: 'entities.story.views.kanbanview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -92,8 +92,14 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      * @memberof StoryKanbanViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_kanban: { name: 'kanban', type: 'KANBAN' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_kanban: {
+            name: 'kanban',
+            type: 'KANBAN',
+        },
     };
 
     /**
@@ -103,13 +109,13 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      * @memberof StoryKanbanView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CREATE_BUT', uiaction: { tag: 'ProjectCreateView', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CREATE_BUT', uiaction: { tag: 'ProjectCreateView', target: 'NONE', class: '' } },
 
-        deuiaction3: { name: 'deuiaction3', caption: '关联需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联需求', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'projectLinkStories', target: 'NONE', class: '' } },
+        deuiaction3: { name: 'deuiaction3', caption: '关联需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联需求', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'projectLinkStories', target: 'NONE', class: '' } },
 
-        deuiaction4: { name: 'deuiaction4', caption: '按照计划关联', 'isShowCaption': true, 'isShowIcon': true, tooltip: '按照计划关联', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'ProjecPlanLink', target: 'NONE', class: '' } },
+        deuiaction4: { name: 'deuiaction4', caption: '按照计划关联', 'isShowCaption': true, 'isShowIcon': true, tooltip: '按照计划关联', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'ProjecPlanLink', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': false, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': false, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 
@@ -120,9 +126,18 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryKanbanViewBase
      */
 	protected viewtag: string = '300e4e1f02be8e316e1e76b49c5c5ccc';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryKanbanViewBase
+     */ 
+    protected viewName: string = "StoryKanbanView";
 
 
     /**
@@ -141,7 +156,9 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      * @type {Array<*>}
      * @memberof StoryKanbanViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -153,11 +170,11 @@ export class StoryKanbanViewBase extends KanBanViewBase {
         this.engine.init({
             view: this,
             kanban: this.$refs.kanban,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'story',
             majorPSDEField: 'title',
@@ -495,4 +512,3 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      */
     protected viewUID: string = 'zentao-story-kanban-view';
 }
-

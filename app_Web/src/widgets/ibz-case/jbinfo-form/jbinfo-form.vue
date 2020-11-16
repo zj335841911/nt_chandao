@@ -1,5 +1,5 @@
-<template src="./jbinfo-form.html"/>
-<script lang='tsx'>
+<template src="./jbinfo-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { JBInfoEditFormBase } from './jbinfo-form-base';
@@ -15,8 +15,8 @@ import { JBInfoEditFormBase } from './jbinfo-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class JBInfoEditForm extends JBInfoEditFormBase { }
+export default class JBInfoEditForm extends JBInfoEditFormBase {}
 </script>

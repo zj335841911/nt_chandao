@@ -100,6 +100,7 @@ export class ProductServiceBase extends EntityService {
         this.tempStorage.setItem(tempContext.srfsessionkey+'_releases',JSON.stringify(res.data.releases?res.data.releases:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_stories',JSON.stringify(res.data.stories?res.data.stories:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_testmodules',JSON.stringify(res.data.testmodules?res.data.testmodules:[]));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_testsuites',JSON.stringify(res.data.testsuites?res.data.testsuites:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_testtasks',JSON.stringify(res.data.testtasks?res.data.testtasks:[]));
         
         return res;
@@ -302,6 +303,51 @@ export class ProductServiceBase extends EntityService {
                         this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
 
             return res;
+    }
+
+    /**
+     * FetchAllList接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async FetchAllList(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/products/fetchalllist`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchAllProduct接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async FetchAllProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/products/fetchallproduct`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchCheckNameOrCode接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async FetchCheckNameOrCode(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/products/fetchchecknameorcode`,tempData,isloading);
+        return res;
     }
 
     /**

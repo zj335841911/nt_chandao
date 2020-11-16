@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Bug;
  */
 @Slf4j
 @Service
-public class BugGetModuleBranchLogicImpl implements IBugGetModuleBranchLogic{
+public class BugGetModuleBranchLogicImpl implements IBugGetModuleBranchLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -41,26 +41,28 @@ public class BugGetModuleBranchLogicImpl implements IBugGetModuleBranchLogic{
         return this.iBzSysDefaultService;
     }
 
-    public void execute(Bug et){
+    @Override
+    public void execute(Bug et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("buggetmodulebranchdefault",et);
-           cn.ibizlab.pms.core.zentao.domain.Module  buggetmodulebranchmodule =new cn.ibizlab.pms.core.zentao.domain.Module();
+           kieSession.setGlobal("buggetmodulebranchdefault", et);
+           cn.ibizlab.pms.core.zentao.domain.Module buggetmodulebranchmodule = new cn.ibizlab.pms.core.zentao.domain.Module();
            kieSession.insert(buggetmodulebranchmodule); 
-           kieSession.setGlobal("buggetmodulebranchmodule",buggetmodulebranchmodule);
-           kieSession.setGlobal("moduleservice",moduleservice);
-           kieSession.setGlobal("iBzSysBugDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("buggetmodulebranchmodule", buggetmodulebranchmodule);
+           kieSession.setGlobal("moduleservice", moduleservice);
+           kieSession.setGlobal("iBzSysBugDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.buggetmodulebranch");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[获取模块的平台]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

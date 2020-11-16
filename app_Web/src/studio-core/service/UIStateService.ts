@@ -10,7 +10,6 @@ import { on } from '@/utils/dom/dom';
  */
 @SingletonMode()
 export class UIStateService {
-
     /**
      * 缓存标识
      *
@@ -65,9 +64,9 @@ export class UIStateService {
             bottomExpActiveIndex: 0,
             leftExpContentShow: true,
             leftNavMenuCollapse: false,
-            leftNavOpenedMenus: []
+            leftNavOpenedMenus: [],
         };
-        Object.assign(this.layoutState, data)
+        Object.assign(this.layoutState, data);
     }
 
     /**
@@ -119,5 +118,4 @@ export class UIStateService {
     public isStyle2(): boolean {
         return this.layoutState.styleMode === 'STYLE2';
     }
-
 }

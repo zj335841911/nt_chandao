@@ -61,4 +61,12 @@ export interface Burn {
      * @memberof Burn
      */
     task?: any;
+
+    /**
+     * 周末
+     *
+     * @returns {*}
+     * @memberof Burn
+     */
+    isweekend?: any;
 }

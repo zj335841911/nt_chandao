@@ -59,6 +59,7 @@ public class StorySpecSearchContext extends QueryWrapperContext<StorySpec> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

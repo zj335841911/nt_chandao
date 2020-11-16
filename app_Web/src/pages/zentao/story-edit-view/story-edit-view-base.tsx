@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -48,7 +48,7 @@ export class StoryEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,9 +74,18 @@ export class StoryEditViewBase extends EditViewBase {
 	 * @memberof StoryEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' },
-        'SRFPARENTDENAME': { isRawValue: true, value: 'Project' },
-        'BRANCH': { isRawValue: false, value: 'branch' }
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'SRFPARENTDENAME': {
+            isRawValue: true,
+            value: 'Project',
+        },
+        'BRANCH': {
+            isRawValue: false,
+            value: 'branch',
+        }
     };
 
 	/**
@@ -87,10 +96,22 @@ export class StoryEditViewBase extends EditViewBase {
 	 * @memberof StoryEditViewBase
 	 */
     protected customViewParams: any = {
-        'srfparentdename': { isRawValue: true, value: 'Project' },
-        'project': { isRawValue: false, value: 'project' },
-        'productmodule': { isRawValue: false, value: 'productmodule' },
-        'storybranch': { isRawValue: false, value: 'branch' }
+        'srfparentdename': {
+            isRawValue: true,
+            value: 'Project',
+        },
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'productmodule': {
+            isRawValue: false,
+            value: 'productmodule',
+        },
+        'storybranch': {
+            isRawValue: false,
+            value: 'branch',
+        }
     };
 
     /**
@@ -98,7 +119,7 @@ export class StoryEditViewBase extends EditViewBase {
      *
      * @memberof StoryEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -111,8 +132,8 @@ export class StoryEditViewBase extends EditViewBase {
         srfCaption: 'entities.story.views.editview.caption',
         srfTitle: 'entities.story.views.editview.title',
         srfSubTitle: 'entities.story.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -122,8 +143,14 @@ export class StoryEditViewBase extends EditViewBase {
      * @memberof StoryEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -133,7 +160,7 @@ export class StoryEditViewBase extends EditViewBase {
      * @memberof StoryEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -144,9 +171,18 @@ export class StoryEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryEditViewBase
      */
 	protected viewtag: string = '4863a523ac490ebce771717756f0c6a8';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryEditViewBase
+     */ 
+    protected viewName: string = "StoryEditView";
 
 
     /**
@@ -165,7 +201,9 @@ export class StoryEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof StoryEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

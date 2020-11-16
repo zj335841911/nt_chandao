@@ -1,5 +1,5 @@
-<template src="./ibz-my-territory-stats-tab-exp-view.html"/>
-<script lang='tsx'>
+<template src="./ibz-my-territory-stats-tab-exp-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzMyTerritoryStatsTabExpViewBase } from './ibz-my-territory-stats-tab-exp-view-base';
@@ -18,5 +18,5 @@ import view_tabexppanel from '@widgets/ibz-my-territory/stats-tab-exp-viewtabexp
     }
 })
 @VueLifeCycleProcessing()
-export default class IbzMyTerritoryStatsTabExpView extends IbzMyTerritoryStatsTabExpViewBase { }
+export default class IbzMyTerritoryStatsTabExpView extends IbzMyTerritoryStatsTabExpViewBase {}
 </script>

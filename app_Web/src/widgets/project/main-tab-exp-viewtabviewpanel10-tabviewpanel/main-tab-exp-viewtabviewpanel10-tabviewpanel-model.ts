@@ -225,6 +225,18 @@ export default class MainTabExpViewtabviewpanel10Model {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
+      {
+        name: 'doclibcnt',
+      },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

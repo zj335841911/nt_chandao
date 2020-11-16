@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { PickupViewBase } from '@/studio-core';
 import ModuleService from '@/service/module/module-service';
 import ModuleAuthService from '@/authservice/module/module-auth-service';
@@ -68,8 +68,8 @@ export class ModulePickupViewBase extends PickupViewBase {
         srfCaption: 'entities.module.views.pickupview.caption',
         srfTitle: 'entities.module.views.pickupview.title',
         srfSubTitle: 'entities.module.views.pickupview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -79,13 +79,45 @@ export class ModulePickupViewBase extends PickupViewBase {
      * @memberof ModulePickupViewBase
      */
     protected containerModel: any = {
-        view_pickupviewpanel: { name: 'pickupviewpanel', type: 'PICKUPVIEWPANEL' },
-        view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
-        view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
-        view_leftbtn: { name: 'leftbtn', type: 'button', text: '左移', disabled: true },
-        view_rightbtn: { name: 'rightbtn', type: 'button', text: '右移', disabled: true },
-        view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
-        view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
+        view_pickupviewpanel: {
+            name: 'pickupviewpanel',
+            type: 'PICKUPVIEWPANEL',
+        },
+        view_okbtn: {
+            name: 'okbtn',
+            type: 'button',
+            text: '确定',
+            disabled: true,
+        },
+        view_cancelbtn: {
+            name: 'cancelbtn',
+            type: 'button',
+            text: '取消',
+            disabled: false,
+        },
+        view_leftbtn: {
+            name: 'leftbtn',
+            type: 'button',
+            text: '左移',
+            disabled: true,
+        },
+        view_rightbtn: {
+            name: 'rightbtn',
+            type: 'button',
+            text: '右移',
+            disabled: true,},
+        view_allleftbtn: {
+            name: 'allleftbtn',
+            type: 'button',
+            text: '全部左移',
+            disabled: true,
+        },
+        view_allrightbtn: {
+            name: 'allrightbtn',
+            type: 'button',
+            text: '全部右移',
+            disabled: true,
+        },
     };
 
 
@@ -94,9 +126,18 @@ export class ModulePickupViewBase extends PickupViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ModulePickupViewBase
      */
 	protected viewtag: string = 'cb6c278fd7205b3de3fc041816d15dd8';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ModulePickupViewBase
+     */ 
+    protected viewName: string = "ModulePickupView";
 
 
     /**
@@ -115,7 +156,9 @@ export class ModulePickupViewBase extends PickupViewBase {
      * @type {Array<*>}
      * @memberof ModulePickupViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

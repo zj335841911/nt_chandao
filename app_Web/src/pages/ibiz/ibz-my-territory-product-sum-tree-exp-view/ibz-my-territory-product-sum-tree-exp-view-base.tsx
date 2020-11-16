@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { TreeExpViewBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import IbzMyTerritoryAuthService from '@/authservice/ibz-my-territory/ibz-my-territory-auth-service';
@@ -62,7 +62,7 @@ export class IbzMyTerritoryProductSumTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof IbzMyTerritoryProductSumTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class IbzMyTerritoryProductSumTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.ibzmyterritory.views.productsumtreeexpview.caption',
         srfTitle: 'entities.ibzmyterritory.views.productsumtreeexpview.title',
         srfSubTitle: 'entities.ibzmyterritory.views.productsumtreeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class IbzMyTerritoryProductSumTreeExpViewBase extends TreeExpViewBase {
      * @memberof IbzMyTerritoryProductSumTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
 
@@ -95,9 +98,18 @@ export class IbzMyTerritoryProductSumTreeExpViewBase extends TreeExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzMyTerritoryProductSumTreeExpViewBase
      */
 	protected viewtag: string = 'e090d7f19211e8fbbab5d4442c6e58e8';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzMyTerritoryProductSumTreeExpViewBase
+     */ 
+    protected viewName: string = "IbzMyTerritoryProductSumTreeExpView";
 
 
     /**
@@ -116,7 +128,9 @@ export class IbzMyTerritoryProductSumTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof IbzMyTerritoryProductSumTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

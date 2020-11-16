@@ -1,27 +1,28 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
 import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
-import cn.ibizlab.pms.core.zentao.domain.StoryStage;
-import cn.ibizlab.pms.core.zentao.domain.Task;
-import cn.ibizlab.pms.core.zentao.domain.TaskEstimate;
-import cn.ibizlab.pms.core.zentao.domain.Team;
+import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
+import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.TaskEstimateMapper;
-import cn.ibizlab.pms.core.zentao.service.ICaseService;
-import cn.ibizlab.pms.core.zentao.service.ITaskEstimateService;
-import cn.ibizlab.pms.core.zentao.service.ITaskService;
-import cn.ibizlab.pms.core.zentao.service.ITeamService;
+import cn.ibizlab.pms.core.zentao.service.*;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.*;
-
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEstimate> {
@@ -34,48 +35,43 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
     @Autowired
     TeamHelper teamHelper;
 
+    @Autowired
+    ITaskEstimateService taskEstimateService;
+    @Autowired
+    ITeamService teamService;
+    @Autowired
+    ITaskService taskService;
+
+    @Autowired
+    ICaseService caseService;
+    @Autowired
+    IStoryService storyService;
+
+    @Autowired
+    StoryHelper storyHelper;
+
     @Override
     public boolean hasDeleted() {
         return false;
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(TaskEstimate et) {
-        boolean bOk = false;
-        bOk = super.create(et);
-        if (!bOk)
-            return bOk;
-
-        //task 处理
-        log.info("TaskEstimate 更新Task：未处理");
-
-        actionHelper.create("task", et.getTask(), "RecordEstimate", et.getWork(), String.valueOf(et.getConsumed()), null, true);
-
-        return bOk;
+        if (!super.create(et)) {
+            return false;
+        }
+        return true;
     }
 
 
-    @Autowired
-    ICaseService caseService;
-    @Transactional
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(TaskEstimate et) {
-         TaskEstimate oldEstimate = this.get(et.getId());
-//        List<JSONObject> taskEstimates = taskEstimateService.select(String.format("select * from zt_TaskEstimate where id = %1$s",et.getId()),null);
-//        TaskEstimate oldEstimate = JSONObject.toJavaObject(taskEstimates.get(0),TaskEstimate.class);
-//        List<JSONObject> tasks = taskService.select(String.format("select * zt_task where id = %1$s",oldEstimate.getTask()),null);
-//        if (tasks.size() == 0) return false;
-        Task task = taskHelper.get(oldEstimate.getTask());
-        List<JSONObject> childrenTasks = taskService.select(String.format("select * from zt_task where parent = %1$s and deleted = 0",task.getId()),null);
-        /* Check parent Task. */
-        if (task.getParent() > 0){
-            List<JSONObject> fatherTasks = taskService.select(String.format("select * from zt_task where id = %1$s",task.getParent()),null);
-            task.setParentname(fatherTasks.get(0).getString("name"));
-        }
-        List<JSONObject> teamLists = teamService.select(String.format("select * from zt_team where root = %1$s and type = 'task' order by 'order'",oldEstimate.getTask()),null);
-        if (task.getStory() != 0){
-            List<JSONObject> caseLists = caseService.select(String.format("select * from zt_case where story = %1$s and storyVersion = %2$s and deleted = '0'",task.getStory(),task.getStoryversion()),null);
-        }
+        TaskEstimate oldEstimate = taskEstimateService.getById(et.getId());
+        Task task = taskService.getById(oldEstimate.getTask());
+
         et.setAccount(AuthenticationUser.getAuthenticationUser().getUsername());
         this.internalUpdate(et);
         double consumed = task.getConsumed()+et.getConsumed() - oldEstimate.getConsumed();
@@ -85,91 +81,133 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
         Task data = new Task();
         data.setConsumed(consumed);
         data.setLeft(left);
-        data.setStatus((left == 0) ? "done" : task.getStatus());
+        data.setStatus((left == 0) ? StaticDict.Task__status.DONE.getValue() : task.getStatus());
         data.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
         data.setLastediteddate(Timestamp.valueOf(now));
+        data.setId(task.getId());
         if (left == 0){
             data.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
             data.setFinisheddate(Timestamp.valueOf(now));
             data.setAssignedto(task.getOpenedby());
         }
+
+        List<Team> teamLists = teamService.list(new QueryWrapper<Team>().eq("root",oldEstimate.getTask()).eq("type","task").orderByDesc("`order`"));
         if (teamLists.size() != 0){
             double oldConsumed = 0;
-            for (JSONObject team : teamLists) {
-                if (team.getString("account").equals(oldEstimate.getAccount())) oldConsumed = team.getDoubleValue("consumed");
+            for (Team team : teamLists) {
+                if (team.getAccount().equals(oldEstimate.getAccount())) {
+                    oldConsumed = team.getConsumed();
+                }
             }
             Team newTeamInfo = new Team();
             newTeamInfo.setConsumed(oldConsumed+et.getConsumed() - oldEstimate.getConsumed());
             newTeamInfo.setLeft(left);
             Map<String,Object> param = new HashMap<>();
+            param.put("root",oldEstimate.getTask());
+            param.put("type", StaticDict.Team__type.TASK.getValue());
+            param.put("account",oldEstimate.getAccount());
+            teamHelper.update(newTeamInfo,(Wrapper<Team>) newTeamInfo.getUpdateWrapper(true).allEq(param));
+            List<TaskTeam> teams = task.getTaskteam();
+            taskHelper.computeHours4Multiple(task,data,teams,false);
+        }
+        taskHelper.internalUpdate(data);
+
+
+        if (task.getParent() > 0) {  //编辑的任务是子任务
+            taskHelper.updateParentStatus(task, task.getParent(),false);
         }
 
+        //     * Set stage of a story.
+        if (task.getStory() != 0){
+            long storyID = task.getStory();
+            Story story = storyService.getById(storyID);
+            storyHelper.setStage(story);
+        }
 
+        Task oldTask = new Task();
+        oldTask.setConsumed(task.getConsumed());
+        oldTask.setLeft(task.getLeft());
+        oldTask.setStatus(task.getStatus());
 
-        boolean bOk = false;
-        bOk = super.create(et);
-        if (!bOk)
-            return bOk;
+        Task newTask = new Task();
+        newTask.setConsumed(data.getConsumed());
+        newTask.setLeft(data.getLeft());
+        newTask.setStatus(data.getStatus());
+        List<History> changes = ChangeUtil.diff(oldTask,newTask);
+        Action action1 = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(),et.getTask(),StaticDict.Action__type.EDITESTIMATE.getValue(),et.getWork(),"",null,true);
+        actionHelper.logHistory(action1.getId(),changes);
 
-        //task 处理
-        log.info("TaskEstimate 更新Task：未处理");
-
-        actionHelper.create("task", et.getTask(), "EditEstimate", et.getWork(), "", null, true);
-
-        return bOk;
+        return true;
     }
 
-    @Autowired
-    ITaskEstimateService taskEstimateService;
-    @Autowired
-    ITeamService teamService;
-    @Autowired
-    ITaskService taskService;
+
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean delete(Long key) {
-        boolean bOk = false;
-        TaskEstimate old = this.get(key);
-        Task et = taskHelper.get(old.getTask());
-        List<JSONObject> list =  taskEstimateService.select(String.format("select * from zt_TASKESTIMATE where task = %1$s order by date desc,id desc limit 0,1",old.getTask()),null);
-        JSONObject lastEstimate = list.get(0);
-        double consumued = et.getConsumed() - old.getConsumed();
-        double left = lastEstimate.getDoubleValue("consumed") == 0 ? old.getLeft() : lastEstimate.getDoubleValue("consumed");
-        String status = (left == 0 && consumued != 0) ? "done" : et.getStatus();
-        String sql = String.format("SELECT t2.* FROM zt_task t1 inner JOIN zt_team t2 on t1.id = t2.root and t2.type = 'task' where t1.id = %1$s and t2.account = '%2$s'",et.getId(),old.getAccount());
-        List<JSONObject> jsonObjectList = teamService.select(sql,null);
-        if (jsonObjectList.size() != 0){
-            JSONObject record = jsonObjectList.get(0);
-            double oldConsumed = record.getDoubleValue("consumed");
-            double teamConsumed = oldConsumed - old.getConsumed();
-            double teamLeft = left;
-            String teamSql = String.format("update zt_team set consumed = %1$s , left = %2$s where root = %3$s and type = 'task' and account = %4$s",teamConsumed,teamLeft,old.getTask(),old.getAccount());
-            teamService.execute(teamSql,null);
-            taskHelper.computeHours4Multiple(et,null,new ArrayList<TaskTeam>(),true);
+        TaskEstimate taskEstimate = this.get(key);
+        Task task = taskHelper.get(taskEstimate.getTask());
+        this.remove(new QueryWrapper<TaskEstimate>().eq("id",key));
+        List<JSONObject> estimateLists = taskEstimateService.select(String.format("select * from zt_TASKESTIMATE where task = %1$s order by date desc,id desc limit 0,1",taskEstimate.getTask()),null);
+        TaskEstimate lastEstimate = null;
+        if (estimateLists.size() != 0){
+            lastEstimate = JSONObject.toJavaObject(estimateLists.get(0),TaskEstimate.class);
         }
-        Task updateTask = new Task();
-        updateTask.setId(et.getId());
-        updateTask.setLeft(left);
-        updateTask.setConsumed(consumued);
-        updateTask.setStatus(status);
-        taskHelper.internalUpdate(updateTask);
-//        taskService.execute(String.format("update zt_task set consumed =  %1$s ,left =  %2$s ,status =  %3$s  where id =  %4$s ",consumued,left,status,old.getTask()),null);
-        if (et.getParent() > 0 ){
-            taskHelper.updateParentStatus(et,null,true);
+        double consumed = task.getConsumed() - taskEstimate.getConsumed();
+        double left = lastEstimate != null && lastEstimate.getLeft() != 0 ? lastEstimate.getLeft() : taskEstimate.getLeft();
+        Task data = new Task();
+        data.setConsumed(consumed);
+        data.setLeft(left);
+        data.setStatus((left == 0 && consumed != 0) ? StaticDict.Task__status.DONE.getValue() : task.getStatus());
+
+        List<Team> teamLists = teamService.list(new QueryWrapper<Team>().eq("root",task.getId()).eq("type","task"));
+        if (teamLists.size() != 0){
+            double oldConsumed = 0;
+            for (Team team : teamLists) {
+                if (team.getAccount().equals(taskEstimate.getAccount())){
+                    oldConsumed = team.getConsumed();
+                }
+            }
+            Team newTeamInfo = new Team();
+            newTeamInfo.setConsumed(oldConsumed - taskEstimate.getConsumed());
+            newTeamInfo.setLeft(left);
+            Map<String,Object> param = new HashMap<>();
+            param.put("root",taskEstimate.getTask());
+            param.put("type", StaticDict.Team__type.TASK.getValue());
+            param.put("account",taskEstimate.getAccount());
+
+            teamHelper.update(newTeamInfo,(Wrapper<Team>) newTeamInfo.getUpdateWrapper(true).allEq(param));
+            List<TaskTeam> teams = task.getTaskteam();
+
+            taskHelper.computeHours4Multiple(task,data,teams,false);
         }
-        if (et.getStory() != 0){
+        data.setId(taskEstimate.getTask());
+        taskHelper.internalUpdate(data);
 
+        if (task.getParent() > 0) {
+            taskHelper.updateParentStatus(task, task.getParent(), false);
         }
 
-        bOk = super.delete(key);
+        if (task.getStory() != 0) {
+            Story et = storyHelper.getById(task.getStory());
+            storyHelper.setStage(et);
+        }
+        Task oldTask = new Task();
+        oldTask.setConsumed(task.getConsumed());
+        oldTask.setLeft(left);
+        oldTask.setStatus(task.getStatus());
 
-        //task 处理
-        log.info("TaskEstimate 更新Task：未处理");
+        Task newTask = new Task();
+        newTask.setConsumed(data.getConsumed());
+        newTask.setLeft(data.getLeft());
+        newTask.setStatus(data.getStatus());
 
-        actionHelper.create("task", et.getId(), "DeleteEstimate", "", "", null, true);
-        if (!bOk)
-            return bOk;
-
-        return bOk;
+        List<History> changes = ChangeUtil.diff(oldTask,newTask);
+        if (changes.size() > 0) {
+            Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), task.getId(), StaticDict.Action__type.DELETEESTIMATE.getValue(), "", "", null, true);
+            if (changes.size() > 0){
+                actionHelper.logHistory(action.getId(),changes);
+            }
+        }
+        return true;
     }
 }

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import IbzFavoritesService from '@/service/ibz-favorites/ibz-favorites-service';
 import IbzFavoritesAuthService from '@/authservice/ibz-favorites/ibz-favorites-auth-service';
@@ -62,7 +62,7 @@ export class IbzFavoritesTabExpViewBase extends TabExpViewBase {
      *
      * @memberof IbzFavoritesTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class IbzFavoritesTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.ibzfavorites.views.tabexpview.caption',
         srfTitle: 'entities.ibzfavorites.views.tabexpview.title',
         srfSubTitle: 'entities.ibzfavorites.views.tabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class IbzFavoritesTabExpViewBase extends TabExpViewBase {
      * @memberof IbzFavoritesTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -95,9 +98,18 @@ export class IbzFavoritesTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzFavoritesTabExpViewBase
      */
 	protected viewtag: string = '0bd16cd21ee2e8951fb8a86599ac1510';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzFavoritesTabExpViewBase
+     */ 
+    protected viewName: string = "IbzFavoritesTabExpView";
 
 
     /**
@@ -116,7 +128,9 @@ export class IbzFavoritesTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof IbzFavoritesTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

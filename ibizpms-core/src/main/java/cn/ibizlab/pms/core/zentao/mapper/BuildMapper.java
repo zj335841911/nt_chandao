@@ -17,13 +17,14 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface BuildMapper extends BaseMapper<Build>{
+public interface BuildMapper extends BaseMapper<Build> {
 
-    Page<Build> searchBugProductBuild(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper) ;
-    Page<Build> searchCurProduct(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper) ;
-    Page<Build> searchDefault(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper) ;
-    Page<Build> searchTestBuild(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper) ;
-    Page<Build> searchTestRounds(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper) ;
+    Page<Build> searchBugProductBuild(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper);
+    Page<Build> searchCurProduct(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper);
+    Page<Build> searchDefault(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper);
+    Page<Build> searchTestBuild(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper);
+    Page<Build> searchTestRounds(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper);
+    Page<Build> searchUpdateLog(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper);
     @Override
     Build selectById(Serializable id);
     @Override
@@ -34,13 +35,13 @@ public interface BuildMapper extends BaseMapper<Build>{
     int update(@Param(Constants.ENTITY) Build entity, @Param("ew") Wrapper<Build> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -66,10 +67,10 @@ public interface BuildMapper extends BaseMapper<Build>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<Build> selectByBranch(@Param("id") Serializable id) ;
+    List<Build> selectByBranch(@Param("id") Serializable id);
 
-    List<Build> selectByProduct(@Param("id") Serializable id) ;
+    List<Build> selectByProduct(@Param("id") Serializable id);
 
-    List<Build> selectByProject(@Param("id") Serializable id) ;
+    List<Build> selectByProject(@Param("id") Serializable id);
 
 }

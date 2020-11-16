@@ -37,6 +37,7 @@
               v-model="data.n_id_eq"
               :data="data"
               :context="context"
+              :formState="formState"
               :viewparams="viewparams"
               :localContext ='{ }' 
               :localParam ='{ }' 
@@ -57,9 +58,10 @@
               v-model="data.n_plan_eq"
               :data="data"
               :context="context"
+              :formState="formState"
               :viewparams="viewparams"
-              :localContext ='{ }' 
-              :localParam ='{ }' 
+              :localContext ='{ N_PRODUCT_EQ:"%n_id_eq%" }' 
+              :localParam ='{ n_product_eq:"%n_id_eq%" }' 
               :disabled="detailsModel.n_plan_eq.disabled"
               valueType="number"
               tag='PlanCodeList'

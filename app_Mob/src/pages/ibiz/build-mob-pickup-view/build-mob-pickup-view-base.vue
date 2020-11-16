@@ -5,12 +5,12 @@
 
     
               <ion-toolbar>
-    <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
+    <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
   </ion-toolbar>
 
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_pickupviewpanel
             :viewState="viewState"
             viewName="BuildMobPickupView"  
@@ -39,12 +39,13 @@
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BuildService from '@/app-core/service/build/build-service';
 
 import MobPickupViewEngine from '@engine/view/mob-pickup-view-engine';
 import BuildUIService from '@/ui-service/build/build-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -143,6 +144,14 @@ export default class BuildMobPickupViewBase extends Vue {
      * @memberof BuildMobPickupViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof BuildMobPickupViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
@@ -533,6 +542,19 @@ export default class BuildMobPickupViewBase extends Vue {
         }
     }
 
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof BuildMobPickupViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
+
 
     /**
      * 视图选中数据
@@ -592,10 +614,8 @@ export default class BuildMobPickupViewBase extends Vue {
     public async quickValueChange(event: any) {
         const pickupviewpanel: any = this.$refs.pickupviewpanel;
         if (pickupviewpanel) {
-            let response = await pickupviewpanel.quickSearch(this.quickValue);
-            if (response) {
-                
-            }
+            this.quickValue = event.detail.value;
+            pickupviewpanel.quickSearch(this.quickValue);
         }
     }
 

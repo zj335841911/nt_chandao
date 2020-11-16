@@ -3,13 +3,13 @@
       
       <div v-if="!itemName" class="chart-no-data"><i class="el-icon-data-analysis"></i> {{$t('app.commonWords.noData')}}</div>
       <!-- 图表 -->
-      <div style="width: 70%;">
+      <div style="width: 39%;">
           <div v-if="itemName" class="app-charts" :id="chartId" style="width: 100%;height: 300px;padding: 6px 0;display: flex;justify-content: center;"></div>
           <div class="app-charts" v-if="originId" :id="originId" style="width:0px;height:0px"></div>
       </div>
 
       <!-- 图例 -->
-      <div class="legend" v-if="legendList.length > 0" style="width: 25%;padding-top:8px">
+      <div class="legend" v-if="legendList.length > 0" style="width: 65%;padding-top:8px">
           <el-table
               :data="legendList"
               style="width: 100%;"
@@ -147,16 +147,36 @@ export default class ChartFormLegend extends Vue {
     }
       // 设置图例表格数据
       this.setlegendGrid(this.chartOption.dataset[0].source);
-      // 设置图表样式（临时）
-      let finalOption:any =  this.configChart(this.chartOption);
+      // 设置默认图表样式
+      let finalOption:any =  this.defaultChartConfig(this.chartOption);
       // 绘制图表
       this.myChart.setOption(finalOption);
       this.myChart.resize();
   }
 
+  /**
+   * 默认图表样式
+   * 
+   */
+  public defaultChartConfig(option:any){
+    let tempOption:any = {...option};
+    tempOption.title.x = 'center';
+    tempOption.title.y = 'center';
+    tempOption.title.textStyle = {fontSize: 17};
+    tempOption.title.subtextStyle = {fontSize: 15};
+    let sum: number = this.legendList.reduce((acc: any, cur: any) => {
+      acc = acc + cur.srfcount;
+      return acc;
+    }, 0);
+    tempOption.title.subtext = sum+'个';
+    return tempOption;
+  }
+
   public setlegendGrid(source: any) {
     // 添加图例表格数据
-    this.legendList.push(...source);
+    this.legendList=[...source];
+    // 设置空白值
+    this.setBaseValue();
     // 计算百分比
     this.calcPercent();
     // 设置图例颜色
@@ -181,19 +201,43 @@ export default class ChartFormLegend extends Vue {
   }
 
   /**
+   * 设置空白值
+   * 
+   * @memberof ChartFormLegend
+   */
+  public setBaseValue(){
+    this.legendList.forEach((legend: any)=>{
+        if(Object.is(legend[this.itemName],this.$t('app.chart.undefined'))){
+          legend[this.itemName] = '';
+        }
+    });
+  }
+
+  /**
    * 计算百分比
    * @memberof ChartFormLegend
    */
   public calcPercent() {
     // 求和
     let sum: number = this.legendList.reduce((acc: any, cur: any) => {
+      if(!cur.srfcount){
+          if(cur.storycnt){
+            cur.srfcount = cur.storycnt;
+          }else if(cur.bugcnt){
+            cur.srfcount = cur.bugcnt;
+          }else{
+            cur.srfcount = 0;
+          }
+      }
       acc = acc + cur.srfcount;
       return acc;
     }, 0);
     // 设置百分比
     this.legendList.forEach((legend: any) => {
-      legend.percentage =
-        Math.round((legend.srfcount / sum) * 10000) / 100.0 + "%";
+      legend.percentage = Math.round((legend.srfcount / sum) * 10000) / 100.0 + "%";
+      if(!legend.percentage){
+        legend.percentage = '0.00%';
+      }
     });
   }
 

@@ -66,6 +66,11 @@ export default class TaskEstimateModel {
         dataType: 'TEXT',
       },
       {
+        name: 'status',
+        prop: 'status',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'task',
         prop: 'id',
         dataType: 'FONTKEY',

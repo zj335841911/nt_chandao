@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
@@ -48,7 +48,7 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectEditView_SuspendBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      *
      * @memberof ProjectEditView_SuspendBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
         srfCaption: 'entities.project.views.editview_suspend.caption',
         srfTitle: 'entities.project.views.editview_suspend.title',
         srfSubTitle: 'entities.project.views.editview_suspend.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      * @memberof ProjectEditView_SuspendBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -106,7 +112,7 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      * @memberof ProjectEditView_Suspend
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -117,9 +123,18 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectEditView_SuspendBase
      */
 	protected viewtag: string = 'edd664c8fc682d166b3a027dd08bbd8b';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectEditView_SuspendBase
+     */ 
+    protected viewName: string = "ProjectEditView_Suspend";
 
 
     /**
@@ -138,7 +153,9 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ProjectEditView_SuspendBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

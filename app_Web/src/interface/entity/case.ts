@@ -453,4 +453,28 @@ export interface Case {
      * @memberof Case
      */
     isfavorites?: any;
+
+    /**
+     * 模块名称
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    modulename1?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    files?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    noticeusers?: any;
 }

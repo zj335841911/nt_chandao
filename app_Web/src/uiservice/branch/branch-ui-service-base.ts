@@ -21,6 +21,13 @@ export default class BranchUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  BranchUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  BranchUIServiceBase
@@ -89,11 +96,15 @@ export default class BranchUIServiceBase extends UIService {
      * @memberof  BranchUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'pmgridview',srfappde:'branches',component:'branch-pmgrid-view'});
-        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'branches',component:'branch-pickup-view'});
-        this.allViewMap.set(':',{viewname:'pmeditview',srfappde:'branches',component:'branch-pmedit-view'});
-        this.allViewMap.set(':',{viewname:'pminfoeditview',srfappde:'branches',component:'branch-pminfo-edit-view'});
-        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'branches',component:'branch-pickup-grid-view'});
+        this.allViewMap.set('PICKUPVIEW:', {
+            viewname: 'pickupview',
+            srfappde: 'branches',
+            component: 'branch-pickup-view',
+            openmode: '',
+            title: '产品的分支和平台信息',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -291,7 +302,6 @@ export default class BranchUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '删除成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

@@ -1,4 +1,4 @@
-import Vue, { VNode, CreateElement } from "vue";
+import Vue, { VNode, CreateElement } from 'vue';
 
 /**
  * 工具类
@@ -99,7 +99,15 @@ export declare interface Verify {
      * @returns {boolean}
      * @memberof Verify
      */
-    checkFieldSimpleRule(value: any, op: string, value2: any, errorInfo: string, paramType: string, form: any, primaryModel: boolean): boolean;
+    checkFieldSimpleRule(
+        value: any,
+        op: string,
+        value2: any,
+        errorInfo: string,
+        paramType: string,
+        form: any,
+        primaryModel: boolean
+    ): boolean;
     /**
      * 检查属性字符长度规则
      *
@@ -113,7 +121,15 @@ export declare interface Verify {
      * @returns {boolean}
      * @memberof Verify
      */
-    checkFieldStringLengthRule(viewValue: string, minLength: number, indexOfMin: boolean, maxLength: number, indexOfMax: boolean, errorInfo: string, primaryModel: boolean): boolean;
+    checkFieldStringLengthRule(
+        viewValue: string,
+        minLength: number,
+        indexOfMin: boolean,
+        maxLength: number,
+        indexOfMax: boolean,
+        errorInfo: string,
+        primaryModel: boolean
+    ): boolean;
     /**
      * 检查属性值正则式规则
      *
@@ -138,7 +154,15 @@ export declare interface Verify {
      * @returns {boolean}
      * @memberof Verify
      */
-    checkFieldValueRangeRule(viewValue: string, minNumber: any, indexOfMin: boolean, maxNumber: any, indexOfMax: boolean, errorInfo: string, primaryModel: boolean): boolean;
+    checkFieldValueRangeRule(
+        viewValue: string,
+        minNumber: any,
+        indexOfMin: boolean,
+        maxNumber: any,
+        indexOfMax: boolean,
+        errorInfo: string,
+        primaryModel: boolean
+    ): boolean;
     /**
      * 检查属性值范围规则
      *
@@ -152,7 +176,15 @@ export declare interface Verify {
      * @returns {boolean}
      * @memberof Verify
      */
-    checkFieldValueRangeRule(viewValue: string, minNumber: any, indexOfMin: boolean, maxNumber: any, indexOfMax: boolean, errorInfo: string, primaryModel: boolean): boolean;
+    checkFieldValueRangeRule(
+        viewValue: string,
+        minNumber: any,
+        indexOfMin: boolean,
+        maxNumber: any,
+        indexOfMax: boolean,
+        errorInfo: string,
+        primaryModel: boolean
+    ): boolean;
     /**
      * 检查属性值系统值范围规则  暂时支持正则表达式
      *
@@ -166,7 +198,7 @@ export declare interface Verify {
     checkFieldSysValueRule(viewValue: string, strReg: any, errorInfo: string, primaryModel: boolean): boolean;
 }
 
-declare module "vue/types/vue" {
+declare module 'vue/types/vue' {
     interface Vue {
         /**
          * 工具类

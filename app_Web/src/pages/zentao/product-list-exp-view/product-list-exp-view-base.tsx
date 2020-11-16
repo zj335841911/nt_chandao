@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { ListExpViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductAuthService from '@/authservice/product/product-auth-service';
@@ -62,7 +62,7 @@ export class ProductListExpViewBase extends ListExpViewBase {
      *
      * @memberof ProductListExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class ProductListExpViewBase extends ListExpViewBase {
         srfCaption: 'entities.product.views.listexpview.caption',
         srfTitle: 'entities.product.views.listexpview.title',
         srfSubTitle: 'entities.product.views.listexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class ProductListExpViewBase extends ListExpViewBase {
      * @memberof ProductListExpViewBase
      */
     protected containerModel: any = {
-        view_listexpbar: { name: 'listexpbar', type: 'LISTEXPBAR' },
+        view_listexpbar: {
+            name: 'listexpbar',
+            type: 'LISTEXPBAR',
+        },
     };
 
     /**
@@ -96,7 +99,7 @@ export class ProductListExpViewBase extends ListExpViewBase {
      * @memberof ProductListExpView
      */
     public listexpviewlistexpbar_list_quicktoolbarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
 
     };
 
@@ -107,9 +110,18 @@ export class ProductListExpViewBase extends ListExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductListExpViewBase
      */
 	protected viewtag: string = 'e396b6f39451e3bf963aec602106adf0';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductListExpViewBase
+     */ 
+    protected viewName: string = "ProductListExpView";
 
 
     /**
@@ -128,7 +140,9 @@ export class ProductListExpViewBase extends ListExpViewBase {
      * @type {Array<*>}
      * @memberof ProductListExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

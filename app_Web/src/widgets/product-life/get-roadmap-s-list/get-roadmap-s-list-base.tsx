@@ -1,10 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, ListControlBase } from '@/studio-core';
 import ProductLifeService from '@/service/product-life/product-life-service';
 import GetRoadmapSService from './get-roadmap-s-list-service';
 import ProductLifeUIService from '@/uiservice/product-life/product-life-ui-service';
-
 
 /**
  * list2部件基类
@@ -14,7 +14,6 @@ import ProductLifeUIService from '@/uiservice/product-life/product-life-ui-servi
  * @extends {GetRoadmapSListBase}
  */
 export class GetRoadmapSListBase extends ListControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,7 +63,7 @@ export class GetRoadmapSListBase extends ListControlBase {
      * @type {ProductLifeUIService}
      * @memberof GetRoadmapSBase
      */  
-    public appUIService:ProductLifeUIService = new ProductLifeUIService(this.$store);
+    public appUIService: ProductLifeUIService = new ProductLifeUIService(this.$store);
 
 
     /**
@@ -90,6 +89,8 @@ export class GetRoadmapSListBase extends ListControlBase {
      * @memberof GetRoadmapSListBase
      */
     public minorSortPSDEF: string = 'begin';
+
+
 
 
 }

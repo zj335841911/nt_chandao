@@ -35,6 +35,7 @@
         <app-mob-datetime-picker 
     class="app-form-item-datetime" 
     :value="data.begin" 
+    displayFormat="YYYY-MM-DD HH:mm:ss"
     :disabled="detailsModel.begin.disabled"
     @change="($event)=>this.data.begin = $event"/>
 </app-form-item>
@@ -59,6 +60,7 @@
         <app-mob-datetime-picker 
     class="app-form-item-datetime" 
     :value="data.end" 
+    displayFormat="YYYY-MM-DD HH:mm:ss"
     :disabled="detailsModel.end.disabled"
     @change="($event)=>this.data.end = $event"/>
 </app-form-item>
@@ -144,6 +146,7 @@
     refreshitems='' 
     viewname='action-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('project.activitemob_form.details.druipart1')"  
     paramItem='project' 
     style="" 
     :formState="formState" 
@@ -436,6 +439,16 @@ export default class ActiviteMobBase extends Vue implements ControlInterface {
      * @memberof ActiviteMob
      */
     protected formState: Subject<any> = new Subject();
+
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof ActiviteMobBase
+     */
+    public appStateEvent: Subscription | undefined;
 
     /**
      * 忽略表单项值变化
@@ -1151,6 +1164,16 @@ export default class ActiviteMobBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Project")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1173,6 +1196,9 @@ export default class ActiviteMobBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1382,7 +1408,7 @@ export default class ActiviteMobBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

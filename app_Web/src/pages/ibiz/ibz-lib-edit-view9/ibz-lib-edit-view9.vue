@@ -1,5 +1,5 @@
-<template src="./ibz-lib-edit-view9.html"/>
-<script lang='tsx'>
+<template src="./ibz-lib-edit-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzLibEditView9Base } from './ibz-lib-edit-view9-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/ibz-lib/desc-form/desc-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class IbzLibEditView9 extends IbzLibEditView9Base { }
+export default class IbzLibEditView9 extends IbzLibEditView9Base {}
 </script>

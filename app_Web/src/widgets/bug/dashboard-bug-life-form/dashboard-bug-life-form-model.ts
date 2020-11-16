@@ -61,6 +61,11 @@ export default class DashboardBugLifeModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'openeddate',
+        prop: 'openeddate',
+        dataType: 'DATETIME',
+      },
+      {
         name: 'openedbuild',
         prop: 'openedbuild',
         dataType: 'SMCODELIST',
@@ -69,6 +74,11 @@ export default class DashboardBugLifeModel {
         name: 'resolvedby',
         prop: 'resolvedby',
         dataType: 'SSCODELIST',
+      },
+      {
+        name: 'resolveddate',
+        prop: 'resolveddate',
+        dataType: 'DATETIME',
       },
       {
         name: 'resolvedbuild',
@@ -86,14 +96,34 @@ export default class DashboardBugLifeModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'closeddate',
+        prop: 'closeddate',
+        dataType: 'DATETIME',
+      },
+      {
         name: 'lasteditedby',
         prop: 'lasteditedby',
         dataType: 'SSCODELIST',
       },
       {
+        name: 'lastediteddate',
+        prop: 'lastediteddate',
+        dataType: 'DATETIME',
+      },
+      {
         name: 'linkbug',
         prop: 'linkbug',
         dataType: 'TEXT',
+      },
+      {
+        name: 'case',
+        prop: 'ibizcase',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'casename',
+        prop: 'casename',
+        dataType: 'PICKUPTEXT',
       },
       {
         name: 'id',

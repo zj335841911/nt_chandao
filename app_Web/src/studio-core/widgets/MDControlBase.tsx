@@ -10,7 +10,6 @@ import { MainControlBase } from './MainControlBase';
  * @extends {MainControlBase}
  */
 export class MDControlBase extends MainControlBase {
-
     /**
      * 代码表服务
      *
@@ -207,14 +206,20 @@ export class MDControlBase extends MainControlBase {
      * @memberof MDControlBase
      */
     protected ctrlCreated(): void {
-        this.accLocalTags.push(this.$acc.commandLocal((data: any) => {
-            if (data && data.srfkey) {
-                const i = this.items.findIndex((item: any) => Object.is(item.srfkey, data.srfkey));
-                if (i !== -1) {
-                    this.accChange(data)
-                }
-            }
-        }, 'all', this.appDeName.toUpperCase()));
+        this.accLocalTags.push(
+            this.$acc.commandLocal(
+                (data: any) => {
+                    if (data && data.srfkey) {
+                        const i = this.items.findIndex((item: any) => Object.is(item.srfkey, data.srfkey));
+                        if (i !== -1) {
+                            this.accChange(data);
+                        }
+                    }
+                },
+                'all',
+                this.appDeName.toUpperCase()
+            )
+        );
     }
 
     /**
@@ -224,7 +229,7 @@ export class MDControlBase extends MainControlBase {
      * @param {*} data
      * @memberof MDControlBase
      */
-    protected accChange(data: any): void { }
+    protected accChange(data: any): void {}
 
     /**
      * 选择数据
@@ -273,5 +278,4 @@ export class MDControlBase extends MainControlBase {
             Object.assign(item, { isselected: false });
         });
     }
-
 }

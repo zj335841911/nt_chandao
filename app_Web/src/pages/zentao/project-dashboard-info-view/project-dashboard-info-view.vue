@@ -1,5 +1,5 @@
-<template src="./project-dashboard-info-view.html"/>
-<script lang='tsx'>
+<template src="./project-dashboard-info-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectDashboardInfoViewBase } from './project-dashboard-info-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/project/dash-board-info-form/dash-board-info-for
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectDashboardInfoView extends ProjectDashboardInfoViewBase { }
+export default class ProjectDashboardInfoView extends ProjectDashboardInfoViewBase {}
 </script>

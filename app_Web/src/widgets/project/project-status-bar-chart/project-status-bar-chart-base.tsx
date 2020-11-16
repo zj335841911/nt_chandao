@@ -1,6 +1,7 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectStatusBarService from './project-status-bar-chart-service';
@@ -10,7 +11,6 @@ import moment from "moment";
 import CodeListService from "@service/app/codelist-service";
 import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries,ChartRadarSeries} from '@/model/chart-detail';
 
-
 /**
  * db_projectstatusportlet_chart部件基类
  *
@@ -19,7 +19,6 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
  * @extends {ProjectStatusBarChartBase}
  */
 export class ProjectStatusBarChartBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -69,7 +68,7 @@ export class ProjectStatusBarChartBase extends MainControlBase {
      * @type {ProjectUIService}
      * @memberof ProjectStatusBarBase
      */  
-    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
 
     /**
@@ -350,7 +349,10 @@ export class ProjectStatusBarChartBase extends MainControlBase {
         const parentdata: any = {};
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
-        Object.assign(arg,{viewparams:this.viewparams,page:0,size:1000});
+        let tempViewParams:any = parentdata.viewparams?parentdata.viewparams:{};
+        Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg,{viewparams:tempViewParams});
+        Object.assign(arg,{page:0,size:1000});
         Object.assign(arg,{sort: 'id,desc'});
         this.service.search(this.fetchAction,JSON.parse(JSON.stringify(this.context)),arg,this.showBusyIndicator).then((res) => {
             if (res) {

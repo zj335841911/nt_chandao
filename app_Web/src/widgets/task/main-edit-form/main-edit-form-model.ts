@@ -76,12 +76,19 @@ export default class MainEditModel {
         dataType: 'LONGTEXT',
       },
       {
+        name: 'noticeusers',
+        prop: 'noticeusers',
+        dataType: 'TEXT',
+      },
+      {
         name: 'comment',
         prop: 'comment',
         dataType: 'HTMLTEXT',
       },
       {
         name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
       },
       {
         name: 'projectname',
@@ -134,6 +141,11 @@ export default class MainEditModel {
         dataType: 'TEXT',
       },
       {
+        name: 'storyversion',
+        prop: 'storyversion',
+        dataType: 'PICKUPDATA',
+      },
+      {
         name: 'type',
         prop: 'type',
         dataType: 'SSCODELIST',
@@ -151,7 +163,17 @@ export default class MainEditModel {
       {
         name: 'mailto',
         prop: 'mailto',
-        dataType: 'LONGTEXT',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'eststarted',
@@ -222,6 +244,11 @@ export default class MainEditModel {
         name: 'closeddate',
         prop: 'closeddate',
         dataType: 'DATETIME',
+      },
+      {
+        name: 'tasktype',
+        prop: 'tasktype',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'task',

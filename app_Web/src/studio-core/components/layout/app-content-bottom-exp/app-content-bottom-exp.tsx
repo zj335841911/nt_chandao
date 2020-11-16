@@ -1,4 +1,4 @@
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'vue-property-decorator';
 import { UIStateService } from '@/studio-core/service/UIStateService';
 import './app-content-bottom-exp.less';
 
@@ -11,7 +11,6 @@ import './app-content-bottom-exp.less';
  */
 @Component({})
 export class AppContentBottomExp extends Vue {
-
     /**
      * UI状态服务
      *
@@ -27,7 +26,7 @@ export class AppContentBottomExp extends Vue {
      * @type {string}
      * @memberof AppContentBottomExp
      */
-    @Prop() 
+    @Prop()
     public ctrlName!: string;
 
     /**
@@ -113,10 +112,12 @@ export class AppContentBottomExp extends Vue {
      * @memberof AppContentBottomExp
      */
     protected renderTitle(h: any, item: any): any {
-        return <div title={item.tooltip} class="tab-exp-title">
-            <menu-icon item={item} />
-            {this.$t(`app.menus.${this.ctrlName}.${item.name}`)}
-        </div>;
+        return (
+            <div title={item.tooltip} class="tab-exp-title">
+                <menu-icon item={item} />
+                {this.$t(`app.menus.${this.ctrlName}.${item.name}`)}
+            </div>
+        );
     }
 
     /**
@@ -126,20 +127,30 @@ export class AppContentBottomExp extends Vue {
      * @memberof AppContentBottomExp
      */
     public render(): any {
-        return <div class="app-content-bottom-exp">
-            <tabs size="small" animated={false} value={this.activeIndex.toString()} on-on-click={(name: string) => this.activeTab(name)}>
-                {this.menus.map((item: any, i: number) => {
-                    if (!Object.is(item.appfuncyype, 'APPVIEW') || item.hidden) {
-                        return;
-                    }
-                    return <tabPane label={(h: any) => this.renderTitle(h, item)} name={i.toString()}>
-                        {item.isActivated ? <div key={i} class="tab-exp-item-content">
-                            {this.$createElement(item.viewname)}
-                        </div> : null}
-                    </tabPane>;
-                })}
-            </tabs>
-        </div>;
+        return (
+            <div class="app-content-bottom-exp">
+                <tabs
+                    size="small"
+                    animated={false}
+                    value={this.activeIndex.toString()}
+                    on-on-click={(name: string) => this.activeTab(name)}
+                >
+                    {this.menus.map((item: any, i: number) => {
+                        if (!Object.is(item.appfuncyype, 'APPVIEW') || item.hidden) {
+                            return;
+                        }
+                        return (
+                            <tabPane label={(h: any) => this.renderTitle(h, item)} name={i.toString()}>
+                                {item.isActivated ? (
+                                    <div key={i} class="tab-exp-item-content">
+                                        {this.$createElement(item.viewname)}
+                                    </div>
+                                ) : null}
+                            </tabPane>
+                        );
+                    })}
+                </tabs>
+            </div>
+        );
     }
-
 }

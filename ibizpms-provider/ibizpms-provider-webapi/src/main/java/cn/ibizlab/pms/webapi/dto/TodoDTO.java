@@ -114,7 +114,8 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "idvalue")
     @JsonProperty("idvalue")
-    private Integer idvalue;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long idvalue;
 
     /**
      * 属性 [ASSIGNEDBY]
@@ -309,6 +310,24 @@ public class TodoDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String dateDisable;
 
+    /**
+     * 属性 [ASSIGNEDTOPK]
+     *
+     */
+    @JSONField(name = "assignedtopk")
+    @JsonProperty("assignedtopk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String assignedtopk;
+
+    /**
+     * 属性 [NOTICEUSERS]
+     *
+     */
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String noticeusers;
+
 
     /**
      * 设置 [CLOSEDDATE]
@@ -369,7 +388,7 @@ public class TodoDTO extends DTOBase implements Serializable {
     /**
      * 设置 [IDVALUE]
      */
-    public void setIdvalue(Integer  idvalue){
+    public void setIdvalue(Long  idvalue){
         this.idvalue = idvalue ;
         this.modify("idvalue",idvalue);
     }

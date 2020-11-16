@@ -1,12 +1,11 @@
 import Vue from 'vue';
 import { Subject } from 'rxjs';
-import store from '../../store';
+import store from '@/store';
 import i18n from '@/locale';
-import AppDrawerCompponent from "./app-drawer.vue";
+import AppDrawerCompponent from './app-drawer.vue';
 import { studioDrawerController } from '@/studio-core/utils/studio-drawer/studio-drawer';
 
 export class AppDrawer {
-
     /**
      * 实例对象
      *
@@ -18,7 +17,7 @@ export class AppDrawer {
 
     /**
      * 构造方法
-     * 
+     *
      * @memberof AppDrawer
      */
     constructor() {
@@ -58,16 +57,21 @@ export class AppDrawer {
      * @returns {Subject<any>}
      * @memberof AppDrawer
      */
-    private createVueExample(view: { viewname: string, title: string, width?: number, height?: number, placement?: any }, context: any = {},viewparams: any = {}, uuid: string): Subject<any> {
+    private createVueExample(
+        view: { viewname: string; title: string; width?: number; height?: number; placement?: any },
+        context: any = {},
+        viewparams: any = {},
+        uuid: string
+    ): Subject<any> {
         try {
-            let props = { view: view, viewdata: context,viewparams:viewparams,uuid: uuid };
+            let props = { view: view, viewdata: context, viewparams: viewparams, uuid: uuid };
             let component = AppDrawerCompponent;
             const vm = new Vue({
                 store: store,
                 i18n: i18n,
                 render(h) {
                     return h(component, { props });
-                }
+                },
             }).$mount();
             this.vueExample = vm;
             document.body.appendChild(vm.$el);
@@ -91,15 +95,25 @@ export class AppDrawer {
      * @returns {Subject<any>}
      * @memberof AppDrawer
      */
-    public openDrawer(view: { viewname: string, title: string, width?: number, height?: number, placement?: 'DRAWER_LEFT' | 'DRAWER_RIGHT' }, context: any = {}, data: any = {}): Subject<any> {
+    public openDrawer(
+        view: {
+            viewname: string;
+            title: string;
+            width?: number;
+            height?: number;
+            placement?: 'DRAWER_LEFT' | 'DRAWER_RIGHT';
+        },
+        context: any = {},
+        data: any = {}
+    ): Subject<any> {
         if (view.placement && Object.is(view.placement, 'DRAWER_TOP')) {
-            return (studioDrawerController.openDrawer(view, context, data) as any);
+            return studioDrawerController.openDrawer(view, context, data) as any;
         }
         try {
             let viewdata: any = {};
             Object.assign(viewdata, JSON.parse(JSON.stringify(context)));
             const uuid = this.getUUID();
-            const subject = this.createVueExample(view, viewdata,data,uuid);
+            const subject = this.createVueExample(view, viewdata, data, uuid);
             return subject;
         } catch (error) {
             console.log(error);
@@ -116,10 +130,10 @@ export class AppDrawer {
      */
     private getUUID(): string {
         function s4() {
-            return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
         }
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
     }
-
-
 }

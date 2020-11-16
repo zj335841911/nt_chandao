@@ -1,4 +1,5 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import ProjectTeamService from '@/service/project-team/project-team-service';
 import Main_EditRowModel from './main-edit-row-grid-model';
@@ -116,6 +117,7 @@ export default class Main_EditRowService extends ControlService {
     @Errorlog
     public add(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         const {data:Data,context:Context} = this.handleRequestDataWithUpdate(action,context,data,true);
+        Object.assign(Data,{id: data.id, srffrontuf: '1'});
         return new Promise((resolve: any, reject: any) => {
             const _appEntityService: any = this.appEntityService;
             let result: Promise<any>;
@@ -282,8 +284,6 @@ export default class Main_EditRowService extends ControlService {
                 //处理返回数据，补充判断标识
                 if(response.data){
                     Object.assign(response.data,{srfuf:'0'});
-                    //仿真主键数据
-                    response.data.id = Util.createUUID();
                 }
                 this.setRemoteCopyData(response);
                 this.handleResponse(action, response, true);
@@ -347,7 +347,7 @@ export default class Main_EditRowService extends ControlService {
                     requestData[item.prop] = context[item.name];
                 }
             }else{
-                if(item && item.isEditable && item.prop && item.name && (data[item.name] || Object.is(data[item.name],0)) ){
+                if(item && item.isEditable && item.prop && item.name && data.hasOwnProperty(item.name)){
                     requestData[item.prop] = data[item.name];
                 }
             }

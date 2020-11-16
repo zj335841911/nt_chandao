@@ -7,6 +7,4 @@ import EditViewEngine from './edit-view-engine';
  * @class WFEditViewEngine
  * @extends {EditViewEngine}
  */
-export default class WFEditViewEngine extends EditViewEngine {
-
-}
+export default class WFEditViewEngine extends EditViewEngine {}

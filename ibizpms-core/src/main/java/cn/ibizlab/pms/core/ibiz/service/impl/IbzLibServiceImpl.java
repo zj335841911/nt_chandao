@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibiz.domain.IbzLib;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.ibiz.mapper.IbzLibMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -55,55 +57,49 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(IbzLib et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzLibHelper.class).create(et);
     }
 
     @Override
     public void createBatch(List<IbzLib> list) {
-        this.saveBatch(list,batchSize);
-    }
 
-    @Override
+    }
+        @Override
     @Transactional
     public boolean update(IbzLib et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzLibHelper.class).edit(et);
     }
 
     @Override
     public void updateBatch(List<IbzLib> list) {
-        updateBatchById(list,batchSize);
-    }
 
-    @Override
+    }
+        @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
-        return result ;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzLibHelper.class).delete(key);
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
-        removeByIds(idList);
+    public void removeBatch(Collection<Long> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (Long id : idList) {
+                this.remove(id);
+            }
+        }
     }
-
     @Override
     @Transactional
     public IbzLib get(Long key) {
         IbzLib et = getById(key);
-        if(et==null){
-            et=new IbzLib();
+        if (et == null) {
+            et = new IbzLib();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -115,13 +111,14 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
 
     @Override
     public boolean checkKey(IbzLib et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(IbzLib et) {
-        if(!saveOrUpdate(et))
+        if (!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -136,14 +133,16 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<IbzLib> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<IbzLib> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
@@ -153,7 +152,7 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
      */
     @Override
     public Page<IbzLib> searchDefault(IbzLibSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzLib> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzLib> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzLib>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -164,28 +163,31 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

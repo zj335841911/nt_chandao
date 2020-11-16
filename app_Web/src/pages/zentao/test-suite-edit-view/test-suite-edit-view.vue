@@ -1,5 +1,5 @@
-<template src="./test-suite-edit-view.html"/>
-<script lang='tsx'>
+<template src="./test-suite-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestSuiteEditViewBase } from './test-suite-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/test-suite/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestSuiteEditView extends TestSuiteEditViewBase { }
+export default class TestSuiteEditView extends TestSuiteEditViewBase {}
 </script>

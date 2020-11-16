@@ -11,7 +11,6 @@ import './app-content-left-nav-menu.less';
  */
 @Component({})
 export class AppContentLeftNavMenu extends Vue {
-
     /**
      * UI状态服务
      *
@@ -45,7 +44,7 @@ export class AppContentLeftNavMenu extends Vue {
      * @type {string}
      * @memberof AppContentLeftNavMenu
      */
-    @Prop() 
+    @Prop()
     public ctrlName!: string;
 
     /**
@@ -75,7 +74,14 @@ export class AppContentLeftNavMenu extends Vue {
      * @memberof AppContentLeftNavMenu
      */
     @Emit('menu-click')
-    public menuClick(item: any): any { }
+    public menuClick(item: any): any {}
+
+    /**
+     * 底部绘制实例
+     *
+     * @memberof AppContentLeftNavMenu
+     */
+    public footerRenderItem!: any;
 
     /**
      * 组件创建完毕
@@ -86,9 +92,25 @@ export class AppContentLeftNavMenu extends Vue {
         if (this.$route && this.$route.matched.length === 1) {
             this.openDefault();
         }
-        this.$footerRenderService.registerLeftItem((h: any) => {
-            return <icon title={this.uiState.layoutState.leftNavMenuCollapse ? '展开菜单' : '收起菜单'} type="md-menu" style="font-size: 20px;vertical-align: -3px;" on-click={() => this.uiState.leftNavMenuCollapseChange()} />;
+        this.footerRenderItem = this.$footerRenderService.registerLeftItem((h: any) => {
+            return (
+                <icon
+                    title={this.uiState.layoutState.leftNavMenuCollapse ? '展开菜单' : '收起菜单'}
+                    type="md-menu"
+                    style="font-size: 20px;vertical-align: -3px;"
+                    on-click={() => this.uiState.leftNavMenuCollapseChange()}
+                />
+            );
         }, 0);
+    }
+
+    /**
+     * 组件销毁
+     *
+     * @memberof AppContentLeftNavMenu
+     */
+    public destroyed(): void {
+        this.footerRenderItem?.remove();
     }
 
     /**
@@ -208,13 +230,15 @@ export class AppContentLeftNavMenu extends Vue {
      * @memberof AppContentLeftNavMenu
      */
     protected renderGroup(item: any): any {
-        return <el-submenu index={item.name}>
-            <template slot="title">
-                <menu-icon item={item} />
-                <span slot="title">{this.$t(`app.menus.${this.ctrlName}.${item.name}`)}</span>
-            </template>
-            {this.renderItems(item.items)}
-        </el-submenu>;
+        return (
+            <el-submenu index={item.name}>
+                <template slot="title">
+                    <menu-icon item={item} />
+                    <span slot="title">{this.$t(`app.menus.${this.ctrlName}.${item.name}`)}</span>
+                </template>
+                {this.renderItems(item.items)}
+            </el-submenu>
+        );
     }
 
     /**
@@ -226,10 +250,12 @@ export class AppContentLeftNavMenu extends Vue {
      * @memberof AppContentLeftNavMenu
      */
     protected renderItem(item: any): any {
-        return <el-menu-item index={item.name}>
-            <menu-icon item={item} />
-            <span slot="title">{this.$t(`app.menus.${this.ctrlName}.${item.name}`)}</span>
-        </el-menu-item>
+        return (
+            <el-menu-item index={item.name}>
+                <menu-icon item={item} />
+                <span slot="title">{this.$t(`app.menus.${this.ctrlName}.${item.name}`)}</span>
+            </el-menu-item>
+        );
     }
 
     /**
@@ -249,7 +275,7 @@ export class AppContentLeftNavMenu extends Vue {
                 return this.renderGroup(item);
             }
             return this.renderItem(item);
-        })
+        });
     }
 
     /**
@@ -259,17 +285,19 @@ export class AppContentLeftNavMenu extends Vue {
      * @memberof AppContentLeftNavMenu
      */
     public render(): any {
-        return <div class="app-content-lef-nav-menu">
-            <el-menu
-                default-active={this.activeItem.name}
-                default-openeds={this.uiState.layoutState.leftNavOpenedMenus}
-                collapse={this.uiState.layoutState.leftNavMenuCollapse}
-                on-select={(i: any) => this.select(i)}
-                on-open={(i: any) => this.open(i)}
-                on-close={(i: any) => this.close(i)}
-            >
-                {this.renderItems(this.menus)}
-            </el-menu>
-        </div>;
+        return (
+            <div class="app-content-lef-nav-menu">
+                <el-menu
+                    default-active={this.activeItem.name}
+                    default-openeds={this.uiState.layoutState.leftNavOpenedMenus}
+                    collapse={this.uiState.layoutState.leftNavMenuCollapse}
+                    on-select={(i: any) => this.select(i)}
+                    on-open={(i: any) => this.open(i)}
+                    on-close={(i: any) => this.close(i)}
+                >
+                    {this.renderItems(this.menus)}
+                </el-menu>
+            </div>
+        );
     }
 }

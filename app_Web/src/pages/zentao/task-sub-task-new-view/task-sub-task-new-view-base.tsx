@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import SubTaskService from '@/service/sub-task/sub-task-service';
 import SubTaskAuthService from '@/authservice/sub-task/sub-task-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import SubTaskUIService from '@/uiservice/sub-task/sub-task-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskSubTaskNewViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
 	 * @memberof TaskSubTaskNewViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' }
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
         srfCaption: 'entities.subtask.views.subtasknewview.caption',
         srfTitle: 'entities.subtask.views.subtasknewview.title',
         srfSubTitle: 'entities.subtask.views.subtasknewview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,8 +105,14 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
      * @memberof TaskSubTaskNewViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -113,9 +122,9 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
      * @memberof TaskSubTaskNewView
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '新建行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'NewRow', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '新建行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'NewRow', target: '', class: '' } },
 
-        deuiaction3: { name: 'deuiaction3', caption: '保存行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveRow', target: '', class: '' } },
+        deuiaction3: { name: 'deuiaction3', caption: '保存行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveRow', target: '', class: '' } },
 
     };
 
@@ -126,9 +135,18 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskSubTaskNewViewBase
      */
 	protected viewtag: string = '35ba93bac795e0deb7297d2d471b7180';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskSubTaskNewViewBase
+     */ 
+    protected viewName: string = "TaskSubTaskNewView";
 
 
     /**
@@ -147,7 +165,9 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof TaskSubTaskNewViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -158,11 +178,11 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'subtask',

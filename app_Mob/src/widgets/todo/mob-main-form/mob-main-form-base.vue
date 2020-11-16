@@ -33,8 +33,12 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.name" 
-    :context="context" 
+    v-if="data.name"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.name" 
     :itemParam="{}"/>
 </app-form-item>
@@ -57,11 +61,15 @@
     :error="detailsModel.pri.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Pri"
     :isCache="false" 
-    v-if="data.pri" 
-    :context="context" 
+    v-if="data.pri"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.pri" 
     :itemParam="{}"/>
 </app-form-item>
@@ -84,8 +92,12 @@
     :error="detailsModel.date1.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.date1" 
-    :context="context" 
+    v-if="data.date1"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.date1" 
     :itemParam="{}"/>
 </app-form-item>
@@ -108,11 +120,15 @@
     :error="detailsModel.begin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="BeginendDropList"
     :isCache="false" 
-    v-if="data.begin" 
-    :context="context" 
+    v-if="data.begin"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.begin" 
     :itemParam="{}"/>
 </app-form-item>
@@ -135,11 +151,15 @@
     :error="detailsModel.end.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="BeginendDropList"
     :isCache="false" 
-    v-if="data.end" 
-    :context="context" 
+    v-if="data.end"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.end" 
     :itemParam="{}"/>
 </app-form-item>
@@ -162,11 +182,15 @@
     :error="detailsModel.type.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Type"
     :isCache="false" 
-    v-if="data.type" 
-    :context="context" 
+    v-if="data.type"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.type" 
     :itemParam="{}"/>
 </app-form-item>
@@ -189,11 +213,15 @@
     :error="detailsModel.status.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Todo__status"
     :isCache="false" 
-    v-if="data.status" 
-    :context="context" 
+    v-if="data.status"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.status" 
     :itemParam="{}"/>
 </app-form-item>
@@ -216,11 +244,15 @@
     :error="detailsModel.assignedby.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.assignedby" 
-    :context="context" 
+    v-if="data.assignedby"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.assignedby" 
     :itemParam="{}"/>
 </app-form-item>
@@ -243,8 +275,12 @@
     :error="detailsModel.assigneddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.assigneddate" 
-    :context="context" 
+    v-if="data.assigneddate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.assigneddate" 
     :itemParam="{}"/>
 </app-form-item>
@@ -267,11 +303,15 @@
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.assignedto" 
-    :context="context" 
+    v-if="data.assignedto"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.assignedto" 
     :itemParam="{}"/>
 </app-form-item>
@@ -290,9 +330,10 @@
     :caption="$t('todo.mobmain_form.details.desc')"  
     :labelWidth="130"  
     :isShowCaption="true"
+    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -320,6 +361,7 @@
     refreshitems='' 
     viewname='action-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('todo.mobmain_form.details.druipart1')"  
     paramItem='todo' 
     style="" 
     :formState="formState" 
@@ -612,6 +654,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected formState: Subject<any> = new Subject();
+
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobMainBase
+     */
+    public appStateEvent: Subscription | undefined;
 
     /**
      * 忽略表单项值变化
@@ -1431,6 +1483,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Todo")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1453,6 +1515,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1662,7 +1727,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

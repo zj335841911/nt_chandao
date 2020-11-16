@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -48,7 +48,7 @@ export class StoryMainView9_StorySpecBase extends EditView9Base {
      * @type {string}
      * @memberof StoryMainView9_StorySpecBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class StoryMainView9_StorySpecBase extends EditView9Base {
         srfCaption: 'entities.story.views.mainview9_storyspec.caption',
         srfTitle: 'entities.story.views.mainview9_storyspec.title',
         srfSubTitle: 'entities.story.views.mainview9_storyspec.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class StoryMainView9_StorySpecBase extends EditView9Base {
      * @memberof StoryMainView9_StorySpecBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -97,9 +100,18 @@ export class StoryMainView9_StorySpecBase extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryMainView9_StorySpecBase
      */
 	protected viewtag: string = '61f32b2b422e8f1a9825e1f704464a8c';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMainView9_StorySpecBase
+     */ 
+    protected viewName: string = "StoryMainView9_StorySpec";
 
 
     /**
@@ -118,7 +130,9 @@ export class StoryMainView9_StorySpecBase extends EditView9Base {
      * @type {Array<*>}
      * @memberof StoryMainView9_StorySpecBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

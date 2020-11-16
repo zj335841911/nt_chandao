@@ -261,4 +261,20 @@ export interface Todo {
      * @memberof Todo
      */
     date_disable?: any;
+
+    /**
+     * 指派给（选择）
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    assignedtopk?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    noticeusers?: any;
 }

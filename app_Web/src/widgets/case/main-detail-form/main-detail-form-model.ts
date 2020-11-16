@@ -76,6 +76,16 @@ export default class MainDetailModel {
         dataType: 'PICKUPTEXT',
       },
       {
+        name: 'modulename1',
+        prop: 'modulename1',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'storyname',
+        prop: 'storyname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
         name: 'type',
         prop: 'type',
         dataType: 'SSCODELIST',
@@ -139,6 +149,11 @@ export default class MainDetailModel {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
+      },
+      {
+        name: 'story',
+        prop: 'story',
+        dataType: 'PICKUP',
       },
       {
         name: 'case',

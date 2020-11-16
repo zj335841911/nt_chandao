@@ -1,5 +1,5 @@
-<template src="./task-estimate-edit-grid-view9.html"/>
-<script lang='tsx'>
+<template src="./task-estimate-edit-grid-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskEstimateEditGridView9Base } from './task-estimate-edit-grid-view9-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/task-estimate/main-edit-grid/main-edit-grid.vue'
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskEstimateEditGridView9 extends TaskEstimateEditGridView9Base { }
+export default class TaskEstimateEditGridView9 extends TaskEstimateEditGridView9Base {}
 </script>

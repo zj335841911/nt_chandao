@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
 import BuildAuthService from '@/authservice/build/build-auth-service';
@@ -48,7 +48,7 @@ export class BuildEditFormEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BuildEditFormEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class BuildEditFormEditViewBase extends EditViewBase {
 	 * @memberof BuildEditFormEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' }
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -82,7 +85,7 @@ export class BuildEditFormEditViewBase extends EditViewBase {
      *
      * @memberof BuildEditFormEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -95,8 +98,8 @@ export class BuildEditFormEditViewBase extends EditViewBase {
         srfCaption: 'entities.build.views.editformeditview.caption',
         srfTitle: 'entities.build.views.editformeditview.title',
         srfSubTitle: 'entities.build.views.editformeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -106,8 +109,14 @@ export class BuildEditFormEditViewBase extends EditViewBase {
      * @memberof BuildEditFormEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -117,7 +126,7 @@ export class BuildEditFormEditViewBase extends EditViewBase {
      * @memberof BuildEditFormEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -128,9 +137,18 @@ export class BuildEditFormEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BuildEditFormEditViewBase
      */
 	protected viewtag: string = '68f49a558ebf0e2566be65fc74f13fdd';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BuildEditFormEditViewBase
+     */ 
+    protected viewName: string = "BuildEditFormEditView";
 
 
     /**
@@ -149,7 +167,9 @@ export class BuildEditFormEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BuildEditFormEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

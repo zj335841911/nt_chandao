@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
      * @type {string}
      * @memberof BugGridView9_AssignedToMeBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,14 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
 	 * @memberof BugGridView9_AssignedToMeBase
 	 */
     protected customViewParams: any = {
-        'n_assignedto_eq': { isRawValue: false, value: 'srfloginname' }
+        'n_assignedto_eq': {
+            isRawValue: false,
+            value: 'srfloginname',
+        },
+        'size': {
+            isRawValue: true,
+            value: '5',
+        }
     };
 
     /**
@@ -91,8 +98,8 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
         srfCaption: 'entities.bug.views.gridview9_assignedtome.caption',
         srfTitle: 'entities.bug.views.gridview9_assignedtome.title',
         srfSubTitle: 'entities.bug.views.gridview9_assignedtome.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,7 +109,10 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
      * @memberof BugGridView9_AssignedToMeBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -111,9 +121,18 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugGridView9_AssignedToMeBase
      */
 	protected viewtag: string = '81893d14e76cac341d4218a9c5ef185d';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugGridView9_AssignedToMeBase
+     */ 
+    protected viewName: string = "BugGridView9_AssignedToMe";
 
 
     /**
@@ -132,7 +151,9 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
      * @type {Array<*>}
      * @memberof BugGridView9_AssignedToMeBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -143,11 +164,11 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'bug',

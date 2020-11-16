@@ -1,6 +1,5 @@
 import MDViewEngine from './md-view-engine';
 
-
 /**
  * 视图引擎基础
  *
@@ -9,7 +8,6 @@ import MDViewEngine from './md-view-engine';
  * @extends {MDViewEngine}
  */
 export default class GridViewEngine extends MDViewEngine {
-
     /**
      * 表格部件
      *
@@ -43,11 +41,11 @@ export default class GridViewEngine extends MDViewEngine {
      * @param {*} [opts={}]
      * @memberof GridViewEngine
      */
-    public load(opts: any = {},isnotify:boolean=false): void {
-        if(!this.view.isformDruipart){
+    public load(opts: any = {}, isnotify: boolean = false): void {
+        if (!this.view.isformDruipart) {
             super.load(opts, isnotify);
-        }else{
-            if(isnotify){
+        } else {
+            if (isnotify) {
                 super.load(opts, isnotify);
             }
         }
@@ -67,7 +65,6 @@ export default class GridViewEngine extends MDViewEngine {
         }
         super.onCtrlEvent(ctrlName, eventName, args);
     }
-
 
     /**
      * 获取多数据部件

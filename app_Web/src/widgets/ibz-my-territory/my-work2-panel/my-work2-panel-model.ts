@@ -15,8 +15,9 @@ export default class MyWork2Model {
   public getDataItems(): any[] {
     return [
       {
-        name: 'realname',
-        prop: 'realname'
+        name: 'account',
+        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
+        prop: 'account'
       },
       {
         name: 'mytasks',

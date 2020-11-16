@@ -521,6 +521,105 @@ public class StoryDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String ischild;
 
+    /**
+     * 属性 [MAILTOCONACT]
+     *
+     */
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String mailtoconact;
+
+    /**
+     * 属性 [MAILTOPK]
+     *
+     */
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    private String mailtopk;
+
+    /**
+     * 属性 [ASSIGNEDTOPK]
+     *
+     */
+    @JSONField(name = "assignedtopk")
+    @JsonProperty("assignedtopk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String assignedtopk;
+
+    /**
+     * 属性 [NOTICEUSERS]
+     *
+     */
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String noticeusers;
+
+    /**
+     * 属性 [IBIZ_SOURCEOBJECT]
+     *
+     */
+    @JSONField(name = "ibiz_sourceobject")
+    @JsonProperty("ibiz_sourceobject")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String ibizSourceobject;
+
+    /**
+     * 属性 [SOURCEOBJECT]
+     *
+     */
+    @JSONField(name = "sourceobject")
+    @JsonProperty("sourceobject")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String sourceobject;
+
+    /**
+     * 属性 [IBIZ_ID]
+     *
+     */
+    @JSONField(name = "ibiz_id")
+    @JsonProperty("ibiz_id")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String ibizId;
+
+    /**
+     * 属性 [SOURCENAME]
+     *
+     */
+    @JSONField(name = "sourcename")
+    @JsonProperty("sourcename")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String sourcename;
+
+    /**
+     * 属性 [SOURCEID]
+     *
+     */
+    @JSONField(name = "sourceid")
+    @JsonProperty("sourceid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String sourceid;
+
+    /**
+     * 属性 [IBIZ_SOURCEID]
+     *
+     */
+    @JSONField(name = "ibiz_sourceid")
+    @JsonProperty("ibiz_sourceid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String ibizSourceid;
+
+    /**
+     * 属性 [IBIZ_SOURCENAME]
+     *
+     */
+    @JSONField(name = "ibiz_sourcename")
+    @JsonProperty("ibiz_sourcename")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String ibizSourcename;
+
 
     /**
      * 设置 [ASSIGNEDTO]
@@ -768,6 +867,62 @@ public class StoryDTO extends DTOBase implements Serializable {
     public void setTobug(Long  tobug){
         this.tobug = tobug ;
         this.modify("tobug",tobug);
+    }
+
+    /**
+     * 设置 [IBIZ_SOURCEOBJECT]
+     */
+    public void setIbizSourceobject(String  ibizSourceobject){
+        this.ibizSourceobject = ibizSourceobject ;
+        this.modify("ibiz_sourceobject",ibizSourceobject);
+    }
+
+    /**
+     * 设置 [SOURCEOBJECT]
+     */
+    public void setSourceobject(String  sourceobject){
+        this.sourceobject = sourceobject ;
+        this.modify("sourceobject",sourceobject);
+    }
+
+    /**
+     * 设置 [IBIZ_ID]
+     */
+    public void setIbizId(String  ibizId){
+        this.ibizId = ibizId ;
+        this.modify("ibiz_id",ibizId);
+    }
+
+    /**
+     * 设置 [SOURCENAME]
+     */
+    public void setSourcename(String  sourcename){
+        this.sourcename = sourcename ;
+        this.modify("sourcename",sourcename);
+    }
+
+    /**
+     * 设置 [SOURCEID]
+     */
+    public void setSourceid(String  sourceid){
+        this.sourceid = sourceid ;
+        this.modify("sourceid",sourceid);
+    }
+
+    /**
+     * 设置 [IBIZ_SOURCEID]
+     */
+    public void setIbizSourceid(String  ibizSourceid){
+        this.ibizSourceid = ibizSourceid ;
+        this.modify("ibiz_sourceid",ibizSourceid);
+    }
+
+    /**
+     * 设置 [IBIZ_SOURCENAME]
+     */
+    public void setIbizSourcename(String  ibizSourcename){
+        this.ibizSourcename = ibizSourcename ;
+        this.modify("ibiz_sourcename",ibizSourcename);
     }
 
 

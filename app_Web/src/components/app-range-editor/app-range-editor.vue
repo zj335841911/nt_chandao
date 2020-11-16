@@ -1,49 +1,70 @@
 <template>
     <div class="app-range-editor">
         <template v-for="(item, index) in refFormItem">
-            <span v-if="index > 0" class="editor-space"  :key="index+10">~</span>
-            <date-picker 
-             :key="index"
-              v-if="Object.is(editorType, 'DATEPICKEREX') || Object.is(editorType, 'DATEPICKEREX_NOTIME')" 
-              type="date" 
-              :transfer="true"
-              :format="valFormat"
-              :placeholder="$t('components.appRangeEditor.placeholder')"
-              :value="activeData[item]"
-              :disabled="disabled" 
-              @on-change="(value,type)=>{onValueChange(item,value)}">
+            <span v-if="index > 0" class="editor-space" :key="index + 10">~</span>
+            <date-picker
+                :key="index"
+                v-if="Object.is(editorType, 'DATEPICKEREX') || Object.is(editorType, 'DATEPICKEREX_NOTIME')"
+                type="date"
+                :transfer="true"
+                :format="valFormat"
+                :placeholder="$t('components.appRangeEditor.placeholder')"
+                :value="activeData[item]"
+                :disabled="disabled"
+                @on-change="
+                    (value, type) => {
+                        onValueChange(item, value);
+                    }
+                "
+            >
             </date-picker>
             <time-picker
-              :key="index"
-              v-else-if="editorType.startsWith('DATEPICKEREX')"
-              :transfer="true"
-              :format="valFormat"
-              :placeholder="$t('components.appRangeEditor.placeholder')"
-              :value="activeData[item]"
-              :disabled="disabled"
-              @on-change="(value)=>{onValueChange(item,value)}">
+                :key="index"
+                v-else-if="editorType.startsWith('DATEPICKEREX')"
+                :transfer="true"
+                :format="valFormat"
+                :placeholder="$t('components.appRangeEditor.placeholder')"
+                :value="activeData[item]"
+                :disabled="disabled"
+                @on-change="
+                    (value) => {
+                        onValueChange(item, value);
+                    }
+                "
+            >
             </time-picker>
             <InputNumber
-              :key="index"
-              v-else-if="Object.is(editorType, 'NUMBER')"
-              :value="activeData[item]" 
-              :disabled="disabled"
-              :placeholder="$t('components.appRangeEditor.input')"
-              @on-change="(value)=>{onValueChange(item,value)}">
+                :key="index"
+                v-else-if="Object.is(editorType, 'NUMBER')"
+                :value="activeData[item]"
+                :disabled="disabled"
+                :placeholder="$t('components.appRangeEditor.input')"
+                @on-change="
+                    (value) => {
+                        onValueChange(item, value);
+                    }
+                "
+            >
             </InputNumber>
             <app-span
-              :key="index"
-              v-else-if="Object.is(editorType, 'SPAN')"
-              :value="activeData[item]"
-              :disabled="disabled">
+                :key="index"
+                v-else-if="Object.is(editorType, 'SPAN')"
+                :value="activeData[item]"
+                :disabled="disabled"
+            >
             </app-span>
             <el-input
-              :key="index"
-              v-else
-              :value="getValue(item)" 
-              :disabled="disabled"
-              :placeholder="$t('components.appRangeEditor.input')"
-              @input="(value)=>{onValueChange(item,value)}">
+                :key="index"
+                v-else
+                :value="getValue(item)"
+                :disabled="disabled"
+                :placeholder="$t('components.appRangeEditor.input')"
+                @input="
+                    (value) => {
+                        onValueChange(item, value);
+                    }
+                "
+            >
             </el-input>
         </template>
     </div>
@@ -54,10 +75,8 @@ import { Component, Vue, Prop, Model, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
-@Component({
-})
+@Component({})
 export default class AppRangeEditor extends Vue {
-
     /**
      * 编辑项名称
      *
@@ -113,7 +132,7 @@ export default class AppRangeEditor extends Vue {
      * @type {Subject<any>}
      * @memberof InputBox
      */
-    private inputDataChang: Subject<any> = new Subject()
+    private inputDataChang: Subject<any> = new Subject();
 
     /**
      * 处理值格式
@@ -153,13 +172,9 @@ export default class AppRangeEditor extends Vue {
      * @memberof InputBox
      */
     public created() {
-        this.inputDataChang
-            .pipe(
-                debounceTime(500),
-                distinctUntilChanged()
-            ).subscribe((data: any) => {
-                this.$emit('formitemvaluechange', { name: data.name, value: data.value });
-            });
+        this.inputDataChang.pipe(debounceTime(500), distinctUntilChanged()).subscribe((data: any) => {
+            this.$emit('formitemvaluechange', { name: data.name, value: data.value });
+        });
     }
 
     /**
@@ -173,19 +188,21 @@ export default class AppRangeEditor extends Vue {
         this.$emit('formitemvaluechange', { name: name, value: value });
 
         let count = 0;
-        if(this.refFormItem) {
+        if (this.refFormItem) {
             this.refFormItem.forEach((item: any) => {
-                if(this.activeData[item] != null && !Object.is(this.activeData[item], '')) {
+                if (this.activeData[item] != null && !Object.is(this.activeData[item], '')) {
                     count++;
                 }
-            })
+            });
         }
-        this.$emit('formitemvaluechange', {name: this.name, value: count === this.refFormItem.length ? "not null" : null});
+        this.$emit('formitemvaluechange', {
+            name: this.name,
+            value: count === this.refFormItem.length ? 'not null' : null,
+        });
     }
-
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import './app-range-editor.less';
 </style>

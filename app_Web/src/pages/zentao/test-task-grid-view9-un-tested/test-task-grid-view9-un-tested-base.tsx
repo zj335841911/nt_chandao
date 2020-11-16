@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TestTaskGridView9_UnTestedBase extends GridView9Base {
      * @type {string}
      * @memberof TestTaskGridView9_UnTestedBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class TestTaskGridView9_UnTestedBase extends GridView9Base {
 	 * @memberof TestTaskGridView9_UnTestedBase
 	 */
     protected customViewParams: any = {
-        'n_status_eq': { isRawValue: true, value: 'wait' }
+        'n_status_eq': {
+            isRawValue: true,
+            value: 'wait',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class TestTaskGridView9_UnTestedBase extends GridView9Base {
         srfCaption: 'entities.testtask.views.gridview9_untested.caption',
         srfTitle: 'entities.testtask.views.gridview9_untested.title',
         srfSubTitle: 'entities.testtask.views.gridview9_untested.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,7 +105,10 @@ export class TestTaskGridView9_UnTestedBase extends GridView9Base {
      * @memberof TestTaskGridView9_UnTestedBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -111,9 +117,18 @@ export class TestTaskGridView9_UnTestedBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestTaskGridView9_UnTestedBase
      */
 	protected viewtag: string = '3091670967914b91fb4b6f46751dcd7e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskGridView9_UnTestedBase
+     */ 
+    protected viewName: string = "TestTaskGridView9_UnTested";
 
 
     /**
@@ -132,7 +147,9 @@ export class TestTaskGridView9_UnTestedBase extends GridView9Base {
      * @type {Array<*>}
      * @memberof TestTaskGridView9_UnTestedBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -143,11 +160,11 @@ export class TestTaskGridView9_UnTestedBase extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'testtask',

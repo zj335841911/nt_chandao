@@ -46,8 +46,13 @@ export class AssMobModel {
                 name: 'srfsourcekey',
             },
             {
-                name: 'assignto',
+                name: 'assignedto',
                 prop: 'assignedto',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'assignedtopk',
+                prop: 'assignedtopk',
                 dataType: 'TEXT',
             },
             {

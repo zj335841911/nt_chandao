@@ -1,6 +1,6 @@
 import { Vue, Component } from 'vue-property-decorator';
 import qs from 'qs';
-import { Environment } from '@/environments/environment'
+import { Environment } from '@/environments/environment';
 import { AppService } from '@/studio-core/service/app-service/AppService';
 import { HistoryItem } from '@/studio-core/service/app-nav-history/AppNavHistoryBase';
 import './app-breadcrumb.less';
@@ -14,7 +14,6 @@ import './app-breadcrumb.less';
  */
 @Component({})
 export class AppBreadcrumb extends Vue {
-
     /**
      * 应用服务(单例)
      *
@@ -39,7 +38,7 @@ export class AppBreadcrumb extends Vue {
 
     historyItemChange = (item: HistoryItem) => {
         this.$forceUpdate();
-    }
+    };
 
     /**
      * 跳转点击
@@ -111,10 +110,10 @@ export class AppBreadcrumb extends Vue {
         let path = '';
         history.meta.parameters.forEach((item: any) => {
             const pam = to.params[item.parameterName];
-            path += (`/${item.pathName}` + (pam ? `/${pam}` : ''));
+            path += `/${item.pathName}` + (pam ? `/${pam}` : '');
         });
         if (to.query && Object.keys(to.query).length > 0) {
-            path += ('?' + qs.stringify(to.query));
+            path += '?' + qs.stringify(to.query);
         }
         this.$router.push(path);
         if (to.fullPath !== path) {
@@ -133,9 +132,13 @@ export class AppBreadcrumb extends Vue {
         const items: any[] = [];
         const indexMeta = this.appService.navHistory.indexMeta;
         if (indexMeta) {
-            items.push(<span class="app-breadcrumb-item">
-                <span class="content" on-click={() => this.toIndex(indexMeta)}>首页</span>
-            </span>);
+            items.push(
+                <span class="app-breadcrumb-item">
+                    <span class="content" on-click={() => this.toIndex(indexMeta)}>
+                        首页
+                    </span>
+                </span>
+            );
         }
         const arr = this.appService.navHistory.historyList;
         arr.forEach((item, i) => {
@@ -144,23 +147,38 @@ export class AppBreadcrumb extends Vue {
             const view = this.appService.viewStore.findByTag(item.tag as string);
             if (view?.viewUsage === 1 && view.isShowDataInfoBar) {
                 info = item.meta?.info;
-                if (arr.length === (i + 1)) {
+                if (arr.length === i + 1) {
                     const list = this.getItems(item.context, item.tag);
                     if (list && list.length > 0) {
                         const c = item.context;
-                        dropdown = <i-select v-model={c[c.srfappdename]} on-on-change={(val: any) => this.itemChange(c, item, val)} size="small">
-                            {list.map((item: any) => {
-                                return <i-option value={item.srfkey} key={item.srfkey}>{item.srfmajortext}</i-option>;
-                            })}
-                        </i-select>;
+                        dropdown = (
+                            <i-select
+                                v-model={c[c.srfappdename]}
+                                on-on-change={(val: any) => this.itemChange(c, item, val)}
+                                size="small"
+                            >
+                                {list.map((item: any) => {
+                                    return (
+                                        <i-option value={item.srfkey} key={item.srfkey}>
+                                            {item.srfmajortext}
+                                        </i-option>
+                                    );
+                                })}
+                            </i-select>
+                        );
                     }
                 }
             }
-            items.push(<span key={item.tag} class={{ 'app-breadcrumb-item': true, 'last': i === (arr.length - 1) }}>
-                {(!indexMeta && i === 0) ? null : <span class="separator">{this.NavBarDelimiter}</span>}
-                <span class="content" on-click={() => this.click(item.to)}>{this.$t(item.meta?.caption)}{dropdown ? null : isExistAndNotEmpty(info) ? ' - ' + info : ''}</span>
-                {dropdown ? <span class="select"> - {dropdown}</span> : null}
-            </span>);
+            items.push(
+                <span key={item.tag} class={{ 'app-breadcrumb-item': true, last: i === arr.length - 1 }}>
+                    {!indexMeta && i === 0 ? null : <span class="separator">{this.NavBarDelimiter}</span>}
+                    <span class="content" on-click={() => this.click(item.to)}>
+                        {this.$t(item.meta?.caption)}
+                        {dropdown ? null : isExistAndNotEmpty(info) ? ' - ' + info : ''}
+                    </span>
+                    {dropdown ? <span class="select"> - {dropdown}</span> : null}
+                </span>
+            );
         });
         return <div class="app-breadcrumb">{items}</div>;
     }

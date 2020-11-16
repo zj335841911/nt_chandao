@@ -10,7 +10,6 @@ import CodeListService from '@/service/app/codelist-service';
  * @extends {ControlBase}
  */
 export class ExpControlBase extends ControlBase {
-
     /**
      * 打开新建数据视图
      *
@@ -96,12 +95,12 @@ export class ExpControlBase extends ControlBase {
 
     /**
      * 呈现模式，可选值：horizontal或者vertical
-     * 
+     *
      * @public
      * @type {(string)}
      * @memberof ExpControlBase
      */
-    public showMode: string = "horizontal";
+    public showMode: string = 'horizontal';
 
     /**
      * 选中数据
@@ -113,12 +112,12 @@ export class ExpControlBase extends ControlBase {
 
     /**
      * 搜素值
-     * 
+     *
      * @public
      * @type {(string)}
      * @memberof ExpControlBase
      */
-    public searchText: string = "";
+    public searchText: string = '';
 
     /**
      * 代码表服务对象
@@ -163,7 +162,7 @@ export class ExpControlBase extends ControlBase {
      *
      * @memberof ExpControlBase
      */
-    public loadQuickGroupModel() { }
+    public loadQuickGroupModel() {}
 
     /**
      * 处理快速分组模型动态数据部分(%xxx%)
@@ -177,8 +176,8 @@ export class ExpControlBase extends ControlBase {
                 if (item.data && Object.keys(item.data).length > 0) {
                     Object.keys(item.data).forEach((name: any) => {
                         let value: any = item.data[name];
-                        if (value && typeof (value) == 'string' && value.startsWith('%') && value.endsWith('%')) {
-                            const key = (value.substring(1, value.length - 1)).toLowerCase();
+                        if (value && typeof value == 'string' && value.startsWith('%') && value.endsWith('%')) {
+                            const key = value.substring(1, value.length - 1).toLowerCase();
                             if (this.context[key]) {
                                 value = this.context[key];
                             } else if (this.viewparams[key]) {
@@ -186,9 +185,9 @@ export class ExpControlBase extends ControlBase {
                             }
                         }
                         item.data[name] = value;
-                    })
+                    });
                 }
-            })
+            });
         }
         return inputArray;
     }
@@ -223,7 +222,7 @@ export class ExpControlBase extends ControlBase {
      * @param {boolean} state
      * @param {*} models
      * @param {*} uiService
-     * @return {*} 
+     * @return {*}
      * @memberof ExpControlBase
      */
     public calcToolbarItemState(state: boolean, models?: any, uiService?: any) {
@@ -233,12 +232,15 @@ export class ExpControlBase extends ControlBase {
                     return;
                 }
                 const _item = models[key];
-                if (_item.uiaction && (Object.is(_item.uiaction.target, 'SINGLEKEY') || Object.is(_item.uiaction.target, 'MULTIKEY'))) {
+                if (
+                    _item.uiaction &&
+                    (Object.is(_item.uiaction.target, 'SINGLEKEY') || Object.is(_item.uiaction.target, 'MULTIKEY'))
+                ) {
                     _item.disabled = state;
                 }
-                _item.visabled = true;
+                _item.visible = true;
                 if (_item.noprivdisplaymode && _item.noprivdisplaymode === 6) {
-                    _item.visabled = false;
+                    _item.visible = false;
                 }
             }
             this.calcToolbarItemAuthState({}, models, uiService);
@@ -252,7 +254,7 @@ export class ExpControlBase extends ControlBase {
      * @param {*} [data] 传入数据
      * @param {*} [ActionModel] 工具栏模型
      * @param {*} [UIService] 界面行为服务
-     * @return {*} 
+     * @return {*}
      * @memberof ExpControlBase
      */
     public calcToolbarItemAuthState(data: any, ActionModel: any, UIService: any) {
@@ -265,7 +267,7 @@ export class ExpControlBase extends ControlBase {
             if (_item && _item.dataaccaction && UIService) {
                 let dataActionResult: any;
                 if (_item.uiaction) {
-                    if (Object.is(_item.uiaction.target, "NONE") || Object.is(_item.uiaction.target, "")) {
+                    if (Object.is(_item.uiaction.target, 'NONE') || Object.is(_item.uiaction.target, '')) {
                         dataActionResult = UIService.getResourceOPPrivs(_item.dataaccaction);
                     } else {
                         if (data && Object.keys(data).length > 0) {
@@ -278,14 +280,14 @@ export class ExpControlBase extends ControlBase {
                         if (_item.noprivdisplaymode === 1) {
                             _item.disabled = true;
                         }
-                        if ((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)) {
-                            _item.visabled = false;
+                        if (_item.noprivdisplaymode === 2 || _item.noprivdisplaymode === 6) {
+                            _item.visible = false;
                         } else {
-                            _item.visabled = true;
+                            _item.visible = true;
                         }
                     }
                     if (dataActionResult === 1) {
-                        _item.visabled = true;
+                        _item.visible = true;
                         _item.disabled = false;
                     }
                     result.push(dataActionResult);

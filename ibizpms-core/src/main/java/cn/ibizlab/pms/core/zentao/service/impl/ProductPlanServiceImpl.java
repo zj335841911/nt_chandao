@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.ProductPlan;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.ProductPlanMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -68,6 +70,10 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProductPlanGetOldPlanNameLogic getoldplannameLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProductPlanMobProductPlanCounterLogic mobproductplancounterLogic;
 
     protected int batchSize = 500;
 
@@ -108,14 +114,14 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Override
     @Transactional
     public ProductPlan get(Long key) {
-        ProductPlan tempET=new ProductPlan();
-        tempET.set("id",key);
+        ProductPlan tempET = new ProductPlan();
+        tempET.set("id", key);
         ProductPlan et = getById(key);
-        if(et==null){
-            et=new ProductPlan();
+        if (et == null) {
+            et = new ProductPlan();
             et.setId(key);
         }
-        else{
+        else {
         }
         getbedinandendLogic.execute(et);
         return et;
@@ -142,7 +148,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 
     @Override
     public boolean checkKey(ProductPlan et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
@@ -158,9 +164,17 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 
     @Override
     @Transactional
+    public ProductPlan mobProductPlanCounter(ProductPlan et) {
+        mobproductplancounterLogic.execute(et);
+         return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(ProductPlan et) {
-        if(!saveOrUpdate(et))
+        if (!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -175,16 +189,18 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<ProductPlan> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<ProductPlan> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
         @Override
@@ -200,34 +216,31 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     }
 
 
-	@Override
+    @Override
     public List<ProductPlan> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
-
     @Override
     public void removeByBranch(Long id) {
-        this.remove(new QueryWrapper<ProductPlan>().eq("branch",id));
+        this.remove(new QueryWrapper<ProductPlan>().eq("branch", id));
     }
 
-	@Override
+    @Override
     public List<ProductPlan> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
-
     @Override
     public void removeByProduct(Long id) {
-        this.remove(new QueryWrapper<ProductPlan>().eq("product",id));
+        this.remove(new QueryWrapper<ProductPlan>().eq("product", id));
     }
 
-	@Override
+    @Override
     public List<ProductPlan> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
-
     @Override
     public void removeByParent(Long id) {
-        this.remove(new QueryWrapper<ProductPlan>().eq("parent",id));
+        this.remove(new QueryWrapper<ProductPlan>().eq("parent", id));
     }
 
 
@@ -236,7 +249,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
      */
     @Override
     public Page<ProductPlan> searchCurProductPlan(ProductPlanSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchCurProductPlan(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchCurProductPlan(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -245,7 +258,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
      */
     @Override
     public Page<ProductPlan> searchDefault(ProductPlanSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -254,7 +267,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
      */
     @Override
     public Page<ProductPlan> searchDefaultParent(ProductPlanSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchDefaultParent(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchDefaultParent(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -263,7 +276,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
      */
     @Override
     public Page<ProductPlan> searchPlanCodeList(ProductPlanSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchPlanCodeList(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchPlanCodeList(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -272,7 +285,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
      */
     @Override
     public Page<ProductPlan> searchProjectPlan(ProductPlanSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchProjectPlan(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchProjectPlan(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -284,12 +297,12 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
      */
     private void fillParentData(ProductPlan et){
         //实体关系[DER1N__ZT_PRODUCTPLAN__ZT_PRODUCTPLAN__PARENT]
-        if(!ObjectUtils.isEmpty(et.getParent())){
+        if (!ObjectUtils.isEmpty(et.getParent())) {
             cn.ibizlab.pms.core.zentao.domain.ProductPlan ibizparent=et.getIbizparent();
-            if(ObjectUtils.isEmpty(ibizparent)){
+            if (ObjectUtils.isEmpty(ibizparent)) {
                 cn.ibizlab.pms.core.zentao.domain.ProductPlan majorEntity=productplanService.get(et.getParent());
                 et.setIbizparent(majorEntity);
-                ibizparent=majorEntity;
+                ibizparent = majorEntity;
             }
             et.setParentname(ibizparent.getTitle());
         }
@@ -299,28 +312,31 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

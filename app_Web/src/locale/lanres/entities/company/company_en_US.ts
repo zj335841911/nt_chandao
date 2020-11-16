@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     admins: "admins",

@@ -1,5 +1,5 @@
-<template src="./test-task-close-option-view.html"/>
-<script lang='tsx'>
+<template src="./test-task-close-option-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestTaskCloseOptionViewBase } from './test-task-close-option-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/test-task/close-form/close-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestTaskCloseOptionView extends TestTaskCloseOptionViewBase { }
+export default class TestTaskCloseOptionView extends TestTaskCloseOptionViewBase {}
 </script>

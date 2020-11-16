@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
 import ProductPlanAuthService from '@/authservice/product-plan/product-plan-auth-service';
@@ -48,7 +48,7 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ProductPlanMainDataEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,8 +74,14 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
 	 * @memberof ProductPlanMainDataEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'productplan' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'productplan' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'productplan',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'productplan',
+        }
     };
 
     /**
@@ -83,7 +89,7 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      *
      * @memberof ProductPlanMainDataEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -96,8 +102,8 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
         srfCaption: 'entities.productplan.views.maindataeditview.caption',
         srfTitle: 'entities.productplan.views.maindataeditview.title',
         srfSubTitle: 'entities.productplan.views.maindataeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -107,8 +113,14 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @memberof ProductPlanMainDataEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -118,11 +130,11 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @memberof ProductPlanMainDataEditView
      */
     public toolBarModels: any = {
-        deuiaction1_newsubplancz: { name: 'deuiaction1_newsubplancz', caption: '子计划', 'isShowCaption': true, 'isShowIcon': true, tooltip: '子计划', iconcls: 'fa fa-sitemap', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_CHILD_BUT', uiaction: { tag: 'NewSubPlanCz', target: 'SINGLEKEY', class: '' } },
+        deuiaction1_newsubplancz: { name: 'deuiaction1_newsubplancz', caption: '子计划', 'isShowCaption': true, 'isShowIcon': true, tooltip: '子计划', iconcls: 'fa fa-sitemap', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_CHILD_BUT', uiaction: { tag: 'NewSubPlanCz', target: 'SINGLEKEY', class: '' } },
 
-        deuiaction1_mainedit: { name: 'deuiaction1_mainedit', caption: '编辑', 'isShowCaption': true, 'isShowIcon': true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_EDIT_BUT', uiaction: { tag: 'MainEdit', target: 'SINGLEKEY', class: '' } },
+        deuiaction1_mainedit: { name: 'deuiaction1_mainedit', caption: '编辑', 'isShowCaption': true, 'isShowIcon': true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_EDIT_BUT', uiaction: { tag: 'MainEdit', target: 'SINGLEKEY', class: '' } },
 
-        deuiaction1_deletecz: { name: 'deuiaction1_deletecz', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_DELETE_BUT', uiaction: { tag: 'DeleteCz', target: 'SINGLEKEY', class: '' } },
+        deuiaction1_deletecz: { name: 'deuiaction1_deletecz', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_DELETE_BUT', uiaction: { tag: 'DeleteCz', target: 'SINGLEKEY', class: '' } },
 
     };
 
@@ -133,9 +145,18 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductPlanMainDataEditViewBase
      */
 	protected viewtag: string = 'b9a10eb0b5a55e40c69c61387de5894a';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPlanMainDataEditViewBase
+     */ 
+    protected viewName: string = "ProductPlanMainDataEditView";
 
 
     /**
@@ -154,7 +175,9 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ProductPlanMainDataEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

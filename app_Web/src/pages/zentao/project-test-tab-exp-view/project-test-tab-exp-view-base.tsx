@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
@@ -62,7 +62,7 @@ export class ProjectTestTabExpViewBase extends TabExpViewBase {
      *
      * @memberof ProjectTestTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class ProjectTestTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.project.views.testtabexpview.caption',
         srfTitle: 'entities.project.views.testtabexpview.title',
         srfSubTitle: 'entities.project.views.testtabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class ProjectTestTabExpViewBase extends TabExpViewBase {
      * @memberof ProjectTestTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -95,9 +98,18 @@ export class ProjectTestTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectTestTabExpViewBase
      */
 	protected viewtag: string = '19641dcdbd1f1973c9693859003e1f60';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectTestTabExpViewBase
+     */ 
+    protected viewName: string = "ProjectTestTabExpView";
 
 
     /**
@@ -116,7 +128,9 @@ export class ProjectTestTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof ProjectTestTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

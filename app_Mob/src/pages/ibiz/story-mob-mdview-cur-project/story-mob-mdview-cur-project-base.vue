@@ -45,7 +45,7 @@
         </ion-footer>
     </van-popup>
     <div id="searchformstorymobmdviewcurproject"></div>
-    <ion-content>
+    <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
         <ion-refresher 
             slot="fixed" 
             ref="loadmore" 
@@ -65,7 +65,6 @@
             viewName="StoryMobMDViewCurProject"  
             :viewparams="viewparams" 
             :context="context" 
-            :showBusyIndicator="true" 
             viewType="DEMOBMDVIEW"
             controlStyle="LISTVIEW"
             updateAction="Update"
@@ -75,10 +74,11 @@
             createAction="Create"
             fetchAction="FetchProjectStories" 
             :isMutli="!isSingleSelect"
-            :showCheack="showCheack"
-            @showCheackChange="showCheackChange"
+            :isNeedLoaddingText="!isPortalView"
+            :showBusyIndicator="true" 
             :isTempMode="false"
-            :isEnableChoose="false"
+            :newdata="newdata"
+            :opendata="opendata"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -87,15 +87,12 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
-        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
-          <ion-infinite-scroll-content
-          loadingSpinner="bubbles"
-          loadingText="Loading more data...">
-        </ion-infinite-scroll-content>
-        </ion-infinite-scroll>
     </ion-content>
     <ion-footer class="view-footer">
-                <div v-show="!showCheack" class = "fab_container">
+                <div v-show="!isChoose" class = "fab_container">
+            <div class="scroll_tool">
+                <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
+            </div>
         </div>
         
     </ion-footer>
@@ -104,12 +101,13 @@
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import StoryService from '@/app-core/service/story/story-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import StoryUIService from '@/ui-service/story/story-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -208,6 +206,14 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
      * @memberof StoryMobMDViewCurProjectBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof StoryMobMDViewCurProjectBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
@@ -374,8 +380,8 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
      * @type {boolean}
      * @memberof StoryMobMDViewCurProject 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     
@@ -501,6 +507,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
      * @memberof StoryMobMDViewCurProjectBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -515,6 +522,12 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         this.afterMounted();
     }
 
+    /**
+     * 底部按钮样式
+     * 
+     * @memberof StoryMobMDViewCurProjectBase
+     */
+    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
@@ -529,6 +542,8 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         }
         this.thirdPartyInit();
 
+        // 拖动样式
+        AnimationService.draggable(document.getElementById(this.viewtag+'_bottom_button'),(style:any)=>{this.button_style = style});
     }
 
     /**
@@ -819,6 +834,83 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         }
     }
 
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof StoryMobMDViewCurProjectBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
+    /**
+     * onScroll滚动事件
+     *
+     * @memberof StoryMobMDViewCurProjectBase
+     */
+    public async onScroll(e:any){
+        this.isScrollStop = false;
+        if (e.detail.scrollTop>600) {
+            this.isShouleBackTop = true;
+        }else{
+            this.isShouleBackTop = false;
+        }
+                    let ionScroll :any= this.$refs.ionScroll;
+        if(ionScroll){
+            let ele =  await ionScroll.getScrollElement();
+            if(ele){
+                let scrollTop = ele.scrollTop;
+                let clientHeight = ele.clientHeight;
+                let scrollHeight = ele.scrollHeight;
+                if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
+                    let mdctrl:any = this.$refs.mdctrl; 
+                    if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
+                        mdctrl.loadBottom();
+                    }           
+                }
+            }
+        }
+
+    }
+
+    /**
+     * onScroll滚动结束事件
+     *
+     * @memberof StoryMobMDViewCurProjectBase
+     */
+    public onScrollEnd(){
+        this.isScrollStop = true;
+    }
+
+    /**
+     * 返回顶部
+     *
+     * @memberof StoryMobMDViewCurProjectBase
+     */
+    public onScrollToTop() {
+        let ionScroll:any = this.$refs.ionScroll;
+        if(ionScroll && ionScroll.scrollToTop && this.$util.isFunction(ionScroll.scrollToTop)){
+            ionScroll.scrollToTop(500);
+        }
+    }
+
+    /**
+     * 是否应该显示返回顶部按钮
+     *
+     * @memberof StoryMobMDViewCurProjectBase
+     */
+    public isShouleBackTop = false;
+
+    /**
+     * 当前滚动条是否是停止状态
+     *
+     * @memberof StoryMobMDViewCurProjectBase
+     */
+    public isScrollStop = true;
+
 
 
     /**
@@ -904,9 +996,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
 
         const mdctrl: any = this.$refs.mdctrl;
         if (mdctrl) {
-            let response = await mdctrl.quickSearch(this.query);
-            if (response) {
-            }
+            mdctrl.quickSearch(this.query);
         }
     }
 
@@ -985,8 +1075,8 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
      *
      * @memberof StoryMobMDViewCurProjectBase
      */
-    public showCheackChange(value:any){
-        this.showCheack = value;
+    public isChooseChange(value:any){
+        this.isChoose = value;
     }
 
     /**
@@ -994,14 +1084,14 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
      *
      * @memberof StoryMobMDViewCurProjectBase
      */
-    public showCheack = false;
+    public isChoose = false;
 
     /**
      * 取消选择状态
      * @memberof StoryMobMDViewCurProjectBase
      */
     public cancelSelect() {
-        this.showCheackChange(false);
+        this.isChooseChange(false);
     }
 
     /**
@@ -1023,23 +1113,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
-
-    /**
-     * 触底加载
-     *
-     * @param {*} value
-     * @memberof StoryMobMDViewCurProjectBase
-     */
-    public async loadMore(event:any){
-      let mdctrl:any = this.$refs.mdctrl;
-      if(mdctrl && mdctrl.loadBottom && mdctrl.loadBottom instanceof Function){
-        mdctrl.loadBottom();
-      }
-      if(event.target && event.target.complete && event.target.complete instanceof Function){
-        event.target.complete();
-      }
-    }
-
+    
 
 
 }

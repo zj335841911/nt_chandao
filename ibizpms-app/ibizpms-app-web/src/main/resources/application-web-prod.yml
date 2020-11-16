@@ -71,6 +71,10 @@ zuul:
       path: /employeeloads/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    zt_doccontent:
+      path: /doccontents/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_storyspec:
       path: /storyspecs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -86,6 +90,10 @@ zuul:
     zt_branch:
       path: /branches/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    sys_dept:
+      path: /sysdepartments/**
+      serviceId: ${ibiz.ref.service.ibzou-api:ibzou-api}
       stripPrefix: false
     ibz_productstats:
       path: /productstats/**
@@ -183,8 +191,16 @@ zuul:
       path: /testmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_doclibmodule:
+      path: /doclibmodules/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_productlife:
       path: /productlives/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    zt_usercontact:
+      path: /usercontacts/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_task:
@@ -243,6 +259,14 @@ zuul:
       path: /ibzmyterritories/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    sys_update_log:
+      path: /sysupdatelogs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    zt_doc:
+      path: /docs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_bug:
       path: /bugs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -267,6 +291,10 @@ zuul:
       path: /pssystemdbcfgs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    sys_update_features:
+      path: /sysupdatefeatures/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_release:
       path: /releases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -274,6 +302,10 @@ zuul:
     dynadashboard:
       path: /dynadashboards/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibzemp:
+      path: /sysemployees/**
+      serviceId: ${ibiz.ref.service.ibzou-api:ibzou-api}
       stripPrefix: false
     loginv7:
       path: /v7/login
@@ -288,7 +320,7 @@ zuul:
       serviceId: ${ibiz.ref.service.uaa:ibzuaa-api}
       stripPrefix: false
     config:
-      path: /config/**
+      path: /configs/**
       serviceId: ${ibiz.ref.service.uaa:ibzuaa-api}
       stripPrefix: false
     oucore:

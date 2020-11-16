@@ -21,6 +21,13 @@ export default class BugStatsUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  BugStatsUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  BugStatsUIServiceBase
@@ -89,9 +96,24 @@ export default class BugStatsUIServiceBase extends UIService {
      * @memberof  BugStatsUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'bugstats',component:'bug-stats-edit-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'bugstats',component:'bug-stats-grid-view'});
-        this.allViewMap.set(':',{viewname:'assigntogridview',srfappde:'bugstats',component:'bug-stats-assignto-grid-view'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'bugstats',
+            component: 'bug-stats-edit-view',
+            openmode: '',
+            title: 'Bug统计',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'bugstats',
+            component: 'bug-stats-grid-view',
+            openmode: '',
+            title: 'Bug创建表',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

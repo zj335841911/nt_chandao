@@ -1,5 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool,Util,ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import IBZProStoryService from '@/service/ibzpro-story/ibzpro-story-service';
 import MainService from './main-grid-service';
@@ -76,6 +77,14 @@ export class MainGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
     };
+
+    /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof MainBase
+     */  
+    public majorInfoColName:string = "title";
 
     /**
      * 本地缓存标识

@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import CaseUIService from '@/uiservice/case/case-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
      * @type {string}
      * @memberof CaseGridView9_MeCretaeBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
 	 * @memberof CaseGridView9_MeCretaeBase
 	 */
     protected customViewParams: any = {
-        'n_openedby_eq': { isRawValue: false, value: 'srfloginname' }
+        'n_openedby_eq': {
+            isRawValue: false,
+            value: 'srfloginname',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
         srfCaption: 'entities.case.views.gridview9_mecretae.caption',
         srfTitle: 'entities.case.views.gridview9_mecretae.title',
         srfSubTitle: 'entities.case.views.gridview9_mecretae.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,7 +105,10 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
      * @memberof CaseGridView9_MeCretaeBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -111,9 +117,18 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseGridView9_MeCretaeBase
      */
 	protected viewtag: string = 'c5b7fb7289325c348ca867eb86185986';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseGridView9_MeCretaeBase
+     */ 
+    protected viewName: string = "CaseGridView9_MeCretae";
 
 
     /**
@@ -132,7 +147,9 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
      * @type {Array<*>}
      * @memberof CaseGridView9_MeCretaeBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -143,11 +160,11 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'case',

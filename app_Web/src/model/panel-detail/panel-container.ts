@@ -8,8 +8,6 @@ import { PanelDetailModel } from './panel-detail';
  * @extends {PanelDetailModel}
  */
 export class PanelContainerModel extends PanelDetailModel {
-
-
     constructor(opts: any = {}) {
         super(opts);
     }

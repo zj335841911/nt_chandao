@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.ProjectProduct;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.ProjectProductMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -65,42 +67,47 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     @Transactional
     public boolean create(ProjectProduct et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
+        }
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
+    @Transactional
     public void createBatch(List<ProjectProduct> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(ProjectProduct et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
+        }
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<ProjectProduct> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
-        return result ;
+        boolean result = removeById(key);
+        return result;
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<String> idList) {
         removeByIds(idList);
     }
@@ -109,11 +116,11 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     @Transactional
     public ProjectProduct get(String key) {
         ProjectProduct et = getById(key);
-        if(et==null){
-            et=new ProjectProduct();
+        if (et == null) {
+            et = new ProjectProduct();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -126,13 +133,14 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
 
     @Override
     public boolean checkKey(ProjectProduct et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(ProjectProduct et) {
-        if(!saveOrUpdate(et))
+        if (!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -147,57 +155,55 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<ProjectProduct> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<ProjectProduct> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<ProjectProduct> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
-
     @Override
     public void removeByBranch(Long id) {
-        this.remove(new QueryWrapper<ProjectProduct>().eq("branch",id));
+        this.remove(new QueryWrapper<ProjectProduct>().eq("branch", id));
     }
 
-	@Override
+    @Override
     public List<ProjectProduct> selectByPlan(Long id) {
         return baseMapper.selectByPlan(id);
     }
-
     @Override
     public void removeByPlan(Long id) {
-        this.remove(new QueryWrapper<ProjectProduct>().eq("plan",id));
+        this.remove(new QueryWrapper<ProjectProduct>().eq("plan", id));
     }
 
-	@Override
+    @Override
     public List<ProjectProduct> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
-
     @Override
     public void removeByProduct(Long id) {
-        this.remove(new QueryWrapper<ProjectProduct>().eq("product",id));
+        this.remove(new QueryWrapper<ProjectProduct>().eq("product", id));
     }
 
-	@Override
+    @Override
     public List<ProjectProduct> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
-
     @Override
     public void removeByProject(Long id) {
-        this.remove(new QueryWrapper<ProjectProduct>().eq("project",id));
+        this.remove(new QueryWrapper<ProjectProduct>().eq("project", id));
     }
 
 
@@ -206,7 +212,7 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
      */
     @Override
     public Page<ProjectProduct> searchDefault(ProjectProductSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectProduct> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectProduct> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectProduct>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -215,7 +221,7 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
      */
     @Override
     public Page<ProjectProduct> searchRelationPlan(ProjectProductSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectProduct> pages=baseMapper.searchRelationPlan(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectProduct> pages=baseMapper.searchRelationPlan(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectProduct>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -227,32 +233,32 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
      */
     private void fillParentData(ProjectProduct et){
         //实体关系[DER1N_ZT_PROJECTPRODUCT_ZT_PRODUCTPLAN_PLAN]
-        if(!ObjectUtils.isEmpty(et.getPlan())){
+        if (!ObjectUtils.isEmpty(et.getPlan())) {
             cn.ibizlab.pms.core.zentao.domain.ProductPlan ztproductplan=et.getZtproductplan();
-            if(ObjectUtils.isEmpty(ztproductplan)){
+            if (ObjectUtils.isEmpty(ztproductplan)) {
                 cn.ibizlab.pms.core.zentao.domain.ProductPlan majorEntity=productplanService.get(et.getPlan());
                 et.setZtproductplan(majorEntity);
-                ztproductplan=majorEntity;
+                ztproductplan = majorEntity;
             }
             et.setPlanname(ztproductplan.getTitle());
         }
         //实体关系[DER1N_ZT_PROJECTPRODUCT_ZT_PRODUCT_PRODUCT]
-        if(!ObjectUtils.isEmpty(et.getProduct())){
+        if (!ObjectUtils.isEmpty(et.getProduct())) {
             cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
-            if(ObjectUtils.isEmpty(ztproduct)){
+            if (ObjectUtils.isEmpty(ztproduct)) {
                 cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
                 et.setZtproduct(majorEntity);
-                ztproduct=majorEntity;
+                ztproduct = majorEntity;
             }
             et.setProductname(ztproduct.getName());
         }
         //实体关系[DER1N_ZT_PROJECTPRODUCT_ZT_PROJECT_PROJECT]
-        if(!ObjectUtils.isEmpty(et.getProject())){
+        if (!ObjectUtils.isEmpty(et.getProject())) {
             cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
-            if(ObjectUtils.isEmpty(ztproject)){
+            if (ObjectUtils.isEmpty(ztproject)) {
                 cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
                 et.setZtproject(majorEntity);
-                ztproject=majorEntity;
+                ztproject = majorEntity;
             }
             et.setProjectname(ztproject.getName());
         }
@@ -262,28 +268,31 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

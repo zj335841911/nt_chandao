@@ -1,5 +1,5 @@
-<template src="./product-sum-usr2-grid-view.html"/>
-<script lang='tsx'>
+<template src="./product-sum-usr2-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductSumUsr2GridViewBase } from './product-sum-usr2-grid-view-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/product-sum/product-plancnt-and-storycnt-po-grid
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductSumUsr2GridView extends ProductSumUsr2GridViewBase { }
+export default class ProductSumUsr2GridView extends ProductSumUsr2GridViewBase {}
 </script>

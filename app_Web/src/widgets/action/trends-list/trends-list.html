@@ -1,8 +1,10 @@
 <div :class="['app-list', this.items.length > 0 ? '' : 'app-list-empty' ]">
     <div v-if="items.length > 0" style="height:100%;">
-                <action-timeline  showType="default" :items="items"></action-timeline>
+        <action-timeline  showType="default" :items="items" :listModel="service.getMode().getDataItems()"></action-timeline>
     </div>
     <div v-else>
-        {{ $t('app.commonWords.noData') }}
+        {{$t('entities.action.trends_list.nodata')}}
+        <span class="quick-toolbar">
+        </span>
     </div>
 </div>

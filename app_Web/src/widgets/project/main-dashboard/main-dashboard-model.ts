@@ -225,6 +225,18 @@ export default class MainModel {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
+      {
+        name: 'doclibcnt',
+      },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

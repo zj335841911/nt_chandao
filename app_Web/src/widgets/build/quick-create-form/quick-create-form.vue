@@ -1,5 +1,5 @@
-<template src="./quick-create-form.html"/>
-<script lang='tsx'>
+<template src="./quick-create-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { QuickCreateEditFormBase } from './quick-create-form-base';
@@ -15,8 +15,8 @@ import { QuickCreateEditFormBase } from './quick-create-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class QuickCreateEditForm extends QuickCreateEditFormBase { }
+export default class QuickCreateEditForm extends QuickCreateEditFormBase {}
 </script>

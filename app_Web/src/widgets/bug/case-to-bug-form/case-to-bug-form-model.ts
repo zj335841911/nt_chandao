@@ -141,6 +141,11 @@ export default class CaseToBugModel {
         dataType: 'LONGTEXT',
       },
       {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'storyname',
         prop: 'storyname',
         dataType: 'PICKUPTEXT',
@@ -156,6 +161,11 @@ export default class CaseToBugModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
         name: 'keywords',
         prop: 'keywords',
         dataType: 'TEXT',
@@ -163,6 +173,16 @@ export default class CaseToBugModel {
       {
         name: 'story',
         prop: 'story',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'caseversion',
+        prop: 'caseversion',
+        dataType: 'PICKUPDATA',
+      },
+      {
+        name: 'case',
+        prop: 'ibizcase',
         dataType: 'PICKUP',
       },
       {

@@ -6,8 +6,7 @@ import { ChartSeries } from './chart-series';
  * @export
  * @class ChartFunnelSeries
  */
-export class ChartFunnelSeries extends ChartSeries{
-
+export class ChartFunnelSeries extends ChartSeries {
     /**
      * 分类属性
      *
@@ -38,7 +37,7 @@ export class ChartFunnelSeries extends ChartSeries{
      * @type {string}
      * @memberof ChartFunnelSeries
      */
-    public dimensions:Array<string> = [];
+    public dimensions: Array<string> = [];
 
     /**
      * 维度编码
@@ -46,13 +45,12 @@ export class ChartFunnelSeries extends ChartSeries{
      * @type {*}
      * @memberof ChartFunnelSeries
      */
-    public encode:any = null;
-
+    public encode: any = null;
 
     /**
      * Creates an instance of ChartFunnelSeries.
      * ChartFunnelSeries 实例
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof ChartFunnelSeries
      */
@@ -61,7 +59,7 @@ export class ChartFunnelSeries extends ChartSeries{
         this.categorField = !Object.is(opts.categorField, '') ? opts.categorField : '';
         this.categorCodeList = opts.categorCodeList ? opts.categorCodeList : null;
         this.valueField = !Object.is(opts.valueField, '') ? opts.valueField : '';
-        this.dimensions = opts.dimensions ? opts.dimensions :'';
+        this.dimensions = opts.dimensions ? opts.dimensions : '';
         this.encode = opts.encode ? opts.encode : null;
     }
 
@@ -114,5 +112,4 @@ export class ChartFunnelSeries extends ChartSeries{
     public setEncode(state: any): void {
         this.encode = state;
     }
-
 }

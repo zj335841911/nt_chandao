@@ -183,6 +183,15 @@ export default class MainDashboardTestModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'modulename1',
+      },
+      {
+        name: 'files',
+      },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

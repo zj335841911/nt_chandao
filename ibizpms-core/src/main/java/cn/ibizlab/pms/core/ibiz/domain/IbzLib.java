@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_testsuite",resultMap = "IbzLibResultMap")
+@TableName(value = "zt_testsuite", resultMap = "IbzLibResultMap")
 public class IbzLib extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,32 +53,33 @@ public class IbzLib extends EntityMP implements Serializable {
     /**
      * 最后编辑时间
      */
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`lastediteddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "lastediteddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
     private Timestamp lastediteddate;
     /**
      * 创建时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`addeddate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "addeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`addeddate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "addeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("addeddate")
     private Timestamp addeddate;
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID)
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID)
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -91,6 +94,7 @@ public class IbzLib extends EntityMP implements Serializable {
     /**
      * 类型
      */
+    @DEField(defaultValue = "library")
     @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
@@ -98,6 +102,7 @@ public class IbzLib extends EntityMP implements Serializable {
     /**
      * 由谁创建
      */
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
     @TableField(value = "`addedby`")
     @JSONField(name = "addedby")
     @JsonProperty("addedby")
@@ -105,75 +110,58 @@ public class IbzLib extends EntityMP implements Serializable {
     /**
      * 最后编辑人
      */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMANNAME)
     @TableField(value = "`lasteditedby`")
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
     private String lasteditedby;
+    /**
+     * 产品
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`product`")
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private Long product;
 
 
 
     /**
      * 设置 [描述]
      */
-    public void setDesc(String desc){
-        this.desc = desc ;
-        this.modify("desc",desc);
+    public void setDesc(String desc) {
+        this.desc = desc;
+        this.modify("desc", desc);
     }
 
-    /**
-     * 设置 [最后编辑时间]
-     */
-    public void setLastediteddate(Timestamp lastediteddate){
-        this.lastediteddate = lastediteddate ;
-        this.modify("lastediteddate",lastediteddate);
-    }
-
-    /**
-     * 格式化日期 [最后编辑时间]
-     */
-    public String formatLastediteddate(){
-        if (this.lastediteddate == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(lastediteddate);
-    }
     /**
      * 设置 [名称]
      */
-    public void setName(String name){
-        this.name = name ;
-        this.modify("name",name);
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [类型]
      */
-    public void setType(String type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
-     * 设置 [由谁创建]
+     * 设置 [产品]
      */
-    public void setAddedby(String addedby){
-        this.addedby = addedby ;
-        this.modify("addedby",addedby);
-    }
-
-    /**
-     * 设置 [最后编辑人]
-     */
-    public void setLasteditedby(String lasteditedby){
-        this.lasteditedby = lasteditedby ;
-        this.modify("lasteditedby",lasteditedby);
+    public void setProduct(Long product) {
+        this.product = product;
+        this.modify("product", product);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -185,7 +173,7 @@ public class IbzLib extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

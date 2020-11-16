@@ -1,5 +1,13 @@
 <studio-view viewName="productleftsidebarlistview" viewTitle="所有产品" class='delistview product-left-sidebar-list-view'>
-    <i-input slot='quickSearch' clearable  v-model="query" placeholder="产品名称,编号" search @on-search="onSearch($event)"/>
+    <i-input
+        slot='quickSearch'
+        clearable
+        
+        v-model="query"
+        placeholder="产品名称,编号,产品代号"
+        search
+        @on-search="onSearch($event)"
+    />
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>
     </template>

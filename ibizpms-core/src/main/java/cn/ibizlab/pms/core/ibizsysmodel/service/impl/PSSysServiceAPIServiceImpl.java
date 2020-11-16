@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSSysServiceAPI;
@@ -46,7 +47,7 @@ public class PSSysServiceAPIServiceImpl implements IPSSysServiceAPIService {
 
 //    @Autowired
     PSSysServiceAPIFeignClient pSSysServiceAPIFeignClient;
-    
+
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:}")
     private String serviceName;
 
@@ -58,13 +59,13 @@ public class PSSysServiceAPIServiceImpl implements IPSSysServiceAPIService {
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
     private String password;
-    
+
     public PSSysServiceAPIFeignClient getPSSysServiceAPIFeignClient(String devSlnSysId) {
-        if(StringUtils.isNotBlank(serviceName)){
-            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysServiceAPIFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
-        }else if(StringUtils.isNotBlank(serviceUrl)){
-            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSSysServiceAPIFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
-        }else{
+        if (StringUtils.isNotBlank(serviceName)) {
+            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysServiceAPIFeignClient.class, serviceName, false, serviceName, false, loginname, password, devSlnSysId);
+        } else if (StringUtils.isNotBlank(serviceUrl)) {
+            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSSysServiceAPIFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password, devSlnSysId);
+        } else {
             throw new RuntimeException("缺少平台服务配置信息。");
         }
     }
@@ -73,66 +74,69 @@ public class PSSysServiceAPIServiceImpl implements IPSSysServiceAPIService {
     @Override
     public boolean create(PSSysServiceAPI et) {
         PSSysServiceAPI rt = pSSysServiceAPIFeignClient.create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
     @Override
-    public boolean create(String devSlnSysId,PSSysServiceAPI et) {
+    public boolean create(String devSlnSysId, PSSysServiceAPI et) {
         PSSysServiceAPI rt = getPSSysServiceAPIFeignClient(devSlnSysId).create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
     public void createBatch(List<PSSysServiceAPI> list){
-        pSSysServiceAPIFeignClient.createBatch(list) ;
+        pSSysServiceAPIFeignClient.createBatch(list);
     }
 
-    public void createBatch(String devSlnSysId,List<PSSysServiceAPI> list){
-        getPSSysServiceAPIFeignClient(devSlnSysId).createBatch(list) ;
+    public void createBatch(String devSlnSysId, List<PSSysServiceAPI> list){
+        getPSSysServiceAPIFeignClient(devSlnSysId).createBatch(list);
     }
 
     @Override
     public boolean update(PSSysServiceAPI et) {
-        PSSysServiceAPI rt = pSSysServiceAPIFeignClient.update(et.getPssysserviceapiid(),et);
-        if(rt==null)
+        PSSysServiceAPI rt = pSSysServiceAPIFeignClient.update(et.getPssysserviceapiid(), et);
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
 
     }
 
     @Override
-    public boolean update(String devSlnSysId,PSSysServiceAPI et) {
-        PSSysServiceAPI rt = getPSSysServiceAPIFeignClient(devSlnSysId).update(et.getPssysserviceapiid(),et);
-        if(rt==null)
+    public boolean update(String devSlnSysId, PSSysServiceAPI et) {
+        PSSysServiceAPI rt = getPSSysServiceAPIFeignClient(devSlnSysId).update(et.getPssysserviceapiid(), et);
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
-
     }
 
-    public void updateBatch(List<PSSysServiceAPI> list){
-        pSSysServiceAPIFeignClient.updateBatch(list) ;
+    public void updateBatch(List<PSSysServiceAPI> list) {
+        pSSysServiceAPIFeignClient.updateBatch(list);
     }
 
-    public void updateBatch(String devSlnSysId,List<PSSysServiceAPI> list){
-        getPSSysServiceAPIFeignClient(devSlnSysId).updateBatch(list) ;
+    public void updateBatch(String devSlnSysId, List<PSSysServiceAPI> list){
+        getPSSysServiceAPIFeignClient(devSlnSysId).updateBatch(list);
     }
 
     @Override
     public boolean remove(String pssysserviceapiid) {
-        boolean result=pSSysServiceAPIFeignClient.remove(pssysserviceapiid) ;
+        boolean result=pSSysServiceAPIFeignClient.remove(pssysserviceapiid);
         return result;
     }
 
     @Override
-    public boolean remove(String devSlnSysId,String pssysserviceapiid) {
-        boolean result=getPSSysServiceAPIFeignClient(devSlnSysId).remove(pssysserviceapiid) ;
+    public boolean remove(String devSlnSysId, String pssysserviceapiid) {
+        boolean result = getPSSysServiceAPIFeignClient(devSlnSysId).remove(pssysserviceapiid);
         return result;
     }
 
@@ -140,48 +144,48 @@ public class PSSysServiceAPIServiceImpl implements IPSSysServiceAPIService {
         pSSysServiceAPIFeignClient.removeBatch(idList);
     }
 
-    public void removeBatch(String devSlnSysId,Collection<String> idList){
+    public void removeBatch(String devSlnSysId, Collection<String> idList) {
         getPSSysServiceAPIFeignClient(devSlnSysId).removeBatch(idList);
     }
 
     @Override
     public PSSysServiceAPI get(String pssysserviceapiid) {
-		PSSysServiceAPI et=pSSysServiceAPIFeignClient.get(pssysserviceapiid);
-        if(et==null){
-            et=new PSSysServiceAPI();
+        PSSysServiceAPI et = pSSysServiceAPIFeignClient.get(pssysserviceapiid);
+        if (et == null) {
+            et = new PSSysServiceAPI();
             et.setPssysserviceapiid(pssysserviceapiid);
         }
-        else{
+        else {
         }
         return  et;
     }
 
     @Override
-    public PSSysServiceAPI get(String devSlnSysId,String pssysserviceapiid) {
-		PSSysServiceAPI et=getPSSysServiceAPIFeignClient(devSlnSysId).get(pssysserviceapiid);
-        if(et==null){
-            et=new PSSysServiceAPI();
+    public PSSysServiceAPI get(String devSlnSysId, String pssysserviceapiid) {
+        PSSysServiceAPI et = getPSSysServiceAPIFeignClient(devSlnSysId).get(pssysserviceapiid);
+        if (et == null) {
+            et = new PSSysServiceAPI();
             et.setPssysserviceapiid(pssysserviceapiid);
         }
-        else{
+        else {
         }
-        return  et;
+        return et;
     }
 
     @Override
-    public String getByCodeName(String devSlnSysId,String codeName) {
+    public String getByCodeName(String devSlnSysId, String codeName) {
         return getPSSysServiceAPIFeignClient(devSlnSysId).getByCodeName(codeName);
     }
 
     @Override
     public PSSysServiceAPI getDraft(PSSysServiceAPI et) {
-        et=pSSysServiceAPIFeignClient.getDraft();
+        et = pSSysServiceAPIFeignClient.getDraft();
         return et;
     }
 
     @Override
-    public PSSysServiceAPI getDraft(String devSlnSysId,PSSysServiceAPI et) {
-        et=getPSSysServiceAPIFeignClient(devSlnSysId).getDraft();
+    public PSSysServiceAPI getDraft(String devSlnSysId, PSSysServiceAPI et) {
+        et = getPSSysServiceAPIFeignClient(devSlnSysId).getDraft();
         return et;
     }
 
@@ -191,41 +195,47 @@ public class PSSysServiceAPIServiceImpl implements IPSSysServiceAPIService {
     }
 
     @Override
-    public boolean checkKey(String devSlnSysId,PSSysServiceAPI et) {
+    public boolean checkKey(String devSlnSysId, PSSysServiceAPI et) {
         return getPSSysServiceAPIFeignClient(devSlnSysId).checkKey(et);
     }
 
     @Override
     @Transactional
     public boolean save(PSSysServiceAPI et) {
-        if(et.getPssysserviceapiid()==null) et.setPssysserviceapiid((String)et.getDefaultKey(true));
-        if(!pSSysServiceAPIFeignClient.save(et))
+        if (et.getPssysserviceapiid() == null) {
+            et.setPssysserviceapiid((String)et.getDefaultKey(true));
+        }
+        if (!pSSysServiceAPIFeignClient.save(et)) {
             return false;
+        }
         return true;
     }
 
     @Override
     @Transactional
-    public boolean save(String devSlnSysId,PSSysServiceAPI et) {
-        if(et.getPssysserviceapiid()==null) et.setPssysserviceapiid((String)et.getDefaultKey(true));
-        if(!getPSSysServiceAPIFeignClient(devSlnSysId).save(et))
+    public boolean save(String devSlnSysId, PSSysServiceAPI et) {
+        if (et.getPssysserviceapiid() == null) {
+            et.setPssysserviceapiid((String)et.getDefaultKey(true));
+        }
+        if (!getPSSysServiceAPIFeignClient(devSlnSysId).save(et)) {
             return false;
+        }
         return true;
     }
 
     @Override
     public void saveBatch(List<PSSysServiceAPI> list) {
-        pSSysServiceAPIFeignClient.saveBatch(list) ;
+        pSSysServiceAPIFeignClient.saveBatch(list);
     }
 
     @Override
-    public void saveBatch(String devSlnSysId,List<PSSysServiceAPI> list) {
-        getPSSysServiceAPIFeignClient(devSlnSysId).saveBatch(list) ;
+    public void saveBatch(String devSlnSysId, List<PSSysServiceAPI> list) {
+        getPSSysServiceAPIFeignClient(devSlnSysId).saveBatch(list);
     }
 
 
 
-	@Override
+    @Override
     public List<PSSysServiceAPI> selectByPsmoduleid(String psmoduleid) {
         PSSysServiceAPISearchContext context=new PSSysServiceAPISearchContext();
         context.setSize(Integer.MAX_VALUE);
@@ -234,31 +244,40 @@ public class PSSysServiceAPIServiceImpl implements IPSSysServiceAPIService {
     }
 
     @Override
-    public List<PSSysServiceAPI> selectByPsmoduleid(String devSlnSysId,String psmoduleid) {
-        PSSysServiceAPISearchContext context=new PSSysServiceAPISearchContext();
+    public List<PSSysServiceAPI> selectByPsmoduleid(String devSlnSysId, String psmoduleid) {
+        PSSysServiceAPISearchContext context = new PSSysServiceAPISearchContext();
         context.setSize(Integer.MAX_VALUE);
         context.setN_psmoduleid_eq(psmoduleid);
         return getPSSysServiceAPIFeignClient(devSlnSysId).searchDefault(context).getContent();
     }
 
     @Override
+    public List<PSSysServiceAPI> selectByPsmoduleid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
+
+    @Override
     public void removeByPsmoduleid(String psmoduleid) {
         Set<String> delIds=new HashSet<String>();
-        for(PSSysServiceAPI before:selectByPsmoduleid(psmoduleid)){
+        for (PSSysServiceAPI before:selectByPsmoduleid(psmoduleid)) {
             delIds.add(before.getPssysserviceapiid());
         }
-        if(delIds.size()>0)
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
+        }
     }
 
     @Override
-    public void removeByPsmoduleid(String devSlnSysId,String psmoduleid) {
-        Set<String> delIds=new HashSet<String>();
-        for(PSSysServiceAPI before:selectByPsmoduleid(devSlnSysId,psmoduleid)){
+    public void removeByPsmoduleid(String devSlnSysId, String psmoduleid) {
+        Set<String> delIds = new HashSet<String>();
+        for(PSSysServiceAPI before:selectByPsmoduleid(devSlnSysId, psmoduleid)){
             delIds.add(before.getPssysserviceapiid());
         }
-        if(delIds.size()>0)
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
+        }
     }
 
 
@@ -273,10 +292,11 @@ public class PSSysServiceAPIServiceImpl implements IPSSysServiceAPIService {
     }
 
     @Override
-    public Page<PSSysServiceAPI> searchDefault(String devSlnSysId,PSSysServiceAPISearchContext context) {
+    public Page<PSSysServiceAPI> searchDefault(String devSlnSysId, PSSysServiceAPISearchContext context) {
         Page<PSSysServiceAPI> pSSysServiceAPIs=getPSSysServiceAPIFeignClient(devSlnSysId).searchDefault(context);
         return pSSysServiceAPIs;
     }
+
 
 
 

@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     order: "排序",
@@ -194,6 +193,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			lib: "编号",
 			pri: "P",
@@ -239,6 +239,10 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	editviewtoolbar_toolbar: {

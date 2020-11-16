@@ -14,6 +14,8 @@ export default {
     parentname: "上级模块",
     branch: "平台/分支",
     parent: "上级模块",
+    mdeptid: "部门标识",
+    orgid: "组织标识",
   },
 	views: {
 		mobpickupview: {

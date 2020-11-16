@@ -231,12 +231,6 @@
                 <version>${jsonwebtoken-jjwt.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${alibaba-druid.version}</version>
-            </dependency>
-
              <dependency>
                 <groupId>org.zalando</groupId>
                 <artifactId>problem-spring-web</artifactId>
@@ -267,7 +261,6 @@
                 <artifactId>jobs-spring-boot-starter</artifactId>
                 <version>${baomidou-jobs.version}</version>
             </dependency>
-
 
         </dependencies>
     </dependencyManagement>
@@ -335,6 +328,8 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+
+
 
 
     </dependencies>

@@ -21,6 +21,13 @@ export default class ActionUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  ActionUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  ActionUIServiceBase
@@ -89,16 +96,15 @@ export default class ActionUIServiceBase extends UIService {
      * @memberof  ActionUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'myalltrendslistview',srfappde:'actions',component:'action-my-all-trends-list-view'});
-        this.allViewMap.set(':',{viewname:'historylistview',srfappde:'actions',component:'action-history-list-view'});
-        this.allViewMap.set(':',{viewname:'projecttrendslistview',srfappde:'actions',component:'action-project-trends-list-view'});
-        this.allViewMap.set(':',{viewname:'projecttrendslistview9',srfappde:'actions',component:'action-project-trends-list-view9'});
-        this.allViewMap.set(':',{viewname:'producttrendslistview9',srfappde:'actions',component:'action-product-trends-list-view9'});
-        this.allViewMap.set(':',{viewname:'addcommenthistorylistview',srfappde:'actions',component:'action-add-comment-history-list-view'});
-        this.allViewMap.set(':',{viewname:'optionview',srfappde:'actions',component:'action-option-view'});
-        this.allViewMap.set(':',{viewname:'alltrendslistview',srfappde:'actions',component:'action-all-trends-list-view'});
-        this.allViewMap.set(':',{viewname:'producttrendslistview',srfappde:'actions',component:'action-product-trends-list-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'actions',component:'action-edit-view'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'actions',
+            component: 'action-edit-view',
+            openmode: 'POPUPMODAL',
+            title: '备注',
+            width: 800,
+            height: 0
+        });
     }
 
     /**

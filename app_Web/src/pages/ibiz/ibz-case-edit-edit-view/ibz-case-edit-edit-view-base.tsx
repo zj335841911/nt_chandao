@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import IbzCaseService from '@/service/ibz-case/ibz-case-service';
 import IbzCaseAuthService from '@/authservice/ibz-case/ibz-case-auth-service';
@@ -48,7 +48,7 @@ export class IbzCaseEditEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzCaseEditEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class IbzCaseEditEditViewBase extends EditViewBase {
 	 * @memberof IbzCaseEditEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'case' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'case',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class IbzCaseEditEditViewBase extends EditViewBase {
 	 * @memberof IbzCaseEditEditViewBase
 	 */
     protected customViewParams: any = {
-        'objecttype': { isRawValue: true, value: 'case' }
+        'objecttype': {
+            isRawValue: true,
+            value: 'case',
+        }
     };
 
     /**
@@ -93,7 +99,7 @@ export class IbzCaseEditEditViewBase extends EditViewBase {
      *
      * @memberof IbzCaseEditEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -106,8 +112,8 @@ export class IbzCaseEditEditViewBase extends EditViewBase {
         srfCaption: 'entities.ibzcase.views.editeditview.caption',
         srfTitle: 'entities.ibzcase.views.editeditview.title',
         srfSubTitle: 'entities.ibzcase.views.editeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,8 +123,14 @@ export class IbzCaseEditEditViewBase extends EditViewBase {
      * @memberof IbzCaseEditEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +140,7 @@ export class IbzCaseEditEditViewBase extends EditViewBase {
      * @memberof IbzCaseEditEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -139,9 +151,18 @@ export class IbzCaseEditEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzCaseEditEditViewBase
      */
 	protected viewtag: string = '0a43b5a8be540dcb1227223ae1c9adc9';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzCaseEditEditViewBase
+     */ 
+    protected viewName: string = "IbzCaseEditEditView";
 
 
     /**
@@ -160,7 +181,9 @@ export class IbzCaseEditEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof IbzCaseEditEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     name: "名称",
@@ -48,18 +47,25 @@ export default {
 		},
 	},
 	platformmanagement_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			name: "名称",
 			order: "排序",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "编号",
+			name: "名称",
+			order: "排序",
+    },
 		uiactions: {
         branch_edit: "编辑",
         branch_delete: "删除",
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			name: "名称",
 		},

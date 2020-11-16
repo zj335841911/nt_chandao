@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import BugStatsService from '@/service/bug-stats/bug-stats-service';
 import BugStatsAuthService from '@/authservice/bug-stats/bug-stats-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import BugStatsUIService from '@/uiservice/bug-stats/bug-stats-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class BugStatsAssigntoGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BugStatsAssigntoGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class BugStatsAssigntoGridViewBase extends GridViewBase {
         srfCaption: 'entities.bugstats.views.assigntogridview.caption',
         srfTitle: 'entities.bugstats.views.assigntogridview.title',
         srfSubTitle: 'entities.bugstats.views.assigntogridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class BugStatsAssigntoGridViewBase extends GridViewBase {
      * @memberof BugStatsAssigntoGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
 
@@ -101,9 +107,18 @@ export class BugStatsAssigntoGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugStatsAssigntoGridViewBase
      */
 	protected viewtag: string = 'b90624360f51aadfbfaa92d563dc1410';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugStatsAssigntoGridViewBase
+     */ 
+    protected viewName: string = "BugStatsAssigntoGridView";
 
 
     /**
@@ -122,7 +137,9 @@ export class BugStatsAssigntoGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof BugStatsAssigntoGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -133,11 +150,11 @@ export class BugStatsAssigntoGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

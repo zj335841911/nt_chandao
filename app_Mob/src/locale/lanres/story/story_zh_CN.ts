@@ -55,6 +55,17 @@ export default {
     neednotreview: "不需要评审",
     isfavorites: "是否收藏",
     ischild: "是否可以细分",
+    mailtoconact: "联系人",
+    mailtopk: "抄送给",
+    assignedtopk: "指派给（选择）",
+    noticeusers: "消息通知用户",
+    ibiz_sourceobject: "来源对象",
+    sourceobject: "来源对象",
+    ibiz_id: "IBIZ标识",
+    sourcename: "来源对象名称",
+    sourceid: "来源对象标识",
+    ibiz_sourceid: "来源对象标识",
+    ibiz_sourcename: "来源对象名称",
   },
 	views: {
 		newmobeditview: {
@@ -64,6 +75,9 @@ export default {
 			caption: '需求',
 		},
 		mobmdview9: {
+			caption: '需求',
+		},
+		usr2mobmdview: {
 			caption: '需求',
 		},
 		rmoboptionview: {
@@ -78,6 +92,15 @@ export default {
 		linkstorymobmpickupview: {
 			caption: '管理需求',
 		},
+		usr2mobmpickupbuildview: {
+			caption: '关联需求',
+		},
+		logmobmdview9: {
+			caption: '更新日志',
+		},
+		usr3mobmdview: {
+			caption: '需求',
+		},
 		favoritemoremobmdview: {
 			caption: '我收藏的需求',
 		},
@@ -87,17 +110,29 @@ export default {
 		assmobmdview9: {
 			caption: '需求',
 		},
+		usr2mobmpickupview: {
+			caption: '关联需求',
+		},
 		favoritemobmdview9: {
+			caption: '需求',
+		},
+		usr2mobmdview_5219: {
 			caption: '需求',
 		},
 		cmoboptionview: {
 			caption: '关闭',
+		},
+		usr4mobmdview: {
+			caption: '需求',
 		},
 		assmobmdview: {
 			caption: '需求',
 		},
 		acmoboptionview: {
 			caption: '激活',
+		},
+		usr2mobpickupmdview: {
+			caption: '关联需求',
 		},
 		mobmdview: {
 			caption: '需求',
@@ -116,6 +151,9 @@ export default {
 		},
 		mobeditview: {
 			caption: '需求',
+		},
+		usr2mobpickupmdbuildview: {
+			caption: '关联需求',
 		},
 		mobpickupview: {
 			caption: '需求',
@@ -142,11 +180,56 @@ export default {
 			source: '需求来源', 
 			sourcenote: '来源备注', 
 			reviewedby: '由谁评审', 
-			assignedto: '由谁评审', 
+			assignedtopk: '由谁评审', 
 			neednotreview: '', 
 			title: '需求名称', 
 			pri: '优先级', 
 			estimate: '预计', 
+			spec: '需求描述', 
+			verify: '验收标准', 
+			mailto: '抄送给', 
+			mailtopk: '抄送给', 
+			keywords: '关键词', 
+			id: '编号', 
+			assignedto: '指派给', 
+		},
+		uiactions: {
+		},
+	},
+	mobmain_form: {
+		details: {
+			druipart2: '', 
+			grouppanel2: '附件', 
+			druipart1: '', 
+			grouppanel1: '历史记录', 
+			group1: '需求基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '需求名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			prodoctname: '产品名称', 
+			branch: '平台/分支', 
+			product: '所属产品', 
+			branchname: '平台/分支', 
+			modulename1: '所属模块名称', 
+			version: '版本号', 
+			title: '需求名称', 
+			type: '需求类型', 
+			pri: '优先级', 
+			status: '当前状态', 
+			assignedto: '指派给', 
+			assigneddate: '指派日期', 
+			source: '需求来源', 
+			sourcenote: '来源备注', 
+			stage: '所处阶段', 
+			closedby: '由谁关闭', 
+			closeddate: '关闭日期	', 
+			closedreason: '关闭原因', 
 			spec: '需求描述', 
 			verify: '验收标准', 
 			mailto: '抄送给', 
@@ -174,7 +257,7 @@ export default {
 			id: '编号', 
 			status: '当前状态', 
 			version: '版本#', 
-			assignedto: '由谁评审', 
+			assignedtopk: '由谁评审', 
 			reviewedby: '由谁评审', 
 			neednotreview: '需要评审', 
 			title: '需求名称', 
@@ -182,6 +265,7 @@ export default {
 			verify: '验收标准', 
 			comment: '备注', 
 			files: '附件', 
+			assignedto: '指派给', 
 		},
 		uiactions: {
 		},
@@ -200,9 +284,10 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
-			assignedto: '指派给', 
+			assignedtopk: '指派给', 
 			comment: '备注', 
 			id: '编号', 
+			assignedto: '指派给', 
 		},
 		uiactions: {
 		},
@@ -230,11 +315,12 @@ export default {
 			estimate: '预计工时', 
 			preversion: '之前版本', 
 			closedreason: '拒绝原因', 
-			assignedto: '指派给', 
+			assignedtopk: '指派给', 
 			version: '版本号', 
 			reviewedby: '由谁评审', 
 			comment: '备注', 
 			id: '编号', 
+			assignedto: '指派给', 
 		},
 		uiactions: {
 		},
@@ -260,44 +346,6 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmain_form: {
-		details: {
-			druipart1: '', 
-			grouppanel1: '历史记录', 
-			group1: '需求基本信息', 
-			formpage1: '基本信息', 
-			srfupdatedate: '最后修改日期', 
-			srforikey: '', 
-			srfkey: '编号', 
-			srfmajortext: '需求名称', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			prodoctname: '产品名称', 
-			branchname: '平台/分支', 
-			modulename1: '所属模块名称', 
-			title: '需求名称', 
-			type: '需求类型', 
-			pri: '优先级', 
-			status: '当前状态', 
-			assignedto: '指派给', 
-			assigneddate: '指派日期', 
-			source: '需求来源', 
-			sourcenote: '来源备注', 
-			stage: '所处阶段', 
-			closedby: '由谁关闭', 
-			closeddate: '关闭日期	', 
-			closedreason: '关闭原因', 
-			spec: '需求描述', 
-			verify: '验收标准', 
-			mailto: '抄送给', 
-			keywords: '关键词', 
-			id: '编号', 
-		},
-		uiactions: {
-		},
-	},
 	activitemob_form: {
 		details: {
 			druipart1: '', 
@@ -312,9 +360,10 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
-			assignedto: '指派给', 
+			assignedtopk: '指派给', 
 			comment: '备注', 
 			id: '编号', 
+			assignedto: '指派给', 
 		},
 		uiactions: {
 		},
@@ -335,10 +384,10 @@ export default {
 			tip: '保存',
 		},
 	},
-	mobmdviewrighttoolbar_toolbar: {
+	usr3mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
-			caption: '新建需求',
-			tip: '新建需求',
+			caption: '关联需求',
+			tip: '关联需求',
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
@@ -367,6 +416,26 @@ export default {
 			tip: '删除',
 		},
 	},
+	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建需求',
+			tip: '新建需求',
+		},
+	},
+	usr2mobmdview_5219righttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联需求',
+			tip: '关联需求',
+		},
+	},
+	usr4mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联需求',
+			tip: '关联需求',
+		},
+	},
 	mobmdviewcurprojectrighttoolbar_toolbar: {
+	},
+	usr2mobmdviewrighttoolbar_toolbar: {
 	},
 };

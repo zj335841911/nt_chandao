@@ -21,6 +21,13 @@ export default class ReleaseUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  ReleaseUIServiceBase
+     */
+    public isEnableDEMainState:boolean = true;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  ReleaseUIServiceBase
@@ -89,12 +96,24 @@ export default class ReleaseUIServiceBase extends UIService {
      * @memberof  ReleaseUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'optionview',srfappde:'releases',component:'release-option-view'});
-        this.allViewMap.set(':',{viewname:'maininfoview',srfappde:'releases',component:'release-main-info-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'releases',component:'release-grid-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'releases',component:'release-edit-view'});
-        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'releases',component:'release-main-tab-exp-view'});
-        this.allViewMap.set(':',{viewname:'quickcreateview',srfappde:'releases',component:'release-quick-create-view'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'releases',
+            component: 'release-grid-view',
+            openmode: '',
+            title: '发布',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'releases',
+            component: 'release-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '发布',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -176,7 +195,6 @@ export default class ReleaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '删除成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -248,7 +266,6 @@ export default class ReleaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '停止维护成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -453,7 +470,6 @@ export default class ReleaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联bug成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -538,7 +554,6 @@ export default class ReleaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '激活成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -612,7 +627,6 @@ export default class ReleaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

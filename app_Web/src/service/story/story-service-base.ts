@@ -1,5 +1,7 @@
-import { Http,Util } from '@/utils';
+import { Http } from '@/utils';
+import { Util } from '@/utils';
 import EntityService from '../entity-service';
+import GetCurUserConcatLogic from '@/service/story/get-cur-user-concat-logic';
 
 
 
@@ -2427,7 +2429,7 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
-     * SyncFromIBIZ接口方法
+     * SyncFromIbiz接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -2435,7 +2437,7 @@ export default class StoryServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof StoryServiceBase
      */
-    public async SyncFromIBIZ(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async SyncFromIbiz(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];
@@ -2557,6 +2559,26 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * FetchAssignedToMyStoryCalendar接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async FetchAssignedToMyStoryCalendar(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchassignedtomystorycalendar`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/stories/fetchassignedtomystorycalendar`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchBugStory接口方法
      *
      * @param {*} [context={}]
@@ -2657,6 +2679,26 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * FetchCaseStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async FetchCaseStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchcasestory`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/stories/fetchcasestory`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -2737,6 +2779,26 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * FetchNotCurPlanLinkStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async FetchNotCurPlanLinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchnotcurplanlinkstory`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/stories/fetchnotcurplanlinkstory`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchParentDefault接口方法
      *
      * @param {*} [context={}]
@@ -2753,6 +2815,26 @@ export default class StoryServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/stories/fetchparentdefault`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchParentDefaultQ接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async FetchParentDefaultQ(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchparentdefaultq`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/stories/fetchparentdefaultq`,tempData,isloading);
         return res;
     }
 
@@ -2946,6 +3028,21 @@ export default class StoryServiceBase extends EntityService {
      * @memberof StoryServiceBase
      */
     public async GetTaskReStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * GetUserConcat接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async GetUserConcat(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let appLogic:GetCurUserConcatLogic = new GetCurUserConcatLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        const res = await appLogic.onExecute(context,data,isloading?true:false);
+        return {status:200,data:res};
     }
 
     /**

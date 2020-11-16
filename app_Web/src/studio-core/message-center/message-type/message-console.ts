@@ -7,7 +7,6 @@ import { MessageTypeBase } from './base/message-type-base';
  * @class MessageConsole
  */
 export class MessageConsole extends MessageTypeBase {
-
     /**
      * 发送消息
      *
@@ -20,7 +19,8 @@ export class MessageConsole extends MessageTypeBase {
             if (this.subjectMap.has(type)) {
                 const sub: any = this.subjectMap.get(type);
                 sub.next(message);
-            } else { }
+            } else {
+            }
         } else {
             this.subject.next(message);
         }
@@ -38,10 +38,10 @@ export class MessageConsole extends MessageTypeBase {
             if (this.subjectLocalMap.has(type)) {
                 const sub: any = this.subjectLocalMap.get(type);
                 sub.next(message);
-            } else { }
+            } else {
+            }
         } else {
             this.subjectLocal.next(message);
         }
     }
-
 }

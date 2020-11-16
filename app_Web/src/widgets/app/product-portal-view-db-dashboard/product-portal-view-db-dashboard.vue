@@ -1,5 +1,5 @@
-<template src="./product-portal-view-db-dashboard.html"/>
-<script lang='tsx'>
+<template src="./product-portal-view-db-dashboard.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductPortalView_dbDashboardBase } from './product-portal-view-db-dashboard-base';
@@ -18,13 +18,13 @@ import view_db_assignedtomestoryportlet from '@widgets/story/assigned-to-me-stor
  */
 @Component({
     components: {
-        view_db_productexpportlet, 
-        view_db_productunclosedportlet, 
-        view_db_productstatusportlet, 
-        view_db_assignedtomestoryportlet, 
+        view_db_productexpportlet,
+        view_db_productunclosedportlet,
+        view_db_productstatusportlet,
+        view_db_assignedtomestoryportlet,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ProductPortalView_dbDashboard extends ProductPortalView_dbDashboardBase { }
+export default class ProductPortalView_dbDashboard extends ProductPortalView_dbDashboardBase {}
 </script>

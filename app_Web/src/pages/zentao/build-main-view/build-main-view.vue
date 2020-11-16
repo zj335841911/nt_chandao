@@ -1,5 +1,5 @@
-<template src="./build-main-view.html"/>
-<script lang='tsx'>
+<template src="./build-main-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BuildMainViewBase } from './build-main-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/build/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BuildMainView extends BuildMainViewBase { }
+export default class BuildMainView extends BuildMainViewBase {}
 </script>

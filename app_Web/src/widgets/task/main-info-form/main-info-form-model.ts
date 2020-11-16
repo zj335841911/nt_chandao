@@ -76,6 +76,11 @@ export default class MainInfoModel {
         dataType: 'TEXT',
       },
       {
+        name: 'assigneddate',
+        prop: 'assigneddate',
+        dataType: 'DATETIME',
+      },
+      {
         name: 'type',
         prop: 'type',
         dataType: 'SSCODELIST',
@@ -86,6 +91,11 @@ export default class MainInfoModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'progressrate',
+        prop: 'progressrate',
+        dataType: 'TEXT',
+      },
+      {
         name: 'pri',
         prop: 'pri',
         dataType: 'NSCODELIST',
@@ -93,7 +103,17 @@ export default class MainInfoModel {
       {
         name: 'mailto',
         prop: 'mailto',
-        dataType: 'LONGTEXT',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'openedby',

@@ -173,4 +173,28 @@ export interface Build {
      * @memberof Build
      */
     sqlid?: any;
+
+    /**
+     * 产生的bug
+     *
+     * @returns {*}
+     * @memberof Build
+     */
+    createbugcnt?: any;
+
+    /**
+     * 构建者（选择）
+     *
+     * @returns {*}
+     * @memberof Build
+     */
+    builderpk?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Build
+     */
+    noticeusers?: any;
 }

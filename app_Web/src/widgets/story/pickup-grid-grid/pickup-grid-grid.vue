@@ -1,5 +1,5 @@
-<template src="./pickup-grid-grid.html"/>
-<script lang='tsx'>
+<template src="./pickup-grid-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { PickupGridGridBase } from './pickup-grid-grid-base';
@@ -15,8 +15,8 @@ import { PickupGridGridBase } from './pickup-grid-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class PickupGridGrid extends PickupGridGridBase { }
+export default class PickupGridGrid extends PickupGridGridBase {}
 </script>

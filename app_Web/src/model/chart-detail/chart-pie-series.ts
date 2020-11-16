@@ -6,8 +6,7 @@ import { ChartSeries } from './chart-series';
  * @export
  * @class ChartPieSeries
  */
-export class ChartPieSeries extends ChartSeries{
-
+export class ChartPieSeries extends ChartSeries {
     /**
      * 分类属性
      *
@@ -38,7 +37,7 @@ export class ChartPieSeries extends ChartSeries{
      * @type {string}
      * @memberof ChartPieSeries
      */
-    public dimensions:Array<string> = [];
+    public dimensions: Array<string> = [];
 
     /**
      * 维度编码
@@ -46,13 +45,12 @@ export class ChartPieSeries extends ChartSeries{
      * @type {*}
      * @memberof ChartPieSeries
      */
-    public encode:any = null;
-
+    public encode: any = null;
 
     /**
      * Creates an instance of ChartPieSeries.
      * ChartPieSeries 实例
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof ChartPieSeries
      */
@@ -61,7 +59,7 @@ export class ChartPieSeries extends ChartSeries{
         this.categorField = !Object.is(opts.categorField, '') ? opts.categorField : '';
         this.categorCodeList = opts.categorCodeList ? opts.categorCodeList : null;
         this.valueField = !Object.is(opts.valueField, '') ? opts.valueField : '';
-        this.dimensions = opts.dimensions ? opts.dimensions :'';
+        this.dimensions = opts.dimensions ? opts.dimensions : '';
         this.encode = opts.encode ? opts.encode : null;
     }
 
@@ -114,5 +112,4 @@ export class ChartPieSeries extends ChartSeries{
     public setEncode(state: any): void {
         this.encode = state;
     }
-
 }

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductAuthService from '@/authservice/product/product-auth-service';
@@ -62,7 +62,7 @@ export class ProductMyTestTabExpViewBase extends TabExpViewBase {
      *
      * @memberof ProductMyTestTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class ProductMyTestTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.product.views.mytesttabexpview.caption',
         srfTitle: 'entities.product.views.mytesttabexpview.title',
         srfSubTitle: 'entities.product.views.mytesttabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class ProductMyTestTabExpViewBase extends TabExpViewBase {
      * @memberof ProductMyTestTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -95,9 +98,18 @@ export class ProductMyTestTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductMyTestTabExpViewBase
      */
 	protected viewtag: string = 'd21c783cde14166ba9deb09e746a0f28';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductMyTestTabExpViewBase
+     */ 
+    protected viewName: string = "ProductMyTestTabExpView";
 
 
     /**
@@ -116,7 +128,9 @@ export class ProductMyTestTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof ProductMyTestTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

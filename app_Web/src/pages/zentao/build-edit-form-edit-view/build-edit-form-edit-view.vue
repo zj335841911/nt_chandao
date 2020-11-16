@@ -1,5 +1,5 @@
-<template src="./build-edit-form-edit-view.html"/>
-<script lang='tsx'>
+<template src="./build-edit-form-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BuildEditFormEditViewBase } from './build-edit-form-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/build/edit-form-form/edit-form-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BuildEditFormEditView extends BuildEditFormEditViewBase { }
+export default class BuildEditFormEditView extends BuildEditFormEditViewBase {}
 </script>

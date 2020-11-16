@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductAuthService from '@/authservice/product/product-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import ProductUIService from '@/uiservice/product/product-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProductTestGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductTestGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ProductTestGridViewBase extends GridViewBase {
         srfCaption: 'entities.product.views.testgridview.caption',
         srfTitle: 'entities.product.views.testgridview.title',
         srfSubTitle: 'entities.product.views.testgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,9 +91,22 @@ export class ProductTestGridViewBase extends GridViewBase {
      * @memberof ProductTestGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -112,9 +125,18 @@ export class ProductTestGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductTestGridViewBase
      */
 	protected viewtag: string = '1d697dd8e47a4781be8f690bcc5f7800';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductTestGridViewBase
+     */ 
+    protected viewName: string = "ProductTestGridView";
 
 
     /**
@@ -133,7 +155,9 @@ export class ProductTestGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof ProductTestGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -144,8 +168,8 @@ export class ProductTestGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,
@@ -165,6 +189,9 @@ export class ProductTestGridViewBase extends GridViewBase {
     public toolbar_click($event: any, $event2?: any): void {
         if (Object.is($event.tag, 'tbitem13')) {
             this.toolbar_tbitem13_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.toolbar_deuiaction1_click(null, '', $event2);
         }
     }
 
@@ -285,6 +312,34 @@ export class ProductTestGridViewBase extends GridViewBase {
     }
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"Product");
+    }
+
+    /**
      * 打开编辑数据视图
      *
      * @param {any[]} args
@@ -333,5 +388,22 @@ export class ProductTestGridViewBase extends GridViewBase {
             return ;
         }
         xData.exportExcel($event.exportparms);
+    }
+    /**
+     * 过滤
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof ProductTestGridViewBase
+     */
+    public ToggleFilter(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (_this.hasOwnProperty('isExpandSearchForm')) {
+            _this.isExpandSearchForm = !_this.isExpandSearchForm;
+        }
     }
 }

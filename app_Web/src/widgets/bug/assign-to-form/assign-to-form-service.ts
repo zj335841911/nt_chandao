@@ -1,7 +1,9 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import BugService from '@/service/bug/bug-service';
 import AssignToModel from './assign-to-form-model';
+import UserContactService from '@/service/user-contact/user-contact-service';
 
 
 /**
@@ -40,6 +42,14 @@ export default class AssignToService extends ControlService {
         super(opts);
         this.model = new AssignToModel();
     }
+
+    /**
+     * 用户联系方式服务对象
+     *
+     * @type {UserContactService}
+     * @memberof AssignToService
+     */
+    public usercontactService: UserContactService = new UserContactService();
 
     /**
      * 远端数据
@@ -90,6 +100,9 @@ export default class AssignToService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
+        if (Object.is(serviceName, 'UserContactService') && Object.is(interfaceName, 'FetchCurUSERCONTACT')) {
+            return this.doItems(this.usercontactService.FetchCurUSERCONTACT(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'usercontact');
+        }
 
         return Promise.reject([])
     }

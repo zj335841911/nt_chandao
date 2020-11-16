@@ -31,7 +31,7 @@ public interface PSDataEntityFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/psdataentities/{psdataentityid}")
-    PSDataEntity update(@PathVariable("psdataentityid") String psdataentityid,@RequestBody PSDataEntity psdataentity);
+    PSDataEntity update(@PathVariable("psdataentityid") String psdataentityid, @RequestBody PSDataEntity psdataentity);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/psdataentities/batch")
     Boolean updateBatch(@RequestBody List<PSDataEntity> psdataentities);

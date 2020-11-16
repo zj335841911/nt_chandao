@@ -29,8 +29,41 @@ export default {
 		newmobeditview: {
 			caption: '产品计划',
 		},
+		mobtabexpview: {
+			caption: '产品计划',
+		},
+		editmobeditview: {
+			caption: '产品计划',
+		},
 		mobeditview: {
 			caption: '产品计划',
+		},
+	},
+	mobmaintable_form: {
+		details: {
+			grouppanel2: '分组面板', 
+			grouppanel1: '分组面板', 
+			group1: 'productplan基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			product: '产品', 
+			branch: '平台/分支', 
+			title: '名称', 
+			oldtitle: '', 
+			future: '待定', 
+			begin: '开始日期', 
+			delta: '周期', 
+			end: '结束日期', 
+			desc: '描述', 
+			id: '编号', 
+		},
+		uiactions: {
 		},
 	},
 	mobnewform_form: {
@@ -66,6 +99,8 @@ export default {
 			grouppanel1: '关联需求详情', 
 			druipart1: '', 
 			grouppanel2: '关联Bug详情', 
+			druipart3: '', 
+			grouppanel3: '历史记录', 
 			group1: '产品计划基本信息', 
 			formpage1: '基本信息', 
 			srforikey: '', 
@@ -75,10 +110,12 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
+			branch: '平台/分支', 
 			title: '名称', 
 			begin: '开始日期', 
 			end: '结束日期', 
 			storycnt: '需求数', 
+			desc: '描述', 
 			bugcnt: 'bug数', 
 			id: '编号', 
 		},
@@ -96,6 +133,12 @@ export default {
 		uiactions: {
 		},
 	},
+	editmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
+		},
+	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
@@ -109,5 +152,13 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_mobmainedit: {
+			caption: '编辑',
+			tip: 'deuiaction1_mobmainedit',
+		},
+		deuiaction1_mobdelete: {
+			caption: '删除',
+			tip: 'deuiaction1_mobdelete',
+		},
 	},
 };

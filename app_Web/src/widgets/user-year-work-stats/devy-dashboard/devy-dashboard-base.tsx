@@ -1,11 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import UserYearWorkStatsService from '@/service/user-year-work-stats/user-year-work-stats-service';
 import DEVYService from './devy-dashboard-service';
 import UserYearWorkStatsUIService from '@/uiservice/user-year-work-stats/user-year-work-stats-ui-service';
 import UtilService from '@/utilservice/util-service';
-
 
 /**
  * dashboard部件基类
@@ -15,7 +15,6 @@ import UtilService from '@/utilservice/util-service';
  * @extends {DEVYDashboardBase}
  */
 export class DEVYDashboardBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +64,7 @@ export class DEVYDashboardBase extends MainControlBase {
      * @type {UserYearWorkStatsUIService}
      * @memberof DEVYBase
      */  
-    public appUIService:UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
+    public appUIService: UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
 
     /**
      * 是否支持看板定制

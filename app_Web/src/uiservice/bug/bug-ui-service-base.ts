@@ -21,6 +21,13 @@ export default class BugUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  BugUIServiceBase
+     */
+    public isEnableDEMainState:boolean = true;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  BugUIServiceBase
@@ -53,7 +60,7 @@ export default class BugUIServiceBase extends UIService {
      * 
      * @memberof  BugUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['status','isfavorites'];
+    public mainStateFields:Array<any> = ['status','isfavorites','confirmed'];
 
     /**
      * 主状态集合Map
@@ -89,51 +96,33 @@ export default class BugUIServiceBase extends UIService {
      * @memberof  BugUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'plansubgridview',srfappde:'bugs',component:'bug-plan-sub-grid-view'});
-        this.allViewMap.set(':',{viewname:'buildsubgridview_new',srfappde:'bugs',component:'bug-build-sub-grid-view-new'});
-        this.allViewMap.set(':',{viewname:'mpickupview4',srfappde:'bugs',component:'bug-mpickup-view4'});
-        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'bugs',component:'bug-main-edit-view'});
-        this.allViewMap.set(':',{viewname:'myfavoritegridview',srfappde:'bugs',component:'bug-my-favorite-grid-view'});
-        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'bugs',component:'bug-main-dashboard-view'});
-        this.allViewMap.set(':',{viewname:'gridview9_storyaffect',srfappde:'bugs',component:'bug-grid-view9-storyaffect'});
-        this.allViewMap.set(':',{viewname:'pickupgridview4',srfappde:'bugs',component:'bug-pickup-grid-view4'});
-        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'bugs',component:'bug-pickup-grid-view'});
-        this.allViewMap.set('MPICKUPVIEW:',{viewname:'mpickupview',srfappde:'bugs',component:'bug-mpickup-view'});
-        this.allViewMap.set(':',{viewname:'activationview',srfappde:'bugs',component:'bug-activation-view'});
-        this.allViewMap.set(':',{viewname:'buildsubgridview_new_9212',srfappde:'bugs',component:'bug-build-sub-grid-view-new-9212'});
-        this.allViewMap.set(':',{viewname:'buglifeeditview9',srfappde:'bugs',component:'bug-bug-life-edit-view9'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'bugs',component:'bug-edit-view'});
-        this.allViewMap.set(':',{viewname:'mpickupview2',srfappde:'bugs',component:'bug-mpickup-view2'});
-        this.allViewMap.set(':',{viewname:'editview_1162',srfappde:'bugs',component:'bug-edit-view-1162'});
-        this.allViewMap.set(':',{viewname:'testreportsubgridview',srfappde:'bugs',component:'bug-test-report-sub-grid-view'});
-        this.allViewMap.set(':',{viewname:'releasesubgridview_done',srfappde:'bugs',component:'bug-release-sub-grid-view-done'});
-        this.allViewMap.set(':',{viewname:'stepsinfoeditview',srfappde:'bugs',component:'bug-steps-info-edit-view'});
-        this.allViewMap.set(':',{viewname:'gridview9_storyformbug',srfappde:'bugs',component:'bug-grid-view9-story-form-bug'});
-        this.allViewMap.set(':',{viewname:'confirmview',srfappde:'bugs',component:'bug-confirm-view'});
-        this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'bugs',component:'bug-grid-view9-assigned-to-me'});
-        this.allViewMap.set(':',{viewname:'usr2gridview',srfappde:'bugs',component:'bug-usr2-grid-view'});
-        this.allViewMap.set(':',{viewname:'maindashboardview_link',srfappde:'bugs',component:'bug-main-dashboard-view-link'});
-        this.allViewMap.set(':',{viewname:'editview_4791',srfappde:'bugs',component:'bug-edit-view-4791'});
-        this.allViewMap.set(':',{viewname:'projectgridview',srfappde:'bugs',component:'bug-project-grid-view'});
-        this.allViewMap.set(':',{viewname:'pickupgridview_buildlinkresolvedbugs',srfappde:'bugs',component:'bug-pickup-grid-view-build-link-resolved-bugs'});
-        this.allViewMap.set(':',{viewname:'releasesubgridview_undone',srfappde:'bugs',component:'bug-release-sub-grid-view-undone'});
-        this.allViewMap.set(':',{viewname:'todoeditview',srfappde:'bugs',component:'bug-todo-edit-view'});
-        this.allViewMap.set(':',{viewname:'pickupgridview5',srfappde:'bugs',component:'bug-pickup-grid-view5'});
-        this.allViewMap.set(':',{viewname:'resolveview',srfappde:'bugs',component:'bug-resolve-view'});
-        this.allViewMap.set(':',{viewname:'resolvechartview',srfappde:'bugs',component:'bug-resolve-chart-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'bugs',component:'bug-grid-view'});
-        this.allViewMap.set(':',{viewname:'gridview9_storyrelated',srfappde:'bugs',component:'bug-grid-view9-story-related'});
-        this.allViewMap.set(':',{viewname:'gridview9_myassignedtome',srfappde:'bugs',component:'bug-grid-view9-my-assigned-to-me'});
-        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'bugs',component:'bug-main-my-grid-view'});
-        this.allViewMap.set(':',{viewname:'casetobugeditview',srfappde:'bugs',component:'bug-case-to-bug-edit-view'});
-        this.allViewMap.set(':',{viewname:'projectbugsgridview',srfappde:'bugs',component:'bug-project-bugs-grid-view'});
-        this.allViewMap.set(':',{viewname:'totalopenedchartview',srfappde:'bugs',component:'bug-total-opened-chart-view'});
-        this.allViewMap.set(':',{viewname:'testbugsgridview',srfappde:'bugs',component:'bug-test-bugs-grid-view'});
-        this.allViewMap.set(':',{viewname:'closeview',srfappde:'bugs',component:'bug-close-view'});
-        this.allViewMap.set(':',{viewname:'assingtoview',srfappde:'bugs',component:'bug-assing-to-view'});
-        this.allViewMap.set(':',{viewname:'dashboardmaineditview9',srfappde:'bugs',component:'bug-dashboard-main-edit-view9'});
-        this.allViewMap.set(':',{viewname:'mpickupview5',srfappde:'bugs',component:'bug-mpickup-view5'});
-        this.allViewMap.set(':',{viewname:'buildsubgridview_done',srfappde:'bugs',component:'bug-build-sub-grid-view-done'});
+        this.allViewMap.set('MPICKUPVIEW:', {
+            viewname: 'mpickupview',
+            srfappde: 'bugs',
+            component: 'bug-mpickup-view',
+            openmode: 'DRAWER_TOP',
+            title: '关联Bug',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'bugs',
+            component: 'bug-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: 'Bug',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'bugs',
+            component: 'bug-grid-view',
+            openmode: '',
+            title: 'Bug',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -142,12 +131,18 @@ export default class BugUIServiceBase extends UIService {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateMap(){
-        this.allDeMainStateMap.set('active__0','active__0');
-        this.allDeMainStateMap.set('active__1','active__1');
-        this.allDeMainStateMap.set('closed__0','closed__0');
-        this.allDeMainStateMap.set('closed__1','closed__1');
-        this.allDeMainStateMap.set('resolved__0','resolved__0');
-        this.allDeMainStateMap.set('resolved__1','resolved__1');
+        this.allDeMainStateMap.set('active__0__0','active__0__0');
+        this.allDeMainStateMap.set('active__0__1','active__0__1');
+        this.allDeMainStateMap.set('active__1__0','active__1__0');
+        this.allDeMainStateMap.set('active__1__1','active__1__1');
+        this.allDeMainStateMap.set('closed__0__0','closed__0__0');
+        this.allDeMainStateMap.set('closed__0__1','closed__0__1');
+        this.allDeMainStateMap.set('closed__1__0','closed__1__0');
+        this.allDeMainStateMap.set('closed__1__1','closed__1__1');
+        this.allDeMainStateMap.set('resolved__0__0','resolved__0__0');
+        this.allDeMainStateMap.set('resolved__0__1','resolved__0__1');
+        this.allDeMainStateMap.set('resolved__1__0','resolved__1__0');
+        this.allDeMainStateMap.set('resolved__1__1','resolved__1__1');
     }
 
     /**
@@ -156,12 +151,18 @@ export default class BugUIServiceBase extends UIService {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('active__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('active__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('resolved__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('resolved__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,'SRFUR__BUG_ACTIVATE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_ASSIGNTO_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_ASSIGNTO_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_ASSIGNTO_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_ASSIGNTO_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__PROP_LBUG_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('resolved__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('resolved__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('resolved__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('resolved__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,'SRFUR__PROP_LBUG_BUT':0,}));
     }
 
     /**
@@ -212,7 +213,6 @@ export default class BugUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -253,8 +253,8 @@ export default class BugUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{RELEASE:"%srfparentkey%"});
-        Object.assign(params,{release:"%srfparentkey%"});
+        Object.assign(context,{RELEASE:"%release%"});
+        Object.assign(params,{release:"%release%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { bug: '%bug%' });
@@ -286,7 +286,6 @@ export default class BugUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '移除bug成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -360,7 +359,6 @@ export default class BugUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联bug成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -395,6 +393,119 @@ export default class BugUIServiceBase extends UIService {
             });
         };
         backend();
+    }
+
+    /**
+     * MORE
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_More(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'bugs', parameterName: 'bug' },
+            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
+    }
+
+    /**
+     * 指派
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Bug_AssingToBug(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { bug: '%bug%' });
+        Object.assign(params, { id: '%bug%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'bugs', parameterName: 'bug' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'bug-assing-to-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.bug.views.assingtoview.title'),
+            };
+            openPopupModal(view, data);
     }
 
     /**
@@ -458,7 +569,6 @@ export default class BugUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '解除关联成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -499,8 +609,8 @@ export default class BugUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{RELEASE:"%srfparentkey%"});
-        Object.assign(params,{release:"%srfparentkey%"});
+        Object.assign(context,{RELEASE:"%release%"});
+        Object.assign(params,{release:"%release%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { bug: '%bug%' });
@@ -532,7 +642,6 @@ export default class BugUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '移除bug成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -729,7 +838,6 @@ export default class BugUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联Bug成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1084,7 +1192,6 @@ export default class BugUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '移除成功' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1155,7 +1262,6 @@ export default class BugUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '提Bug成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1302,7 +1408,6 @@ export default class BugUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联bug成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1454,7 +1559,6 @@ export default class BugUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '收藏成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1778,7 +1882,6 @@ export default class BugUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联bug成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1874,7 +1977,6 @@ export default class BugUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

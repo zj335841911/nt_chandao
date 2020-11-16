@@ -18,6 +18,8 @@
     </parent>
 
     <modules>
+        <!-- docs -->
+        <module>ibizpms-docs</module>
         <!-- dependencies -->
         <module>ibizpms-dependencies</module>
         <!-- utils -->

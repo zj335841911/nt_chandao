@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -48,7 +48,7 @@ export class BugMainEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugMainEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,9 +74,18 @@ export class BugMainEditViewBase extends EditViewBase {
 	 * @memberof BugMainEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PRODUCT': { isRawValue: false, value: 'product' },
-        'OBJECTTYPE': { isRawValue: true, value: 'bug' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'bug' }
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'bug',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'bug',
+        }
     };
 
     /**
@@ -84,7 +93,7 @@ export class BugMainEditViewBase extends EditViewBase {
      *
      * @memberof BugMainEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -97,8 +106,8 @@ export class BugMainEditViewBase extends EditViewBase {
         srfCaption: 'entities.bug.views.maineditview.caption',
         srfTitle: 'entities.bug.views.maineditview.title',
         srfSubTitle: 'entities.bug.views.maineditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -108,8 +117,14 @@ export class BugMainEditViewBase extends EditViewBase {
      * @memberof BugMainEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -119,7 +134,7 @@ export class BugMainEditViewBase extends EditViewBase {
      * @memberof BugMainEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -130,9 +145,18 @@ export class BugMainEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugMainEditViewBase
      */
 	protected viewtag: string = '122af527bf38b47ddc53c882847b490e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugMainEditViewBase
+     */ 
+    protected viewName: string = "BugMainEditView";
 
 
     /**
@@ -151,7 +175,9 @@ export class BugMainEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BugMainEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -14,12 +14,12 @@
 
     
               <ion-toolbar>
-    <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
+    <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
   </ion-toolbar>
 
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_pickupviewpanel
             :viewState="viewState"
             viewName="UserMobMPickupView"  
@@ -35,12 +35,12 @@
         </view_pickupviewpanel>
     </ion-content>
     <ion-footer class="view-footer">
-        <ion-toolbar style="text-align: center;">
-    <div class="mobpickupview_button">
-      <ion-button class="pick-btn" @click="onClickCancel" color="medium">{{$t('app.button.cancel')}}</ion-button>
+        <div class="mpicker_buttons">
+    <div class="demobmpickupview_button">
+      <div class="selectedCount"  @click="select_click">已选择：{{viewSelections.length}}<ion-icon name="chevron-up-outline"></ion-icon></div>
       <ion-button class="pick-btn" @click="onClickOk" :disabled="viewSelections.length === 0">{{$t('app.button.confirm')}}</ion-button>
     </div>
-</ion-toolbar>
+</div>
 
     </ion-footer>
 </ion-page>
@@ -48,12 +48,13 @@
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import UserService from '@/app-core/service/user/user-service';
 
 import MobMPickupViewEngine from '@engine/view/mob-mpickup-view-engine';
 import UserUIService from '@/ui-service/user/user-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -152,6 +153,14 @@ export default class UserMobMPickupViewBase extends Vue {
      * @memberof UserMobMPickupViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof UserMobMPickupViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
@@ -303,6 +312,8 @@ export default class UserMobMPickupViewBase extends Vue {
         return true;
     }
 
+
+
     /**
      * 视图引擎
      *
@@ -393,6 +404,9 @@ export default class UserMobMPickupViewBase extends Vue {
             _this.loadModel();
         }
         this.thirdPartyInit();
+        if(this.viewparams.selectedData){
+            this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', this.viewparams.selectedData);
+        }
 
     }
 
@@ -543,6 +557,19 @@ export default class UserMobMPickupViewBase extends Vue {
     }
 
     /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof UserMobMPickupViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
+
+    /**
      * 视图选中数据
      *
      * @type {any[]}
@@ -601,10 +628,7 @@ export default class UserMobMPickupViewBase extends Vue {
         const pickupviewpanel: any = this.$refs.pickupviewpanel;
         if (pickupviewpanel) {
             this.quickValue = event.detail.value;
-            let response = await pickupviewpanel.quickSearch(this.quickValue);
-            if (response) {
-                
-            }
+            pickupviewpanel.quickSearch(this.quickValue);
         }
     }
 

@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface IBZProStoryModuleMapper extends BaseMapper<IBZProStoryModule>{
+public interface IBZProStoryModuleMapper extends BaseMapper<IBZProStoryModule> {
 
-    Page<IBZProStoryModule> searchDefault(IPage page, @Param("srf") IBZProStoryModuleSearchContext context, @Param("ew") Wrapper<IBZProStoryModule> wrapper) ;
+    Page<IBZProStoryModule> searchDefault(IPage page, @Param("srf") IBZProStoryModuleSearchContext context, @Param("ew") Wrapper<IBZProStoryModule> wrapper);
     @Override
     IBZProStoryModule selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface IBZProStoryModuleMapper extends BaseMapper<IBZProStoryModule>{
     int update(@Param(Constants.ENTITY) IBZProStoryModule entity, @Param("ew") Wrapper<IBZProStoryModule> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -62,8 +62,8 @@ public interface IBZProStoryModuleMapper extends BaseMapper<IBZProStoryModule>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<IBZProStoryModule> selectByRoot(@Param("id") Serializable id) ;
+    List<IBZProStoryModule> selectByRoot(@Param("id") Serializable id);
 
-    List<IBZProStoryModule> selectByParent(@Param("id") Serializable id) ;
+    List<IBZProStoryModule> selectByParent(@Param("id") Serializable id);
 
 }

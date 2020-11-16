@@ -95,9 +95,18 @@ export class UserTreeExpViewBase extends TreeExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof UserTreeExpViewBase
      */
 	protected viewtag: string = 'e2f8bc0ff75f204383d2a5c15117b476';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof UserTreeExpViewBase
+     */ 
+    protected viewName:string = "UserTreeExpView";
 
 
     /**

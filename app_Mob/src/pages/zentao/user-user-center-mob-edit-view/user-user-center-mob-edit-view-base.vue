@@ -1,4 +1,3 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'user-user-center-mob-edit-view': true }">
     
@@ -16,7 +15,7 @@
     
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_form
             :viewState="viewState"
             viewName="UserUserCenterMobEditView"  
@@ -48,12 +47,13 @@
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import UserService from '@/app-core/service/user/user-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
 import UserUIService from '@/ui-service/user/user-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -152,6 +152,14 @@ export default class UserUserCenterMobEditViewBase extends Vue {
      * @memberof UserUserCenterMobEditViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof UserUserCenterMobEditViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
@@ -572,6 +580,19 @@ export default class UserUserCenterMobEditViewBase extends Vue {
             _this.onRefreshView();
         }
     }
+
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof UserUserCenterMobEditViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
 
 
     /**

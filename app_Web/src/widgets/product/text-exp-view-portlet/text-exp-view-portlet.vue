@@ -1,12 +1,12 @@
-<template src="./text-exp-view-portlet.html"/>
-<script lang='tsx'>
+<template src="./text-exp-view-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TextExpViewPortletBase } from './text-exp-view-portlet-base';
  
 
 /**
- * db_sysportlet2部件
+ * dashboard_sysportlet9部件
  *
  * @export
  * @class TextExpViewPortlet
@@ -15,8 +15,8 @@ import { TextExpViewPortletBase } from './text-exp-view-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class TextExpViewPortlet extends TextExpViewPortletBase { }
+export default class TextExpViewPortlet extends TextExpViewPortletBase {}
 </script>

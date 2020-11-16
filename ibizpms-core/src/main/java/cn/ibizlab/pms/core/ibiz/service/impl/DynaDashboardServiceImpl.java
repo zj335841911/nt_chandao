@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibiz.domain.DynaDashboard;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.ibiz.mapper.DynaDashboardMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -52,39 +54,44 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
     @Override
     @Transactional
     public boolean create(DynaDashboard et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
-        CachedBeanCopier.copy(get(et.getDynadashboardid()),et);
+        }
+        CachedBeanCopier.copy(get(et.getDynadashboardid()), et);
         return true;
     }
 
     @Override
+    @Transactional
     public void createBatch(List<DynaDashboard> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(DynaDashboard et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("dynadashboardid",et.getDynadashboardid())))
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("dynadashboardid", et.getDynadashboardid()))) {
             return false;
-        CachedBeanCopier.copy(get(et.getDynadashboardid()),et);
+        }
+        CachedBeanCopier.copy(get(et.getDynadashboardid()), et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<DynaDashboard> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
-        return result ;
+        boolean result = removeById(key);
+        return result;
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<String> idList) {
         removeByIds(idList);
     }
@@ -93,11 +100,11 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
     @Transactional
     public DynaDashboard get(String key) {
         DynaDashboard et = getById(key);
-        if(et==null){
-            et=new DynaDashboard();
+        if (et == null) {
+            et = new DynaDashboard();
             et.setDynadashboardid(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -109,13 +116,14 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
 
     @Override
     public boolean checkKey(DynaDashboard et) {
-        return (!ObjectUtils.isEmpty(et.getDynadashboardid()))&&(!Objects.isNull(this.getById(et.getDynadashboardid())));
+        return (!ObjectUtils.isEmpty(et.getDynadashboardid())) && (!Objects.isNull(this.getById(et.getDynadashboardid())));
     }
     @Override
     @Transactional
     public boolean save(DynaDashboard et) {
-        if(!saveOrUpdate(et))
+        if (!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -130,14 +138,16 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<DynaDashboard> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<DynaDashboard> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
@@ -147,7 +157,7 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
      */
     @Override
     public Page<DynaDashboard> searchDefault(DynaDashboardSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DynaDashboard> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DynaDashboard> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<DynaDashboard>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -158,24 +168,24 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -191,15 +201,20 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
         List ids =new ArrayList();
         for(DynaDashboard entity : entities){
             Serializable id=entity.getDynadashboardid();
-            if(!ObjectUtils.isEmpty(id)){
+            if (!ObjectUtils.isEmpty(id)) {
                 ids.add(id);
             }
         }
-        if(ids.size()>0)
-           return this.listByIds(ids);
-        else
-           return entities;
+        if (ids.size() > 0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
     }
+
+
+
 
 }
 

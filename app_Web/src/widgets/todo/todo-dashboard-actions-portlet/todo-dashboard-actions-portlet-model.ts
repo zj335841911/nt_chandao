@@ -111,6 +111,12 @@ export default class TodoDashboardActionsModel {
       {
         name: 'date_disable',
       },
+      {
+        name: 'assignedtopk',
+      },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

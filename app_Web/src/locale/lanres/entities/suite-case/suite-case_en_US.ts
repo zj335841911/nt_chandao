@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     id: "虚拟主键",

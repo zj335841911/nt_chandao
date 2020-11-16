@@ -11,14 +11,13 @@ import './app-header-menus.less';
  */
 @Component({})
 export class AppHeaderMenus extends Vue {
-
     /**
      * 部件名称
      *
      * @type {string}
      * @memberof AppHeaderMenus
      */
-    @Prop() 
+    @Prop()
     public ctrlName!: string;
 
     /**
@@ -38,7 +37,7 @@ export class AppHeaderMenus extends Vue {
      * @memberof AppHeaderMenus
      */
     @Emit('menu-click')
-    public menuClick(item: any): any { }
+    public menuClick(item: any): any {}
 
     /**
      * 组件创建完毕
@@ -148,13 +147,15 @@ export class AppHeaderMenus extends Vue {
      * @memberof AppHeaderMenus
      */
     protected renderMenuItem(item: any): any {
-        if(item.hidden) {
+        if (item.hidden) {
             return;
         }
-        return <menuItem title={item.tooltip} name={item.name}>
-            <menu-icon item={item} />
-            {this.$t(`app.menus.${this.ctrlName}.${item.name}`)}
-        </menuItem>;
+        return (
+            <menuItem title={item.tooltip} name={item.name}>
+                <menu-icon item={item} />
+                {this.$t(`app.menus.${this.ctrlName}.${item.name}`)}
+            </menuItem>
+        );
     }
 
     /**
@@ -166,16 +167,18 @@ export class AppHeaderMenus extends Vue {
      * @memberof AppHeaderMenus
      */
     protected renderSubMenu(item: any): any {
-        if(item.hidden) {
+        if (item.hidden) {
             return;
         }
-        return <submenu name={item.name}>
-            <template slot="title">
-                <menu-icon item={item} />
-                {this.$t(`app.menus.${this.ctrlName}.${item.name}`)}
-            </template>
-            {this.renderMenus(item.items)}
-        </submenu>;
+        return (
+            <submenu name={item.name}>
+                <template slot="title">
+                    <menu-icon item={item} />
+                    {this.$t(`app.menus.${this.ctrlName}.${item.name}`)}
+                </template>
+                {this.renderMenus(item.items)}
+            </submenu>
+        );
     }
 
     /**
@@ -185,10 +188,12 @@ export class AppHeaderMenus extends Vue {
      * @memberof AppHeaderMenus
      */
     public render(): any {
-        return <div class="app-header-menus">
-            <i-menu mode="horizontal" on-on-select={(val: string) => this.onSelect(val)}>
-                {this.renderMenus(this.menus)}
-            </i-menu>
-        </div>;
+        return (
+            <div class="app-header-menus">
+                <i-menu mode="horizontal" on-on-select={(val: string) => this.onSelect(val)}>
+                    {this.renderMenus(this.menus)}
+                </i-menu>
+            </div>
+        );
     }
 }

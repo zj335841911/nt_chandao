@@ -25,6 +25,9 @@ export default class GroupTrendsModel {
 				name: 'date',
 			},
 			{
+				name: 'srfkey',
+			},
+			{
 				name: 'objectid',
 			},
 			{

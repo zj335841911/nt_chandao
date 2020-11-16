@@ -445,4 +445,92 @@ export interface Story {
      * @memberof Story
      */
     ischild?: any;
+
+    /**
+     * 联系人
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    mailtoconact?: any;
+
+    /**
+     * 抄送给
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    mailtopk?: any;
+
+    /**
+     * 指派给（选择）
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    assignedtopk?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    noticeusers?: any;
+
+    /**
+     * 来源对象
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    ibiz_sourceobject?: any;
+
+    /**
+     * 来源对象
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    sourceobject?: any;
+
+    /**
+     * IBIZ标识
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    ibiz_id?: any;
+
+    /**
+     * 来源对象名称
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    sourcename?: any;
+
+    /**
+     * 来源对象标识
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    sourceid?: any;
+
+    /**
+     * 来源对象标识
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    ibiz_sourceid?: any;
+
+    /**
+     * 来源对象名称
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    ibiz_sourcename?: any;
 }

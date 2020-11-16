@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import IbzLibModuleService from '@/service/ibz-lib-module/ibz-lib-module-service';
 import TreeLibExpService from './tree-lib-exp-treeview-service';
 import IbzLibModuleUIService from '@/uiservice/ibz-lib-module/ibz-lib-module-ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * treeexpbar_tree部件基类
@@ -15,7 +14,6 @@ import { ViewTool } from '@/utils';
  * @extends {TreeLibExpTreeBase}
  */
 export class TreeLibExpTreeBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class TreeLibExpTreeBase extends MainControlBase {
      * @type {IbzLibModuleUIService}
      * @memberof TreeLibExpBase
      */  
-    public appUIService:IbzLibModuleUIService = new IbzLibModuleUIService(this.$store);
+    public appUIService: IbzLibModuleUIService = new IbzLibModuleUIService(this.$store);
 
 
     /**
@@ -708,7 +706,7 @@ export class TreeLibExpTreeBase extends MainControlBase {
             let flag:boolean = false;
             if(Object.values(result).length>0){
                 flag =Object.values(result).some((item:any) =>{
-                    return item.visabled === true;
+                    return item.visible === true;
                 })
             }
             if(flag){

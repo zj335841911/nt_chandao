@@ -1,5 +1,13 @@
 <studio-view viewName="buildmaingridview" viewTitle="版本表格视图" class='degridview build-main-grid-view'>
-    <i-input slot='quickSearch' clearable  v-show="!isExpandSearchForm" v-model="query" placeholder="名称编号" search @on-search="onSearch($event)"/>
+    <i-input
+        slot='quickSearch'
+        clearable
+        v-show="!isExpandSearchForm"
+        v-model="query"
+        placeholder="名称编号"
+        search
+        @on-search="onSearch($event)"
+    />
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>
     </template>
@@ -29,6 +37,7 @@
         :showBusyIndicator="true"
         :isOpenEdit="false"
         :gridRowActiveMode="gridRowActiveMode"
+        :isformDruipart="isformDruipart"
         @save="onSave.apply(_self, arguments)"
         updateAction=""
         removeAction="Remove"

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import TodoService from '@/service/todo/todo-service';
 import TodoAuthService from '@/authservice/todo/todo-auth-service';
@@ -48,7 +48,7 @@ export class TodoTodoCreateViewBase extends EditViewBase {
      * @type {string}
      * @memberof TodoTodoCreateViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class TodoTodoCreateViewBase extends EditViewBase {
 	 * @memberof TodoTodoCreateViewBase
 	 */
     protected customViewNavContexts: any = {
-        'SRFLOGINNAME': { isRawValue: false, value: 'srfloginname' }
+        'SRFLOGINNAME': {
+            isRawValue: false,
+            value: 'srfloginname',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class TodoTodoCreateViewBase extends EditViewBase {
 	 * @memberof TodoTodoCreateViewBase
 	 */
     protected customViewParams: any = {
-        'srfloginname': { isRawValue: false, value: 'srfloginname' }
+        'srfloginname': {
+            isRawValue: false,
+            value: 'srfloginname',
+        }
     };
 
     /**
@@ -93,7 +99,7 @@ export class TodoTodoCreateViewBase extends EditViewBase {
      *
      * @memberof TodoTodoCreateViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -106,8 +112,8 @@ export class TodoTodoCreateViewBase extends EditViewBase {
         srfCaption: 'entities.todo.views.todocreateview.caption',
         srfTitle: 'entities.todo.views.todocreateview.title',
         srfSubTitle: 'entities.todo.views.todocreateview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,8 +123,14 @@ export class TodoTodoCreateViewBase extends EditViewBase {
      * @memberof TodoTodoCreateViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +140,7 @@ export class TodoTodoCreateViewBase extends EditViewBase {
      * @memberof TodoTodoCreateView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -139,9 +151,18 @@ export class TodoTodoCreateViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TodoTodoCreateViewBase
      */
 	protected viewtag: string = '927d6e92ed15eeb2397da22824122b27';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoTodoCreateViewBase
+     */ 
+    protected viewName: string = "TodoTodoCreateView";
 
 
     /**
@@ -160,7 +181,9 @@ export class TodoTodoCreateViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TodoTodoCreateViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

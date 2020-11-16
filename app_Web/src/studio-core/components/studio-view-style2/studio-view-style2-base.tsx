@@ -9,7 +9,6 @@ import './studio-view-style2.less';
  * @extends {Vue}
  */
 export class StudioViewStyle2Base extends StudioViewBase {
-
     /**
      * 组件创建完毕
      *
@@ -19,7 +18,8 @@ export class StudioViewStyle2Base extends StudioViewBase {
         if (this.hiddenHeader) {
             this.isShowHeader = false;
         } else {
-            this.isShowHeader = (this.$slots.title || this.$slots.quickSearchForm || this.$slots.quickGroupSearch) ? true : false;
+            this.isShowHeader =
+                this.$slots.title || this.$slots.quickSearchForm || this.$slots.quickGroupSearch ? true : false;
         }
     }
 
@@ -33,7 +33,7 @@ export class StudioViewStyle2Base extends StudioViewBase {
      */
     protected getContainerClass(classNames?: { [str: string]: boolean }): { [str: string]: boolean } {
         return super.getContainerClass({
-            'mode-style2': true
+            'mode-style2': true,
         });
     }
 
@@ -46,46 +46,43 @@ export class StudioViewStyle2Base extends StudioViewBase {
      */
     protected renderContent(): any {
         return [
-            this.$slots.toolbar ? <div class="view-top" key="view-top">
-                {this.$slots.toolbar ? <div class="view-toolbar">{this.$slots.toolbar}</div> : null}
-                {this.$slots.quickSearch ? <div class="quick-search">
-                    {this.$slots.quickSearch}
-                </div> : null}
-            </div> : null,
-            this.$slots.topMessage ? <div class='view-top-messages'>
-                {this.$slots.topMessage}
-            </div> : null,
-            this.isShowHeader ? <div class={{ 'view-header': true, 'hidden-top': !this.$slots.toolbar }} key="view-header">
-                {this.$slots.title ? <div class="title">{this.$slots.title}</div> : null}
-                {this.$slots.dataPanel ? <div class="data-panel">{this.$slots.dataPanel}</div> : null}
-                {this.$slots.quickGroupSearch ? <div class="quick-group-search">
-                    {this.$slots.quickGroupSearch}
-                </div> : null}
-                {this.$slots.quickSearchForm ? <div class="quick-search-form">{this.$slots.quickSearchForm}</div> : null}
-                {!this.$slots.toolbar && this.$slots.quickSearch ? <div class="quick-search">
-                    {this.$slots.quickSearch}
-                </div> : null}
-            </div> : null,
-            this.$slots.quickGroupTab ? <div class='quick-group-tab'>
-                {this.$slots.quickGroupTab}
-            </div> : null,
-            <div class={{ 'view-content': true, 'show-search-form': this.$slots.searchForm }} key="view-content">
-                {this.$slots.searchForm ? <div class="search-form-wrapper">
-                    <transition name="width-transition">
-                        {this.$slots.searchForm}
-                    </transition>
-                </div> : null}
-                <div class="content-wrapper">
-                    {this.$slots.default}
+            this.$slots.toolbar ? (
+                <div class="view-top" key="view-top">
+                    {this.$slots.toolbar ? <div class="view-toolbar">{this.$slots.toolbar}</div> : null}
+                    {this.$slots.quickSearch ? <div class="quick-search">{this.$slots.quickSearch}</div> : null}
                 </div>
+            ) : null,
+            this.$slots.topMessage ? <div class="view-top-messages">{this.$slots.topMessage}</div> : null,
+            this.isShowHeader ? (
+                <div class={{ 'view-header': true, 'hidden-top': !this.$slots.toolbar }} key="view-header">
+                    {this.$slots.title ? <div class="title">{this.$slots.title}</div> : null}
+                    {this.$slots.dataPanel ? <div class="data-panel">{this.$slots.dataPanel}</div> : null}
+                    {this.$slots.quickGroupSearch ? (
+                        <div class="quick-group-search">{this.$slots.quickGroupSearch}</div>
+                    ) : null}
+                    {this.$slots.quickSearchForm ? (
+                        <div class="quick-search-form">{this.$slots.quickSearchForm}</div>
+                    ) : null}
+                    {!this.$slots.toolbar && this.$slots.quickSearch ? (
+                        <div class="quick-search">{this.$slots.quickSearch}</div>
+                    ) : null}
+                </div>
+            ) : null,
+            this.$slots.quickGroupTab ? <div class="quick-group-tab">{this.$slots.quickGroupTab}</div> : null,
+            <div class={{ 'view-content': true, 'show-search-form': this.$slots.searchForm }} key="view-content">
+                {this.$slots.searchForm ? (
+                    <div class="search-form-wrapper">
+                        <transition name="width-transition">{this.$slots.searchForm}</transition>
+                    </div>
+                ) : null}
+                <div class="content-wrapper">{this.$slots.default}</div>
             </div>,
-            this.$slots.bottomMessage ? <div class='view-bottom-messages'>
-                {this.$slots.bottomMessage}
-            </div> : null,
-            this.$slots.footer ? <div class="view-footer" key="view-footer">
-                {this.$slots.footer}
-            </div> : null
+            this.$slots.bottomMessage ? <div class="view-bottom-messages">{this.$slots.bottomMessage}</div> : null,
+            this.$slots.footer ? (
+                <div class="view-footer" key="view-footer">
+                    {this.$slots.footer}
+                </div>
+            ) : null,
         ];
     }
-
 }

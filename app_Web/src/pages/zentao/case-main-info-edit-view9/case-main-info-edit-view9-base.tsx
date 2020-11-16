@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
@@ -48,7 +48,7 @@ export class CaseMainInfoEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof CaseMainInfoEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class CaseMainInfoEditView9Base extends EditView9Base {
         srfCaption: 'entities.case.views.maininfoeditview9.caption',
         srfTitle: 'entities.case.views.maininfoeditview9.title',
         srfSubTitle: 'entities.case.views.maininfoeditview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class CaseMainInfoEditView9Base extends EditView9Base {
      * @memberof CaseMainInfoEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -97,9 +100,18 @@ export class CaseMainInfoEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseMainInfoEditView9Base
      */
 	protected viewtag: string = '4a5cfcdc473166f49cea6c9628865006';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseMainInfoEditView9Base
+     */ 
+    protected viewName: string = "CaseMainInfoEditView9";
 
 
     /**
@@ -118,7 +130,9 @@ export class CaseMainInfoEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof CaseMainInfoEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

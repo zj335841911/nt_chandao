@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_grouppriv",resultMap = "GroupPrivResultMap")
+@TableName(value = "zt_grouppriv", resultMap = "GroupPrivResultMap")
 public class GroupPriv extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -59,7 +61,7 @@ public class GroupPriv extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -77,25 +79,25 @@ public class GroupPriv extends EntityMP implements Serializable {
     /**
      * 设置 [group]
      */
-    public void setGroup(Integer group){
-        this.group = group ;
-        this.modify("group",group);
+    public void setGroup(Integer group) {
+        this.group = group;
+        this.modify("group", group);
     }
 
     /**
      * 设置 [method]
      */
-    public void setMethod(String method){
-        this.method = method ;
-        this.modify("method",method);
+    public void setMethod(String method) {
+        this.method = method;
+        this.modify("method", method);
     }
 
     /**
      * 设置 [module]
      */
-    public void setModule(String module){
-        this.module = module ;
-        this.modify("module",module);
+    public void setModule(String module) {
+        this.module = module;
+        this.modify("module", module);
     }
 
 
@@ -109,7 +111,7 @@ public class GroupPriv extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

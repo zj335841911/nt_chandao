@@ -1,5 +1,5 @@
-import Vue, { VNode, CreateElement } from "vue";
-import { Route } from "vue-router";
+import Vue, { VNode, CreateElement } from 'vue';
+import { Route } from 'vue-router';
 
 /**
  * 工具类
@@ -21,7 +21,14 @@ export declare interface ViewTool {
      * @returns {string}
      * @memberof ViewTool
      */
-    buildUpRoutePath(route: Route, viewParam: any, deResParameters: any[], parameters: any[], args: any[], data: any): string;
+    buildUpRoutePath(
+        route: Route,
+        viewParam: any,
+        deResParameters: any[],
+        parameters: any[],
+        args: any[],
+        data: any
+    ): string;
     /**
      * 获取首页根路径
      *
@@ -60,7 +67,7 @@ export declare interface ViewTool {
      * @returns {*}
      * @memberof ViewTool
      */
-    formatRouteParams(params: any,route:any,context:any,viewparams:any): any;
+    formatRouteParams(params: any, route: any, context: any, viewparams: any): any;
     /**
      * 设置首页路由结构参数
      *
@@ -103,10 +110,10 @@ export declare interface ViewTool {
      * @param {*} [UIService] 界面行为服务
      * @memberof ViewTool
      */
-    calcActionItemAuthState(data:any,ActionModel:any,UIService:any):any;
+    calcActionItemAuthState(data: any, ActionModel: any, UIService: any): any;
 }
 
-declare module "vue/types/vue" {
+declare module 'vue/types/vue' {
     interface Vue {
         /**
          * 工具类

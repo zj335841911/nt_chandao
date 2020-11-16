@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import TestSuiteService from '@/service/test-suite/test-suite-service';
 import TestSuiteAuthService from '@/authservice/test-suite/test-suite-auth-service';
@@ -48,7 +48,7 @@ export class TestSuiteEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof TestSuiteEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class TestSuiteEditView9Base extends EditView9Base {
         srfCaption: 'entities.testsuite.views.editview9.caption',
         srfTitle: 'entities.testsuite.views.editview9.title',
         srfSubTitle: 'entities.testsuite.views.editview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class TestSuiteEditView9Base extends EditView9Base {
      * @memberof TestSuiteEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -97,9 +100,18 @@ export class TestSuiteEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestSuiteEditView9Base
      */
 	protected viewtag: string = '0d5db9e736e4556dcfc45c455888a1a6';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestSuiteEditView9Base
+     */ 
+    protected viewName: string = "TestSuiteEditView9";
 
 
     /**
@@ -118,7 +130,9 @@ export class TestSuiteEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof TestSuiteEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

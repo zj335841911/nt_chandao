@@ -28,6 +28,7 @@ export { PickupViewPanelServiceBase } from './control-service/pickup-view-panel-
 export { WizardPanelServiceBase } from './control-service/wizard-panel-service-base';
 export { CalendarServiceBase } from './control-service/calendar-service-base';
 export { ChartServiceBase } from './control-service/chart-service-base';
+export { MapServiceBase } from './control-service/map-service-base';
 export { ControlBase } from './widgets/ControlBase';
 export { MOBMDCTRLBase } from './widgets/MOBMDCTRLBase';
 export { FORMBase } from './widgets/FORMBase';

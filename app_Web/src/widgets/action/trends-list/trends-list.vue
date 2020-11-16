@@ -1,5 +1,5 @@
-<template src="./trends-list.html"/>
-<script lang='tsx'>
+<template src="./trends-list.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TrendsListBase } from './trends-list-base';
@@ -15,8 +15,8 @@ import { TrendsListBase } from './trends-list-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class TrendsList extends TrendsListBase { }
+export default class TrendsList extends TrendsListBase {}
 </script>

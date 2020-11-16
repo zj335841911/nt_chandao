@@ -1,6 +1,6 @@
 <div class='tabviewpanel'>
     <tabs :value="activatedTabViewPanel" :animated="false" class='tabexppanel' name='maintabexpviewtabexppanel' @on-click="tabPanelClick($event)">
-        <tab-pane :index="0" name='tabviewpanel' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="0" name='tabviewpanel' tab='maintabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '测试用例'),
@@ -24,7 +24,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel>
         </tab-pane>
-        <tab-pane :index="1" name='tabviewpanel2' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="1" name='tabviewpanel2' tab='maintabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel2'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '测试版本详情'),

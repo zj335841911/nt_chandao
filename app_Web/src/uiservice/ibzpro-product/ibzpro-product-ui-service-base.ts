@@ -21,6 +21,13 @@ export default class IBZProProductUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  IBZProProductUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  IBZProProductUIServiceBase
@@ -89,8 +96,24 @@ export default class IBZProProductUIServiceBase extends UIService {
      * @memberof  IBZProProductUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'ibzproproducts',component:'ibzpro-product-grid-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'ibzproproducts',component:'ibzpro-product-edit-view'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'ibzproproducts',
+            component: 'ibzpro-product-grid-view',
+            openmode: '',
+            title: '平台产品',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'ibzproproducts',
+            component: 'ibzpro-product-edit-view',
+            openmode: '',
+            title: '平台产品',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

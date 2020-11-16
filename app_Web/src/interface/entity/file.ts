@@ -101,4 +101,12 @@ export interface File {
      * @memberof File
      */
     extra?: any;
+
+    /**
+     * 显示大小
+     *
+     * @returns {*}
+     * @memberof File
+     */
+    strsize?: any;
 }

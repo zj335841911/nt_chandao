@@ -96,14 +96,19 @@ export default class PlanNewModel {
         dataType: 'TEXT',
       },
       {
-        name: 'reviewedby',
-        prop: 'reviewedby',
-        dataType: 'SMCODELIST',
-      },
-      {
         name: 'assignedto',
         prop: 'assignedto',
         dataType: 'TEXT',
+      },
+      {
+        name: 'neednotreview',
+        prop: 'neednotreview',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'reviewedby',
+        prop: 'reviewedby',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'project',
@@ -141,8 +146,18 @@ export default class PlanNewModel {
         dataType: 'TEXT',
       },
       {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
         name: 'mailto',
         prop: 'mailto',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
         dataType: 'SMCODELIST',
       },
       {

@@ -1,10 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, ListControlBase } from '@/studio-core';
 import FileService from '@/service/file/file-service';
 import ListService from './list-list-service';
 import FileUIService from '@/uiservice/file/file-ui-service';
-
 
 /**
  * list部件基类
@@ -14,7 +14,6 @@ import FileUIService from '@/uiservice/file/file-ui-service';
  * @extends {ListListBase}
  */
 export class ListListBase extends ListControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,7 +63,7 @@ export class ListListBase extends ListControlBase {
      * @type {FileUIService}
      * @memberof ListBase
      */  
-    public appUIService:FileUIService = new FileUIService(this.$store);
+    public appUIService: FileUIService = new FileUIService(this.$store);
 
     
 
@@ -83,6 +82,8 @@ export class ListListBase extends ListControlBase {
      * @memberof ListListBase
      */
     public minorSortDir: string = '';
+
+
 
 
 }

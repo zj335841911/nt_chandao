@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_product",resultMap = "ProductStatsResultMap")
+@TableName(value = "zt_product", resultMap = "ProductStatsResultMap")
 public class ProductStats extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,16 +46,16 @@ public class ProductStats extends EntityMP implements Serializable {
     /**
      * 产品编号
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -267,39 +269,39 @@ public class ProductStats extends EntityMP implements Serializable {
     /**
      * 设置 [产品名称]
      */
-    public void setName(String name){
-        this.name = name ;
-        this.modify("name",name);
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [状态]
      */
-    public void setStatus(String status){
-        this.status = status ;
-        this.modify("status",status);
+    public void setStatus(String status) {
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [产品代号]
      */
-    public void setCode(String code){
-        this.code = code ;
-        this.modify("code",code);
+    public void setCode(String code) {
+        this.code = code;
+        this.modify("code", code);
     }
 
     /**
      * 设置 [产品类型]
      */
-    public void setType(String type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -311,7 +313,7 @@ public class ProductStats extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

@@ -64,7 +64,10 @@ export class StudioActionController {
      * @type {boolean}
      * @memberof StudioActionController
      */
-    public isShowTool: boolean = Object.is(window.localStorage.getItem('isShowViewConfigActions' + Environment.AppName), 'true');;
+    public isShowTool: boolean = Object.is(
+        window.localStorage.getItem('isShowViewConfigActions' + Environment.AppName),
+        'true'
+    );
 
     /**
      * Creates an instance of StudioActionController.
@@ -82,7 +85,7 @@ export class StudioActionController {
             });
             const f = new FooterItemsService();
             f.registerRightItem((h) => {
-                return <div on-click={() => this.showToolChange()}>{this.isShowTool ? '关闭' : '显示'}Debug栏</div>;;
+                return <div on-click={() => this.showToolChange()}>{this.isShowTool ? '关闭' : '显示'}Debug栏</div>;
             });
             f.tick();
         }
@@ -99,7 +102,12 @@ export class StudioActionController {
         const config: any = await this.getConfig(viewName);
         if (config) {
             const context: string = `视图模块：${config.viewmodule}\n视图抬头: ${config.title}\n视图标题: ${config.caption}\n视图标识：${config.viewname}\n视图类型：${config.viewtype}\n浏览器信息：${navigator.userAgent}<br/>\n`;
-            window.open(`${Environment.ProjectUrl}/issues/new?issue[title]=${encodeURIComponent('问题')}&issue[description]=${encodeURIComponent(context)}`, '_blank');
+            window.open(
+                `${Environment.ProjectUrl}/issues/new?issue[title]=${encodeURIComponent(
+                    '问题'
+                )}&issue[description]=${encodeURIComponent(context)}`,
+                '_blank'
+            );
         }
     }
 
@@ -114,22 +122,37 @@ export class StudioActionController {
         const config: any = await this.getConfig(viewName);
         if (config) {
             const params: any = {
-                "appType": "APPSTUDIO",
-                "appKey": Environment.AppId,
-                "dataType": "AppDesign_PSAppViewDesignRedirectView",
-                "srfkey": config.viewtag
+                appType: 'APPSTUDIO',
+                appKey: Environment.AppId,
+                dataType: 'AppDesign_PSAppViewDesignRedirectView',
+                srfkey: config.viewtag,
             };
             if (this.studioWin && this.studioWin.closed === false) {
-                this.studioWin.postMessage({
-                    type: 'OpenView',
-                    params
-                }, '*');
+                this.studioWin.postMessage(
+                    {
+                        type: 'OpenView',
+                        params,
+                    },
+                    '*'
+                );
                 Vue.prototype.$message.warning('请在已打开的配置平台查看!');
             } else {
                 if (Environment.debugOpenMode === 'sln') {
-                    this.studioWin = window.open(`${Environment.StudioUrl}?ov=${encodeURIComponent(JSON.stringify(params))}#/common_slnindex/srfkeys=${Environment.SlnId}/sysdesign_psdevslnsysmodeltreeexpview/srfkey=${Environment.SysId}`, '_blank');
+                    this.studioWin = window.open(
+                        `${Environment.StudioUrl}?ov=${encodeURIComponent(
+                            JSON.stringify(params)
+                        )}#/common_slnindex/srfkeys=${Environment.SlnId}/sysdesign_psdevslnsysmodeltreeexpview/srfkey=${
+                            Environment.SysId
+                        }`,
+                        '_blank'
+                    );
                 } else {
-                    this.studioWin = window.open(`${Environment.StudioUrl}?ov=${encodeURIComponent(JSON.stringify(params))}#/common_mosindex/srfkeys=${Environment.SysId}`, '_blank');
+                    this.studioWin = window.open(
+                        `${Environment.StudioUrl}?ov=${encodeURIComponent(
+                            JSON.stringify(params)
+                        )}#/common_mosindex/srfkeys=${Environment.SysId}`,
+                        '_blank'
+                    );
                 }
             }
         }
@@ -176,12 +199,16 @@ export class StudioActionController {
         const config: any = await this.getConfig(viewName);
         if (config) {
             const params: any = {
-                "appType": "APPSTUDIO",
-                "appKey": Environment.AppId,
-                "dataType": "AppDesign_PSAppViewDesignRedirectView",
-                "srfkey": config.viewtag
+                appType: 'APPSTUDIO',
+                appKey: Environment.AppId,
+                dataType: 'AppDesign_PSAppViewDesignRedirectView',
+                srfkey: config.viewtag,
             };
-            return textCopy.copy(`${Environment.StudioUrl}?ov=${encodeURIComponent(JSON.stringify(params))}#/common_slnindex/srfkeys=${Environment.SlnId}/sysdesign_psdevslnsysmodeltreeexpview/srfkey=${Environment.SysId}`);
+            return textCopy.copy(
+                `${Environment.StudioUrl}?ov=${encodeURIComponent(JSON.stringify(params))}#/common_slnindex/srfkeys=${
+                    Environment.SlnId
+                }/sysdesign_psdevslnsysmodeltreeexpview/srfkey=${Environment.SysId}`
+            );
         }
         return false;
     }
@@ -208,7 +235,10 @@ export class StudioActionController {
      */
     public showToolChange(): void {
         this.isShowTool = !this.isShowTool;
-        window.localStorage.setItem('isShowViewConfigActions' + Environment.AppName, this.isShowTool ? 'true' : 'false');
+        window.localStorage.setItem(
+            'isShowViewConfigActions' + Environment.AppName,
+            this.isShowTool ? 'true' : 'false'
+        );
     }
 
     /**
@@ -221,5 +251,4 @@ export class StudioActionController {
     public static getInstance(): StudioActionController {
         return this.instance;
     }
-
 }

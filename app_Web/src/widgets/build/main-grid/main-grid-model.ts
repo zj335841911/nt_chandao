@@ -23,6 +23,51 @@ export default class MainModel {
 	public getDataItems(): any[] {
     if(this.isDEExport){
 		  return [
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'scmpath',
+          prop: 'scmpath',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'filepath',
+          prop: 'filepath',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'date',
+          prop: 'date',
+          dataType: 'DATE',
+        },
+        {
+          name: 'builder',
+          prop: 'builder',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+        },
       ]
     }else{
 		  return [

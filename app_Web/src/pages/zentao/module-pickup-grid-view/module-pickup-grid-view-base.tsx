@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { PickupGridViewBase } from '@/studio-core';
 import ModuleService from '@/service/module/module-service';
 import ModuleAuthService from '@/authservice/module/module-auth-service';
@@ -48,7 +48,7 @@ export class ModulePickupGridViewBase extends PickupGridViewBase {
      * @type {string}
      * @memberof ModulePickupGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class ModulePickupGridViewBase extends PickupGridViewBase {
         srfCaption: 'entities.module.views.pickupgridview.caption',
         srfTitle: 'entities.module.views.pickupgridview.title',
         srfSubTitle: 'entities.module.views.pickupgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,8 +88,14 @@ export class ModulePickupGridViewBase extends PickupGridViewBase {
      * @memberof ModulePickupGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
 
@@ -98,9 +104,18 @@ export class ModulePickupGridViewBase extends PickupGridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ModulePickupGridViewBase
      */
 	protected viewtag: string = 'bda78773fabbeee54079951afb35f954';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ModulePickupGridViewBase
+     */ 
+    protected viewName: string = "ModulePickupGridView";
 
 
     /**
@@ -119,7 +134,9 @@ export class ModulePickupGridViewBase extends PickupGridViewBase {
      * @type {Array<*>}
      * @memberof ModulePickupGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

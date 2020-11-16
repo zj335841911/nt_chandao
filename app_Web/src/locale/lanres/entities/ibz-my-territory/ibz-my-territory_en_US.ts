@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     fails: "fails",
@@ -55,6 +54,14 @@ export default {
 			caption: "我的地盘",
       		title: "我的地盘",
 		},
+		calendarexpview: {
+			caption: "我的地盘",
+      		title: "我的地盘日历导航视图",
+		},
+		calendarview: {
+			caption: "我的地盘",
+      		title: "我的地盘日历视图",
+		},
 		testtreeexpview: {
 			caption: "测试统计",
       		title: "我的地盘树导航视图（测试统计）",
@@ -110,6 +117,21 @@ export default {
 			employeeload: "员工负载表",
 			root: "默认根节点",
 		},
+		uiactions: {
+		},
+	},
+	mywork_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	welcome_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	myworkpc_calendar: {
+		nodata: "",
 		uiactions: {
 		},
 	},

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { TreeExpViewBase } from '@/studio-core';
 import IbzLibModuleService from '@/service/ibz-lib-module/ibz-lib-module-service';
 import IbzLibModuleAuthService from '@/authservice/ibz-lib-module/ibz-lib-module-auth-service';
@@ -62,7 +62,7 @@ export class IbzLibModuleTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof IbzLibModuleTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class IbzLibModuleTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.ibzlibmodule.views.treeexpview.caption',
         srfTitle: 'entities.ibzlibmodule.views.treeexpview.title',
         srfSubTitle: 'entities.ibzlibmodule.views.treeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class IbzLibModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof IbzLibModuleTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
 
@@ -95,9 +98,18 @@ export class IbzLibModuleTreeExpViewBase extends TreeExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzLibModuleTreeExpViewBase
      */
 	protected viewtag: string = '1be20d21085195e17a87ad447b4cddb2';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzLibModuleTreeExpViewBase
+     */ 
+    protected viewName: string = "IbzLibModuleTreeExpView";
 
 
     /**
@@ -116,7 +128,9 @@ export class IbzLibModuleTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof IbzLibModuleTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

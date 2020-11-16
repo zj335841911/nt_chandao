@@ -54,11 +54,13 @@ export class EntityServiceRegister {
         this.allEntityService.set('burn', () => import('@/service/burn/burn-service'));
         this.allEntityService.set('substory', () => import('@/service/sub-story/sub-story-service'));
         this.allEntityService.set('subproductplan', () => import('@/service/sub-product-plan/sub-product-plan-service'));
-        this.allEntityService.set('employeeload', () => import('@/service/employ-eeload/employ-eeload-service'));
+        this.allEntityService.set('employeeload', () => import('@/service/emp-loyeeload/emp-loyeeload-service'));
+        this.allEntityService.set('doccontent', () => import('@/service/doc-content/doc-content-service'));
         this.allEntityService.set('storyspec', () => import('@/service/story-spec/story-spec-service'));
         this.allEntityService.set('usertpl', () => import('@/service/user-tpl/user-tpl-service'));
         this.allEntityService.set('ibzfavorites', () => import('@/service/ibz-favorites/ibz-favorites-service'));
         this.allEntityService.set('branch', () => import('@/service/branch/branch-service'));
+        this.allEntityService.set('sysdepartment', () => import('@/service/sys-department/sys-department-service'));
         this.allEntityService.set('productstats', () => import('@/service/product-stats/product-stats-service'));
         this.allEntityService.set('ibzprojectmember', () => import('@/service/ibz-project-member/ibz-project-member-service'));
         this.allEntityService.set('action', () => import('@/service/action/action-service'));
@@ -83,7 +85,9 @@ export class EntityServiceRegister {
         this.allEntityService.set('productmodule', () => import('@/service/product-module/product-module-service'));
         this.allEntityService.set('module', () => import('@/service/module/module-service'));
         this.allEntityService.set('testmodule', () => import('@/service/test-module/test-module-service'));
+        this.allEntityService.set('doclibmodule', () => import('@/service/doc-lib-module/doc-lib-module-service'));
         this.allEntityService.set('productlife', () => import('@/service/product-life/product-life-service'));
+        this.allEntityService.set('usercontact', () => import('@/service/user-contact/user-contact-service'));
         this.allEntityService.set('task', () => import('@/service/task/task-service'));
         this.allEntityService.set('build', () => import('@/service/build/build-service'));
         this.allEntityService.set('testresult', () => import('@/service/test-result/test-result-service'));
@@ -98,14 +102,18 @@ export class EntityServiceRegister {
         this.allEntityService.set('projectstats', () => import('@/service/project-stats/project-stats-service'));
         this.allEntityService.set('testrun', () => import('@/service/test-run/test-run-service'));
         this.allEntityService.set('ibzmyterritory', () => import('@/service/ibz-my-territory/ibz-my-territory-service'));
+        this.allEntityService.set('sysupdatelog', () => import('@/service/sys-update-log/sys-update-log-service'));
+        this.allEntityService.set('doc', () => import('@/service/doc/doc-service'));
         this.allEntityService.set('bug', () => import('@/service/bug/bug-service'));
         this.allEntityService.set('projectmodule', () => import('@/service/project-module/project-module-service'));
         this.allEntityService.set('ibzdoc', () => import('@/service/ibz-doc/ibz-doc-service'));
         this.allEntityService.set('pssysapp', () => import('@/service/pssys-app/pssys-app-service'));
         this.allEntityService.set('ibzcase', () => import('@/service/ibz-case/ibz-case-service'));
         this.allEntityService.set('pssystemdbcfg', () => import('@/service/pssystem-dbcfg/pssystem-dbcfg-service'));
+        this.allEntityService.set('sysupdatefeatures', () => import('@/service/sys-update-features/sys-update-features-service'));
         this.allEntityService.set('release', () => import('@/service/release/release-service'));
         this.allEntityService.set('dynadashboard', () => import('@/service/dyna-dashboard/dyna-dashboard-service'));
+        this.allEntityService.set('sysemployee', () => import('@/service/sys-employee/sys-employee-service'));
     }
 
     /**

@@ -96,14 +96,19 @@ export default class MainProjectNewModel {
         dataType: 'TEXT',
       },
       {
-        name: 'reviewedby',
-        prop: 'reviewedby',
-        dataType: 'SMCODELIST',
-      },
-      {
         name: 'assignedto',
         prop: 'assignedto',
         dataType: 'TEXT',
+      },
+      {
+        name: 'neednotreview',
+        prop: 'neednotreview',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'reviewedby',
+        prop: 'reviewedby',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'project',
@@ -146,6 +151,11 @@ export default class MainProjectNewModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
         name: 'keywords',
         prop: 'keywords',
         dataType: 'TEXT',
@@ -154,6 +164,11 @@ export default class MainProjectNewModel {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'story',

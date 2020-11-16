@@ -1,5 +1,5 @@
-<template src="./main-info-portlet.html"/>
-<script lang='tsx'>
+<template src="./main-info-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainInfoPortletBase } from './main-info-portlet-base';
@@ -15,8 +15,8 @@ import { MainInfoPortletBase } from './main-info-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MainInfoPortlet extends MainInfoPortletBase { }
+export default class MainInfoPortlet extends MainInfoPortletBase {}
 </script>

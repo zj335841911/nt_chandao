@@ -1,4 +1,3 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'bug-resolve-mob-edit-view': true }">
     
@@ -16,7 +15,7 @@
     
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_form
             :viewState="viewState"
             viewName="BugResolveMobEditView"  
@@ -45,6 +44,7 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div  class = "fab_container">
+            <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
                 <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" size="large">
                     <ion-icon name="checkmark-outline"></ion-icon>
@@ -53,6 +53,7 @@
                 
             </div>
         
+            </div>
         </div>
     </ion-footer>
 </ion-page>
@@ -60,12 +61,13 @@
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BugService from '@/app-core/service/bug/bug-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
 import BugUIService from '@/ui-service/bug/bug-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -164,6 +166,14 @@ export default class BugResolveMobEditViewBase extends Vue {
      * @memberof BugResolveMobEditViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof BugResolveMobEditViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
@@ -330,8 +340,8 @@ export default class BugResolveMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof BugResolveMobEditView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     
@@ -437,6 +447,7 @@ export default class BugResolveMobEditViewBase extends Vue {
      * @memberof BugResolveMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -451,6 +462,12 @@ export default class BugResolveMobEditViewBase extends Vue {
         this.afterMounted();
     }
 
+    /**
+     * 底部按钮样式
+     * 
+     * @memberof BugResolveMobEditViewBase
+     */
+    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
@@ -465,6 +482,8 @@ export default class BugResolveMobEditViewBase extends Vue {
         }
         this.thirdPartyInit();
 
+        // 拖动样式
+        AnimationService.draggable(document.getElementById(this.viewtag+'_bottom_button'),(style:any)=>{this.button_style = style});
     }
 
     /**
@@ -687,6 +706,19 @@ export default class BugResolveMobEditViewBase extends Vue {
             _this.onRefreshView();
         }
     }
+
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof BugResolveMobEditViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
 
 
     /**

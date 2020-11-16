@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import CaseUIService from '@/uiservice/case/case-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class CaseLinkCaseGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseLinkCaseGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class CaseLinkCaseGridViewBase extends GridViewBase {
 	 * @memberof CaseLinkCaseGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'TASK': { isRawValue: false, value: 'task' }
+        'TASK': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
 	/**
@@ -88,7 +91,10 @@ export class CaseLinkCaseGridViewBase extends GridViewBase {
 	 * @memberof CaseLinkCaseGridViewBase
 	 */
     protected customViewParams: any = {
-        'task': { isRawValue: false, value: 'task' }
+        'task': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
     /**
@@ -102,8 +108,8 @@ export class CaseLinkCaseGridViewBase extends GridViewBase {
         srfCaption: 'entities.case.views.linkcasegridview.caption',
         srfTitle: 'entities.case.views.linkcasegridview.title',
         srfSubTitle: 'entities.case.views.linkcasegridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -113,9 +119,18 @@ export class CaseLinkCaseGridViewBase extends GridViewBase {
      * @memberof CaseLinkCaseGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -125,7 +140,7 @@ export class CaseLinkCaseGridViewBase extends GridViewBase {
      * @memberof CaseLinkCaseGridView
      */
     public toolBarModels: any = {
-        deuiaction1_linkcase: { name: 'deuiaction1_linkcase', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', uiaction: { tag: 'linkCase', target: 'MULTIKEY', class: '' } },
+        deuiaction1_linkcase: { name: 'deuiaction1_linkcase', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', uiaction: { tag: 'linkCase', target: 'MULTIKEY', class: '' } },
 
     };
 
@@ -136,9 +151,18 @@ export class CaseLinkCaseGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseLinkCaseGridViewBase
      */
 	protected viewtag: string = '14d95e9a02db631c2b9af47641fcec4e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseLinkCaseGridViewBase
+     */ 
+    protected viewName: string = "CaseLinkCaseGridView";
 
 
     /**
@@ -157,7 +181,9 @@ export class CaseLinkCaseGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof CaseLinkCaseGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -168,11 +194,11 @@ export class CaseLinkCaseGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

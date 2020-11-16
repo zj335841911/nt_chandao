@@ -17,11 +17,11 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface BugStatsMapper extends BaseMapper<BugStats>{
+public interface BugStatsMapper extends BaseMapper<BugStats> {
 
-    Page<BugStats> searchBugassignedTo(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper) ;
-    Page<BugStats> searchDefault(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper) ;
-    Page<BugStats> searchProductCreateBug(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper) ;
+    Page<BugStats> searchBugassignedTo(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
+    Page<BugStats> searchDefault(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
+    Page<BugStats> searchProductCreateBug(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper);
     @Override
     BugStats selectById(Serializable id);
     @Override
@@ -32,13 +32,13 @@ public interface BugStatsMapper extends BaseMapper<BugStats>{
     int update(@Param(Constants.ENTITY) BugStats entity, @Param("ew") Wrapper<BugStats> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -64,6 +64,6 @@ public interface BugStatsMapper extends BaseMapper<BugStats>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<BugStats> selectByProduct(@Param("id") Serializable id) ;
+    List<BugStats> selectByProduct(@Param("id") Serializable id);
 
 }

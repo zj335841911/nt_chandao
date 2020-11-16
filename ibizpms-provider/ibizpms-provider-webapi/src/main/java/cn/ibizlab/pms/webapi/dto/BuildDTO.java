@@ -218,6 +218,33 @@ public class BuildDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String sqlid;
 
+    /**
+     * 属性 [CREATEBUGCNT]
+     *
+     */
+    @JSONField(name = "createbugcnt")
+    @JsonProperty("createbugcnt")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String createbugcnt;
+
+    /**
+     * 属性 [BUILDERPK]
+     *
+     */
+    @JSONField(name = "builderpk")
+    @JsonProperty("builderpk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String builderpk;
+
+    /**
+     * 属性 [NOTICEUSERS]
+     *
+     */
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String noticeusers;
+
 
     /**
      * 设置 [NAME]

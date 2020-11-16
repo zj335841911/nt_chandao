@@ -1,3 +1,4 @@
+import { OpenViewService } from '@/studio-core';
 import { Store } from 'vuex';
 
 /**
@@ -7,7 +8,6 @@ import { Store } from 'vuex';
  * @class UIService
  */
 export default class UIService {
-
     /**
      * Vue 状态管理器
      *
@@ -18,6 +18,14 @@ export default class UIService {
     private $store: Store<any> | null = null;
 
     /**
+     * 界面打开服务
+     *
+     * @protected
+     * @memberof UIService
+     */
+    protected openViewService: OpenViewService = new OpenViewService();
+
+    /**
      * 所依赖权限服务
      *
      * @memberof UIService
@@ -26,7 +34,7 @@ export default class UIService {
 
     /**
      * Creates an instance of UIService.
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof UIService
      */
@@ -57,11 +65,11 @@ export default class UIService {
     }
 
     /**
-    * 获取资源标识是否有权限(无数据目标)
-    * 
-    * @param tag 资源标识
-    * @memberof  UIService
-    */
+     * 获取资源标识是否有权限(无数据目标)
+     *
+     * @param tag 资源标识
+     * @memberof  UIService
+     */
     public getResourceOPPrivs(tag: any) {
         return this.authService.getResourcePermission(this.authService.sysOPPrivsMap.get(tag)) ? 1 : 0;
     }

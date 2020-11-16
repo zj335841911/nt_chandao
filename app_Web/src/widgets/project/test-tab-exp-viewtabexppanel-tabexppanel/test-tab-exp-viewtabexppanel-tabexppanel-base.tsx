@@ -1,10 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TabExpPanelControlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import TestTabExpViewtabexppanelService from './test-tab-exp-viewtabexppanel-tabexppanel-service';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
-
+import ProjectAuthService from '@/authservice/project/project-auth-service';
+import { Environment } from '@/environments/environment';
 
 /**
  * tabexppanel部件基类
@@ -14,7 +16,6 @@ import ProjectUIService from '@/uiservice/project/project-ui-service';
  * @extends {TestTabExpViewtabexppanelTabexppanelBase}
  */
 export class TestTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,14 +65,14 @@ export class TestTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @type {ProjectUIService}
      * @memberof TestTabExpViewtabexppanelBase
      */  
-    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
     /**
      * 是否初始化
      *
      * @protected
      * @returns {any}
-     * @memberof TestTabExpViewtabexppanel
+     * @memberof TestTabExpViewtabexppanelBase
      */
     protected isInit: any = {
         tabviewpanel:  true ,
@@ -84,15 +85,33 @@ export class TestTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      *
      * @protected
      * @type {string}
-     * @memberof TestTabExpViewtabexppanel
+     * @memberof TestTabExpViewtabexppanelBase
      */
     protected activatedTabViewPanel: string = 'tabviewpanel';
+
+    /**
+     * 实体权限服务对象
+     *
+     * @protected
+     * @type ProjectAuthServiceBase
+     * @memberof TabExpViewtabexppanelBase
+     */
+    protected appAuthService: ProjectAuthService = new ProjectAuthService();
+
+    /**
+     * 分页面板权限标识存储对象
+     *
+     * @protected
+     * @type {*}
+     * @memberof TestTabExpViewtabexppanelBase
+     */
+    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visible: true,disabled: false},'tabviewpanel3':{resourcetag:null,visible: true,disabled: false},'tabviewpanel2':{resourcetag:'PROJ_TEST_TESTTASK',visible: true,disabled: false}};
 
     /**
      * 组件创建完毕
      *
      * @protected
-     * @memberof TestTabExpViewtabexppanel
+     * @memberof TestTabExpViewtabexppanelBase
      */
     protected ctrlCreated(): void {
         //设置分页导航srfparentdename和srfparentkey

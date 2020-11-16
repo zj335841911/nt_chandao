@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Project;
  */
 @Slf4j
 @Service
-public class ProjectgetProjectProductPlanLogicImpl implements IProjectgetProjectProductPlanLogic{
+public class ProjectgetProjectProductPlanLogicImpl implements IProjectgetProjectProductPlanLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -34,22 +34,24 @@ public class ProjectgetProjectProductPlanLogicImpl implements IProjectgetProject
         return this.iBzSysDefaultService;
     }
 
-    public void execute(Project et){
+    @Override
+    public void execute(Project et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("projectgetprojectproductplandefault",et);
-           kieSession.setGlobal("iBzSysProjectDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("projectgetprojectproductplandefault", et);
+           kieSession.setGlobal("iBzSysProjectDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.projectgetprojectproductplan");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[获取项目产品计划]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

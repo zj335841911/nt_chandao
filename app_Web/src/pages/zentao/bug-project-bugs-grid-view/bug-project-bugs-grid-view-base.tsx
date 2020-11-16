@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class BugProjectBugsGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BugProjectBugsGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class BugProjectBugsGridViewBase extends GridViewBase {
 	 * @memberof BugProjectBugsGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: true, value: 'null' }
+        'PROJECT': {
+            isRawValue: true,
+            value: 'null',
+        }
     };
 
 	/**
@@ -88,7 +91,10 @@ export class BugProjectBugsGridViewBase extends GridViewBase {
 	 * @memberof BugProjectBugsGridViewBase
 	 */
     protected customViewParams: any = {
-        'project': { isRawValue: true, value: 'null' }
+        'project': {
+            isRawValue: true,
+            value: 'null',
+        }
     };
 
     /**
@@ -102,8 +108,8 @@ export class BugProjectBugsGridViewBase extends GridViewBase {
         srfCaption: 'entities.bug.views.projectbugsgridview.caption',
         srfTitle: 'entities.bug.views.projectbugsgridview.title',
         srfSubTitle: 'entities.bug.views.projectbugsgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -113,9 +119,22 @@ export class BugProjectBugsGridViewBase extends GridViewBase {
      * @memberof BugProjectBugsGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -125,6 +144,8 @@ export class BugProjectBugsGridViewBase extends GridViewBase {
      * @memberof BugProjectBugsGridView
      */
     public toolBarModels: any = {
+        deuiaction1: { name: 'deuiaction1', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
+
     };
 
 
@@ -134,9 +155,18 @@ export class BugProjectBugsGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugProjectBugsGridViewBase
      */
 	protected viewtag: string = 'd9cf190662d0781bee34acdfd9d1c6d2';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugProjectBugsGridViewBase
+     */ 
+    protected viewName: string = "BugProjectBugsGridView";
 
 
     /**
@@ -155,7 +185,9 @@ export class BugProjectBugsGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof BugProjectBugsGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -166,11 +198,11 @@ export class BugProjectBugsGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,
@@ -178,6 +210,19 @@ export class BugProjectBugsGridViewBase extends GridViewBase {
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
+    }
+
+    /**
+     * toolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof BugProjectBugsGridViewBase
+     */
+    public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.toolbar_deuiaction1_click(null, '', $event2);
+        }
     }
 
     /**
@@ -266,6 +311,34 @@ export class BugProjectBugsGridViewBase extends GridViewBase {
      */
     public searchform_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('searchform', 'load', $event);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -377,4 +450,21 @@ export class BugProjectBugsGridViewBase extends GridViewBase {
     }
 
 
+    /**
+     * 过滤
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof BugProjectBugsGridViewBase
+     */
+    public ToggleFilter(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (_this.hasOwnProperty('isExpandSearchForm')) {
+            _this.isExpandSearchForm = !_this.isExpandSearchForm;
+        }
+    }
 }

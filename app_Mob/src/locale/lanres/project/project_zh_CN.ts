@@ -70,6 +70,10 @@ export default {
     closetaskcnt: "关闭任务数",
     canceltaskcnt: "取消任务数",
     storychangecnt: "需求变更数",
+    noticeusers: "消息通知用户",
+    doclibcnt: "文档数量",
+    orgid: "组织标识",
+    mdeptid: "部门标识",
   },
 	views: {
 		mobchartview: {
@@ -216,6 +220,22 @@ export default {
 			n_type_eq: '项目类型', 
 		},
 		uiactions: {
+		},
+	},
+	mobpickupmdviewmdctrl_quicktoolbar_toolbar: {
+	},
+	mobpickupmdviewmdctrl_batchtoolbar_toolbar: {
+	},
+	mobmdviewmdctrl_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
+	},
+	mobmdviewmdctrl_batchtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '删除',
+			tip: '删除',
 		},
 	},
 	activitemobeditviewrighttoolbar_toolbar: {

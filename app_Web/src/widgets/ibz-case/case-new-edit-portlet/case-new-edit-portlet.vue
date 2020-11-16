@@ -1,5 +1,5 @@
-<template src="./case-new-edit-portlet.html"/>
-<script lang='tsx'>
+<template src="./case-new-edit-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseNewEditPortletBase } from './case-new-edit-portlet-base';
@@ -15,8 +15,8 @@ import { CaseNewEditPortletBase } from './case-new-edit-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class CaseNewEditPortlet extends CaseNewEditPortletBase { }
+export default class CaseNewEditPortlet extends CaseNewEditPortletBase {}
 </script>

@@ -21,6 +21,49 @@ export default class GlobalUiServiceBase extends UIActionBase {
 
 
     /**
+     * 过滤
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName]
+     * @returns {Promise<any>}
+     * @memberof 
+     */
+    public async ToggleFilter(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _this: any = this;
+        if (container.hasOwnProperty('isExpandSearchForm')) {
+            container.isExpandSearchForm = !container.isExpandSearchForm;
+        }
+    }
+
+    /**
+     * 删除
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName]
+     * @returns {Promise<any>}
+     * @memberof 
+     */
+    public async Remove(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        let response: any;
+        if (xData && xData.remove instanceof Function) {
+            const _data = {};
+            response = await xData.remove(args);
+        }
+        return response;
+    }
+
+
+    /**
      * 保存并关闭
      *
      * @param {any[]} args 数据

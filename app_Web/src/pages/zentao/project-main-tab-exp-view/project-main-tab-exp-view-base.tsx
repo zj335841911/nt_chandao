@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
@@ -65,7 +65,10 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
 	 * @memberof ProjectMainTabExpViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'project' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'project',
+        }
     };
 
 	/**
@@ -76,7 +79,10 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
 	 * @memberof ProjectMainTabExpViewBase
 	 */
     protected customViewParams: any = {
-        'n_product_eq': { isRawValue: true, value: 'null' }
+        'n_product_eq': {
+            isRawValue: true,
+            value: 'null',
+        }
     };
 
     /**
@@ -84,7 +90,7 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
      *
      * @memberof ProjectMainTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -97,8 +103,8 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.project.views.maintabexpview.caption',
         srfTitle: 'entities.project.views.maintabexpview.title',
         srfSubTitle: 'entities.project.views.maintabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -108,7 +114,10 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
      * @memberof ProjectMainTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -117,9 +126,18 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectMainTabExpViewBase
      */
 	protected viewtag: string = 'fd0b8748ff96edcde009d39903a9f211';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectMainTabExpViewBase
+     */ 
+    protected viewName: string = "ProjectMainTabExpView";
 
 
     /**
@@ -138,7 +156,9 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof ProjectMainTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -8,7 +8,6 @@ import { DataViewBase } from './DataViewBase';
  * @extends {MDViewBase}
  */
 export class DataViewExpViewBase extends DataViewBase {
-
     /**
      * 快速搜索
      *

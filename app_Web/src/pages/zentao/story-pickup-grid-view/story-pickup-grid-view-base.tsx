@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { PickupGridViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -48,7 +48,7 @@ export class StoryPickupGridViewBase extends PickupGridViewBase {
      * @type {string}
      * @memberof StoryPickupGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -66,6 +66,42 @@ export class StoryPickupGridViewBase extends PickupGridViewBase {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryPickupGridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'N_PARENT_GTANDEQ': {
+            isRawValue: true,
+            value: '0',
+        },
+        'N_STATUS_NOTEQ': {
+            isRawValue: true,
+            value: 'closed',
+        }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryPickupGridViewBase
+	 */
+    protected customViewParams: any = {
+        'n_status_noteq': {
+            isRawValue: true,
+            value: 'closed',
+        },
+        'n_parent_gtandeq': {
+            isRawValue: true,
+            value: '0',
+        }
+    };
+
     /**
      * 视图模型数据
      *
@@ -77,8 +113,8 @@ export class StoryPickupGridViewBase extends PickupGridViewBase {
         srfCaption: 'entities.story.views.pickupgridview.caption',
         srfTitle: 'entities.story.views.pickupgridview.title',
         srfSubTitle: 'entities.story.views.pickupgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +124,10 @@ export class StoryPickupGridViewBase extends PickupGridViewBase {
      * @memberof StoryPickupGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -97,9 +136,18 @@ export class StoryPickupGridViewBase extends PickupGridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryPickupGridViewBase
      */
 	protected viewtag: string = '569cd532c6b545ffc53cf5fb93427028';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryPickupGridViewBase
+     */ 
+    protected viewName: string = "StoryPickupGridView";
 
 
     /**
@@ -118,7 +166,9 @@ export class StoryPickupGridViewBase extends PickupGridViewBase {
      * @type {Array<*>}
      * @memberof StoryPickupGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

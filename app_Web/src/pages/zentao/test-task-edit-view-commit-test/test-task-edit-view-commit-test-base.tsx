@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
@@ -48,7 +48,7 @@ export class TestTaskEditView_commitTestBase extends EditViewBase {
      * @type {string}
      * @memberof TestTaskEditView_commitTestBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,10 +74,22 @@ export class TestTaskEditView_commitTestBase extends EditViewBase {
 	 * @memberof TestTaskEditView_commitTestBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'project': { isRawValue: false, value: 'project' },
-        'name': { isRawValue: false, value: 'name' },
-        'build': { isRawValue: false, value: 'build' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'name': {
+            isRawValue: false,
+            value: 'name',
+        },
+        'build': {
+            isRawValue: false,
+            value: 'build',
+        }
     };
 
     /**
@@ -85,7 +97,7 @@ export class TestTaskEditView_commitTestBase extends EditViewBase {
      *
      * @memberof TestTaskEditView_commitTestBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -98,8 +110,8 @@ export class TestTaskEditView_commitTestBase extends EditViewBase {
         srfCaption: 'entities.testtask.views.editview_committest.caption',
         srfTitle: 'entities.testtask.views.editview_committest.title',
         srfSubTitle: 'entities.testtask.views.editview_committest.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -109,8 +121,14 @@ export class TestTaskEditView_commitTestBase extends EditViewBase {
      * @memberof TestTaskEditView_commitTestBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -120,7 +138,7 @@ export class TestTaskEditView_commitTestBase extends EditViewBase {
      * @memberof TestTaskEditView_commitTest
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -131,9 +149,18 @@ export class TestTaskEditView_commitTestBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestTaskEditView_commitTestBase
      */
 	protected viewtag: string = '4d32793fc57ec1ae930a18608526d00e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskEditView_commitTestBase
+     */ 
+    protected viewName: string = "TestTaskEditView_commitTest";
 
 
     /**
@@ -152,7 +179,9 @@ export class TestTaskEditView_commitTestBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TestTaskEditView_commitTestBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

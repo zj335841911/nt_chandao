@@ -15,7 +15,7 @@
     
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_chart
             :viewState="viewState"
             viewName="ProductMobChartView"  
@@ -35,12 +35,13 @@
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductService from '@/app-core/service/product/product-service';
 
 import MobChartViewEngine from '@engine/view/mob-chart-view-engine';
 import ProductUIService from '@/ui-service/product/product-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -139,6 +140,14 @@ export default class ProductMobChartViewBase extends Vue {
      * @memberof ProductMobChartViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof ProductMobChartViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
@@ -522,6 +531,19 @@ export default class ProductMobChartViewBase extends Vue {
             _this.onRefreshView();
         }
     }
+
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof ProductMobChartViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
 
 
     /**

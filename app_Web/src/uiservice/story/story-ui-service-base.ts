@@ -21,6 +21,13 @@ export default class StoryUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  StoryUIServiceBase
+     */
+    public isEnableDEMainState:boolean = true;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  StoryUIServiceBase
@@ -89,56 +96,24 @@ export default class StoryUIServiceBase extends UIService {
      * @memberof  StoryUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'pickupgridview4',srfappde:'stories',component:'story-pickup-grid-view4'});
-        this.allViewMap.set(':',{viewname:'usr2mpickupview',srfappde:'stories',component:'story-usr2-mpickup-view'});
-        this.allViewMap.set(':',{viewname:'mainview9_related',srfappde:'stories',component:'story-main-view9-related'});
-        this.allViewMap.set(':',{viewname:'mpickupview3',srfappde:'stories',component:'story-mpickup-view3'});
-        this.allViewMap.set(':',{viewname:'kanbanview',srfappde:'stories',component:'story-kanban-view'});
-        this.allViewMap.set(':',{viewname:'reportsubgridview',srfappde:'stories',component:'story-report-sub-grid-view'});
-        this.allViewMap.set(':',{viewname:'mainview',srfappde:'stories',component:'story-main-view'});
-        this.allViewMap.set(':',{viewname:'curprojectwgridview',srfappde:'stories',component:'story-cur-project-wgrid-view'});
-        this.allViewMap.set(':',{viewname:'pickupgridview3',srfappde:'stories',component:'story-pickup-grid-view3'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'stories',component:'story-edit-view'});
-        this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'stories',component:'story-grid-view9-assigned-to-me'});
-        this.allViewMap.set(':',{viewname:'mainview9_editmode',srfappde:'stories',component:'story-main-view9-edit-mode'});
-        this.allViewMap.set(':',{viewname:'tostoryeditview',srfappde:'stories',component:'storyto-story-edit-view'});
-        this.allViewMap.set(':',{viewname:'plansubeditview',srfappde:'stories',component:'story-plan-sub-edit-view'});
-        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'stories',component:'story-pickup-grid-view'});
-        this.allViewMap.set(':',{viewname:'buildsubgridview',srfappde:'stories',component:'story-build-sub-grid-view'});
-        this.allViewMap.set(':',{viewname:'mainview9_storyspec',srfappde:'stories',component:'story-main-view9-story-spec'});
-        this.allViewMap.set(':',{viewname:'projectmpickupview3',srfappde:'stories',component:'story-project-mpickup-view3'});
-        this.allViewMap.set(':',{viewname:'prichartview9',srfappde:'stories',component:'story-pri-chart-view9'});
-        this.allViewMap.set(':',{viewname:'tabexpview',srfappde:'stories',component:'story-tab-exp-view'});
-        this.allViewMap.set(':',{viewname:'gridview9_myassignedtome',srfappde:'stories',component:'story-grid-view9-my-assigned-to-me'});
-        this.allViewMap.set(':',{viewname:'curprojectgridview',srfappde:'stories',component:'story-cur-project-grid-view'});
-        this.allViewMap.set(':',{viewname:'mainview_editmode',srfappde:'stories',component:'story-main-view-edit-mode'});
-        this.allViewMap.set(':',{viewname:'releasesubgridview',srfappde:'stories',component:'story-release-sub-grid-view'});
-        this.allViewMap.set(':',{viewname:'planeditview',srfappde:'stories',component:'story-plan-edit-view'});
-        this.allViewMap.set(':',{viewname:'assigntoview',srfappde:'stories',component:'story-assign-to-view'});
-        this.allViewMap.set(':',{viewname:'releasesubeditview',srfappde:'stories',component:'story-release-sub-edit-view'});
-        this.allViewMap.set(':',{viewname:'mainview9',srfappde:'stories',component:'story-main-view9'});
-        this.allViewMap.set(':',{viewname:'gridview9_substory',srfappde:'stories',component:'story-grid-view9-sub-story'});
-        this.allViewMap.set(':',{viewname:'maingridview_bymodule',srfappde:'stories',component:'story-main-grid-view-by-module'});
-        this.allViewMap.set(':',{viewname:'pickupgridview2',srfappde:'stories',component:'story-pickup-grid-view2'});
-        this.allViewMap.set(':',{viewname:'gridview9_related',srfappde:'stories',component:'story-grid-view9-related'});
-        this.allViewMap.set(':',{viewname:'maingridview',srfappde:'stories',component:'story-main-grid-view'});
-        this.allViewMap.set(':',{viewname:'projectpickupgridview',srfappde:'stories',component:'story-project-pickup-grid-view'});
-        this.allViewMap.set(':',{viewname:'mpickupview2',srfappde:'stories',component:'story-mpickup-view2'});
-        this.allViewMap.set(':',{viewname:'editview9',srfappde:'stories',component:'story-edit-view9'});
-        this.allViewMap.set(':',{viewname:'myfavoritesgridview',srfappde:'stories',component:'story-my-favorites-grid-view'});
-        this.allViewMap.set('MPICKUPVIEW:',{viewname:'mpickupview',srfappde:'stories',component:'story-mpickup-view'});
-        this.allViewMap.set(':',{viewname:'plansubgridview',srfappde:'stories',component:'story-plan-sub-grid-view'});
-        this.allViewMap.set(':',{viewname:'projectplanview',srfappde:'stories',component:'story-project-plan-view'});
-        this.allViewMap.set(':',{viewname:'stagechartview9',srfappde:'stories',component:'story-stage-chart-view9'});
-        this.allViewMap.set(':',{viewname:'projecteditview',srfappde:'stories',component:'story-project-edit-view'});
-        this.allViewMap.set(':',{viewname:'mainview_link',srfappde:'stories',component:'story-main-view-link'});
-        this.allViewMap.set(':',{viewname:'gridview9_child',srfappde:'stories',component:'story-grid-view9-child'});
-        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'stories',component:'story-main-my-grid-view'});
-        this.allViewMap.set(':',{viewname:'main2gridview',srfappde:'stories',component:'story-main2-grid-view'});
-        this.allViewMap.set(':',{viewname:'reviewview',srfappde:'stories',component:'story-rev-iew-view'});
-        this.allViewMap.set(':',{viewname:'closeview',srfappde:'stories',component:'story-close-view'});
-        this.allViewMap.set(':',{viewname:'editview_storychange',srfappde:'stories',component:'story-edit-view-story-change'});
-        this.allViewMap.set(':',{viewname:'activiteview',srfappde:'stories',component:'story-activite-view'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'stories',
+            component: 'story-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '需求',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MPICKUPVIEW:', {
+            viewname: 'mpickupview',
+            srfappde: 'stories',
+            component: 'story-mpickup-view',
+            openmode: 'DRAWER_TOP',
+            title: '关联需求',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -192,11 +167,11 @@ export default class StoryUIServiceBase extends UIService {
         this.allDeMainStateOPPrivsMap.set('changed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('changed__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('closed__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_CCASE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_CCASE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('closed__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CCASE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CCASE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('draft__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('draft__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('draft__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
@@ -579,7 +554,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -677,7 +651,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已移除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -956,7 +929,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1041,7 +1013,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1082,8 +1053,8 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{RELEASE:"%srfparentkey%"});
-        Object.assign(params,{release:"%srfparentkey%"});
+        Object.assign(context,{RELEASE:"%release%"});
+        Object.assign(params,{release:"%release%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });
@@ -1115,7 +1086,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '移除关联成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1419,7 +1389,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1537,8 +1506,7 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{STORY:"0"});
-        Object.assign(params,{productplan:"%productplan%"});
+        Object.assign(context,{PRODUCTPLAN:"%productplan% ",STORY:"0"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         if(_this.context){
@@ -1567,7 +1535,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1632,8 +1599,8 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{BUILD:"%srfparentkey%"});
-        Object.assign(params,{build:"%srfparentkey%"});
+        Object.assign(context,{BUILD:"%build%"});
+        Object.assign(params,{build:"%build%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });
@@ -1665,7 +1632,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '解绑需求成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1932,7 +1898,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -2036,6 +2001,56 @@ export default class StoryUIServiceBase extends UIService {
     }
 
     /**
+     * MORE
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_More(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
+    }
+
+    /**
      * 收藏
      *
      * @param {any[]} args 当前数据
@@ -2083,7 +2098,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '收藏成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -2244,6 +2258,72 @@ export default class StoryUIServiceBase extends UIService {
     }
 
     /**
+     * 指派
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_AssignTo(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-assign-to-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.story.views.assigntoview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
      * 移除关联
      *
      * @param {any[]} args 当前数据
@@ -2304,7 +2384,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '移除成功' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

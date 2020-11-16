@@ -4,6 +4,11 @@
             
             我的待办
             </span>
+            <span class="portlet-action">
+                <a @click="uiAction('uee79417', $event)" v-show="uiactionModel['more'].visible" :disabled="uiactionModel['more'].disabled">
+                  <span>MORE</span>
+                </a>
+            </span>
         </p>
         <div class="portlet-with-title">
         <todo-grid-view9 :portletState="viewState" :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></todo-grid-view9>

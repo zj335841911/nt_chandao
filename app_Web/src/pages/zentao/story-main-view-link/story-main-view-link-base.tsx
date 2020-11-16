@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -107,9 +107,18 @@ export class StoryMainView_LinkBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryMainView_LinkBase
      */
 	protected viewtag: string = 'cfc7781789f7706e02b2d2504339de69';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMainView_LinkBase
+     */ 
+    protected viewName:string = "StoryMainView_Link";
 
 
     /**

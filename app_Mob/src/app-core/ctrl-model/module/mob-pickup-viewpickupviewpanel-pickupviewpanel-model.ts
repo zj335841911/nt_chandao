@@ -57,6 +57,12 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'parent',
       },
+      {
+        name: 'mdeptid',
+      },
+      {
+        name: 'orgid',
+      },
     ]
   }
 

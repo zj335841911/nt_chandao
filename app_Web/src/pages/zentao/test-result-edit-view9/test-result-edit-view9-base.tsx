@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import TestResultService from '@/service/test-result/test-result-service';
 import TestResultAuthService from '@/authservice/test-result/test-result-auth-service';
@@ -48,7 +48,7 @@ export class TestResultEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof TestResultEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class TestResultEditView9Base extends EditView9Base {
 	 * @memberof TestResultEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'VERSION': { isRawValue: false, value: 'version' }
+        'VERSION': {
+            isRawValue: false,
+            value: 'version',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class TestResultEditView9Base extends EditView9Base {
 	 * @memberof TestResultEditView9Base
 	 */
     protected customViewParams: any = {
-        'version': { isRawValue: false, value: 'version' }
+        'version': {
+            isRawValue: false,
+            value: 'version',
+        }
     };
 
     /**
@@ -99,8 +105,8 @@ export class TestResultEditView9Base extends EditView9Base {
         srfCaption: 'entities.testresult.views.editview9.caption',
         srfTitle: 'entities.testresult.views.editview9.title',
         srfSubTitle: 'entities.testresult.views.editview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -110,7 +116,10 @@ export class TestResultEditView9Base extends EditView9Base {
      * @memberof TestResultEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -119,9 +128,18 @@ export class TestResultEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestResultEditView9Base
      */
 	protected viewtag: string = 'd000027bf12084d69b1e064264d06962';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestResultEditView9Base
+     */ 
+    protected viewName: string = "TestResultEditView9";
 
 
     /**
@@ -140,7 +158,9 @@ export class TestResultEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof TestResultEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

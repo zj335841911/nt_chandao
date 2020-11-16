@@ -1,5 +1,5 @@
-<template src="./user-year-work-stats-edit-view.html"/>
-<script lang='tsx'>
+<template src="./user-year-work-stats-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { UserYearWorkStatsEditViewBase } from './user-year-work-stats-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/user-year-work-stats/basis-main-info-form/basis-
     }
 })
 @VueLifeCycleProcessing()
-export default class UserYearWorkStatsEditView extends UserYearWorkStatsEditViewBase { }
+export default class UserYearWorkStatsEditView extends UserYearWorkStatsEditViewBase {}
 </script>

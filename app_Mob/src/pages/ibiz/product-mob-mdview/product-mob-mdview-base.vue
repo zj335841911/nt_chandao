@@ -54,7 +54,7 @@
         </ion-footer>
     </van-popup>
     <div id="searchformproductmobmdview"></div>
-    <ion-content>
+    <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
         <ion-refresher 
             slot="fixed" 
             ref="loadmore" 
@@ -74,7 +74,6 @@
             viewName="ProductMobMDView"  
             :viewparams="viewparams" 
             :context="context" 
-            :showBusyIndicator="true" 
             viewType="DEMOBMDVIEW"
             controlStyle="LISTVIEW"
             updateAction="Update"
@@ -84,10 +83,14 @@
             createAction="Create"
             fetchAction="FetchCurUer" 
             :isMutli="!isSingleSelect"
-            :showCheack="showCheack"
-            @showCheackChange="showCheackChange"
+            :isNeedLoaddingText="!isPortalView"
+            :showBusyIndicator="true" 
             :isTempMode="false"
-            :isEnableChoose="false"
+            :newdata="newdata"
+            :opendata="opendata"
+            :isChoose="isChoose"
+            @isChooseChange="isChooseChange"
+            @checkBoxChange="checkBoxChange"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -96,15 +99,13 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
-        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
-          <ion-infinite-scroll-content
-          loadingSpinner="bubbles"
-          loadingText="Loading more data...">
-        </ion-infinite-scroll-content>
-        </ion-infinite-scroll>
     </ion-content>
     <ion-footer class="view-footer">
-                <div v-show="!showCheack" class = "fab_container">
+                <div v-show="!isChoose" class = "fab_container">
+            <div class="scroll_tool">
+                <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
+            </div>
+            <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
                     <ion-icon name="add"></ion-icon>
@@ -113,20 +114,43 @@
                 
             </div>
         
+            </div>
         </div>
+                <div v-show="isChoose" class="batch_btn">
+                    <div class="selectall" v-show="isChoose">
+                        <ion-checkbox ref="selectAll"  :checked="isSelectAll"   @click="onSelectallClick(!isSelectAll)" ></ion-checkbox>
+                        <ion-label class="selectal-label">全选</ion-label>
+                    </div>
+                    <div class="batch_btn_content">
+                        <div class="app-toolbar-container ">
+            <div class="app-quick-toolbar toolbar-left-bottons">
+                    <ion-button class="app-view-toolbar-button" v-show="mdctrl_batchtoolbarModels.deuiaction1.visabled" :disabled="mdctrl_batchtoolbarModels.deuiaction1.disabled" @click="mdctrl_batchtoolbar_click({ tag: 'deuiaction1' }, $event)" >
+                <ion-icon class="ibiz-button-icon" name="remove"> </ion-icon>
+            {{$t('product.mobmdviewmdctrl_batchtoolbar_toolbar.deuiaction1.caption')}}
+            </ion-button>
         
+            </div>
+        </div>
+                <ion-button class="app-view-toolbar-button"  @click="cancelSelect" >
+                    <ion-icon name="arrow-undo-outline"></ion-icon>
+                    {{$t('app.button.cancel')}}
+                </ion-button>
+            </div> 
+        </div>     
+
     </ion-footer>
 </ion-page>
 </template>
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductService from '@/app-core/service/product/product-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import ProductUIService from '@/ui-service/product/product-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -225,6 +249,14 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof ProductMobMDViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
@@ -347,6 +379,21 @@ export default class ProductMobMDViewBase extends Vue {
     * @type {*}
     * @memberof ProductMobMDView
     */
+    public mdctrl_batchtoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', uiaction: { tag: 'Remove', target: 'MULTIKEY' } },
+
+    };
+
+    
+
+
+
+   /**
+    * 工具栏 ProductMobMDView 模型
+    *
+    * @type {*}
+    * @memberof ProductMobMDView
+    */
     public righttoolbarModels: any = {
             deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CREATE_BUT', uiaction: { tag: 'MobCreate', target: 'NONE' } },
 
@@ -393,8 +440,8 @@ export default class ProductMobMDViewBase extends Vue {
      * @type {boolean}
      * @memberof ProductMobMDView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     
@@ -405,7 +452,7 @@ export default class ProductMobMDViewBase extends Vue {
      *
      * @memberof ProductMobMDViewBase
      */
-    public toolbarModelList:any = ['righttoolbarModels',]
+    public toolbarModelList:any = ['mdctrl_batchtoolbarModels','righttoolbarModels',]
 
     /**
      * 解析视图参数
@@ -520,6 +567,7 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -534,6 +582,12 @@ export default class ProductMobMDViewBase extends Vue {
         this.afterMounted();
     }
 
+    /**
+     * 底部按钮样式
+     * 
+     * @memberof ProductMobMDViewBase
+     */
+    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
@@ -548,6 +602,8 @@ export default class ProductMobMDViewBase extends Vue {
         }
         this.thirdPartyInit();
 
+        // 拖动样式
+        AnimationService.draggable(document.getElementById(this.viewtag+'_bottom_button'),(style:any)=>{this.button_style = style});
     }
 
     /**
@@ -872,6 +928,83 @@ export default class ProductMobMDViewBase extends Vue {
         }
     }
 
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof ProductMobMDViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
+    /**
+     * onScroll滚动事件
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public async onScroll(e:any){
+        this.isScrollStop = false;
+        if (e.detail.scrollTop>600) {
+            this.isShouleBackTop = true;
+        }else{
+            this.isShouleBackTop = false;
+        }
+                    let ionScroll :any= this.$refs.ionScroll;
+        if(ionScroll){
+            let ele =  await ionScroll.getScrollElement();
+            if(ele){
+                let scrollTop = ele.scrollTop;
+                let clientHeight = ele.clientHeight;
+                let scrollHeight = ele.scrollHeight;
+                if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
+                    let mdctrl:any = this.$refs.mdctrl; 
+                    if(mdctrl && mdctrl.loadBottom && this.$util.isFunction(mdctrl.loadBottom)){
+                        mdctrl.loadBottom();
+                    }           
+                }
+            }
+        }
+
+    }
+
+    /**
+     * onScroll滚动结束事件
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public onScrollEnd(){
+        this.isScrollStop = true;
+    }
+
+    /**
+     * 返回顶部
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public onScrollToTop() {
+        let ionScroll:any = this.$refs.ionScroll;
+        if(ionScroll && ionScroll.scrollToTop && this.$util.isFunction(ionScroll.scrollToTop)){
+            ionScroll.scrollToTop(500);
+        }
+    }
+
+    /**
+     * 是否应该显示返回顶部按钮
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public isShouleBackTop = false;
+
+    /**
+     * 当前滚动条是否是停止状态
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public isScrollStop = true;
+
 
 
     /**
@@ -957,9 +1090,7 @@ export default class ProductMobMDViewBase extends Vue {
 
         const mdctrl: any = this.$refs.mdctrl;
         if (mdctrl) {
-            let response = await mdctrl.quickSearch(this.query);
-            if (response) {
-            }
+            mdctrl.quickSearch(this.query);
         }
     }
 
@@ -1038,8 +1169,8 @@ export default class ProductMobMDViewBase extends Vue {
      *
      * @memberof ProductMobMDViewBase
      */
-    public showCheackChange(value:any){
-        this.showCheack = value;
+    public isChooseChange(value:any){
+        this.isChoose = value;
     }
 
     /**
@@ -1047,14 +1178,14 @@ export default class ProductMobMDViewBase extends Vue {
      *
      * @memberof ProductMobMDViewBase
      */
-    public showCheack = false;
+    public isChoose = false;
 
     /**
      * 取消选择状态
      * @memberof ProductMobMDViewBase
      */
     public cancelSelect() {
-        this.showCheackChange(false);
+        this.isChooseChange(false);
     }
 
     /**
@@ -1076,25 +1207,57 @@ export default class ProductMobMDViewBase extends Vue {
         Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
-
-    /**
-     * 触底加载
-     *
-     * @param {*} value
-     * @memberof ProductMobMDViewBase
-     */
-    public async loadMore(event:any){
-      let mdctrl:any = this.$refs.mdctrl;
-      if(mdctrl && mdctrl.loadBottom && mdctrl.loadBottom instanceof Function){
-        mdctrl.loadBottom();
-      }
-      if(event.target && event.target.complete && event.target.complete instanceof Function){
-        event.target.complete();
-      }
+    
+    public  mdctrl_batchtoolbar_click(tag:string,event:any) {
+       let mdctrl: any = this.$refs.mdctrl;
+        if(mdctrl && mdctrl. mdctrl_batchtoolbar_click instanceof Function){
+            mdctrl. mdctrl_batchtoolbar_click(tag,event);
+        }
     }
 
 
+    /**
+     * 全选check点击
+     *
+     * @memberof ProductMobMDViewBase
+     */ 
+    public onSelectallClick(value: any) {
+        setTimeout(() => {
+            this.isSelectAll = value;
+            let selectAlls: any = this.$refs.selectAll;
+            if (selectAlls) {
+                selectAlls.checked = value;
+                selectAlls.ariaChecked = value;
+            }
+            let mdctrl: any = this.$refs.mdctrl;
+            if (mdctrl && mdctrl.checkboxAll && this.$util.isFunction(mdctrl.checkboxAll)) {
+                mdctrl.checkboxAll(value);
+            }
+        }, 1);
+        this.$forceUpdate();
+    }
 
+    /**
+     * 是否全选
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public isSelectAll:boolean = false;
+
+    /**
+     * 单check改变
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public checkBoxChange(value: any) {
+        let selectAll: any = this.$refs.selectAll;
+        if (selectAll) {
+            selectAll.checked = value;
+            selectAll.ariaChecked = value;
+        }
+        this.isSelectAll = value;
+        this.$forceUpdate();
+    }
 }
 </script>
 

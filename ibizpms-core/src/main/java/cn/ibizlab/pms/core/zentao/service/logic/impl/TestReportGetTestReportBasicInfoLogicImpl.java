@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.TestReport;
  */
 @Slf4j
 @Service
-public class TestReportGetTestReportBasicInfoLogicImpl implements ITestReportGetTestReportBasicInfoLogic{
+public class TestReportGetTestReportBasicInfoLogicImpl implements ITestReportGetTestReportBasicInfoLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -41,23 +41,25 @@ public class TestReportGetTestReportBasicInfoLogicImpl implements ITestReportGet
         return this.iBzSysDefaultService;
     }
 
-    public void execute(TestReport et){
+    @Override
+    public void execute(TestReport et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("testreportgettestreportbasicinfodefault",et);
-           kieSession.setGlobal("testreportservice",testreportservice);
-           kieSession.setGlobal("iBzSysTestreportDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("testreportgettestreportbasicinfodefault", et);
+           kieSession.setGlobal("testreportservice", testreportservice);
+           kieSession.setGlobal("iBzSysTestreportDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.testreportgettestreportbasicinfo");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[根据测试报告获取基本信息]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

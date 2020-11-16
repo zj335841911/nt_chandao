@@ -11,7 +11,6 @@ import './app-layout.less';
  */
 @Component({})
 export class AppLayout extends Vue {
-
     /**
      * 绘制内容
      *
@@ -19,17 +18,20 @@ export class AppLayout extends Vue {
      * @memberof AppLayout
      */
     public render(): VNode {
-        return <div class={{ 'app-layout': true, [this.$uiState.layoutState.styleMode.toLowerCase()]: this.$uiState.layoutState.styleMode !== 'DEFAULT' }}>
-            <div class="app-layout-header-warp">
-                {this.$slots.header}
+        return (
+            <div
+                class={{
+                    'app-layout': true,
+                    [this.$uiState.layoutState.styleMode.toLowerCase()]:
+                        this.$uiState.layoutState.styleMode !== 'DEFAULT',
+                }}
+            >
+                <div class="app-layout-header-warp">{this.$slots.header}</div>
+                <div class="app-layout-content-warp">{this.$slots.default}</div>
+                <div class="app-layout-footer-warp" v-notification-signal>
+                    {this.$slots.footer}
+                </div>
             </div>
-            <div class="app-layout-content-warp">
-                {this.$slots.default}
-            </div>
-            <div class="app-layout-footer-warp" v-notification-signal>
-                {this.$slots.footer}
-            </div>
-        </div>;
+        );
     }
-
 }

@@ -225,6 +225,18 @@ export default class ProjectStatusBarModel {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
+      {
+        name: 'doclibcnt',
+      },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

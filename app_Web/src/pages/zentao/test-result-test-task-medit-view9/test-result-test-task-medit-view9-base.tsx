@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { MEditView9Base } from '@/studio-core';
 import TestResultService from '@/service/test-result/test-result-service';
 import TestResultAuthService from '@/authservice/test-result/test-result-auth-service';
@@ -64,7 +64,10 @@ export class TestResultTestTaskMEditView9Base extends MEditView9Base {
 	 * @memberof TestResultTestTaskMEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'TASK': { isRawValue: false, value: 'task' }
+        'TASK': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
 	/**
@@ -75,7 +78,10 @@ export class TestResultTestTaskMEditView9Base extends MEditView9Base {
 	 * @memberof TestResultTestTaskMEditView9Base
 	 */
     protected customViewParams: any = {
-        'task': { isRawValue: false, value: 'task' }
+        'task': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
     /**
@@ -89,8 +95,8 @@ export class TestResultTestTaskMEditView9Base extends MEditView9Base {
         srfCaption: 'entities.testresult.views.testtaskmeditview9.caption',
         srfTitle: 'entities.testresult.views.testtaskmeditview9.title',
         srfSubTitle: 'entities.testresult.views.testtaskmeditview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -100,7 +106,10 @@ export class TestResultTestTaskMEditView9Base extends MEditView9Base {
      * @memberof TestResultTestTaskMEditView9Base
      */
     protected containerModel: any = {
-        view_meditviewpanel: { name: 'meditviewpanel', type: 'MULTIEDITVIEWPANEL' },
+        view_meditviewpanel: {
+            name: 'meditviewpanel',
+            type: 'MULTIEDITVIEWPANEL',
+        },
     };
 
 
@@ -109,9 +118,18 @@ export class TestResultTestTaskMEditView9Base extends MEditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestResultTestTaskMEditView9Base
      */
 	protected viewtag: string = '27374a7bc38f2581e433db58d85e14e4';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestResultTestTaskMEditView9Base
+     */ 
+    protected viewName: string = "TestResultTestTaskMEditView9";
 
 
 
@@ -121,7 +139,9 @@ export class TestResultTestTaskMEditView9Base extends MEditView9Base {
      * @type {Array<*>}
      * @memberof TestResultTestTaskMEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

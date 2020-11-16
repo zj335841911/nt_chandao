@@ -1,27 +1,27 @@
 <template>
-    <el-select size="small" class="filter-mode" :placeholder="$t('components.filterMode.placeholder')" v-model="curVal" @change="onChange">
-        <el-option
-            v-for="mode in fieldFilterMode"
-            :key="mode.value"
-            :label="getLabel(mode)"
-            :value="mode.value"
-            >
+    <el-select
+        size="small"
+        class="filter-mode"
+        :placeholder="$t('components.filterMode.placeholder')"
+        v-model="curVal"
+        @change="onChange"
+    >
+        <el-option v-for="mode in fieldFilterMode" :key="mode.value" :label="getLabel(mode)" :value="mode.value">
         </el-option>
     </el-select>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Model, Prop, Watch } from "vue-property-decorator";
+import { Vue, Component, Model, Prop, Watch } from 'vue-property-decorator';
 
 @Component({})
 export default class FilterMode extends Vue {
-
     /**
      * 值属性
      *
      * @type {*}
      * @memberof FilterMode
-     */    
+     */
     @Model('change') readonly value: any;
 
     /**
@@ -29,9 +29,9 @@ export default class FilterMode extends Vue {
      *
      * @type {*}
      * @memberof FilterMode
-     */    
+     */
     @Prop() modes!: any[];
- 
+
     @Watch('modes')
     onModesChange(newVal: any) {
         this.setDefValue();
@@ -48,14 +48,14 @@ export default class FilterMode extends Vue {
     }
 
     get fieldFilterMode() {
-        if(this.modes && this.modes.length > 0) {
+        if (this.modes && this.modes.length > 0) {
             let index: number = this.modes.findIndex((mode: any) => Object.is(mode.mode, 'all'));
-            if(index < 0) {
+            if (index < 0) {
                 let items: any[] = [];
                 this.modes.forEach((mode: any) => {
                     let item: any = this.filterMode.find((filter: any) => Object.is(filter['en-US'], mode.mode));
                     items.push(item);
-                })
+                });
                 return items;
             }
         }
@@ -95,7 +95,7 @@ export default class FilterMode extends Vue {
      * @memberof FilterMode
      */
     public mounted() {
-        this.setDefValue()
+        this.setDefValue();
     }
 
     /**
@@ -105,10 +105,9 @@ export default class FilterMode extends Vue {
      * @memberof FilterMode
      */
     public setDefValue() {
-        if(this.fieldFilterMode.length > 0) {
+        if (this.fieldFilterMode.length > 0) {
             this.curVal = this.fieldFilterMode[0].value;
             this.onChange();
-
         }
     }
 
@@ -119,7 +118,7 @@ export default class FilterMode extends Vue {
      * @memberof FilterMode
      */
     public getLabel(mode: any): string {
-        if(this.$i18n.locale) {
+        if (this.$i18n.locale) {
             return mode[this.$i18n.locale];
         }
         return mode['zh-CN'];
@@ -133,15 +132,14 @@ export default class FilterMode extends Vue {
     public onChange() {
         this.$nextTick(() => {
             let item: any = this.filterMode.find((filter: any) => Object.is(filter.value, this.curVal));
-            if(this.modes && this.modes.length > 0) {
+            if (this.modes && this.modes.length > 0) {
                 let mode: any = this.modes.find((mode: any) => Object.is(mode.mode, item['en-US']));
-                if(!mode) {
+                if (!mode) {
                     mode = this.modes.find((mode: any) => Object.is(mode.mode, 'all'));
                 }
                 this.$emit('on-change', mode);
             }
-        })
+        });
     }
-
 }
 </script>

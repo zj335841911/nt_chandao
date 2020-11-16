@@ -8,7 +8,6 @@ import { FormDetailModel } from './form-detail';
  * @extends {FormDetailModel}
  */
 export class FormItemModel extends FormDetailModel {
-
     /**
      * 是否启用
      *
@@ -27,7 +26,7 @@ export class FormItemModel extends FormDetailModel {
 
     /**
      * 表单项启用条件
-     * 
+     *
      * 0 不启用
      * 1 新建
      * 2 更新
@@ -39,9 +38,17 @@ export class FormItemModel extends FormDetailModel {
     public enableCond: number | 0 | 1 | 2 | 3 = 3;
 
     /**
+     * 是否必填
+     *
+     * @type {boolean}
+     * @memberof FormItemModel
+     */
+    public required: boolean = false;
+
+    /**
      * Creates an instance of FormItemModel.
      * FormItemModel 实例
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof FormItemModel
      */
@@ -49,6 +56,7 @@ export class FormItemModel extends FormDetailModel {
         super(opts);
         this.disabled = opts.disabled ? true : false;
         this.enableCond = opts.enableCond;
+        this.required = opts.required;
     }
 
     /**
@@ -96,5 +104,4 @@ export class FormItemModel extends FormDetailModel {
         }
         this.setDisabled(state);
     }
-
-} 
+}

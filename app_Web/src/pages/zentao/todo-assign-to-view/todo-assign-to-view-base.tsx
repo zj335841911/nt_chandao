@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { OptionViewBase } from '@/studio-core';
 import TodoService from '@/service/todo/todo-service';
 import TodoAuthService from '@/authservice/todo/todo-auth-service';
@@ -48,7 +48,7 @@ export class TodoAssignToViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TodoAssignToViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class TodoAssignToViewBase extends OptionViewBase {
      *
      * @memberof TodoAssignToViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class TodoAssignToViewBase extends OptionViewBase {
         srfCaption: 'entities.todo.views.assigntoview.caption',
         srfTitle: 'entities.todo.views.assigntoview.title',
         srfSubTitle: 'entities.todo.views.assigntoview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,13 +95,45 @@ export class TodoAssignToViewBase extends OptionViewBase {
      * @memberof TodoAssignToViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
-        view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
-        view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
-        view_leftbtn: { name: 'leftbtn', type: 'button', text: '左移', disabled: true },
-        view_rightbtn: { name: 'rightbtn', type: 'button', text: '右移', disabled: true },
-        view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
-        view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
+        view_okbtn: {
+            name: 'okbtn',
+            type: 'button',
+            text: '确定',
+            disabled: true,
+        },
+        view_cancelbtn: {
+            name: 'cancelbtn',
+            type: 'button',
+            text: '取消',
+            disabled: false,
+        },
+        view_leftbtn: {
+            name: 'leftbtn',
+            type: 'button',
+            text: '左移',
+            disabled: true,
+        },
+        view_rightbtn: {
+            name: 'rightbtn',
+            type: 'button',
+            text: '右移',
+            disabled: true,},
+        view_allleftbtn: {
+            name: 'allleftbtn',
+            type: 'button',
+            text: '全部左移',
+            disabled: true,
+        },
+        view_allrightbtn: {
+            name: 'allrightbtn',
+            type: 'button',
+            text: '全部右移',
+            disabled: true,
+        },
     };
 
 
@@ -110,9 +142,18 @@ export class TodoAssignToViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TodoAssignToViewBase
      */
 	protected viewtag: string = '43582fa5b922cb77d0b1e704a7b6e5c3';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoAssignToViewBase
+     */ 
+    protected viewName: string = "TodoAssignToView";
 
 
     /**
@@ -131,7 +172,9 @@ export class TodoAssignToViewBase extends OptionViewBase {
      * @type {Array<*>}
      * @memberof TodoAssignToViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

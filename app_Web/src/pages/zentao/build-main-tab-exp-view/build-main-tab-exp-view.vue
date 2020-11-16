@@ -1,5 +1,5 @@
-<template src="./build-main-tab-exp-view.html"/>
-<script lang='tsx'>
+<template src="./build-main-tab-exp-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BuildMainTabExpViewBase } from './build-main-tab-exp-view-base';
@@ -18,5 +18,5 @@ import view_tabexppanel from '@widgets/build/main-tab-exp-viewtabexppanel-tabexp
     }
 })
 @VueLifeCycleProcessing()
-export default class BuildMainTabExpView extends BuildMainTabExpViewBase { }
+export default class BuildMainTabExpView extends BuildMainTabExpViewBase {}
 </script>

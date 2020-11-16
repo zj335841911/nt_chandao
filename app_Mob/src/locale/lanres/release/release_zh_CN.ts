@@ -24,9 +24,16 @@ export default {
     releasetype: "运行模式",
     builder: "构建者",
     builddate: "打包日期",
+    noticeusers: "消息通知用户",
   },
 	views: {
+		mobtabexpview: {
+			caption: '发布',
+		},
 		mobpickupview: {
+			caption: '发布',
+		},
+		editmobeditview: {
 			caption: '发布',
 		},
 		mobeditview: {
@@ -40,6 +47,56 @@ export default {
 		},
 		mobpickupmdview: {
 			caption: '发布',
+		},
+	},
+	mobmain_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '附件', 
+			druipart2: '', 
+			grouppanel2: '历史记录', 
+			group1: '发布基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: 'ID', 
+			srfmajortext: '发布名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			name: '发布名称', 
+			date: '发布日期', 
+			buildname: '版本', 
+			marker: '里程碑', 
+			status: '状态', 
+			id: 'ID', 
+		},
+		uiactions: {
+		},
+	},
+	mobeditform_form: {
+		details: {
+			grouppanel1: '分组面板', 
+			group1: 'release基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: 'ID', 
+			srfmajortext: '发布名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			product: '产品', 
+			productname: '产品名称', 
+			name: '发布名称', 
+			marker: '里程碑', 
+			buildname: '版本', 
+			date: '发布日期', 
+			desc: '描述', 
+			files: '附件', 
+			id: 'ID', 
+		},
+		uiactions: {
 		},
 	},
 	mobnewform_form: {
@@ -61,28 +118,7 @@ export default {
 			buildname: '版本', 
 			date: '发布日期', 
 			desc: '描述', 
-			id: 'ID', 
-		},
-		uiactions: {
-		},
-	},
-	mobmain_form: {
-		details: {
-			group1: '发布基本信息', 
-			group2: '操作信息', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: 'ID', 
-			srfmajortext: '发布名称', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			name: '发布名称', 
-			date: '发布日期', 
-			buildname: '版本', 
-			marker: '里程碑', 
-			status: '状态', 
+			files: '附件', 
 			id: 'ID', 
 		},
 		uiactions: {
@@ -98,6 +134,30 @@ export default {
 		uiactions: {
 		},
 	},
+	editmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
+	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_mobactive: {
+			caption: '激活',
+			tip: '激活',
+		},
+		deuiaction1_mobterminal: {
+			caption: '停止维护',
+			tip: '停止维护',
+		},
+		deuiaction1_mobedit: {
+			caption: '编辑',
+			tip: '编辑',
+		},
+		deuiaction1_mobremove: {
+			caption: '删除',
+			tip: '删除',
+		},
+	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',
@@ -109,7 +169,5 @@ export default {
 			caption: '创建发布',
 			tip: '创建发布',
 		},
-	},
-	mobeditviewrighttoolbar_toolbar: {
 	},
 };

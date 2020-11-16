@@ -8,7 +8,6 @@ import { Store } from 'vuex';
  * @class LoadAppData
  */
 export class LoadAppData {
-
     /**
      * 唯一实例
      *
@@ -49,7 +48,7 @@ export class LoadAppData {
      */
     public async load(store: Store<any>): Promise<any> {
         const url = `./assets/json/data-dictionary.json`;
-        let response: any = await Http.getInstance().get(url)
+        let response: any = await Http.getInstance().get(url);
         if (response && response.status === 200 && response.data && Array.isArray(response.data)) {
             const datas: any[] = [...response.data];
             datas.forEach((item: any) => {
@@ -61,5 +60,4 @@ export class LoadAppData {
         }
         return response;
     }
-
 }

@@ -9,7 +9,6 @@ import { Emit } from 'vue-property-decorator';
  * @extends {ViewBase}
  */
 export class IndexViewBase extends ViewBase {
-
     /**
      * 数据变化
      *
@@ -17,8 +16,8 @@ export class IndexViewBase extends ViewBase {
      * @returns {*}
      * @memberof ${srfclassname('${view.name}')}Base
      */
-    @Emit() 
-    public viewDatasChange(val: any):any {
+    @Emit()
+    public viewDatasChange(val: any): any {
         return val;
     }
 
@@ -47,10 +46,8 @@ export class IndexViewBase extends ViewBase {
      */
     public mounted() {
         super.mounted();
-        this.viewState.next({ tag: "appmenu", action: "load", data: {} });
-        this.$viewTool.setIndexParameters([
-            { pathName: "index", parameterName: "index" }
-        ]);
+        this.viewState.next({ tag: 'appmenu', action: 'load', data: {} });
+        this.$viewTool.setIndexParameters([{ pathName: 'index', parameterName: 'index' }]);
     }
 
     /**
@@ -68,7 +65,7 @@ export class IndexViewBase extends ViewBase {
                 this.topMenus.forEach((item: any) => {
                     item.caption = item.text;
                     item.disabled = false;
-                    item.visabled = true;
+                    item.visible = true;
                 });
             }
         }
@@ -86,5 +83,4 @@ export class IndexViewBase extends ViewBase {
             (this.$refs.appmenu as any).click(menu);
         }
     }
-
 }

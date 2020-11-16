@@ -9,6 +9,4 @@ import { AppViewStoreBase } from './AppViewStoreBase';
  * @extends {AppViewStoreBase}
  */
 @SingletonMode()
-export class AppViewStore extends AppViewStoreBase {
-
-}
+export class AppViewStore extends AppViewStoreBase {}

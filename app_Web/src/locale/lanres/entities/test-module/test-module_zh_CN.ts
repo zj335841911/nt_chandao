@@ -77,10 +77,12 @@ export default {
 		},
 	},
 	mainbranch_grid: {
+		nodata: "",
 		columns: {
 			name: "名称",
 			branch: "平台",
 			short: "简称",
+			order: "排序值",
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
@@ -88,10 +90,12 @@ export default {
 		},
 	},
 	mainrow_grid: {
+		nodata: "",
 		columns: {
 			name: "名称",
 			branch: "平台",
 			short: "简称",
+			order: "排序值",
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
@@ -99,6 +103,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 		},
 		uiactions: {

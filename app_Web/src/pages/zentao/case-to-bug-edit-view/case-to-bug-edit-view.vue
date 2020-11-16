@@ -1,5 +1,5 @@
-<template src="./case-to-bug-edit-view.html"/>
-<script lang='tsx'>
+<template src="./case-to-bug-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseToBugEditViewBase } from './case-to-bug-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/case/to-bug-form/to-bug-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseToBugEditView extends CaseToBugEditViewBase { }
+export default class CaseToBugEditView extends CaseToBugEditViewBase {}
 </script>

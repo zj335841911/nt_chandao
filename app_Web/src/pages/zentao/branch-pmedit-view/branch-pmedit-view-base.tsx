@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import BranchService from '@/service/branch/branch-service';
 import BranchAuthService from '@/authservice/branch/branch-auth-service';
@@ -48,7 +48,7 @@ export class BranchPMEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BranchPMEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class BranchPMEditViewBase extends EditViewBase {
      *
      * @memberof BranchPMEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class BranchPMEditViewBase extends EditViewBase {
         srfCaption: 'entities.branch.views.pmeditview.caption',
         srfTitle: 'entities.branch.views.pmeditview.title',
         srfSubTitle: 'entities.branch.views.pmeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class BranchPMEditViewBase extends EditViewBase {
      * @memberof BranchPMEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -106,7 +112,7 @@ export class BranchPMEditViewBase extends EditViewBase {
      * @memberof BranchPMEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -117,9 +123,18 @@ export class BranchPMEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BranchPMEditViewBase
      */
 	protected viewtag: string = 'd4cb26555e6d81a172652580cf7d9f7f';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BranchPMEditViewBase
+     */ 
+    protected viewName: string = "BranchPMEditView";
 
 
     /**
@@ -138,7 +153,9 @@ export class BranchPMEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BranchPMEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

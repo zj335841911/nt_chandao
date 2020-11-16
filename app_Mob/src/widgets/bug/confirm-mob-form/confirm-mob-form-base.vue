@@ -27,7 +27,7 @@
     v-show="detailsModel.assignedto.visible" 
     :itemRules="this.rules.assignedto" 
     :caption="$t('bug.confirmmob_form.details.assignedto')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.assignedto.disabled"
     :error="detailsModel.assignedto.error" 
@@ -58,7 +58,7 @@
     v-show="detailsModel.type.visible" 
     :itemRules="this.rules.type" 
     :caption="$t('bug.confirmmob_form.details.type')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.type.disabled"
     :error="detailsModel.type.error" 
@@ -89,7 +89,7 @@
     v-show="detailsModel.pri.visible" 
     :itemRules="this.rules.pri" 
     :caption="$t('bug.confirmmob_form.details.pri')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.pri.disabled"
     :error="detailsModel.pri.error" 
@@ -120,7 +120,7 @@
     v-show="detailsModel.mailto.visible" 
     :itemRules="this.rules.mailto" 
     :caption="$t('bug.confirmmob_form.details.mailto')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.mailto.disabled"
     :error="detailsModel.mailto.error" 
@@ -153,11 +153,12 @@
     v-show="detailsModel.comment.visible" 
     :itemRules="this.rules.comment" 
     :caption="$t('bug.confirmmob_form.details.comment')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
+    :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{}' :exportparams='{}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -185,6 +186,7 @@
     refreshitems='' 
     viewname='action-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('bug.confirmmob_form.details.druipart1')"  
     paramItem='bug' 
     style="" 
     :formState="formState" 
@@ -477,6 +479,16 @@ export default class ConfirmMobBase extends Vue implements ControlInterface {
      * @memberof ConfirmMob
      */
     protected formState: Subject<any> = new Subject();
+
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof ConfirmMobBase
+     */
+    public appStateEvent: Subscription | undefined;
 
     /**
      * 忽略表单项值变化
@@ -1232,6 +1244,16 @@ export default class ConfirmMobBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Bug")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1254,6 +1276,9 @@ export default class ConfirmMobBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1463,7 +1488,7 @@ export default class ConfirmMobBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

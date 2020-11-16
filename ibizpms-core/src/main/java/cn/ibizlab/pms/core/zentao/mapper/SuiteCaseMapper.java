@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface SuiteCaseMapper extends BaseMapper<SuiteCase>{
+public interface SuiteCaseMapper extends BaseMapper<SuiteCase> {
 
-    Page<SuiteCase> searchDefault(IPage page, @Param("srf") SuiteCaseSearchContext context, @Param("ew") Wrapper<SuiteCase> wrapper) ;
+    Page<SuiteCase> searchDefault(IPage page, @Param("srf") SuiteCaseSearchContext context, @Param("ew") Wrapper<SuiteCase> wrapper);
     @Override
     SuiteCase selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface SuiteCaseMapper extends BaseMapper<SuiteCase>{
     int update(@Param(Constants.ENTITY) SuiteCase entity, @Param("ew") Wrapper<SuiteCase> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -62,10 +62,10 @@ public interface SuiteCaseMapper extends BaseMapper<SuiteCase>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<SuiteCase> selectByIbizcase(@Param("id") Serializable id) ;
+    List<SuiteCase> selectByIbizcase(@Param("id") Serializable id);
 
-    List<SuiteCase> selectByProduct(@Param("id") Serializable id) ;
+    List<SuiteCase> selectByProduct(@Param("id") Serializable id);
 
-    List<SuiteCase> selectBySuite(@Param("id") Serializable id) ;
+    List<SuiteCase> selectBySuite(@Param("id") Serializable id);
 
 }

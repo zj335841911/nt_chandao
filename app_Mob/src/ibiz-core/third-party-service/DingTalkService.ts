@@ -2,6 +2,7 @@ import axios from "axios";
 import * as dd from "dingtalk-jsapi";
 import { Util } from "@/ibiz-core/utils";
 import store from "@/store";
+import qs from 'qs';
 import { Notice } from "../../utils/notice/notice";
 /**
  * 钉钉服务
@@ -35,7 +36,7 @@ export class DingTalkService {
      * @type {string}
      * @memberof DingTalkService
      */
-    private readonly infoName: string = "UserInfo";
+    private readonly infoName: string = "";
     /**
      * 企业corpId
      *
@@ -43,7 +44,7 @@ export class DingTalkService {
      * @type {string}
      * @memberof WeChatService
      */
-    private corpId: string = "ding0466097cd833d9f9a1320dcb25e91351";
+    private corpId: string = "";
     /**
      * 钉钉sdk
      *
@@ -90,6 +91,10 @@ export class DingTalkService {
         this.init();
     }
 
+    /**
+     * 钉钉初始化  鉴权
+     * @memberof DingTalkService
+     */
     private init() {
         const info: string = window.navigator.userAgent.toUpperCase();
         if (info.indexOf("DINGTALK") !== -1) {
@@ -98,29 +103,31 @@ export class DingTalkService {
                     this.$isInit = true;
                     this.dd_ready();
                 });
-                dd.config({
-                    agentId: access_token.agentId, // 必填，微应用ID
-                    corpId: access_token.corpId, //必填，企业ID
-                    timeStamp: access_token.timeStamp, // 必填，生成签名的时间戳
-                    nonceStr: access_token.nonceStr, // 必填，生成签名的随机串
-                    signature: access_token.signature, // 必填，签名
-                    type: 0, //选填。0表示微应用的jsapi,1表示服务窗的jsapi；不填默认为0。该参数从dingtalk.js的0.8.3版本开始支持
-                    jsApiList: [
-                        "device.audio.startRecord",
-                        "device.audio.stopRecord",
-                        "device.audio.onRecordEnd",
-                        "device.audio.translateVoice",
-                    ], // 必填，需要使用的jsapi列表，注意：不要带dd。
-                });
+                if (access_token) {
+                    dd.config({
+                        agentId: access_token.agentId, // 必填，微应用ID
+                        corpId: access_token.corpId, //必填，企业ID
+                        timeStamp: access_token.timeStamp, // 必填，生成签名的时间戳
+                        nonceStr: access_token.nonceStr, // 必填，生成签名的随机串
+                        signature: access_token.signature, // 必填，签名
+                        type: 0, //选填。0表示微应用的jsapi,1表示服务窗的jsapi；不填默认为0。该参数从dingtalk.js的0.8.3版本开始支持
+                        jsApiList: [
+                            "device.audio.startRecord",
+                            "device.audio.stopRecord",
+                            "device.audio.onRecordEnd",
+                            "device.audio.translateVoice",
+                        ], // 必填，需要使用的jsapi列表，注意：不要带dd。
+                    });
+                }
                 dd.error((err: any) => {
-                    alert(`dd加载错误：${JSON.stringify(err)}`);
+                    // alert(`dd加载错误：${JSON.stringify(err)}`);
                 });
             });
         }
     }
 
     /**
-     * 钉钉初始化
+     * 钉钉初始化回调方法
      */
     private dd_ready() {
         this.setNavBack();
@@ -132,37 +139,28 @@ export class DingTalkService {
     public async getAccess_token(): Promise<any> {
         return new Promise((resolve, reject) => {
             let access_token = localStorage.getItem("access_token");
-            if (access_token) {
-                let reAccess_token: any = JSON.parse(access_token);
+            if (access_token && JSON.parse(access_token).time && !(new Date().getTime() - JSON.parse(access_token).time > 5400000)) {
                 // 鉴权信息2小时过期 设置一小时五十分钟
-                if (
-                    reAccess_token.time &&
-                    !(new Date().getTime() - reAccess_token.tiem > 5400000)
-                ) {
-                    resolve(reAccess_token);
-                }
-            }
-            const promise: Promise<any> = this.get(`/uaa/dingtalk/jsapi/sign`);
-            promise
-                .then((response: any) => {
+                resolve(JSON.parse(access_token));
+            } else {
+                let openAccessId = document.referrer ? document.referrer : "dingtalk";
+                let url = window.location.href.replace(window.location.hash, '')
+                const promise: Promise<any> = this.get(`/uaa/dingtalk/jsapi/sign?` + qs.stringify({ openAccessId: openAccessId, url: url }));
+                promise.then((response: any) => {
                     if (response && response.status === 200) {
-                        localStorage.setItem(
-                            "access_token",
-                            JSON.stringify(
-                                Object.assign(response.data, { time: new Date().getTime() })
-                            )
-                        );
+                        localStorage.setItem("access_token", JSON.stringify(Object.assign(response.data, { time: new Date().getTime() })));
                         resolve(response.data);
                     } else {
                         resolve(null);
                     }
-                })
-                .catch((response: any) => {
+                }).catch((response: any) => {
                     console.error(response);
-                    reject(null);
+                    resolve(null);
                 });
+            }
         });
     }
+
     /**
      * 钉钉登录
      *
@@ -170,28 +168,13 @@ export class DingTalkService {
      */
     public async login(): Promise<any> {
         const access_token: any = await this.get(`/uaa/open/dingtalk/access_token`);
-        if (
-            access_token.status == 200 &&
-            access_token.data &&
-            access_token.data.corp_id
-        ) {
-            localStorage.setItem(
-                "access_token",
-                JSON.stringify(Object.assign(access_token, new Date().getTime))
-            );
+        if (access_token.status == 200 && access_token.data && access_token.data.corp_id) {
+            localStorage.setItem("access_token", JSON.stringify(Object.assign(access_token, new Date().getTime)));
             this.corpId = access_token.data.corp_id;
-            const res: any = await dd.runtime.permission.requestAuthCode({
-                corpId: this.corpId,
-            });
+            const res: any = await dd.runtime.permission.requestAuthCode({ corpId: this.corpId, });
             if (res && res.code) {
-                const userInfo: any = await this.get(
-                    `/uaa/open/dingtalk/auth/${res.code}`
-                );
-                if (
-                    userInfo.status == 200 &&
-                    userInfo.data.token &&
-                    userInfo.data.user
-                ) {
+                const userInfo: any = await this.get(`/uaa/open/dingtalk/auth/${res.code}`);
+                if (userInfo.status == 200 && userInfo.data.token && userInfo.data.user) {
                     localStorage.setItem("token", userInfo.data.token);
                     localStorage.setItem("user", JSON.stringify(userInfo.data.user));
                     return { issuccess: true, message: "" };
@@ -207,24 +190,41 @@ export class DingTalkService {
     }
 
     /**
+     * 请求(需要替换为项目)
+     *
+     * @private
+     * @param {string} url
+     * @returns {Promise<any>}
+     * @memberof DingTalkService
+     */
+    private async get(url: string): Promise<any> {
+        return new Promise((resolve) => {
+            axios.get(url)
+                .then((response: any) => {
+                    resolve(response);
+                }).catch((error: any) => {
+                    resolve(error);
+                    console.log("请求异常");
+                });
+        });
+    }
+
+    /**
      * 开始录音
      *
      * @memberof DingTalkService
      */
-    private startRecord() {
-        dd.device.audio.onRecordEnd({
-            onSuccess: (res: any) => {
-                res.duration; // 返回音频的时长，单位：秒
-            },
-            onFail: (err: any) => { },
-        });
-        this.dd.device.audio.startRecord({
-            onSuccess: () => {
-                //支持最长为300秒（包括）的音频录制，默认60秒(包括)。
-            },
-            onFail: (err: any) => {
-                alert(JSON.stringify(err));
-            },
+    private startRecord(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            dd.device.audio.startRecord({
+                onSuccess: () => {
+                    resolve(true)
+                    //支持最长为300秒（包括）的音频录制，默认60秒(包括)。
+                },
+                onFail: () => {
+                    resolve(false)
+                },
+            });
         });
     }
 
@@ -242,7 +242,7 @@ export class DingTalkService {
                     resolve(res);
                 },
                 onFail: (err: any) => {
-                    alert(JSON.stringify(err));
+                    // alert(JSON.stringify(err));
                 },
             });
         });
@@ -255,7 +255,7 @@ export class DingTalkService {
      */
     private translateVoice(arg: any): Promise<any> {
         return new Promise((resolve, reject) => {
-            this.dd.device.audio.translateVoice({
+            dd.device.audio.translateVoice({
                 mediaId: arg.mediaId,
                 duration: arg.duration,
                 onSuccess: (res: any) => {
@@ -264,10 +264,22 @@ export class DingTalkService {
                     resolve(res);
                 },
                 onFail: (err: any) => {
-                    alert(JSON.stringify(err));
                 },
             });
         });
+    }
+
+    /**
+     * 震动
+     */
+    public vibrate(arg:any) : Promise<any> {
+        return new Promise((resolve, reject) => {
+            dd.device.notification.vibrate({
+                duration: arg, //震动时间，android可配置 iOS忽略
+            })
+            resolve({});
+        });
+        
     }
 
     /**
@@ -290,28 +302,6 @@ export class DingTalkService {
     }
 
     /**
-     * 请求(需要替换为项目)
-     *
-     * @private
-     * @param {string} url
-     * @returns {Promise<any>}
-     * @memberof DingTalkService
-     */
-    private async get(url: string): Promise<any> {
-        return new Promise((resolve) => {
-            axios
-                .get(url)
-                .then((response: any) => {
-                    resolve(response);
-                })
-                .catch((error: any) => {
-                    resolve(error);
-                    console.log("请求异常");
-                });
-        });
-    }
-
-    /**
      * 获取实例
      *
      * @memberof DingTalkService
@@ -326,7 +316,7 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     private close() {
-        this.dd.biz.navigation.close({});
+        dd.biz.navigation.close({});
     }
 
     /**
@@ -335,7 +325,7 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     private setTitle(title: string) {
-        this.dd.biz.navigation.setTitle({
+        dd.biz.navigation.setTitle({
             title: title,
         });
     }
@@ -347,14 +337,10 @@ export class DingTalkService {
      */
     private setNavBack() {
         if (Util.isAndroid()) {
-            document.addEventListener(
-                "backbutton",
-                (e: any) => {
-                    e.preventDefault();
-                    this.controlBackEvent();
-                },
-                false
-            );
+            document.addEventListener("backbutton", (e: any) => {
+                e.preventDefault();
+                this.controlBackEvent();
+            }, false);
         } else {
             dd.biz.navigation.setLeft({
                 control: true, //是否控制点击事件，true 控制，false 不控制， 默认false
@@ -365,6 +351,8 @@ export class DingTalkService {
             });
         }
     }
+
+
 
     /**
      * 钉钉导航栏返回事件
@@ -419,6 +407,9 @@ export class DingTalkService {
         }
         if (Object.is(tag, "close")) {
             return this.close();
+        }
+        if (Object.is(tag, "vibrate")) {
+            return this.vibrate(arg);
         }
     }
 }

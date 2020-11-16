@@ -4,14 +4,13 @@
  * @interface ViewMessage
  */
 export interface ViewMessage {
-
     /**
      * 视图消息标识
      *
      * @type {string}
      * @memberof ViewMessage
      */
-    id:string;
+    id: string;
 
     /**
      * 视图消息名称
@@ -19,7 +18,7 @@ export interface ViewMessage {
      * @type {string}
      * @memberof ViewMessage
      */
-    name:string;
+    name: string;
 
     /**
      * 视图消息代码名称
@@ -27,7 +26,7 @@ export interface ViewMessage {
      * @type {string}
      * @memberof ViewMessage
      */
-    codename:string;
+    codename: string;
 
     /**
      * 视图消息标题
@@ -35,7 +34,7 @@ export interface ViewMessage {
      * @type {string}
      * @memberof ViewMessage
      */
-    title:string;
+    title: string;
 
     /**
      * 视图消息内容
@@ -43,7 +42,7 @@ export interface ViewMessage {
      * @type {string}
      * @memberof ViewMessage
      */
-    content:string;
+    content: string;
 
     /**
      * 视图消息关闭模式
@@ -51,7 +50,7 @@ export interface ViewMessage {
      * @type {number}
      * @memberof ViewMessage
      */
-    closeMode:number;
+    closeMode: number;
 
     /**
      * 视图消息位置
@@ -59,7 +58,7 @@ export interface ViewMessage {
      * @type {string}
      * @memberof ViewMessage
      */
-    position:string;
+    position: string;
 
     /**
      * 视图消息类型
@@ -67,23 +66,23 @@ export interface ViewMessage {
      * @type {string}
      * @memberof ViewMessage
      */
-    type:string;
-    
+    type: string;
+
     /**
      * 视图消息是否支持删除
      *
      * @type {boolean}
      * @memberof ViewMessage
      */
-    isEnableRemove:boolean;
+    isEnableRemove: boolean;
 
     /**
      * 排序值
      *
      * @type {number}
      * @memberof ViewMessage
-     */    
-    order:number;
+     */
+    order: number;
 
     /**
      * 动态模式
@@ -91,7 +90,7 @@ export interface ViewMessage {
      * @type {string}
      * @memberof ViewMessage
      */
-    dynamicMode:string;
+    dynamicMode: string;
 
     /**
      * 消息类型
@@ -99,5 +98,5 @@ export interface ViewMessage {
      * @type {string}
      * @memberof ViewMessage
      */
-    messageType:string;
+    messageType: string;
 }

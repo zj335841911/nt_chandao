@@ -28,8 +28,8 @@ export default class TaskKanBanModel {
         prop: 'deadline'
       },
       {
-        name: 'estimate',
-        prop: 'estimate'
+        name: 'left',
+        prop: 'left'
       },
       {
         name: 'project',

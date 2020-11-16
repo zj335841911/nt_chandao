@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import MyWorkService from './my-work-portlet-service';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * dashboard_sysportlet2部件基类
@@ -17,7 +16,6 @@ import { ViewTool } from '@/utils';
  * @extends {MyWorkPortletBase}
  */
 export class MyWorkPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class MyWorkPortletBase extends MainControlBase {
      * @type {IbzMyTerritoryUIService}
      * @memberof MyWorkBase
      */  
-    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+    public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
 
     /**
@@ -146,7 +144,7 @@ export class MyWorkPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '170px';
+            return '180px';
         }
     }
 

@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     password: "密码",
@@ -128,6 +127,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			realname: "真实姓名",

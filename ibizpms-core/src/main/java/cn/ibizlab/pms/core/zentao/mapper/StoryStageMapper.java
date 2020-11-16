@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface StoryStageMapper extends BaseMapper<StoryStage>{
+public interface StoryStageMapper extends BaseMapper<StoryStage> {
 
-    Page<StoryStage> searchDefault(IPage page, @Param("srf") StoryStageSearchContext context, @Param("ew") Wrapper<StoryStage> wrapper) ;
+    Page<StoryStage> searchDefault(IPage page, @Param("srf") StoryStageSearchContext context, @Param("ew") Wrapper<StoryStage> wrapper);
     @Override
     StoryStage selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface StoryStageMapper extends BaseMapper<StoryStage>{
     int update(@Param(Constants.ENTITY) StoryStage entity, @Param("ew") Wrapper<StoryStage> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -62,8 +62,8 @@ public interface StoryStageMapper extends BaseMapper<StoryStage>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<StoryStage> selectByBranch(@Param("id") Serializable id) ;
+    List<StoryStage> selectByBranch(@Param("id") Serializable id);
 
-    List<StoryStage> selectByStory(@Param("id") Serializable id) ;
+    List<StoryStage> selectByStory(@Param("id") Serializable id);
 
 }

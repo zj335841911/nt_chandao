@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import MainInfoService from './main-info-portlet-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * dashboard_sysportlet3部件基类
@@ -17,7 +16,6 @@ import { ViewTool } from '@/utils';
  * @extends {MainInfoPortletBase}
  */
 export class MainInfoPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class MainInfoPortletBase extends MainControlBase {
      * @type {TaskUIService}
      * @memberof MainInfoBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
 
     /**

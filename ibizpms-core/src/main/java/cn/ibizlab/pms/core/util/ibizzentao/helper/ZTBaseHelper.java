@@ -6,15 +6,21 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * @author chenxiang
+ * @param <M>
+ * @param <T>
+ */
 public class ZTBaseHelper<M extends BaseMapper<T>, T extends EntityMP> extends ServiceImpl<M , T> {
 
     public T get(Long key){
         T et = getById(key);
         if (et == null) {
             try {
-                et = ((Class<T>)et.getClass()).newInstance();
+                et = ((Class<T>) et.getClass()).newInstance();
                 et.set("id",Long.valueOf(et.get("id").toString()));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -23,30 +29,34 @@ public class ZTBaseHelper<M extends BaseMapper<T>, T extends EntityMP> extends S
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(T et) {
-        if (!this.retBool(this.baseMapper.insert(et)))
+        if (!SqlHelper.retBool(this.baseMapper.insert(et))) {
             return false;
-        if(hasId())
+        }
+        if(hasId()) {
             CachedBeanCopier.copy(get(Long.valueOf(et.get("id").toString())), et);
+        }
         return true;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean internalUpdate(T et ){
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", Long.valueOf(et.get("id").toString()))))
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", Long.valueOf(et.get("id").toString())))) {
             return false;
-        if(hasId())
+        }
+        if(hasId()) {
             CachedBeanCopier.copy(get(Long.valueOf(et.get("id").toString())), et);
+        }
         return true;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(T et ){
        return internalUpdate(et);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean delete(Long key){
         if(hasId()){
             if(hasDeleted()){

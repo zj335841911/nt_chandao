@@ -74,6 +74,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			caseresult: "测试结果",
 			date: "测试时间",

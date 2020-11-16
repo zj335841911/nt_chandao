@@ -2,7 +2,7 @@
 @import "./theme/index.less";
 @import "./layout/index.less";
 @import "./sysStyles.less";
-
+@import "./theme/user.less";
 .ion-page.view-container {
   height: 100%;
   display: flex;
@@ -50,7 +50,7 @@
   }
   > .view-search {
     > .van-cell {
-      padding: 0px;
+      padding: 0;
       padding-right: @padding-md;
       display: flex;
       align-items: center;
@@ -62,6 +62,10 @@
   }
   > .view-footer {
     color: @color-tertiary-contrast;
+    background: @color-main-background;
+    ion-toolbar {
+      --background: @color-main-background;
+    }
     .bottom_menu {
       text-align: center;
       margin: 0 4px 4px 4px;
@@ -71,6 +75,16 @@
       }
     }
   }
+}
+
+.view-title {
+  width: calc(100vw - 180px);
+  margin: 0 90px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0;
 }
 
 .app-layoutpanel {
@@ -164,7 +178,33 @@ ion-toolbar {
 }
 
 // 图标
-.ibiz-button-icon{
+.ibiz-button-icon {
   font-size: 16px;
   margin: 4px;
+}
+
+// 主背景色
+ion-content {
+  --background: @color-main-background;
+}
+
+// 下拉样式
+.action-sheet-button-inner,
+.action-sheet-button-inner.sc-ion-action-sheet-ios {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+// 搜索栏主背景
+.toolbar-searchbar {
+  --background: @color-main-background;
+}
+ion-refresher-content {
+  background: @color-main-background;
+}
+html {
+  background: @color-main-background;
 }

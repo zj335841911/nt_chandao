@@ -21,6 +21,13 @@ export default class TestRunUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  TestRunUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  TestRunUIServiceBase
@@ -89,8 +96,6 @@ export default class TestRunUIServiceBase extends UIService {
      * @memberof  TestRunUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'meditview9',srfappde:'testruns',component:'test-run-medit-view9'});
-        this.allViewMap.set(':',{viewname:'editview9',srfappde:'testruns',component:'test-run-edit-view9'});
     }
 
     /**

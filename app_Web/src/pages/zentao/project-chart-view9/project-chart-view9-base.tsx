@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { ChartView9Base } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
@@ -65,7 +65,10 @@ export class ProjectChartView9Base extends ChartView9Base {
 	 * @memberof ProjectChartView9Base
 	 */
     protected customViewNavContexts: any = {
-        'CURYEAR': { isRawValue: false, value: 'curyear' }
+        'CURYEAR': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
 	/**
@@ -76,7 +79,10 @@ export class ProjectChartView9Base extends ChartView9Base {
 	 * @memberof ProjectChartView9Base
 	 */
     protected customViewParams: any = {
-        'curyear': { isRawValue: false, value: 'curyear' }
+        'curyear': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
     /**
@@ -90,8 +96,8 @@ export class ProjectChartView9Base extends ChartView9Base {
         srfCaption: 'entities.project.views.chartview9.caption',
         srfTitle: 'entities.project.views.chartview9.title',
         srfSubTitle: 'entities.project.views.chartview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -101,7 +107,10 @@ export class ProjectChartView9Base extends ChartView9Base {
      * @memberof ProjectChartView9Base
      */
     protected containerModel: any = {
-        view_chart: { name: 'chart', type: 'CHART' },
+        view_chart: {
+            name: 'chart',
+            type: 'CHART',
+        },
     };
 
 
@@ -110,9 +119,18 @@ export class ProjectChartView9Base extends ChartView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectChartView9Base
      */
 	protected viewtag: string = '3e8a8e6a89e8550bc64a2a8bbae01f15';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectChartView9Base
+     */ 
+    protected viewName: string = "ProjectChartView9";
 
 
     /**
@@ -131,7 +149,9 @@ export class ProjectChartView9Base extends ChartView9Base {
      * @type {Array<*>}
      * @memberof ProjectChartView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
 import TestReportAuthService from '@/authservice/test-report/test-report-auth-service';
@@ -48,7 +48,7 @@ export class TestReportActionEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportActionEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class TestReportActionEditViewBase extends EditViewBase {
      *
      * @memberof TestReportActionEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class TestReportActionEditViewBase extends EditViewBase {
         srfCaption: 'entities.testreport.views.actioneditview.caption',
         srfTitle: 'entities.testreport.views.actioneditview.title',
         srfSubTitle: 'entities.testreport.views.actioneditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,7 +95,10 @@ export class TestReportActionEditViewBase extends EditViewBase {
      * @memberof TestReportActionEditViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -104,9 +107,18 @@ export class TestReportActionEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestReportActionEditViewBase
      */
 	protected viewtag: string = 'ba3ac5351ca273bb889ffcb52ec7217b';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportActionEditViewBase
+     */ 
+    protected viewName: string = "TestReportActionEditView";
 
 
     /**
@@ -125,7 +137,9 @@ export class TestReportActionEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TestReportActionEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

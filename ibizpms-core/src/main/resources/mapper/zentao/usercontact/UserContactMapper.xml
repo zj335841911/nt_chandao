@@ -16,6 +16,15 @@
     </resultMap>
 
 
+    <!--数据集合[CurUSERCONTACT]-->
+	 <select id="searchCurUSERCONTACT"  parameterType="cn.ibizlab.pms.core.zentao.filter.UserContactSearchContext"  resultMap="UserContactResultMap">
+         select t1.* from (
+                <include refid="CurUSERCONTACT" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.UserContactSearchContext"  resultMap="UserContactResultMap">
          select t1.* from (
@@ -25,9 +34,30 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[MyUSERCONTACT]-->
+	 <select id="searchMyUSERCONTACT"  parameterType="cn.ibizlab.pms.core.zentao.filter.UserContactSearchContext"  resultMap="UserContactResultMap">
+         select t1.* from (
+                <include refid="MyUSERCONTACT" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
+    <!--数据查询[CurUSERCONTACT]-->
+    <sql id="CurUSERCONTACT" databaseId="mysql">
+		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`ID`, t1.USERLIST, t1.`LISTNAME` FROM `zt_usercontact` t1  
+					 WHERE 	( t1.`ACCOUNT` =  #{srf.sessioncontext.srfloginname} )
+			]]>
+    </sql>
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`ID`, t1.`LISTNAME` FROM `zt_usercontact` t1  
+			]]>
+    </sql>
+    <!--数据查询[MyUSERCONTACT]-->
+    <sql id="MyUSERCONTACT" databaseId="mysql">
+		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`ID`, t1.`LISTNAME` FROM `zt_usercontact` t1  
+					 WHERE 	( t1.`ACCOUNT` =  #{srf.sessioncontext.srfloginname} )
 			]]>
     </sql>
     <!--数据查询[View]-->

@@ -1,5 +1,5 @@
-<template src="./to-test-test-task-portlet.html"/>
-<script lang='tsx'>
+<template src="./to-test-test-task-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ToTestTestTaskPortletBase } from './to-test-test-task-portlet-base';
@@ -15,8 +15,8 @@ import { ToTestTestTaskPortletBase } from './to-test-test-task-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ToTestTestTaskPortlet extends ToTestTestTaskPortletBase { }
+export default class ToTestTestTaskPortlet extends ToTestTestTaskPortletBase {}
 </script>

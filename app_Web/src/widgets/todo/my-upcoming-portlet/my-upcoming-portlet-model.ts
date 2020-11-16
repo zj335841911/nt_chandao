@@ -111,6 +111,12 @@ export default class MyUpcomingModel {
       {
         name: 'date_disable',
       },
+      {
+        name: 'assignedtopk',
+      },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

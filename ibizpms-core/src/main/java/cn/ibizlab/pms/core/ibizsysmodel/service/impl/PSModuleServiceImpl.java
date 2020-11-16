@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSModule;
@@ -46,7 +47,7 @@ public class PSModuleServiceImpl implements IPSModuleService {
 
 //    @Autowired
     PSModuleFeignClient pSModuleFeignClient;
-    
+
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:}")
     private String serviceName;
 
@@ -58,13 +59,13 @@ public class PSModuleServiceImpl implements IPSModuleService {
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
     private String password;
-    
+
     public PSModuleFeignClient getPSModuleFeignClient(String devSlnSysId) {
-        if(StringUtils.isNotBlank(serviceName)){
-            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSModuleFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
-        }else if(StringUtils.isNotBlank(serviceUrl)){
-            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSModuleFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
-        }else{
+        if (StringUtils.isNotBlank(serviceName)) {
+            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSModuleFeignClient.class, serviceName, false, serviceName, false, loginname, password, devSlnSysId);
+        } else if (StringUtils.isNotBlank(serviceUrl)) {
+            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSModuleFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password, devSlnSysId);
+        } else {
             throw new RuntimeException("缺少平台服务配置信息。");
         }
     }
@@ -73,66 +74,69 @@ public class PSModuleServiceImpl implements IPSModuleService {
     @Override
     public boolean create(PSModule et) {
         PSModule rt = pSModuleFeignClient.create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
     @Override
-    public boolean create(String devSlnSysId,PSModule et) {
+    public boolean create(String devSlnSysId, PSModule et) {
         PSModule rt = getPSModuleFeignClient(devSlnSysId).create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
     public void createBatch(List<PSModule> list){
-        pSModuleFeignClient.createBatch(list) ;
+        pSModuleFeignClient.createBatch(list);
     }
 
-    public void createBatch(String devSlnSysId,List<PSModule> list){
-        getPSModuleFeignClient(devSlnSysId).createBatch(list) ;
+    public void createBatch(String devSlnSysId, List<PSModule> list){
+        getPSModuleFeignClient(devSlnSysId).createBatch(list);
     }
 
     @Override
     public boolean update(PSModule et) {
-        PSModule rt = pSModuleFeignClient.update(et.getPsmoduleid(),et);
-        if(rt==null)
+        PSModule rt = pSModuleFeignClient.update(et.getPsmoduleid(), et);
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
 
     }
 
     @Override
-    public boolean update(String devSlnSysId,PSModule et) {
-        PSModule rt = getPSModuleFeignClient(devSlnSysId).update(et.getPsmoduleid(),et);
-        if(rt==null)
+    public boolean update(String devSlnSysId, PSModule et) {
+        PSModule rt = getPSModuleFeignClient(devSlnSysId).update(et.getPsmoduleid(), et);
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
-
     }
 
-    public void updateBatch(List<PSModule> list){
-        pSModuleFeignClient.updateBatch(list) ;
+    public void updateBatch(List<PSModule> list) {
+        pSModuleFeignClient.updateBatch(list);
     }
 
-    public void updateBatch(String devSlnSysId,List<PSModule> list){
-        getPSModuleFeignClient(devSlnSysId).updateBatch(list) ;
+    public void updateBatch(String devSlnSysId, List<PSModule> list){
+        getPSModuleFeignClient(devSlnSysId).updateBatch(list);
     }
 
     @Override
     public boolean remove(String psmoduleid) {
-        boolean result=pSModuleFeignClient.remove(psmoduleid) ;
+        boolean result=pSModuleFeignClient.remove(psmoduleid);
         return result;
     }
 
     @Override
-    public boolean remove(String devSlnSysId,String psmoduleid) {
-        boolean result=getPSModuleFeignClient(devSlnSysId).remove(psmoduleid) ;
+    public boolean remove(String devSlnSysId, String psmoduleid) {
+        boolean result = getPSModuleFeignClient(devSlnSysId).remove(psmoduleid);
         return result;
     }
 
@@ -140,48 +144,48 @@ public class PSModuleServiceImpl implements IPSModuleService {
         pSModuleFeignClient.removeBatch(idList);
     }
 
-    public void removeBatch(String devSlnSysId,Collection<String> idList){
+    public void removeBatch(String devSlnSysId, Collection<String> idList) {
         getPSModuleFeignClient(devSlnSysId).removeBatch(idList);
     }
 
     @Override
     public PSModule get(String psmoduleid) {
-		PSModule et=pSModuleFeignClient.get(psmoduleid);
-        if(et==null){
-            et=new PSModule();
+        PSModule et = pSModuleFeignClient.get(psmoduleid);
+        if (et == null) {
+            et = new PSModule();
             et.setPsmoduleid(psmoduleid);
         }
-        else{
+        else {
         }
         return  et;
     }
 
     @Override
-    public PSModule get(String devSlnSysId,String psmoduleid) {
-		PSModule et=getPSModuleFeignClient(devSlnSysId).get(psmoduleid);
-        if(et==null){
-            et=new PSModule();
+    public PSModule get(String devSlnSysId, String psmoduleid) {
+        PSModule et = getPSModuleFeignClient(devSlnSysId).get(psmoduleid);
+        if (et == null) {
+            et = new PSModule();
             et.setPsmoduleid(psmoduleid);
         }
-        else{
+        else {
         }
-        return  et;
+        return et;
     }
 
     @Override
-    public String getByCodeName(String devSlnSysId,String codeName) {
+    public String getByCodeName(String devSlnSysId, String codeName) {
         return getPSModuleFeignClient(devSlnSysId).getByCodeName(codeName);
     }
 
     @Override
     public PSModule getDraft(PSModule et) {
-        et=pSModuleFeignClient.getDraft();
+        et = pSModuleFeignClient.getDraft();
         return et;
     }
 
     @Override
-    public PSModule getDraft(String devSlnSysId,PSModule et) {
-        et=getPSModuleFeignClient(devSlnSysId).getDraft();
+    public PSModule getDraft(String devSlnSysId, PSModule et) {
+        et = getPSModuleFeignClient(devSlnSysId).getDraft();
         return et;
     }
 
@@ -191,36 +195,42 @@ public class PSModuleServiceImpl implements IPSModuleService {
     }
 
     @Override
-    public boolean checkKey(String devSlnSysId,PSModule et) {
+    public boolean checkKey(String devSlnSysId, PSModule et) {
         return getPSModuleFeignClient(devSlnSysId).checkKey(et);
     }
 
     @Override
     @Transactional
     public boolean save(PSModule et) {
-        if(et.getPsmoduleid()==null) et.setPsmoduleid((String)et.getDefaultKey(true));
-        if(!pSModuleFeignClient.save(et))
+        if (et.getPsmoduleid() == null) {
+            et.setPsmoduleid((String)et.getDefaultKey(true));
+        }
+        if (!pSModuleFeignClient.save(et)) {
             return false;
+        }
         return true;
     }
 
     @Override
     @Transactional
-    public boolean save(String devSlnSysId,PSModule et) {
-        if(et.getPsmoduleid()==null) et.setPsmoduleid((String)et.getDefaultKey(true));
-        if(!getPSModuleFeignClient(devSlnSysId).save(et))
+    public boolean save(String devSlnSysId, PSModule et) {
+        if (et.getPsmoduleid() == null) {
+            et.setPsmoduleid((String)et.getDefaultKey(true));
+        }
+        if (!getPSModuleFeignClient(devSlnSysId).save(et)) {
             return false;
+        }
         return true;
     }
 
     @Override
     public void saveBatch(List<PSModule> list) {
-        pSModuleFeignClient.saveBatch(list) ;
+        pSModuleFeignClient.saveBatch(list);
     }
 
     @Override
-    public void saveBatch(String devSlnSysId,List<PSModule> list) {
-        getPSModuleFeignClient(devSlnSysId).saveBatch(list) ;
+    public void saveBatch(String devSlnSysId, List<PSModule> list) {
+        getPSModuleFeignClient(devSlnSysId).saveBatch(list);
     }
 
 
@@ -237,10 +247,11 @@ public class PSModuleServiceImpl implements IPSModuleService {
     }
 
     @Override
-    public Page<PSModule> searchDefault(String devSlnSysId,PSModuleSearchContext context) {
+    public Page<PSModule> searchDefault(String devSlnSysId, PSModuleSearchContext context) {
         Page<PSModule> pSModules=getPSModuleFeignClient(devSlnSysId).searchDefault(context);
         return pSModules;
     }
+
 
 
 

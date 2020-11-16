@@ -77,4 +77,12 @@ export interface IbzLib {
      * @memberof IbzLib
      */
     lasteditedby?: any;
+
+    /**
+     * 产品
+     *
+     * @returns {*}
+     * @memberof IbzLib
+     */
+    product?: any;
 }

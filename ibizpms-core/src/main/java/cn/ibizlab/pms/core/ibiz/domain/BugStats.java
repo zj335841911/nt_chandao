@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_bug",resultMap = "BugStatsResultMap")
+@TableName(value = "zt_bug", resultMap = "BugStatsResultMap")
 public class BugStats extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,8 +46,8 @@ public class BugStats extends EntityMP implements Serializable {
     /**
      * 标识
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -182,39 +184,39 @@ public class BugStats extends EntityMP implements Serializable {
     /**
      * 设置 [名称]
      */
-    public void setTitle(String title){
-        this.title = title ;
-        this.modify("title",title);
+    public void setTitle(String title) {
+        this.title = title;
+        this.modify("title", title);
     }
 
     /**
      * 设置 [由谁创建]
      */
-    public void setOpenedby(String openedby){
-        this.openedby = openedby ;
-        this.modify("openedby",openedby);
+    public void setOpenedby(String openedby) {
+        this.openedby = openedby;
+        this.modify("openedby", openedby);
     }
 
     /**
      * 设置 [编号]
      */
-    public void setProduct(Long product){
-        this.product = product ;
-        this.modify("product",product);
+    public void setProduct(Long product) {
+        this.product = product;
+        this.modify("product", product);
     }
 
     /**
      * 设置 [指派给]
      */
-    public void setAssignedto(String assignedto){
-        this.assignedto = assignedto ;
-        this.modify("assignedto",assignedto);
+    public void setAssignedto(String assignedto) {
+        this.assignedto = assignedto;
+        this.modify("assignedto", assignedto);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -226,7 +228,7 @@ public class BugStats extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

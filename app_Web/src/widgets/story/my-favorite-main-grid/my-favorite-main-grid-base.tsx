@@ -1,11 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import MyFavoriteMainService from './my-favorite-main-grid-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -15,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {MyFavoriteMainGridBase}
  */
 export class MyFavoriteMainGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +64,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @type {StoryUIService}
      * @memberof MyFavoriteMainBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 逻辑事件
@@ -299,14 +298,14 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @memberof MyFavoriteMainBase
      */  
     public ActionModel: any = {
-        ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', target: 'SINGLEKEY'},
-        ReviewStory: { name: 'ReviewStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', target: 'SINGLEKEY'},
-        CloseStory: { name: 'CloseStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', target: 'SINGLEKEY'},
-        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_EDIT_BUT', target: 'SINGLEKEY'},
-        OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CCASE_BUT', target: 'SINGLEKEY'},
-        SubStory: { name: 'SubStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_XQXF_BUT', target: 'SINGLEKEY'},
-        StoryFavorites: { name: 'StoryFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', target: 'SINGLEKEY'},
-        StoryNFavorites: { name: 'StoryNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY'}
+        ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', target: 'SINGLEKEY'},
+        ReviewStory: { name: 'ReviewStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', target: 'SINGLEKEY'},
+        CloseStory: { name: 'CloseStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', target: 'SINGLEKEY'},
+        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_EDIT_BUT', target: 'SINGLEKEY'},
+        OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CCASE_BUT', target: 'SINGLEKEY'},
+        SubStory: { name: 'SubStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_XQXF_BUT', target: 'SINGLEKEY'},
+        StoryFavorites: { name: 'StoryFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', target: 'SINGLEKEY'},
+        StoryNFavorites: { name: 'StoryNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY'}
     };
 
     /**
@@ -457,11 +456,13 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @type {*}
      * @memberof MyFavoriteMainGridBase
      */
-    public rules: any = {
+    public rules() {
+        return {
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**
@@ -496,6 +497,102 @@ export class MyFavoriteMainGridBase extends GridControlBase {
         return ( this.hasRowEdit[args.column.property] && this.actualIsOpenEdit ) ? "edit-cell" : "info-cell";
     }
 
+
+    /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof MyFavoriteMainGridBase
+     */
+    protected isDeExport: boolean = true;
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof MyFavoriteMainGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'id',
+            label: 'ID',
+            langtag: 'entities.story.myfavoritemain_grid.exportColumns.id',
+            show: true,
+        },
+        {
+            name: 'pri',
+            label: 'P',
+            langtag: 'entities.story.myfavoritemain_grid.exportColumns.pri',
+            show: true,
+        },
+        {
+            name: 'title',
+            label: '需求名称',
+            langtag: 'entities.story.myfavoritemain_grid.exportColumns.title',
+            show: true,
+        },
+        {
+            name: 'plan',
+            label: '计划',
+            langtag: 'entities.story.myfavoritemain_grid.exportColumns.plan',
+            show: true,
+        },
+        {
+            name: 'openedby',
+            label: '创建',
+            langtag: 'entities.story.myfavoritemain_grid.exportColumns.openedby',
+            show: true,
+        },
+        {
+            name: 'assignedto',
+            label: '指派',
+            langtag: 'entities.story.myfavoritemain_grid.exportColumns.assignedto',
+            show: true,
+        },
+        {
+            name: 'estimate',
+            label: '预计',
+            langtag: 'entities.story.myfavoritemain_grid.exportColumns.estimate',
+            show: true,
+        },
+        {
+            name: 'status',
+            label: '状态',
+            langtag: 'entities.story.myfavoritemain_grid.exportColumns.status',
+            show: true,
+        },
+        {
+            name: 'stage',
+            label: '阶段',
+            langtag: 'entities.story.myfavoritemain_grid.exportColumns.stage',
+            show: true,
+        },
+        {
+            name: 'modulename',
+            label: '所属模块名称',
+            langtag: 'entities.story.myfavoritemain_grid.exportColumns.modulename',
+            show: true,
+        },
+        {
+            name: 'module',
+            label: '所属模块',
+            langtag: 'entities.story.myfavoritemain_grid.exportColumns.module',
+            show: true,
+        },
+        {
+            name: 'isfavorites',
+            label: '是否收藏',
+            langtag: 'entities.story.myfavoritemain_grid.exportColumns.isfavorites',
+            show: true,
+        },
+        {
+            name: 'ischild',
+            label: '是否可以细分',
+            langtag: 'entities.story.myfavoritemain_grid.exportColumns.ischild',
+            show: true,
+        },
+    ]
 
     /**
      * 导出数据格式化
@@ -534,7 +631,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'UserRealNameW',
+                srfkey: 'UserRealName',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

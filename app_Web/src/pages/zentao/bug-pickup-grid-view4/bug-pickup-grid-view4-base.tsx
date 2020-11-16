@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { PickupGridViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -48,7 +48,7 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
      * @type {string}
      * @memberof BugPickupGridView4Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -66,6 +66,20 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
      */
     public appUIService: BugUIService = new BugUIService(this.$store);
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BugPickupGridView4Base
+	 */
+    protected customViewParams: any = {
+        'release': {
+            isRawValue: false,
+            value: 'release',
+        }
+    };
+
     /**
      * 视图模型数据
      *
@@ -77,8 +91,8 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
         srfCaption: 'entities.bug.views.pickupgridview4.caption',
         srfTitle: 'entities.bug.views.pickupgridview4.title',
         srfSubTitle: 'entities.bug.views.pickupgridview4.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +102,10 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
      * @memberof BugPickupGridView4Base
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -97,9 +114,18 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugPickupGridView4Base
      */
 	protected viewtag: string = '1c4104beb7e8515d20d03262732ba4f8';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugPickupGridView4Base
+     */ 
+    protected viewName: string = "BugPickupGridView4";
 
 
     /**
@@ -118,7 +144,9 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
      * @type {Array<*>}
      * @memberof BugPickupGridView4Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     version: "版本",
@@ -18,6 +17,7 @@ export default {
 		},
 	},
 	maininfo_grid: {
+		nodata: "",
 		columns: {
 			case: "用例编号",
 			desc: "步骤",

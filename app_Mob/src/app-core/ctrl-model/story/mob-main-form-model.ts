@@ -56,6 +56,16 @@ export class MobMainModel {
                 dataType: 'PICKUPTEXT',
             },
             {
+                name: 'branch',
+                prop: 'branch',
+                dataType: 'PICKUP',
+            },
+            {
+                name: 'product',
+                prop: 'product',
+                dataType: 'PICKUP',
+            },
+            {
                 name: 'branchname',
                 prop: 'branchname',
                 dataType: 'PICKUPTEXT',
@@ -64,6 +74,11 @@ export class MobMainModel {
                 name: 'modulename1',
                 prop: 'modulename1',
                 dataType: 'TEXT',
+            },
+            {
+                name: 'version',
+                prop: 'version',
+                dataType: 'INT',
             },
             {
                 name: 'title',

@@ -7,6 +7,4 @@ import { DashboardViewBase } from './DashboardViewBase';
  * @class DashboardView9Base
  * @extends {DashboardViewBase}
  */
-export class DashboardView9Base extends DashboardViewBase {
-
-}
+export class DashboardView9Base extends DashboardViewBase {}

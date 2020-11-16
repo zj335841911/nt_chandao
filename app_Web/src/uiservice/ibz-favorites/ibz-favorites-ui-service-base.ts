@@ -21,6 +21,13 @@ export default class IbzFavoritesUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  IbzFavoritesUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  IbzFavoritesUIServiceBase
@@ -89,7 +96,6 @@ export default class IbzFavoritesUIServiceBase extends UIService {
      * @memberof  IbzFavoritesUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'tabexpview',srfappde:'ibzfavorites',component:'ibz-favorites-tab-exp-view'});
     }
 
     /**

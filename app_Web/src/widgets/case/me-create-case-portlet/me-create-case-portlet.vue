@@ -1,5 +1,5 @@
-<template src="./me-create-case-portlet.html"/>
-<script lang='tsx'>
+<template src="./me-create-case-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MeCreateCasePortletBase } from './me-create-case-portlet-base';
@@ -15,8 +15,8 @@ import { MeCreateCasePortletBase } from './me-create-case-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MeCreateCasePortlet extends MeCreateCasePortletBase { }
+export default class MeCreateCasePortlet extends MeCreateCasePortletBase {}
 </script>

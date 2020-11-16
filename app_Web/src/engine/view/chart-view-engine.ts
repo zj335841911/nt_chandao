@@ -8,7 +8,6 @@ import { SearchViewEngine } from './search-view-engine';
  * @extends {SearchViewEngine}
  */
 export default class ChartViewEngine extends SearchViewEngine {
-
     /**
      * 图表对象
      *
@@ -26,7 +25,6 @@ export default class ChartViewEngine extends SearchViewEngine {
     public init(options: any): void {
         this.chart = options.chart;
         super.init(options);
-
     }
 
     /**
@@ -71,10 +69,9 @@ export default class ChartViewEngine extends SearchViewEngine {
      */
     public chartEvent(eventName: string, args: any): void {
         if (Object.is(eventName, 'beforeload')) {
-            this.dataCtrlBeforeLoad(args)
+            this.dataCtrlBeforeLoad(args);
         }
     }
-
 
     /**
      * 搜索表单加载完成

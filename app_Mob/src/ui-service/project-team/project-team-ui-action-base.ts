@@ -4,6 +4,7 @@ import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
 import { Environment } from '@/environments/environment';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 /**
  * 项目团队UI服务对象基类
  *
@@ -148,7 +149,7 @@ export default class ProjectTeamUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('projectteam');
             const response: any = await curUIService.Remove(_context, _params);
@@ -156,6 +157,7 @@ export default class ProjectTeamUIActionBase extends EntityUIActionBase {
                 this.notice.success('移除成功');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"ProjectTeam",action:'appRefresh',data:args});
                 }
             } else {
                 this.notice.error('系统异常！');

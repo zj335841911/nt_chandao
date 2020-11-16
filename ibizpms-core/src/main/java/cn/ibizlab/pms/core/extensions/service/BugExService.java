@@ -203,28 +203,6 @@ public class BugExService extends BugServiceImpl {
         return super.unlinkBug(et);
     }
 
-    @Override
-    @Transactional
-//    @SendMessage
-    public boolean create(Bug et){
-        String files = et.getFiles();
-        boolean flag = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).create(et);
-        if(flag && et.getId() != null && files != null) {
-            JSONArray jsonArray = JSONArray.parseArray(files);
-            List<File> list = new ArrayList<>();
-            for (int i = 0; i < jsonArray.size(); i ++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                File file = new File();
-                file.setId(jsonObject.getLongValue("id"));
-                file.setObjectid(et.getId());
-                file.setAddedby(et.getOpenedby());
-                file.setAddeddate(et.getOpeneddate());
-                list.add(file);
-            }
-            iFileService.updateBatch(list);
-        }
-        return flag;
-    }
 
     @Override
     @SendMessage

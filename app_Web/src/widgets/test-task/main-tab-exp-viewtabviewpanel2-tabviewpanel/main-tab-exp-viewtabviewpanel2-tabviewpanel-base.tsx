@@ -1,10 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import MainTabExpViewtabviewpanel2Service from './main-tab-exp-viewtabviewpanel2-tabviewpanel-service';
 import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
-
 
 /**
  * tabviewpanel2部件基类
@@ -14,7 +14,6 @@ import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
  * @extends {MainTabExpViewtabviewpanel2TabviewpanelBase}
  */
 export class MainTabExpViewtabviewpanel2TabviewpanelBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,7 +63,7 @@ export class MainTabExpViewtabviewpanel2TabviewpanelBase extends MainControlBase
      * @type {TestTaskUIService}
      * @memberof MainTabExpViewtabviewpanel2Base
      */  
-    public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
+    public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
 
 
     /**

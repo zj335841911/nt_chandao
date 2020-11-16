@@ -13,6 +13,7 @@
               v-model="data.dept"
               :data="data"
               :context="context"
+              :formState="formState"
               :viewparams="viewparams"
               :localContext ='{ }' 
               :localParam ='{ }' 
@@ -32,6 +33,7 @@
               v-model="data.teams"
               :data="data"
               :context="context"
+              :formState="formState"
               :viewparams="viewparams"
               :localContext ='{ N_ID_NOTEQ:"%project%" }' 
               :localParam ='{ n_id_noteq:"%project%" }' 

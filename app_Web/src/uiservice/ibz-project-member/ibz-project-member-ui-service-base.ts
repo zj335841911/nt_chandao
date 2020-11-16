@@ -21,6 +21,13 @@ export default class IbzProjectMemberUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  IbzProjectMemberUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  IbzProjectMemberUIServiceBase
@@ -89,7 +96,6 @@ export default class IbzProjectMemberUIServiceBase extends UIService {
      * @memberof  IbzProjectMemberUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'editview9',srfappde:'ibzprojectmembers',component:'ibz-project-member-edit-view9'});
     }
 
     /**

@@ -21,6 +21,13 @@ export default class CaseStepUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  CaseStepUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  CaseStepUIServiceBase
@@ -89,8 +96,6 @@ export default class CaseStepUIServiceBase extends UIService {
      * @memberof  CaseStepUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'casesteps',component:'case-step-grid-view9'});
-        this.allViewMap.set(':',{viewname:'maingridview9',srfappde:'casesteps',component:'case-step-main-grid-view9'});
     }
 
     /**

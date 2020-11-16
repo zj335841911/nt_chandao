@@ -1,8 +1,13 @@
+/**
+ * vue配置文件
+ * 
+ * @vue.config.js
+ */
 const path = require('path');
 const os = require('os');
 
 function resolve(dir) {
-    return path.join(__dirname, dir)
+    return path.join(__dirname, dir);
 }
 
 module.exports = {
@@ -41,9 +46,9 @@ module.exports = {
     parallel: os.cpus().length > 1,
     chainWebpack: (config) => {
         // 删除自动计算预加载资源
-        config.plugins.delete('preload-appindexview')
+        config.plugins.delete('preload-appindexview');
         // 删除预加载资源
-        config.plugins.delete('prefetch-appindexview')
+        config.plugins.delete('prefetch-appindexview');
         config.resolve.alias
             .set('@pages', resolve('src/pages'))
             .set('@components', resolve('src/components'))
@@ -56,11 +61,11 @@ module.exports = {
             .set('@app-core', resolve('src/app-core'))
             .set('@ibiz-core', resolve('src/ibiz-core'))
             .set('@ui-service', resolve('src/ui-service'))
-            .set('@global-ui-service', resolve('src/global-ui-service'))
+            .set('@global-ui-service', resolve('src/global-ui-service'));
     },
     configureWebpack: config => {
         let ForkTsCheckerPlugin; 
-        if(config.plugins.length > 0){
+        if (config.plugins.length > 0) {
             ForkTsCheckerPlugin = config.plugins.find(element =>{
                 return  element.workersNumber && element.memoryLimit;
             })
@@ -79,8 +84,8 @@ module.exports = {
     },
     pluginOptions: {
         'style-resources-loader': {
-            preProcessor: 'less',  
+            preProcessor: 'less', 
             patterns: [path.resolve(__dirname, 'src/styles/var.less')]
         }
     },
-}
+};

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -48,7 +48,7 @@ export class BugEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,8 +74,14 @@ export class BugEditViewBase extends EditViewBase {
 	 * @memberof BugEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' },
-        'PRODUCT': { isRawValue: false, value: 'product' }
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
 	/**
@@ -86,8 +92,14 @@ export class BugEditViewBase extends EditViewBase {
 	 * @memberof BugEditViewBase
 	 */
     protected customViewParams: any = {
-        'productmodule': { isRawValue: false, value: 'productmodule' },
-        'branch': { isRawValue: false, value: 'branch' }
+        'productmodule': {
+            isRawValue: false,
+            value: 'productmodule',
+        },
+        'branch': {
+            isRawValue: false,
+            value: 'branch',
+        }
     };
 
     /**
@@ -95,7 +107,7 @@ export class BugEditViewBase extends EditViewBase {
      *
      * @memberof BugEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -108,8 +120,8 @@ export class BugEditViewBase extends EditViewBase {
         srfCaption: 'entities.bug.views.editview.caption',
         srfTitle: 'entities.bug.views.editview.title',
         srfSubTitle: 'entities.bug.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -119,8 +131,14 @@ export class BugEditViewBase extends EditViewBase {
      * @memberof BugEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -130,7 +148,7 @@ export class BugEditViewBase extends EditViewBase {
      * @memberof BugEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -141,9 +159,18 @@ export class BugEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugEditViewBase
      */
 	protected viewtag: string = '46517a803b2470cd0bef27aeda0dbcaf';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugEditViewBase
+     */ 
+    protected viewName: string = "BugEditView";
 
 
     /**
@@ -162,7 +189,9 @@ export class BugEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BugEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

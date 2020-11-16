@@ -1,5 +1,5 @@
-<template src="./test-module-quick-cfg-view.html"/>
-<script lang='tsx'>
+<template src="./test-module-quick-cfg-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestModuleQuickCfgViewBase } from './test-module-quick-cfg-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/test-module/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestModuleQuickCfgView extends TestModuleQuickCfgViewBase { }
+export default class TestModuleQuickCfgView extends TestModuleQuickCfgViewBase {}
 </script>

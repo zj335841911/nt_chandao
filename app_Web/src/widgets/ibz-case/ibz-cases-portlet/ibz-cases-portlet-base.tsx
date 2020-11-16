@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import IbzCaseService from '@/service/ibz-case/ibz-case-service';
 import IbzCasesService from './ibz-cases-portlet-service';
 import IbzCaseUIService from '@/uiservice/ibz-case/ibz-case-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * dashboard_sysportlet2部件基类
@@ -17,7 +16,6 @@ import { ViewTool } from '@/utils';
  * @extends {IbzCasesPortletBase}
  */
 export class IbzCasesPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class IbzCasesPortletBase extends MainControlBase {
      * @type {IbzCaseUIService}
      * @memberof IbzCasesBase
      */  
-    public appUIService:IbzCaseUIService = new IbzCaseUIService(this.$store);
+    public appUIService: IbzCaseUIService = new IbzCaseUIService(this.$store);
 
     /**
      * 逻辑事件
@@ -202,9 +200,9 @@ export class IbzCasesPortletBase extends MainControlBase {
      * @memberof IbzCasesBase
      */
     public uiactionModel: any = {
-        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
-        editcasecz: {name: 'editcasecz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__ADMIN', uiaction: { tag: 'EditcaseCz', target: 'SINGLEKEY' } },
-        deletecz: {name: 'deletecz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__ADMIN', uiaction: { tag: 'DeleteCz', target: 'SINGLEKEY' } },
+        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        editcasecz: {name: 'editcasecz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__ADMIN', uiaction: { tag: 'EditcaseCz', target: 'SINGLEKEY' } },
+        deletecz: {name: 'deletecz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__ADMIN', uiaction: { tag: 'DeleteCz', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -220,7 +218,7 @@ export class IbzCasesPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         actiontarget:'',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_ud6a17fc_click",
@@ -230,7 +228,7 @@ export class IbzCasesPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__ADMIN',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_ud3434e4_click",
@@ -240,7 +238,7 @@ export class IbzCasesPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__ADMIN',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         }
     ];

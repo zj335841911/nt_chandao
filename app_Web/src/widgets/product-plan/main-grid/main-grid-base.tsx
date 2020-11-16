@@ -1,5 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool,Util,ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
 import MainService from './main-grid-service';
@@ -393,6 +394,69 @@ export class MainGridBase extends GridControlBase {
         return ( this.hasRowEdit[args.column.property] && this.actualIsOpenEdit ) ? "edit-cell" : "info-cell";
     }
 
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof MainGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'id',
+            label: '编号',
+            langtag: 'entities.productplan.main_grid.exportColumns.id',
+            show: true,
+        },
+        {
+            name: 'title',
+            label: '名称',
+            langtag: 'entities.productplan.main_grid.exportColumns.title',
+            show: true,
+        },
+        {
+            name: 'beginstr',
+            label: '开始日期',
+            langtag: 'entities.productplan.main_grid.exportColumns.beginstr',
+            show: true,
+        },
+        {
+            name: 'begin',
+            label: '开始日期',
+            langtag: 'entities.productplan.main_grid.exportColumns.begin',
+            show: true,
+        },
+        {
+            name: 'end',
+            label: '结束日期',
+            langtag: 'entities.productplan.main_grid.exportColumns.end',
+            show: true,
+        },
+        {
+            name: 'endstr',
+            label: '结束日期',
+            langtag: 'entities.productplan.main_grid.exportColumns.endstr',
+            show: true,
+        },
+        {
+            name: 'storycnt',
+            label: '需求数',
+            langtag: 'entities.productplan.main_grid.exportColumns.storycnt',
+            show: true,
+        },
+        {
+            name: 'bugcnt',
+            label: 'bug数',
+            langtag: 'entities.productplan.main_grid.exportColumns.bugcnt',
+            show: true,
+        },
+        {
+            name: 'statuss',
+            label: '状态',
+            langtag: 'entities.productplan.main_grid.exportColumns.statuss',
+            show: true,
+        },
+    ]
 
     /**
      * 导出数据格式化

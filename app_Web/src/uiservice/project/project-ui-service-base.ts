@@ -21,6 +21,13 @@ export default class ProjectUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  ProjectUIServiceBase
+     */
+    public isEnableDEMainState:boolean = true;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  ProjectUIServiceBase
@@ -89,33 +96,33 @@ export default class ProjectUIServiceBase extends UIService {
      * @memberof  ProjectUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'storymeditview9',srfappde:'projects',component:'project-story-medit-view9'});
-        this.allViewMap.set(':',{viewname:'tasktreeexpview',srfappde:'projects',component:'project-task-tree-exp-view'});
-        this.allViewMap.set(':',{viewname:'mgeditview',srfappde:'projects',component:'project-mgedit-view'});
-        this.allViewMap.set(':',{viewname:'usr2gridview',srfappde:'projects',component:'project-usr2-grid-view'});
-        this.allViewMap.set(':',{viewname:'testtabexpview',srfappde:'projects',component:'project-test-tab-exp-view'});
-        this.allViewMap.set(':',{viewname:'editview_putoff',srfappde:'projects',component:'project-edit-view-putoff'});
-        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'projects',component:'project-main-my-grid-view'});
-        this.allViewMap.set(':',{viewname:'planaddeditview',srfappde:'projects',component:'project-plan-add-edit-view'});
-        this.allViewMap.set(':',{viewname:'burndownchartview',srfappde:'projects',component:'project-burn-down-chart-view'});
-        this.allViewMap.set(':',{viewname:'listexpview',srfappde:'projects',component:'project-list-exp-view'});
-        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'projects',component:'project-pickup-grid-view'});
-        this.allViewMap.set(':',{viewname:'chartview9',srfappde:'projects',component:'project-chart-view9'});
-        this.allViewMap.set(':',{viewname:'editview_activate',srfappde:'projects',component:'project-edit-view-activate'});
-        this.allViewMap.set(':',{viewname:'curproductgridview',srfappde:'projects',component:'project-cur-product-grid-view'});
-        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'projects',component:'project-pickup-view'});
-        this.allViewMap.set(':',{viewname:'mainview_edit',srfappde:'projects',component:'project-main-view-edit'});
-        this.allViewMap.set(':',{viewname:'storyeditview9',srfappde:'projects',component:'project-story-edit-view9'});
-        this.allViewMap.set(':',{viewname:'leftsidebarlistview',srfappde:'projects',component:'project-left-sidebar-list-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'projects',component:'project-grid-view'});
-        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'projects',component:'project-main-dashboard-view'});
-        this.allViewMap.set(':',{viewname:'editview_close',srfappde:'projects',component:'project-edit-view-close'});
-        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'projects',component:'project-grid-view9'});
-        this.allViewMap.set(':',{viewname:'gridview9_unclosed',srfappde:'projects',component:'project-grid-view9-un-closed'});
-        this.allViewMap.set(':',{viewname:'editview_suspend',srfappde:'projects',component:'project-edit-view-suspend'});
-        this.allViewMap.set(':',{viewname:'dashboardinfoview',srfappde:'projects',component:'project-dashboard-info-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'projects',component:'project-edit-view'});
-        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'projects',component:'project-main-tab-exp-view'});
+        this.allViewMap.set('PICKUPVIEW:', {
+            viewname: 'pickupview',
+            srfappde: 'projects',
+            component: 'project-pickup-view',
+            openmode: '',
+            title: '项目',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'projects',
+            component: 'project-grid-view',
+            openmode: '',
+            title: '项目',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'projects',
+            component: 'project-edit-view',
+            openmode: 'DRAWER_LEFT',
+            title: '项目',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -209,7 +216,6 @@ export default class ProjectUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -294,7 +300,6 @@ export default class ProjectUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '置顶成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -316,6 +321,51 @@ export default class ProjectUIServiceBase extends UIService {
             });
         };
         backend();
+    }
+
+    /**
+     * MORE
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Project_MoreUndone(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'moreundoneprogridview', parameterName: 'moreundoneprogridview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
     }
 
     /**
@@ -529,7 +579,6 @@ export default class ProjectUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '取消置顶成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

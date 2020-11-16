@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import TestModuleService from '@/service/test-module/test-module-service';
 import TestModuleAuthService from '@/authservice/test-module/test-module-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import TestModuleUIService from '@/uiservice/test-module/test-module-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
      * @type {string}
      * @memberof TestModuleGridViewBranchBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
 	 * @memberof TestModuleGridViewBranchBase
 	 */
     protected customViewNavContexts: any = {
-        'SRFPARENTKEY': { isRawValue: true, value: '0' }
+        'SRFPARENTKEY': {
+            isRawValue: true,
+            value: '0',
+        }
     };
 
 	/**
@@ -88,10 +91,22 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
 	 * @memberof TestModuleGridViewBranchBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'srfparentkey': { isRawValue: true, value: '0' },
-        'moduletype': { isRawValue: false, value: 'moduletype' },
-        'root': { isRawValue: false, value: 'product' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'srfparentkey': {
+            isRawValue: true,
+            value: '0',
+        },
+        'moduletype': {
+            isRawValue: false,
+            value: 'moduletype',
+        },
+        'root': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
     /**
@@ -105,8 +120,8 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
         srfCaption: 'entities.testmodule.views.gridviewbranch.caption',
         srfTitle: 'entities.testmodule.views.gridviewbranch.title',
         srfSubTitle: 'entities.testmodule.views.gridviewbranch.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -116,8 +131,14 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
      * @memberof TestModuleGridViewBranchBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -127,9 +148,9 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
      * @memberof TestModuleGridViewBranch
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '新建行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'NewRow', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '新建行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建行', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'NewRow', target: '', class: '' } },
 
-        deuiaction3: { name: 'deuiaction3', caption: '保存行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveRow', target: '', class: '' } },
+        deuiaction3: { name: 'deuiaction3', caption: '保存行', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存行', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveRow', target: '', class: '' } },
 
     };
 
@@ -140,9 +161,18 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestModuleGridViewBranchBase
      */
 	protected viewtag: string = '65129e5f76f96cbb1d2d1c9e9bb2afed';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestModuleGridViewBranchBase
+     */ 
+    protected viewName: string = "TestModuleGridViewBranch";
 
 
     /**
@@ -161,7 +191,9 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof TestModuleGridViewBranchBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

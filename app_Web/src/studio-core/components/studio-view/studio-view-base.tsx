@@ -9,7 +9,6 @@ import { Environment } from '@/environments/environment';
  * @extends {Vue}
  */
 export class StudioViewBase extends Vue {
-
     /**
      * 视图名称
      *
@@ -56,7 +55,14 @@ export class StudioViewBase extends Vue {
         if (this.hiddenHeader) {
             this.isShowHeader = false;
         } else {
-            this.isShowHeader = (this.$slots.title || this.$slots.toolbar || this.$slots.quickSearch || this.$slots.quickSearchForm || this.$slots.quickGroupSearch) ? true : false;
+            this.isShowHeader =
+                this.$slots.title ||
+                this.$slots.toolbar ||
+                this.$slots.quickSearch ||
+                this.$slots.quickSearchForm ||
+                this.$slots.quickGroupSearch
+                    ? true
+                    : false;
         }
     }
 
@@ -73,7 +79,7 @@ export class StudioViewBase extends Vue {
             'studio-view': true,
             'view-container': true,
             'hidden-header': !this.isShowHeader,
-            'show-footer': this.$slots.footer ? true : false
+            'show-footer': this.$slots.footer ? true : false,
         };
         if (classNames) {
             Object.assign(data, classNames);
@@ -90,33 +96,31 @@ export class StudioViewBase extends Vue {
      */
     protected renderContent(): any {
         return [
-            this.$slots.topMessage ? <div class='view-top-messages'>
-                {this.$slots.topMessage}
-            </div> : null,
-            this.isShowHeader ? <div class="view-header" key="view-header">
-                {this.$slots.title ? <div class="title">{this.$slots.title}</div> : null}
-                {this.$slots.toolbar ? <div class="toolbar">{this.$slots.toolbar}</div> : null}
-                {this.$slots.quickGroupSearch ? <div class="quick-group-search">{this.$slots.quickGroupSearch}</div> : null}
-                {this.$slots.quickSearchForm ? <div class="quick-search-form">{this.$slots.quickSearchForm}</div> : null}
-                {this.$slots.quickSearch ? <div class="quick-search">{this.$slots.quickSearch}</div> : null}
-            </div> : null,
-            <div class={{ 'view-content': true, 'show-search-form': this.$slots.searchForm }} key="view-content">
-                {this.$slots.searchForm ? <div class="search-form-wrapper">
-                    {this.$slots.searchForm}
-                </div> : null}
-                {this.$slots.searchBar ? <div class="search-bar-wrapper">
-                    {this.$slots.searchBar}
-                </div> : null}
-                <div class="content-wrapper">
-                    {this.$slots.default}
+            this.$slots.topMessage ? <div class="view-top-messages">{this.$slots.topMessage}</div> : null,
+            this.isShowHeader ? (
+                <div class="view-header" key="view-header">
+                    {this.$slots.title ? <div class="title">{this.$slots.title}</div> : null}
+                    {this.$slots.toolbar ? <div class="toolbar">{this.$slots.toolbar}</div> : null}
+                    {this.$slots.quickGroupSearch ? (
+                        <div class="quick-group-search">{this.$slots.quickGroupSearch}</div>
+                    ) : null}
+                    {this.$slots.quickSearchForm ? (
+                        <div class="quick-search-form">{this.$slots.quickSearchForm}</div>
+                    ) : null}
+                    {this.$slots.quickSearch ? <div class="quick-search">{this.$slots.quickSearch}</div> : null}
                 </div>
+            ) : null,
+            <div class={{ 'view-content': true, 'show-search-form': this.$slots.searchForm }} key="view-content">
+                {this.$slots.searchForm ? <div class="search-form-wrapper">{this.$slots.searchForm}</div> : null}
+                {this.$slots.searchBar ? <div class="search-bar-wrapper">{this.$slots.searchBar}</div> : null}
+                <div class="content-wrapper">{this.$slots.default}</div>
             </div>,
-            this.$slots.bottomMessage ? <div class='view-bottom-messages'>
-                {this.$slots.bottomMessage}
-            </div> : null,
-            this.$slots.footer ? <div class="view-footer" key="view-footer">
-                {this.$slots.footer}
-            </div> : null
+            this.$slots.bottomMessage ? <div class="view-bottom-messages">{this.$slots.bottomMessage}</div> : null,
+            this.$slots.footer ? (
+                <div class="view-footer" key="view-footer">
+                    {this.$slots.footer}
+                </div>
+            ) : null,
         ];
     }
 
@@ -127,10 +131,13 @@ export class StudioViewBase extends Vue {
      * @memberof StudioViewBase
      */
     public render(): any {
-        return <div class={this.getContainerClass()}>
-            {Environment.devMode ? <view-config-actions viewName={this.viewName} viewTitle={this.viewTitle} /> : null}
-            {this.renderContent()}
-        </div>;
+        return (
+            <div class={this.getContainerClass()}>
+                {Environment.devMode ? (
+                    <view-config-actions viewName={this.viewName} viewTitle={this.viewTitle} />
+                ) : null}
+                {this.renderContent()}
+            </div>
+        );
     }
-
 }

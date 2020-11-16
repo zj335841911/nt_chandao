@@ -1,5 +1,5 @@
-<template src="./case-to-bug-form.html"/>
-<script lang='tsx'>
+<template src="./case-to-bug-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseToBugEditFormBase } from './case-to-bug-form-base';
@@ -15,8 +15,8 @@ import { CaseToBugEditFormBase } from './case-to-bug-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class CaseToBugEditForm extends CaseToBugEditFormBase { }
+export default class CaseToBugEditForm extends CaseToBugEditFormBase {}
 </script>

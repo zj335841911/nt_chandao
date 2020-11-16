@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Todo;
  */
 @Slf4j
 @Service
-public class TodoGetTODOTitleLogicImpl implements ITodoGetTODOTitleLogic{
+public class TodoGetTODOTitleLogicImpl implements ITodoGetTODOTitleLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -34,22 +34,24 @@ public class TodoGetTODOTitleLogicImpl implements ITodoGetTODOTitleLogic{
         return this.iBzSysDefaultService;
     }
 
-    public void execute(Todo et){
+    @Override
+    public void execute(Todo et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("todogettodotitledefault",et);
-           kieSession.setGlobal("iBzSysTodoDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("todogettodotitledefault", et);
+           kieSession.setGlobal("iBzSysTodoDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.todogettodotitle");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[获取待办名称]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

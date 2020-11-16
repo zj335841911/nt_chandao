@@ -20,6 +20,7 @@
         </ion-item>
       </template>
     </ion-list>
+    <div v-show="!blockUI" class="form-druipart-text">{{caption}}</div>
     <div v-show="!blockUI">
       <component
         class="viewcontainer2"
@@ -54,6 +55,14 @@ export default class AppFormDRUIPart extends Vue {
    * @memberof AppFormDRUIPart
    */
   @Prop() public data!: string;
+
+  /**
+   * 表单名称
+   *
+   * @type {string}
+   * @memberof AppFormDRUIPart
+   */
+  @Prop() public caption!: string;
 
   /**
    * 关联视图
@@ -292,7 +301,7 @@ export default class AppFormDRUIPart extends Vue {
     //设置顶层视图唯一标识
     Object.assign(_context, this.context);
     // 导航参数处理
-    const {context, param}= this.$viewTool.formatNavigateParam(this.navigateContext, this.navigateParam, _context, this.viewparams, this.data);    
+    const {context, param}= this.$viewTool.formatNavigateParam(this.navigateContext, this.navigateParam, _context, this.viewparams, JSON.parse(this.data));    
     Object.assign(this.tempContext, context);
     Object.assign(this.tempViewParams, param);
 

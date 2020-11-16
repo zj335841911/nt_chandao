@@ -1,15 +1,15 @@
 .action-timeline-table {
     width: calc(100% - 60px);
     margin: 0 30px;
-    border-collapse:separate;
-    border-spacing:0px 30px;
+    border-collapse: separate;
+    border-spacing: 0px 30px;
     color: var(--view-font-color);
     .action-timeline-thead {
         th:nth-child(1) {
             min-width: 200px;
         }
         th:nth-child(2) {
-            width: 100%
+            width: 100%;
         }
     }
     .action-timeline-tbody {
@@ -27,7 +27,7 @@
                         cursor: pointer;
                     }
                 }
-                >.date::before {
+                > .date::before {
                     content: ' ';
                     display: block;
                     position: absolute;
@@ -37,34 +37,34 @@
                     width: 20px;
                     background-color: var(--form-editor-border-color);
                 }
-                >.timeline {
+                > .timeline {
                     padding: 16px;
                     border: 2px solid var(--form-editor-border-color);
                     min-height: 68px;
                     margin-left: 18px;
                     .action-timeline-wrapper {
                         padding-left: 115px;
-                
-                        >.action-timeline-item {
+
+                        > .action-timeline-item {
                             position: relative;
                             height: 30px;
                             display: list-item;
                             list-style: none;
                             top: -6px;
-                            >.timeline-time {
+                            > .timeline-time {
                                 position: absolute;
                                 left: -115px;
                                 top: 5px;
                                 font-size: 12px;
                             }
-                
-                            >.timeline-content {
+
+                            > .timeline-content {
                                 padding: 5px;
                                 padding-left: 65px;
                             }
                         }
-                
-                        >.action-timeline-item::before {
+
+                        > .action-timeline-item::before {
                             position: absolute;
                             top: 17px;
                             left: 45px;
@@ -76,8 +76,8 @@
                             content: ' ';
                             border-radius: 50%;
                         }
-                
-                        >.action-timeline-item:nth-child(n+2)::after {
+
+                        > .action-timeline-item:nth-child(n + 2)::after {
                             position: absolute;
                             top: -7px;
                             bottom: 12px;

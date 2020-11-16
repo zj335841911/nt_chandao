@@ -1,10 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TreeExpBarControlBase } from '@/studio-core';
 import ProductModuleService from '@/service/product-module/product-module-service';
 import TreeExpViewtreeexpbarService from './tree-exp-viewtreeexpbar-treeexpbar-service';
 import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
-
 
 /**
  * treeexpbar部件基类
@@ -14,7 +14,6 @@ import ProductModuleUIService from '@/uiservice/product-module/product-module-ui
  * @extends {TreeExpViewtreeexpbarTreeExpBarBase}
  */
 export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,7 +63,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
      * @type {ProductModuleUIService}
      * @memberof TreeExpViewtreeexpbarBase
      */  
-    public appUIService:ProductModuleUIService = new ProductModuleUIService(this.$store);
+    public appUIService: ProductModuleUIService = new ProductModuleUIService(this.$store);
 
     /**
      * treeexpbar_toolbar 部件 click 事件
@@ -287,9 +286,9 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
      * @memberof ProductModuleTreeExpView
      */
     public treeexpviewtreeexpbar_toolbarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '修复', 'isShowCaption': true, 'isShowIcon': true, tooltip: '修复', iconcls: 'fa fa-wrench', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Fix', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '修复', 'isShowCaption': true, 'isShowIcon': true, tooltip: '修复', iconcls: 'fa fa-wrench', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Fix', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'RefreshAll', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'RefreshAll', target: '', class: '' } },
 
     };
 

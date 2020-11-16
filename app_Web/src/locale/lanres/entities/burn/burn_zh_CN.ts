@@ -7,6 +7,7 @@ export default {
     estimate: "最初预计",
     project: "所属项目",
     task: "任务",
+    isweekend: "周末",
   },
 	views: {
 		chartview: {
@@ -14,10 +15,24 @@ export default {
       		title: "燃尽图",
 		},
 	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+			isweekend: "间隔", 
+		},
+		uiactions: {
+		},
+	},
 	chartviewtoolbar_toolbar: {
 		deuiaction1_computeburn: {
 			caption: "更新燃尽图",
 			tip: "更新燃尽图",
 		},
+	},
+	burndown_chart: {
+		nodata: "",
+	},
+	burndown2_chart: {
+		nodata: "",
 	},
 };

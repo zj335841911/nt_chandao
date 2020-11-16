@@ -32,22 +32,24 @@ export default {
     story: "待办名称",
     date1: "日期",
     date_disable: "待定",
+    assignedtopk: "指派给（选择）",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		newmobeditview: {
 			caption: '快速新建',
 		},
 		moblistview: {
-			caption: '待办事宜表',
+			caption: '待办',
 		},
 		mobmdview: {
-			caption: '待办事宜表',
+			caption: '待办',
 		},
 		mobeditview: {
-			caption: '待办事宜表',
+			caption: '待办',
 		},
 		moboptionview: {
-			caption: '待办事宜表',
+			caption: '待办',
 		},
 	},
 	mobnew_form: {
@@ -85,7 +87,8 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
-			assignto: '指派给', 
+			assignedto: '指派给', 
+			assignedtopk: '指派给', 
 			date: '日期', 
 			begin: '开始时间', 
 			end: '结束时间', 

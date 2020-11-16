@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
@@ -48,7 +48,7 @@ export class CaseToBugEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseToBugEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class CaseToBugEditViewBase extends EditViewBase {
 	 * @memberof CaseToBugEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'TASK': { isRawValue: false, value: 'task' }
+        'TASK': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class CaseToBugEditViewBase extends EditViewBase {
 	 * @memberof CaseToBugEditViewBase
 	 */
     protected customViewParams: any = {
-        'task': { isRawValue: false, value: 'task' }
+        'task': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
     /**
@@ -93,7 +99,7 @@ export class CaseToBugEditViewBase extends EditViewBase {
      *
      * @memberof CaseToBugEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -106,8 +112,8 @@ export class CaseToBugEditViewBase extends EditViewBase {
         srfCaption: 'entities.case.views.tobugeditview.caption',
         srfTitle: 'entities.case.views.tobugeditview.title',
         srfSubTitle: 'entities.case.views.tobugeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,7 +123,10 @@ export class CaseToBugEditViewBase extends EditViewBase {
      * @memberof CaseToBugEditViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -126,9 +135,18 @@ export class CaseToBugEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseToBugEditViewBase
      */
 	protected viewtag: string = '3a9645e5ad29ed73b59ccd2f548d602c';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseToBugEditViewBase
+     */ 
+    protected viewName: string = "CaseToBugEditView";
 
 
     /**
@@ -147,7 +165,9 @@ export class CaseToBugEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof CaseToBugEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

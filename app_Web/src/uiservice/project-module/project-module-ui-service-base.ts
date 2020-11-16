@@ -21,6 +21,13 @@ export default class ProjectModuleUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  ProjectModuleUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  ProjectModuleUIServiceBase
@@ -89,9 +96,15 @@ export default class ProjectModuleUIServiceBase extends UIService {
      * @memberof  ProjectModuleUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'quickcfgview',srfappde:'projectmodules',component:'project-module-quick-cfg-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'maingridview',srfappde:'projectmodules',component:'project-module-main-grid-view'});
-        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'projectmodules',component:'project-module-tree-exp-view'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'maingridview',
+            srfappde: 'projectmodules',
+            component: 'project-module-main-grid-view',
+            openmode: '',
+            title: '任务模块',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -166,7 +179,6 @@ export default class ProjectModuleUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '修复成功' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

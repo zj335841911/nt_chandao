@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -48,7 +48,7 @@ export class StoryMainView9Base extends EditView9Base {
      * @type {string}
      * @memberof StoryMainView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class StoryMainView9Base extends EditView9Base {
         srfCaption: 'entities.story.views.mainview9.caption',
         srfTitle: 'entities.story.views.mainview9.title',
         srfSubTitle: 'entities.story.views.mainview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class StoryMainView9Base extends EditView9Base {
      * @memberof StoryMainView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -97,9 +100,18 @@ export class StoryMainView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryMainView9Base
      */
 	protected viewtag: string = '94e0ee1a97736ff4d28b88a46cd395b7';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMainView9Base
+     */ 
+    protected viewName: string = "StoryMainView9";
 
 
     /**
@@ -118,7 +130,9 @@ export class StoryMainView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof StoryMainView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

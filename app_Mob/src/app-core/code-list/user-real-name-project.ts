@@ -1,4 +1,4 @@
-import UserService from '../service/user/user-service';
+import SysEmployeeService from '../service/sys-employee/sys-employee-service';
 /**
  * 代码表--用户真实名称（项目团队成员）
  *
@@ -88,12 +88,12 @@ export default class UserRealNameProject {
     }
 
     /**
-     * 用户应用实体服务对象
+     * 人员应用实体服务对象
      *
-     * @type {UserService}
+     * @type {SysEmployeeService}
      * @memberof UserRealNameProject
      */
-    public userService: UserService = new UserService();
+    public sysemployeeService: SysEmployeeService = new SysEmployeeService();
 
 
     /**
@@ -108,10 +108,10 @@ export default class UserRealNameProject {
         let _items: any[] = [];
         items.forEach((item: any) => {
             let itemdata:any = {};
-            Object.assign(itemdata,{id:item.account});
-            Object.assign(itemdata,{value:item.account});
-            Object.assign(itemdata,{text:item.realname});
-            Object.assign(itemdata,{label:item.realname});
+            Object.assign(itemdata,{id:item.username});
+            Object.assign(itemdata,{value:item.username});
+            Object.assign(itemdata,{text:item.personname});
+            Object.assign(itemdata,{label:item.personname});
             
             _items.push(itemdata);
         });
@@ -130,7 +130,7 @@ export default class UserRealNameProject {
     public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
         return new Promise((resolve, reject) => {
             data = this.handleQueryParam(data);
-            const promise: Promise<any> = this.userService.FetchProjectTeamUser(context, data, isloading);
+            const promise: Promise<any> = this.sysemployeeService.FetchProjectTeamUser(context, data, isloading);
             promise.then((response: any) => {
                 if (response && response.status === 200) {
                     const data =  response.data;

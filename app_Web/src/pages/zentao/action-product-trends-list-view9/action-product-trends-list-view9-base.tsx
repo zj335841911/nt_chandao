@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { ListView9Base } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import ActionAuthService from '@/authservice/action/action-auth-service';
 import ListView9Engine from '@engine/view/list-view9-engine';
 import ActionUIService from '@/uiservice/action/action-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ActionProductTrendsListView9Base extends ListView9Base {
      * @type {string}
      * @memberof ActionProductTrendsListView9Base
      */ 
-    protected dataControl:string = "list";
+    protected dataControl: string = "list";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ActionProductTrendsListView9Base extends ListView9Base {
         srfCaption: 'entities.action.views.producttrendslistview9.caption',
         srfTitle: 'entities.action.views.producttrendslistview9.title',
         srfSubTitle: 'entities.action.views.producttrendslistview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,7 +91,10 @@ export class ActionProductTrendsListView9Base extends ListView9Base {
      * @memberof ActionProductTrendsListView9Base
      */
     protected containerModel: any = {
-        view_list: { name: 'list', type: 'LIST' },
+        view_list: {
+            name: 'list',
+            type: 'LIST',
+        },
     };
 
 
@@ -100,9 +103,18 @@ export class ActionProductTrendsListView9Base extends ListView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ActionProductTrendsListView9Base
      */
 	protected viewtag: string = '97af408e6a6cb088c824cacd1807f353';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionProductTrendsListView9Base
+     */ 
+    protected viewName: string = "ActionProductTrendsListView9";
 
 
     /**
@@ -121,7 +133,9 @@ export class ActionProductTrendsListView9Base extends ListView9Base {
      * @type {Array<*>}
      * @memberof ActionProductTrendsListView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -133,11 +147,11 @@ export class ActionProductTrendsListView9Base extends ListView9Base {
         this.engine.init({
             view: this,
             list: this.$refs.list,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'action',
             majorPSDEField: 'comment',

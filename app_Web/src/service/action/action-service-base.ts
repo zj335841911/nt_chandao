@@ -1,4 +1,5 @@
-import { Http,Util } from '@/utils';
+import { Http } from '@/utils';
+import { Util } from '@/utils';
 import EntityService from '../entity-service';
 
 
@@ -226,6 +227,21 @@ export default class ActionServiceBase extends EntityService {
     public async FetchMobType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/actions/fetchmobtype`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchMyTrends接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async FetchMyTrends(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/actions/fetchmytrends`,tempData,isloading);
         return res;
     }
 

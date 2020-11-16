@@ -76,6 +76,11 @@ export class AssignFormMobModel {
                 dataType: 'HTMLTEXT',
             },
             {
+                name: 'noticeusers',
+                prop: 'noticeusers',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

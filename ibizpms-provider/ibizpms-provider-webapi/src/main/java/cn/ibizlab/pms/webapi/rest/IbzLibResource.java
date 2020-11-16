@@ -65,6 +65,7 @@ public class IbzLibResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "ibzlib" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLib-Update-all')")
     @ApiOperation(value = "更新用例库", tags = {"用例库" },  notes = "更新用例库")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzlibs/{ibzlib_id}")

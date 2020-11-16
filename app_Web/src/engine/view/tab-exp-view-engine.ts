@@ -8,11 +8,9 @@ import ViewEngine from './view-engine';
  * @extends {ViewEngine}
  */
 export default class TabExpViewEngine extends ViewEngine {
-
-
     /**
      * Creates an instance of TabExpViewEngine.
-     * 
+     *
      * @memberof TabExpViewEngine
      */
     constructor() {
@@ -29,7 +27,6 @@ export default class TabExpViewEngine extends ViewEngine {
         super.init(options);
     }
 
-
     /**
      * 引擎加载
      *
@@ -43,5 +40,15 @@ export default class TabExpViewEngine extends ViewEngine {
             }
             this.setViewState2({ tag: _item.name, action: 'load', viewdata: this.view.context });
         });
+    }
+
+    /**
+     * 计算按钮状态
+     *
+     * @memberof TabExpViewEngine
+     */
+    public computeToolbarState(state: boolean, data: any) {
+        this.calcToolbarItemState(state);
+        this.calcToolbarItemAuthState(data);
     }
 }

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { PortalViewBase } from '@/studio-core';
 
 /**
@@ -22,8 +22,8 @@ export class ProductPortalViewBase extends PortalViewBase {
         srfCaption: 'app.views.productportalview.caption',
         srfTitle: 'app.views.productportalview.title',
         srfSubTitle: 'app.views.productportalview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -33,7 +33,10 @@ export class ProductPortalViewBase extends PortalViewBase {
      * @memberof ProductPortalViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -42,9 +45,18 @@ export class ProductPortalViewBase extends PortalViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductPortalViewBase
      */
 	protected viewtag: string = 'A49E5FD9-FC90-434B-9E13-192873F6F2AC';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPortalViewBase
+     */ 
+    protected viewName: string = "ProductPortalView";
 
 
 
@@ -54,7 +66,9 @@ export class ProductPortalViewBase extends PortalViewBase {
      * @type {Array<*>}
      * @memberof ProductPortalViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

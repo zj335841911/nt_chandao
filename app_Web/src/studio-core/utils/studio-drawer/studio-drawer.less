@@ -29,12 +29,12 @@
         background-color: var(--app-scroll-bar-color);
     }
 
-    >.studio-drawer-header {
+    > .studio-drawer-header {
         height: 36px;
         color: var(--app-header-color);
         background: var(--app-header-background-color);
 
-        >.studio-drawer-breadcrumb {
+        > .studio-drawer-breadcrumb {
             position: relative;
             height: 100%;
             vertical-align: 10px;
@@ -42,7 +42,10 @@
             font-size: 16px;
             font-weight: 700;
             padding-left: 55px;
-
+            width: 92%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
             .studio-drawer-back {
                 position: absolute;
                 cursor: pointer;
@@ -54,30 +57,29 @@
                 color: var(--app-header-font-color-active);
             }
 
-            >span {
-
-                >.studio-drawer-breadcrumb-item-separator {
+            > span {
+                > .studio-drawer-breadcrumb-item-separator {
                     padding: 0px 5px;
                 }
 
-                >.text {
+                > .text {
                     cursor: pointer;
                     border-bottom: 1px solid transparent;
                 }
 
-                >.text:hover {
+                > .text:hover {
                     color: var(--app-header-font-color-active);
                     border-bottom-color: var(--app-header-font-color-active);
                 }
 
-                >.text.active:hover {
+                > .text.active:hover {
                     color: unset;
                     border-bottom-color: transparent;
                 }
             }
         }
 
-        >.close {
+        > .close {
             cursor: pointer;
             position: absolute;
             top: 1px;
@@ -86,41 +88,39 @@
         }
     }
 
-    >.studio-drawer-content {
+    > .studio-drawer-content {
         display: flex;
         height: calc(100% - 36px);
         transform: translateX(0%) translateZ(0px);
-        transition: transform .3s ease-in-out;
+        transition: transform 0.3s ease-in-out;
 
-        >.studio-drawer-item {
+        > .studio-drawer-item {
             background: var(--view-background-color);
             flex-shrink: 0;
             height: 100%;
             width: 100vw;
             z-index: 1;
 
-            >.studio-view.view-container {
-
-                >.view-header {
+            > .studio-view.view-container {
+                > .view-header {
                     position: absolute;
                     right: 36px;
                     top: -37px;
                     width: auto;
                     border: 0;
 
-                    >.title {
+                    > .title {
                         display: none;
                     }
                 }
 
-                >.view-content {
+                > .view-content {
                     height: 100%;
                 }
             }
 
-            >.studio-view.view-container.show-footer {
-
-                >.view-content {
+            > .studio-view.view-container.show-footer {
+                > .view-content {
                     height: calc(100% - 46px);
                 }
             }

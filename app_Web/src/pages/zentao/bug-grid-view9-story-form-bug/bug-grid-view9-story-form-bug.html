@@ -1,6 +1,9 @@
 <studio-embed-view viewName="buggridview9_storyformbug" viewTitle="来源Bug" class='degridview9 bug-grid-view9-story-form-bug'>
     <template slot='title'>
-    <span class='caption-image'><i class='    fa fa-bug    '></i></span>
+    <span class='caption-image'>
+            <i class='
+    fa fa-bug    '></i>
+        </span>
     <span class='caption-info'>{{viewCaption}}</span>
     </template>
     <view_grid 
@@ -11,6 +14,7 @@
         :showBusyIndicator="true"
         :isOpenEdit="false"
         :gridRowActiveMode="gridRowActiveMode"
+        :isformDruipart="isformDruipart"
         @save="onSave.apply(_self, arguments)"
         updateAction=""
         removeAction="Remove"

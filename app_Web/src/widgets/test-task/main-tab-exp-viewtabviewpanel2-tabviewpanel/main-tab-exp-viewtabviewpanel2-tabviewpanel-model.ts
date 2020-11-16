@@ -75,6 +75,18 @@ export default class MainTabExpViewtabviewpanel2Model {
       {
         name: 'comment',
       },
+      {
+        name: 'casecnt',
+      },
+      {
+        name: 'ownerpk',
+      },
+      {
+        name: 'mailtoconact',
+      },
+      {
+        name: 'mailtopk',
+      },
     ]
   }
 

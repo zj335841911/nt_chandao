@@ -1,4 +1,5 @@
-import { Http,Util } from '@/utils';
+import { Http } from '@/utils';
+import { Util } from '@/utils';
 import EntityService from '../entity-service';
 
 
@@ -154,6 +155,20 @@ export default class DocLibServiceBase extends EntityService {
     }
 
     /**
+     * Collect接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async Collect(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/doclibs/${context.doclib}/collect`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -168,6 +183,80 @@ export default class DocLibServiceBase extends EntityService {
             let res:any = await  Http.getInstance().post(`/doclibs/${context.doclib}/save`,data,isloading);
             
             return res;
+    }
+
+    /**
+     * UnCollect接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async UnCollect(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/doclibs/${context.doclib}/uncollect`,data,isloading);
+            return res;
+    }
+
+    /**
+     * FetchByCustom接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async FetchByCustom(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/doclibs/fetchbycustom`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchByProduct接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async FetchByProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/doclibs/fetchbyproduct`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchByProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async FetchByProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/doclibs/fetchbyproject`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchCurDocLib接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async FetchCurDocLib(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/doclibs/fetchcurdoclib`,tempData,isloading);
+        return res;
     }
 
     /**

@@ -1,4 +1,4 @@
-import DeptService from '@service/dept/dept-service';
+import SysDepartmentService from '@service/sys-department/sys-department-service';
 /**
  * 代码表--真实部门
  *
@@ -85,16 +85,15 @@ export default class RealDept {
      * @memberof RealDept
      */
     public queryParamNames:any ={
-        sort: 'id,desc'
     }
 
     /**
      * 部门应用实体服务对象
      *
-     * @type {DeptService}
+     * @type {SysDepartmentService}
      * @memberof RealDept
      */
-    public deptService: DeptService = new DeptService();
+    public sysdepartmentService: SysDepartmentService = new SysDepartmentService();
 
 
     /**
@@ -107,15 +106,17 @@ export default class RealDept {
      */
     public doItems(items: any[]): any[] {
         let _items: any[] = [];
-        items.forEach((item: any) => {
-            let itemdata:any = {};
-            Object.assign(itemdata,{id:item.id});
-            Object.assign(itemdata,{value:item.id});
-            Object.assign(itemdata,{text:item.name});
-            Object.assign(itemdata,{label:item.name});
-            
-            _items.push(itemdata);
-        });
+        if(items && items.length >0){
+            items.forEach((item: any) => {
+                let itemdata:any = {};
+                Object.assign(itemdata,{id:item.deptid});
+                Object.assign(itemdata,{value:item.deptid});
+                Object.assign(itemdata,{text:item.deptname});
+                Object.assign(itemdata,{label:item.deptname});
+                
+                _items.push(itemdata);
+            });
+        }
         return _items;
     }
 
@@ -131,7 +132,7 @@ export default class RealDept {
     public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
         return new Promise((resolve, reject) => {
             data = this.handleQueryParam(data);
-            const promise: Promise<any> = this.deptService.FetchDefault(context, data, isloading);
+            const promise: Promise<any> = this.sysdepartmentService.FetchDefault(context, data, isloading);
             promise.then((response: any) => {
                 if (response && response.status === 200) {
                     const data =  response.data;

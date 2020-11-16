@@ -4,11 +4,10 @@ import org.mapstruct.*;
 import cn.ibizlab.pms.core.zentao.domain.DocLib;
 import cn.ibizlab.pms.webapi.dto.DocLibDTO;
 import cn.ibizlab.pms.util.domain.MappingBase;
-import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring", uses = {},implementationName="WebApiDocLibMapping",
-    nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
-    nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
+@Mapper(componentModel = "spring", uses = {}, implementationName = "WebApiDocLibMapping",
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+        nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
 public interface DocLibMapping extends MappingBase<DocLibDTO, DocLib> {
 
 

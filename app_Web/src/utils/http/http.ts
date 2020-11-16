@@ -9,7 +9,6 @@ import { nsc } from '@/studio-core/directives/notification-signal/notification-s
  * @class Http
  */
 export class Http {
-
     /**
      * 唯一实例
      *
@@ -46,11 +45,17 @@ export class Http {
                 this.beginLoading();
             }
             params = this.handleRequestData(params);
-            axios({ method: 'post', url: url, data: params, headers: { 'Content-Type': 'application/json;charset=UTF-8', 'Accept': 'application/json' } })
+            axios({
+                method: 'post',
+                url: url,
+                data: params,
+                headers: { 'Content-Type': 'application/json;charset=UTF-8', Accept: 'application/json' },
+            })
                 .then((response: any) => {
                     this.doResponseResult(response, serialNumber);
                     resolve(response);
-                }).catch((err: any) => {
+                })
+                .catch((err: any) => {
                     this.doResponseResult(err, serialNumber);
                     reject(err);
                 });
@@ -73,7 +78,7 @@ export class Http {
             Object.assign(params, params.srfparentdata);
             delete params.srfparentdata;
         }
-        if ((Object.keys(params)).length > 0) {
+        if (Object.keys(params).length > 0) {
             let tempParam: any = {};
             let sort: any = null;
             Object.keys(params).forEach((item: any) => {
@@ -84,7 +89,7 @@ export class Http {
                         tempParam[item] = params[item];
                     }
                 }
-            })
+            });
             url += `?${qs.stringify(tempParam)}`;
             if (sort) {
                 url += '&sort=' + sort;
@@ -94,13 +99,16 @@ export class Http {
             if (isLoading) {
                 this.beginLoading();
             }
-            axios.get(url).then((response) => {
-                this.doResponseResult(response, serialNumber);
-                resolve(response);
-            }).catch((err) => {
-                this.doResponseResult(err, serialNumber);
-                reject(err);
-            });
+            axios
+                .get(url)
+                .then((response) => {
+                    this.doResponseResult(response, serialNumber);
+                    resolve(response);
+                })
+                .catch((err) => {
+                    this.doResponseResult(err, serialNumber);
+                    reject(err);
+                });
         });
     }
 
@@ -119,11 +127,13 @@ export class Http {
             if (isLoading) {
                 this.beginLoading();
             }
-            axios.delete(url, { data: data ? data : {} })
+            axios
+                .delete(url, { data: data ? data : {} })
                 .then((response) => {
                     this.doResponseResult(response, serialNumber);
                     resolve(response);
-                }).catch((err) => {
+                })
+                .catch((err) => {
                     this.doResponseResult(err, serialNumber);
                     reject(err);
                 });
@@ -146,13 +156,16 @@ export class Http {
                 this.beginLoading();
             }
             data = this.handleRequestData(data);
-            axios.put(url, data).then((response) => {
-                this.doResponseResult(response, serialNumber);
-                resolve(response);
-            }).catch((err) => {
-                this.doResponseResult(err, serialNumber);
-                reject(err);
-            });
+            axios
+                .put(url, data)
+                .then((response) => {
+                    this.doResponseResult(response, serialNumber);
+                    resolve(response);
+                })
+                .catch((err) => {
+                    this.doResponseResult(err, serialNumber);
+                    reject(err);
+                });
         });
     }
 
@@ -193,9 +206,9 @@ export class Http {
 
     /**
      * 处理请求数据
-     * 
+     *
      * @private
-     * @param data 
+     * @param data
      * @memberof Http
      */
     private handleRequestData(data: any) {
@@ -218,5 +231,4 @@ export class Http {
     public static getInstance(): Http {
         return this.instance;
     }
-
 }

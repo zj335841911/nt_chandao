@@ -84,7 +84,7 @@ export default class MobPickupTreeViewEngine extends ViewEngine {
     public onTreeLoad(args: any): void {
         if (this.view) {
             this.view.datainfo = args.srfmajortext;
-            this.view.viewdataschange.emit({ action: 'load', data: args });
+            // this.view.viewdataschange.emit({ action: 'load', data: args });
         }
     }
 
@@ -96,8 +96,8 @@ export default class MobPickupTreeViewEngine extends ViewEngine {
      */
     public onTreeSelectchange(args: any): void {
         if (this.view) {
+            this.view.$emit('viewdataschange', args);
             this.view.selectedArray = args;
-            this.view.viewdataschange.emit({ action: 'selectchange', data: args });
         }
     }
 

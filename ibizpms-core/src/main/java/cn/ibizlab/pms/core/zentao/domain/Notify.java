@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_notify",resultMap = "NotifyResultMap")
+@TableName(value = "zt_notify", resultMap = "NotifyResultMap")
 public class Notify extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,8 +47,8 @@ public class Notify extends EntityMP implements Serializable {
      * createdDate
      */
     @TableField(value = "`createddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
     /**
@@ -73,8 +75,8 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -125,8 +127,8 @@ public class Notify extends EntityMP implements Serializable {
      * sendTime
      */
     @TableField(value = "`sendtime`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "sendtime" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "sendtime", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("sendtime")
     private Timestamp sendtime;
     /**
@@ -142,15 +144,15 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [createdDate]
      */
-    public void setCreateddate(Timestamp createddate){
-        this.createddate = createddate ;
-        this.modify("createddate",createddate);
+    public void setCreateddate(Timestamp createddate) {
+        this.createddate = createddate;
+        this.modify("createddate", createddate);
     }
 
     /**
      * 格式化日期 [createdDate]
      */
-    public String formatCreateddate(){
+    public String formatCreateddate() {
         if (this.createddate == null) {
             return null;
         }
@@ -160,87 +162,87 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [ccList]
      */
-    public void setCclist(String cclist){
-        this.cclist = cclist ;
-        this.modify("cclist",cclist);
+    public void setCclist(String cclist) {
+        this.cclist = cclist;
+        this.modify("cclist", cclist);
     }
 
     /**
      * 设置 [failReason]
      */
-    public void setFailreason(String failreason){
-        this.failreason = failreason ;
-        this.modify("failreason",failreason);
+    public void setFailreason(String failreason) {
+        this.failreason = failreason;
+        this.modify("failreason", failreason);
     }
 
     /**
      * 设置 [action]
      */
-    public void setAction(Integer action){
-        this.action = action ;
-        this.modify("action",action);
+    public void setAction(Integer action) {
+        this.action = action;
+        this.modify("action", action);
     }
 
     /**
      * 设置 [createdBy]
      */
-    public void setCreatedby(String createdby){
-        this.createdby = createdby ;
-        this.modify("createdby",createdby);
+    public void setCreatedby(String createdby) {
+        this.createdby = createdby;
+        this.modify("createdby", createdby);
     }
 
     /**
      * 设置 [status]
      */
-    public void setStatus(String status){
-        this.status = status ;
-        this.modify("status",status);
+    public void setStatus(String status) {
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [subject]
      */
-    public void setSubject(String subject){
-        this.subject = subject ;
-        this.modify("subject",subject);
+    public void setSubject(String subject) {
+        this.subject = subject;
+        this.modify("subject", subject);
     }
 
     /**
      * 设置 [objectID]
      */
-    public void setObjectid(Integer objectid){
-        this.objectid = objectid ;
-        this.modify("objectid",objectid);
+    public void setObjectid(Integer objectid) {
+        this.objectid = objectid;
+        this.modify("objectid", objectid);
     }
 
     /**
      * 设置 [data]
      */
-    public void setData(String data){
-        this.data = data ;
-        this.modify("data",data);
+    public void setData(String data) {
+        this.data = data;
+        this.modify("data", data);
     }
 
     /**
      * 设置 [toList]
      */
-    public void setTolist(String tolist){
-        this.tolist = tolist ;
-        this.modify("tolist",tolist);
+    public void setTolist(String tolist) {
+        this.tolist = tolist;
+        this.modify("tolist", tolist);
     }
 
     /**
      * 设置 [sendTime]
      */
-    public void setSendtime(Timestamp sendtime){
-        this.sendtime = sendtime ;
-        this.modify("sendtime",sendtime);
+    public void setSendtime(Timestamp sendtime) {
+        this.sendtime = sendtime;
+        this.modify("sendtime", sendtime);
     }
 
     /**
      * 格式化日期 [sendTime]
      */
-    public String formatSendtime(){
+    public String formatSendtime() {
         if (this.sendtime == null) {
             return null;
         }
@@ -250,15 +252,15 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [objectType]
      */
-    public void setObjecttype(String objecttype){
-        this.objecttype = objecttype ;
-        this.modify("objecttype",objecttype);
+    public void setObjecttype(String objecttype) {
+        this.objecttype = objecttype;
+        this.modify("objecttype", objecttype);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -270,7 +272,7 @@ public class Notify extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

@@ -41,7 +41,7 @@ ruleflow-group "testreportgettestreportbasicinforawsqlcall1"
     then
     Map param =new HashMap();
     param.put("param0",testreportgettestreportbasicinfodefault.get("id"));
-    String strSql="SELECT COUNT(1) as storycnt, sum(t1.ESTIMATE) as storyestimate FROM `zt_story` t1  WHERE t1.`DELETED` = '0' AND FIND_IN_SET ( t1.ID, (SELECT STORIES FROM ZT_TESTREPORT WHERE ID= #{et.param0}))";
+    String strSql="SELECT COUNT(1) as storycnt, sum(t1.ESTIMATE) as storyestimate,GROUP_CONCAT(DISTINCT t1.id ORDER BY t1.id asc) as stories FROM `zt_story` t1  WHERE t1.`DELETED` = '0' AND FIND_IN_SET ( t1.ID, (SELECT STORIES FROM ZT_TESTREPORT WHERE ID= #{et.param0}))";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);

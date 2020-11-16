@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
@@ -48,7 +48,7 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
      * @type {string}
      * @memberof ProjectDashboardInfoViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
         srfCaption: 'entities.project.views.dashboardinfoview.caption',
         srfTitle: 'entities.project.views.dashboardinfoview.title',
         srfSubTitle: 'entities.project.views.dashboardinfoview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
      * @memberof ProjectDashboardInfoViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -97,9 +100,18 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectDashboardInfoViewBase
      */
 	protected viewtag: string = 'ef1a8c8701140368af895304274c602a';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectDashboardInfoViewBase
+     */ 
+    protected viewName: string = "ProjectDashboardInfoView";
 
 
     /**
@@ -118,7 +130,9 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
      * @type {Array<*>}
      * @memberof ProjectDashboardInfoViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

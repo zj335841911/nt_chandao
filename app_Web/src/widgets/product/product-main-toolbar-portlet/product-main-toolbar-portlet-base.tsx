@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductMainToolbarService from './product-main-toolbar-portlet-service';
 import ProductUIService from '@/uiservice/product/product-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * dashboard_sysportlet5部件基类
@@ -17,7 +16,6 @@ import { ViewTool } from '@/utils';
  * @extends {ProductMainToolbarPortletBase}
  */
 export class ProductMainToolbarPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
      * @type {ProductUIService}
      * @memberof ProductMainToolbarBase
      */  
-    public appUIService:ProductUIService = new ProductUIService(this.$store);
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
     /**
      * 逻辑事件
@@ -184,9 +182,9 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
      * @memberof ProductMainToolbarBase
      */
     public uiactionModel: any = {
-        closeproduct: {name: 'closeproduct', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROD_CLOSED_BUT', uiaction: { tag: 'CloseProduct', target: 'SINGLEKEY' } },
-        openquickcfgview: {name: 'openquickcfgview', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROD_EDIT_BUT', uiaction: { tag: 'OpenQuickCfgView', target: 'SINGLEKEY' } },
-        delete: {name: 'delete', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROD_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
+        closeproduct: {name: 'closeproduct', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROD_CLOSED_BUT', uiaction: { tag: 'CloseProduct', target: 'SINGLEKEY' } },
+        openquickcfgview: {name: 'openquickcfgview', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROD_EDIT_BUT', uiaction: { tag: 'OpenQuickCfgView', target: 'SINGLEKEY' } },
+        delete: {name: 'delete', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROD_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -203,7 +201,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROD_CLOSED_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u993e8bf_click",
@@ -213,7 +211,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROD_EDIT_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u0828b1d_click",
@@ -223,7 +221,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROD_DELETE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         }
     ];

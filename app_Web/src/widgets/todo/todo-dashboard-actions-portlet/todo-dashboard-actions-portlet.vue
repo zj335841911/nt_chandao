@@ -1,5 +1,5 @@
-<template src="./todo-dashboard-actions-portlet.html"/>
-<script lang='tsx'>
+<template src="./todo-dashboard-actions-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TodoDashboardActionsPortletBase } from './todo-dashboard-actions-portlet-base';
@@ -15,8 +15,8 @@ import { TodoDashboardActionsPortletBase } from './todo-dashboard-actions-portle
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class TodoDashboardActionsPortlet extends TodoDashboardActionsPortletBase { }
+export default class TodoDashboardActionsPortlet extends TodoDashboardActionsPortletBase {}
 </script>

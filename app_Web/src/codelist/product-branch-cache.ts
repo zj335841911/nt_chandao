@@ -13,7 +13,7 @@ export default class ProductBranch_Cache {
      * @type boolean
      * @memberof ProductBranch_Cache
      */
-    public isEnableCache:boolean = true;
+    public isEnableCache:boolean = false;
 
     /**
      * 过期时间
@@ -37,7 +37,7 @@ export default class ProductBranch_Cache {
      * @type any
      * @memberof ProductBranch_Cache
      */
-    public cacheTimeout:any = 600;
+    public cacheTimeout:any = -1;
 
     /**
      * 代码表模型对象
@@ -106,15 +106,17 @@ export default class ProductBranch_Cache {
      */
     public doItems(items: any[]): any[] {
         let _items: any[] = [];
-        items.forEach((item: any) => {
-            let itemdata:any = {};
-            Object.assign(itemdata,{id:item.id});
-            Object.assign(itemdata,{value:item.id});
-            Object.assign(itemdata,{text:item.name});
-            Object.assign(itemdata,{label:item.name});
-            
-            _items.push(itemdata);
-        });
+        if(items && items.length >0){
+            items.forEach((item: any) => {
+                let itemdata:any = {};
+                Object.assign(itemdata,{id:item.id});
+                Object.assign(itemdata,{value:item.id});
+                Object.assign(itemdata,{text:item.name});
+                Object.assign(itemdata,{label:item.name});
+                
+                _items.push(itemdata);
+            });
+        }
         return _items;
     }
 

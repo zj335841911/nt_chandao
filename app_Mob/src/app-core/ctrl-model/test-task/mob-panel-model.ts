@@ -75,6 +75,18 @@ export class MobModel {
       {
         name: 'comment',
       },
+      {
+        name: 'casecnt',
+      },
+      {
+        name: 'ownerpk',
+      },
+      {
+        name: 'mailtoconact',
+      },
+      {
+        name: 'mailtopk',
+      },
     ]
   }
 

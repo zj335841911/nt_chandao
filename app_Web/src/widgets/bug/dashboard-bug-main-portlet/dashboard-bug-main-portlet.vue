@@ -1,5 +1,5 @@
-<template src="./dashboard-bug-main-portlet.html"/>
-<script lang='tsx'>
+<template src="./dashboard-bug-main-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DashboardBugMainPortletBase } from './dashboard-bug-main-portlet-base';
@@ -15,8 +15,8 @@ import { DashboardBugMainPortletBase } from './dashboard-bug-main-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class DashboardBugMainPortlet extends DashboardBugMainPortletBase { }
+export default class DashboardBugMainPortlet extends DashboardBugMainPortletBase {}
 </script>

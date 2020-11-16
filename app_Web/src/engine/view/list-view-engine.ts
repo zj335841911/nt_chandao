@@ -8,7 +8,6 @@ import MDViewEngine from './md-view-engine';
  * @extends {MDViewEngine}
  */
 export default class ListViewEngine extends MDViewEngine {
-
     /**
      * 表格部件
      *
@@ -51,7 +50,6 @@ export default class ListViewEngine extends MDViewEngine {
         super.onCtrlEvent(ctrlName, eventName, args);
     }
 
-
     /**
      * 获取多数据部件
      *
@@ -69,7 +67,6 @@ export default class ListViewEngine extends MDViewEngine {
      * @memberof ListViewEngine
      */
     public doRemove(): void {
-
         let selectedData = this.getMDCtrl() && this.getMDCtrl().getSelection();
         if (!selectedData || selectedData == null || selectedData.length === 0) {
             return;
@@ -87,9 +84,7 @@ export default class ListViewEngine extends MDViewEngine {
             } else {
                 return false;
             }
-
         });
-
 
         if (selectedData.length < 5) {
             dataInfo = dataInfo + '共' + selectedData.length + '条数据';
@@ -97,18 +92,19 @@ export default class ListViewEngine extends MDViewEngine {
             dataInfo = dataInfo + '...' + '共' + selectedData.length + '条数据';
         }
 
-        dataInfo = dataInfo.replace(/[null]/g, '').replace(/[undefined]/g, '').replace(/[ ]/g, '');
+        dataInfo = dataInfo
+            .replace(/[null]/g, '')
+            .replace(/[undefined]/g, '')
+            .replace(/[ ]/g, '');
 
         // 询问框
         this.view.$Modal.confirm({
-            title:'警告',
+            title: '警告',
             content: '确认要删除 ' + dataInfo + '，删除操作将不可恢复？',
-            onOk:() => {
+            onOk: () => {
                 this.removeData(null);
             },
-            onCancel: () => {
-
-            }
+            onCancel: () => {},
         });
     }
 
@@ -146,5 +142,4 @@ export default class ListViewEngine extends MDViewEngine {
             list.remove(arg);
         }
     }
-
 }

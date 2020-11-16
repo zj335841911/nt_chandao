@@ -9,6 +9,7 @@ export default {
     type: "类型",
     addedby: "由谁创建",
     lasteditedby: "最后编辑人",
+    product: "产品",
   },
 	views: {
 		editview9: {
@@ -36,6 +37,7 @@ export default {
 		details: {
 			druipart1: "", 
 			formpage1: "基本信息", 
+			srfupdatedate: "最后编辑时间", 
 			srforikey: "", 
 			srfkey: "编号", 
 			srfmajortext: "名称", 
@@ -53,6 +55,7 @@ export default {
 	main_form: {
 		details: {
 			formpage1: "基本信息", 
+			srfupdatedate: "最后编辑时间", 
 			srforikey: "", 
 			srfkey: "编号", 
 			srfmajortext: "名称", 
@@ -69,6 +72,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			name: "名称",
@@ -104,6 +108,10 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
+		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 };

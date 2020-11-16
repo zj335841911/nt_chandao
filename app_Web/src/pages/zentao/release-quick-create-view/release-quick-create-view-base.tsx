@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import ReleaseService from '@/service/release/release-service';
 import ReleaseAuthService from '@/authservice/release/release-auth-service';
@@ -48,7 +48,7 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      * @type {string}
      * @memberof ReleaseQuickCreateViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      *
      * @memberof ReleaseQuickCreateViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
         srfCaption: 'entities.release.views.quickcreateview.caption',
         srfTitle: 'entities.release.views.quickcreateview.title',
         srfSubTitle: 'entities.release.views.quickcreateview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      * @memberof ReleaseQuickCreateViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -106,7 +112,7 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      * @memberof ReleaseQuickCreateView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -117,9 +123,18 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ReleaseQuickCreateViewBase
      */
 	protected viewtag: string = 'ed51615a22255e84a3b276815ef5c96e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ReleaseQuickCreateViewBase
+     */ 
+    protected viewName: string = "ReleaseQuickCreateView";
 
 
     /**
@@ -138,7 +153,9 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ReleaseQuickCreateViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

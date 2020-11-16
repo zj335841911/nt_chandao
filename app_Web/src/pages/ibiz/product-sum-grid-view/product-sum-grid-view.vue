@@ -1,5 +1,5 @@
-<template src="./product-sum-grid-view.html"/>
-<script lang='tsx'>
+<template src="./product-sum-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductSumGridViewBase } from './product-sum-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/product-sum/default-searchform/default-sea
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductSumGridView extends ProductSumGridViewBase { }
+export default class ProductSumGridView extends ProductSumGridViewBase {}
 </script>

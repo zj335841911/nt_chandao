@@ -63,6 +63,7 @@ export class MobNewFormService extends FormServiceBase {
      */
     public mergeDefaults(response:any = {}): void {
         if (response.data) {
+            Object.assign(response.data, { 'type': 'sprint' });
         }
     }
 

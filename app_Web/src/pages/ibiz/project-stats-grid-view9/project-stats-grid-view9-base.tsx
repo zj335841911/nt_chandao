@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import ProjectStatsService from '@/service/project-stats/project-stats-service';
 import ProjectStatsAuthService from '@/authservice/project-stats/project-stats-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import ProjectStatsUIService from '@/uiservice/project-stats/project-stats-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProjectStatsGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof ProjectStatsGridView9Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ProjectStatsGridView9Base extends GridView9Base {
         srfCaption: 'entities.projectstats.views.gridview9.caption',
         srfTitle: 'entities.projectstats.views.gridview9.title',
         srfSubTitle: 'entities.projectstats.views.gridview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,7 +91,10 @@ export class ProjectStatsGridView9Base extends GridView9Base {
      * @memberof ProjectStatsGridView9Base
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -100,9 +103,18 @@ export class ProjectStatsGridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectStatsGridView9Base
      */
 	protected viewtag: string = 'e8e346e34ba5e02170fe3bcea7e6ec7f';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectStatsGridView9Base
+     */ 
+    protected viewName: string = "ProjectStatsGridView9";
 
 
     /**
@@ -121,7 +133,9 @@ export class ProjectStatsGridView9Base extends GridView9Base {
      * @type {Array<*>}
      * @memberof ProjectStatsGridView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -132,11 +146,11 @@ export class ProjectStatsGridView9Base extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'projectstats',

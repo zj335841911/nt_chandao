@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
@@ -65,8 +65,14 @@ export class TaskMainDashboardViewBase extends DashboardViewBase {
 	 * @memberof TaskMainDashboardViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'task' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'task' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'task',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
     /**
@@ -74,7 +80,7 @@ export class TaskMainDashboardViewBase extends DashboardViewBase {
      *
      * @memberof TaskMainDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -87,8 +93,8 @@ export class TaskMainDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.task.views.maindashboardview.caption',
         srfTitle: 'entities.task.views.maindashboardview.title',
         srfSubTitle: 'entities.task.views.maindashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -98,7 +104,10 @@ export class TaskMainDashboardViewBase extends DashboardViewBase {
      * @memberof TaskMainDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -107,9 +116,18 @@ export class TaskMainDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskMainDashboardViewBase
      */
 	protected viewtag: string = '575fecad655143bbd28f17c581725a4e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskMainDashboardViewBase
+     */ 
+    protected viewName: string = "TaskMainDashboardView";
 
 
     /**
@@ -128,7 +146,9 @@ export class TaskMainDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof TaskMainDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

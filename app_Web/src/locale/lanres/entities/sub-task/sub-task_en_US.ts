@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     canceledby: "由谁取消",
@@ -58,6 +57,16 @@ export default {
     status1: "任务状态",
     tasktype: "任务类型",
     files: "附件",
+    usernames: "团队用户",
+    isfinished: "是否完成",
+    replycount: "回复数量",
+    hasdetail: "是否填写描述",
+    updatedate: "最后的更新日期",
+    noticeusers: "消息通知用户",
+    progressrate: "进度",
+    delay: "延期",
+    mailtopk: "属性",
+    mailtoconact: "联系人",
   },
 	views: {
 		subtasknewview: {
@@ -66,6 +75,7 @@ export default {
 		},
 	},
 	subtasknew_grid: {
+		nodata: "",
 		columns: {
 			modulename: "所属模块",
 			storyname: "相关需求",

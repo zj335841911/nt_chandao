@@ -37,6 +37,8 @@ export default class StoryKanBanModel {
 			},
 			{
 				name: 'stage',
+				prop: 'stage',
+				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'estimate',

@@ -1,5 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool,Util,ViewTool } from '@/utils';
 import { Watch, SearchFormControlBase } from '@/studio-core';
 import EmployEeloadService from '@/service/employ-eeload/employ-eeload-service';
 import WorkloadService from './workload-searchform-service';
@@ -137,6 +138,9 @@ export class WorkloadSearchFormBase extends SearchFormControlBase {
      * @memberof WorkloadBase
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('begin')) {
+          this.data['begin'] = this.$util.dateFormat(new Date());
+        }
         if (this.data.hasOwnProperty('workday')) {
           this.data['workday'] = 6;
         }

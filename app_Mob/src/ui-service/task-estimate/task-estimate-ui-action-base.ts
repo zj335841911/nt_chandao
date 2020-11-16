@@ -4,6 +4,7 @@ import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
 import { Environment } from '@/environments/environment';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 /**
  * 任务预计UI服务对象基类
  *
@@ -146,7 +147,7 @@ export default class TaskEstimateUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('taskestimate');
             const response: any = await curUIService.Remove(_context, _params);
@@ -154,6 +155,7 @@ export default class TaskEstimateUIActionBase extends EntityUIActionBase {
                 this.notice.success('删除成功！');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"TaskEstimate",action:'appRefresh',data:args});
                 }
             } else {
                 this.notice.error('系统异常！');
@@ -194,7 +196,7 @@ export default class TaskEstimateUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         deResParameters = [

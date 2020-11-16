@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import ProjectTrendsTimelineService from './project-trends-timeline-portlet-service';
 import ActionUIService from '@/uiservice/action/action-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * dashboard_sysportlet2部件基类
@@ -17,7 +16,6 @@ import { ViewTool } from '@/utils';
  * @extends {ProjectTrendsTimelinePortletBase}
  */
 export class ProjectTrendsTimelinePortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class ProjectTrendsTimelinePortletBase extends MainControlBase {
      * @type {ActionUIService}
      * @memberof ProjectTrendsTimelineBase
      */  
-    public appUIService:ActionUIService = new ActionUIService(this.$store);
+    public appUIService: ActionUIService = new ActionUIService(this.$store);
 
 
     /**

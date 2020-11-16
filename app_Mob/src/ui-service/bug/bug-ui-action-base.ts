@@ -4,6 +4,7 @@ import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
 import { Environment } from '@/environments/environment';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 /**
  * BugUI服务对象基类
  *
@@ -53,7 +54,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * 
      * @memberof  BugUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['status','isfavorites'];
+    public mainStateFields:Array<any> = ['status','isfavorites','confirmed'];
 
     /**
      * 主状态集合Map
@@ -90,8 +91,10 @@ export default class BugUIActionBase extends EntityUIActionBase {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'colsemobeditview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr3mobmpickupbuildcreatebugview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'planmobmdview9',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'cmoboptionview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'editnewmobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'rmoboptionview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'testmobmdview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'acmoboptionview',srfappde:'bugs'});
@@ -102,11 +105,24 @@ export default class BugUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'assmoboptionview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'confirmmobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assigntomobeditview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr3mobmpickupview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assmobmdview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr3mobpickupmdview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr3mobmpickupleftview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr2mobmpickupview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr3mobpickupbuildresolvedmdview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr3mobpickupmdview1',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr2mobpickupmdview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'resolvemobeditview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'logmobmdview9',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'activationmobeditview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr4mobmdview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'closemoboptionview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr3mobmdview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assmoremobmdview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr2mobmdview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr6mobmdview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr5mobmdview',srfappde:'bugs'});
     }
 
     /**
@@ -115,12 +131,18 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateMap(){
-        this.allDeMainStateMap.set('active__0','active__0');
-        this.allDeMainStateMap.set('active__1','active__1');
-        this.allDeMainStateMap.set('closed__0','closed__0');
-        this.allDeMainStateMap.set('closed__1','closed__1');
-        this.allDeMainStateMap.set('resolved__0','resolved__0');
-        this.allDeMainStateMap.set('resolved__1','resolved__1');
+        this.allDeMainStateMap.set('active__0__0','active__0__0');
+        this.allDeMainStateMap.set('active__0__1','active__0__1');
+        this.allDeMainStateMap.set('active__1__0','active__1__0');
+        this.allDeMainStateMap.set('active__1__1','active__1__1');
+        this.allDeMainStateMap.set('closed__0__0','closed__0__0');
+        this.allDeMainStateMap.set('closed__0__1','closed__0__1');
+        this.allDeMainStateMap.set('closed__1__0','closed__1__0');
+        this.allDeMainStateMap.set('closed__1__1','closed__1__1');
+        this.allDeMainStateMap.set('resolved__0__0','resolved__0__0');
+        this.allDeMainStateMap.set('resolved__0__1','resolved__0__1');
+        this.allDeMainStateMap.set('resolved__1__0','resolved__1__0');
+        this.allDeMainStateMap.set('resolved__1__1','resolved__1__1');
     }
 
     /**
@@ -129,12 +151,72 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * @memberof  BugUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('active__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('active__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('resolved__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('resolved__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_ACTIVATE_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,'SRFUR__BUG_ACTIVATE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_ASSIGNTO_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_ASSIGNTO_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_ASSIGNTO_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_CLOSE_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_ASSIGNTO_BUT':0,'SRFUR__BUG_TOSTORY_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__PROP_LBUG_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('resolved__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('resolved__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_FAVOR_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('resolved__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,'SRFUR__PROP_LBUG_BUT':0,'SRFUR__BUG_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('resolved__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__BUG_CONFIRM_BUT':0,'SRFUR__BUG_RESOLVE_BUT':0,'SRFUR__BUG_NFAVOR_BUT':0,'SRFUR__PROP_LBUG_BUT':0,}));
+    }
+
+    /**
+     * 移除bug
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof BugUIService
+     */
+    public async Bug_releaseUnlinkBugByLeftBug(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { bug: '%bug%' });
+        Object.assign(paramJO, { id: '%bug%' });
+        Object.assign(paramJO, { title: '%title%' });
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { "release": "%release%" } ;
+        let panelNavContext= { "release": "%release%" } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('bug');
+            const response: any = await curUIService.ReleaseUnLinkBugbyLeftBug(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('移除bug成功！');
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:args});
+                }
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        return backend();
     }
 
     /**
@@ -168,7 +250,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -208,6 +290,60 @@ export default class BugUIActionBase extends EntityUIActionBase {
     }
 
     /**
+     * 移除bug
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof BugUIService
+     */
+    public async Bug_releaseUnlinkBug(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { bug: '%bug%' });
+        Object.assign(paramJO, { id: '%bug%' });
+        Object.assign(paramJO, { title: '%title%' });
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { "release": "%release%" } ;
+        let panelNavContext= { "release": "%release%" } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('bug');
+            const response: any = await curUIService.ReleaseUnlinkBug(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('移除bug成功！');
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:args});
+                }
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        return backend();
+    }
+
+    /**
      * 新建
      *
      * @param {any[]} args 数据
@@ -235,7 +371,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -305,7 +441,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -345,6 +481,64 @@ export default class BugUIActionBase extends EntityUIActionBase {
     }
 
     /**
+     * 关联bug
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof BugUIService
+     */
+    public async Bug_MobReleaseLinkResolvedBug(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('bug');
+            const response: any = await curUIService.ReleaseLinkBugbyBug(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('关联bug成功！');
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        const view: any = { 
+            viewname: 'bug-usr3-mob-mpickup-view', 
+            height: 0, 
+            width: 0,  
+            title: 'Bug移动端多数据选择视图', 
+            placement: '',
+        };
+        const result: any = await this.openService.openModal(view, _context, _params);
+        if (result && Object.is(result.ret, 'OK')) {
+            Object.assign(_params, { srfactionparam: result.datas });
+            return backend();
+        }
+    }
+
+    /**
      * 确认
      *
      * @param {any[]} args 数据
@@ -375,7 +569,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -412,6 +606,122 @@ export default class BugUIActionBase extends EntityUIActionBase {
             }
         }
         return response;
+    }
+
+    /**
+     * 关联bug
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof BugUIService
+     */
+    public async Bug_MobProductPlanLinkBug(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('bug');
+            const response: any = await curUIService.LinkBug(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('关联bug成功！');
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        const view: any = { 
+            viewname: 'bug-usr2-mob-mpickup-view', 
+            height: 0, 
+            width: 0,  
+            title: 'Bug移动端多数据选择视图', 
+            placement: '',
+        };
+        const result: any = await this.openService.openModal(view, _context, _params);
+        if (result && Object.is(result.ret, 'OK')) {
+            Object.assign(_params, { srfactionparam: result.datas });
+            return backend();
+        }
+    }
+
+    /**
+     * 解除关联
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof BugUIService
+     */
+    public async Bug_unlinkBug_buildMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const state: boolean = await Notice.getInstance().confirm('警告', '您确认移除该Bug吗？');
+        if (!state) {
+            return Promise.reject();
+        }
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { bug: '%bug%' });
+        Object.assign(paramJO, { id: '%bug%' });
+        Object.assign(paramJO, { title: '%title%' });
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { "build": "%build%" } ;
+        let panelNavContext= { "build": "%build%" } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('bug');
+            const response: any = await curUIService.BuildUnlinkBug(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('解除关联成功！');
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:args});
+                }
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        return backend();
     }
 
     /**
@@ -454,7 +764,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
               container.closeView(null);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('bug');
@@ -463,6 +773,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
                 this.notice.success('已删除');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:args});
                 }
             } else {
                 this.notice.error('系统异常！');
@@ -473,7 +784,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
     }
 
     /**
-     * 解决
+     * 编辑
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -485,7 +796,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * @returns {Promise<any>}
      * @memberof BugUIService
      */
-    public async Bug_ResolveBugMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+    public async Bug_MobMainEdit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { bug: '%bug%' });
@@ -503,7 +814,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -530,15 +841,10 @@ export default class BugUIActionBase extends EntityUIActionBase {
 
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
-            { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
+            { pathName: 'editnewmobeditview', parameterName: 'editnewmobeditview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
-        if (response) {
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
-        }
         return response;
     }
 
@@ -580,9 +886,9 @@ export default class BugUIActionBase extends EntityUIActionBase {
             delete context.srfsessionid;
         }
         // 导航参数
-        let panelNavParam= { } ;
+        let panelNavParam= { "productplan": "%productplan%" } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('bug');
             const response: any = await curUIService.UnlinkBug(_context, _params);
@@ -590,6 +896,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
                 this.notice.success('移除成功');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:args});
                 }
             } else {
                 this.notice.error('系统异常！');
@@ -597,6 +904,76 @@ export default class BugUIActionBase extends EntityUIActionBase {
             return response;
         };
         return backend();
+    }
+
+    /**
+     * 解决
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof BugUIService
+     */
+    public async Bug_ResolveBugMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { bug: '%bug%' });
+        Object.assign(paramJO, { id: '%bug%' });
+        Object.assign(paramJO, { title: '%title%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'bugs', parameterName: 'bug' },
+            { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
+        return response;
     }
 
     /**
@@ -627,7 +1004,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -662,6 +1039,64 @@ export default class BugUIActionBase extends EntityUIActionBase {
     }
 
     /**
+     * 关联bug
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof BugUIService
+     */
+    public async Bug_MobReleaseLinkLeftBug(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('bug');
+            const response: any = await curUIService.ReleaseLinkBugbyLeftBug(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('关联bug成功！');
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        const view: any = { 
+            viewname: 'bug-usr3-mob-mpickup-left-view', 
+            height: 0, 
+            width: 0,  
+            title: 'Bug移动端多数据选择视图', 
+            placement: '',
+        };
+        const result: any = await this.openService.openModal(view, _context, _params);
+        if (result && Object.is(result.ret, 'OK')) {
+            Object.assign(_params, { srfactionparam: result.datas });
+            return backend();
+        }
+    }
+
+    /**
      * 关闭
      *
      * @param {any[]} args 数据
@@ -692,7 +1127,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -729,6 +1164,64 @@ export default class BugUIActionBase extends EntityUIActionBase {
             }
         }
         return response;
+    }
+
+    /**
+     * 关联bug
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof BugUIService
+     */
+    public async Bug_MobBuildLink(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('bug');
+            const response: any = await curUIService.BuildLinkBug(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('关联bug成功！');
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        const view: any = { 
+            viewname: 'bug-usr3-mob-mpickup-build-create-bug-view', 
+            height: 0, 
+            width: 0,  
+            title: 'Bug移动端多数据选择视图', 
+            placement: '',
+        };
+        const result: any = await this.openService.openModal(view, _context, _params);
+        if (result && Object.is(result.ret, 'OK')) {
+            Object.assign(_params, { srfactionparam: result.datas });
+            return backend();
+        }
     }
 
 

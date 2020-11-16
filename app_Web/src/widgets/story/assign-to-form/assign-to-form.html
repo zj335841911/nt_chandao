@@ -1,17 +1,55 @@
-<i-form :model="this.data" class='app-form' ref='form'  id='story_assignto' style="">
+<i-form
+    :model="this.data"
+    class='app-form'
+    ref='form'
+    id='story_assignto'
+    style=""
+    @on-validate="formItemValidate.apply(_self, arguments)"
+>
     <input style="display:none;" />
     <row >
             <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.assignto_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group
+    :model="detailsModel.group1"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=''
+    :uiActionGroup="detailsModel.group1.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.story.assignto_form.details.group1')"
+    :isShowCaption="false"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="false"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.group1"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    />
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.story.assignto_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item
+    name='assignedto'
+    :itemRules="this.rules().assignedto"
+    class=''
+
+    :caption="$t('entities.story.assignto_form.details.assignedto')"
+    uiStyle="DEFAULT"
+    :labelWidth="100"
+    :isShowCaption="true"
+    :error="detailsModel.assignedto.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.assignedto"
     :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
@@ -26,15 +64,45 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.story.assignto_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"story",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"story",objectid: "%id%",version:"editor"}'  height={400} style="height:400px;"></app-rich-text-editor>
+    <app-form-item
+    name='comment'
+    :itemRules="this.rules().comment"
+    class=''
+
+    :caption="$t('entities.story.assignto_form.details.comment')"
+    uiStyle="DEFAULT"
+    :labelWidth="100"
+    :isShowCaption="true"
+    :error="detailsModel.comment.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT">
+    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"story",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"story",objectid: "%id%",version:"editor"}'  height={400} style="height:400px;"></app-rich-text-editor>
 
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.assignto_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group
+    :model="detailsModel.grouppanel2"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=''
+    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.story.assignto_form.details.grouppanel2')"
+    :isShowCaption="false"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="false"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel2"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    />
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
@@ -56,7 +124,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='action-history-list-view' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 

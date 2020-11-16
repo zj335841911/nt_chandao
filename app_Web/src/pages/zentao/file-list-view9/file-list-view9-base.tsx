@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { ListView9Base } from '@/studio-core';
 import FileService from '@/service/file/file-service';
 import FileAuthService from '@/authservice/file/file-auth-service';
 import ListView9Engine from '@engine/view/list-view9-engine';
 import FileUIService from '@/uiservice/file/file-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class FileListView9Base extends ListView9Base {
      * @type {string}
      * @memberof FileListView9Base
      */ 
-    protected dataControl:string = "list";
+    protected dataControl: string = "list";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class FileListView9Base extends ListView9Base {
 	 * @memberof FileListView9Base
 	 */
     protected customViewParams: any = {
-        'objecttype': { isRawValue: false, value: 'OBJECTTYPE' }
+        'objecttype': {
+            isRawValue: false,
+            value: 'OBJECTTYPE',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class FileListView9Base extends ListView9Base {
         srfCaption: 'entities.file.views.listview9.caption',
         srfTitle: 'entities.file.views.listview9.title',
         srfSubTitle: 'entities.file.views.listview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,7 +105,10 @@ export class FileListView9Base extends ListView9Base {
      * @memberof FileListView9Base
      */
     protected containerModel: any = {
-        view_list: { name: 'list', type: 'LIST' },
+        view_list: {
+            name: 'list',
+            type: 'LIST',
+        },
     };
 
 
@@ -111,9 +117,18 @@ export class FileListView9Base extends ListView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof FileListView9Base
      */
 	protected viewtag: string = '9ed41cee96088630f3d4b0a91e705930';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof FileListView9Base
+     */ 
+    protected viewName: string = "FileListView9";
 
 
     /**
@@ -132,7 +147,9 @@ export class FileListView9Base extends ListView9Base {
      * @type {Array<*>}
      * @memberof FileListView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -144,11 +161,11 @@ export class FileListView9Base extends ListView9Base {
         this.engine.init({
             view: this,
             list: this.$refs.list,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'file',
             majorPSDEField: 'title',

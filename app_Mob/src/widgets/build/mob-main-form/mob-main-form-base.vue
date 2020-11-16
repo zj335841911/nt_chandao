@@ -27,14 +27,18 @@
     v-show="detailsModel.name.visible" 
     :itemRules="this.rules.name" 
     :caption="$t('build.mobmain_form.details.name')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.name.disabled"
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.name" 
-    :context="context" 
+    v-if="data.name"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.name" 
     :itemParam="{}"/>
 </app-form-item>
@@ -51,14 +55,18 @@
     v-show="detailsModel.date.visible" 
     :itemRules="this.rules.date" 
     :caption="$t('build.mobmain_form.details.date')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.date.disabled"
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.date" 
-    :context="context" 
+    v-if="data.date"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.date" 
     :itemParam="{}"/>
 </app-form-item>
@@ -75,20 +83,189 @@
     v-show="detailsModel.builder.visible" 
     :itemRules="this.rules.builder" 
     :caption="$t('build.mobmain_form.details.builder')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.builder.disabled"
     :error="detailsModel.builder.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.builder" 
-    :context="context" 
+    v-if="data.builder"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.builder" 
     :itemParam="{}"/>
 </app-form-item>
+
+
+
+<app-form-item 
+    name='scmpath' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="scmpath_item"  
+    :itemValue="this.data.scmpath" 
+    v-show="detailsModel.scmpath.visible" 
+    :itemRules="this.rules.scmpath" 
+    :caption="$t('build.mobmain_form.details.scmpath')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.scmpath.disabled"
+    :error="detailsModel.scmpath.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+    v-if="data.scmpath"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.scmpath" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='filepath' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="filepath_item"  
+    :itemValue="this.data.filepath" 
+    v-show="detailsModel.filepath.visible" 
+    :itemRules="this.rules.filepath" 
+    :caption="$t('build.mobmain_form.details.filepath')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.filepath.disabled"
+    :error="detailsModel.filepath.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+    v-if="data.filepath"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.filepath" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='desc' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="desc_item"  
+    :itemValue="this.data.desc" 
+    v-show="detailsModel.desc.visible" 
+    :itemRules="this.rules.desc" 
+    :caption="$t('build.mobmain_form.details.desc')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.desc.disabled"
+    :error="detailsModel.desc.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+
+</app-form-item>
+
+
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel2.visible" 
+    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
+    :caption="$t('build.mobmain_form.details.grouppanel2')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="1" 
+    :isInfoGroupMode="true" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='build' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='file-mob-mdview9' 
+    v-show="detailsModel.druipart2.visible" 
+    :caption="$t('build.mobmain_form.details.druipart2')"  
+    paramItem='build' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_BUILD","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
+    ]" 
+    tempMode='0'
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ "objecttype": "build" } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
+
+
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel1.visible" 
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
+    :caption="$t('build.mobmain_form.details.grouppanel1')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="1" 
+    :isInfoGroupMode="true" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='build' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
+    :caption="$t('build.mobmain_form.details.druipart1')"  
+    paramItem='build' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_BUILD","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
+    ]" 
+    tempMode='0'
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
 
 
     
@@ -364,6 +541,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     protected formState: Subject<any> = new Subject();
 
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobMainBase
+     */
+    public appStateEvent: Subscription | undefined;
+
     /**
      * 忽略表单项值变化
      *
@@ -416,6 +603,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         name: null,
         date: null,
         builder: null,
+        scmpath: null,
+        filepath: null,
+        desc: null,
         id: null,
         build: null,
     };
@@ -548,6 +738,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel2: new FormGroupPanelModel({ caption: '附件', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'build.mobmain_form', extractMode: 'ITEM', details: [] } })
+, 
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel1: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'build.mobmain_form', extractMode: 'ITEM', details: [] } })
+, 
         group1: new FormGroupPanelModel({ caption: '版本基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'build.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -571,6 +769,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
         date: new FormItemModel({ caption: '打包日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         builder: new FormItemModel({ caption: '构建者', detailType: 'FORMITEM', name: 'builder', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        scmpath: new FormItemModel({ caption: '源代码地址', detailType: 'FORMITEM', name: 'scmpath', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        filepath: new FormItemModel({ caption: '下载地址', detailType: 'FORMITEM', name: 'filepath', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -697,6 +901,42 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 scmpath 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.scmpath')
+    onScmpathChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'scmpath', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 filepath 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.filepath')
+    onFilepathChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'filepath', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 desc 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.desc')
+    onDescChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -744,6 +984,13 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
+
+
+
+
 
 
 
@@ -1048,6 +1295,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Build")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1070,6 +1327,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1253,7 +1513,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 0;
+            this.drcounter = 2;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();
@@ -1279,7 +1539,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Build",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Build",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

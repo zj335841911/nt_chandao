@@ -1,13 +1,13 @@
 
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { KanBanViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
 import KanBanViewEngine from '@engine/view/kan-ban-view-engine';
 import TaskUIService from '@/uiservice/task/task-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -52,7 +52,7 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      * @type {string}
      * @memberof TaskKanbanViewBase
      */ 
-    protected dataControl:string = "kanban";
+    protected dataControl: string = "kanban";
 
     /**
      * 实体服务对象
@@ -70,6 +70,20 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskKanbanViewBase
+	 */
+    protected customViewParams: any = {
+        'n_parent_gtandeq': {
+            isRawValue: true,
+            value: '0',
+        }
+    };
+
     /**
      * 视图模型数据
      *
@@ -81,8 +95,8 @@ export class TaskKanbanViewBase extends KanBanViewBase {
         srfCaption: 'entities.task.views.kanbanview.caption',
         srfTitle: 'entities.task.views.kanbanview.title',
         srfSubTitle: 'entities.task.views.kanbanview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -92,8 +106,14 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      * @memberof TaskKanbanViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_kanban: { name: 'kanban', type: 'KANBAN' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_kanban: {
+            name: 'kanban',
+            type: 'KANBAN',
+        },
     };
 
     /**
@@ -103,9 +123,9 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      * @memberof TaskKanbanView
      */
     public toolBarModels: any = {
-        deuiaction3_create: { name: 'deuiaction3_create', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
+        deuiaction3_create: { name: 'deuiaction3_create', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 
@@ -116,9 +136,18 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskKanbanViewBase
      */
 	protected viewtag: string = '7088260bcd6a0303378af2f8e207f479';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskKanbanViewBase
+     */ 
+    protected viewName: string = "TaskKanbanView";
 
 
     /**
@@ -137,7 +166,9 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      * @type {Array<*>}
      * @memberof TaskKanbanViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -149,11 +180,11 @@ export class TaskKanbanViewBase extends KanBanViewBase {
         this.engine.init({
             view: this,
             kanban: this.$refs.kanban,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'task',
             majorPSDEField: 'name',
@@ -177,6 +208,9 @@ export class TaskKanbanViewBase extends KanBanViewBase {
         }
         if (Object.is($event.tag, 'deuiaction1')) {
             this.toolbar_deuiaction1_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction4')) {
+            this.toolbar_deuiaction4_click(null, '', $event2);
         }
     }
 
@@ -318,6 +352,34 @@ export class TaskKanbanViewBase extends KanBanViewBase {
         }
         // 界面行为
         this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.kanban;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -466,6 +528,23 @@ export class TaskKanbanViewBase extends KanBanViewBase {
         }
         xData.exportExcel($event.exportparms);
     }
+    /**
+     * 过滤
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof TaskKanbanViewBase
+     */
+    public ToggleFilter(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (_this.hasOwnProperty('isExpandSearchForm')) {
+            _this.isExpandSearchForm = !_this.isExpandSearchForm;
+        }
+    }
 
     /**
      * 视图唯一标识
@@ -476,4 +555,3 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      */
     protected viewUID: string = 'zentao-task-kanban-view';
 }
-

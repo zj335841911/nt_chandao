@@ -10,7 +10,6 @@ import './menu-icon.less';
  */
 @Component({})
 export class MenuIcon extends Vue {
-
     /**
      * 项数据
      *
@@ -29,13 +28,12 @@ export class MenuIcon extends Vue {
     public render(): any {
         if (this.item) {
             if (this.item.iconcls) {
-                return <i class={this.item.iconcls} />
+                return <i class={this.item.iconcls} />;
             }
             if (this.item.icon) {
-                return <img src={this.item.icon} />
+                return <img src={this.item.icon} />;
             }
         }
-        return <span />
+        return <span />;
     }
-
 }

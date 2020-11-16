@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.ProductPlan;
  */
 @Slf4j
 @Service
-public class ProductPlanGetOldPlanNameLogicImpl implements IProductPlanGetOldPlanNameLogic{
+public class ProductPlanGetOldPlanNameLogicImpl implements IProductPlanGetOldPlanNameLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -34,22 +34,24 @@ public class ProductPlanGetOldPlanNameLogicImpl implements IProductPlanGetOldPla
         return this.iBzSysDefaultService;
     }
 
-    public void execute(ProductPlan et){
+    @Override
+    public void execute(ProductPlan et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("productplangetoldplannamedefault",et);
-           kieSession.setGlobal("iBzSysProductplanDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("productplangetoldplannamedefault", et);
+           kieSession.setGlobal("iBzSysProductplanDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.productplangetoldplanname");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[获取上一个计划的名称]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

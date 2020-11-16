@@ -21,6 +21,13 @@ export default class TestResultUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  TestResultUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  TestResultUIServiceBase
@@ -89,11 +96,15 @@ export default class TestResultUIServiceBase extends UIService {
      * @memberof  TestResultUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'testresults',component:'test-result-edit-view'});
-        this.allViewMap.set(':',{viewname:'meditview9',srfappde:'testresults',component:'test-result-medit-view9'});
-        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'testresults',component:'test-result-grid-view9'});
-        this.allViewMap.set(':',{viewname:'testtaskmeditview9',srfappde:'testresults',component:'test-result-test-task-medit-view9'});
-        this.allViewMap.set(':',{viewname:'editview9',srfappde:'testresults',component:'test-result-edit-view9'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'testresults',
+            component: 'test-result-edit-view',
+            openmode: '',
+            title: '测试结果',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -130,8 +141,8 @@ export default class TestResultUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{STORY:"%story%",MODULE:"%module%",PRECONDITION:"%precondition%",PRODUCT:"%product%",TITLE:"%title%",CASE:"%case%"});
-        Object.assign(params,{product:"%product%",story:"%story%",module:"%module%",precondition:"%precondition%",title:"%title%",case:"%case%"});
+        Object.assign(context,{STORY:"%story%",PROJECT:"%project%",MODULE:"%module%",PRECONDITION:"%precondition%",PRODUCT:"%product%",TITLE:"%title%",CASE:"%case%"});
+        Object.assign(params,{product:"%product%",project:"%project%",story:"%story%",module:"%module%",precondition:"%precondition%",title:"%title%",case:"%case%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { testresult: '%testresult%' });
@@ -168,6 +179,7 @@ export default class TestResultUIServiceBase extends UIService {
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
                     }
+                    _this.closeView(null);
                     return result.datas;
                 });
             }
@@ -176,7 +188,7 @@ export default class TestResultUIServiceBase extends UIService {
                 height: 0, 
                 width: 0,  
                 title: actionContext.$t('entities.bug.views.casetobugeditview.title'),
-                placement: 'DRAWER_TOP',
+                placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
     }

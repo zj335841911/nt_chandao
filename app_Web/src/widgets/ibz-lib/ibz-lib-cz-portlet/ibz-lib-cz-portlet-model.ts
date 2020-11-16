@@ -42,6 +42,9 @@ export default class IbzLibCzModel {
       {
         name: 'lasteditedby',
       },
+      {
+        name: 'product',
+      },
     ]
   }
 

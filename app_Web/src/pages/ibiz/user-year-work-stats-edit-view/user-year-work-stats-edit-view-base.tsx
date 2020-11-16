@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import UserYearWorkStatsService from '@/service/user-year-work-stats/user-year-work-stats-service';
 import UserYearWorkStatsAuthService from '@/authservice/user-year-work-stats/user-year-work-stats-auth-service';
@@ -48,7 +48,7 @@ export class UserYearWorkStatsEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof UserYearWorkStatsEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,9 +74,18 @@ export class UserYearWorkStatsEditViewBase extends EditViewBase {
 	 * @memberof UserYearWorkStatsEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'SRFKEY': { isRawValue: false, value: 'srfpersonid' },
-        'ID': { isRawValue: false, value: 'srfpersonid' },
-        'USERYEARWORKSTATS': { isRawValue: false, value: 'srfpersonid' }
+        'SRFKEY': {
+            isRawValue: false,
+            value: 'srfpersonid',
+        },
+        'ID': {
+            isRawValue: false,
+            value: 'srfpersonid',
+        },
+        'USERYEARWORKSTATS': {
+            isRawValue: false,
+            value: 'srfpersonid',
+        }
     };
 
 	/**
@@ -87,9 +96,18 @@ export class UserYearWorkStatsEditViewBase extends EditViewBase {
 	 * @memberof UserYearWorkStatsEditViewBase
 	 */
     protected customViewParams: any = {
-        'id': { isRawValue: false, value: 'srfpersonid' },
-        'useryearworkstats': { isRawValue: false, value: 'srfpersonid' },
-        'srfkey': { isRawValue: false, value: 'srfpersonid' }
+        'id': {
+            isRawValue: false,
+            value: 'srfpersonid',
+        },
+        'useryearworkstats': {
+            isRawValue: false,
+            value: 'srfpersonid',
+        },
+        'srfkey': {
+            isRawValue: false,
+            value: 'srfpersonid',
+        }
     };
 
     /**
@@ -97,7 +115,7 @@ export class UserYearWorkStatsEditViewBase extends EditViewBase {
      *
      * @memberof UserYearWorkStatsEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -110,8 +128,8 @@ export class UserYearWorkStatsEditViewBase extends EditViewBase {
         srfCaption: 'entities.useryearworkstats.views.editview.caption',
         srfTitle: 'entities.useryearworkstats.views.editview.title',
         srfSubTitle: 'entities.useryearworkstats.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -121,7 +139,10 @@ export class UserYearWorkStatsEditViewBase extends EditViewBase {
      * @memberof UserYearWorkStatsEditViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -130,9 +151,18 @@ export class UserYearWorkStatsEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof UserYearWorkStatsEditViewBase
      */
 	protected viewtag: string = 'db750bbb894c25f38ca2741f234df3c6';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof UserYearWorkStatsEditViewBase
+     */ 
+    protected viewName: string = "UserYearWorkStatsEditView";
 
 
     /**
@@ -151,7 +181,9 @@ export class UserYearWorkStatsEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof UserYearWorkStatsEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

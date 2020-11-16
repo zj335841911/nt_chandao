@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_webhook",resultMap = "WebHookResultMap")
+@TableName(value = "zt_webhook", resultMap = "WebHookResultMap")
 public class WebHook extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,8 +54,8 @@ public class WebHook extends EntityMP implements Serializable {
      * createdDate
      */
     @TableField(value = "`createddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
     /**
@@ -89,8 +91,8 @@ public class WebHook extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -104,8 +106,8 @@ public class WebHook extends EntityMP implements Serializable {
     /**
      * 逻辑删除标志
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -163,8 +165,8 @@ public class WebHook extends EntityMP implements Serializable {
      * editedDate
      */
     @TableField(value = "`editeddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "editeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "editeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
     private Timestamp editeddate;
     /**
@@ -180,23 +182,23 @@ public class WebHook extends EntityMP implements Serializable {
     /**
      * 设置 [secret]
      */
-    public void setSecret(String secret){
-        this.secret = secret ;
-        this.modify("secret",secret);
+    public void setSecret(String secret) {
+        this.secret = secret;
+        this.modify("secret", secret);
     }
 
     /**
      * 设置 [createdDate]
      */
-    public void setCreateddate(Timestamp createddate){
-        this.createddate = createddate ;
-        this.modify("createddate",createddate);
+    public void setCreateddate(Timestamp createddate) {
+        this.createddate = createddate;
+        this.modify("createddate", createddate);
     }
 
     /**
      * 格式化日期 [createdDate]
      */
-    public String formatCreateddate(){
+    public String formatCreateddate() {
         if (this.createddate == null) {
             return null;
         }
@@ -206,111 +208,111 @@ public class WebHook extends EntityMP implements Serializable {
     /**
      * 设置 [actions]
      */
-    public void setActions(String actions){
-        this.actions = actions ;
-        this.modify("actions",actions);
+    public void setActions(String actions) {
+        this.actions = actions;
+        this.modify("actions", actions);
     }
 
     /**
      * 设置 [desc]
      */
-    public void setDesc(String desc){
-        this.desc = desc ;
-        this.modify("desc",desc);
+    public void setDesc(String desc) {
+        this.desc = desc;
+        this.modify("desc", desc);
     }
 
     /**
      * 设置 [contentType]
      */
-    public void setContenttype(String contenttype){
-        this.contenttype = contenttype ;
-        this.modify("contenttype",contenttype);
+    public void setContenttype(String contenttype) {
+        this.contenttype = contenttype;
+        this.modify("contenttype", contenttype);
     }
 
     /**
      * 设置 [type]
      */
-    public void setType(String type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [editedBy]
      */
-    public void setEditedby(String editedby){
-        this.editedby = editedby ;
-        this.modify("editedby",editedby);
+    public void setEditedby(String editedby) {
+        this.editedby = editedby;
+        this.modify("editedby", editedby);
     }
 
     /**
      * 设置 [name]
      */
-    public void setName(String name){
-        this.name = name ;
-        this.modify("name",name);
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [url]
      */
-    public void setUrl(String url){
-        this.url = url ;
-        this.modify("url",url);
+    public void setUrl(String url) {
+        this.url = url;
+        this.modify("url", url);
     }
 
     /**
      * 设置 [domain]
      */
-    public void setDomain(String domain){
-        this.domain = domain ;
-        this.modify("domain",domain);
+    public void setDomain(String domain) {
+        this.domain = domain;
+        this.modify("domain", domain);
     }
 
     /**
      * 设置 [createdBy]
      */
-    public void setCreatedby(String createdby){
-        this.createdby = createdby ;
-        this.modify("createdby",createdby);
+    public void setCreatedby(String createdby) {
+        this.createdby = createdby;
+        this.modify("createdby", createdby);
     }
 
     /**
      * 设置 [params]
      */
-    public void setParams(String params){
-        this.params = params ;
-        this.modify("params",params);
+    public void setParams(String params) {
+        this.params = params;
+        this.modify("params", params);
     }
 
     /**
      * 设置 [sendType]
      */
-    public void setSendtype(String sendtype){
-        this.sendtype = sendtype ;
-        this.modify("sendtype",sendtype);
+    public void setSendtype(String sendtype) {
+        this.sendtype = sendtype;
+        this.modify("sendtype", sendtype);
     }
 
     /**
      * 设置 [products]
      */
-    public void setProducts(String products){
-        this.products = products ;
-        this.modify("products",products);
+    public void setProducts(String products) {
+        this.products = products;
+        this.modify("products", products);
     }
 
     /**
      * 设置 [editedDate]
      */
-    public void setEditeddate(Timestamp editeddate){
-        this.editeddate = editeddate ;
-        this.modify("editeddate",editeddate);
+    public void setEditeddate(Timestamp editeddate) {
+        this.editeddate = editeddate;
+        this.modify("editeddate", editeddate);
     }
 
     /**
      * 格式化日期 [editedDate]
      */
-    public String formatEditeddate(){
+    public String formatEditeddate() {
         if (this.editeddate == null) {
             return null;
         }
@@ -320,15 +322,15 @@ public class WebHook extends EntityMP implements Serializable {
     /**
      * 设置 [projects]
      */
-    public void setProjects(String projects){
-        this.projects = projects ;
-        this.modify("projects",projects);
+    public void setProjects(String projects) {
+        this.projects = projects;
+        this.modify("projects", projects);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -340,7 +342,7 @@ public class WebHook extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

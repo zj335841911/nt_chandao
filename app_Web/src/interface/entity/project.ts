@@ -565,4 +565,36 @@ export interface Project {
      * @memberof Project
      */
     storychangecnt?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    noticeusers?: any;
+
+    /**
+     * 文档数量
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    doclibcnt?: any;
+
+    /**
+     * 组织标识
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    orgid?: any;
+
+    /**
+     * 部门标识
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    mdeptid?: any;
 }

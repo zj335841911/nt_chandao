@@ -21,6 +21,13 @@ export default class SubProductPlanUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  SubProductPlanUIServiceBase
+     */
+    public isEnableDEMainState:boolean = true;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  SubProductPlanUIServiceBase
@@ -89,9 +96,6 @@ export default class SubProductPlanUIServiceBase extends UIService {
      * @memberof  SubProductPlanUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'subplancreateview',srfappde:'subproductplans',component:'product-plan-sub-plan-create-view'});
-        this.allViewMap.set(':',{viewname:'subplangridview',srfappde:'subproductplans',component:'product-plan-sub-plan-grid-view'});
-        this.allViewMap.set(':',{viewname:'subplaneditview',srfappde:'subproductplans',component:'product-plan-sub-plan-edit-view'});
     }
 
     /**

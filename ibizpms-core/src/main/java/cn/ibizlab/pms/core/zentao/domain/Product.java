@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_product",resultMap = "ProductResultMap")
+@TableName(value = "zt_product", resultMap = "ProductResultMap")
 public class Product extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -67,16 +69,16 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -171,9 +173,9 @@ public class Product extends EntityMP implements Serializable {
      * 创建日期
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createddate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`createddate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
     /**
@@ -338,6 +340,50 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "testsuitecnt")
     @JsonProperty("testsuitecnt")
     private Integer testsuitecnt;
+    /**
+     * 产品负责人（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "popk")
+    @JsonProperty("popk")
+    private String popk;
+    /**
+     * 测试负责人（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "qdpk")
+    @JsonProperty("qdpk")
+    private String qdpk;
+    /**
+     * 发布负责人（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "rdpk")
+    @JsonProperty("rdpk")
+    private String rdpk;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    private String noticeusers;
+    /**
+     * 组织标识
+     */
+    @DEField(preType = DEPredefinedFieldType.ORGID)
+    @TableField(value = "`orgid`")
+    @JSONField(name = "orgid")
+    @JsonProperty("orgid")
+    private String orgid;
+    /**
+     * 部门标识
+     */
+    @DEField(preType = DEPredefinedFieldType.ORGSECTORID)
+    @TableField(value = "`mdeptid`")
+    @JSONField(name = "mdeptid")
+    @JsonProperty("mdeptid")
+    private String mdeptid;
 
     /**
      * 产品线
@@ -352,119 +398,119 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [测试负责人]
      */
-    public void setQd(String qd){
-        this.qd = qd ;
-        this.modify("qd",qd);
+    public void setQd(String qd) {
+        this.qd = qd;
+        this.modify("qd", qd);
     }
 
     /**
      * 设置 [访问控制]
      */
-    public void setAcl(String acl){
-        this.acl = acl ;
-        this.modify("acl",acl);
+    public void setAcl(String acl) {
+        this.acl = acl;
+        this.modify("acl", acl);
     }
 
     /**
      * 设置 [产品名称]
      */
-    public void setName(String name){
-        this.name = name ;
-        this.modify("name",name);
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [分组白名单]
      */
-    public void setWhitelist(String whitelist){
-        this.whitelist = whitelist ;
-        this.modify("whitelist",whitelist);
+    public void setWhitelist(String whitelist) {
+        this.whitelist = whitelist;
+        this.modify("whitelist", whitelist);
     }
 
     /**
      * 设置 [发布负责人]
      */
-    public void setRd(String rd){
-        this.rd = rd ;
-        this.modify("rd",rd);
+    public void setRd(String rd) {
+        this.rd = rd;
+        this.modify("rd", rd);
     }
 
     /**
      * 设置 [排序]
      */
-    public void setOrder(Integer order){
-        this.order = order ;
-        this.modify("order",order);
+    public void setOrder(Integer order) {
+        this.order = order;
+        this.modify("order", order);
     }
 
     /**
      * 设置 [产品类型]
      */
-    public void setType(String type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [产品负责人]
      */
-    public void setPo(String po){
-        this.po = po ;
-        this.modify("po",po);
+    public void setPo(String po) {
+        this.po = po;
+        this.modify("po", po);
     }
 
     /**
      * 设置 [产品描述	]
      */
-    public void setDesc(String desc){
-        this.desc = desc ;
-        this.modify("desc",desc);
+    public void setDesc(String desc) {
+        this.desc = desc;
+        this.modify("desc", desc);
     }
 
     /**
      * 设置 [状态]
      */
-    public void setStatus(String status){
-        this.status = status ;
-        this.modify("status",status);
+    public void setStatus(String status) {
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [当前系统版本]
      */
-    public void setCreatedversion(String createdversion){
-        this.createdversion = createdversion ;
-        this.modify("createdversion",createdversion);
+    public void setCreatedversion(String createdversion) {
+        this.createdversion = createdversion;
+        this.modify("createdversion", createdversion);
     }
 
     /**
      * 设置 [子状态]
      */
-    public void setSubstatus(String substatus){
-        this.substatus = substatus ;
-        this.modify("substatus",substatus);
+    public void setSubstatus(String substatus) {
+        this.substatus = substatus;
+        this.modify("substatus", substatus);
     }
 
     /**
      * 设置 [产品代号]
      */
-    public void setCode(String code){
-        this.code = code ;
-        this.modify("code",code);
+    public void setCode(String code) {
+        this.code = code;
+        this.modify("code", code);
     }
 
     /**
      * 设置 [产品线]
      */
-    public void setLine(Long line){
-        this.line = line ;
-        this.modify("line",line);
+    public void setLine(Long line) {
+        this.line = line;
+        this.modify("line", line);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -476,7 +522,7 @@ public class Product extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

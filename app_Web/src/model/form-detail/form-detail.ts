@@ -5,7 +5,6 @@
  * @class FormDetailModel
  */
 export class FormDetailModel {
-
     /**
      * 参数
      *
@@ -78,7 +77,7 @@ export class FormDetailModel {
      * @memberof FormDetailModel
      */
     public get visible(): boolean {
-        return (this.isShowMore && this.$visible);
+        return this.isShowMore && this.$visible;
     }
 
     /**
@@ -87,7 +86,7 @@ export class FormDetailModel {
      * @memberof FormDetailModel
      */
     public set visible(val: boolean) {
-        if(this.isPower) {
+        if (this.isPower) {
             this.$visible = val;
         }
     }
@@ -119,7 +118,7 @@ export class FormDetailModel {
     /**
      * Creates an instance of FormDetailModel.
      * FormDetailModel 实例
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof FormDetailModel
      */
@@ -146,7 +145,7 @@ export class FormDetailModel {
      * @memberof FormDetailModel
      */
     public setVisible(state: boolean): void {
-        if(this.isPower) {
+        if (this.isPower) {
             this.visible = state;
         }
     }

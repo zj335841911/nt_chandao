@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { OptionViewBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
@@ -48,7 +48,7 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TestTaskBlockOptionViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
 	 * @memberof TestTaskBlockOptionViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'testtask' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'testtask',
+        }
     };
 
     /**
@@ -82,7 +85,7 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
      *
      * @memberof TestTaskBlockOptionViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -95,8 +98,8 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
         srfCaption: 'entities.testtask.views.blockoptionview.caption',
         srfTitle: 'entities.testtask.views.blockoptionview.title',
         srfSubTitle: 'entities.testtask.views.blockoptionview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -106,13 +109,45 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
      * @memberof TestTaskBlockOptionViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
-        view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
-        view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
-        view_leftbtn: { name: 'leftbtn', type: 'button', text: '左移', disabled: true },
-        view_rightbtn: { name: 'rightbtn', type: 'button', text: '右移', disabled: true },
-        view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
-        view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
+        view_okbtn: {
+            name: 'okbtn',
+            type: 'button',
+            text: '确定',
+            disabled: true,
+        },
+        view_cancelbtn: {
+            name: 'cancelbtn',
+            type: 'button',
+            text: '取消',
+            disabled: false,
+        },
+        view_leftbtn: {
+            name: 'leftbtn',
+            type: 'button',
+            text: '左移',
+            disabled: true,
+        },
+        view_rightbtn: {
+            name: 'rightbtn',
+            type: 'button',
+            text: '右移',
+            disabled: true,},
+        view_allleftbtn: {
+            name: 'allleftbtn',
+            type: 'button',
+            text: '全部左移',
+            disabled: true,
+        },
+        view_allrightbtn: {
+            name: 'allrightbtn',
+            type: 'button',
+            text: '全部右移',
+            disabled: true,
+        },
     };
 
 
@@ -121,9 +156,18 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestTaskBlockOptionViewBase
      */
 	protected viewtag: string = '383716f2bcf137ecae2d212f2380246a';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskBlockOptionViewBase
+     */ 
+    protected viewName: string = "TestTaskBlockOptionView";
 
 
     /**
@@ -142,7 +186,9 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
      * @type {Array<*>}
      * @memberof TestTaskBlockOptionViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

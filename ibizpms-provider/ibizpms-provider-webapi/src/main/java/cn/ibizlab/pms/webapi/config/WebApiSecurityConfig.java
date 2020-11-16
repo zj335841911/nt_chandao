@@ -21,8 +21,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.context.annotation.Profile;
-import org.springframework.beans.factory.annotation.Qualifier;
 
+/**
+ * @author huhai
+ */
 @Profile("webapi-prod")
 @Configuration
 @EnableWebSecurity
@@ -50,20 +52,21 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${ibiz.file.uploadpath:ibizutil/upload}")
     private String uploadpath;
 
-    @Value("${zentao.file.uploadpath:ibizutil/ztupload}")
+    @Value("${zentao.file.uploadpath:ibizutilpms/ztupload}")
     private String ztuploadpath;
 
     @Value("${ibiz.file.downloadpath:ibizutil/download}")
     private String downloadpath;
 
-    @Value("${zentao.file.downloadpath:ibizutil/ztdownload}")
+    @Value("${zentao.file.downloadpath:ibizutilpms/ztdownload}")
     private String ztdownloadpath;
 
     @Value("${ibiz.file.previewpath:ibizutil/preview}")
     private String previewpath;
 
+    // 白名单处理类
     @Autowired
-    private SecurityWhitelistHandler whitelistHandler;  //白名单处理类
+    private SecurityWhitelistHandler whitelistHandler;
 
 
     @Autowired
@@ -93,9 +96,10 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 
-        whitelistHandler.handle(httpSecurity);  //对白名单放行。
 
-       httpSecurity
+        // 对白名单放行。
+        whitelistHandler.handle(httpSecurity);
+        httpSecurity
                 // 禁用 CSRF
                 .csrf().disable()
 
@@ -124,18 +128,16 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/swagger-resources/**",
                         "/v2/**"
                 ).permitAll()
-                //放行登录请求
-                .antMatchers( HttpMethod.POST,"/"+loginPath).permitAll()
-                //放行注销请求
-                .antMatchers( HttpMethod.GET,"/"+logoutPath).permitAll()
+                // 放行登录请求
+                .antMatchers( HttpMethod.POST, "/" + loginPath).permitAll()
+                // 放行注销请求
+                .antMatchers( HttpMethod.GET, "/" + logoutPath).permitAll()
                 // 文件操作
-                .antMatchers("/"+downloadpath+"/**").permitAll()
-                .antMatchers("/"+ztdownloadpath+"/**").permitAll()
-                .antMatchers("/"+uploadpath).permitAll()
-                .antMatchers("/"+ztuploadpath).permitAll()
-                .antMatchers("/"+previewpath+"/**").permitAll()
-
-
+                .antMatchers("/" + downloadpath + "/**").permitAll()
+                .antMatchers("/" + ztdownloadpath + "/**").permitAll()
+                .antMatchers("/" + uploadpath).permitAll()
+                .antMatchers("/" + ztuploadpath).permitAll()
+                .antMatchers("/" + previewpath + "/**").permitAll()
                //开放ZT API登录接口
                .antMatchers("/ztlogin").permitAll()
                //开放账号名查询接口
@@ -143,9 +145,7 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
                .antMatchers("/uaa/open/dingtalk/auth/**").permitAll()
                .antMatchers("/uaa/open/dingtalk/access_token").permitAll()
                .antMatchers("/uaa/dingtalk/jsapi/sign").permitAll()
-//               .antMatchers("/depts/all").permitAll()
-//
-//               .antMatchers("/users/all").permitAll()
+               .antMatchers("/recordloginlog").permitAll()
                 // 所有请求都需要认证
                 .anyRequest().authenticated()
                 // 防止iframe 造成跨域

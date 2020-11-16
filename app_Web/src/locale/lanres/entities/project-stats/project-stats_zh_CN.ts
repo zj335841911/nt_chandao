@@ -98,6 +98,7 @@ export default {
 		},
 	},
 	allproject_grid: {
+		nodata: "",
 		columns: {
 			name: "项目名称",
 			end: "截至日期",
@@ -112,6 +113,7 @@ export default {
 		},
 	},
 	notcloseproject_grid: {
+		nodata: "",
 		columns: {
 			name: "项目名称",
 			end: "截至日期",
@@ -144,6 +146,10 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
+		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 };

@@ -1,10 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import TabExpViewtabviewpanel8Service from './tab-exp-viewtabviewpanel8-tabviewpanel-service';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
-
 
 /**
  * tabviewpanel8部件基类
@@ -14,7 +14,6 @@ import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territo
  * @extends {TabExpViewtabviewpanel8TabviewpanelBase}
  */
 export class TabExpViewtabviewpanel8TabviewpanelBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,7 +63,8 @@ export class TabExpViewtabviewpanel8TabviewpanelBase extends MainControlBase {
      * @type {IbzMyTerritoryUIService}
      * @memberof TabExpViewtabviewpanel8Base
      */  
-    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+    public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+
 
     /**
      * 导航模式下项是否激活

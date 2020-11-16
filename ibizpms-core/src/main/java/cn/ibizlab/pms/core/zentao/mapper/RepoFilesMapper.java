@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface RepoFilesMapper extends BaseMapper<RepoFiles>{
+public interface RepoFilesMapper extends BaseMapper<RepoFiles> {
 
-    Page<RepoFiles> searchDefault(IPage page, @Param("srf") RepoFilesSearchContext context, @Param("ew") Wrapper<RepoFiles> wrapper) ;
+    Page<RepoFiles> searchDefault(IPage page, @Param("srf") RepoFilesSearchContext context, @Param("ew") Wrapper<RepoFiles> wrapper);
     @Override
     RepoFiles selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface RepoFilesMapper extends BaseMapper<RepoFiles>{
     int update(@Param(Constants.ENTITY) RepoFiles entity, @Param("ew") Wrapper<RepoFiles> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -62,6 +62,6 @@ public interface RepoFilesMapper extends BaseMapper<RepoFiles>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<RepoFiles> selectByParent(@Param("id") Serializable id) ;
+    List<RepoFiles> selectByParent(@Param("id") Serializable id);
 
 }

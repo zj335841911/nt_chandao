@@ -1,9 +1,9 @@
-<template src="./product-plan-grid-view.html"/>
-<script lang='tsx'>
+<template src="./product-plan-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductPlanGridViewBase } from './product-plan-grid-view-base';
-import view_grid from '@widgets/product-plan/main-grid/main-grid.vue';
+import view_grid from '@widgets/product-plan/main-info-grid/main-info-grid.vue';
 
 /**
  * 产品计划表格视图视图
@@ -18,5 +18,5 @@ import view_grid from '@widgets/product-plan/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductPlanGridView extends ProductPlanGridViewBase { }
+export default class ProductPlanGridView extends ProductPlanGridViewBase {}
 </script>

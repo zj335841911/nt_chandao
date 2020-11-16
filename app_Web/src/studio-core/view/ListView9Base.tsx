@@ -7,6 +7,4 @@ import { ListViewBase } from './ListViewBase';
  * @class ListView9Base
  * @extends {ListViewBase}
  */
-export class ListView9Base extends ListViewBase {
-
-}
+export class ListView9Base extends ListViewBase {}

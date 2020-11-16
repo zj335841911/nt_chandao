@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import TestService from './test-treeview-service';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * treeexpbar_tree部件基类
@@ -15,7 +14,6 @@ import { ViewTool } from '@/utils';
  * @extends {TestTreeBase}
  */
 export class TestTreeBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class TestTreeBase extends MainControlBase {
      * @type {IbzMyTerritoryUIService}
      * @memberof TestBase
      */  
-    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+    public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
 
     /**
@@ -708,7 +706,7 @@ export class TestTreeBase extends MainControlBase {
             let flag:boolean = false;
             if(Object.values(result).length>0){
                 flag =Object.values(result).some((item:any) =>{
-                    return item.visabled === true;
+                    return item.visible === true;
                 })
             }
             if(flag){

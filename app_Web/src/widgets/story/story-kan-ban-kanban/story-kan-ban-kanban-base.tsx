@@ -1,11 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryKanBanService from './story-kan-ban-kanban-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 import draggable from "vuedraggable";
-
 
 /**
  * kanban部件基类
@@ -15,7 +15,6 @@ import draggable from "vuedraggable";
  * @extends {StoryKanBanKanbanBase}
  */
 export class StoryKanBanKanbanBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +64,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * @type {StoryUIService}
      * @memberof StoryKanBanBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 获取多项数据

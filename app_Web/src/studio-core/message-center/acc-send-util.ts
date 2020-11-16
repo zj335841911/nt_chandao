@@ -32,11 +32,14 @@ export class AccSendUtil {
      * @memberof AccSendUtil
      */
     public update(data: any, deName?: string): void {
-        this.acc.sendMessage({
-            type: 'COMMAND',
-            subtype: 'OBJECTUPDATED',
-            content: data
-        }, deName);
+        this.acc.sendMessage(
+            {
+                type: 'COMMAND',
+                subtype: 'OBJECTUPDATED',
+                content: data,
+            },
+            deName
+        );
     }
 
     /**
@@ -47,11 +50,14 @@ export class AccSendUtil {
      * @memberof ControlBase
      */
     public remove(data: any, deName?: string): void {
-        this.acc.sendMessage({
-            type: 'COMMAND',
-            subtype: 'OBJECTREMOVED',
-            content: data
-        }, deName);
+        this.acc.sendMessage(
+            {
+                type: 'COMMAND',
+                subtype: 'OBJECTREMOVED',
+                content: data,
+            },
+            deName
+        );
     }
 
     /**
@@ -62,11 +68,14 @@ export class AccSendUtil {
      * @memberof ControlBase
      */
     public create(data: any, deName?: string): void {
-        this.acc.sendMessage({
-            type: 'COMMAND',
-            subtype: 'OBJECTCREATED',
-            content: data
-        }, deName);
+        this.acc.sendMessage(
+            {
+                type: 'COMMAND',
+                subtype: 'OBJECTCREATED',
+                content: data,
+            },
+            deName
+        );
     }
 
     /**
@@ -104,7 +113,7 @@ export class AccSendUtil {
         this.acc.sendMessage({
             type: 'CONSOLE',
             subtype,
-            content: `${this.getLocalDate()} \x1b[32m${message} \x1b[0m`
+            content: `${this.getLocalDate()} \x1b[32m${message} \x1b[0m`,
         });
     }
 
@@ -119,7 +128,7 @@ export class AccSendUtil {
         this.acc.sendMessage({
             type: 'CONSOLE',
             subtype,
-            content: `${this.getLocalDate()} \x1b[31m${message} \x1b[0m`
+            content: `${this.getLocalDate()} \x1b[31m${message} \x1b[0m`,
         });
     }
 
@@ -134,7 +143,7 @@ export class AccSendUtil {
         this.acc.sendMessage({
             type: 'CONSOLE',
             subtype,
-            content: `${this.getLocalDate()} \x1b[33m${message} \x1b[0m`
+            content: `${this.getLocalDate()} \x1b[33m${message} \x1b[0m`,
         });
     }
 
@@ -149,7 +158,7 @@ export class AccSendUtil {
         this.acc.sendMessage({
             type: 'CONSOLE',
             subtype,
-            content: message
+            content: message,
         });
     }
 
@@ -163,5 +172,4 @@ export class AccSendUtil {
     protected getLocalDate(): string {
         return moment().format('MM-DD HH:mm:ss');
     }
-
 }

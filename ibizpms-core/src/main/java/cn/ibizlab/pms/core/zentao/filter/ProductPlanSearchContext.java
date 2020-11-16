@@ -112,6 +112,7 @@ public class ProductPlanSearchContext extends QueryWrapperContext<ProductPlan> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import IbzMyTerritoryAuthService from '@/authservice/ibz-my-territory/ibz-my-territory-auth-service';
@@ -62,7 +62,7 @@ export class IbzMyTerritoryTabExpViewBase extends TabExpViewBase {
      *
      * @memberof IbzMyTerritoryTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class IbzMyTerritoryTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.ibzmyterritory.views.tabexpview.caption',
         srfTitle: 'entities.ibzmyterritory.views.tabexpview.title',
         srfSubTitle: 'entities.ibzmyterritory.views.tabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class IbzMyTerritoryTabExpViewBase extends TabExpViewBase {
      * @memberof IbzMyTerritoryTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -95,9 +98,18 @@ export class IbzMyTerritoryTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzMyTerritoryTabExpViewBase
      */
 	protected viewtag: string = '0f3dff62ef8bcb1662cc82e57a34c56b';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzMyTerritoryTabExpViewBase
+     */ 
+    protected viewName: string = "IbzMyTerritoryTabExpView";
 
 
     /**
@@ -116,7 +128,9 @@ export class IbzMyTerritoryTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof IbzMyTerritoryTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

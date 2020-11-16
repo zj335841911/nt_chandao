@@ -1,10 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, ListControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import SidebarService from './sidebar-list-service';
 import ProductUIService from '@/uiservice/product/product-ui-service';
-
 
 /**
  * list部件基类
@@ -14,7 +14,6 @@ import ProductUIService from '@/uiservice/product/product-ui-service';
  * @extends {SidebarListBase}
  */
 export class SidebarListBase extends ListControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,7 +63,7 @@ export class SidebarListBase extends ListControlBase {
      * @type {ProductUIService}
      * @memberof SidebarBase
      */  
-    public appUIService:ProductUIService = new ProductUIService(this.$store);
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
     /**
      * list_quicktoolbar 部件 click 事件
@@ -177,6 +176,21 @@ export class SidebarListBase extends ListControlBase {
      * @memberof SidebarListBase
      */
     public minorSortPSDEF: string = 'id';
+
+        /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof ProductLeftSidebarListView
+     */
+    public leftsidebarlistviewlist_quicktoolbarModels: any = {
+        deuiaction1: { name: 'deuiaction1', caption: '置顶', 'isShowCaption': false, 'isShowIcon': true, tooltip: '置顶', iconcls: 'fa fa-hand-o-up', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', uiaction: { tag: 'ProductTop', target: 'SINGLEKEY', class: '' } },
+
+        deuiaction2: { name: 'deuiaction2', caption: '取消置顶', 'isShowCaption': false, 'isShowIcon': true, tooltip: '取消置顶', iconcls: 'fa fa-hand-o-down', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'TOP', uiaction: { tag: 'CancelProductTop', target: 'SINGLEKEY', class: '' } },
+
+    };
+
+
 
 
 }

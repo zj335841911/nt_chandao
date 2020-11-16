@@ -1,4 +1,3 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'product-mob-edit-view': true }">
     
@@ -7,7 +6,7 @@
     
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_form
             :viewState="viewState"
             viewName="ProductMobEditView"  
@@ -36,7 +35,7 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div  class = "fab_container">
-            <ion-button v-if="getToolBarLimit" @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <ion-button :id="viewtag+'_bottom_button'" :style="button_style" v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                 
@@ -66,12 +65,13 @@
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductService from '@/app-core/service/product/product-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
 import ProductUIService from '@/ui-service/product/product-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -170,6 +170,14 @@ export default class ProductMobEditViewBase extends Vue {
      * @memberof ProductMobEditViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof ProductMobEditViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
@@ -338,8 +346,8 @@ export default class ProductMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof ProductMobEditView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     
@@ -445,6 +453,7 @@ export default class ProductMobEditViewBase extends Vue {
      * @memberof ProductMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -459,6 +468,12 @@ export default class ProductMobEditViewBase extends Vue {
         this.afterMounted();
     }
 
+    /**
+     * 底部按钮样式
+     * 
+     * @memberof ProductMobEditViewBase
+     */
+    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
@@ -473,6 +488,8 @@ export default class ProductMobEditViewBase extends Vue {
         }
         this.thirdPartyInit();
 
+        // 拖动样式
+        AnimationService.draggable(document.getElementById(this.viewtag+'_bottom_button'),(style:any)=>{this.button_style = style});
     }
 
     /**
@@ -733,6 +750,19 @@ export default class ProductMobEditViewBase extends Vue {
             _this.onRefreshView();
         }
     }
+
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof ProductMobEditViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
 
 
     /**

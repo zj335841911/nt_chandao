@@ -146,9 +146,19 @@ export default class Main_NewModeModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
         name: 'keywords',
         prop: 'keywords',
         dataType: 'TEXT',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'id',

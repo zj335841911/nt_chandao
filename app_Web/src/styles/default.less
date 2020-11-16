@@ -4,8 +4,13 @@
 @import '../theme/app-dark.less';
 @import '../theme/app-light.less';
 @import '../theme/app-dark-white.less';
+@import './app-code-list.less';
 @import './var.css';
 @import './vue-transition.less';
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+@import '~@fullcalendar/timegrid/main.css';
+@import '~@fullcalendar/list/main.css';
 
 // 滚动条宽度
 div::-webkit-scrollbar {
@@ -36,22 +41,19 @@ div::-webkit-scrollbar-thumb {
 
 // 分割面板
 .ivu-split-wrapper {
-
-    >.ivu-split-horizontal,
-    >.ivu-split-vertical {
-
-        >.ivu-split-trigger-con {
-
-            >.ivu-split-trigger {
+    > .ivu-split-horizontal,
+    > .ivu-split-vertical {
+        > .ivu-split-trigger-con {
+            > .ivu-split-trigger {
                 border: 0;
                 background: var(--app-dividing-line-color-bright);
             }
 
-            >.ivu-split-trigger.ivu-split-trigger-vertical {
+            > .ivu-split-trigger.ivu-split-trigger-vertical {
                 width: 2px;
             }
 
-            >.ivu-split-trigger.ivu-split-trigger-horizontal {
+            > .ivu-split-trigger.ivu-split-trigger-horizontal {
                 height: 2px;
             }
         }
@@ -62,24 +64,21 @@ div::-webkit-scrollbar-thumb {
 .ivu-tabs.ivu-tabs-mini.ivu-tabs-no-animation {
     height: 100%;
 
-    >.ivu-tabs-bar {
+    > .ivu-tabs-bar {
         margin-bottom: 0px;
         // border-bottom: 1px solid var(--app-dividing-line-color-tint);
 
-        >.ivu-tabs-nav-container {
-
-            >.ivu-tabs-nav-wrap {
+        > .ivu-tabs-nav-container {
+            > .ivu-tabs-nav-wrap {
                 margin-bottom: 3px;
 
-                >.ivu-tabs-nav-scroll {
-
-                    >.ivu-tabs-nav {
-
-                        >.ivu-tabs-ink-bar {
+                > .ivu-tabs-nav-scroll {
+                    > .ivu-tabs-nav {
+                        > .ivu-tabs-ink-bar {
                             display: none;
                         }
 
-                        >.ivu-tabs-tab {
+                        > .ivu-tabs-tab {
                             padding: 4px 10px;
                             margin: 0;
                             color: var(--view-font-color);
@@ -87,7 +86,7 @@ div::-webkit-scrollbar-thumb {
                             font-weight: 700;
                         }
 
-                        >.ivu-tabs-tab.ivu-tabs-tab-active {
+                        > .ivu-tabs-tab.ivu-tabs-tab-active {
                             color: var(--view-font-color-bright);
 
                             span {
@@ -158,7 +157,6 @@ div::-webkit-scrollbar-thumb {
         height: 100%;
 
         .app-form-item-wrapper {
-
             .ivu-form-item.app-form-item {
                 margin-bottom: 0;
             }
@@ -166,9 +164,7 @@ div::-webkit-scrollbar-thumb {
     }
 
     .quick-toolbar {
-
         .toolbar-container {
-
             .ivu-btn.ivu-btn-text {
                 height: 32px;
                 margin-right: 10px;
@@ -198,49 +194,49 @@ div::-webkit-scrollbar-thumb {
         color: var(--view-font-color-tint);
         border: none;
 
-        .el-table__body tr.current-row>td {
+        .el-table__body tr.current-row > td {
             background-color: transparent;
         }
 
-        .el-table__body tr.hover-row>td {
+        .el-table__body tr.hover-row > td {
             background: rgba(var(--view-background-color-active-rgb), 0.5) !important;
         }
 
-        >.el-table__header-wrapper,
+        > .el-table__header-wrapper,
         .el-table__fixed-header-wrapper {
             height: 30px;
-
-            >table {
-
-                >thead {
+            .cell {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            > table {
+                > thead {
                     color: var(--view-font-color-bright);
 
-                    >tr {
+                    > tr {
                         background-color: var(--view-background-color-bright);
 
-                        >th {
+                        > th {
                             background-color: var(--view-background-color-tint);
                             border-right: 1px solid var(--form-editor-background-color);
                             border-bottom: none;
                         }
 
-                        >th.el-table-column--selection {
-
-                            >.cell {
+                        > th.el-table-column--selection {
+                            > .cell {
                                 text-overflow: unset;
                                 padding-left: 10px;
                                 padding-right: 10px;
 
-                                >.el-checkbox {
-
-                                    >.el-checkbox__input {
-
-                                        >.el-checkbox__inner {
+                                > .el-checkbox {
+                                    > .el-checkbox__input {
+                                        > .el-checkbox__inner {
                                             background-color: var(--form-editor-background-color);
                                             border: 1px solid var(--form-editor-border-color);
                                         }
 
-                                        >.el-checkbox__inner::after {
+                                        > .el-checkbox__inner::after {
                                             border: 1px solid var(--form-editor-font-color);
                                             border-left: 0;
                                             border-top: 0;
@@ -254,70 +250,62 @@ div::-webkit-scrollbar-thumb {
             }
         }
 
-        >.el-table__body-wrapper,
+        > .el-table__body-wrapper,
         .el-table__fixed-body-wrapper {
             height: calc(100% - 30px) !important;
-            overflow-y: auto;
+            // overflow-y: auto;
 
-            >table {
-
-                >tbody {
-
-                    >.el-table__row {
+            > table {
+                > tbody {
+                    > .el-table__row {
                         background-color: var(--view-background-color-bright);
 
-                        >td {
+                        > td {
                             border-right: 1px solid var(--form-editor-background-color);
                             border-bottom: none;
                         }
 
-                        >td.el-table-column--selection {
-
-                            >.cell {
+                        > td.el-table-column--selection {
+                            > .cell {
                                 text-overflow: unset;
                                 padding-left: 10px;
                                 padding-right: 10px;
 
-                                >.el-checkbox {
-
-                                    >.el-checkbox__input {
-
-                                        >.el-checkbox__inner {
+                                > .el-checkbox {
+                                    > .el-checkbox__input {
+                                        > .el-checkbox__inner {
                                             background-color: var(--form-editor-background-color);
                                             border: 1px solid var(--view-background-color-bright);
                                         }
 
-                                        >.el-checkbox__inner::after {
+                                        > .el-checkbox__inner::after {
                                             border: 1px solid var(--form-editor-font-color);
                                             border-left: 0;
                                             border-top: 0;
                                         }
-
                                     }
                                 }
                             }
                         }
                     }
 
-                    >.el-table__row.el-table__row--striped {
+                    > .el-table__row.el-table__row--striped {
                         background-color: var(--view-background-color-bright);
 
-                        >td {
+                        > td {
                             background: var(--view-dividing-line-color-tint);
                         }
                     }
 
-                    >.el-table__row:hover {
-
-                        >td {
+                    > .el-table__row:hover {
+                        > td {
                             // color: var(--view-font-color-active);
                             background-color: rgba(var(--view-background-color-active-rgb), 0.5);
                         }
                     }
 
-                    >.el-table__row.current-row {
-
-                        >td {
+                    > .el-table__row.current-row {
+                        > td {
                             color: var(--view-font-color-active);
                             background-color: var(--view-background-color-active);
                         }
@@ -336,10 +324,8 @@ div::-webkit-scrollbar-thumb {
             font-size: 12px;
         }
 
-        >.ivu-page.pull-right {
-
-            >.ivu-page-total {
-
+        > .ivu-page.pull-right {
+            > .ivu-page-total {
                 .page-column {
                     position: absolute;
                     left: 3px;
@@ -364,75 +350,74 @@ div::-webkit-scrollbar-thumb {
                 }
 
                 .page-button {
-
                     .ivu-btn.ivu-btn-default.ivu-btn-icon-only {
                         width: 26px;
                     }
                 }
             }
 
-            >.ivu-page-prev,
-            >.ivu-page-next,
-            >.ivu-page-item {
+            > .ivu-page-prev,
+            > .ivu-page-next,
+            > .ivu-page-item {
                 height: 22px;
                 line-height: 20px;
             }
 
-            >.ivu-page-prev,
-            >.ivu-page-next {
+            > .ivu-page-prev,
+            > .ivu-page-next {
                 background-color: var(--view-button-background-color-disabled);
                 border: 1px solid var(--view-button-background-color-disabled);
                 font-size: 16px;
 
-                >a {
+                > a {
                     color: var(--view-font-color-bright);
                 }
             }
 
-            >.ivu-page-item {
+            > .ivu-page-item {
                 background-color: var(--view-button-background-color);
                 border: 1px solid var(--view-button-background-color);
 
-                >a {
+                > a {
                     color: var(--grid-page-font-color);
                 }
             }
 
-            >.ivu-page-item:hover {
+            > .ivu-page-item:hover,
+            .ivu-page-item-active {
                 border-color: var(--view-button-background-color-active);
                 background: var(--view-button-background-color-active);
             }
 
-            >.ivu-page-item-active:hover,
+            > .ivu-page-item-active:hover,
             .ivu-page-item-active {
-
-                >a {
+                cursor: no-drop;
+                > a {
+                    cursor: no-drop;
                     color: var(--view-button-color);
                 }
             }
 
-            >.ivu-page-options {
-
-                >.ivu-page-options-sizer {
-
-                    >.ivu-select {
-
-                        >.ivu-select-selection {
+            > .ivu-page-options {
+                > .ivu-page-options-sizer {
+                    > .ivu-select {
+                        > .ivu-select-selection {
                             height: 22px;
                             background-color: var(--view-button-background-color);
                             border: 1px solid var(--form-editor-border-color);
                             color: var(--view-button-color);
 
-                            >div {
+                            .ivu-icon.ivu-icon-ios-arrow-down.ivu-select-arrow {
+                                color: var(--view-button-color);
+                            }
 
-                                >.ivu-select-selected-value {
-                                    height: 20px;
-                                    line-height: 20px;
-                                }
+                            .ivu-select-selected-value {
+                                height: 20px;
+                                line-height: 20px;
                             }
                         }
 
-                        >.ivu-select-selection:hover {
+                        > .ivu-select-selection:hover {
                             border-color: var(--view-button-background-color-active);
                             background-color: var(--view-button-background-color-active);
                             color: var(--view-button-color-active);
@@ -440,11 +425,11 @@ div::-webkit-scrollbar-thumb {
                     }
                 }
 
-                >.ivu-page-options-elevator {
+                > .ivu-page-options-elevator {
                     height: 22px;
                     line-height: 22px;
 
-                    >input {
+                    > input {
                         height: 22px;
                         border: 1px solid var(--view-button-background-color);
                         color: var(--view-button-color);
@@ -461,20 +446,19 @@ div::-webkit-scrollbar-thumb {
     background: var(--form-editor-background-color);
     color: var(--form-editor-font-color);
 
-    >.ivu-select-dropdown-list {
-
-        >.ivu-select-item {
+    > .ivu-select-dropdown-list {
+        > .ivu-select-item {
             color: var(--form-editor-font-color);
 
             .el-checkbox.is-disabled {
                 .el-checkbox__inner {
                     cursor: pointer;
-                    border-color: #409EFF;
+                    border-color: #409eff;
                 }
 
                 .el-checkbox__inner::after {
                     cursor: pointer;
-                    border-color: #409EFF;
+                    border-color: #409eff;
                 }
 
                 .el-checkbox__label {
@@ -483,7 +467,7 @@ div::-webkit-scrollbar-thumb {
             }
         }
 
-        >.ivu-select-item:hover {
+        > .ivu-select-item:hover {
             color: #fff;
             background: var(--form-editor-active-color);
 
@@ -495,11 +479,11 @@ div::-webkit-scrollbar-thumb {
             }
         }
 
-        >.ivu-select-item.ivu-select-item-focus {
+        > .ivu-select-item.ivu-select-item-focus {
             background: var(--form-editor-background-color);
         }
 
-        >.ivu-select-item.ivu-select-item-selected {
+        > .ivu-select-item.ivu-select-item-selected {
             color: #fff;
             background: var(--form-editor-active-color);
 
@@ -517,13 +501,12 @@ div::-webkit-scrollbar-thumb {
     color: var(--view-button-color);
     background-color: var(--view-button-background-color);
 
-    >.ivu-dropdown-menu {
-
-        >.ivu-dropdown-item {
+    > .ivu-dropdown-menu {
+        > .ivu-dropdown-item {
             color: var(--view-button-color);
         }
 
-        >.ivu-dropdown-item:hover {
+        > .ivu-dropdown-item:hover {
             background: var(--view-button-background-color-active);
         }
     }
@@ -546,9 +529,7 @@ div::-webkit-scrollbar-thumb {
 
 //快速搜索表单
 .studio-view.view-container {
-
     .quick-search-form {
-
         .app-search-form.ivu-form {
             height: 100%;
             padding: 0;
@@ -574,7 +555,6 @@ div::-webkit-scrollbar-thumb {
         }
 
         .dropdown-list.ivu-select {
-
             .ivu-select-input {
                 height: 24px;
                 line-height: 24px;
@@ -591,33 +571,35 @@ div::-webkit-scrollbar-thumb {
     .ivu-tabs {
         color: inherit;
 
-        >.ivu-tabs-content {
+        > .ivu-tabs-content {
             padding: 3px 6px 0px 6px;
         }
     }
 
     // 表单分组
     .ivu-card.app-form-group {
+        // 临时添加表单分组样式padding
+        padding: 0 3px;
         background: var(--view-background-color);
         color: var(--view-font-color);
 
-        >.ivu-card-head {
+        > .ivu-card-head {
             padding: 3px 1px;
             border-bottom-color: var(--view-dividing-line-color-bright);
 
-            >p {
+            > p {
                 font-size: 13px;
                 color: var(--view-font-color);
                 margin-bottom: 0;
             }
         }
 
-        >.ivu-card-extra {
+        > .ivu-card-extra {
             right: 8px;
             top: 3px;
         }
 
-        >.ivu-card-body {
+        > .ivu-card-body {
             padding: 6px;
 
             .ivu-row {
@@ -636,14 +618,12 @@ div::-webkit-scrollbar-thumb {
     .app-form-item {
         margin-bottom: 6px;
 
-        >.ivu-form-item {
-
+        > .ivu-form-item {
             .ivu-form-item-label {
                 color: var(--form-label-font-color);
             }
 
             .ivu-form-item-content {
-
                 // 输入框通用
                 .ivu-input {
                     &:extend(.form-edit-base-color);
@@ -665,20 +645,19 @@ div::-webkit-scrollbar-thumb {
 
                 // 输入框
                 .el-input {
-
-                    >input {
+                    > input {
                         &:extend(.form-edit-base-color);
                     }
 
-                    >input::placeholder {
+                    > input::placeholder {
                         color: var(--form-editor-placeholder-font-color);
                     }
 
-                    >input:hover {
+                    > input:hover {
                         border-color: var(--form-editor-active-color);
                     }
 
-                    >input[disabled] {
+                    > input[disabled] {
                         &:extend(.form-edit-disabled-base-color);
                     }
                 }
@@ -689,16 +668,15 @@ div::-webkit-scrollbar-thumb {
                     line-height: 32px;
                     &:extend(.form-edit-base-color);
 
-                    >span[role="button"] {
+                    > span[role='button'] {
                         background-color: var(--view-button-background-color);
                         color: var(--view-button-color);
                         border-right-color: var(--form-editor-background-color);
                         border-left-color: var(--form-editor-background-color);
                     }
 
-                    >.el-input {
-
-                        >input {
+                    > .el-input {
+                        > input {
                             height: 32px;
                             line-height: 32px;
                         }
@@ -708,8 +686,7 @@ div::-webkit-scrollbar-thumb {
                 // 下拉列表框
                 .dropdown-list.ivu-select.ivu-select-default,
                 .dropdown-list-dynamic {
-
-                    >.ivu-select-selection {
+                    > .ivu-select-selection {
                         &:extend(.form-edit-base-color);
 
                         .ivu-select-placeholder {
@@ -717,24 +694,21 @@ div::-webkit-scrollbar-thumb {
                         }
                     }
 
-                    >.ivu-select-selection:hover {
+                    > .ivu-select-selection:hover {
                         border-color: var(--form-editor-active-color);
                     }
                 }
 
                 // 选项框
                 .ivu-checkbox-wrapper.ivu-checkbox-default {
-
-                    >.ivu-checkbox {
-
-                        >.ivu-checkbox-inner {
+                    > .ivu-checkbox {
+                        > .ivu-checkbox-inner {
                             &:extend(.form-edit-base-color);
                         }
                     }
 
-                    >.ivu-checkbox.ivu-checkbox-checked {
-
-                        >.ivu-checkbox-inner {
+                    > .ivu-checkbox.ivu-checkbox-checked {
+                        > .ivu-checkbox-inner {
                             background-color: var(--form-editor-active-color);
                         }
                     }
@@ -742,11 +716,10 @@ div::-webkit-scrollbar-thumb {
 
                 // 滑动输入条
                 .el-slider {
-
-                    >.el-slider__runway {
+                    > .el-slider__runway {
                         &:extend(.form-edit-base-color);
 
-                        >.el-slider__bar {
+                        > .el-slider__bar {
                             background-color: var(--form-editor-active-color);
                         }
                     }
@@ -754,27 +727,24 @@ div::-webkit-scrollbar-thumb {
 
                 // 开关-关闭
                 .el-switch {
-
-                    >.el-switch__core {
+                    > .el-switch__core {
                         &:extend(.form-edit-base-color);
                     }
 
-                    >.el-switch__core:hover {
+                    > .el-switch__core:hover {
                         border-color: var(--form-editor-active-color);
                     }
                 }
 
                 // 开关-打开
                 .el-switch.is-checked {
-
-                    >.el-switch__core {
+                    > .el-switch__core {
                         background-color: var(--form-editor-active-color);
                     }
                 }
 
                 // 图片上传
                 .app-picture-upload {
-
                     .el-upload.el-upload--picture-card {
                         &:extend(.form-edit-base-color);
                     }
@@ -790,11 +760,9 @@ div::-webkit-scrollbar-thumb {
                 .dropdown-list-mpicker.ivu-select {
                     color: var(--form-label-font-color);
 
-                    >.ivu-select-selection {
+                    > .ivu-select-selection {
                         background: var(--form-editor-background-color);
                         border-color: var(--form-editor-border-color);
-                        ;
-
                         .ivu-select-placeholder {
                             color: var(--form-editor-placeholder-font-color);
                         }
@@ -809,7 +777,7 @@ div::-webkit-scrollbar-thumb {
                         }
                     }
 
-                    >.ivu-select-selection:hover {
+                    > .ivu-select-selection:hover {
                         border-color: var(--form-editor-active-color);
                     }
                 }
@@ -858,7 +826,6 @@ div::-webkit-scrollbar-thumb {
     &:extend(.form-edit-base-color);
 
     ul {
-
         li:hover {
             background-color: var(--form-editor-active-color);
         }
@@ -867,9 +834,7 @@ div::-webkit-scrollbar-thumb {
 
 // 自动填充下拉内容-加载中
 .el-autocomplete-suggestion.is-loading {
-
     ul {
-
         li:hover {
             background-color: var(--form-editor-active-color);
         }
@@ -881,18 +846,15 @@ div::-webkit-scrollbar-thumb {
     &:extend(.form-edit-base-color);
 
     .ivu-picker-panel-body {
-
         .ivu-date-picker-cells-cell-next-month,
         .ivu-date-picker-cells-cell-prev-month {
-
             em {
                 color: var(--form-editor-placeholder-font-color);
             }
         }
 
         .ivu-date-picker-cells-header {
-
-            >span {
+            > span {
                 color: var(--form-editor-placeholder-font-color);
             }
         }
@@ -902,22 +864,19 @@ div::-webkit-scrollbar-thumb {
         }
 
         .ivu-date-picker-cells-cell.ivu-date-picker-cells-cell-today {
-
-            >em::after {
+            > em::after {
                 background: var(--form-editor-active-color);
             }
         }
 
         .ivu-date-picker-cells-cell.ivu-date-picker-cells-cell-selected {
-
-            >em {
+            > em {
                 background: var(--form-editor-active-color);
             }
         }
 
         .ivu-date-picker-cells-cell.ivu-date-picker-cells-focused {
-
-            >em {
+            > em {
                 box-shadow: 0 0 0 1px var(--form-editor-active-color) inset;
             }
         }
@@ -928,11 +887,10 @@ div::-webkit-scrollbar-thumb {
 
 // 抽屉
 .ivu-drawer {
-
-    >.ivu-drawer-content {
+    > .ivu-drawer-content {
         background-color: var(--view-background-color);
 
-        >.ivu-drawer-body {
+        > .ivu-drawer-body {
             padding: 0px;
         }
     }
@@ -940,30 +898,28 @@ div::-webkit-scrollbar-thumb {
 
 // 模态
 .ivu-modal-wrap.app-modal {
-
     .ivu-modal {
-
-        >.ivu-modal-content {
+        > .ivu-modal-content {
             background-color: var(--view-background-color);
             color: var(--view-font-color);
 
-            >.ivu-modal-close {
+            > .ivu-modal-close {
                 top: 2px;
             }
 
-            >.ivu-modal-header {
+            > .ivu-modal-header {
                 padding: 7px 8px;
                 border-bottom-color: var(--app-dividing-line-color-bright);
 
-                >.ivu-modal-header-inner {
+                > .ivu-modal-header-inner {
                     color: var(--view-font-color);
                 }
             }
 
-            >.ivu-modal-body {
+            > .ivu-modal-body {
                 padding: 0;
 
-                >.studio-view.view-container {
+                > .studio-view.view-container {
                     border-radius: 0px 0px 5px 5px;
                 }
             }
@@ -973,36 +929,30 @@ div::-webkit-scrollbar-thumb {
 
 // 飘窗
 .ivu-poptip-popper {
-
-    >.ivu-poptip-content {
-
-        >.ivu-poptip-inner {
+    > .ivu-poptip-content {
+        > .ivu-poptip-inner {
             background-color: var(--view-background-color);
             color: var(--view-font-color);
 
-            >.ivu-poptip-body {
+            > .ivu-poptip-body {
                 padding: 4px 8px;
 
                 .el-checkbox {
-
-                    >.el-checkbox__input {
-
-                        >.el-checkbox__inner {
+                    > .el-checkbox__input {
+                        > .el-checkbox__inner {
                             &:extend(.form-edit-base-color);
                         }
                     }
                 }
 
                 .el-checkbox.is-checked {
-
-                    >.el-checkbox__input {
-
-                        >.el-checkbox__inner {
+                    > .el-checkbox__input {
+                        > .el-checkbox__inner {
                             background-color: var(--form-editor-active-color);
                         }
                     }
 
-                    >.el-checkbox__label {
+                    > .el-checkbox__label {
                         color: var(--form-editor-active-color);
                     }
                 }
@@ -1026,6 +976,17 @@ div::-webkit-scrollbar-thumb {
     .app-list-item.isSelect {
         background: rgba(var(--view-background-color-active-rgb), 0.5);
     }
+
+    .list-pagination {
+        position: absolute;
+        left: 16px;
+        bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        z-index: 5;
+    }
 }
 
 // 列表: 暂无数据
@@ -1039,14 +1000,12 @@ div::-webkit-scrollbar-thumb {
 
 // poptip确认对话框
 .ivu-poptip.ivu-poptip-confirm {
-
     .ivu-poptip-footer {
-
-        >.ivu-btn.ivu-btn-text {
+        > .ivu-btn.ivu-btn-text {
             color: var(--view-button-background-color);
         }
 
-        >.ivu-btn.ivu-btn-text:hover {
+        > .ivu-btn.ivu-btn-text:hover {
             color: var(--view-button-background-color-active);
         }
     }
@@ -1058,20 +1017,19 @@ div::-webkit-scrollbar-thumb {
     padding: 0px;
     border: 0px;
 
-    >.popper__arrow::after {
+    > .popper__arrow::after {
         border-bottom-color: var(--view-button-background-color);
     }
 
-    >.el-dropdown-menu__item {
+    > .el-dropdown-menu__item {
         color: var(--view-button-color);
     }
 
-    >.el-dropdown-menu__item.is-select {
+    > .el-dropdown-menu__item.is-select {
         background-color: var(--view-button-background-color-active);
 
-        >span {
-
-            >span {
+        > span {
+            > span {
                 color: var(--view-button-color-active) !important;
             }
         }
@@ -1081,16 +1039,14 @@ div::-webkit-scrollbar-thumb {
         background-color: var(--view-button-background-color-active);
         color: var(--view-button-color-active);
     }
-
 }
 
 // 分页导航，子视图工具栏上漂在导航左侧
 .detabexpview.tab-exp-view-header-flot.studio-view.view-container {
-
     .studio-view.view-container {
         position: unset;
 
-        >.view-header {
+        > .view-header {
             position: absolute;
             top: -2px;
             right: 0px;
@@ -1099,7 +1055,7 @@ div::-webkit-scrollbar-thumb {
             border: 0px;
         }
 
-        >.view-content {
+        > .view-content {
             height: 100%;
         }
     }
@@ -1107,10 +1063,8 @@ div::-webkit-scrollbar-thumb {
 
 // HTML视图样式
 .dehtmlview.studio-view.view-container {
-
     .content-wrapper {
-
-        >.iframe-container {
+        > .iframe-container {
             width: 100%;
             height: 100%;
             border: 0;
@@ -1125,7 +1079,6 @@ div::-webkit-scrollbar-thumb {
 
 // iview下拉菜单样式
 .studio-dropdown.ivu-dropdown {
-
     .ivu-select-dropdown {
         margin: 0;
         padding: 0;
@@ -1133,14 +1086,14 @@ div::-webkit-scrollbar-thumb {
         color: var(--view-button-color);
         overflow: unset;
 
-        >.ivu-dropdown-menu {
+        > .ivu-dropdown-menu {
             padding: 5px 0px;
 
             .ivu-dropdown-item {
                 color: var(--view-button-color);
                 padding: 5px 8px;
 
-                >i {
+                > i {
                     min-width: 16px;
                 }
             }
@@ -1175,11 +1128,8 @@ div::-webkit-scrollbar-thumb {
 }
 
 .studio-view.view-container.deeditview.from-dashboard-style {
-
     .app-form.info-form-mode {
-
         .app-form-group {
-
             .ivu-card.app-form-group {
                 border: 1px solid var(--view-dividing-line-color-bright);
                 margin-bottom: 7px;
@@ -1192,9 +1142,8 @@ div::-webkit-scrollbar-thumb {
                     font-weight: 700;
                     background: var(--view-background-color-bright);
 
-                    >p {
-
-                        >span {
+                    > p {
+                        > span {
                             font-size: 16px;
                             font-weight: 700;
                             vertical-align: -2px;
@@ -1220,7 +1169,24 @@ div::-webkit-scrollbar-thumb {
     height: 100%;
     display: flex;
     overflow: auto;
-
+    .dataview-group-folading-kanban {
+        border: 1px solid #ddd;
+        text-align: center;
+        border-left: 0;
+        height: 100%;
+        width: 40px;
+        background-color: #d8d8d8;
+        color: #a5a5a5;
+        .dataview-group-icon {
+            padding: 6px 0;
+        }
+        .dataview-group-folding {
+            height: calc(100% - 39px);
+            writing-mode: tb;
+            width: 31px;
+            font-size: 17px;
+        }
+    }
     .dataview-group-content {
         border: 1px solid #ddd;
         border-left: 0;
@@ -1236,7 +1202,7 @@ div::-webkit-scrollbar-thumb {
             padding: 0 8px;
 
             .group-action {
-                .group-action-item:nth-child(1)+.group-action-item {
+                .group-action-item:nth-child(1) + .group-action-item {
                     margin-top: 5px;
                 }
             }
@@ -1281,20 +1247,45 @@ div::-webkit-scrollbar-thumb {
             border-top-width: 1px;
         }
     }
+    .app-data-empty {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 // 甘特图部件样式
-.gantt {
-    height: 100%;
+.app-gantt {
+    .gantt {
+        height: 100%;
 
-    .gantt-elastic__main-view-container {
-        flex-grow: 1;
+        .gantt-elastic__main-view-container {
+            flex-grow: 1;
+        }
+    }
+    .app-data-empty {
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
 // 图表部件样式
 .app-data-chart {
     height: 100%;
+    .chart-no-data {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i {
+            margin-right: 5px;
+        }
+    }
 }
 
 // 数据视图部件
@@ -1305,14 +1296,14 @@ div::-webkit-scrollbar-thumb {
     padding: 5px;
 
     .data-view-container {
-
         .ivu-col {
             margin-bottom: 10px;
         }
 
         .single-card-data.selected,
         .single-card-data:hover {
-            transform: scale(1.1);
+            transform: translateY(-2%);
+            box-shadow: 0 0.08333rem 0.5rem 0 rgba(0, 0, 0, 0.1);
         }
 
         .single-card-data {
@@ -1343,9 +1334,23 @@ div::-webkit-scrollbar-thumb {
     }
 
     .app-data-empty {
-        height: 100%;
+        height: calc(100% - 50px);
         text-align: center;
         padding-top: 50px;
+        .quick-toolbar > .toolbar-container > .toolbar-item {
+            height: 50px;
+        }
+    }
+
+    .dataview-pagination {
+        position: absolute;
+        bottom: 36px;
+        left: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        z-index: 5;
     }
 }
 
@@ -1375,13 +1380,11 @@ div::-webkit-scrollbar-thumb {
 
 // 列表导航栏样式
 .app-list-exp-bar {
-
-    >.ivu-split-horizontal {
-
-        >.left-pane {
+    > .ivu-split-horizontal {
+        > .left-pane {
             padding-right: 8px;
 
-            >.container-header {
+            > .container-header {
                 margin-bottom: 6px;
             }
         }
@@ -1411,14 +1414,13 @@ div::-webkit-scrollbar-thumb {
     .el-tree-node__content {
         height: 40px;
         border-left: solid transparent;
-
     }
 
     .el-tree-node:nth-child(1) {
         margin-top: 0px;
     }
 
-    .el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content {
+    .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
         background-color: #e4ecf5;
         border-color: #1890ff6e;
     }
@@ -1426,7 +1428,7 @@ div::-webkit-scrollbar-thumb {
     .custom-tree-node {
         .tree-node-label {
             font-size: 15px;
-            font-family: "Microsoft YaHei";
+            font-family: 'Microsoft YaHei';
         }
 
         .tree-node-count {
@@ -1435,7 +1437,7 @@ div::-webkit-scrollbar-thumb {
     }
 
     .ivu-split-horizontal {
-        .ivu-split-pane>div {
+        .ivu-split-pane > div {
             height: 100%;
             overflow-y: auto;
 
@@ -1452,6 +1454,7 @@ div::-webkit-scrollbar-thumb {
             }
         }
     }
+
 }
 
 // 实体选择树视图（部件视图）
@@ -1488,19 +1491,226 @@ div::-webkit-scrollbar-thumb {
 // 日历部件
 .calendar {
     height: 100%;
-    width: 100%;
+    overflow: auto;
+    padding: 6px;
+    .context-menu-container {
+        height: calc(100% - 70px);
+    }
+    .el-timeline {
+        padding-left: 2px;
+    }
+    .app-data-empty {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .event-legends {
+        width: 100%;
+        text-align: center;
+        .event-lengend {
+            display: inline-block;
+            margin-left: 10px;
+            height: 20px;
+            padding: 8px 6px;
+            .lengend-icon {
+                display: inline-block;
+                width: 30px;
+                height: 20px;
+                border-radius: 5px;
+            }
+            span {
+                display: inline-block;
+                margin-left: 5px;
+                line-height: 20px;
+                vertical-align: top;
+            }
+        }
+        .event-lengend.event-disabled {
+            .lengend-icon {
+                background: #cccccc !important;
+            }
+            span {
+                color: #cccccc !important;
+            }
+        }
+    }
+}
+// 选中样式
+.calendar .selected-event,
+.select-first-calendar .select-first-event {
+    border: 2px solid #ff8711 !important;
+}
+.calendar .fc-dayGrid-view .selected-event:before,
+.select-first-calendar .fc-dayGrid-view .select-first-event:before,
+.calendar .fc-timeGrid-view .selected-event:before,
+.select-first-calendar .fc-timeGrid-view .select-first-event:before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: 9px solid #ff8711;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    color: #fff;
+}
+.calendar .fc-dayGrid-view .selected-event:after,
+.select-first-calendar .fc-dayGrid-view .select-first-event:after,
+.calendar .fc-timeGrid-view .selected-event:after,
+.select-first-calendar .fc-timeGrid-view .select-first-event:after {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 11px;
+    position: absolute;
+    right: 1px;
+    bottom: 0px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    box-sizing: content-box;
+}
+// 选择跳转日期模态
+.date-select-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .ivu-modal {
+        top: 0;
+        .ivu-modal-body {
+            text-align: center;
+        }
+    }
 }
 
 // 分页导航
 .tabexppanel {
     .ivu-tabs-tab {
         .ivu-badge {
-            >.ivu-badge-count {
+            > .ivu-badge-count {
                 height: 18px;
                 top: -2px;
                 line-height: 16px;
             }
         }
+    }
+}
+
+// 状态向导面板
+.app-state-wizard {
+    background: #fff;
+    .view-steps {
+        display: flex;
+        padding: 0 20px;
+        position: relative;
+        .steps_icon {
+            width: 30px;
+            text-align: center;
+            font-size: 20px;
+            background: #409eff;
+            color: #fff;
+            line-height: 50px;
+            height: 50px;
+            margin-top: 21px;
+            z-index: 1;
+        }
+        .steps_icon:hover {
+            cursor: pointer;
+        }
+    }
+    .wizard-steps {
+        padding: 10px 20px 10px 70px;
+        margin-bottom: 10px;
+        width: 100%;
+        .steps-item-span {
+            padding: 7px 20px;
+            position: relative;
+            right: 20px;
+        }
+        .drawer-box-shadow {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+        }
+        .el-step__head.is-process {
+            border-color: #7e8187;
+            color: #7e8187;
+        }
+        .el-step__title.is-process {
+            color: #7e8187;
+        }
+        .el-step__head.is-success {
+            border-color: #1890ff;
+            color: #1890ff;
+        }
+        .el-step__title.is-success {
+            color: #1890ff;
+        }
+        .el-step__title:hover {
+            cursor: pointer;
+        }
+        .app-active-step {
+            .el-icon-check:before {
+                content: '';
+                width: 12px;
+                height: 12px;
+                border-radius: 8px;
+                background-color: #1890ff;
+                display: block;
+            }
+        }
+    }
+    .el-step__main {
+        background-color: rgb(239, 239, 239);
+    }
+    .background-box {
+        height: 50px;
+        width: calc(100% - 40px);
+        position: absolute;
+        background: #efefef;
+        top: 21px;
+        border-top: 2px solid rgb(225, 225, 225);
+    }
+}
+.app-state-wizard-popover-container {
+    .app-state-wizard-container {
+        width: 100%;
+        .popover-title {
+            position: absolute;
+            top: 14px;
+            left: 13px;
+        }
+        .app-state-wizard-header {
+            width: 100%;
+            height: 30px;
+            line-height: 22px;
+            padding: 2px;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+            .app-state-wizard-header-extra {
+                float: right;
+            }
+        }
+        .app-state-wizard-content {
+            width: 100%;
+            padding: 4px 0px;
+        }
+        .app-state-wizard-footer {
+            display: flex;
+        }
+    }
+}
+.el-popper[x-placement^='bottom'] {
+    margin-top: 0px;
+}
+.app-state-wizard-drawer {
+    .app-form {
+        height: calc(100% - 51px);
+    }
+    .drawer-button {
+        display: flex;
+        justify-content: flex-end;
     }
 }
 

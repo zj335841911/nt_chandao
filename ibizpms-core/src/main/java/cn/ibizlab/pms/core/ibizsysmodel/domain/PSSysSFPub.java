@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -32,10 +34,10 @@ import cn.ibizlab.pms.util.domain.EntityClient;
 public class PSSysSFPub extends EntityClient implements Serializable {
     @Override
     public void modify(String field, Object val) {
-        getExtensionparams().put("dirtyflagenable",true);
+        getExtensionparams().put("dirtyflagenable", true);
         super.modify(field, val);
     }
-    
+
     /**
      * 后台服务架构名称
      */
@@ -46,7 +48,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
     /**
      * 后台服务架构标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @JSONField(name = "pssyssfpubid")
     @JsonProperty("pssyssfpubid")
     private String pssyssfpubid;
@@ -71,8 +73,8 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
 
@@ -80,8 +82,8 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
@@ -309,241 +311,241 @@ public class PSSysSFPub extends EntityClient implements Serializable {
     /**
      * 设置 [后台服务架构名称]
      */
-    public void setPssyssfpubname(String pssyssfpubname){
+    public void setPssyssfpubname(String pssyssfpubname) {
         this.pssyssfpubname = pssyssfpubname ;
-        this.modify("pssyssfpubname",pssyssfpubname);
+        this.modify("pssyssfpubname", pssyssfpubname);
     }
 
     /**
      * 设置 [代码名称]
      */
-    public void setCodename(String codename){
+    public void setCodename(String codename) {
         this.codename = codename ;
-        this.modify("codename",codename);
+        this.modify("codename", codename);
     }
 
     /**
      * 设置 [基类代码包名]
      */
-    public void setBaseclspkgcodename(String baseclspkgcodename){
+    public void setBaseclspkgcodename(String baseclspkgcodename) {
         this.baseclspkgcodename = baseclspkgcodename ;
-        this.modify("baseclspkgcodename",baseclspkgcodename);
+        this.modify("baseclspkgcodename", baseclspkgcodename);
     }
 
     /**
      * 设置 [发布内容类型]
      */
-    public void setContenttype(String contenttype){
+    public void setContenttype(String contenttype) {
         this.contenttype = contenttype ;
-        this.modify("contenttype",contenttype);
+        this.modify("contenttype", contenttype);
     }
 
     /**
      * 设置 [默认后台服务]
      */
-    public void setDefaultpub(Integer defaultpub){
+    public void setDefaultpub(Integer defaultpub) {
         this.defaultpub = defaultpub ;
-        this.modify("defaultpub",defaultpub);
+        this.modify("defaultpub", defaultpub);
     }
 
     /**
      * 设置 [文档模板样式]
      */
-    public void setDocpssfstyleid(String docpssfstyleid){
+    public void setDocpssfstyleid(String docpssfstyleid) {
         this.docpssfstyleid = docpssfstyleid ;
-        this.modify("docpssfstyleid",docpssfstyleid);
+        this.modify("docpssfstyleid", docpssfstyleid);
     }
 
     /**
      * 设置 [文档模板样式]
      */
-    public void setDocpssfstylename(String docpssfstylename){
+    public void setDocpssfstylename(String docpssfstylename) {
         this.docpssfstylename = docpssfstylename ;
-        this.modify("docpssfstylename",docpssfstylename);
+        this.modify("docpssfstylename", docpssfstylename);
     }
 
     /**
      * 设置 [备注]
      */
-    public void setMemo(String memo){
+    public void setMemo(String memo) {
         this.memo = memo ;
-        this.modify("memo",memo);
+        this.modify("memo", memo);
     }
 
     /**
      * 设置 [服务框架]
      */
-    public void setPssfstyleid(String pssfstyleid){
+    public void setPssfstyleid(String pssfstyleid) {
         this.pssfstyleid = pssfstyleid ;
-        this.modify("pssfstyleid",pssfstyleid);
+        this.modify("pssfstyleid", pssfstyleid);
     }
 
     /**
      * 设置 [服务框架参数]
      */
-    public void setPssfstyleparamid(String pssfstyleparamid){
+    public void setPssfstyleparamid(String pssfstyleparamid) {
         this.pssfstyleparamid = pssfstyleparamid ;
-        this.modify("pssfstyleparamid",pssfstyleparamid);
+        this.modify("pssfstyleparamid", pssfstyleparamid);
     }
 
     /**
      * 设置 [代码包名]
      */
-    public void setPkgcodename(String pkgcodename){
+    public void setPkgcodename(String pkgcodename) {
         this.pkgcodename = pkgcodename ;
-        this.modify("pkgcodename",pkgcodename);
+        this.modify("pkgcodename", pkgcodename);
     }
 
     /**
      * 设置 [服务框架扩展]
      */
-    public void setPssfstyleverid(String pssfstyleverid){
+    public void setPssfstyleverid(String pssfstyleverid) {
         this.pssfstyleverid = pssfstyleverid ;
-        this.modify("pssfstyleverid",pssfstyleverid);
+        this.modify("pssfstyleverid", pssfstyleverid);
     }
 
     /**
      * 设置 [服务框架参数]
      */
-    public void setPssfstyleparamname(String pssfstyleparamname){
+    public void setPssfstyleparamname(String pssfstyleparamname) {
         this.pssfstyleparamname = pssfstyleparamname ;
-        this.modify("pssfstyleparamname",pssfstyleparamname);
+        this.modify("pssfstyleparamname", pssfstyleparamname);
     }
 
     /**
      * 设置 [服务目录]
      */
-    public void setPubfolder(String pubfolder){
+    public void setPubfolder(String pubfolder) {
         this.pubfolder = pubfolder ;
-        this.modify("pubfolder",pubfolder);
+        this.modify("pubfolder", pubfolder);
     }
 
     /**
      * 设置 [发布标记]
      */
-    public void setPubtag(String pubtag){
+    public void setPubtag(String pubtag) {
         this.pubtag = pubtag ;
-        this.modify("pubtag",pubtag);
+        this.modify("pubtag", pubtag);
     }
 
     /**
      * 设置 [发布标记3]
      */
-    public void setPubtag3(String pubtag3){
+    public void setPubtag3(String pubtag3) {
         this.pubtag3 = pubtag3 ;
-        this.modify("pubtag3",pubtag3);
+        this.modify("pubtag3", pubtag3);
     }
 
     /**
      * 设置 [发布标记2]
      */
-    public void setPubtag2(String pubtag2){
+    public void setPubtag2(String pubtag2) {
         this.pubtag2 = pubtag2 ;
-        this.modify("pubtag2",pubtag2);
+        this.modify("pubtag2", pubtag2);
     }
 
     /**
      * 设置 [发布标记4]
      */
-    public void setPubtag4(String pubtag4){
+    public void setPubtag4(String pubtag4) {
         this.pubtag4 = pubtag4 ;
-        this.modify("pubtag4",pubtag4);
+        this.modify("pubtag4", pubtag4);
     }
 
     /**
      * 设置 [删除模式]
      */
-    public void setRemoveflag(Integer removeflag){
+    public void setRemoveflag(Integer removeflag) {
         this.removeflag = removeflag ;
-        this.modify("removeflag",removeflag);
+        this.modify("removeflag", removeflag);
     }
 
     /**
      * 设置 [服务框架参数]
      */
-    public void setStyleparams(String styleparams){
+    public void setStyleparams(String styleparams) {
         this.styleparams = styleparams ;
-        this.modify("styleparams",styleparams);
+        this.modify("styleparams", styleparams);
     }
 
     /**
      * 设置 [引用系统组件]
      */
-    public void setSubsyspkgflag(Integer subsyspkgflag){
+    public void setSubsyspkgflag(Integer subsyspkgflag) {
         this.subsyspkgflag = subsyspkgflag ;
-        this.modify("subsyspkgflag",subsyspkgflag);
+        this.modify("subsyspkgflag", subsyspkgflag);
     }
 
     /**
      * 设置 [用户分类]
      */
-    public void setUsercat(String usercat){
+    public void setUsercat(String usercat) {
         this.usercat = usercat ;
-        this.modify("usercat",usercat);
+        this.modify("usercat", usercat);
     }
 
     /**
      * 设置 [用户标记]
      */
-    public void setUsertag(String usertag){
+    public void setUsertag(String usertag) {
         this.usertag = usertag ;
-        this.modify("usertag",usertag);
+        this.modify("usertag", usertag);
     }
 
     /**
      * 设置 [用户标记2]
      */
-    public void setUsertag2(String usertag2){
+    public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
-        this.modify("usertag2",usertag2);
+        this.modify("usertag2", usertag2);
     }
 
     /**
      * 设置 [用户标记4]
      */
-    public void setUsertag4(String usertag4){
+    public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
-        this.modify("usertag4",usertag4);
+        this.modify("usertag4", usertag4);
     }
 
     /**
      * 设置 [用户标记3]
      */
-    public void setUsertag3(String usertag3){
+    public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
-        this.modify("usertag3",usertag3);
+        this.modify("usertag3", usertag3);
     }
 
     /**
      * 设置 [版本号]
      */
-    public void setVerstr(String verstr){
+    public void setVerstr(String verstr) {
         this.verstr = verstr ;
-        this.modify("verstr",verstr);
+        this.modify("verstr", verstr);
     }
 
     /**
      * 设置 [父后台服务体系]
      */
-    public void setPpssyssfpubid(String ppssyssfpubid){
+    public void setPpssyssfpubid(String ppssyssfpubid) {
         this.ppssyssfpubid = ppssyssfpubid ;
-        this.modify("ppssyssfpubid",ppssyssfpubid);
+        this.modify("ppssyssfpubid", ppssyssfpubid);
     }
 
     /**
      * 设置 [系统]
      */
-    public void setPssystemid(String pssystemid){
+    public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
-        this.modify("pssystemid",pssystemid);
+        this.modify("pssystemid", pssystemid);
     }
 
     /**
      * 设置 [系统]
      */
-    public void setPssystemname(String pssystemname){
+    public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
-        this.modify("pssystemname",pssystemname);
+        this.modify("pssystemname", pssystemname);
     }
 
     /**
@@ -556,7 +558,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("pssyssfpubid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

@@ -1,4 +1,5 @@
-import { Http,Util } from '@/utils';
+import { Http } from '@/utils';
+import { Util } from '@/utils';
 import EntityService from '../entity-service';
 
 
@@ -284,6 +285,27 @@ export default class ProductPlanServiceBase extends EntityService {
             return res;
         }
             let res:any = Http.getInstance().post(`/productplans/${context.productplan}/linkstory`,data,isloading);
+            return res;
+    }
+
+    /**
+     * MobProductPlanCounter接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async MobProductPlanCounter(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/mobproductplancounter`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().put(`/productplans/${context.productplan}/mobproductplancounter`,data,isloading);
             return res;
     }
 

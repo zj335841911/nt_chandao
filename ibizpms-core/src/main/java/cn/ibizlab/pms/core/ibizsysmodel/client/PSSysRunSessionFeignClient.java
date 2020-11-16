@@ -31,7 +31,7 @@ public interface PSSysRunSessionFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysrunsessions/{pssysrunsessionid}")
-    PSSysRunSession update(@PathVariable("pssysrunsessionid") String pssysrunsessionid,@RequestBody PSSysRunSession pssysrunsession);
+    PSSysRunSession update(@PathVariable("pssysrunsessionid") String pssysrunsessionid, @RequestBody PSSysRunSession pssysrunsession);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysrunsessions/batch")
     Boolean updateBatch(@RequestBody List<PSSysRunSession> pssysrunsessions);

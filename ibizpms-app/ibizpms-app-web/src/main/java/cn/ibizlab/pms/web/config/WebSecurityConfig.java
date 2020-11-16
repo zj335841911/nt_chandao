@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -21,8 +20,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.context.annotation.Profile;
-import org.springframework.beans.factory.annotation.Qualifier;
 
+/**
+ * @author huhai
+ */
 @Profile("web-prod")
 @Configuration
 @EnableWebSecurity
@@ -49,20 +50,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${ibiz.file.uploadpath:ibizutil/upload}")
     private String uploadpath;
 
-    @Value("${zentao.file.uploadpath:ibizutil/ztupload}")
+    @Value("${zentao.file.uploadpath:ibizutilpms/ztupload}")
     private String ztuploadpath;
 
     @Value("${ibiz.file.downloadpath:ibizutil/download}")
     private String downloadpath;
 
-    @Value("${zentao.file.downloadpath:ibizutil/ztdownload}")
+    @Value("${zentao.file.downloadpath:ibizutilpms/ztdownload}")
     private String ztdownloadpath;
 
     @Value("${ibiz.file.previewpath:ibizutil/preview}")
     private String previewpath;
-
+    // 白名单处理类
     @Autowired
-    private SecurityWhitelistHandler whitelistHandler;  //白名单处理类
+    private SecurityWhitelistHandler whitelistHandler;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -91,7 +92,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 
-        whitelistHandler.handle(httpSecurity);  //对白名单放行。
+        // 对白名单放行。
+        whitelistHandler.handle(httpSecurity);
 
         httpSecurity
 
@@ -120,9 +122,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/img/**",
                         "/"
                 ).permitAll()
-                //放行登录请求
+                // 放行登录请求
                 .antMatchers(HttpMethod.POST, "/" + loginPath).permitAll()
-                //放行注销请求
+                // 放行注销请求
                 .antMatchers(HttpMethod.GET, "/" + logoutPath).permitAll()
                 // 文件操作
                 .antMatchers("/" + downloadpath + "/**").permitAll()

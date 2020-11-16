@@ -2,17 +2,18 @@
     <div class='pickupviewpanel build-pickupviewpanel'>
         <component 
             v-if="inited && view.viewname && !Object.is(view.viewname, '')" 
+            ref="pickupview"
+            viewDefaultUsage="includedView"
             :is="view.viewname" 
             :_context="JSON.stringify(_context)"
             :_viewparams="JSON.stringify(_viewparams)"
-            viewDefaultUsage="includedView"
             :isSingleSelect="isSingleSelect"
             :isShowButtons="isShowButtons"
+            :panelViewState="viewState"
+            :key="this.$util.createUUID()"
             @viewdataschange="onViewDatasChange"
             @viewdatasactivated="viewDatasActivated"
-            @viewload="onViewLoad"
-            ref="pickupview"
-            :key="this.$util.createUUID()">
+            @viewload="onViewLoad">
         </component>
     </div>
 </template>

@@ -42,6 +42,9 @@ export default class TabExpViewtabviewpanel3Model {
       {
         name: 'lasteditedby',
       },
+      {
+        name: 'product',
+      },
     ]
   }
 

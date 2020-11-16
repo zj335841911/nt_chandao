@@ -8,7 +8,6 @@ import { MDControlBase } from './MDControlBase';
  * @extends {MDControlBase}
  */
 export class ListControlBase extends MDControlBase {
-
     /**
      * 加载的数据是否附加在items之后
      *
@@ -31,7 +30,12 @@ export class ListControlBase extends MDControlBase {
                     return;
                 }
                 if (Object.is(action, 'load')) {
-                    this.refresh(data)
+                    this.curPage = 1;
+                    this.items = [];
+                    this.load(data);
+                }
+                if (Object.is(action, 'refresh')) {
+                    this.refresh(data);
                 }
             });
         }
@@ -44,18 +48,19 @@ export class ListControlBase extends MDControlBase {
      * @memberof ListControlBase
      */
     protected ctrlMounted(): void {
+        const loadMoreCallBack: any = this.throttle(this.loadMore, 3000);
         this.$el.addEventListener('scroll', () => {
             if (this.$el.scrollTop + this.$el.clientHeight >= this.$el.scrollHeight) {
-                this.loadMore();
+                loadMoreCallBack();
             }
-        })
+        });
     }
 
     /**
-    * 加载更多
-    *
-    * @memberof ListControlBase
-    */
+     * 加载更多
+     *
+     * @memberof ListControlBase
+     */
     public loadMore() {
         if (this.totalRecord > this.items.length) {
             this.curPage = ++this.curPage;
@@ -82,8 +87,7 @@ export class ListControlBase extends MDControlBase {
      * @memberof ListControlBase
      */
     public refresh(args?: any) {
-        this.curPage = 1;
-        this.items = [];
+        this.isAddBehind = true;
         this.load(args);
     }
 
@@ -106,7 +110,7 @@ export class ListControlBase extends MDControlBase {
         }
         // 设置排序
         if (!Object.is(this.minorSortDir, '') && !Object.is(this.minorSortPSDEF, '')) {
-            const sort: string = this.minorSortPSDEF + "," + this.minorSortDir;
+            const sort: string = this.minorSortPSDEF + ',' + this.minorSortDir;
             Object.assign(page, { sort: sort });
         }
         Object.assign(arg, page);
@@ -118,46 +122,93 @@ export class ListControlBase extends MDControlBase {
             Object.assign(tempViewParams, JSON.parse(JSON.stringify(this.viewparams)));
         }
         Object.assign(arg, { viewparams: tempViewParams });
-        const post: Promise<any> = this.service.search(this.fetchAction, this.context ? JSON.parse(JSON.stringify(this.context)) : {}, arg, this.showBusyIndicator);
-        post.then((response: any) => {
-            if (!response || response.status !== 200) {
-                if (response.errorMessage) {
-                    this.$Notice.error({ title: '错误', desc: response.errorMessage });
+        const post: Promise<any> = this.service.search(
+            this.fetchAction,
+            this.context ? JSON.parse(JSON.stringify(this.context)) : {},
+            arg,
+            this.showBusyIndicator
+        );
+        post.then(
+            (response: any) => {
+                if (!response || response.status !== 200) {
+                    if (response.errorMessage) {
+                        this.$Notice.error({ title: '错误', desc: response.errorMessage });
+                    }
+                    return;
                 }
-                return;
-            }
-            const data: any = response.data;
-            if (!this.isAddBehind) {
-                this.items = [];
-            }
-            if (Object.keys(data).length > 0) {
-                let datas = JSON.parse(JSON.stringify(data));
-                datas.map((item: any) => {
-                    Object.assign(item, { isselected: false });
-                });
-                this.totalRecord = response.total;
-                this.items.push(...datas);
-            }
-            this.isAddBehind = false;
-            this.$emit('load', this.items);
-            if (this.isSelectFirstDefault) {
-                if(this.selections && this.selections.length > 0){
-                    this.selections.forEach((select: any)=>{
-                        const index = this.items.findIndex((item:any) => Object.is(item.srfkey,select.srfkey));
-                        if(index != -1){
-                            this.handleClick(this.items[index]);
-                        }
-                    })
-                }else{
-                    this.handleClick(this.items[0]);
+                const data: any = response.data;
+                if (!this.isAddBehind) {
+                    this.items = [];
                 }
+                if (data && data.length > 0) {
+                    let datas = JSON.parse(JSON.stringify(data));
+                    datas.map((item: any) => {
+                        Object.assign(item, { isselected: false });
+                    });
+                    this.totalRecord = response.total;
+                    this.items.push(...datas);
+                    this.items = this.arrayNonRepeatfy(this.items);
+                }
+                this.isAddBehind = false;
+                this.$emit('load', this.items);
+                if (this.isSelectFirstDefault) {
+                    if (this.selections && this.selections.length > 0) {
+                        this.selections.forEach((select: any) => {
+                            const index = this.items.findIndex((item: any) => Object.is(item.srfkey, select.srfkey));
+                            if (index != -1) {
+                                this.handleClick(this.items[index]);
+                            }
+                        });
+                    } else {
+                        this.handleClick(this.items[0]);
+                    }
+                }
+            },
+            (response: any) => {
+                if (response && response.status === 401) {
+                    return;
+                }
+                this.$Notice.error({ title: '错误', desc: response.errorMessage });
             }
-        }, (response: any) => {
-            if (response && response.status === 401) {
-                return;
-            }
-            this.$Notice.error({ title: '错误', desc: response.errorMessage });
+        );
+    }
+
+    /**
+     * 列表数据去重
+     *
+     * @param {Array<any>} [arr]
+     * @returns {void}
+     * @memberof ListControlBase
+     */
+    public arrayNonRepeatfy(arr: Array<any>) {
+        let map = new Map();
+        let array = new Array();
+        for (let i = 0; i < arr.length; i++) {
+            map.set(arr[i].srfkey, arr[i]);
+        }
+        map.forEach((value: any, key: string, map: any) => {
+            array.push(value);
         });
+        return array;
+    }
+
+    /**
+     * 节流
+     *
+     * @param {Array<any>} [arr]
+     * @returns {void}
+     * @memberof ListControlBase
+     */
+    public throttle(fn: any, wait: number) {
+        let time = 0;
+        return () => {
+            let now = Date.now();
+            let args = arguments;
+            if (now - time > wait) {
+                fn.apply(this, args);
+                time = now;
+            }
+        };
     }
 
     /**
@@ -201,7 +252,12 @@ export class ListControlBase extends MDControlBase {
             });
             let _removeAction = keys.length > 1 ? 'removeBatch' : this.removeAction;
             const context: any = JSON.parse(JSON.stringify(this.context));
-            const post: Promise<any> = this.service.delete(_removeAction, Object.assign(context, { [this.appDeName]: keys.join(';') }), Object.assign({ [this.appDeName]: keys.join(';') }, { viewparams: this.viewparams }), this.showBusyIndicator);
+            const post: Promise<any> = this.service.delete(
+                _removeAction,
+                Object.assign(context, { [this.appDeName]: keys.join(';') }),
+                Object.assign({ [this.appDeName]: keys.join(';') }, { viewparams: this.viewparams }),
+                this.showBusyIndicator
+            );
             return new Promise((resolve: any, reject: any) => {
                 post.then((response: any) => {
                     if (!response || response.status !== 200) {
@@ -234,16 +290,19 @@ export class ListControlBase extends MDControlBase {
                     reject(response);
                 });
             });
-        }
+        };
 
-        dataInfo = dataInfo.replace(/[null]/g, '').replace(/[undefined]/g, '').replace(/[ ]/g, '');
+        dataInfo = dataInfo
+            .replace(/[null]/g, '')
+            .replace(/[undefined]/g, '')
+            .replace(/[ ]/g, '');
         this.$Modal.confirm({
             title: '警告',
             content: '确认要删除 ' + dataInfo + '，删除操作将不可恢复？',
             onOk: () => {
                 removeData();
             },
-            onCancel: () => { }
+            onCancel: () => {},
         });
         return removeData;
     }

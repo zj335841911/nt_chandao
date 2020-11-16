@@ -21,6 +21,13 @@ export default class ProductModuleUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  ProductModuleUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  ProductModuleUIServiceBase
@@ -89,11 +96,24 @@ export default class ProductModuleUIServiceBase extends UIService {
      * @memberof  ProductModuleUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'gridviewbranch',srfappde:'productmodules',component:'product-module-grid-view-branch'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productmodules',component:'product-module-grid-view'});
-        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'productmodules',component:'product-module-tree-exp-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productmodules',component:'product-module-edit-view'});
-        this.allViewMap.set(':',{viewname:'quickcfgview',srfappde:'productmodules',component:'product-module-quick-cfg-view'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'productmodules',
+            component: 'product-module-grid-view',
+            openmode: '',
+            title: '需求模块',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'productmodules',
+            component: 'product-module-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '需求模块',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -168,7 +188,6 @@ export default class ProductModuleUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '修复成功' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -305,7 +324,6 @@ export default class ProductModuleUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '同步成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

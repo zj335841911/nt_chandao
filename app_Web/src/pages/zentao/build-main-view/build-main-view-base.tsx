@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
 import BuildAuthService from '@/authservice/build/build-auth-service';
@@ -48,7 +48,7 @@ export class BuildMainViewBase extends EditViewBase {
      * @type {string}
      * @memberof BuildMainViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class BuildMainViewBase extends EditViewBase {
 	 * @memberof BuildMainViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'build' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'build',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class BuildMainViewBase extends EditViewBase {
 	 * @memberof BuildMainViewBase
 	 */
     protected customViewParams: any = {
-        'objecttype': { isRawValue: true, value: 'build' }
+        'objecttype': {
+            isRawValue: true,
+            value: 'build',
+        }
     };
 
     /**
@@ -93,7 +99,7 @@ export class BuildMainViewBase extends EditViewBase {
      *
      * @memberof BuildMainViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -106,8 +112,8 @@ export class BuildMainViewBase extends EditViewBase {
         srfCaption: 'entities.build.views.mainview.caption',
         srfTitle: 'entities.build.views.mainview.title',
         srfSubTitle: 'entities.build.views.mainview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,7 +123,10 @@ export class BuildMainViewBase extends EditViewBase {
      * @memberof BuildMainViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -126,9 +135,18 @@ export class BuildMainViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BuildMainViewBase
      */
 	protected viewtag: string = 'a6d8bd7fa388f638832b33dddaa6df86';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BuildMainViewBase
+     */ 
+    protected viewName: string = "BuildMainView";
 
 
     /**
@@ -147,7 +165,9 @@ export class BuildMainViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BuildMainViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -9,7 +9,6 @@ import { events } from '../global';
  * @extends {ViewBase}
  */
 export class DashboardViewBase extends ViewBase {
-
     /**
      * 应用实体服务
      *
@@ -27,9 +26,15 @@ export class DashboardViewBase extends ViewBase {
      */
     protected viewMounted(): void {
         super.viewMounted();
-        this.accLocalTags.push(this.$acc.commandLocal(() => {
-            this.loadModel();
-        }, 'update', this.appDeName.toUpperCase()));
+        this.accLocalTags.push(
+            this.$acc.commandLocal(
+                () => {
+                    this.loadModel();
+                },
+                'update',
+                this.appDeName.toUpperCase()
+            )
+        );
     }
 
     /**
@@ -45,7 +50,7 @@ export class DashboardViewBase extends ViewBase {
                     return;
                 }
                 const { data } = response;
-                this.viewState.next({ tag: 'all-portlet', action: 'loadmodel', data: data});
+                this.viewState.next({ tag: 'all-portlet', action: 'loadmodel', data: data });
                 if (data && data[this.appDeMajor]) {
                     data[this.appDeName] = data[this.appDeKey];
                     this.$appService.contextStore.setContextData(this.context, this.appDeName, { data });
@@ -56,7 +61,7 @@ export class DashboardViewBase extends ViewBase {
                     this.$appService.navHistory.setCaption({ tag: this.viewtag, info: this.model.dataInfo });
                     this.$emit(events.view.MODEL_LOADED, data);
                 }
-            })
+            });
         }
     }
 }

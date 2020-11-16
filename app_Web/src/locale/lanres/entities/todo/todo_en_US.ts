@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     id: "编号",
@@ -33,14 +32,16 @@ export default {
     story: "待办名称",
     date1: "日期",
     date_disable: "待定",
+    assignedtopk: "指派给（选择）",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		baseeditview9: {
 			caption: "基本信息",
       		title: "待办事宜表编辑视图",
 		},
-		dashboardview_link: {
-			caption: "待办事宜表",
+		maindashboardview_link: {
+			caption: "待办",
       		title: "待办事宜表数据看板视图",
 		},
 		assigntoview: {
@@ -60,11 +61,11 @@ export default {
       		title: "完成",
 		},
 		todocreateview: {
-			caption: "待办事宜表",
+			caption: "待办",
       		title: "添加待办",
 		},
 		gridview: {
-			caption: "待办事宜表",
+			caption: "待办",
       		title: "待办事宜表格视图",
 		},
 		gridview9: {
@@ -72,11 +73,15 @@ export default {
       		title: "我的待办",
 		},
 		editview: {
-			caption: "待办事宜表",
+			caption: "待办",
       		title: "编辑待办",
 		},
+		calendareditview: {
+			caption: "待办",
+      		title: "待办编辑视图（日历导航）",
+		},
 		dashboardview: {
-			caption: "待办事宜表",
+			caption: "待办",
       		title: "待办事宜表数据看板视图",
 		},
 		activiteview: {
@@ -284,7 +289,48 @@ export default {
 		uiactions: {
 		},
 	},
+	calendarmain_form: {
+		details: {
+			button1: "指派", 
+			button2: "完成", 
+			button3: "激活", 
+			button4: "关闭", 
+			button5: "编辑", 
+			button6: "删除", 
+			grouppanel3: "分组面板", 
+			grouppanel4: "描述", 
+			druipart1: "", 
+			grouppanel2: "历史记录", 
+			grouppanel1: "分组面板", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "待办名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			id: "", 
+			status: "", 
+			name: "", 
+			pri: "优先级", 
+			date: "日期", 
+			begin: "开始", 
+			end: "~", 
+			desc: "", 
+		},
+		uiactions: {
+        todo_assigntocz: "指派",
+        todo_finishcz: "完成",
+        todo_activatecz: "激活",
+        todo_closecz: "关闭",
+        todo_edit1cz: "编辑",
+        todo_deletecz: "删除",
+        exit: "返回",
+		},
+	},
 	myupcoming_grid: {
+		nodata: "",
 		columns: {
 			date1: "日期",
 			begin: "开始",
@@ -295,6 +341,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			date1: "日期",
@@ -306,6 +353,16 @@ export default {
 			status: "状态",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "编号",
+			date1: "日期",
+			type: "类型",
+			pri: "优先级",
+			name: "待办名称",
+			begin: "开始",
+			end: "结束",
+			status: "状态",
+    },
 		uiactions: {
         todo_assignto: "指派",
         todo_finish: "完成",
@@ -346,6 +403,10 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 };

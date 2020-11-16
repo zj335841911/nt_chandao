@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -48,7 +48,7 @@ export class StoryPlanEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryPlanEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class StoryPlanEditViewBase extends EditViewBase {
 	 * @memberof StoryPlanEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PLAN': { isRawValue: false, value: 'plan' }
+        'PLAN': {
+            isRawValue: false,
+            value: 'plan',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class StoryPlanEditViewBase extends EditViewBase {
 	 * @memberof StoryPlanEditViewBase
 	 */
     protected customViewParams: any = {
-        'plan': { isRawValue: false, value: 'plan' }
+        'plan': {
+            isRawValue: false,
+            value: 'plan',
+        }
     };
 
     /**
@@ -93,7 +99,7 @@ export class StoryPlanEditViewBase extends EditViewBase {
      *
      * @memberof StoryPlanEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -106,8 +112,8 @@ export class StoryPlanEditViewBase extends EditViewBase {
         srfCaption: 'entities.story.views.planeditview.caption',
         srfTitle: 'entities.story.views.planeditview.title',
         srfSubTitle: 'entities.story.views.planeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,8 +123,14 @@ export class StoryPlanEditViewBase extends EditViewBase {
      * @memberof StoryPlanEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +140,7 @@ export class StoryPlanEditViewBase extends EditViewBase {
      * @memberof StoryPlanEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -139,9 +151,18 @@ export class StoryPlanEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryPlanEditViewBase
      */
 	protected viewtag: string = '901398a79547094cd0e9791cbe6e90ef';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryPlanEditViewBase
+     */ 
+    protected viewName: string = "StoryPlanEditView";
 
 
     /**
@@ -160,7 +181,9 @@ export class StoryPlanEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof StoryPlanEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

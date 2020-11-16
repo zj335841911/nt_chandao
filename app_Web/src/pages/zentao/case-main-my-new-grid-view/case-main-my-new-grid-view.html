@@ -1,5 +1,13 @@
 <studio-view viewName="casemainmynewgridview" viewTitle="功能测试" class='degridview case-main-my-new-grid-view'>
-    <i-input slot='quickSearch' clearable  v-model="query" placeholder="用例标题" search @on-search="onSearch($event)"/>
+    <i-input
+        slot='quickSearch'
+        clearable
+        
+        v-model="query"
+        placeholder="用例标题"
+        search
+        @on-search="onSearch($event)"
+    />
         <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 
@@ -8,6 +16,7 @@
         :showBusyIndicator="true"
         :isOpenEdit="false"
         :gridRowActiveMode="gridRowActiveMode"
+        :isformDruipart="isformDruipart"
         @save="onSave.apply(_self, arguments)"
         updateAction=""
         removeAction="Remove"

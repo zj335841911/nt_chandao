@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
 import TestReportAuthService from '@/authservice/test-report/test-report-auth-service';
@@ -48,7 +48,7 @@ export class TestReportEditView_ProjectBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportEditView_ProjectBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class TestReportEditView_ProjectBase extends EditViewBase {
 	 * @memberof TestReportEditView_ProjectBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' }
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class TestReportEditView_ProjectBase extends EditViewBase {
 	 * @memberof TestReportEditView_ProjectBase
 	 */
     protected customViewParams: any = {
-        'project': { isRawValue: false, value: 'project' }
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -93,7 +99,7 @@ export class TestReportEditView_ProjectBase extends EditViewBase {
      *
      * @memberof TestReportEditView_ProjectBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -106,8 +112,8 @@ export class TestReportEditView_ProjectBase extends EditViewBase {
         srfCaption: 'entities.testreport.views.editview_project.caption',
         srfTitle: 'entities.testreport.views.editview_project.title',
         srfSubTitle: 'entities.testreport.views.editview_project.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,8 +123,14 @@ export class TestReportEditView_ProjectBase extends EditViewBase {
      * @memberof TestReportEditView_ProjectBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +140,7 @@ export class TestReportEditView_ProjectBase extends EditViewBase {
      * @memberof TestReportEditView_Project
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -139,9 +151,18 @@ export class TestReportEditView_ProjectBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestReportEditView_ProjectBase
      */
 	protected viewtag: string = 'cbd1280e0ec2cd69ffa85cf60ece100d';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportEditView_ProjectBase
+     */ 
+    protected viewName: string = "TestReportEditView_Project";
 
 
     /**
@@ -160,7 +181,9 @@ export class TestReportEditView_ProjectBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TestReportEditView_ProjectBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -61,6 +61,11 @@ export default class ClosePauseCancelFormModel {
         dataType: 'HTMLTEXT',
       },
       {
+        name: 'noticeusers',
+        prop: 'noticeusers',
+        dataType: 'TEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

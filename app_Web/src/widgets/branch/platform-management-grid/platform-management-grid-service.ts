@@ -1,4 +1,5 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import BranchService from '@/service/branch/branch-service';
 import PlatformManagementModel from './platform-management-grid-model';
@@ -256,6 +257,38 @@ export default class PlatformManagementService extends ControlService {
         });
     }
 
+    /**
+     * 查询实体导出数据
+     *
+     * @param {string} action
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof PlatformManagementService
+     */
+    @Errorlog
+    public searchDEExportData(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
+        return new Promise((resolve: any, reject: any) => {
+            const _appEntityService: any = this.appEntityService;
+            let result: Promise<any>;
+            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
+                result = _appEntityService[action](Context,Data, isloading);
+            }else{
+                result =_appEntityService.FetchDefault(Context,Data, isloading);
+            }
+            result.then((response) => {
+                let model: any = this.getMode();
+                model.isDEExport = true;
+                this.handleResponse(action, response);
+                model.isDEExport = false;
+                resolve(response);
+            }).catch(response => {
+                reject(response);
+            });      
+        });
+    }
 
     /**
      * 加载草稿
@@ -347,7 +380,7 @@ export default class PlatformManagementService extends ControlService {
                     requestData[item.prop] = context[item.name];
                 }
             }else{
-                if(item && item.isEditable && item.prop && item.name && (data[item.name] || Object.is(data[item.name],0)) ){
+                if(item && item.isEditable && item.prop && item.name && data.hasOwnProperty(item.name)){
                     requestData[item.prop] = data[item.name];
                 }
             }

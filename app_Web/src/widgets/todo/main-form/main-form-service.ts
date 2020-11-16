@@ -1,4 +1,5 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import TodoService from '@/service/todo/todo-service';
 import MainModel from './main-form-model';
@@ -16,7 +17,7 @@ import BugService from '@/service/bug/bug-service';
 export default class MainService extends ControlService {
 
     /**
-     * 待办事宜表服务对象
+     * 待办服务对象
      *
      * @type {TodoService}
      * @memberof MainService

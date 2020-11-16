@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { PickupGridViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -48,7 +48,7 @@ export class StoryPickupGridView2Base extends PickupGridViewBase {
      * @type {string}
      * @memberof StoryPickupGridView2Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class StoryPickupGridView2Base extends PickupGridViewBase {
         srfCaption: 'entities.story.views.pickupgridview2.caption',
         srfTitle: 'entities.story.views.pickupgridview2.title',
         srfSubTitle: 'entities.story.views.pickupgridview2.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class StoryPickupGridView2Base extends PickupGridViewBase {
      * @memberof StoryPickupGridView2Base
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -97,9 +100,18 @@ export class StoryPickupGridView2Base extends PickupGridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryPickupGridView2Base
      */
 	protected viewtag: string = '971a6faeda9b1b090521472c06eba003';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryPickupGridView2Base
+     */ 
+    protected viewName: string = "StoryPickupGridView2";
 
 
     /**
@@ -118,7 +130,9 @@ export class StoryPickupGridView2Base extends PickupGridViewBase {
      * @type {Array<*>}
      * @memberof StoryPickupGridView2Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

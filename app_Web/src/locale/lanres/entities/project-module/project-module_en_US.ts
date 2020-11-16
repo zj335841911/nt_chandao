@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     type: "类型（task）",
@@ -56,9 +55,11 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			name: "名称",
 			short: "简称",
+			order: "排序值",
 			uagridcolumn1: "操作",
 		},
 		uiactions: {

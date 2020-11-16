@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { ChartView9Base } from '@/studio-core';
 import ProductSumService from '@/service/product-sum/product-sum-service';
 import ProductSumAuthService from '@/authservice/product-sum/product-sum-auth-service';
@@ -65,7 +65,10 @@ export class ProductSumQaChartView9Base extends ChartView9Base {
 	 * @memberof ProductSumQaChartView9Base
 	 */
     protected customViewNavContexts: any = {
-        'CURYEAR': { isRawValue: false, value: 'curyear' }
+        'CURYEAR': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
 	/**
@@ -76,7 +79,10 @@ export class ProductSumQaChartView9Base extends ChartView9Base {
 	 * @memberof ProductSumQaChartView9Base
 	 */
     protected customViewParams: any = {
-        'curyear': { isRawValue: false, value: 'curyear' }
+        'curyear': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
     /**
@@ -90,8 +96,8 @@ export class ProductSumQaChartView9Base extends ChartView9Base {
         srfCaption: 'entities.productsum.views.qachartview9.caption',
         srfTitle: 'entities.productsum.views.qachartview9.title',
         srfSubTitle: 'entities.productsum.views.qachartview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -101,7 +107,10 @@ export class ProductSumQaChartView9Base extends ChartView9Base {
      * @memberof ProductSumQaChartView9Base
      */
     protected containerModel: any = {
-        view_chart: { name: 'chart', type: 'CHART' },
+        view_chart: {
+            name: 'chart',
+            type: 'CHART',
+        },
     };
 
 
@@ -110,9 +119,18 @@ export class ProductSumQaChartView9Base extends ChartView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductSumQaChartView9Base
      */
 	protected viewtag: string = 'e842d6d727d88c2c78b59c033fa27f34';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductSumQaChartView9Base
+     */ 
+    protected viewName: string = "ProductSumQaChartView9";
 
 
     /**
@@ -131,7 +149,9 @@ export class ProductSumQaChartView9Base extends ChartView9Base {
      * @type {Array<*>}
      * @memberof ProductSumQaChartView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

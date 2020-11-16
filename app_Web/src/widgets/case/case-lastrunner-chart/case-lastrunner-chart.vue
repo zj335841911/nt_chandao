@@ -1,5 +1,5 @@
-<template src="./case-lastrunner-chart.html"/>
-<script lang='tsx'>
+<template src="./case-lastrunner-chart.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseLASTRUNNERChartBase } from './case-lastrunner-chart-base';
@@ -15,8 +15,8 @@ import { CaseLASTRUNNERChartBase } from './case-lastrunner-chart-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class CaseLASTRUNNERChart extends CaseLASTRUNNERChartBase { }
+export default class CaseLASTRUNNERChart extends CaseLASTRUNNERChartBase {}
 </script>

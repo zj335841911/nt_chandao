@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     pssysappid: "系统应用标识",

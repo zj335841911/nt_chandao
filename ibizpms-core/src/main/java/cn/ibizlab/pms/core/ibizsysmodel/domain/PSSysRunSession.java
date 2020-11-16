@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -32,10 +34,10 @@ import cn.ibizlab.pms.util.domain.EntityClient;
 public class PSSysRunSession extends EntityClient implements Serializable {
     @Override
     public void modify(String field, Object val) {
-        getExtensionparams().put("dirtyflagenable",true);
+        getExtensionparams().put("dirtyflagenable", true);
         super.modify(field, val);
     }
-    
+
     /**
      * 系统运行会话名称
      */
@@ -47,15 +49,15 @@ public class PSSysRunSession extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
 
     /**
      * 系统运行会话标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @JSONField(name = "pssysrunsessionid")
     @JsonProperty("pssysrunsessionid")
     private String pssysrunsessionid;
@@ -72,8 +74,8 @@ public class PSSysRunSession extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
@@ -96,8 +98,8 @@ public class PSSysRunSession extends EntityClient implements Serializable {
     /**
      * 结束时间
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "endtime" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "endtime" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("endtime")
     private Timestamp endtime;
 
@@ -203,8 +205,8 @@ public class PSSysRunSession extends EntityClient implements Serializable {
     /**
      * 开始时间
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "starttime" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "starttime" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("starttime")
     private Timestamp starttime;
 
@@ -327,31 +329,31 @@ public class PSSysRunSession extends EntityClient implements Serializable {
     /**
      * 设置 [系统运行会话名称]
      */
-    public void setPssysrunsessionname(String pssysrunsessionname){
+    public void setPssysrunsessionname(String pssysrunsessionname) {
         this.pssysrunsessionname = pssysrunsessionname ;
-        this.modify("pssysrunsessionname",pssysrunsessionname);
+        this.modify("pssysrunsessionname", pssysrunsessionname);
     }
 
     /**
      * 设置 [输出调试信息]
      */
-    public void setDebugmode(Integer debugmode){
+    public void setDebugmode(Integer debugmode) {
         this.debugmode = debugmode ;
-        this.modify("debugmode",debugmode);
+        this.modify("debugmode", debugmode);
     }
 
     /**
      * 设置 [结束时间]
      */
-    public void setEndtime(Timestamp endtime){
+    public void setEndtime(Timestamp endtime) {
         this.endtime = endtime ;
-        this.modify("endtime",endtime);
+        this.modify("endtime", endtime);
     }
 
     /**
      * 格式化日期 [结束时间]
      */
-    public String formatEndtime(){
+    public String formatEndtime() {
         if (this.endtime == null) {
             return null;
         }
@@ -361,127 +363,127 @@ public class PSSysRunSession extends EntityClient implements Serializable {
     /**
      * 设置 [签入版本库]
      */
-    public void setEnablevc(Integer enablevc){
+    public void setEnablevc(Integer enablevc) {
         this.enablevc = enablevc ;
-        this.modify("enablevc",enablevc);
+        this.modify("enablevc", enablevc);
     }
 
     /**
      * 设置 [备注]
      */
-    public void setMemo(String memo){
+    public void setMemo(String memo) {
         this.memo = memo ;
-        this.modify("memo",memo);
+        this.modify("memo", memo);
     }
 
     /**
      * 设置 [修复数据结构]
      */
-    public void setFixdbmodel(Integer fixdbmodel){
+    public void setFixdbmodel(Integer fixdbmodel) {
         this.fixdbmodel = fixdbmodel ;
-        this.modify("fixdbmodel",fixdbmodel);
+        this.modify("fixdbmodel", fixdbmodel);
     }
 
     /**
      * 设置 [打包模式]
      */
-    public void setPackmode(String packmode){
+    public void setPackmode(String packmode) {
         this.packmode = packmode ;
-        this.modify("packmode",packmode);
+        this.modify("packmode", packmode);
     }
 
     /**
      * 设置 [控制台标识]
      */
-    public void setPsdsconsoleid(String psdsconsoleid){
+    public void setPsdsconsoleid(String psdsconsoleid) {
         this.psdsconsoleid = psdsconsoleid ;
-        this.modify("psdsconsoleid",psdsconsoleid);
+        this.modify("psdsconsoleid", psdsconsoleid);
     }
 
     /**
      * 设置 [运行模式]
      */
-    public void setRunmode(String runmode){
+    public void setRunmode(String runmode) {
         this.runmode = runmode ;
-        this.modify("runmode",runmode);
+        this.modify("runmode", runmode);
     }
 
     /**
      * 设置 [重新构建]
      */
-    public void setRebuildmode(Integer rebuildmode){
+    public void setRebuildmode(Integer rebuildmode) {
         this.rebuildmode = rebuildmode ;
-        this.modify("rebuildmode",rebuildmode);
+        this.modify("rebuildmode", rebuildmode);
     }
 
     /**
      * 设置 [运行参数]
      */
-    public void setRunparam(String runparam){
+    public void setRunparam(String runparam) {
         this.runparam = runparam ;
-        this.modify("runparam",runparam);
+        this.modify("runparam", runparam);
     }
 
     /**
      * 设置 [运行参数3]
      */
-    public void setRunparam3(String runparam3){
+    public void setRunparam3(String runparam3) {
         this.runparam3 = runparam3 ;
-        this.modify("runparam3",runparam3);
+        this.modify("runparam3", runparam3);
     }
 
     /**
      * 设置 [运行参数2]
      */
-    public void setRunparam2(String runparam2){
+    public void setRunparam2(String runparam2) {
         this.runparam2 = runparam2 ;
-        this.modify("runparam2",runparam2);
+        this.modify("runparam2", runparam2);
     }
 
     /**
      * 设置 [运行参数4]
      */
-    public void setRunparam4(String runparam4){
+    public void setRunparam4(String runparam4) {
         this.runparam4 = runparam4 ;
-        this.modify("runparam4",runparam4);
+        this.modify("runparam4", runparam4);
     }
 
     /**
      * 设置 [运行参数5]
      */
-    public void setRunparam5(Integer runparam5){
+    public void setRunparam5(Integer runparam5) {
         this.runparam5 = runparam5 ;
-        this.modify("runparam5",runparam5);
+        this.modify("runparam5", runparam5);
     }
 
     /**
      * 设置 [运行状态]
      */
-    public void setRunstate(Integer runstate){
+    public void setRunstate(Integer runstate) {
         this.runstate = runstate ;
-        this.modify("runstate",runstate);
+        this.modify("runstate", runstate);
     }
 
     /**
      * 设置 [运行参数6]
      */
-    public void setRunparam6(Integer runparam6){
+    public void setRunparam6(Integer runparam6) {
         this.runparam6 = runparam6 ;
-        this.modify("runparam6",runparam6);
+        this.modify("runparam6", runparam6);
     }
 
     /**
      * 设置 [开始时间]
      */
-    public void setStarttime(Timestamp starttime){
+    public void setStarttime(Timestamp starttime) {
         this.starttime = starttime ;
-        this.modify("starttime",starttime);
+        this.modify("starttime", starttime);
     }
 
     /**
      * 格式化日期 [开始时间]
      */
-    public String formatStarttime(){
+    public String formatStarttime() {
         if (this.starttime == null) {
             return null;
         }
@@ -491,105 +493,105 @@ public class PSSysRunSession extends EntityClient implements Serializable {
     /**
      * 设置 [模板出错时终止]
      */
-    public void setStopwhentemplerror(Integer stopwhentemplerror){
+    public void setStopwhentemplerror(Integer stopwhentemplerror) {
         this.stopwhentemplerror = stopwhentemplerror ;
-        this.modify("stopwhentemplerror",stopwhentemplerror);
+        this.modify("stopwhentemplerror", stopwhentemplerror);
     }
 
     /**
      * 设置 [系统应用2]
      */
-    public void setPssysappname2(String pssysappname2){
+    public void setPssysappname2(String pssysappname2) {
         this.pssysappname2 = pssysappname2 ;
-        this.modify("pssysappname2",pssysappname2);
+        this.modify("pssysappname2", pssysappname2);
     }
 
     /**
      * 设置 [系统应用2]
      */
-    public void setPssysappid2(String pssysappid2){
+    public void setPssysappid2(String pssysappid2) {
         this.pssysappid2 = pssysappid2 ;
-        this.modify("pssysappid2",pssysappid2);
+        this.modify("pssysappid2", pssysappid2);
     }
 
     /**
      * 设置 [系统应用]
      */
-    public void setPssysappname(String pssysappname){
+    public void setPssysappname(String pssysappname) {
         this.pssysappname = pssysappname ;
-        this.modify("pssysappname",pssysappname);
+        this.modify("pssysappname", pssysappname);
     }
 
     /**
      * 设置 [系统应用]
      */
-    public void setPssysappid(String pssysappid){
+    public void setPssysappid(String pssysappid) {
         this.pssysappid = pssysappid ;
-        this.modify("pssysappid",pssysappid);
+        this.modify("pssysappid", pssysappid);
     }
 
     /**
      * 设置 [系统服务接口]
      */
-    public void setPssysserviceapiname(String pssysserviceapiname){
+    public void setPssysserviceapiname(String pssysserviceapiname) {
         this.pssysserviceapiname = pssysserviceapiname ;
-        this.modify("pssysserviceapiname",pssysserviceapiname);
+        this.modify("pssysserviceapiname", pssysserviceapiname);
     }
 
     /**
      * 设置 [系统服务接口]
      */
-    public void setPssysserviceapiid(String pssysserviceapiid){
+    public void setPssysserviceapiid(String pssysserviceapiid) {
         this.pssysserviceapiid = pssysserviceapiid ;
-        this.modify("pssysserviceapiid",pssysserviceapiid);
+        this.modify("pssysserviceapiid", pssysserviceapiid);
     }
 
     /**
      * 设置 [系统]
      */
-    public void setPssystemid(String pssystemid){
+    public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
-        this.modify("pssystemid",pssystemid);
+        this.modify("pssystemid", pssystemid);
     }
 
     /**
      * 设置 [系统]
      */
-    public void setPssystemname(String pssystemname){
+    public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
-        this.modify("pssystemname",pssystemname);
+        this.modify("pssystemname", pssystemname);
     }
 
     /**
      * 设置 [服务体系]
      */
-    public void setPssyssfpubid(String pssyssfpubid){
+    public void setPssyssfpubid(String pssyssfpubid) {
         this.pssyssfpubid = pssyssfpubid ;
-        this.modify("pssyssfpubid",pssyssfpubid);
+        this.modify("pssyssfpubid", pssyssfpubid);
     }
 
     /**
      * 设置 [服务体系]
      */
-    public void setPssyssfpubname(String pssyssfpubname){
+    public void setPssyssfpubname(String pssyssfpubname) {
         this.pssyssfpubname = pssyssfpubname ;
-        this.modify("pssyssfpubname",pssyssfpubname);
+        this.modify("pssyssfpubname", pssyssfpubname);
     }
 
     /**
      * 设置 [运行数据库]
      */
-    public void setPssystemdbcfgid(String pssystemdbcfgid){
+    public void setPssystemdbcfgid(String pssystemdbcfgid) {
         this.pssystemdbcfgid = pssystemdbcfgid ;
-        this.modify("pssystemdbcfgid",pssystemdbcfgid);
+        this.modify("pssystemdbcfgid", pssystemdbcfgid);
     }
 
     /**
      * 设置 [运行数据库]
      */
-    public void setPssystemdbcfgname(String pssystemdbcfgname){
+    public void setPssystemdbcfgname(String pssystemdbcfgname) {
         this.pssystemdbcfgname = pssystemdbcfgname ;
-        this.modify("pssystemdbcfgname",pssystemdbcfgname);
+        this.modify("pssystemdbcfgname", pssystemdbcfgname);
     }
 
     /**
@@ -602,7 +604,7 @@ public class PSSysRunSession extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("pssysrunsessionid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

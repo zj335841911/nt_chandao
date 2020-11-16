@@ -1,9 +1,9 @@
-<template src="./employeeloadedit-view.html"/>
-<script lang='tsx'>
+<template src="./employeeloadedit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { EMPLOYEELOADEditViewBase } from './employeeloadedit-view-base';
-import view_form from '@widgets/employ-eeload/main-form/main-form.vue';
+import view_form from '@widgets/emp-loyeeload/main-form/main-form.vue';
 
 /**
  * 员工负载表编辑视图视图
@@ -18,5 +18,5 @@ import view_form from '@widgets/employ-eeload/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class EMPLOYEELOADEditView extends EMPLOYEELOADEditViewBase { }
+export default class EMPLOYEELOADEditView extends EMPLOYEELOADEditViewBase {}
 </script>

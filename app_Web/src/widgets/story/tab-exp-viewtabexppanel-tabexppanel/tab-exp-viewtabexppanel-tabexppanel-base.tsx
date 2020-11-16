@@ -1,10 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TabExpPanelControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import TabExpViewtabexppanelService from './tab-exp-viewtabexppanel-tabexppanel-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
-
+import StoryAuthService from '@/authservice/story/story-auth-service';
+import { Environment } from '@/environments/environment';
 
 /**
  * tabexppanel部件基类
@@ -14,7 +16,6 @@ import StoryUIService from '@/uiservice/story/story-ui-service';
  * @extends {TabExpViewtabexppanelTabexppanelBase}
  */
 export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,14 +65,14 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @type {StoryUIService}
      * @memberof TabExpViewtabexppanelBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 是否初始化
      *
      * @protected
      * @returns {any}
-     * @memberof TabExpViewtabexppanel
+     * @memberof TabExpViewtabexppanelBase
      */
     protected isInit: any = {
         tabviewpanel:  true ,
@@ -84,15 +85,33 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      *
      * @protected
      * @type {string}
-     * @memberof TabExpViewtabexppanel
+     * @memberof TabExpViewtabexppanelBase
      */
     protected activatedTabViewPanel: string = 'tabviewpanel';
+
+    /**
+     * 实体权限服务对象
+     *
+     * @protected
+     * @type StoryAuthServiceBase
+     * @memberof TabExpViewtabexppanelBase
+     */
+    protected appAuthService: StoryAuthService = new StoryAuthService();
+
+    /**
+     * 分页面板权限标识存储对象
+     *
+     * @protected
+     * @type {*}
+     * @memberof TabExpViewtabexppanelBase
+     */
+    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visible: true,disabled: false},'tabviewpanel2':{resourcetag:null,visible: true,disabled: false},'tabviewpanel3':{resourcetag:null,visible: true,disabled: false}};
 
     /**
      * 组件创建完毕
      *
      * @protected
-     * @memberof TabExpViewtabexppanel
+     * @memberof TabExpViewtabexppanelBase
      */
     protected ctrlCreated(): void {
         //设置分页导航srfparentdename和srfparentkey

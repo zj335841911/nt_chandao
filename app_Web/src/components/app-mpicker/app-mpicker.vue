@@ -1,24 +1,38 @@
 <template>
     <div>
-        <div style="position: relative;width: 100%;">
-            <el-select :value="value" multiple filterable remote :remote-method="onSearch" size="small" style="width:100%;" @change="onSelect" @remove-tag="onRemove" :disabled="disabled">
-                <el-option v-for="(item, index) in items" :key="index" :label="item[deMajorField]" :value="item[deKeyField]"></el-option>
+        <div style="position: relative; width: 100%">
+            <el-select
+                :value="value"
+                multiple
+                filterable
+                remote
+                :remote-method="onSearch"
+                size="small"
+                style="width: 100%"
+                @change="onSelect"
+                @remove-tag="onRemove"
+                :disabled="disabled"
+            >
+                <el-option
+                    v-for="(item, index) in items"
+                    :key="index"
+                    :label="item[deMajorField]"
+                    :value="item[deKeyField]"
+                ></el-option>
             </el-select>
-            <span style="position: absolute;right: 5px;color: #c0c4cc;top: 0;font-size: 13px;">
+            <span style="position: absolute; right: 5px; color: #c0c4cc; top: 0; font-size: 13px">
                 <i class="el-icon-search" @click="openView"></i>
             </span>
         </div>
     </div>
 </template>
-<script lang = 'ts'>
+<script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { AppModal } from '@/utils';
 
-@Component({
-})
+@Component({})
 export default class AppMpicker extends Vue {
-
     /**
      * 传入url
      */
@@ -51,25 +65,25 @@ export default class AppMpicker extends Vue {
 
     /**
      * 局部上下文导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppMpicker
      */
-    @Prop() public localContext!:any;
+    @Prop() public localContext!: any;
 
     /**
      * 局部导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppMpicker
      */
-    @Prop() public localParam!:any;
+    @Prop() public localParam!: any;
 
     /**
      * 表单项名称
      */
     @Prop() name: any;
-    
+
     /**
      * 视图上下文
      *
@@ -92,7 +106,7 @@ export default class AppMpicker extends Vue {
      * @type {*}
      * @memberof AppMpicker
      */
-    @Prop({default: () => {}}) public acParams?: any;
+    @Prop({ default: () => {} }) public acParams?: any;
 
     /**
      * 编辑器额外填充参数
@@ -108,7 +122,7 @@ export default class AppMpicker extends Vue {
      * @type {string}
      * @memberof AppMpicker
      */
-    @Prop({default: 'srfmajortext'}) public deMajorField!: string;
+    @Prop({ default: 'srfmajortext' }) public deMajorField!: string;
 
     /**
      * 应用实体主键属性名称
@@ -116,7 +130,7 @@ export default class AppMpicker extends Vue {
      * @type {string}
      * @memberof AppMpicker
      */
-    @Prop({default: 'srfkey'}) public deKeyField!: string;
+    @Prop({ default: 'srfkey' }) public deKeyField!: string;
 
     /**
      * 表单服务
@@ -143,47 +157,56 @@ export default class AppMpicker extends Vue {
 
     /**
      * 选中项key-value键值对
-     * 
+     *
      */
     public selectItems: Array<any> = [];
 
     /**
      * 监听curvalue值
-     * @param newVal 
-     * @param val 
+     * @param newVal
+     * @param val
      */
-    @Watch('curvalue', {immediate:true, deep: true })
+    @Watch('curvalue', { immediate: true, deep: true })
     oncurvalueChange(newVal: any, val: any) {
         this.value = [];
         this.selectItems = [];
         if (newVal) {
             try {
-              this.selectItems = this.parseValue(JSON.parse(newVal));
-              this.selectItems.forEach((item: any) => {
-                  this.value.push(item[this.deKeyField]);
-                  let index = this.items.findIndex((i) => Object.is(i[this.deKeyField], item[this.deKeyField]));
-                  if (index < 0) {
-                      this.items.push({ [this.deMajorField]: item[this.deMajorField], [this.deKeyField]: item[this.deKeyField] });
-                  }
-              });
+                this.selectItems = this.parseValue(JSON.parse(newVal));
+                this.selectItems.forEach((item: any) => {
+                    this.value.push(item[this.deKeyField]);
+                    let index = this.items.findIndex((i) => Object.is(i[this.deKeyField], item[this.deKeyField]));
+                    if (index < 0) {
+                        this.items.push({
+                            [this.deMajorField]: item[this.deMajorField],
+                            [this.deKeyField]: item[this.deKeyField],
+                        });
+                    }
+                });
             } catch (error) {
-              if(error.name === 'SyntaxError'){
-                let srfkeys:any = newVal.split(',');
-                let srfmajortexts:any = null;
-                if(this.valueitem && this.activeData[this.valueitem]){
-                    srfmajortexts = this.activeData[this.valueitem].split(',');
+                if (error.name === 'SyntaxError') {
+                    let srfkeys: any = newVal.split(',');
+                    let srfmajortexts: any = null;
+                    if (this.valueitem && this.activeData[this.valueitem]) {
+                        srfmajortexts = this.activeData[this.valueitem].split(',');
+                    }
+                    if (
+                        srfkeys.length &&
+                        srfkeys.length > 0 &&
+                        srfmajortexts.length &&
+                        srfmajortexts.length > 0 &&
+                        srfkeys.length == srfmajortexts.length
+                    ) {
+                        srfkeys.forEach((id: any, index: number) => {
+                            this.value.push(id);
+                            this.selectItems.push({ [this.deKeyField]: id, [this.deMajorField]: srfmajortexts[index] });
+                            let _index = this.items.findIndex((i) => Object.is(i[this.deKeyField], id));
+                            if (_index < 0) {
+                                this.items.push({ [this.deKeyField]: id, [this.deMajorField]: srfmajortexts[index] });
+                            }
+                        });
+                    }
                 }
-                if(srfkeys.length && srfkeys.length > 0 && srfmajortexts.length && srfmajortexts.length > 0 && srfkeys.length == srfmajortexts.length){
-                    srfkeys.forEach((id: any, index: number) => {
-                        this.value.push(id);
-                        this.selectItems.push({[this.deKeyField]: id, [this.deMajorField]: srfmajortexts[index]});
-                        let _index = this.items.findIndex((i) => Object.is(i[this.deKeyField],id));
-                        if (_index < 0) {
-                            this.items.push({[this.deKeyField]: id, [this.deMajorField]: srfmajortexts[index]});
-                        }
-                    });
-                }
-              }
             }
         }
         this.$forceUpdate();
@@ -205,30 +228,33 @@ export default class AppMpicker extends Vue {
         // 参数处理
         let _context = data.context;
         let _param = data.param;
-        Object.assign(_param ,{ query: query });
+        Object.assign(_param, { query: query });
         if (this.activeData) {
             Object.assign(_param, { srfreferdata: this.activeData });
         }
         // 错误信息国际化
-        let error: string = (this.$t('components.appMpicker.error') as any);
-        let miss: string = (this.$t('components.appMpicker.miss') as any);
-        let requestException: string = (this.$t('components.appMpicker.requestException') as any);
-        if(!this.service){
-            this.$Notice.error({ title: error, desc: miss+'service' });
-        } else if(!this.acParams.serviceName) {
-            this.$Notice.error({ title: error, desc: miss+'serviceName' });
-        } else if(!this.acParams.interfaceName) {
-            this.$Notice.error({ title: error, desc: miss+'interfaceName' });
+        let error: string = this.$t('components.appMpicker.error') as any;
+        let miss: string = this.$t('components.appMpicker.miss') as any;
+        let requestException: string = this.$t('components.appMpicker.requestException') as any;
+        if (!this.service) {
+            this.$Notice.error({ title: error, desc: miss + 'service' });
+        } else if (!this.acParams.serviceName) {
+            this.$Notice.error({ title: error, desc: miss + 'serviceName' });
+        } else if (!this.acParams.interfaceName) {
+            this.$Notice.error({ title: error, desc: miss + 'interfaceName' });
         } else {
-          this.service.getItems(this.acParams.serviceName,this.acParams.interfaceName, _context, _param).then((response: any) => {
-              if (!response) {
-                  this.$Notice.error({ title: error, desc: requestException });
-              } else {
-                  this.items = [...response];
-              }
-          }).catch((error: any) => {
-              console.log(error);
-          });
+            this.service
+                .getItems(this.acParams.serviceName, this.acParams.interfaceName, _context, _param)
+                .then((response: any) => {
+                    if (!response) {
+                        this.$Notice.error({ title: error, desc: requestException });
+                    } else {
+                        this.items = [...response];
+                    }
+                })
+                .catch((error: any) => {
+                    console.log(error);
+                });
         }
     }
 
@@ -245,7 +271,10 @@ export default class AppMpicker extends Vue {
                 let index = this.items.findIndex((item) => Object.is(item[this.deKeyField], select));
                 if (index >= 0) {
                     const item = this.items[index];
-                    const params = { [this.deKeyField]: item[this.deKeyField], [this.deMajorField]: item[this.deMajorField] };
+                    const params = {
+                        [this.deKeyField]: item[this.deKeyField],
+                        [this.deMajorField]: item[this.deMajorField],
+                    };
                     this.fillExtraValue(params, item);
                     val.push(params);
                 } else {
@@ -285,20 +314,23 @@ export default class AppMpicker extends Vue {
      */
     public handlePublicParams(arg: any): boolean {
         if (!this.activeData) {
-            this.$Notice.error({ title: (this.$t('components.AppMpicker.error') as any), desc: (this.$t('components.AppMpicker.formdataException') as any) });
+            this.$Notice.error({
+                title: this.$t('components.AppMpicker.error') as any,
+                desc: this.$t('components.AppMpicker.formdataException') as any,
+            });
             return false;
         }
         // 合并表单参数
         arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
         arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
         // 附加参数处理
-        if (this.localContext && Object.keys(this.localContext).length >0) {
-            let _context = this.$util.computedNavData(this.activeData,arg.context,arg.param,this.localContext);
-            Object.assign(arg.context,_context);
+        if (this.localContext && Object.keys(this.localContext).length > 0) {
+            let _context = this.$util.computedNavData(this.activeData, arg.context, arg.param, this.localContext);
+            Object.assign(arg.context, _context);
         }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-            let _param = this.$util.computedNavData(this.activeData,arg.param,arg.param,this.localParam);
-            Object.assign(arg.param,_param);
+        if (this.localParam && Object.keys(this.localParam).length > 0) {
+            let _param = this.$util.computedNavData(this.activeData, arg.param, arg.param, this.localParam);
+            Object.assign(arg.param, _param);
         }
         return true;
     }
@@ -326,15 +358,15 @@ export default class AppMpicker extends Vue {
             let _context = data.context;
             let _viewparams = data.param;
             let _selectItems = JSON.parse(JSON.stringify(this.selectItems));
-            if(!Object.is(this.deKeyField,"srfkey")){
-                _selectItems.forEach((item:any, index:number)=>{
+            if (!Object.is(this.deKeyField, 'srfkey')) {
+                _selectItems.forEach((item: any, index: number) => {
                     _selectItems[index].srfkey = item[this.deKeyField];
                 });
             }
-            _context = Object.assign(_context, { srfparentdata: { srfparentkey: this.activeData[this.deKeyField] }, });
-            _viewparams = Object.assign(_viewparams,{ selectedData: [..._selectItems]});
+            _context = Object.assign(_context, { srfparentdata: { srfparentkey: this.activeData[this.deKeyField] } });
+            _viewparams = Object.assign(_viewparams, { selectedData: [..._selectItems] });
             let formdata = this.activeData;
-            const modal: Subject<any> = this.$appmodal.openModal(view, _context, _viewparams)
+            const modal: Subject<any> = this.$appmodal.openModal(view, _context, _viewparams);
             modal.subscribe((result: any) => {
                 if (!result || !Object.is(result.ret, 'OK')) {
                     return;
@@ -342,10 +374,15 @@ export default class AppMpicker extends Vue {
                 let selects: Array<any> = [];
                 if (result.datas && Array.isArray(result.datas)) {
                     result.datas.forEach((select: any) => {
-                        const params = { [this.deMajorField]: select[this.deMajorField], [this.deKeyField]: select[this.deKeyField] }
+                        const params = {
+                            [this.deMajorField]: select[this.deMajorField],
+                            [this.deKeyField]: select[this.deKeyField],
+                        };
                         this.fillExtraValue(params, select);
                         selects.push(params);
-                        let index = this.items.findIndex((item) => Object.is(item[this.deKeyField], select[this.deKeyField]));
+                        let index = this.items.findIndex((item) =>
+                            Object.is(item[this.deKeyField], select[this.deKeyField])
+                        );
                         if (index < 0) {
                             this.items.push(params);
                         }
@@ -355,7 +392,7 @@ export default class AppMpicker extends Vue {
                     let value = selects.length > 0 ? JSON.stringify(this.formatValue(selects)) : '';
                     this.$emit('formitemvaluechange', { name: this.name, value: value });
                 }
-            })
+            });
         }
     }
 
@@ -365,15 +402,15 @@ export default class AppMpicker extends Vue {
      * @param {any[]} value 需要转换的数组
      * @memberof AppMpicker
      */
-    public parseValue(value: any[]){
+    public parseValue(value: any[]) {
         let result = [];
-        if(this.deKeyField !== "srfkey" || this.deMajorField !== "srfmajortext"){
+        if (this.deKeyField !== 'srfkey' || this.deMajorField !== 'srfmajortext') {
             value.forEach((item: any) => {
-                const params = {[this.deMajorField]: item.srfmajortext, [this.deKeyField]: item.srfkey};
+                const params = { [this.deMajorField]: item.srfmajortext, [this.deKeyField]: item.srfkey };
                 this.fillExtraValue(params, item);
                 result.push(params);
             });
-        }else{
+        } else {
             result = value;
         }
         return result;
@@ -385,15 +422,15 @@ export default class AppMpicker extends Vue {
      * @param {any[]} value 需要转换的数组
      * @memberof AppMpicker
      */
-    public formatValue(value: any[]){
+    public formatValue(value: any[]) {
         let result = [];
-        if(this.deKeyField !== "srfkey" || this.deMajorField !== "srfmajortext"){
+        if (this.deKeyField !== 'srfkey' || this.deMajorField !== 'srfmajortext') {
             value.forEach((item: any) => {
-                const params = {srfmajortext : item[this.deMajorField], srfkey : item[this.deKeyField]};
+                const params = { srfmajortext: item[this.deMajorField], srfkey: item[this.deKeyField] };
                 this.fillExtraValue(params, item);
                 result.push(params);
             });
-        }else{
+        } else {
             result = value;
         }
         return result;
@@ -402,20 +439,19 @@ export default class AppMpicker extends Vue {
     /**
      * 填充额外参数
      *
-     * @param {*} params 
-     * @param {*} item 
+     * @param {*} params
+     * @param {*} item
      * @memberof AppMpicker
      */
     public fillExtraValue(params: any, item: any): void {
         if (isExist(this.extraFillParams)) {
             this.extraFillParams.forEach((self: any) => {
                 if (isExist(item[self.key])) {
-                    Object.assign(params, { [self.value]: item[self.key]});
+                    Object.assign(params, { [self.value]: item[self.key] });
                 }
             });
         }
     }
-
 }
 </script>
 <style lang="less">

@@ -1,5 +1,5 @@
-<template src="./task-main-edit-view.html"/>
-<script lang='tsx'>
+<template src="./task-main-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskMainEditViewBase } from './task-main-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/task/main-edit-form/main-edit-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskMainEditView extends TaskMainEditViewBase { }
+export default class TaskMainEditView extends TaskMainEditViewBase {}
 </script>

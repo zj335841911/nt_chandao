@@ -461,4 +461,84 @@ export interface Task {
      * @memberof Task
      */
     files?: any;
+
+    /**
+     * 团队用户
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    usernames?: any;
+
+    /**
+     * 是否完成
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    isfinished?: any;
+
+    /**
+     * 回复数量
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    replycount?: any;
+
+    /**
+     * 是否填写描述
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    hasdetail?: any;
+
+    /**
+     * 最后的更新日期
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    updatedate?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    noticeusers?: any;
+
+    /**
+     * 进度
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    progressrate?: any;
+
+    /**
+     * 延期
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    delay?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    mailtopk?: any;
+
+    /**
+     * 联系人
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    mailtoconact?: any;
 }

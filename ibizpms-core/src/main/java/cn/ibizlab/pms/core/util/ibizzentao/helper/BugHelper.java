@@ -4,6 +4,9 @@ import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.BugMapper;
+import cn.ibizlab.pms.core.zentao.service.IBugService;
+import cn.ibizlab.pms.core.zentao.service.IStoryService;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import cn.ibizlab.pms.util.security.SpringContextHolder;
@@ -17,7 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
@@ -37,17 +42,27 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
     @Autowired
     FileHelper fileHelper;
 
+    @Autowired
+    StoryHelper storyHelper;
+
+    @Autowired
+    CaseHelper caseHelper;
+
     String[] diffAttrs = {"steps"};
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(Bug et) {
-        boolean bOk = super.create(et);
-        if (!bOk) {
-            return bOk;
+        et.setStoryversion(et.getStory() != null && et.getStory() != 0 ? storyHelper.get(et.getStory()).getVersion() : 1);
+        et.setCaseversion(et.getIbizcase() != null && et.getIbizcase() != 0 ? caseHelper.get(et.getIbizcase()).getVersion() : 1);
+        String files = et.getFiles();
+        String noticeusers = et.getNoticeusers();
+        if (!super.create(et)) {
+            return false;
         }
-        actionHelper.create("bug", et.getId(), "opened", "", "", null, true);
-
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
+        actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
+        actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers, et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.OPENED.getText());
         return true;
     }
     /**
@@ -55,7 +70,8 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
      *
      * @return
      */
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(Bug et) {
         Bug old = new Bug();
         CachedBeanCopier.copy(this.get(et.getId()), old);
@@ -63,107 +79,124 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
 
         fileHelper.processImgURL(et, null, null);
+        String files = et.getFiles();
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(et);
-        fileHelper.updateObjectID(et.getId(), null, null);
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
         List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            String strAction = "Edited";
+
+            String strActionText = StaticDict.Action__type.EDITED.getText();
+            String strAction = StaticDict.Action__type.EDITED.getValue();
             if (changes.size() == 0) {
-                strAction = "Commented";
+                strAction = StaticDict.Action__type.COMMENTED.getValue();
+                strActionText = StaticDict.Action__type.COMMENTED.getText();
             }
-            Action action = actionHelper.create("bug", et.getId(), strAction,
+            actionHelper.sendToread(et.getId(), et.getTitle(), noticeusers, et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, strActionText);
+            Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), strAction,
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return true;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug assignTo(Bug et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
-        Bug old = this.get(et.getId());
-        et.setConfirmed(1);
-
-        if(StringUtils.isBlank(et.getAssignedto()))
+        Bug old = new Bug();
+        CachedBeanCopier.copy(get(et.getId()), old);
+        if(StringUtils.isBlank(et.getAssignedto())) {
             et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
+        }
+        String files = et.getFiles();
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(et);
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
         List<History> changes = ChangeUtil.diff(old, et);
-        if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("bug", et.getId(), "bugConfirmed",
-                    comment, "", null, true);
-            if (changes.size() > 0)
-                actionHelper.logHistory(action.getId(), changes);
+        actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ASSIGNED.getText());
+        Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.ASSIGNED.getValue(),
+                comment, et.getAssignedto(), null, true);
+        if (changes.size() > 0) {
+            actionHelper.logHistory(action.getId(), changes);
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug activate(Bug et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Bug old = new Bug();
         CachedBeanCopier.copy(get(et.getId()), old);
 
-        if(StringUtils.isBlank(et.getAssignedto()) || StringUtils.compare(et.getAssignedto(),"closed")==0)
+        if(StringUtils.isBlank(et.getAssignedto()) || StringUtils.compare(et.getAssignedto(),StaticDict.Bug__status.CLOSED.getValue())==0) {
             et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
+        }
         et.setActivatedcount(old.getActivatedcount() + 1);
         et.setAssigneddate(ZTDateUtil.now());
         et.setActivateddate(ZTDateUtil.now());
         et.setClosedby("");
         et.setCloseddate(null);
-        et.setStatus("active");
+        et.setStatus(StaticDict.Bug__status.ACTIVE.getValue());
         et.setResolution("");
         et.setResolvedby("");
         et.setResolveddate(null);
         et.setResolvedbuild("0");
-        et.setDuplicatebug(0l);
-        et.setTotask(0l);
-        et.setTostory(0l);
+        et.setDuplicatebug(0L);
+        et.setTotask(0L);
+        et.setTostory(0L);
 
+        String files = et.getFiles();
+        String noticeusers = et.getNoticeusers();
         internalUpdate(et);
-
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
+        actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ACTIVATED.getText());
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("bug", et.getId(), "Activated",
+            Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.ACTIVATED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug confirm(Bug et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Bug old = new Bug();
         CachedBeanCopier.copy(get(et.getId()), old);
 
         et.setConfirmed(1);
-        if (StringUtils.isBlank(et.getAssignedto()))
+        if (StringUtils.isBlank(et.getAssignedto())) {
             et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
+        }
         et.setAssigneddate(ZTDateUtil.now());
-
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(et);
-
+        actionHelper.sendToread(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.BUGCONFIRMED.getText());
         List<History> changes = ChangeUtil.diff(old, et, null, new String[]{"confirmed", "assignedto"}, null);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("bug", et.getId(), "bugConfirmed",
+            Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.BUGCONFIRMED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
 
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug resolve(Bug et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Bug old = new Bug();
         CachedBeanCopier.copy(get(et.getId()), old);
 
         et.setConfirmed(1);
-        et.setStatus("resolved");
+        et.setStatus(StaticDict.Bug__status.RESOLVED.getValue());
         et.setResolvedby(AuthenticationUser.getAuthenticationUser().getUsername());
         et.setResolveddate(ZTDateUtil.now());
 
@@ -173,6 +206,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
             build.setProject(Long.parseLong(et.getBuildproject()));
             build.setName(et.getBuildname());
             build.setDate(ZTDateUtil.now());
+            build.setProduct(et.getProduct());
             build.setBuilder(AuthenticationUser.getAuthenticationUser().getUsername());
             buildHelper.create(build);
             et.setResolvedbuild(String.valueOf(build.getId()));
@@ -180,19 +214,23 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
 
         if (StringUtils.isNotBlank(et.getResolvedbuild()) && StringUtils.compare(et.getResolvedbuild(), "trunk") != 0) {
             TestTask testTask = testTaskHelper.getOne(new QueryWrapper<TestTask>().eq("build", et.getResolvedbuild()).orderByDesc("`id`").last("limit 0,1"));
-            if (testTask != null)
+            if (testTask != null) {
                 et.setTesttask(testTask.getId());
+            }
         }
 
+        String files = et.getFiles();
+        String noticeusers = et.getNoticeusers();
         internalUpdate(et);
-
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
+        actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.RESOLVED.getText());
         //关联
         et.set("builds", et.getResolvedbuild());
         et.set("ids", et.getId());
         buildLinkBug(et);
 
         //release关联
-        Release release = releaseHelper.getOne(new QueryWrapper<Release>().eq("build", et.getResolvedbuild()));
+        Release release = releaseHelper.getOne(new QueryWrapper<Release>().eq("build", et.getResolvedbuild()).eq("product", et.getProduct()).ne("build", 0).last(" LIMIT 0,1 "));
         if (release != null) {
             et.set("release", release.getId());
             linkBug(et);
@@ -200,41 +238,43 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("bug", et.getId(), "Resolved",
+            Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.RESOLVED.getValue(),
                     comment, et.getResolution(), null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
 
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug close(Bug et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Bug old = new Bug();
         CachedBeanCopier.copy(get(et.getId()), old);
 
-        et.setAssignedto("closed");
+        et.setAssignedto(StaticDict.Bug__status.CLOSED.getValue());
         et.setAssigneddate(ZTDateUtil.now());
         et.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());
         et.setCloseddate(ZTDateUtil.now());
-        et.setStatus("closed");
+        et.setStatus(StaticDict.Bug__status.CLOSED.getValue());
         et.setConfirmed(1);
-
+        String noticeusers = et.getNoticeusers();
         internalUpdate(et);
-
+        actionHelper.sendToread(et.getId(), et.getTitle(), noticeusers, et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.CLOSED.getText());
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("bug", et.getId(), "Closed",
+            Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug linkBug(Bug et) {
         //release
         if (et.get("release") != null) {
@@ -249,7 +289,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
                     if (!("," + release.getBugs()).contains("," + et.getId())) {
                         release.setBugs(release.getBugs() + "," + et.getId());
                         releaseHelper.internalUpdate(release);
-                        actionHelper.create("bug", et.getId(), "linked2release",
+                        actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.LINKED2RELEASE.getValue(),
                                 "", String.valueOf(release.getId()), null, true);
                     }
                 }
@@ -262,8 +302,9 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
             String bugs = "";
             ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
             for (Map data : list) {
-                if (bugs.length() > 0)
+                if (bugs.length() > 0) {
                     bugs += ",";
+                }
                 bugs += data.get("id");
             }
             productPlan.set("bugs",bugs);
@@ -272,7 +313,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug unlinkBug(Bug et) {
         //release
         if (et.get("release") != null) {
@@ -281,7 +322,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
             if (("," + release.getBugs()).contains("," + et.getId())) {
                 release.setBugs(("," + release.getBugs()).replace("," + et.getId(), ""));
                 releaseHelper.internalUpdate(release);
-                actionHelper.create("bug", et.getId(), "unlinkedfromrelease",
+                actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.UNLINKEDFROMRELEASE.getValue(),
                         "", String.valueOf(release.getId()), null, true);
             }
         }
@@ -297,34 +338,39 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug batchUnlinkBug(Bug et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug buildLinkBug(Bug et) {
         //build
-        if (et.get("builds") == null)
+        if (et.get("builds") == null) {
             return et;
-        if (et.get("ids") == null)
+        }
+        if (et.get("ids") == null) {
             return et;
-        if("trunk".equals(et.get("builds").toString().split(",")[0]))
+        }
+        if("trunk".equals(et.get("builds").toString().split(",")[0])) {
             return et;
+        }
 
         Build build = new Build();
         build.setId(Long.parseLong(et.get("builds").toString().split(",")[0]));
         build.set("bugs", et.get("ids"));
+        build.set("resolvedby", et.getResolvedby());
         buildHelper.linkBug(build);
 
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug buildUnlinkBug(Bug et) {
         //build
-        if (et.get("build") == null)
+        if (et.get("build") == null) {
             return et;
+        }
         Build build = new Build();
         build.setId(Long.parseLong(et.get("build").toString()));
         build.set("bugs", et.getId());
@@ -332,14 +378,16 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug buildBatchUnlinkBug(Bug et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug releaseUnlinkBug(Bug et) {
-        if(et.getId() == null &&  et.get("release") == null) return et;
+        if(et.getId() == null &&  et.get("release") == null) {
+            return et;
+        }
         Release release = releaseHelper.get(Long.parseLong(et.get("release").toString()));
         Release releaseUpdate = new Release();
         releaseUpdate.setId(release.getId());
@@ -349,7 +397,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         bugs = bugs.replaceAll(regex, "");
         releaseUpdate.setBugs(bugs);
         releaseHelper.internalUpdate(releaseUpdate);
-        actionHelper.create("bug", et.getId(), "unlinkedfromrelease",
+        actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.UNLINKEDFROMRELEASE.getValue(),
                 "",
                 et.get("release").toString(),
                 AuthenticationUser.getAuthenticationUser().getUsername(),
@@ -358,9 +406,11 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug releaseUnLinkBugbyLeftBug(Bug et) {
-        if(et.getId() == null &&  et.get("release") == null) return et;
+        if(et.getId() == null &&  et.get("release") == null) {
+            return et;
+        }
         Release release = releaseHelper.get(Long.parseLong(et.get("release").toString()));
         Release releaseUpdate = new Release();
         releaseUpdate.setId(release.getId());
@@ -370,7 +420,8 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         leftbugs = leftbugs.replaceAll(regex, "");
         releaseUpdate.setLeftbugs(leftbugs);
         releaseHelper.internalUpdate(releaseUpdate);
-        actionHelper.create("bug", et.getId(), "unlinkedfromrelease",
+
+        actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.UNLINKEDFROMRELEASE.getValue(),
                 "",
                 et.get("release").toString(),
                 AuthenticationUser.getAuthenticationUser().getUsername(),
@@ -379,34 +430,36 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug releaseLinkBugbyBug(Bug et) {
-        if(et.get("release") == null)
+        if(et.get("release") == null) {
             return et;
+        }
         Release release = new Release();
         release.setId(Long.parseLong(et.get("release").toString()));
         release.set("srfactionparam",et.get("srfactionparam"));
-        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).linkBug(release);
+        SpringContextHolder.getBean(ReleaseHelper.class).linkBug(release);
         return  et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug releaseLinkBugbyLeftBug(Bug et) {
-        if(et.get("release") == null)
+        if(et.get("release") == null) {
             return et;
+        }
         Release release = new Release();
         release.setId(Long.parseLong(et.get("release").toString()));
         release.set("srfactionparam",et.get("srfactionparam"));
-        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).linkBugbyLeftBug(release);
+        SpringContextHolder.getBean(ReleaseHelper.class).linkBugbyLeftBug(release);
         return  et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug releaaseBatchUnlinkBug(Bug et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Bug toStory(Bug et) {
         throw new RuntimeException("未实现");
     }

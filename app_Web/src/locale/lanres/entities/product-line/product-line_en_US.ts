@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     productlinename: "产品线名称",

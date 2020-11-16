@@ -126,9 +126,19 @@ export default class DashboardMainModel {
         dataType: 'TEXT',
       },
       {
+        name: 'assigneddate',
+        prop: 'assigneddate',
+        dataType: 'DATETIME',
+      },
+      {
         name: 'deadline',
         prop: 'deadline',
         dataType: 'DATE',
+      },
+      {
+        name: 'delay',
+        prop: 'delay',
+        dataType: 'TEXT',
       },
       {
         name: 'os',
@@ -164,6 +174,16 @@ export default class DashboardMainModel {
         name: 'story',
         prop: 'story',
         dataType: 'PICKUP',
+      },
+      {
+        name: 'storyname',
+        prop: 'storyname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'taskname',
+        prop: 'taskname',
+        dataType: 'PICKUPTEXT',
       },
       {
         name: 'task',

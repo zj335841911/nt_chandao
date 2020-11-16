@@ -1,6 +1,9 @@
 <studio-view viewName="taskdonetaskview" viewTitle="完成任务" class='deoptview task-done-task-view'>
     <template slot='title'>
-    <span class='caption-image'><i class='    fa fa-tasks    '></i></span>
+    <span class='caption-image'>
+            <i class='
+    fa fa-tasks    '></i>
+        </span>
     <span class='caption-info'>{{viewCaption}}</span>
     </template>
         <view_form 
@@ -13,7 +16,7 @@
                     updateAction="Finish"
                     removeAction="Remove"
                     loaddraftAction="GetDraft"
-                    loadAction="Get"
+                    loadAction="GetNextTeamUser"
                     createAction="Finish"
                     WFSubmitAction=""
                     WFStartAction=""

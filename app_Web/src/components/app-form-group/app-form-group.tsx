@@ -1,5 +1,5 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import './app-form-group.less'
+import './app-form-group.less';
 
 /**
  * 表单分组
@@ -10,14 +10,13 @@ import './app-form-group.less'
  */
 @Component({})
 export default class AppFormGroup extends Vue {
-
     /**
      * 表单分组模型
      *
      * @type {*}
      * @memberof AppFormGroup
      */
-    @Prop({ default: () => { } })
+    @Prop({ default: () => {} })
     public model: any;
 
     /**
@@ -31,7 +30,7 @@ export default class AppFormGroup extends Vue {
 
     /**
      * 内置界面样式
-     * 
+     *
      * @type {string}
      * @memberof AppFormGroup
      */
@@ -98,7 +97,7 @@ export default class AppFormGroup extends Vue {
      * 1: 默认打开
      * 2： 默认关闭
      *
-     * @type {(number | 0 | 1 | 2)} 
+     * @type {(number | 0 | 1 | 2)}
      * @memberof AppFormGroup
      */
     @Prop({ default: 0 })
@@ -125,7 +124,7 @@ export default class AppFormGroup extends Vue {
             this.isShowCaption && this.collapseContant ? 'app-group-collapse-contant' : '',
             this.isInfoGroupMode ? 'app-info-group-mode' : '',
             Object.is(this.layoutType, 'FLEX') ? 'app-group-flex' : '',
-            this.uiStyle.toLowerCase()
+            this.uiStyle.toLowerCase(),
         ];
     }
 
@@ -211,9 +210,19 @@ export default class AppFormGroup extends Vue {
      * @memberof AppFormGroup
      */
     protected renderStyle4(): any {
-        return <app-form-group4 caption={this.caption} uiStyle={this.uiStyle} layoutType={this.layoutType} isShowCaption={this.isShowCaption} isInfoGroupMode={this.isInfoGroupMode} uiActionGroup={this.uiActionGroup} titleBarCloseMode={this.titleBarCloseMode}>
-            {this.$slots.default}
-        </app-form-group4>;
+        return (
+            <app-form-group4
+                caption={this.caption}
+                uiStyle={this.uiStyle}
+                layoutType={this.layoutType}
+                isShowCaption={this.isShowCaption}
+                isInfoGroupMode={this.isInfoGroupMode}
+                uiActionGroup={this.uiActionGroup}
+                titleBarCloseMode={this.titleBarCloseMode}
+            >
+                {this.$slots.default}
+            </app-form-group4>
+        );
     }
 
     /**
@@ -224,9 +233,19 @@ export default class AppFormGroup extends Vue {
      * @memberof AppFormGroup
      */
     protected renderStyle2(): any {
-        return <app-form-group2 caption={this.caption} uiStyle={this.uiStyle} layoutType={this.layoutType} isShowCaption={this.isShowCaption} isInfoGroupMode={this.isInfoGroupMode} uiActionGroup={this.uiActionGroup} titleBarCloseMode={this.titleBarCloseMode}>
-            {this.$slots.default}
-        </app-form-group2>;
+        return (
+            <app-form-group2
+                caption={this.caption}
+                uiStyle={this.uiStyle}
+                layoutType={this.layoutType}
+                isShowCaption={this.isShowCaption}
+                isInfoGroupMode={this.isInfoGroupMode}
+                uiActionGroup={this.uiActionGroup}
+                titleBarCloseMode={this.titleBarCloseMode}
+            >
+                {this.$slots.default}
+            </app-form-group2>
+        );
     }
 
     /**
@@ -239,30 +258,37 @@ export default class AppFormGroup extends Vue {
     protected renderActionGroup(): any {
         if (this.uiActionGroup) {
             if (this.uiActionGroup.extractMode && Object.is(this.uiActionGroup.extractMode, 'ITEMS')) {
-                return <dropdown transfer={true} trigger='click'>
-                    <a href='javascript:void(0)'>
-                        {this.uiActionGroup.caption}
-                    </a>
-                    <dropdown-menu slot='list'>
+                return (
+                    <dropdown transfer={true} trigger="click">
+                        <a href="javascript:void(0)">{this.uiActionGroup.caption}</a>
+                        <dropdown-menu slot="list">
+                            {this.uiActionGroup.details.map((detail: any, i: number) => {
+                                return (
+                                    <dropdown-item key={i} name={detail.name}>
+                                        <span class="item" on-click={(e: any) => this.doUIAction(e, detail)}>
+                                            {this.getIcon(detail)}
+                                            <span class="caption">{this.getCaption(detail)}</span>
+                                        </span>
+                                        ;
+                                    </dropdown-item>
+                                );
+                            })}
+                        </dropdown-menu>
+                    </dropdown>
+                );
+            } else {
+                return (
+                    <span class="item-extract-mode">
                         {this.uiActionGroup.details.map((detail: any, i: number) => {
-                            return <dropdown-item key={i} name={detail.name}>
-                                <span class='item' on-click={(e: any) => this.doUIAction(e, detail)}>
+                            return (
+                                <span key={i} class="item" on-click={(e: any) => this.doUIAction(e, detail)}>
                                     {this.getIcon(detail)}
                                     <span class="caption">{this.getCaption(detail)}</span>
-                                </span>;
-                            </dropdown-item>;
+                                </span>
+                            );
                         })}
-                    </dropdown-menu>
-                </dropdown >;
-            } else {
-                return <span class='item-extract-mode'>
-                    {this.uiActionGroup.details.map((detail: any, i: number) => {
-                        return <span key={i} class='item' on-click={(e: any) => this.doUIAction(e, detail)}>
-                            {this.getIcon(detail)}
-                            <span class="caption">{this.getCaption(detail)}</span>
-                        </span>;
-                    })}
-                </span >;
+                    </span>
+                );
             }
         }
     }
@@ -278,24 +304,41 @@ export default class AppFormGroup extends Vue {
         if (this.isShowCaption === false) {
             return this.$slots.default;
         }
-        return <card bordered={false} dis-hover={true} class={this.classes}>
-            <p slot='title'>
-                <span class="arrow-forward">
-                    {this.titleBarCloseMode !== 0 ? <icon type={this.collapseContant ? 'ivu-icon ivu-icon-ios-arrow-forward' : 'ivu-icon ivu-icon-ios-arrow-down'} on-click={() => this.clickCollapse()}></icon> : null}
-                </span>
-                <span class={this.titleClass}>{this.caption}</span>
-            </p>
-            <template slot="extra">
-                <span class="ui-actions"><a>{this.renderActionGroup()}</a></span>
-                {this.$slots.dataInfoPanel}
-            </template>
-            {Object.is(this.layoutType, 'FLEX') ? this.$slots.default : <row gutter={10}>{this.$slots.default}</row>}
-            <div class="show-more" v-show={this.model.showMoreMode === 2}>
-                <i-button on-click={() => this.model.changeShowMore()} size="small">
-                    {this.model?.showMore ? this.$t('form.group.hidden_more') : this.$t('form.group.show_more')}
-                </i-button>
-            </div>
-        </card>;
+        return (
+            <card bordered={false} dis-hover={true} class={this.classes}>
+                <p slot="title">
+                    <span class="arrow-forward">
+                        {this.titleBarCloseMode !== 0 ? (
+                            <icon
+                                type={
+                                    this.collapseContant
+                                        ? 'ivu-icon ivu-icon-ios-arrow-forward'
+                                        : 'ivu-icon ivu-icon-ios-arrow-down'
+                                }
+                                on-click={() => this.clickCollapse()}
+                            ></icon>
+                        ) : null}
+                    </span>
+                    <span class={this.titleClass}>{this.caption}</span>
+                </p>
+                <template slot="extra">
+                    <span class="ui-actions">
+                        <a>{this.renderActionGroup()}</a>
+                    </span>
+                    {this.$slots.dataInfoPanel}
+                </template>
+                {Object.is(this.layoutType, 'FLEX') ? (
+                    this.$slots.default
+                ) : (
+                    <row gutter={10}>{this.$slots.default}</row>
+                )}
+                <div class="show-more" v-show={this.model.showMoreMode === 2}>
+                    <i-button on-click={() => this.model.changeShowMore()} size="small">
+                        {this.model?.showMore ? this.$t('form.group.hidden_more') : this.$t('form.group.show_more')}
+                    </i-button>
+                </div>
+            </card>
+        );
     }
 
     /**

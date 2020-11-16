@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import ProductStatsService from '@/service/product-stats/product-stats-service';
 import ProductStatsAuthService from '@/authservice/product-stats/product-stats-auth-service';
@@ -48,7 +48,7 @@ export class ProductStatsEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof ProductStatsEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class ProductStatsEditView9Base extends EditView9Base {
 	 * @memberof ProductStatsEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'PRODUCTSTATS': { isRawValue: false, value: 'product' }
+        'PRODUCTSTATS': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class ProductStatsEditView9Base extends EditView9Base {
 	 * @memberof ProductStatsEditView9Base
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
     /**
@@ -99,8 +105,8 @@ export class ProductStatsEditView9Base extends EditView9Base {
         srfCaption: 'entities.productstats.views.editview9.caption',
         srfTitle: 'entities.productstats.views.editview9.title',
         srfSubTitle: 'entities.productstats.views.editview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -110,7 +116,10 @@ export class ProductStatsEditView9Base extends EditView9Base {
      * @memberof ProductStatsEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -119,9 +128,18 @@ export class ProductStatsEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductStatsEditView9Base
      */
 	protected viewtag: string = '5d468f620cc30181773d875b3bb8be6e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductStatsEditView9Base
+     */ 
+    protected viewName: string = "ProductStatsEditView9";
 
 
     /**
@@ -140,7 +158,9 @@ export class ProductStatsEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof ProductStatsEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

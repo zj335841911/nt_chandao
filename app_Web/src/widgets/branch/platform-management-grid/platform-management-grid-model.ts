@@ -23,6 +23,21 @@ export default class PlatformManagementModel {
 	public getDataItems(): any[] {
     if(this.isDEExport){
 		  return [
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'order',
+          prop: 'order',
+          dataType: 'INT',
+        },
       ]
     }else{
 		  return [

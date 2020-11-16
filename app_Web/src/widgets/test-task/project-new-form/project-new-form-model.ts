@@ -121,6 +121,16 @@ export default class ProjectNewModel {
         dataType: 'LONGTEXT',
       },
       {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

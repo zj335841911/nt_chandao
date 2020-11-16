@@ -651,6 +651,51 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("overduebugs")
     private Integer overduebugs;
 
+    /**
+     * 属性 [CASENAME]
+     *
+     */
+    @JSONField(name = "casename")
+    @JsonProperty("casename")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String casename;
+
+    /**
+     * 属性 [DELAY]
+     *
+     */
+    @JSONField(name = "delay")
+    @JsonProperty("delay")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String delay;
+
+    /**
+     * 属性 [NOTICEUSERS]
+     *
+     */
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String noticeusers;
+
+    /**
+     * 属性 [MAILTOPK]
+     *
+     */
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    private String mailtopk;
+
+    /**
+     * 属性 [MAILTOCONACT]
+     *
+     */
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String mailtoconact;
+
 
     /**
      * 设置 [SEVERITY]

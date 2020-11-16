@@ -7,6 +7,4 @@ import ViewEngine from './view-engine';
  * @class HtmlViewEngine
  * @extends {ViewEngine}
  */
-export default class HtmlViewEngine extends ViewEngine {
-
-}
+export default class HtmlViewEngine extends ViewEngine {}

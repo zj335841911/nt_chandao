@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
@@ -48,7 +48,7 @@ export class TaskEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,9 +74,18 @@ export class TaskEditViewBase extends EditViewBase {
 	 * @memberof TaskEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'STORY': { isRawValue: false, value: 'story' },
-        'MODULE': { isRawValue: false, value: 'module' },
-        'PROJECT': { isRawValue: false, value: 'project' }
+        'STORY': {
+            isRawValue: false,
+            value: 'story',
+        },
+        'MODULE': {
+            isRawValue: false,
+            value: 'module',
+        },
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
 	/**
@@ -87,9 +96,18 @@ export class TaskEditViewBase extends EditViewBase {
 	 * @memberof TaskEditViewBase
 	 */
     protected customViewParams: any = {
-        'project': { isRawValue: false, value: 'project' },
-        'story': { isRawValue: false, value: 'story' },
-        'module': { isRawValue: false, value: 'module' }
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'story': {
+            isRawValue: false,
+            value: 'story',
+        },
+        'module': {
+            isRawValue: false,
+            value: 'module',
+        }
     };
 
     /**
@@ -97,7 +115,7 @@ export class TaskEditViewBase extends EditViewBase {
      *
      * @memberof TaskEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -110,8 +128,8 @@ export class TaskEditViewBase extends EditViewBase {
         srfCaption: 'entities.task.views.editview.caption',
         srfTitle: 'entities.task.views.editview.title',
         srfSubTitle: 'entities.task.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -121,8 +139,14 @@ export class TaskEditViewBase extends EditViewBase {
      * @memberof TaskEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -132,7 +156,7 @@ export class TaskEditViewBase extends EditViewBase {
      * @memberof TaskEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -143,9 +167,18 @@ export class TaskEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskEditViewBase
      */
 	protected viewtag: string = 'ea141fddc78fd1af4d06e494baf12cc1';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskEditViewBase
+     */ 
+    protected viewName: string = "TaskEditView";
 
 
     /**
@@ -164,7 +197,9 @@ export class TaskEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TaskEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

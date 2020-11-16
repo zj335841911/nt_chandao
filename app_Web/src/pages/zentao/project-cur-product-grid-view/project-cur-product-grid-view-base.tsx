@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectCurProductGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
 	 * @memberof ProjectCurProductGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'N_STATUS_EQ': { isRawValue: true, value: 'null' }
+        'N_STATUS_EQ': {
+            isRawValue: true,
+            value: 'null',
+        }
     };
 
 	/**
@@ -88,8 +91,14 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
 	 * @memberof ProjectCurProductGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_product_eq': { isRawValue: false, value: 'product' },
-        'n_status_eq': { isRawValue: true, value: 'null' }
+        'n_product_eq': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'n_status_eq': {
+            isRawValue: true,
+            value: 'null',
+        }
     };
 
     /**
@@ -103,8 +112,8 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
         srfCaption: 'entities.project.views.curproductgridview.caption',
         srfTitle: 'entities.project.views.curproductgridview.title',
         srfSubTitle: 'entities.project.views.curproductgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -114,8 +123,14 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
      * @memberof ProjectCurProductGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -125,9 +140,9 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
      * @memberof ProjectCurProductGridView
      */
     public toolBarModels: any = {
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
-        deuiaction1: { name: 'deuiaction1', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
     };
 
@@ -138,9 +153,18 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectCurProductGridViewBase
      */
 	protected viewtag: string = '522b28992d16207a0fc47340589bb2cf';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectCurProductGridViewBase
+     */ 
+    protected viewName: string = "ProjectCurProductGridView";
 
 
     /**
@@ -159,7 +183,9 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof ProjectCurProductGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -170,11 +196,11 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'project',
@@ -196,6 +222,9 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
         }
         if (Object.is($event.tag, 'deuiaction1')) {
             this.toolbar_deuiaction1_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction4')) {
+            this.toolbar_deuiaction4_click(null, '', $event2);
         }
     }
 
@@ -308,6 +337,34 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
         }
         // 界面行为
         this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"Project");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"Project");
     }
 
     /**
@@ -445,5 +502,22 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
             return ;
         }
         xData.exportExcel($event.exportparms);
+    }
+    /**
+     * 过滤
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof ProjectCurProductGridViewBase
+     */
+    public ToggleFilter(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (_this.hasOwnProperty('isExpandSearchForm')) {
+            _this.isExpandSearchForm = !_this.isExpandSearchForm;
+        }
     }
 }

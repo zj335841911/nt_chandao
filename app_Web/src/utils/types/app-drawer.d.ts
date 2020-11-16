@@ -1,5 +1,5 @@
-import Vue, { VNode, CreateElement } from "vue";
-import { Subject } from "rxjs";
+import Vue, { VNode, CreateElement } from 'vue';
+import { Subject } from 'rxjs';
 
 /**
  * 抽屉实例
@@ -17,10 +17,20 @@ export declare interface AppDrawer {
      * @returns {Subject<any>}
      * @memberof AppDrawer
      */
-    openDrawer(view: { viewname: string, title: string, width?: number, height?: number, placement?: 'DRAWER_LEFT' | 'DRAWER_RIGHT' }, viewParam: any, data: any): Subject<any>;
+    openDrawer(
+        view: {
+            viewname: string;
+            title: string;
+            width?: number;
+            height?: number;
+            placement?: 'DRAWER_LEFT' | 'DRAWER_RIGHT';
+        },
+        viewParam: any,
+        data: any
+    ): Subject<any>;
 }
 
-declare module "vue/types/vue" {
+declare module 'vue/types/vue' {
     interface Vue {
         /**
          * 抽屉实例

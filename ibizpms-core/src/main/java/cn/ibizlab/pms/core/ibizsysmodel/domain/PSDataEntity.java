@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -32,10 +34,10 @@ import cn.ibizlab.pms.util.domain.EntityClient;
 public class PSDataEntity extends EntityClient implements Serializable {
     @Override
     public void modify(String field, Object val) {
-        getExtensionparams().put("dirtyflagenable",true);
+        getExtensionparams().put("dirtyflagenable", true);
         super.modify(field, val);
     }
-    
+
     /**
      * 实体名称
      */
@@ -46,7 +48,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
     /**
      * 实体标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @JSONField(name = "psdataentityid")
     @JsonProperty("psdataentityid")
     private String psdataentityid;
@@ -55,8 +57,8 @@ public class PSDataEntity extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
 
@@ -80,8 +82,8 @@ public class PSDataEntity extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
@@ -733,649 +735,649 @@ public class PSDataEntity extends EntityClient implements Serializable {
     /**
      * 设置 [实体名称]
      */
-    public void setPsdataentityname(String psdataentityname){
+    public void setPsdataentityname(String psdataentityname) {
         this.psdataentityname = psdataentityname ;
-        this.modify("psdataentityname",psdataentityname);
+        this.modify("psdataentityname", psdataentityname);
     }
 
     /**
      * 设置 [虚拟实体]
      */
-    public void setVirtualflag(Integer virtualflag){
+    public void setVirtualflag(Integer virtualflag) {
         this.virtualflag = virtualflag ;
-        this.modify("virtualflag",virtualflag);
+        this.modify("virtualflag", virtualflag);
     }
 
     /**
      * 设置 [虚拟主键分隔符]
      */
-    public void setVkeyseparator(String vkeyseparator){
+    public void setVkeyseparator(String vkeyseparator) {
         this.vkeyseparator = vkeyseparator ;
-        this.modify("vkeyseparator",vkeyseparator);
+        this.modify("vkeyseparator", vkeyseparator);
     }
 
     /**
      * 设置 [访问控制体系]
      */
-    public void setAccctrlarch(Integer accctrlarch){
+    public void setAccctrlarch(Integer accctrlarch) {
         this.accctrlarch = accctrlarch ;
-        this.modify("accctrlarch",accctrlarch);
+        this.modify("accctrlarch", accctrlarch);
     }
 
     /**
      * 设置 [审计模式]
      */
-    public void setAuditmode(Integer auditmode){
+    public void setAuditmode(Integer auditmode) {
         this.auditmode = auditmode ;
-        this.modify("auditmode",auditmode);
+        this.modify("auditmode", auditmode);
     }
 
     /**
      * 设置 [预置业务功能模式]
      */
-    public void setBiztag(String biztag){
+    public void setBiztag(String biztag) {
         this.biztag = biztag ;
-        this.modify("biztag",biztag);
+        this.modify("biztag", biztag);
     }
 
     /**
      * 设置 [基类参数]
      */
-    public void setBaseclsparams(String baseclsparams){
+    public void setBaseclsparams(String baseclsparams) {
         this.baseclsparams = baseclsparams ;
-        this.modify("baseclsparams",baseclsparams);
+        this.modify("baseclsparams", baseclsparams);
     }
 
     /**
      * 设置 [代码名称]
      */
-    public void setCodename(String codename){
+    public void setCodename(String codename) {
         this.codename = codename ;
-        this.modify("codename",codename);
+        this.modify("codename", codename);
     }
 
     /**
      * 设置 [显示颜色]
      */
-    public void setColor(String color){
+    public void setColor(String color) {
         this.color = color ;
-        this.modify("color",color);
+        this.modify("color", color);
     }
 
     /**
      * 设置 [数据访问控制方式]
      */
-    public void setDataaccmode(Integer dataaccmode){
+    public void setDataaccmode(Integer dataaccmode) {
         this.dataaccmode = dataaccmode ;
-        this.modify("dataaccmode",dataaccmode);
+        this.modify("dataaccmode", dataaccmode);
     }
 
     /**
      * 设置 [数据导入导出能力]
      */
-    public void setDataimpexpflag(Integer dataimpexpflag){
+    public void setDataimpexpflag(Integer dataimpexpflag) {
         this.dataimpexpflag = dataimpexpflag ;
-        this.modify("dataimpexpflag",dataimpexpflag);
+        this.modify("dataimpexpflag", dataimpexpflag);
     }
 
     /**
      * 设置 [数据变更日志类型]
      */
-    public void setDatachglogmode(Integer datachglogmode){
+    public void setDatachglogmode(Integer datachglogmode) {
         this.datachglogmode = datachglogmode ;
-        this.modify("datachglogmode",datachglogmode);
+        this.modify("datachglogmode", datachglogmode);
     }
 
     /**
      * 设置 [数据库表空间]
      */
-    public void setDbtabspace(String dbtabspace){
+    public void setDbtabspace(String dbtabspace) {
         this.dbtabspace = dbtabspace ;
-        this.modify("dbtabspace",dbtabspace);
+        this.modify("dbtabspace", dbtabspace);
     }
 
     /**
      * 设置 [实体类别]
      */
-    public void setDecat(String decat){
+    public void setDecat(String decat) {
         this.decat = decat ;
-        this.modify("decat",decat);
+        this.modify("decat", decat);
     }
 
     /**
      * 设置 [全局禁止子系统导入]
      */
-    public void setDelockflag(Integer delockflag){
+    public void setDelockflag(Integer delockflag) {
         this.delockflag = delockflag ;
-        this.modify("delockflag",delockflag);
+        this.modify("delockflag", delockflag);
     }
 
     /**
      * 设置 [实体编号]
      */
-    public void setDesn(String desn){
+    public void setDesn(String desn) {
         this.desn = desn ;
-        this.modify("desn",desn);
+        this.modify("desn", desn);
     }
 
     /**
      * 设置 [实体标记2]
      */
-    public void setDetag2(String detag2){
+    public void setDetag2(String detag2) {
         this.detag2 = detag2 ;
-        this.modify("detag2",detag2);
+        this.modify("detag2", detag2);
     }
 
     /**
      * 设置 [实体类型]
      */
-    public void setDetype(Integer detype){
+    public void setDetype(Integer detype) {
         this.detype = detype ;
-        this.modify("detype",detype);
+        this.modify("detype", detype);
     }
 
     /**
      * 设置 [实体标记]
      */
-    public void setDetag(String detag){
+    public void setDetag(String detag) {
         this.detag = detag ;
-        this.modify("detag",detag);
+        this.modify("detag", detag);
     }
 
     /**
      * 设置 [扩展模式]
      */
-    public void setDynamicmode(Integer dynamicmode){
+    public void setDynamicmode(Integer dynamicmode) {
         this.dynamicmode = dynamicmode ;
-        this.modify("dynamicmode",dynamicmode);
+        this.modify("dynamicmode", dynamicmode);
     }
 
     /**
      * 设置 [默认数据源]
      */
-    public void setDslink(String dslink){
+    public void setDslink(String dslink) {
         this.dslink = dslink ;
-        this.modify("dslink",dslink);
+        this.modify("dslink", dslink);
     }
 
     /**
      * 设置 [启用数据审计]
      */
-    public void setEnableaudit(Integer enableaudit){
+    public void setEnableaudit(Integer enableaudit) {
         this.enableaudit = enableaudit ;
-        this.modify("enableaudit",enableaudit);
+        this.modify("enableaudit", enableaudit);
     }
 
     /**
      * 设置 [动态模型类型]
      */
-    public void setDynamodelflag(Integer dynamodelflag){
+    public void setDynamodelflag(Integer dynamodelflag) {
         this.dynamodelflag = dynamodelflag ;
-        this.modify("dynamodelflag",dynamodelflag);
+        this.modify("dynamodelflag", dynamodelflag);
     }
 
     /**
      * 设置 [启用数据版本]
      */
-    public void setEnabledataver(Integer enabledataver){
+    public void setEnabledataver(Integer enabledataver) {
         this.enabledataver = enabledataver ;
-        this.modify("enabledataver",enabledataver);
+        this.modify("enabledataver", enabledataver);
     }
 
     /**
      * 设置 [启用DA日志]
      */
-    public void setEnabledalog(Integer enabledalog){
+    public void setEnabledalog(Integer enabledalog) {
         this.enabledalog = enabledalog ;
-        this.modify("enabledalog",enabledalog);
+        this.modify("enabledalog", enabledalog);
     }
 
     /**
      * 设置 [支持获取结果集]
      */
-    public void setEnablededataset(Integer enablededataset){
+    public void setEnablededataset(Integer enablededataset) {
         this.enablededataset = enablededataset ;
-        this.modify("enablededataset",enablededataset);
+        this.modify("enablededataset", enablededataset);
     }
 
     /**
      * 设置 [启用数据对象缓存]
      */
-    public void setEnableentitycache(Integer enableentitycache){
+    public void setEnableentitycache(Integer enableentitycache) {
         this.enableentitycache = enableentitycache ;
-        this.modify("enableentitycache",enableentitycache);
+        this.modify("enableentitycache", enableentitycache);
     }
 
     /**
      * 设置 [支持实体行为]
      */
-    public void setEnabledeaction(Integer enabledeaction){
+    public void setEnabledeaction(Integer enabledeaction) {
         this.enabledeaction = enabledeaction ;
-        this.modify("enabledeaction",enabledeaction);
+        this.modify("enabledeaction", enabledeaction);
     }
 
     /**
      * 设置 [支持多数据源]
      */
-    public void setEnablemultids(Integer enablemultids){
+    public void setEnablemultids(Integer enablemultids) {
         this.enablemultids = enablemultids ;
-        this.modify("enablemultids",enablemultids);
+        this.modify("enablemultids", enablemultids);
     }
 
     /**
      * 设置 [支持移动端]
      */
-    public void setEnablemob(Integer enablemob){
+    public void setEnablemob(Integer enablemob) {
         this.enablemob = enablemob ;
-        this.modify("enablemob",enablemob);
+        this.modify("enablemob", enablemob);
     }
 
     /**
      * 设置 [启用操作者名称模型]
      */
-    public void setEnableopnamemodel(Integer enableopnamemodel){
+    public void setEnableopnamemodel(Integer enableopnamemodel) {
         this.enableopnamemodel = enableopnamemodel ;
-        this.modify("enableopnamemodel",enableopnamemodel);
+        this.modify("enableopnamemodel", enableopnamemodel);
     }
 
     /**
      * 设置 [启用组织模型]
      */
-    public void setEnableorgmodel(Integer enableorgmodel){
+    public void setEnableorgmodel(Integer enableorgmodel) {
         this.enableorgmodel = enableorgmodel ;
-        this.modify("enableorgmodel",enableorgmodel);
+        this.modify("enableorgmodel", enableorgmodel);
     }
 
     /**
      * 设置 [启用多表单]
      */
-    public void setEnamultiform(Integer enamultiform){
+    public void setEnamultiform(Integer enamultiform) {
         this.enamultiform = enamultiform ;
-        this.modify("enamultiform",enamultiform);
+        this.modify("enamultiform", enamultiform);
     }
 
     /**
      * 设置 [启用工作流模型]
      */
-    public void setEnablewfmodel(Integer enablewfmodel){
+    public void setEnablewfmodel(Integer enablewfmodel) {
         this.enablewfmodel = enablewfmodel ;
-        this.modify("enablewfmodel",enablewfmodel);
+        this.modify("enablewfmodel", enablewfmodel);
     }
 
     /**
      * 设置 [支持简单查询]
      */
-    public void setEnableselect(Integer enableselect){
+    public void setEnableselect(Integer enableselect) {
         this.enableselect = enableselect ;
-        this.modify("enableselect",enableselect);
+        this.modify("enableselect", enableselect);
     }
 
     /**
      * 设置 [启用临时数据]
      */
-    public void setEnatempdata(Integer enatempdata){
+    public void setEnatempdata(Integer enatempdata) {
         this.enatempdata = enatempdata ;
-        this.modify("enatempdata",enatempdata);
+        this.modify("enatempdata", enatempdata);
     }
 
     /**
      * 设置 [数据对象缓存时长]
      */
-    public void setEntitycachetimeout(Integer entitycachetimeout){
+    public void setEntitycachetimeout(Integer entitycachetimeout) {
         this.entitycachetimeout = entitycachetimeout ;
-        this.modify("entitycachetimeout",entitycachetimeout);
+        this.modify("entitycachetimeout", entitycachetimeout);
     }
 
     /**
      * 设置 [现有数据结构]
      */
-    public void setExistingmodel(Integer existingmodel){
+    public void setExistingmodel(Integer existingmodel) {
         this.existingmodel = existingmodel ;
-        this.modify("existingmodel",existingmodel);
+        this.modify("existingmodel", existingmodel);
     }
 
     /**
      * 设置 [用户表]
      */
-    public void setExtablename(String extablename){
+    public void setExtablename(String extablename) {
         this.extablename = extablename ;
-        this.modify("extablename",extablename);
+        this.modify("extablename", extablename);
     }
 
     /**
      * 设置 [模型锁模式]
      */
-    public void setLockflag(Integer lockflag){
+    public void setLockflag(Integer lockflag) {
         this.lockflag = lockflag ;
-        this.modify("lockflag",lockflag);
+        this.modify("lockflag", lockflag);
     }
 
     /**
      * 设置 [索引类型]
      */
-    public void setIndexdetype(String indexdetype){
+    public void setIndexdetype(String indexdetype) {
         this.indexdetype = indexdetype ;
-        this.modify("indexdetype",indexdetype);
+        this.modify("indexdetype", indexdetype);
     }
 
     /**
      * 设置 [主键规则]
      */
-    public void setKeyrule(String keyrule){
+    public void setKeyrule(String keyrule) {
         this.keyrule = keyrule ;
-        this.modify("keyrule",keyrule);
+        this.modify("keyrule", keyrule);
     }
 
     /**
      * 设置 [逻辑无效值]
      */
-    public void setLogicinvalidvalue(String logicinvalidvalue){
+    public void setLogicinvalidvalue(String logicinvalidvalue) {
         this.logicinvalidvalue = logicinvalidvalue ;
-        this.modify("logicinvalidvalue",logicinvalidvalue);
+        this.modify("logicinvalidvalue", logicinvalidvalue);
     }
 
     /**
      * 设置 [中文名称]
      */
-    public void setLogicname(String logicname){
+    public void setLogicname(String logicname) {
         this.logicname = logicname ;
-        this.modify("logicname",logicname);
+        this.modify("logicname", logicname);
     }
 
     /**
      * 设置 [启用逻辑有效]
      */
-    public void setLogicvalid(Integer logicvalid){
+    public void setLogicvalid(Integer logicvalid) {
         this.logicvalid = logicvalid ;
-        this.modify("logicvalid",logicvalid);
+        this.modify("logicvalid", logicvalid);
     }
 
     /**
      * 设置 [逻辑有效值]
      */
-    public void setLogicvalidvalue(String logicvalidvalue){
+    public void setLogicvalidvalue(String logicvalidvalue) {
         this.logicvalidvalue = logicvalidvalue ;
-        this.modify("logicvalidvalue",logicvalidvalue);
+        this.modify("logicvalidvalue", logicvalidvalue);
     }
 
     /**
      * 设置 [模型导入导出能力]
      */
-    public void setModelimpexpflag(Integer modelimpexpflag){
+    public void setModelimpexpflag(Integer modelimpexpflag) {
         this.modelimpexpflag = modelimpexpflag ;
-        this.modify("modelimpexpflag",modelimpexpflag);
+        this.modify("modelimpexpflag", modelimpexpflag);
     }
 
     /**
      * 设置 [备注]
      */
-    public void setMemo(String memo){
+    public void setMemo(String memo) {
         this.memo = memo ;
-        this.modify("memo",memo);
+        this.modify("memo", memo);
     }
 
     /**
      * 设置 [最大缓存数据对象数]
      */
-    public void setMaxentitycachecnt(Integer maxentitycachecnt){
+    public void setMaxentitycachecnt(Integer maxentitycachecnt) {
         this.maxentitycachecnt = maxentitycachecnt ;
-        this.modify("maxentitycachecnt",maxentitycachecnt);
+        this.modify("maxentitycachecnt", maxentitycachecnt);
     }
 
     /**
      * 设置 [无视图模式]
      */
-    public void setNoviewmode(Integer noviewmode){
+    public void setNoviewmode(Integer noviewmode) {
         this.noviewmode = noviewmode ;
-        this.modify("noviewmode",noviewmode);
+        this.modify("noviewmode", noviewmode);
     }
 
     /**
      * 设置 [模型状态]
      */
-    public void setModelstate(Integer modelstate){
+    public void setModelstate(Integer modelstate) {
         this.modelstate = modelstate ;
-        this.modify("modelstate",modelstate);
+        this.modify("modelstate", modelstate);
     }
 
     /**
      * 设置 [SaaS构型]
      */
-    public void setSaasmode(Integer saasmode){
+    public void setSaasmode(Integer saasmode) {
         this.saasmode = saasmode ;
-        this.modify("saasmode",saasmode);
+        this.modify("saasmode", saasmode);
     }
 
     /**
      * 设置 [删除模式]
      */
-    public void setRemoveflag(Integer removeflag){
+    public void setRemoveflag(Integer removeflag) {
         this.removeflag = removeflag ;
-        this.modify("removeflag",removeflag);
+        this.modify("removeflag", removeflag);
     }
 
     /**
      * 设置 [服务API模式]
      */
-    public void setServiceapiflag(Integer serviceapiflag){
+    public void setServiceapiflag(Integer serviceapiflag) {
         this.serviceapiflag = serviceapiflag ;
-        this.modify("serviceapiflag",serviceapiflag);
+        this.modify("serviceapiflag", serviceapiflag);
     }
 
     /**
      * 设置 [服务代码名称]
      */
-    public void setServicecodename(String servicecodename){
+    public void setServicecodename(String servicecodename) {
         this.servicecodename = servicecodename ;
-        this.modify("servicecodename",servicecodename);
+        this.modify("servicecodename", servicecodename);
     }
 
     /**
      * 设置 [存储模式]
      */
-    public void setStoragemode(Integer storagemode){
+    public void setStoragemode(Integer storagemode) {
         this.storagemode = storagemode ;
-        this.modify("storagemode",storagemode);
+        this.modify("storagemode", storagemode);
     }
 
     /**
      * 设置 [子系统实体]
      */
-    public void setSubsysde(Integer subsysde){
+    public void setSubsysde(Integer subsysde) {
         this.subsysde = subsysde ;
-        this.modify("subsysde",subsysde);
+        this.modify("subsysde", subsysde);
     }
 
     /**
      * 设置 [默认发布行为服务]
      */
-    public void setSvrpubmode(Integer svrpubmode){
+    public void setSvrpubmode(Integer svrpubmode) {
         this.svrpubmode = svrpubmode ;
-        this.modify("svrpubmode",svrpubmode);
+        this.modify("svrpubmode", svrpubmode);
     }
 
     /**
      * 设置 [系统实体]
      */
-    public void setSystemflag(Integer systemflag){
+    public void setSystemflag(Integer systemflag) {
         this.systemflag = systemflag ;
-        this.modify("systemflag",systemflag);
+        this.modify("systemflag", systemflag);
     }
 
     /**
      * 设置 [主表名称]
      */
-    public void setTablename(String tablename){
+    public void setTablename(String tablename) {
         this.tablename = tablename ;
-        this.modify("tablename",tablename);
+        this.modify("tablename", tablename);
     }
 
     /**
      * 设置 [默认测试单元]
      */
-    public void setTestcaseflag(Integer testcaseflag){
+    public void setTestcaseflag(Integer testcaseflag) {
         this.testcaseflag = testcaseflag ;
-        this.modify("testcaseflag",testcaseflag);
+        this.modify("testcaseflag", testcaseflag);
     }
 
     /**
      * 设置 [TODO]
      */
-    public void setTodotask(String todotask){
+    public void setTodotask(String todotask) {
         this.todotask = todotask ;
-        this.modify("todotask",todotask);
+        this.modify("todotask", todotask);
     }
 
     /**
      * 设置 [自定义参数]
      */
-    public void setUserparams(String userparams){
+    public void setUserparams(String userparams) {
         this.userparams = userparams ;
-        this.modify("userparams",userparams);
+        this.modify("userparams", userparams);
     }
 
     /**
      * 设置 [默认用户界面行为]
      */
-    public void setUseraction(Integer useraction){
+    public void setUseraction(Integer useraction) {
         this.useraction = useraction ;
-        this.modify("useraction",useraction);
+        this.modify("useraction", useraction);
     }
 
     /**
      * 设置 [用户分类]
      */
-    public void setUsercat(String usercat){
+    public void setUsercat(String usercat) {
         this.usercat = usercat ;
-        this.modify("usercat",usercat);
+        this.modify("usercat", usercat);
     }
 
     /**
      * 设置 [用户标记2]
      */
-    public void setUsertag2(String usertag2){
+    public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
-        this.modify("usertag2",usertag2);
+        this.modify("usertag2", usertag2);
     }
 
     /**
      * 设置 [用户标记]
      */
-    public void setUsertag(String usertag){
+    public void setUsertag(String usertag) {
         this.usertag = usertag ;
-        this.modify("usertag",usertag);
+        this.modify("usertag", usertag);
     }
 
     /**
      * 设置 [用户标记3]
      */
-    public void setUsertag3(String usertag3){
+    public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
-        this.modify("usertag3",usertag3);
+        this.modify("usertag3", usertag3);
     }
 
     /**
      * 设置 [用户标记4]
      */
-    public void setUsertag4(String usertag4){
+    public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
-        this.modify("usertag4",usertag4);
+        this.modify("usertag4", usertag4);
     }
 
     /**
      * 设置 [是否启用]
      */
-    public void setValidflag(Integer validflag){
+    public void setValidflag(Integer validflag) {
         this.validflag = validflag ;
-        this.modify("validflag",validflag);
+        this.modify("validflag", validflag);
     }
 
     /**
      * 设置 [视图名称]
      */
-    public void setViewname(String viewname){
+    public void setViewname(String viewname) {
         this.viewname = viewname ;
-        this.modify("viewname",viewname);
+        this.modify("viewname", viewname);
     }
 
     /**
      * 设置 [多视图级别]
      */
-    public void setViewlevel(Integer viewlevel){
+    public void setViewlevel(Integer viewlevel) {
         this.viewlevel = viewlevel ;
-        this.modify("viewlevel",viewlevel);
+        this.modify("viewlevel", viewlevel);
     }
 
     /**
      * 设置 [级别3视图名称]
      */
-    public void setViewname3(String viewname3){
+    public void setViewname3(String viewname3) {
         this.viewname3 = viewname3 ;
-        this.modify("viewname3",viewname3);
+        this.modify("viewname3", viewname3);
     }
 
     /**
      * 设置 [级别2视图名称]
      */
-    public void setViewname2(String viewname2){
+    public void setViewname2(String viewname2) {
         this.viewname2 = viewname2 ;
-        this.modify("viewname2",viewname2);
+        this.modify("viewname2", viewname2);
     }
 
     /**
      * 设置 [级别4视图名称]
      */
-    public void setViewname4(String viewname4){
+    public void setViewname4(String viewname4) {
         this.viewname4 = viewname4 ;
-        this.modify("viewname4",viewname4);
+        this.modify("viewname4", viewname4);
     }
 
     /**
      * 设置 [系统]
      */
-    public void setPssystemid(String pssystemid){
+    public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
-        this.modify("pssystemid",pssystemid);
+        this.modify("pssystemid", pssystemid);
     }
 
     /**
      * 设置 [系统]
      */
-    public void setPssystemname(String pssystemname){
+    public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
-        this.modify("pssystemname",pssystemname);
+        this.modify("pssystemname", pssystemname);
     }
 
     /**
      * 设置 [系统模块]
      */
-    public void setPsmoduleid(String psmoduleid){
+    public void setPsmoduleid(String psmoduleid) {
         this.psmoduleid = psmoduleid ;
-        this.modify("psmoduleid",psmoduleid);
+        this.modify("psmoduleid", psmoduleid);
     }
 
     /**
      * 设置 [子系统接口实体]
      */
-    public void setPssubsyssadeid(String pssubsyssadeid){
+    public void setPssubsyssadeid(String pssubsyssadeid) {
         this.pssubsyssadeid = pssubsyssadeid ;
-        this.modify("pssubsyssadeid",pssubsyssadeid);
+        this.modify("pssubsyssadeid", pssubsyssadeid);
     }
 
     /**
      * 设置 [子系统服务接口]
      */
-    public void setPssubsysserviceapiid(String pssubsysserviceapiid){
+    public void setPssubsysserviceapiid(String pssubsysserviceapiid) {
         this.pssubsysserviceapiid = pssubsysserviceapiid ;
-        this.modify("pssubsysserviceapiid",pssubsysserviceapiid);
+        this.modify("pssubsysserviceapiid", pssubsysserviceapiid);
     }
 
     /**
      * 设置 [系统设计需求]
      */
-    public void setPssysreqitemid(String pssysreqitemid){
+    public void setPssysreqitemid(String pssysreqitemid) {
         this.pssysreqitemid = pssysreqitemid ;
-        this.modify("pssysreqitemid",pssysreqitemid);
+        this.modify("pssysreqitemid", pssysreqitemid);
     }
 
     /**
@@ -1388,7 +1390,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("psdataentityid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

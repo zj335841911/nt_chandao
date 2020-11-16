@@ -73,6 +73,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			title: "需求名称",

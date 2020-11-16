@@ -89,6 +89,15 @@ public class BurnDTO extends DTOBase implements Serializable {
     @JsonSerialize(using = ToStringSerializer.class)
     private Long task;
 
+    /**
+     * 属性 [ISWEEKEND]
+     *
+     */
+    @JSONField(name = "isweekend")
+    @JsonProperty("isweekend")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String isweekend;
+
 
     /**
      * 设置 [DATE]

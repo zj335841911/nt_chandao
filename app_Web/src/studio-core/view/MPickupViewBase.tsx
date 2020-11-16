@@ -8,7 +8,6 @@ import { PickupViewBase } from './PickupViewBase';
  * @extends {ViewBase}
  */
 export class MPickupViewBase extends PickupViewBase {
-
     /**
      * 是否初始化已选中项
      *
@@ -71,7 +70,9 @@ export class MPickupViewBase extends PickupViewBase {
      * @memberof MPickupViewBase
      */
     public selectionsDBLClick(item: any): void {
-        const index: number = this.viewSelections.findIndex((selection: any) => Object.is(selection.srfkey, item.srfkey));
+        const index: number = this.viewSelections.findIndex((selection: any) =>
+            Object.is(selection.srfkey, item.srfkey)
+        );
         if (index !== -1) {
             this.viewSelections.splice(index, 1);
         }
@@ -113,16 +114,18 @@ export class MPickupViewBase extends PickupViewBase {
             }
             let newSelections: any[] = [];
             model.selections.forEach((item: any) => {
-                const index: number = this.viewSelections.findIndex((selection: any) => Object.is(item.srfkey, selection.srfkey));
+                const index: number = this.viewSelections.findIndex((selection: any) =>
+                    Object.is(item.srfkey, selection.srfkey)
+                );
                 if (index === -1) {
                     let _item: any = { ...JSON.parse(JSON.stringify(item)) };
-                    Object.assign(_item, { _select: false })
+                    Object.assign(_item, { _select: false });
                     newSelections.push(_item);
                 } else {
                     newSelections.push(this.viewSelections[index]);
                 }
             });
-            this.viewSelections = this.removeDuplicates([...newSelections,...this.viewSelections]);
+            this.viewSelections = this.removeDuplicates([...newSelections, ...this.viewSelections]);
         });
     }
 
@@ -133,7 +136,7 @@ export class MPickupViewBase extends PickupViewBase {
      * @returns {Array<any>}
      * @memberof MPickupViewBase
      */
-    public removeDuplicates(data:any):Array<any> {
+    public removeDuplicates(data: any): Array<any> {
         const uniqueSet = new Set(data);
         return [...uniqueSet];
     }

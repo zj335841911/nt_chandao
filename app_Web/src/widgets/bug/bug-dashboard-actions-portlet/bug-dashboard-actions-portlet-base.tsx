@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugDashboardActionsService from './bug-dashboard-actions-portlet-service';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * dashboard_sysportlet5部件基类
@@ -17,7 +16,6 @@ import { ViewTool } from '@/utils';
  * @extends {BugDashboardActionsPortletBase}
  */
 export class BugDashboardActionsPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @type {BugUIService}
      * @memberof BugDashboardActionsBase
      */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
     /**
      * 逻辑事件
@@ -357,7 +355,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof BugMainDashboardView_LinkBase
+     * @memberof Bugmaindashboardview_linkBase
      */
     public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         this.closeView(args);
@@ -398,16 +396,16 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @memberof BugDashboardActionsBase
      */
     public uiactionModel: any = {
-        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
-        maineditdash: {name: 'maineditdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_EDIT_BUT', uiaction: { tag: 'MainEditDash', target: 'SINGLEKEY' } },
-        closebugdash: {name: 'closebugdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_CLOSE_BUT', uiaction: { tag: 'CloseBugDash', target: 'SINGLEKEY' } },
-        resolvebugdash: {name: 'resolvebugdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', uiaction: { tag: 'ResolveBugDash', target: 'SINGLEKEY' } },
-        assingtobugcz: {name: 'assingtobugcz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_ASSIGNTO_BUT', uiaction: { tag: 'AssingToBugCz', target: 'SINGLEKEY' } },
-        confirmbugdash: {name: 'confirmbugdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', uiaction: { tag: 'ConfirmBugDash', target: 'SINGLEKEY' } },
-        activation: {name: 'activation', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_ACTIVATE_BUT', uiaction: { tag: 'Activation', target: 'SINGLEKEY' } },
-        tostory: {name: 'tostory', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_TOSTORY_BUT', uiaction: { tag: 'toStory', target: 'SINGLEKEY' } },
-        buildusecase: {name: 'buildusecase', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_CREATECASE_BUT', uiaction: { tag: 'BuildUseCase', target: 'SINGLEKEY' } },
-        delete: {name: 'delete', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
+        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        maineditdash: {name: 'maineditdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_EDIT_BUT', uiaction: { tag: 'MainEditDash', target: 'SINGLEKEY' } },
+        closebugdash: {name: 'closebugdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_CLOSE_BUT', uiaction: { tag: 'CloseBugDash', target: 'SINGLEKEY' } },
+        resolvebugdash: {name: 'resolvebugdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', uiaction: { tag: 'ResolveBugDash', target: 'SINGLEKEY' } },
+        assingtobugcz: {name: 'assingtobugcz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_ASSIGNTO_BUT', uiaction: { tag: 'AssingToBugCz', target: 'SINGLEKEY' } },
+        confirmbugdash: {name: 'confirmbugdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', uiaction: { tag: 'ConfirmBugDash', target: 'SINGLEKEY' } },
+        activation: {name: 'activation', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_ACTIVATE_BUT', uiaction: { tag: 'Activation', target: 'SINGLEKEY' } },
+        tostory: {name: 'tostory', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_TOSTORY_BUT', uiaction: { tag: 'toStory', target: 'SINGLEKEY' } },
+        buildusecase: {name: 'buildusecase', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_CREATECASE_BUT', uiaction: { tag: 'BuildUseCase', target: 'SINGLEKEY' } },
+        delete: {name: 'delete', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -423,7 +421,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         actiontarget:'',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u7bbaff3_click",
@@ -433,7 +431,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_EDIT_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u46c6b98_click",
@@ -443,7 +441,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_CLOSE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u9666cf2_click",
@@ -453,7 +451,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_RESOLVE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u28b30c8_click",
@@ -463,7 +461,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_ASSIGNTO_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u18c7ab6_click",
@@ -473,17 +471,17 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_CONFIRM_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u1b279b1_click",
         text: "激活",
-        iconcls: null,
-        icon: null,
+        iconcls: "fa fa-magic",
+        icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_ACTIVATE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_uf577fc4_click",
@@ -493,7 +491,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_TOSTORY_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_ucf86385_click",
@@ -503,7 +501,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_CREATECASE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u5cd6c83_click",
@@ -513,7 +511,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_DELETE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         }
     ];

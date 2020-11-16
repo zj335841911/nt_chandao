@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Story;
  */
 @Slf4j
 @Service
-public class StoryStoryNFavoritesLogicImpl implements IStoryStoryNFavoritesLogic{
+public class StoryStoryNFavoritesLogicImpl implements IStoryStoryNFavoritesLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -34,22 +34,24 @@ public class StoryStoryNFavoritesLogicImpl implements IStoryStoryNFavoritesLogic
         return this.iBzSysDefaultService;
     }
 
-    public void execute(Story et){
+    @Override
+    public void execute(Story et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("storystorynfavoritesdefault",et);
-           kieSession.setGlobal("iBzSysStoryDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("storystorynfavoritesdefault", et);
+           kieSession.setGlobal("iBzSysStoryDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.storystorynfavorites");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[需求取消收藏]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

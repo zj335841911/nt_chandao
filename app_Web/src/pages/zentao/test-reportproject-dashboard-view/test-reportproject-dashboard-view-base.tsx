@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
 import TestReportAuthService from '@/authservice/test-report/test-report-auth-service';
@@ -65,7 +65,10 @@ export class TestReportprojectDashboardViewBase extends DashboardViewBase {
 	 * @memberof TestReportprojectDashboardViewBase
 	 */
     protected customViewNavContexts: any = {
-        'SRFPARENTKEY': { isRawValue: false, value: 'srfparentkey' }
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
 	/**
@@ -76,7 +79,10 @@ export class TestReportprojectDashboardViewBase extends DashboardViewBase {
 	 * @memberof TestReportprojectDashboardViewBase
 	 */
     protected customViewParams: any = {
-        'srfparentkey': { isRawValue: false, value: 'srfparentkey' }
+        'srfparentkey': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
     /**
@@ -84,7 +90,7 @@ export class TestReportprojectDashboardViewBase extends DashboardViewBase {
      *
      * @memberof TestReportprojectDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -97,8 +103,8 @@ export class TestReportprojectDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.testreport.views.projectdashboardview.caption',
         srfTitle: 'entities.testreport.views.projectdashboardview.title',
         srfSubTitle: 'entities.testreport.views.projectdashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -108,7 +114,10 @@ export class TestReportprojectDashboardViewBase extends DashboardViewBase {
      * @memberof TestReportprojectDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -117,9 +126,18 @@ export class TestReportprojectDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestReportprojectDashboardViewBase
      */
 	protected viewtag: string = 'ea7b1f6631cb623ea079455b374ef9d4';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportprojectDashboardViewBase
+     */ 
+    protected viewName: string = "TestReportprojectDashboardView";
 
 
     /**
@@ -138,7 +156,9 @@ export class TestReportprojectDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof TestReportprojectDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

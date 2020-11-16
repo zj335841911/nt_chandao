@@ -129,6 +129,7 @@ export default {
 			projectname: "所属项目", 
 			overviews: "概况", 
 			report: "总结", 
+			files: "附件", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -164,6 +165,7 @@ export default {
 			projectname: "所属项目", 
 			overviews: "概况", 
 			report: "总结", 
+			files: "附件", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -312,6 +314,7 @@ export default {
 		},
 	},
 	projectmain_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			title: "标题",
@@ -328,6 +331,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			title: "标题",
@@ -337,6 +341,14 @@ export default {
 			tasks: "测试版本",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "ID",
+			title: "标题",
+			createdby: "创建",
+			createddate: "创建时间",
+			projectname: "所属项目",
+			tasks: "测试版本",
+    },
 		uiactions: {
 			edit: "编辑",
 			testreport_edits: "编辑",

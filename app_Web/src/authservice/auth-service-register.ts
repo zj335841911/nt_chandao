@@ -54,11 +54,13 @@ export class AuthServiceRegister {
         this.allAuthService.set('burn', () => import('@/authservice/burn/burn-auth-service'));
         this.allAuthService.set('substory', () => import('@/authservice/sub-story/sub-story-auth-service'));
         this.allAuthService.set('subproductplan', () => import('@/authservice/sub-product-plan/sub-product-plan-auth-service'));
-        this.allAuthService.set('employeeload', () => import('@/authservice/employ-eeload/employ-eeload-auth-service'));
+        this.allAuthService.set('employeeload', () => import('@/authservice/emp-loyeeload/emp-loyeeload-auth-service'));
+        this.allAuthService.set('doccontent', () => import('@/authservice/doc-content/doc-content-auth-service'));
         this.allAuthService.set('storyspec', () => import('@/authservice/story-spec/story-spec-auth-service'));
         this.allAuthService.set('usertpl', () => import('@/authservice/user-tpl/user-tpl-auth-service'));
         this.allAuthService.set('ibzfavorites', () => import('@/authservice/ibz-favorites/ibz-favorites-auth-service'));
         this.allAuthService.set('branch', () => import('@/authservice/branch/branch-auth-service'));
+        this.allAuthService.set('sysdepartment', () => import('@/authservice/sys-department/sys-department-auth-service'));
         this.allAuthService.set('productstats', () => import('@/authservice/product-stats/product-stats-auth-service'));
         this.allAuthService.set('ibzprojectmember', () => import('@/authservice/ibz-project-member/ibz-project-member-auth-service'));
         this.allAuthService.set('action', () => import('@/authservice/action/action-auth-service'));
@@ -83,7 +85,9 @@ export class AuthServiceRegister {
         this.allAuthService.set('productmodule', () => import('@/authservice/product-module/product-module-auth-service'));
         this.allAuthService.set('module', () => import('@/authservice/module/module-auth-service'));
         this.allAuthService.set('testmodule', () => import('@/authservice/test-module/test-module-auth-service'));
+        this.allAuthService.set('doclibmodule', () => import('@/authservice/doc-lib-module/doc-lib-module-auth-service'));
         this.allAuthService.set('productlife', () => import('@/authservice/product-life/product-life-auth-service'));
+        this.allAuthService.set('usercontact', () => import('@/authservice/user-contact/user-contact-auth-service'));
         this.allAuthService.set('task', () => import('@/authservice/task/task-auth-service'));
         this.allAuthService.set('build', () => import('@/authservice/build/build-auth-service'));
         this.allAuthService.set('testresult', () => import('@/authservice/test-result/test-result-auth-service'));
@@ -98,14 +102,18 @@ export class AuthServiceRegister {
         this.allAuthService.set('projectstats', () => import('@/authservice/project-stats/project-stats-auth-service'));
         this.allAuthService.set('testrun', () => import('@/authservice/test-run/test-run-auth-service'));
         this.allAuthService.set('ibzmyterritory', () => import('@/authservice/ibz-my-territory/ibz-my-territory-auth-service'));
+        this.allAuthService.set('sysupdatelog', () => import('@/authservice/sys-update-log/sys-update-log-auth-service'));
+        this.allAuthService.set('doc', () => import('@/authservice/doc/doc-auth-service'));
         this.allAuthService.set('bug', () => import('@/authservice/bug/bug-auth-service'));
         this.allAuthService.set('projectmodule', () => import('@/authservice/project-module/project-module-auth-service'));
         this.allAuthService.set('ibzdoc', () => import('@/authservice/ibz-doc/ibz-doc-auth-service'));
         this.allAuthService.set('pssysapp', () => import('@/authservice/pssys-app/pssys-app-auth-service'));
         this.allAuthService.set('ibzcase', () => import('@/authservice/ibz-case/ibz-case-auth-service'));
         this.allAuthService.set('pssystemdbcfg', () => import('@/authservice/pssystem-dbcfg/pssystem-dbcfg-auth-service'));
+        this.allAuthService.set('sysupdatefeatures', () => import('@/authservice/sys-update-features/sys-update-features-auth-service'));
         this.allAuthService.set('release', () => import('@/authservice/release/release-auth-service'));
         this.allAuthService.set('dynadashboard', () => import('@/authservice/dyna-dashboard/dyna-dashboard-auth-service'));
+        this.allAuthService.set('sysemployee', () => import('@/authservice/sys-employee/sys-employee-auth-service'));
     }
 
     /**

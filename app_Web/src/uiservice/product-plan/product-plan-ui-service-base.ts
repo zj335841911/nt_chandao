@@ -21,6 +21,13 @@ export default class ProductPlanUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  ProductPlanUIServiceBase
+     */
+    public isEnableDEMainState:boolean = true;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  ProductPlanUIServiceBase
@@ -89,12 +96,24 @@ export default class ProductPlanUIServiceBase extends UIService {
      * @memberof  ProductPlanUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'maintabexp',srfappde:'productplans',component:'product-plan-main-tab-exp'});
-        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'productplans',component:'product-plan-main-edit-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productplans',component:'product-plan-grid-view'});
-        this.allViewMap.set(':',{viewname:'projectgridview9',srfappde:'productplans',component:'product-plan-project-grid-view9'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productplans',component:'product-plan-edit-view'});
-        this.allViewMap.set(':',{viewname:'maindataeditview',srfappde:'productplans',component:'product-plan-main-data-edit-view'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'productplans',
+            component: 'product-plan-grid-view',
+            openmode: '',
+            title: '产品计划',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'productplans',
+            component: 'product-plan-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '产品计划',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -355,7 +374,6 @@ export default class ProductPlanUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-
                 const _this: any = actionContext;
                 return response;
             }).catch((response: any) => {
@@ -576,7 +594,6 @@ export default class ProductPlanUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -648,7 +665,6 @@ export default class ProductPlanUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联Bug成功！' });
-
                 const _this: any = actionContext;
                 return response;
             }).catch((response: any) => {
@@ -741,7 +757,6 @@ export default class ProductPlanUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

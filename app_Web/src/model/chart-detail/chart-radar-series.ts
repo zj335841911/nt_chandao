@@ -6,8 +6,7 @@ import { ChartSeries } from './chart-series';
  * @export
  * @class ChartRadarSeries
  */
-export class ChartRadarSeries extends ChartSeries{
-
+export class ChartRadarSeries extends ChartSeries {
     /**
      * 分类属性
      *
@@ -46,13 +45,12 @@ export class ChartRadarSeries extends ChartSeries{
      * @type {*}
      * @memberof ChartRadarSeries
      */
-    public encode:any = null;
-
+    public encode: any = null;
 
     /**
      * Creates an instance of ChartRadarSeries.
      * ChartRadarSeries 实例
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof ChartRadarSeries
      */
@@ -62,7 +60,7 @@ export class ChartRadarSeries extends ChartSeries{
         this.categorCodeList = opts.categorCodeList ? opts.categorCodeList : null;
         this.valueField = !Object.is(opts.valueField, '') ? opts.valueField : '';
         this.encode = opts.encode ? opts.encode : null;
-        this.indicator = opts.indicator ? opts.indicator:[];
+        this.indicator = opts.indicator ? opts.indicator : [];
     }
 
     /**
@@ -114,5 +112,4 @@ export class ChartRadarSeries extends ChartSeries{
     public setIndicator(state: any): void {
         this.indicator = state;
     }
-
 }

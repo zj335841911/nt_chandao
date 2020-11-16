@@ -10,14 +10,13 @@ import './app-form-group-data-panel.less';
  */
 @Component({})
 export default class AppFormGroupDataPanel extends Vue {
-
     /**
      * 表单分组模型
      *
      * @type {*}
      * @memberof AppFormGroupDataPanel
      */
-    @Prop({ default: () => { } })
+    @Prop({ default: () => {} })
     public model: any;
 
     /**
@@ -26,7 +25,7 @@ export default class AppFormGroupDataPanel extends Vue {
      * @type {*}
      * @memberof AppFormGroupDataPanel
      */
-    @Prop({ default: () => { } })
+    @Prop({ default: () => {} })
     public data!: any;
 
     /**
@@ -75,10 +74,18 @@ export default class AppFormGroupDataPanel extends Vue {
             for (const key in data) {
                 if (Object.prototype.hasOwnProperty.call(data, key)) {
                     const item = data[key];
-                    items.push(<span class="data-item">
-                        {/* {item.isShowCaption ? <span class="caption">{this.getCaption(item)}：</span> : null} */}
-                        <app-span name={item.name} value={this.data[item.name]} data={this.data} context={this.context} viewparams={this.viewparams}></app-span>
-                    </span>);
+                    items.push(
+                        <span class="data-item">
+                            {/* {item.isShowCaption ? <span class="caption">{this.getCaption(item)}：</span> : null} */}
+                            <app-span
+                                name={item.name}
+                                value={this.data[item.name]}
+                                data={this.data}
+                                context={this.context}
+                                viewparams={this.viewparams}
+                            ></app-span>
+                        </span>
+                    );
                 }
             }
             return <span class="form-group-data-panel">{items}</span>;

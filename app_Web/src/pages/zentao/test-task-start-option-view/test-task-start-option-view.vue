@@ -1,5 +1,5 @@
-<template src="./test-task-start-option-view.html"/>
-<script lang='tsx'>
+<template src="./test-task-start-option-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestTaskStartOptionViewBase } from './test-task-start-option-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/test-task/start-form/start-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestTaskStartOptionView extends TestTaskStartOptionViewBase { }
+export default class TestTaskStartOptionView extends TestTaskStartOptionViewBase {}
 </script>

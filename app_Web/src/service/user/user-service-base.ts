@@ -1,4 +1,5 @@
-import { Http,Util } from '@/utils';
+import { Http } from '@/utils';
+import { Util } from '@/utils';
 import EntityService from '../entity-service';
 
 
@@ -275,7 +276,7 @@ export default class UserServiceBase extends EntityService {
     }
 
     /**
-     * FetchProjectTeamUser_Task接口方法
+     * FetchProjectTeamUserTask接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -283,9 +284,9 @@ export default class UserServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof UserServiceBase
      */
-    public async FetchProjectTeamUser_Task(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async FetchProjectTeamUserTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/users/fetchprojectteamuser_task`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/users/fetchprojectteamusertask`,tempData,isloading);
         return res;
     }
 

@@ -21,6 +21,13 @@ export default class IBZTaskEstimateUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  IBZTaskEstimateUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  IBZTaskEstimateUIServiceBase
@@ -89,7 +96,6 @@ export default class IBZTaskEstimateUIServiceBase extends UIService {
      * @memberof  IBZTaskEstimateUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'ibztaskestimates',component:'task-estimate-grid-view9'});
     }
 
     /**

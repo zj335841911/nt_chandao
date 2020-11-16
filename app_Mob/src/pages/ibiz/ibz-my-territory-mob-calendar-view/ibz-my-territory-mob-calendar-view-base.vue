@@ -6,15 +6,15 @@
     
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_calendar
             :viewState="viewState"
             viewName="IbzMyTerritoryMobCalendarView"  
             :viewparams="viewparams" 
             :context="context" 
             :showBusyIndicator="true"  
-            :showCheack="showCheack"
-            @showCheackChange="showCheackChange"
+            :isChoose="isChoose"
+            @isChooseChange="isChooseChange"
             name="calendar"  
             ref='calendar' 
             @load="calendar_load($event)"  
@@ -29,12 +29,13 @@
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
 
 import MobCalendarViewEngine from '@engine/view/mob-calendar-view-engine';
 import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -133,6 +134,14 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
      * @memberof IbzMyTerritoryMobCalendarViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof IbzMyTerritoryMobCalendarViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
@@ -542,14 +551,27 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
         }
     }
 
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof IbzMyTerritoryMobCalendarViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
+
 
     /**
      * 多选状态改变事件
      *
      * @memberof IbzMyTerritoryMobCalendarViewBase
      */
-    public showCheackChange(value:any){
-        this.showCheack = value;
+    public isChooseChange(value:any){
+        this.isChoose = value;
     }
 
     /**
@@ -557,14 +579,14 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
      *
      * @memberof IbzMyTerritoryMobCalendarViewBase
      */
-    public showCheack = false;
+    public isChoose = false;
 
     /**
      * 取消选择状态
      * @memberof IbzMyTerritoryMobCalendarViewBase
      */
     public cancelSelect() {
-        this.showCheackChange(false);
+        this.isChooseChange(false);
     }
 
 

@@ -8,7 +8,6 @@ import ViewEngine from './view-engine';
  * @extends {ViewEngine}
  */
 export default class TreeExpView extends ViewEngine {
-
     /**
      * 选择视图面板
      *
@@ -19,7 +18,7 @@ export default class TreeExpView extends ViewEngine {
 
     /**
      * Creates an instance of TreeExpView.
-     * 
+     *
      * @memberof TreeExpView
      */
     constructor() {
@@ -36,7 +35,6 @@ export default class TreeExpView extends ViewEngine {
         this.treeExpBar = options.treeexpbar;
         super.init(options);
     }
-
 
     /**
      * 引擎加载
@@ -66,7 +64,6 @@ export default class TreeExpView extends ViewEngine {
         super.onCtrlEvent(ctrlName, eventName, args);
         if (Object.is(ctrlName, 'treeexpbar')) {
             this.treeExpBarEvent(eventName, args);
-
         }
     }
 
@@ -98,6 +95,4 @@ export default class TreeExpView extends ViewEngine {
     public getTreeExpBar(): any {
         return this.treeExpBar;
     }
-
-
 }

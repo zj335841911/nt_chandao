@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -48,7 +48,7 @@ export class StoryMainView9_RelatedBase extends EditView9Base {
      * @type {string}
      * @memberof StoryMainView9_RelatedBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class StoryMainView9_RelatedBase extends EditView9Base {
 	 * @memberof StoryMainView9_RelatedBase
 	 */
     protected customViewNavContexts: any = {
-        'FROMBUG': { isRawValue: false, value: 'frombug' }
+        'FROMBUG': {
+            isRawValue: false,
+            value: 'frombug',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class StoryMainView9_RelatedBase extends EditView9Base {
 	 * @memberof StoryMainView9_RelatedBase
 	 */
     protected customViewParams: any = {
-        'frombug': { isRawValue: false, value: 'frombug' }
+        'frombug': {
+            isRawValue: false,
+            value: 'frombug',
+        }
     };
 
     /**
@@ -99,8 +105,8 @@ export class StoryMainView9_RelatedBase extends EditView9Base {
         srfCaption: 'entities.story.views.mainview9_related.caption',
         srfTitle: 'entities.story.views.mainview9_related.title',
         srfSubTitle: 'entities.story.views.mainview9_related.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -110,7 +116,10 @@ export class StoryMainView9_RelatedBase extends EditView9Base {
      * @memberof StoryMainView9_RelatedBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -119,9 +128,18 @@ export class StoryMainView9_RelatedBase extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryMainView9_RelatedBase
      */
 	protected viewtag: string = '1f87f07919b8496e5bf832f95686fada';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMainView9_RelatedBase
+     */ 
+    protected viewName: string = "StoryMainView9_Related";
 
 
     /**
@@ -140,7 +158,9 @@ export class StoryMainView9_RelatedBase extends EditView9Base {
      * @type {Array<*>}
      * @memberof StoryMainView9_RelatedBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

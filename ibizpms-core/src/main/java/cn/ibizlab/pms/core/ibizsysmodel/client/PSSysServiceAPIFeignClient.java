@@ -31,7 +31,7 @@ public interface PSSysServiceAPIFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysserviceapis/{pssysserviceapiid}")
-    PSSysServiceAPI update(@PathVariable("pssysserviceapiid") String pssysserviceapiid,@RequestBody PSSysServiceAPI pssysserviceapi);
+    PSSysServiceAPI update(@PathVariable("pssysserviceapiid") String pssysserviceapiid, @RequestBody PSSysServiceAPI pssysserviceapi);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysserviceapis/batch")
     Boolean updateBatch(@RequestBody List<PSSysServiceAPI> pssysserviceapis);

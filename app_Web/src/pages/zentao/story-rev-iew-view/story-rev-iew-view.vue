@@ -1,5 +1,5 @@
-<template src="./story-rev-iew-view.html"/>
-<script lang='tsx'>
+<template src="./story-rev-iew-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryRevIewViewBase } from './story-rev-iew-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/story/review-form/review-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryRevIewView extends StoryRevIewViewBase { }
+export default class StoryRevIewView extends StoryRevIewViewBase {}
 </script>

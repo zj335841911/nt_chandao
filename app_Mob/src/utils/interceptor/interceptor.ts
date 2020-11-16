@@ -110,9 +110,9 @@ export class Interceptors {
                 this.doNoLogin(_data.data);
             }
             if (res.status === 404) {
-                this.router.push({ path: '/404' });
+                // this.router.push({ path: '/404' });
             } else if (res.status === 500) {
-                this.router.push({ path: '/500' });
+                // this.router.push({ path: '/500' });
             }
             return Promise.reject(res);
         });

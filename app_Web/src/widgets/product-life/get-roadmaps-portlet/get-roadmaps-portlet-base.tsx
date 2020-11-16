@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProductLifeService from '@/service/product-life/product-life-service';
 import GetRoadmapsService from './get-roadmaps-portlet-service';
 import ProductLifeUIService from '@/uiservice/product-life/product-life-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * dashboard_sysportlet1部件基类
@@ -17,7 +16,6 @@ import { ViewTool } from '@/utils';
  * @extends {GetRoadmapsPortletBase}
  */
 export class GetRoadmapsPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class GetRoadmapsPortletBase extends MainControlBase {
      * @type {ProductLifeUIService}
      * @memberof GetRoadmapsBase
      */  
-    public appUIService:ProductLifeUIService = new ProductLifeUIService(this.$store);
+    public appUIService: ProductLifeUIService = new ProductLifeUIService(this.$store);
 
 
     /**

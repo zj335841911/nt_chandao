@@ -93,9 +93,26 @@ export default class MobEditViewEngine extends ViewEngine {
     public onFormLoad(arg: any): void {
         this.view.$emit('load', arg);
         this.view.$emit('viewdataschange', JSON.stringify({ action: 'load', status: 'success', data: arg }));
+        this.setNavCaption(Object.is(arg.srfuf, '0'));
         const newdata: boolean = !Object.is(arg.srfuf, '1');
         this.calcToolbarItemState(newdata);
         this.calcToolbarItemAuthState(arg);
+    }
+
+    /**
+     * 设置导航标题
+     *
+     * @memberof EditViewEngine
+     */
+    public setNavCaption(isCreate: boolean): void {
+        let viewdata: any = this.view.model;
+        let index: number = viewdata.srfCaption.indexOf("-");
+        if (viewdata) {
+            if (!isCreate) {
+                this.view.model.srfCaption = `${this.view.$t(viewdata.srfCaption)}-${this.form.data.srfmajortext}`;
+                this.view.initNavCaption();
+            }
+        }
     }
 
     /**
@@ -138,8 +155,8 @@ export default class MobEditViewEngine extends ViewEngine {
      *
      * @memberof EditViewEngine
      */
-    public transformData(arg:any){
-        if(!this.getForm() || !(this.getForm().transformData instanceof Function)){
+    public transformData(arg: any) {
+        if (!this.getForm() || !(this.getForm().transformData instanceof Function)) {
             return null;
         }
         return this.getForm().transformData(arg);

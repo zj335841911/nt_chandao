@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import ReleaseService from '@/service/release/release-service';
 import ReleaseAuthService from '@/authservice/release/release-auth-service';
@@ -48,7 +48,7 @@ export class ReleaseMainInfoViewBase extends EditViewBase {
      * @type {string}
      * @memberof ReleaseMainInfoViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class ReleaseMainInfoViewBase extends EditViewBase {
 	 * @memberof ReleaseMainInfoViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'release' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'release',
+        }
     };
 
     /**
@@ -82,7 +85,7 @@ export class ReleaseMainInfoViewBase extends EditViewBase {
      *
      * @memberof ReleaseMainInfoViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -95,8 +98,8 @@ export class ReleaseMainInfoViewBase extends EditViewBase {
         srfCaption: 'entities.release.views.maininfoview.caption',
         srfTitle: 'entities.release.views.maininfoview.title',
         srfSubTitle: 'entities.release.views.maininfoview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -106,7 +109,10 @@ export class ReleaseMainInfoViewBase extends EditViewBase {
      * @memberof ReleaseMainInfoViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -115,9 +121,18 @@ export class ReleaseMainInfoViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ReleaseMainInfoViewBase
      */
 	protected viewtag: string = '983aa1b77ca021f30978523ddef010a0';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ReleaseMainInfoViewBase
+     */ 
+    protected viewName: string = "ReleaseMainInfoView";
 
 
     /**
@@ -136,7 +151,9 @@ export class ReleaseMainInfoViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ReleaseMainInfoViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

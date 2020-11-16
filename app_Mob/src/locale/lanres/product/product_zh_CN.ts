@@ -40,6 +40,12 @@ export default {
     istop: "是否置顶",
     testtaskcnt: "测试单数",
     testsuitecnt: "套件数",
+    popk: "产品负责人（选择）",
+    qdpk: "测试负责人（选择）",
+    rdpk: "发布负责人（选择）",
+    noticeusers: "消息通知用户",
+    orgid: "组织标识",
+    mdeptid: "部门标识",
   },
 	views: {
 		prodmobtabexpview: {
@@ -146,13 +152,16 @@ export default {
 			code: '产品代号', 
 			line: '产品线', 
 			linename: '产品线', 
-			po: '产品负责人', 
-			qd: '测试负责人', 
-			rd: '发布负责人', 
+			popk: '产品负责人', 
+			qdpk: '测试负责人', 
+			rdpk: '发布负责人', 
 			type: '产品类型', 
 			desc: '产品描述	', 
 			acl: '访问控制', 
 			id: '编号', 
+			po: '产品负责人', 
+			rd: '发布负责人', 
+			qd: '测试负责人', 
 		},
 		uiactions: {
 		},
@@ -166,6 +175,14 @@ export default {
 			n_linename_like: '产品线', 
 		},
 		uiactions: {
+		},
+	},
+	mobpickupmdviewmdctrl_batchtoolbar_toolbar: {
+	},
+	mobmdviewmdctrl_batchtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '删除',
+			tip: '删除',
 		},
 	},
 	closemobeditviewrighttoolbar_toolbar: {
@@ -198,6 +215,12 @@ export default {
 		deuiaction1: {
 			caption: '新建',
 			tip: '新建',
+		},
+	},
+	testmobmdviewmdctrl_batchtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '删除',
+			tip: '删除',
 		},
 	},
 };

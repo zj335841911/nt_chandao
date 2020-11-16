@@ -1,11 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import ProjectStoryService from './project-story-grid-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -15,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {ProjectStoryGridBase}
  */
 export class ProjectStoryGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +64,7 @@ export class ProjectStoryGridBase extends GridControlBase {
      * @type {StoryUIService}
      * @memberof ProjectStoryBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 逻辑事件
@@ -131,8 +130,8 @@ export class ProjectStoryGridBase extends GridControlBase {
      * @memberof ProjectStoryBase
      */  
     public ActionModel: any = {
-        Breakdowntasks: { name: 'Breakdowntasks',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_FJTASK_BUT', target: 'SINGLEKEY'},
-        ProjectUnlinkStory: { name: 'ProjectUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY'}
+        Breakdowntasks: { name: 'Breakdowntasks',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_FJTASK_BUT', target: 'SINGLEKEY'},
+        ProjectUnlinkStory: { name: 'ProjectUnlinkStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY'}
     };
 
     /**
@@ -267,11 +266,13 @@ export class ProjectStoryGridBase extends GridControlBase {
      * @type {*}
      * @memberof ProjectStoryGridBase
      */
-    public rules: any = {
+    public rules() {
+        return {
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**
@@ -304,6 +305,102 @@ export class ProjectStoryGridBase extends GridControlBase {
         return ( this.hasRowEdit[args.column.property] && this.actualIsOpenEdit ) ? "edit-cell" : "info-cell";
     }
 
+
+    /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ProjectStoryGridBase
+     */
+    protected isDeExport: boolean = true;
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof ProjectStoryGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'id',
+            label: 'ID',
+            langtag: 'entities.story.projectstory_grid.exportColumns.id',
+            show: true,
+        },
+        {
+            name: 'pri',
+            label: 'P',
+            langtag: 'entities.story.projectstory_grid.exportColumns.pri',
+            show: true,
+        },
+        {
+            name: 'title',
+            label: '需求名称',
+            langtag: 'entities.story.projectstory_grid.exportColumns.title',
+            show: true,
+        },
+        {
+            name: 'plan',
+            label: '计划',
+            langtag: 'entities.story.projectstory_grid.exportColumns.plan',
+            show: true,
+        },
+        {
+            name: 'openedby',
+            label: '创建',
+            langtag: 'entities.story.projectstory_grid.exportColumns.openedby',
+            show: true,
+        },
+        {
+            name: 'assignedto',
+            label: '指派',
+            langtag: 'entities.story.projectstory_grid.exportColumns.assignedto',
+            show: true,
+        },
+        {
+            name: 'estimate',
+            label: '预计',
+            langtag: 'entities.story.projectstory_grid.exportColumns.estimate',
+            show: true,
+        },
+        {
+            name: 'status',
+            label: '状态',
+            langtag: 'entities.story.projectstory_grid.exportColumns.status',
+            show: true,
+        },
+        {
+            name: 'stage',
+            label: '阶段',
+            langtag: 'entities.story.projectstory_grid.exportColumns.stage',
+            show: true,
+        },
+        {
+            name: 'modulename',
+            label: '所属模块名称',
+            langtag: 'entities.story.projectstory_grid.exportColumns.modulename',
+            show: true,
+        },
+        {
+            name: 'module',
+            label: '所属模块',
+            langtag: 'entities.story.projectstory_grid.exportColumns.module',
+            show: true,
+        },
+        {
+            name: 'isfavorites',
+            label: '是否收藏',
+            langtag: 'entities.story.projectstory_grid.exportColumns.isfavorites',
+            show: true,
+        },
+        {
+            name: 'ischild',
+            label: '是否可以细分',
+            langtag: 'entities.story.projectstory_grid.exportColumns.ischild',
+            show: true,
+        },
+    ]
 
     /**
      * 导出数据格式化

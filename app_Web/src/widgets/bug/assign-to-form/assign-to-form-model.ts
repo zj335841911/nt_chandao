@@ -71,6 +71,16 @@ export default class AssignToModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'comment',
         prop: 'comment',
         dataType: 'HTMLTEXT',

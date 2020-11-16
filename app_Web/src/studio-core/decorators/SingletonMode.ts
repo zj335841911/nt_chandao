@@ -9,7 +9,7 @@ export function SingletonMode(params?: any): any {
     /**
      * 装饰器处理
      */
-    return function(target: any) {
+    return function (target: any) {
         return class Singleton extends target {
             /**
              * 唯一实例
@@ -37,6 +37,6 @@ export function SingletonMode(params?: any): any {
             public static getInstance(): Singleton {
                 return this.instance;
             }
-        }
-    }
+        };
+    };
 }

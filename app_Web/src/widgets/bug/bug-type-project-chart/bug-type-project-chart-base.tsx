@@ -1,6 +1,7 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugType_ProjectService from './bug-type-project-chart-service';
@@ -10,7 +11,6 @@ import moment from "moment";
 import CodeListService from "@service/app/codelist-service";
 import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries,ChartRadarSeries} from '@/model/chart-detail';
 
-
 /**
  * dashboard_BugTypeProject_chart部件基类
  *
@@ -19,7 +19,6 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
  * @extends {BugType_ProjectChartBase}
  */
 export class BugType_ProjectChartBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -69,7 +68,7 @@ export class BugType_ProjectChartBase extends MainControlBase {
      * @type {BugUIService}
      * @memberof BugType_ProjectBase
      */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
     
 
@@ -201,7 +200,7 @@ export class BugType_ProjectChartBase extends MainControlBase {
     
     
     categorField:'type',
-    categorCodeList:{type:'STATIC',tag:'Bug__type',emptycode:'empty',emptytext:'未定义'},
+    
     
     valueField:'srfcount',
     seriesValues:[],
@@ -209,7 +208,7 @@ export class BugType_ProjectChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"type",codelist:{type:"STATIC",tag:"Bug__type",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
+    {name:"type",codelist:null,isGroupField:true,groupMode:""},
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
@@ -326,7 +325,10 @@ export class BugType_ProjectChartBase extends MainControlBase {
         const parentdata: any = {};
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
-        Object.assign(arg,{viewparams:this.viewparams,page:0,size:1000});
+        let tempViewParams:any = parentdata.viewparams?parentdata.viewparams:{};
+        Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg,{viewparams:tempViewParams});
+        Object.assign(arg,{page:0,size:1000});
         this.service.search(this.fetchAction,JSON.parse(JSON.stringify(this.context)),arg,this.showBusyIndicator).then((res) => {
             if (res) {
                this.transformToBasicChartSetData(res.data,(codelist:any) =>{_this.drawCharts(codelist)});

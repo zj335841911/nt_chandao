@@ -6,7 +6,6 @@
     viewName="ProjectMobPickupMDView"  
     :viewparams="viewparams" 
     :context="context" 
-    :showBusyIndicator="true" 
     viewType="DEMOBPICKUPMDVIEW"
     controlStyle="LISTVIEW"
     updateAction="Update"
@@ -16,8 +15,9 @@
     createAction="Create"
     fetchAction="FetchDefault" 
     :isMutli="!isSingleSelect"
+    :isNeedLoaddingText="!isPortalView"
+    :showBusyIndicator="true" 
     :isTempMode="false"
-    :isEnableChoose="false"
     name="mdctrl"  
     ref='mdctrl' 
     @selectionchange="mdctrl_selectionchange($event)"  
@@ -32,12 +32,13 @@
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProjectService from '@/app-core/service/project/project-service';
 
 import MobPickupMDViewEngine from '@engine/view/mob-pickup-mdview-engine';
 import ProjectUIService from '@/ui-service/project/project-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -136,6 +137,14 @@ export default class ProjectMobPickupMDViewBase extends Vue {
      * @memberof ProjectMobPickupMDViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof ProjectMobPickupMDViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
@@ -248,12 +257,38 @@ export default class ProjectMobPickupMDViewBase extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
+
+   /**
+    * 工具栏 ProjectMobPickupMDView 模型
+    *
+    * @type {*}
+    * @memberof ProjectMobPickupMDView
+    */
+    public mdctrl_batchtoolbarModels: any = {
+    };
+
+    
+
+
+
+   /**
+    * 工具栏 ProjectMobPickupMDView 模型
+    *
+    * @type {*}
+    * @memberof ProjectMobPickupMDView
+    */
+    public mdctrl_quicktoolbarModels: any = {
+    };
+
+    
+
+
     /**
      * 工具栏模型集合名
      *
      * @memberof ProjectMobPickupMDViewBase
      */
-    public toolbarModelList:any = []
+    public toolbarModelList:any = ['mdctrl_batchtoolbarModels','mdctrl_quicktoolbarModels',]
 
     /**
      * 解析视图参数
@@ -541,6 +576,19 @@ export default class ProjectMobPickupMDViewBase extends Vue {
             _this.onRefreshView();
         }
     }
+
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof ProjectMobPickupMDViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
 
 
    /**

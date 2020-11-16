@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { ListViewBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import ActionAuthService from '@/authservice/action/action-auth-service';
 import ListViewEngine from '@engine/view/list-view-engine';
 import ActionUIService from '@/uiservice/action/action-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ActionProductTrendsListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionProductTrendsListViewBase
      */ 
-    protected dataControl:string = "list";
+    protected dataControl: string = "list";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ActionProductTrendsListViewBase extends ListViewBase {
         srfCaption: 'entities.action.views.producttrendslistview.caption',
         srfTitle: 'entities.action.views.producttrendslistview.title',
         srfSubTitle: 'entities.action.views.producttrendslistview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,7 +91,10 @@ export class ActionProductTrendsListViewBase extends ListViewBase {
      * @memberof ActionProductTrendsListViewBase
      */
     protected containerModel: any = {
-        view_list: { name: 'list', type: 'LIST' },
+        view_list: {
+            name: 'list',
+            type: 'LIST',
+        },
     };
 
 
@@ -100,9 +103,18 @@ export class ActionProductTrendsListViewBase extends ListViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ActionProductTrendsListViewBase
      */
 	protected viewtag: string = 'f7a278d765ff0f85a2c59cbb2485fa30';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionProductTrendsListViewBase
+     */ 
+    protected viewName: string = "ActionProductTrendsListView";
 
 
     /**
@@ -121,7 +133,9 @@ export class ActionProductTrendsListViewBase extends ListViewBase {
      * @type {Array<*>}
      * @memberof ActionProductTrendsListViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -133,15 +147,15 @@ export class ActionProductTrendsListViewBase extends ListViewBase {
         this.engine.init({
             view: this,
             list: this.$refs.list,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'action',
             majorPSDEField: 'comment',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
@@ -297,4 +311,37 @@ export class ActionProductTrendsListViewBase extends ListViewBase {
     }
 
 
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ActionProductTrendsListViewBase
+     */
+    protected isExpandSearchForm: boolean = true;
+
+    /**
+     * 加载快速分组模型
+     *
+     * @protected
+     * @memberof ActionProductTrendsListViewBase
+     */
+    protected loadQuickGroupModel(): void {
+        const quickGroupCodeList: any = { tag: 'ProductActionQuickpacket', codelistType: 'STATIC' };
+        if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
+            const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
+            if (codelist) {
+                this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
+            } else {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            }
+        } else if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
+            this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
+                this.quickGroupModel = res;
+            }).catch((error:any) => {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            });
+        }
+    }
 }

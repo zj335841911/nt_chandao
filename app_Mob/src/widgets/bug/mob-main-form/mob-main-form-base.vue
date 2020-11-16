@@ -27,14 +27,18 @@
     v-show="detailsModel.productname.visible" 
     :itemRules="this.rules.productname" 
     :caption="$t('bug.mobmain_form.details.productname')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.productname.disabled"
     :error="detailsModel.productname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.productname" 
-    :context="context" 
+    v-if="data.productname"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.productname" 
     :itemParam="{}"/>
 </app-form-item>
@@ -51,17 +55,21 @@
     v-show="detailsModel.branch.visible" 
     :itemRules="this.rules.branch" 
     :caption="$t('bug.mobmain_form.details.branch')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.branch.disabled"
     :error="detailsModel.branch.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="ProductBranch"
     :isCache="false" 
-    v-if="data.branch" 
-    :context="context" 
+    v-if="data.branch"
+    :navigateContext ='{ "product": "%product%" } '
+    :navigateParam ='{ "product": "%product%" } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.branch" 
     :itemParam="{}"/>
 </app-form-item>
@@ -78,14 +86,18 @@
     v-show="detailsModel.modulename1.visible" 
     :itemRules="this.rules.modulename1" 
     :caption="$t('bug.mobmain_form.details.modulename1')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.modulename1.disabled"
     :error="detailsModel.modulename1.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.modulename1" 
-    :context="context" 
+    v-if="data.modulename1"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.modulename1" 
     :itemParam="{}"/>
 </app-form-item>
@@ -102,14 +114,18 @@
     v-show="detailsModel.projectname.visible" 
     :itemRules="this.rules.projectname" 
     :caption="$t('bug.mobmain_form.details.projectname')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.projectname.disabled"
     :error="detailsModel.projectname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.projectname" 
-    :context="context" 
+    v-if="data.projectname"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.projectname" 
     :itemParam="{}"/>
 </app-form-item>
@@ -126,17 +142,21 @@
     v-show="detailsModel.openedbuild.visible" 
     :itemRules="this.rules.openedbuild" 
     :caption="$t('bug.mobmain_form.details.openedbuild')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.openedbuild.disabled"
     :error="detailsModel.openedbuild.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="CurProductBuild"
     :isCache="false" 
-    v-if="data.openedbuild" 
-    :context="context" 
+    v-if="data.openedbuild"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.openedbuild" 
     :itemParam="{}"/>
 </app-form-item>
@@ -153,14 +173,18 @@
     v-show="detailsModel.title.visible" 
     :itemRules="this.rules.title" 
     :caption="$t('bug.mobmain_form.details.title')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.title.disabled"
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.title" 
-    :context="context" 
+    v-if="data.title"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.title" 
     :itemParam="{}"/>
 </app-form-item>
@@ -177,17 +201,21 @@
     v-show="detailsModel.type.visible" 
     :itemRules="this.rules.type" 
     :caption="$t('bug.mobmain_form.details.type')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.type.disabled"
     :error="detailsModel.type.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Bug__type"
     :isCache="false" 
-    v-if="data.type" 
-    :context="context" 
+    v-if="data.type"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.type" 
     :itemParam="{}"/>
 </app-form-item>
@@ -204,17 +232,21 @@
     v-show="detailsModel.severity.visible" 
     :itemRules="this.rules.severity" 
     :caption="$t('bug.mobmain_form.details.severity')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.severity.disabled"
     :error="detailsModel.severity.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Bug__severity_mob"
     :isCache="false" 
-    v-if="data.severity" 
-    :context="context" 
+    v-if="data.severity"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.severity" 
     :itemParam="{}"/>
 </app-form-item>
@@ -231,17 +263,21 @@
     v-show="detailsModel.pri.visible" 
     :itemRules="this.rules.pri" 
     :caption="$t('bug.mobmain_form.details.pri')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.pri.disabled"
     :error="detailsModel.pri.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Bug__pri"
     :isCache="false" 
-    v-if="data.pri" 
-    :context="context" 
+    v-if="data.pri"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.pri" 
     :itemParam="{}"/>
 </app-form-item>
@@ -258,17 +294,21 @@
     v-show="detailsModel.os.visible" 
     :itemRules="this.rules.os" 
     :caption="$t('bug.mobmain_form.details.os')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.os.disabled"
     :error="detailsModel.os.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Bug__os"
     :isCache="false" 
-    v-if="data.os" 
-    :context="context" 
+    v-if="data.os"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.os" 
     :itemParam="{}"/>
 </app-form-item>
@@ -285,17 +325,21 @@
     v-show="detailsModel.browser.visible" 
     :itemRules="this.rules.browser" 
     :caption="$t('bug.mobmain_form.details.browser')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.browser.disabled"
     :error="detailsModel.browser.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Bug__browser"
     :isCache="false" 
-    v-if="data.browser" 
-    :context="context" 
+    v-if="data.browser"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.browser" 
     :itemParam="{}"/>
 </app-form-item>
@@ -312,14 +356,18 @@
     v-show="detailsModel.deadline.visible" 
     :itemRules="this.rules.deadline" 
     :caption="$t('bug.mobmain_form.details.deadline')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.deadline.disabled"
     :error="detailsModel.deadline.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.deadline" 
-    :context="context" 
+    v-if="data.deadline"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.deadline" 
     :itemParam="{}"/>
 </app-form-item>
@@ -336,14 +384,18 @@
     v-show="detailsModel.repotype.visible" 
     :itemRules="this.rules.repotype" 
     :caption="$t('bug.mobmain_form.details.repotype')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.repotype.disabled"
     :error="detailsModel.repotype.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.repotype" 
-    :context="context" 
+    v-if="data.repotype"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.repotype" 
     :itemParam="{}"/>
 </app-form-item>
@@ -360,17 +412,21 @@
     v-show="detailsModel.status.visible" 
     :itemRules="this.rules.status" 
     :caption="$t('bug.mobmain_form.details.status')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.status.disabled"
     :error="detailsModel.status.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Bug__status"
     :isCache="false" 
-    v-if="data.status" 
-    :context="context" 
+    v-if="data.status"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.status" 
     :itemParam="{}"/>
 </app-form-item>
@@ -387,17 +443,21 @@
     v-show="detailsModel.resolution.visible" 
     :itemRules="this.rules.resolution" 
     :caption="$t('bug.mobmain_form.details.resolution')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.resolution.disabled"
     :error="detailsModel.resolution.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Bug__resolution"
     :isCache="false" 
-    v-if="data.resolution" 
-    :context="context" 
+    v-if="data.resolution"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.resolution" 
     :itemParam="{}"/>
 </app-form-item>
@@ -414,14 +474,18 @@
     v-show="detailsModel.resolveddate.visible" 
     :itemRules="this.rules.resolveddate" 
     :caption="$t('bug.mobmain_form.details.resolveddate')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.resolveddate.disabled"
     :error="detailsModel.resolveddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.resolveddate" 
-    :context="context" 
+    v-if="data.resolveddate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.resolveddate" 
     :itemParam="{}"/>
 </app-form-item>
@@ -438,17 +502,21 @@
     v-show="detailsModel.resolvedby.visible" 
     :itemRules="this.rules.resolvedby" 
     :caption="$t('bug.mobmain_form.details.resolvedby')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.resolvedby.disabled"
     :error="detailsModel.resolvedby.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.resolvedby" 
-    :context="context" 
+    v-if="data.resolvedby"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.resolvedby" 
     :itemParam="{}"/>
 </app-form-item>
@@ -465,13 +533,58 @@
     v-show="detailsModel.steps.visible" 
     :itemRules="this.rules.steps" 
     :caption="$t('bug.mobmain_form.details.steps')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
+    :disabled="detailsModel.steps.disabled"
     :error="detailsModel.steps.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :uploadparams='{}' :exportparams='{}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
+
+
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel2.visible" 
+    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
+    :caption="$t('bug.mobmain_form.details.grouppanel2')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="1" 
+    :isInfoGroupMode="true" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='bug' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='file-mob-mdview9' 
+    v-show="detailsModel.druipart2.visible" 
+    :caption="$t('bug.mobmain_form.details.druipart2')"  
+    paramItem='bug' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_BUG","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
+    ]" 
+    tempMode='0'
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ "objecttype": "bug" } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
 
 
 
@@ -497,6 +610,7 @@
     refreshitems='' 
     viewname='action-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('bug.mobmain_form.details.druipart1')"  
     paramItem='bug' 
     style="" 
     :formState="formState" 
@@ -790,6 +904,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     protected formState: Subject<any> = new Subject();
 
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobMainBase
+     */
+    public appStateEvent: Subscription | undefined;
+
     /**
      * 忽略表单项值变化
      *
@@ -992,6 +1116,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel2: new FormGroupPanelModel({ caption: '附件', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'bug.mobmain_form', extractMode: 'ITEM', details: [] } })
+, 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 
         grouppanel1: new FormGroupPanelModel({ caption: '变更历史', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'bug.mobmain_form', extractMode: 'ITEM', details: [] } })
@@ -1477,6 +1605,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
 
 
+
+
     }
 
 
@@ -1768,6 +1898,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Bug")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1790,6 +1930,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1973,7 +2116,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 1;
+            this.drcounter = 2;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();
@@ -1999,7 +2142,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

@@ -59,6 +59,7 @@ public class IbzMyTerritorySearchContext extends QueryWrapperContext<IbzMyTerrit
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

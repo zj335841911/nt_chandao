@@ -1,5 +1,5 @@
-<template src="./work-info-portlet.html"/>
-<script lang='tsx'>
+<template src="./work-info-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { WorkInfoPortletBase } from './work-info-portlet-base';
@@ -15,8 +15,8 @@ import { WorkInfoPortletBase } from './work-info-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class WorkInfoPortlet extends WorkInfoPortletBase { }
+export default class WorkInfoPortlet extends WorkInfoPortletBase {}
 </script>

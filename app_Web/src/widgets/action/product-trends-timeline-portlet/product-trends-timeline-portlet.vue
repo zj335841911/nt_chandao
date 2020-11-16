@@ -1,5 +1,5 @@
-<template src="./product-trends-timeline-portlet.html"/>
-<script lang='tsx'>
+<template src="./product-trends-timeline-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductTrendsTimelinePortletBase } from './product-trends-timeline-portlet-base';
@@ -15,8 +15,8 @@ import { ProductTrendsTimelinePortletBase } from './product-trends-timeline-port
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ProductTrendsTimelinePortlet extends ProductTrendsTimelinePortletBase { }
+export default class ProductTrendsTimelinePortlet extends ProductTrendsTimelinePortletBase {}
 </script>

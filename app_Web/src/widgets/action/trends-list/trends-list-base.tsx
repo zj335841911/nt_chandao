@@ -1,10 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, ListControlBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import TrendsService from './trends-list-service';
 import ActionUIService from '@/uiservice/action/action-ui-service';
-
 
 /**
  * list部件基类
@@ -14,7 +14,6 @@ import ActionUIService from '@/uiservice/action/action-ui-service';
  * @extends {TrendsListBase}
  */
 export class TrendsListBase extends ListControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,7 +63,7 @@ export class TrendsListBase extends ListControlBase {
      * @type {ActionUIService}
      * @memberof TrendsBase
      */  
-    public appUIService:ActionUIService = new ActionUIService(this.$store);
+    public appUIService: ActionUIService = new ActionUIService(this.$store);
 
     
 
@@ -74,7 +73,7 @@ export class TrendsListBase extends ListControlBase {
      * @type {number}
      * @memberof TrendsListBase
      */
-    public limit: number = 1000;
+    public limit: number = 50;
 
     /**
      * 排序方向
@@ -91,6 +90,8 @@ export class TrendsListBase extends ListControlBase {
      * @memberof TrendsListBase
      */
     public minorSortPSDEF: string = 'date';
+
+
 
 
 }

@@ -1,6 +1,7 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import BurnService from '@/service/burn/burn-service';
 import BurnDownService from './burn-down-chart-service';
@@ -10,7 +11,6 @@ import moment from "moment";
 import CodeListService from "@service/app/codelist-service";
 import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries,ChartRadarSeries} from '@/model/chart-detail';
 
-
 /**
  * dashboard_sysportlet1_chart部件基类
  *
@@ -19,7 +19,6 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
  * @extends {BurnDownChartBase}
  */
 export class BurnDownChartBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -69,7 +68,7 @@ export class BurnDownChartBase extends MainControlBase {
      * @type {BurnUIService}
      * @memberof BurnDownBase
      */  
-    public appUIService:BurnUIService = new BurnUIService(this.$store);
+    public appUIService: BurnUIService = new BurnUIService(this.$store);
 
 
     /**
@@ -401,7 +400,10 @@ export class BurnDownChartBase extends MainControlBase {
         const parentdata: any = {};
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
-        Object.assign(arg,{viewparams:this.viewparams,page:0,size:1000});
+        let tempViewParams:any = parentdata.viewparams?parentdata.viewparams:{};
+        Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg,{viewparams:tempViewParams});
+        Object.assign(arg,{page:0,size:1000});
         this.service.search(this.fetchAction,JSON.parse(JSON.stringify(this.context)),arg,this.showBusyIndicator).then((res) => {
             if (res) {
                this.transformToBasicChartSetData(res.data,(codelist:any) =>{_this.drawCharts(codelist)});

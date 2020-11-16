@@ -78,6 +78,15 @@ export class MobMPickupViewpickupviewpanelModel {
       {
         name: 'sqlid',
       },
+      {
+        name: 'createbugcnt',
+      },
+      {
+        name: 'builderpk',
+      },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

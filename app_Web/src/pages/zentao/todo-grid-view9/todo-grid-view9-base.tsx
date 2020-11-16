@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import TodoService from '@/service/todo/todo-service';
 import TodoAuthService from '@/authservice/todo/todo-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import TodoUIService from '@/uiservice/todo/todo-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TodoGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof TodoGridView9Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,9 +77,22 @@ export class TodoGridView9Base extends GridView9Base {
 	 * @memberof TodoGridView9Base
 	 */
     protected customViewParams: any = {
-        'n_status_noteq': { isRawValue: true, value: 'done' },
-        'n_date_noteq': { isRawValue: true, value: '2030-01-01' },
-        'n_cycle_eq': { isRawValue: true, value: '0' }
+        'n_status_noteq': {
+            isRawValue: true,
+            value: 'done',
+        },
+        'n_date_noteq': {
+            isRawValue: true,
+            value: '2030-01-01',
+        },
+        'n_cycle_eq': {
+            isRawValue: true,
+            value: '0',
+        },
+        'size': {
+            isRawValue: true,
+            value: '5',
+        }
     };
 
     /**
@@ -93,8 +106,8 @@ export class TodoGridView9Base extends GridView9Base {
         srfCaption: 'entities.todo.views.gridview9.caption',
         srfTitle: 'entities.todo.views.gridview9.title',
         srfSubTitle: 'entities.todo.views.gridview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -104,7 +117,10 @@ export class TodoGridView9Base extends GridView9Base {
      * @memberof TodoGridView9Base
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -113,9 +129,18 @@ export class TodoGridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TodoGridView9Base
      */
 	protected viewtag: string = 'c3f0a8956b863fa05a7d961df90a3975';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoGridView9Base
+     */ 
+    protected viewName: string = "TodoGridView9";
 
 
     /**
@@ -134,7 +159,9 @@ export class TodoGridView9Base extends GridView9Base {
      * @type {Array<*>}
      * @memberof TodoGridView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -145,11 +172,11 @@ export class TodoGridView9Base extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'todo',

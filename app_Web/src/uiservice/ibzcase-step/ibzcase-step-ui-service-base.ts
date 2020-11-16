@@ -21,6 +21,13 @@ export default class IBZCaseStepUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  IBZCaseStepUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  IBZCaseStepUIServiceBase
@@ -89,8 +96,6 @@ export default class IBZCaseStepUIServiceBase extends UIService {
      * @memberof  IBZCaseStepUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'carryouteditmode',srfappde:'ibzcasesteps',component:'case-step-carry-out-edit-mode'});
-        this.allViewMap.set(':',{viewname:'maingridview9_editmode',srfappde:'ibzcasesteps',component:'case-step-main-grid-view9-edit-mode'});
     }
 
     /**

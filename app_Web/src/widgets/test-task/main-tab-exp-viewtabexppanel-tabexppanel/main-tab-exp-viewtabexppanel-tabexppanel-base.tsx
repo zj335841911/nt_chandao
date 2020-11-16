@@ -1,10 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TabExpPanelControlBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import MainTabExpViewtabexppanelService from './main-tab-exp-viewtabexppanel-tabexppanel-service';
 import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
-
+import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
+import { Environment } from '@/environments/environment';
 
 /**
  * tabexppanel部件基类
@@ -14,7 +16,6 @@ import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
  * @extends {MainTabExpViewtabexppanelTabexppanelBase}
  */
 export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,14 +65,14 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @type {TestTaskUIService}
      * @memberof MainTabExpViewtabexppanelBase
      */  
-    public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
+    public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
 
     /**
      * 是否初始化
      *
      * @protected
      * @returns {any}
-     * @memberof MainTabExpViewtabexppanel
+     * @memberof MainTabExpViewtabexppanelBase
      */
     protected isInit: any = {
         tabviewpanel:  true ,
@@ -83,15 +84,33 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      *
      * @protected
      * @type {string}
-     * @memberof MainTabExpViewtabexppanel
+     * @memberof MainTabExpViewtabexppanelBase
      */
     protected activatedTabViewPanel: string = 'tabviewpanel';
+
+    /**
+     * 实体权限服务对象
+     *
+     * @protected
+     * @type TestTaskAuthServiceBase
+     * @memberof TabExpViewtabexppanelBase
+     */
+    protected appAuthService: TestTaskAuthService = new TestTaskAuthService();
+
+    /**
+     * 分页面板权限标识存储对象
+     *
+     * @protected
+     * @type {*}
+     * @memberof MainTabExpViewtabexppanelBase
+     */
+    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visible: true,disabled: false},'tabviewpanel2':{resourcetag:null,visible: true,disabled: false}};
 
     /**
      * 组件创建完毕
      *
      * @protected
-     * @memberof MainTabExpViewtabexppanel
+     * @memberof MainTabExpViewtabexppanelBase
      */
     protected ctrlCreated(): void {
         //设置分页导航srfparentdename和srfparentkey

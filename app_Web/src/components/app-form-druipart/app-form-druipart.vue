@@ -1,31 +1,30 @@
 <template>
- <div class='form-druipart'>
-    <component 
-      :is="viewname" 
-      class="viewcontainer2" 
-      :viewUsage="4"
-      :viewdata ="viewdata"
-      :viewparam="viewparam"
-      :viewDefaultUsage="false"
-      :formDruipart="formDruipart"
-      :isformDruipart="true"
-      @mditemsload="mditemsload" 
-      @drdatasaved="drdatasaved"  
-      @drdatachange="drdatachange"  
-      @viewdataschange="viewdataschange"  
-      @viewload="viewload"
-      @mounted="viewMounted">
-    </component> 
-    <spin v-if="blockUI" class='app-druipart-spin' fix >{{ $t('components.appFormDRUIPart.blockUITipInfo') }}</spin>            
-  </div>
+    <div class="form-druipart">
+        <component
+            :is="viewname"
+            class="viewcontainer2"
+            :viewUsage="4"
+            :viewdata="viewdata"
+            :viewparam="viewparam"
+            :viewDefaultUsage="false"
+            :formDruipart="formDruipart"
+            :isformDruipart="true"
+            @mditemsload="mditemsload"
+            @drdatasaved="drdatasaved"
+            @drdatachange="drdatachange"
+            @viewdataschange="viewdataschange"
+            @viewload="viewload"
+            @mounted="viewMounted"
+        >
+        </component>
+        <spin v-if="blockUI" class="app-druipart-spin" fix>{{ $t('components.appFormDRUIPart.blockUITipInfo') }}</spin>
+    </div>
 </template>
-<script lang = 'ts'>
+<script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 import { Subject, Unsubscribable } from 'rxjs';
-@Component({
-})
+@Component({})
 export default class AppFormDRUIPart extends Vue {
-
     /**
      * 表单数据
      *
@@ -128,7 +127,7 @@ export default class AppFormDRUIPart extends Vue {
      * @type {*}
      * @memberof AppFormDRUIPart
      */
-    @Prop() public localContext!:any;
+    @Prop() public localContext!: any;
 
     /**
      * 局部参数
@@ -136,7 +135,7 @@ export default class AppFormDRUIPart extends Vue {
      * @type {*}
      * @memberof AppFormDRUIPart
      */
-    @Prop() public localParam!:any;
+    @Prop() public localParam!: any;
 
     /**
      * 应用实体参数名称
@@ -206,7 +205,6 @@ export default class AppFormDRUIPart extends Vue {
      */
     @Watch('data')
     onActivedataChange(newVal: any, oldVal: any) {
-
         if (this.ignorefieldvaluechange) {
             return;
         }
@@ -277,36 +275,36 @@ export default class AppFormDRUIPart extends Vue {
      * @returns {void}
      * @memberof AppFormDRUIPart
      */
-    private refreshDRUIPart(data?:any): void {
+    private refreshDRUIPart(data?: any): void {
         if (Object.is(this.parentdata.SRFPARENTTYPE, 'CUSTOM')) {
             this.isRelationalData = false;
         }
         const formData: any = data || JSON.parse(this.data);
         const _paramitem = formData[this.paramItem];
-        let tempContext:any = {};
-        let tempParam:any = {};
+        let tempContext: any = {};
+        let tempParam: any = {};
         Object.assign(tempContext, this.$viewTool.getIndexViewParam());
         const _parameters: any[] = [...this.$viewTool.getIndexParameters(), ...this.parameters];
         _parameters.forEach((parameter: any) => {
-            const { pathName, parameterName }: { pathName: string, parameterName: string } = parameter;
+            const { pathName, parameterName }: { pathName: string; parameterName: string } = parameter;
             if (formData[parameterName] && !Object.is(formData[parameterName], '')) {
                 Object.assign(tempContext, { [parameterName]: formData[parameterName] });
             }
         });
         Object.assign(tempContext, { [this.paramItem]: _paramitem });
         //设置顶层视图唯一标识
-        Object.assign(tempContext,this.context);
-        Object.assign(tempContext,{srfparentdename:this.parentName,srfparentkey:_paramitem});
+        Object.assign(tempContext, this.context);
+        Object.assign(tempContext, { srfparentdename: this.parentName, srfparentkey: _paramitem });
         // 设置局部上下文
-        if(this.localContext && Object.keys(this.localContext).length >0){
-            let _context:any = this.$util.computedNavData(formData,tempContext,this.viewparams,this.localContext);
-            Object.assign(tempContext,_context);
+        if (this.localContext && Object.keys(this.localContext).length > 0) {
+            let _context: any = this.$util.computedNavData(formData, tempContext, this.viewparams, this.localContext);
+            Object.assign(tempContext, _context);
         }
         this.viewdata = JSON.stringify(tempContext);
         // 设置局部参数
-        if(this.localParam && Object.keys(this.localParam).length >0){
-            let _param:any = this.$util.computedNavData(formData,tempContext,this.viewparams,this.localParam);
-            Object.assign(tempParam,_param);
+        if (this.localParam && Object.keys(this.localParam).length > 0) {
+            let _param: any = this.$util.computedNavData(formData, tempContext, this.viewparams, this.localParam);
+            Object.assign(tempParam, _param);
         }
         this.viewparam = JSON.stringify(tempParam);
         if (this.isRelationalData) {
@@ -317,10 +315,10 @@ export default class AppFormDRUIPart extends Vue {
                 this.blockUIStop();
             }
         }
-        if(!this.isForbidLoad){
+        if (!this.isForbidLoad) {
             this.$nextTick(() => {
                 this.$nextTick(() => {
-                    this.partViewEvent('load', {srfparentdename:this.parentName,srfparentkey:_paramitem}, 0);
+                    this.partViewEvent('load', { srfparentdename: this.parentName, srfparentkey: _paramitem }, 0);
                 });
             });
         }
@@ -343,7 +341,7 @@ export default class AppFormDRUIPart extends Vue {
             this.timer = undefined;
         }
         if (this.viewIsLoaded) {
-            this.formDruipart.next({action:'load',data});
+            this.formDruipart.next({ action: 'load', data });
             return;
         }
         this.timer = setTimeout(() => {
@@ -370,13 +368,13 @@ export default class AppFormDRUIPart extends Vue {
             if (Object.is($event.type, 'load')) {
                 this.refreshDRUIPart($event.data);
             }
-             // 表单保存之前
+            // 表单保存之前
             if (Object.is($event.type, 'beforesave')) {
-                if(Object.is(this.refviewtype,'DEMEDITVIEW9') || Object.is(this.refviewtype,'DEGRIDVIEW9')){
-                    this.formDruipart.next({action:'save',data:$event.data});
+                if (Object.is(this.refviewtype, 'DEMEDITVIEW9') || Object.is(this.refviewtype, 'DEGRIDVIEW9')) {
+                    this.formDruipart.next({ action: 'save', data: $event.data });
                 } else {
                     // 不需要保存的界面也要抛出事件，供计数器计算
-                    this.$emit('drdatasaved',$event);
+                    this.$emit('drdatasaved', $event);
                 }
             }
             // 表单保存完成
@@ -433,13 +431,13 @@ export default class AppFormDRUIPart extends Vue {
         this.blockUI = false;
     }
 
-     /**
+    /**
      * 多数据视图加载完成
      *
      * @public
      * @memberof AppFormDRUIPart
      */
-    public mditemsload(){
+    public mditemsload() {
         console.log('多数据视图加载完成，触发后续表单项更新');
     }
 
@@ -449,9 +447,9 @@ export default class AppFormDRUIPart extends Vue {
      * @public
      * @memberof AppFormDRUIPart
      */
-    public drdatasaved($event:any){
-        this.$emit('drdatasaved',$event);
-        console.log(this.viewname+'关系数据保存完成');
+    public drdatasaved($event: any) {
+        this.$emit('drdatasaved', $event);
+        console.log(this.viewname + '关系数据保存完成');
     }
 
     /**
@@ -460,17 +458,17 @@ export default class AppFormDRUIPart extends Vue {
      * @public
      * @memberof AppFormDRUIPart
      */
-    public drdatachange(){
+    public drdatachange() {
         console.log('DEMEDITVIEW9 关系数据值变化');
     }
 
-     /**
+    /**
      * 视图数据变化
      *
      * @public
      * @memberof AppFormDRUIPart
      */
-    public viewdataschange(){
+    public viewdataschange() {
         console.log('视图数据变化');
     }
 
@@ -480,11 +478,11 @@ export default class AppFormDRUIPart extends Vue {
      * @public
      * @memberof AppFormDRUIPart
      */
-    public viewload(){
+    public viewload() {
         console.log('视图加载完成');
     }
 }
 </script>
-<style lang = "less">
+<style lang="less">
 @import './app-form-druipart.less';
 </style>

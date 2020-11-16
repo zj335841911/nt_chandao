@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { ListExpViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
@@ -62,7 +62,7 @@ export class ProjectListExpViewBase extends ListExpViewBase {
      *
      * @memberof ProjectListExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class ProjectListExpViewBase extends ListExpViewBase {
         srfCaption: 'entities.project.views.listexpview.caption',
         srfTitle: 'entities.project.views.listexpview.title',
         srfSubTitle: 'entities.project.views.listexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class ProjectListExpViewBase extends ListExpViewBase {
      * @memberof ProjectListExpViewBase
      */
     protected containerModel: any = {
-        view_listexpbar: { name: 'listexpbar', type: 'LISTEXPBAR' },
+        view_listexpbar: {
+            name: 'listexpbar',
+            type: 'LISTEXPBAR',
+        },
     };
 
 
@@ -95,9 +98,18 @@ export class ProjectListExpViewBase extends ListExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectListExpViewBase
      */
 	protected viewtag: string = '3aafb12bb0db2be013c0f5ced8c7dc50';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectListExpViewBase
+     */ 
+    protected viewName: string = "ProjectListExpView";
 
 
     /**
@@ -116,7 +128,9 @@ export class ProjectListExpViewBase extends ListExpViewBase {
      * @type {Array<*>}
      * @memberof ProjectListExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

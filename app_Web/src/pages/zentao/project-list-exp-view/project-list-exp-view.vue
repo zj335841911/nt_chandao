@@ -1,5 +1,5 @@
-<template src="./project-list-exp-view.html"/>
-<script lang='tsx'>
+<template src="./project-list-exp-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectListExpViewBase } from './project-list-exp-view-base';
@@ -18,5 +18,5 @@ import view_listexpbar from '@widgets/project/list-exp-viewlistexpbar-listexpbar
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectListExpView extends ProjectListExpViewBase { }
+export default class ProjectListExpView extends ProjectListExpViewBase {}
 </script>

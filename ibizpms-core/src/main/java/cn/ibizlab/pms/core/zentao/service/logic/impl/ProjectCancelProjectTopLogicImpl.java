@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Project;
  */
 @Slf4j
 @Service
-public class ProjectCancelProjectTopLogicImpl implements IProjectCancelProjectTopLogic{
+public class ProjectCancelProjectTopLogicImpl implements IProjectCancelProjectTopLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -34,22 +34,24 @@ public class ProjectCancelProjectTopLogicImpl implements IProjectCancelProjectTo
         return this.iBzSysDefaultService;
     }
 
-    public void execute(Project et){
+    @Override
+    public void execute(Project et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("projectcancelprojecttopdefault",et);
-           kieSession.setGlobal("iBzSysProjectDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("projectcancelprojecttopdefault", et);
+           kieSession.setGlobal("iBzSysProjectDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.projectcancelprojecttop");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[取消置顶]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

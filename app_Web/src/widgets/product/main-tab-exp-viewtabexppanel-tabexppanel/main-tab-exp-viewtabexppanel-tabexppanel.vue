@@ -1,5 +1,5 @@
-<template src="./main-tab-exp-viewtabexppanel-tabexppanel.html"/>
-<script lang='tsx'>
+<template src="./main-tab-exp-viewtabexppanel-tabexppanel.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainTabExpViewtabexppanelTabexppanelBase } from './main-tab-exp-viewtabexppanel-tabexppanel-base';
@@ -12,6 +12,7 @@ import view_tabviewpanel5 from '@widgets/product/main-tab-exp-viewtabviewpanel5-
 import view_tabviewpanel8 from '@widgets/product/main-tab-exp-viewtabviewpanel8-tabviewpanel/main-tab-exp-viewtabviewpanel8-tabviewpanel.vue';
 import view_tabviewpanel7 from '@widgets/product/main-tab-exp-viewtabviewpanel7-tabviewpanel/main-tab-exp-viewtabviewpanel7-tabviewpanel.vue';
 import view_tabviewpanel6 from '@widgets/product/main-tab-exp-viewtabviewpanel6-tabviewpanel/main-tab-exp-viewtabviewpanel6-tabviewpanel.vue';
+import view_tabviewpanel10 from '@widgets/product/main-tab-exp-viewtabviewpanel10-tabviewpanel/main-tab-exp-viewtabviewpanel10-tabviewpanel.vue';
  
 
 /**
@@ -23,18 +24,19 @@ import view_tabviewpanel6 from '@widgets/product/main-tab-exp-viewtabviewpanel6-
  */
 @Component({
     components: {
-        view_tabviewpanel, 
-        view_tabviewpanel2, 
-        view_tabviewpanel3, 
-        view_tabviewpanel4, 
-        view_tabviewpanel9, 
-        view_tabviewpanel5, 
-        view_tabviewpanel8, 
-        view_tabviewpanel7, 
-        view_tabviewpanel6, 
+        view_tabviewpanel,
+        view_tabviewpanel2,
+        view_tabviewpanel3,
+        view_tabviewpanel4,
+        view_tabviewpanel9,
+        view_tabviewpanel5,
+        view_tabviewpanel8,
+        view_tabviewpanel7,
+        view_tabviewpanel6,
+        view_tabviewpanel10,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MainTabExpViewtabexppanelTabexppanel extends MainTabExpViewtabexppanelTabexppanelBase { }
+export default class MainTabExpViewtabexppanelTabexppanel extends MainTabExpViewtabexppanelTabexppanelBase {}
 </script>

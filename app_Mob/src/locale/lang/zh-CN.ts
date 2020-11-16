@@ -1,16 +1,23 @@
+import syspost_zh_CN from '@locale/lanres/sys-post/sys-post_zh_CN';
 import branch_zh_CN from '@locale/lanres/branch/branch_zh_CN';
+import sysorganization_zh_CN from '@locale/lanres/sys-organization/sys-organization_zh_CN';
+import file_zh_CN from '@locale/lanres/file/file_zh_CN';
 import user_zh_CN from '@locale/lanres/user/user_zh_CN';
 import ibzfavorites_zh_CN from '@locale/lanres/ibz-favorites/ibz-favorites_zh_CN';
 import projectteam_zh_CN from '@locale/lanres/project-team/project-team_zh_CN';
 import build_zh_CN from '@locale/lanres/build/build_zh_CN';
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
 import taskestimate_zh_CN from '@locale/lanres/task-estimate/task-estimate_zh_CN';
+import systeammember_zh_CN from '@locale/lanres/sys-team-member/sys-team-member_zh_CN';
 import module_zh_CN from '@locale/lanres/module/module_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/dyna-dashboard/dyna-dashboard_zh_CN';
+import storyspec_zh_CN from '@locale/lanres/story-spec/story-spec_zh_CN';
 import action_zh_CN from '@locale/lanres/action/action_zh_CN';
 import casestep_zh_CN from '@locale/lanres/case-step/case-step_zh_CN';
 import productline_zh_CN from '@locale/lanres/product-line/product-line_zh_CN';
+import sysdepartment_zh_CN from '@locale/lanres/sys-department/sys-department_zh_CN';
+import usercontact_zh_CN from '@locale/lanres/user-contact/user-contact_zh_CN';
 import release_zh_CN from '@locale/lanres/release/release_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/task-team/task-team_zh_CN';
 import productmodule_zh_CN from '@locale/lanres/product-module/product-module_zh_CN';
@@ -20,10 +27,14 @@ import story_zh_CN from '@locale/lanres/story/story_zh_CN';
 import ibzmyterritory_zh_CN from '@locale/lanres/ibz-my-territory/ibz-my-territory_zh_CN';
 import case_zh_CN from '@locale/lanres/case/case_zh_CN';
 import testmodule_zh_CN from '@locale/lanres/test-module/test-module_zh_CN';
+import sysupdatefeatures_zh_CN from '@locale/lanres/sys-update-features/sys-update-features_zh_CN';
 import productplan_zh_CN from '@locale/lanres/product-plan/product-plan_zh_CN';
 import ibztaskestimate_zh_CN from '@locale/lanres/ibz-taskestimate/ibz-taskestimate_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/project-stats/project-stats_zh_CN';
+import sysemployee_zh_CN from '@locale/lanres/sys-employee/sys-employee_zh_CN';
 import ibztaskteam_zh_CN from '@locale/lanres/ibztaskteam/ibztaskteam_zh_CN';
+import sysupdatelog_zh_CN from '@locale/lanres/sys-update-log/sys-update-log_zh_CN';
+import systeam_zh_CN from '@locale/lanres/sys-team/sys-team_zh_CN';
 import bug_zh_CN from '@locale/lanres/bug/bug_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/project-module/project-module_zh_CN';
 import productstats_zh_CN from '@locale/lanres/product-stats/product-stats_zh_CN';
@@ -87,6 +98,8 @@ export default {
                 menuitem4: '我的',
                 menuitem6: '个人中心',
                 menuitem7: '用户选择',
+                menuitem8: '更新日志',
+                menuitem9: '登录地图test',
             },
             listmenu: {
                 menuitem1: '电脑',
@@ -166,19 +179,26 @@ export default {
             5005: '数据删除失败'
         }
     },
+    syspost: syspost_zh_CN,
     branch: branch_zh_CN,
+    sysorganization: sysorganization_zh_CN,
+    file: file_zh_CN,
     user: user_zh_CN,
     ibzfavorites: ibzfavorites_zh_CN,
     projectteam: projectteam_zh_CN,
     build: build_zh_CN,
     task: task_zh_CN,
     taskestimate: taskestimate_zh_CN,
+    systeammember: systeammember_zh_CN,
     module: module_zh_CN,
     product: product_zh_CN,
     dynadashboard: dynadashboard_zh_CN,
+    storyspec: storyspec_zh_CN,
     action: action_zh_CN,
     casestep: casestep_zh_CN,
     productline: productline_zh_CN,
+    sysdepartment: sysdepartment_zh_CN,
+    usercontact: usercontact_zh_CN,
     release: release_zh_CN,
     taskteam: taskteam_zh_CN,
     productmodule: productmodule_zh_CN,
@@ -188,10 +208,14 @@ export default {
     ibzmyterritory: ibzmyterritory_zh_CN,
     case: case_zh_CN,
     testmodule: testmodule_zh_CN,
+    sysupdatefeatures: sysupdatefeatures_zh_CN,
     productplan: productplan_zh_CN,
     ibztaskestimate: ibztaskestimate_zh_CN,
     projectstats: projectstats_zh_CN,
+    sysemployee: sysemployee_zh_CN,
     ibztaskteam: ibztaskteam_zh_CN,
+    sysupdatelog: sysupdatelog_zh_CN,
+    systeam: systeam_zh_CN,
     bug: bug_zh_CN,
     projectmodule: projectmodule_zh_CN,
     productstats: productstats_zh_CN,

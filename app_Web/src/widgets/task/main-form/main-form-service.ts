@@ -1,10 +1,12 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import TaskService from '@/service/task/task-service';
 import MainModel from './main-form-model';
 import ProjectService from '@/service/project/project-service';
 import ProjectModuleService from '@/service/project-module/project-module-service';
 import StoryService from '@/service/story/story-service';
+import UserContactService from '@/service/user-contact/user-contact-service';
 
 
 /**
@@ -69,6 +71,14 @@ export default class MainService extends ControlService {
     public storyService: StoryService = new StoryService();
 
     /**
+     * 用户联系方式服务对象
+     *
+     * @type {UserContactService}
+     * @memberof MainService
+     */
+    public usercontactService: UserContactService = new UserContactService();
+
+    /**
      * 远端数据
      *
      * @type {*}
@@ -125,6 +135,9 @@ export default class MainService extends ControlService {
         }
         if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchTaskRelatedStory')) {
             return this.doItems(this.storyService.FetchTaskRelatedStory(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
+        }
+        if (Object.is(serviceName, 'UserContactService') && Object.is(interfaceName, 'FetchCurUSERCONTACT')) {
+            return this.doItems(this.usercontactService.FetchCurUSERCONTACT(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'usercontact');
         }
 
         return Promise.reject([])

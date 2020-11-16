@@ -1,5 +1,5 @@
-<template src="./main-dashboard.html"/>
-<script lang='tsx'>
+<template src="./main-dashboard.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainDashboardBase } from './main-dashboard-base';
@@ -16,14 +16,14 @@ import view_dashboard_sysportlet1 from '@widgets/ibz-lib/ibz-lib-main-portlet/ib
  */
 @Component({
     components: {
-        view_dashboard_sysportlet2, 
-        view_dashboard_sysportlet1, 
+        view_dashboard_sysportlet2,
+        view_dashboard_sysportlet1,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MainDashboard extends MainDashboardBase { }
+export default class MainDashboard extends MainDashboardBase {}
 </script>
-<style lang='less'>
+<style lang="less">
 @import './main-dashboard.less';
 </style>

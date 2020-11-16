@@ -214,6 +214,7 @@
     refreshitems='' 
     viewname='task-team-mob-medit-view9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('task.mobnewfrom_form.details.druipart1')"  
     paramItem='task' 
     style="" 
     :formState="formState" 
@@ -417,9 +418,10 @@
     :caption="$t('task.mobnewfrom_form.details.desc')"  
     :labelWidth="100"  
     :isShowCaption="true"
+    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"task",version:"editor"}' :exportparams='{objecttype:"task",version:"editor"}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"task",version:"editor"}' :exportparams='{objecttype:"task",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -730,6 +732,16 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      */
     protected formState: Subject<any> = new Subject();
 
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobNewFromBase
+     */
+    public appStateEvent: Subscription | undefined;
+
     /**
      * 忽略表单项值变化
      *
@@ -788,6 +800,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         allmodules: null,
         assignedto: null,
         multiple: null,
+        noticeusers: null,
         story: null,
         storyname: null,
         name: null,
@@ -855,6 +868,13 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         name: [
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast}}
+        ],
+        estimate: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("estimate").isPast}}
+        ],
+        deadline: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("deadline").isPast}}
         ],
     }
 
@@ -865,6 +885,61 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      * @memberof MobNewFromBase
      */
     public deRules:any = {
+                deadline:[
+                  {
+                      type:"GROUP",
+                      condOP:"OR",
+                      ruleInfo:"截至日期必须大于等于预计开始", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      group:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"ISNULL",
+                      ruleInfo:"", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      deName:"eststarted",
+                  },
+                  {
+                      type:"SIMPLE",
+                      condOP:"GTANDEQ",
+                      ruleInfo:"截至日期必须大于等于预计开始", 
+                      isKeyCond:false,
+                      paramValue:"eststarted",
+                      paramType:"ENTITYFIELD",
+                      isNotMode:false,
+                      deName:"deadline",
+                  },
+                        ]
+                  },
+                ],
+                name:[
+                  {
+                      type:"STRINGLENGTH",
+                      condOP:"",
+                      ruleInfo:"任务名称不大于10", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      maxValue:100,
+                      deName:"name",
+                      isIncludeMaxValue:true,
+                      isIncludeMinValue:false,
+                  },
+                ],
+                estimate:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"预计消耗大于等于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"estimate",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:true,
+                  },
+                ],
     };
 
     /**
@@ -982,6 +1057,8 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        noticeusers: new FormItemModel({ caption: '消息通知用户', detailType: 'FORMITEM', name: 'noticeusers', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1198,6 +1275,18 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 noticeusers 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.noticeusers')
+    onNoticeusersChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'noticeusers', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 story 值
      *
      * @param {*} newVal
@@ -1410,6 +1499,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
             }
             this.detailsModel.assignedto.setDisabled(!ret);
         }
+
 
 
 
@@ -1721,6 +1811,16 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Task")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1743,6 +1843,9 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1952,7 +2055,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

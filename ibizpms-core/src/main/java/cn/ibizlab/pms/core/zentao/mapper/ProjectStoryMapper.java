@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface ProjectStoryMapper extends BaseMapper<ProjectStory>{
+public interface ProjectStoryMapper extends BaseMapper<ProjectStory> {
 
-    Page<ProjectStory> searchDefault(IPage page, @Param("srf") ProjectStorySearchContext context, @Param("ew") Wrapper<ProjectStory> wrapper) ;
+    Page<ProjectStory> searchDefault(IPage page, @Param("srf") ProjectStorySearchContext context, @Param("ew") Wrapper<ProjectStory> wrapper);
     @Override
     ProjectStory selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface ProjectStoryMapper extends BaseMapper<ProjectStory>{
     int update(@Param(Constants.ENTITY) ProjectStory entity, @Param("ew") Wrapper<ProjectStory> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -62,10 +62,10 @@ public interface ProjectStoryMapper extends BaseMapper<ProjectStory>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<ProjectStory> selectByProduct(@Param("id") Serializable id) ;
+    List<ProjectStory> selectByProduct(@Param("id") Serializable id);
 
-    List<ProjectStory> selectByProject(@Param("id") Serializable id) ;
+    List<ProjectStory> selectByProject(@Param("id") Serializable id);
 
-    List<ProjectStory> selectByStory(@Param("id") Serializable id) ;
+    List<ProjectStory> selectByStory(@Param("id") Serializable id);
 
 }

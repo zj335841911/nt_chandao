@@ -1,5 +1,5 @@
 <div :class="{ 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
-        <i-form>
+    <i-form>
         <el-table v-if="isDisplay === true"
             :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
             @sort-change="onSortChange($event)"  
@@ -12,13 +12,13 @@
             :height="tableHeight"
             @row-click="rowClick($event)"  
             @select-all="selectAll($event)"  
-            @select="select($event)"  
+            @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
             ref='multipleTable' :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
-                无数据 
+                {{$t('entities.case.maingrid_grid.nodata')}} 
                 <span class="quick-toolbar">
                 </span>
             </template>
@@ -198,37 +198,37 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.confirmstorychange.visabled" :disabled="scope.row.confirmstorychange.disabled" @click="uiAction(scope.row, 'confirmstorychange', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_confirmstorychange')">
+                          <a v-show="scope.row.confirmstorychange.visible" :disabled="scope.row.confirmstorychange.disabled" @click="uiAction(scope.row, 'confirmstorychange', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_confirmstorychange')">
                             <i class='fa fa-check-square-o'></i>
                             
                           </a>
-                          <divider v-show="scope.row.OpenTestRunResultView.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.OpenTestRunResultView.visabled" :disabled="scope.row.OpenTestRunResultView.disabled" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_opentestrunresultview')">
+                          <divider v-show="scope.row.OpenTestRunResultView.visible" type='vertical'></divider>
+                          <a v-show="scope.row.OpenTestRunResultView.visible" :disabled="scope.row.OpenTestRunResultView.disabled" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_opentestrunresultview')">
                             <i class='fa fa-stack-overflow'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Execute.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Execute.visabled" :disabled="scope.row.Execute.disabled" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_execute')">
+                          <divider v-show="scope.row.Execute.visible" type='vertical'></divider>
+                          <a v-show="scope.row.Execute.visible" :disabled="scope.row.Execute.disabled" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_execute')">
                             <i class='fa fa-play-circle-o'></i>
                             
                           </a>
-                          <divider v-show="scope.row.MainEdit.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.MainEdit.visabled" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_mainedit')">
+                          <divider v-show="scope.row.MainEdit.visible" type='vertical'></divider>
+                          <a v-show="scope.row.MainEdit.visible" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_mainedit')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.NewBugByCaseResult.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.NewBugByCaseResult.visabled" :disabled="scope.row.NewBugByCaseResult.disabled" @click="uiAction(scope.row, 'NewBugByCaseResult', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_newbugbycaseresult')">
+                          <divider v-show="scope.row.NewBugByCaseResult.visible" type='vertical'></divider>
+                          <a v-show="scope.row.NewBugByCaseResult.visible" :disabled="scope.row.NewBugByCaseResult.disabled" @click="uiAction(scope.row, 'NewBugByCaseResult', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_newbugbycaseresult')">
                             <i class='fa fa-bug'></i>
                             
                           </a>
-                          <divider v-show="scope.row.caseFavorite.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.caseFavorite.visabled" :disabled="scope.row.caseFavorite.disabled" @click="uiAction(scope.row, 'caseFavorite', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_casefavorite')">
+                          <divider v-show="scope.row.caseFavorite.visible" type='vertical'></divider>
+                          <a v-show="scope.row.caseFavorite.visible" :disabled="scope.row.caseFavorite.disabled" @click="uiAction(scope.row, 'caseFavorite', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_casefavorite')">
                             <i class='fa fa-star-o'></i>
                             
                           </a>
-                          <divider v-show="scope.row.CaseNFavorite.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.CaseNFavorite.visabled" :disabled="scope.row.CaseNFavorite.disabled" @click="uiAction(scope.row, 'CaseNFavorite', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_casenfavorite')">
+                          <divider v-show="scope.row.CaseNFavorite.visible" type='vertical'></divider>
+                          <a v-show="scope.row.CaseNFavorite.visible" :disabled="scope.row.CaseNFavorite.disabled" @click="uiAction(scope.row, 'CaseNFavorite', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_casenfavorite')">
                             <i class='fa fa-star'></i>
                             
                           </a>
@@ -243,12 +243,12 @@
         <row class='grid-pagination' v-show="items.length > 0">
             <page class='pull-right' @on-change="pageOnChange($event)" 
                 @on-page-size-change="onPageSizeChange($event)"
-                :transfer="true" :total="totalRecord"
+                :total="totalRecord"
                 show-sizer :current="curPage" :page-size="limit"
                 :page-size-opts="[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]" show-elevator show-total>
                 <span>
                     <span class="page-column">
-                        <poptip transfer placement="top-start">
+                        <poptip transfer-class-name="grid-column" transfer placement="top-start">
                             <i-button icon="md-menu">{{$t('app.gridpage.choicecolumns')}}</i-button>
                             <div slot="content">
                                 <template v-for="col in allColumns">

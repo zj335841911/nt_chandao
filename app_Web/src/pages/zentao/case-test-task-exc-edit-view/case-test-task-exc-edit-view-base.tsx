@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
@@ -48,7 +48,7 @@ export class CaseTestTaskExcEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseTestTaskExcEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class CaseTestTaskExcEditViewBase extends EditViewBase {
 	 * @memberof CaseTestTaskExcEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'TASK': { isRawValue: false, value: 'task' }
+        'TASK': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class CaseTestTaskExcEditViewBase extends EditViewBase {
 	 * @memberof CaseTestTaskExcEditViewBase
 	 */
     protected customViewParams: any = {
-        'task': { isRawValue: false, value: 'task' }
+        'task': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
     /**
@@ -93,7 +99,7 @@ export class CaseTestTaskExcEditViewBase extends EditViewBase {
      *
      * @memberof CaseTestTaskExcEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -106,8 +112,8 @@ export class CaseTestTaskExcEditViewBase extends EditViewBase {
         srfCaption: 'entities.case.views.testtaskexceditview.caption',
         srfTitle: 'entities.case.views.testtaskexceditview.title',
         srfSubTitle: 'entities.case.views.testtaskexceditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,7 +123,10 @@ export class CaseTestTaskExcEditViewBase extends EditViewBase {
      * @memberof CaseTestTaskExcEditViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -126,9 +135,18 @@ export class CaseTestTaskExcEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseTestTaskExcEditViewBase
      */
 	protected viewtag: string = 'ef44fe10b2c0c55b17c75fee5e11a5fe';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseTestTaskExcEditViewBase
+     */ 
+    protected viewName: string = "CaseTestTaskExcEditView";
 
 
     /**
@@ -147,7 +165,9 @@ export class CaseTestTaskExcEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof CaseTestTaskExcEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

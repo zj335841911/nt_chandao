@@ -42,7 +42,7 @@
     v-show="detailsModel.resolution.visible" 
     :itemRules="this.rules.resolution" 
     :caption="$t('bug.resolvemob_form.details.resolution')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.resolution.disabled"
     :error="detailsModel.resolution.error" 
@@ -73,7 +73,7 @@
     v-show="detailsModel.resolvedbuild.visible" 
     :itemRules="this.rules.resolvedbuild" 
     :caption="$t('bug.resolvemob_form.details.resolvedbuild')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.resolvedbuild.disabled"
     :error="detailsModel.resolvedbuild.error" 
@@ -104,7 +104,7 @@
     v-show="detailsModel.resolveddate.visible" 
     :itemRules="this.rules.resolveddate" 
     :caption="$t('bug.resolvemob_form.details.resolveddate')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.resolveddate.disabled"
     :error="detailsModel.resolveddate.error" 
@@ -112,6 +112,7 @@
         <app-mob-datetime-picker 
     class="app-form-item-datetime" 
     :value="data.resolveddate" 
+    displayFormat="YYYY-MM-DD HH:mm:ss"
     :disabled="detailsModel.resolveddate.disabled"
     @change="($event)=>this.data.resolveddate = $event"/>
 </app-form-item>
@@ -128,7 +129,7 @@
     v-show="detailsModel.assignedto.visible" 
     :itemRules="this.rules.assignedto" 
     :caption="$t('bug.resolvemob_form.details.assignedto')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.assignedto.disabled"
     :error="detailsModel.assignedto.error" 
@@ -196,11 +197,12 @@
     v-show="detailsModel.comment.visible" 
     :itemRules="this.rules.comment" 
     :caption="$t('bug.resolvemob_form.details.comment')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
+    :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -228,6 +230,7 @@
     refreshitems='' 
     viewname='action-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('bug.resolvemob_form.details.druipart1')"  
     paramItem='bug' 
     style="" 
     :formState="formState" 
@@ -520,6 +523,16 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
      * @memberof ResolveMob
      */
     protected formState: Subject<any> = new Subject();
+
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof ResolveMobBase
+     */
+    public appStateEvent: Subscription | undefined;
 
     /**
      * 忽略表单项值变化
@@ -1318,6 +1331,16 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Bug")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1340,6 +1363,9 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1549,7 +1575,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

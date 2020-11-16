@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import MainToolbarService from './main-toolbar-portlet-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * dashboard_sysportlet3部件基类
@@ -17,7 +16,6 @@ import { ViewTool } from '@/utils';
  * @extends {MainToolbarPortletBase}
  */
 export class MainToolbarPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class MainToolbarPortletBase extends MainControlBase {
      * @type {StoryUIService}
      * @memberof MainToolbarBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 逻辑事件
@@ -329,7 +327,7 @@ export class MainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof StoryMainView_LinkBase
+     * @memberof Storymaindashboardview_linkBase
      */
     public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         this.closeView(args);
@@ -370,15 +368,15 @@ export class MainToolbarPortletBase extends MainControlBase {
      * @memberof MainToolbarBase
      */
     public uiactionModel: any = {
-        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
-        activitedash: {name: 'activitedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_ACTIVE_BUT', uiaction: { tag: 'ActiviteDash', target: 'SINGLEKEY' } },
-        changestorydetaildash: {name: 'changestorydetaildash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_CHANGED_BUT', uiaction: { tag: 'ChangeStoryDetailDash', target: 'SINGLEKEY' } },
-        reviewstorydash: {name: 'reviewstorydash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_REVIEW_BUT', uiaction: { tag: 'ReviewStoryDash', target: 'SINGLEKEY' } },
-        assigntodash: {name: 'assigntodash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_ASS_BUT', uiaction: { tag: 'AssignToDash', target: 'SINGLEKEY' } },
-        closestorydash: {name: 'closestorydash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_CLOSED_BUT', uiaction: { tag: 'CloseStoryDash', target: 'SINGLEKEY' } },
-        substorycz: {name: 'substorycz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_XQXF_BUT', uiaction: { tag: 'SubStoryCz', target: 'SINGLEKEY' } },
-        openbaseinfoc: {name: 'openbaseinfoc', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_EDIT_BUT', uiaction: { tag: 'OpenBaseInfoC', target: 'SINGLEKEY' } },
-        delete: {name: 'delete', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
+        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        activitedash: {name: 'activitedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_ACTIVE_BUT', uiaction: { tag: 'ActiviteDash', target: 'SINGLEKEY' } },
+        changestorydetaildash: {name: 'changestorydetaildash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_CHANGED_BUT', uiaction: { tag: 'ChangeStoryDetailDash', target: 'SINGLEKEY' } },
+        reviewstorydash: {name: 'reviewstorydash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_REVIEW_BUT', uiaction: { tag: 'ReviewStoryDash', target: 'SINGLEKEY' } },
+        assigntodash: {name: 'assigntodash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_ASS_BUT', uiaction: { tag: 'AssignToDash', target: 'SINGLEKEY' } },
+        closestorydash: {name: 'closestorydash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_CLOSED_BUT', uiaction: { tag: 'CloseStoryDash', target: 'SINGLEKEY' } },
+        substorycz: {name: 'substorycz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_XQXF_BUT', uiaction: { tag: 'SubStoryCz', target: 'SINGLEKEY' } },
+        openbaseinfoc: {name: 'openbaseinfoc', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_EDIT_BUT', uiaction: { tag: 'OpenBaseInfoC', target: 'SINGLEKEY' } },
+        delete: {name: 'delete', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__STORY_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -394,7 +392,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         actiontarget:'',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_u60e659f_click",
@@ -404,7 +402,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_ACTIVE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_u65218c9_click",
@@ -414,7 +412,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_CHANGED_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_u09da395_click",
@@ -424,7 +422,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_REVIEW_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_u92abbe0_click",
@@ -434,7 +432,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_ASS_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_uf8a8e0c_click",
@@ -444,7 +442,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_CLOSED_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_ub9b8ba7_click",
@@ -454,7 +452,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_XQXF_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_u2eccee8_click",
@@ -464,7 +462,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_EDIT_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_uab5fac9_click",
@@ -474,7 +472,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__STORY_DELETE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         }
     ];

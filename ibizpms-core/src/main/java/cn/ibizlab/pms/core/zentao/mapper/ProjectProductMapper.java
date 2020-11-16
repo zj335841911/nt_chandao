@@ -17,10 +17,10 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface ProjectProductMapper extends BaseMapper<ProjectProduct>{
+public interface ProjectProductMapper extends BaseMapper<ProjectProduct> {
 
-    Page<ProjectProduct> searchDefault(IPage page, @Param("srf") ProjectProductSearchContext context, @Param("ew") Wrapper<ProjectProduct> wrapper) ;
-    Page<ProjectProduct> searchRelationPlan(IPage page, @Param("srf") ProjectProductSearchContext context, @Param("ew") Wrapper<ProjectProduct> wrapper) ;
+    Page<ProjectProduct> searchDefault(IPage page, @Param("srf") ProjectProductSearchContext context, @Param("ew") Wrapper<ProjectProduct> wrapper);
+    Page<ProjectProduct> searchRelationPlan(IPage page, @Param("srf") ProjectProductSearchContext context, @Param("ew") Wrapper<ProjectProduct> wrapper);
     @Override
     ProjectProduct selectById(Serializable id);
     @Override
@@ -31,13 +31,13 @@ public interface ProjectProductMapper extends BaseMapper<ProjectProduct>{
     int update(@Param(Constants.ENTITY) ProjectProduct entity, @Param("ew") Wrapper<ProjectProduct> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -63,12 +63,12 @@ public interface ProjectProductMapper extends BaseMapper<ProjectProduct>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<ProjectProduct> selectByBranch(@Param("id") Serializable id) ;
+    List<ProjectProduct> selectByBranch(@Param("id") Serializable id);
 
-    List<ProjectProduct> selectByPlan(@Param("id") Serializable id) ;
+    List<ProjectProduct> selectByPlan(@Param("id") Serializable id);
 
-    List<ProjectProduct> selectByProduct(@Param("id") Serializable id) ;
+    List<ProjectProduct> selectByProduct(@Param("id") Serializable id);
 
-    List<ProjectProduct> selectByProject(@Param("id") Serializable id) ;
+    List<ProjectProduct> selectByProject(@Param("id") Serializable id);
 
 }

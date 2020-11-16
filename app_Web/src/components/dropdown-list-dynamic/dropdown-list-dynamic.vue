@@ -1,33 +1,44 @@
 <template>
     <div class="dropdown-list-dynamic-container">
         <i-select
-            class='dropdown-list-dynamic'
+            class="dropdown-list-dynamic"
             :transfer="true"
             v-model="currentVal"
             :disabled="disabled"
             :filterable="filterable"
             @on-open-change="onClick"
-            :placeholder="$t('components.dropDownListDynamic.placeholder')">
-            <i-option v-for="(item, index) in items" :key="index" :value="item.value">{{($t('userCustom.'+tag+'.'+item.value)!== ('userCustom.'+tag+'.'+item.value))?$t('userCustom.'+tag+'.'+item.value) : item.text}}</i-option>
+            :placeholder="$t('components.dropDownListDynamic.placeholder')"
+        >
+            <i-option v-for="(item, index) in items" :key="index" :value="item.value">
+                {{
+                    $t('userCustom.' + tag + '.' + item.value) !== 'userCustom.' + tag + '.' + item.value
+                        ? $t('userCustom.' + tag + '.' + item.value)
+                        : item.text
+                }}
+            </i-option>
         </i-select>
-    <i v-if="(currentVal || currentVal == 0) && !disabled" @click="clear" type="md-close" class="el-icon-circle-close" />
+        <i
+            v-if="(currentVal || currentVal == 0) && !disabled"
+            @click="clear"
+            type="md-close"
+            class="el-icon-circle-close"
+        />
     </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Watch, Prop, Model } from 'vue-property-decorator';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
-@Component({
-})
+@Component({})
 export default class DropDownListDynamic extends Vue {
     /**
      * 代码表服务对象
      *
      * @type {CodeListService}
      * @memberof DropDownListDynamic
-     */  
-    public codeListService:CodeListService = new CodeListService({ $store: this.$store });
+     */
+    public codeListService: CodeListService = new CodeListService({ $store: this.$store });
 
     /**
      * 额外参数
@@ -35,14 +46,14 @@ export default class DropDownListDynamic extends Vue {
      * @type {*}
      * @memberof DropDownListDynamic
      */
-    public otherParam:any;
+    public otherParam: any;
 
     /**
      * 查询参数
      * @type {*}
      * @memberof DropDownListDynamic
      */
-    public queryParam:any;
+    public queryParam: any;
 
     /**
      * 当前选中值
@@ -75,15 +86,14 @@ export default class DropDownListDynamic extends Vue {
      */
     @Prop() public data?: any;
 
-  /**
+    /**
      * 监听表单数据
      *
      * @memberof DropDownListDynamic
-     */    
-    @Watch('data',{ deep: true })
-    onDataChange(newVal: any, val: any){
-        if(newVal){
-            
+     */
+    @Watch('data', { deep: true })
+    onDataChange(newVal: any, val: any) {
+        if (newVal) {
         }
     }
 
@@ -93,21 +103,21 @@ export default class DropDownListDynamic extends Vue {
      * @type {*}
      * @memberof DropDownList
      */
-    @Prop() public localContext!:any;
-    
+    @Prop() public localContext!: any;
+
     /**
      * 局部导航参数
      *
      * @type {*}
      * @memberof DropDownList
      */
-    @Prop() public localParam!:any;
+    @Prop() public localParam!: any;
 
     /**
      * 是否禁用
      * @type {any}
      * @memberof DropDownListDynamic
-     * 
+     *
      */
     @Prop() public disabled?: any;
 
@@ -188,13 +198,13 @@ export default class DropDownListDynamic extends Vue {
         arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
         arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
         // 附加参数处理
-        if (this.localContext && Object.keys(this.localContext).length >0) {
-          let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
-            Object.assign(arg.context,_context);
+        if (this.localContext && Object.keys(this.localContext).length > 0) {
+            let _context = this.$util.computedNavData(this.data, arg.context, arg.param, this.localContext);
+            Object.assign(arg.context, _context);
         }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-          let _param = this.$util.computedNavData(this.data,arg.context,arg.param,this.localParam);
-            Object.assign(arg.param,_param);
+        if (this.localParam && Object.keys(this.localParam).length > 0) {
+            let _param = this.$util.computedNavData(this.data, arg.context, arg.param, this.localParam);
+            Object.assign(arg.param, _param);
         }
     }
 
@@ -204,88 +214,96 @@ export default class DropDownListDynamic extends Vue {
      * @memberof DropDownListDynamic
      */
     public created() {
-      if(this.tag && Object.is(this.codelistType,"STATIC")){
-          const codelist = this.$store.getters.getCodeList(this.tag);
-          if (codelist) {
-              let items: Array<any> = [...JSON.parse(JSON.stringify(codelist.items))];
-              this.formatCodeList(items);
-          } else {
-              console.log(`----${this.tag}----代码表不存在`);
-          }
-      }else if(this.tag && Object.is(this.codelistType,"DYNAMIC")){
-          // 公共参数处理
-          let data: any = {};
-          this.handlePublicParams(data);
-          // 参数处理
-          let _context = data.context;
-          let _param = data.param;
-          this.codeListService.getItems(this.tag,_context,_param).then((res:any) => {
-                let items: Array<any> = [...res];
+        if (this.tag && Object.is(this.codelistType, 'STATIC')) {
+            const codelist = this.$store.getters.getCodeList(this.tag);
+            if (codelist) {
+                let items: Array<any> = [...JSON.parse(JSON.stringify(codelist.items))];
                 this.formatCodeList(items);
-          }).catch((error:any) => {
-              console.log(`----${this.tag}----代码表不存在`);
-          });
-      }
+            } else {
+                console.log(`----${this.tag}----代码表不存在`);
+            }
+        } else if (this.tag && Object.is(this.codelistType, 'DYNAMIC')) {
+            // 公共参数处理
+            let data: any = {};
+            this.handlePublicParams(data);
+            // 参数处理
+            let _context = data.context;
+            let _param = data.param;
+            this.codeListService
+                .getItems(this.tag, _context, _param)
+                .then((res: any) => {
+                    let items: Array<any> = [...res];
+                    this.formatCodeList(items);
+                })
+                .catch((error: any) => {
+                    console.log(`----${this.tag}----代码表不存在`);
+                });
+        }
     }
-    
+
     /**
      * 下拉点击事件
      *
      * @param {*} $event
      * @memberof DropDownListDynamic
      */
-    public onClick($event:any){
-        if($event){
-            if(this.tag && Object.is(this.codelistType,"DYNAMIC")){
+    public onClick($event: any) {
+        if ($event) {
+            if (this.tag && Object.is(this.codelistType, 'DYNAMIC')) {
                 // 公共参数处理
                 let data: any = {};
                 this.handlePublicParams(data);
                 // 参数处理
                 let _context = data.context;
                 let _param = data.param;
-                this.codeListService.getItems(this.tag,_context,_param).then((res:any) => {
-                    let items: Array<any> = [...res];
-                    this.formatCodeList(items);
-                }).catch((error:any) => {
-                    console.log(`----${this.tag}----代码表不存在`);
-                });
+                this.codeListService
+                    .getItems(this.tag, _context, _param)
+                    .then((res: any) => {
+                        let items: Array<any> = [...res];
+                        this.formatCodeList(items);
+                    })
+                    .catch((error: any) => {
+                        console.log(`----${this.tag}----代码表不存在`);
+                    });
             }
         }
     }
     /**
      * 代码表类型和属性匹配
-     * 
+     *
      * @param {*} items
      * @memberof DropDownList
      */
-    public formatCodeList(items: Array<any>){
+    public formatCodeList(items: Array<any>) {
         let matching: boolean = true;
         this.items = [];
-        try{
-            if(this.valueType){
-                items.forEach((item: any)=>{
+        try {
+            if (this.valueType) {
+                items.forEach((item: any) => {
                     const type = this.$util.typeOf(item.value);
-                    if(type != this.valueType){
+                    if (type != this.valueType) {
                         matching = false;
-                        if(type == 'number'){
+                        if (type == 'number') {
                             item.value = item.value.toString();
-                        }else{
-                            if(item.value.indexOf('.') == -1){
+                        } else {
+                            if (item.value.indexOf('.') == -1) {
                                 item.value = parseInt(item.value);
-                            }else{
+                            } else {
                                 item.value = parseFloat(item.value);
                             }
                         }
                     }
                     this.items.push(item);
                 });
-                if(!matching){
-                    console.warn(`代码表 ${ this.tag } 值类型和属性类型不匹配，已自动强制转换，请修正代码表值类型和属性类型匹配`);
+                if (!matching) {
+                    console.warn(
+                        `代码表 ${this.tag} 值类型和属性类型不匹配，已自动强制转换，请修正代码表值类型和属性类型匹配`
+                    );
                 }
-            }else{
+            } else {
                 this.items = items;
             }
-        }catch(error){
+        } catch (error) {
             console.warn('代码表值类型和属性类型不匹配，自动强制转换异常，请修正代码表值类型和属性类型匹配');
         }
     }
@@ -296,14 +314,14 @@ export default class DropDownListDynamic extends Vue {
      * @param {*} $event
      * @memberof DropDownListDynamic
      */
-    public clear($event: any){
-        if(this.currentVal) {
+    public clear($event: any) {
+        if (this.currentVal) {
             this.currentVal = null;
         }
     }
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import './dropdown-list-dynamic.less';
 </style>

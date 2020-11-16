@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -48,7 +48,7 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugCaseToBugEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,12 +74,34 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
 	 * @memberof BugCaseToBugEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'STORY': { isRawValue: false, value: 'story' },
-        'MODULE': { isRawValue: false, value: 'module' },
-        'PRECONDITION': { isRawValue: false, value: 'precondition' },
-        'PRODUCT': { isRawValue: false, value: 'product' },
-        'TITLE': { isRawValue: false, value: 'title' },
-        'CASE': { isRawValue: false, value: 'case' }
+        'STORY': {
+            isRawValue: false,
+            value: 'story',
+        },
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'MODULE': {
+            isRawValue: false,
+            value: 'module',
+        },
+        'PRECONDITION': {
+            isRawValue: false,
+            value: 'precondition',
+        },
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'TITLE': {
+            isRawValue: false,
+            value: 'title',
+        },
+        'CASE': {
+            isRawValue: false,
+            value: 'case',
+        }
     };
 
 	/**
@@ -90,12 +112,38 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
 	 * @memberof BugCaseToBugEditViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'story': { isRawValue: false, value: 'story' },
-        'module': { isRawValue: false, value: 'module' },
-        'precondition': { isRawValue: false, value: 'precondition' },
-        'title': { isRawValue: false, value: 'title' },
-        'case': { isRawValue: false, value: 'case' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'story': {
+            isRawValue: false,
+            value: 'story',
+        },
+        'module': {
+            isRawValue: false,
+            value: 'module',
+        },
+        'precondition': {
+            isRawValue: false,
+            value: 'precondition',
+        },
+        'title': {
+            isRawValue: false,
+            value: 'title',
+        },
+        'srfloginname': {
+            isRawValue: false,
+            value: 'srfloginname',
+        },
+        'case': {
+            isRawValue: false,
+            value: 'case',
+        }
     };
 
     /**
@@ -103,7 +151,7 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
      *
      * @memberof BugCaseToBugEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -116,8 +164,8 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
         srfCaption: 'entities.bug.views.casetobugeditview.caption',
         srfTitle: 'entities.bug.views.casetobugeditview.title',
         srfSubTitle: 'entities.bug.views.casetobugeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -127,8 +175,14 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
      * @memberof BugCaseToBugEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -138,7 +192,7 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
      * @memberof BugCaseToBugEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -149,9 +203,18 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugCaseToBugEditViewBase
      */
 	protected viewtag: string = 'd5171a52df7b22d69c6a5ca34699233a';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugCaseToBugEditViewBase
+     */ 
+    protected viewName: string = "BugCaseToBugEditView";
 
 
     /**
@@ -170,7 +233,9 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BugCaseToBugEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

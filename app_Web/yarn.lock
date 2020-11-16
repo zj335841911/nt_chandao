@@ -1247,10 +1247,10 @@
     parse-rect "^1.2.0"
     pick-by-alias "^1.2.0"
 
-"@popperjs/core@^2.4.3":
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.4.4.tgz#11d5db19bd178936ec89cd84519c4de439574398"
-  integrity sha512-1oO6+dN5kdIA3sKPZhRGJTfGVP4SWV6KqlMOwry4J3HfyD68sl/3KmG7DeYUzvN+RbhXDnv/D8vNNB8168tAMg==
+"@popperjs/core@^2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.5.3.tgz#4982b0b66b7a4cf949b86f5d25a8cf757d3cfd9d"
+  integrity sha512-RFwCobxsvZ6j7twS7dHIZQZituMIDJJNHS/qY6iuthVebxS3zhRY+jaC2roEKiAYaVuTcGmX6Luc6YBcf6zJVg==
 
 "@soda/friendly-errors-webpack-plugin@^1.7.1":
   version "1.7.1"
@@ -6144,17 +6144,6 @@ human-signals@^1.1.1:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
 
-ibiz-gantt-elastic@^1.0.18:
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/ibiz-gantt-elastic/-/ibiz-gantt-elastic-1.0.18.tgz#b2c8db1ceb7792a134e39d06d4a8a272847a6abf"
-  integrity sha512-5X/5o+KS6x5JAdvMHtGkUJg/EAvbwCBQQR/jyXysGMZw+iKsjd4IyBOLeCqadTHnNfy1ryCYy5oZ5me+KAfSSw==
-  dependencies:
-    dayjs "^1.8.16"
-    resize-observer-polyfill "^1.5.1"
-    vue "^2.6.10"
-    vue-slider-component "^3.0.40"
-    vue-switches "^2.0.1"
-
 ibiz-studio-components-vue@^0.0.1-alpha.9:
   version "0.0.1-alpha.9"
   resolved "https://registry.yarnpkg.com/ibiz-studio-components-vue/-/ibiz-studio-components-vue-0.0.1-alpha.9.tgz#97a02f92e5c814be6b116c36213a95ea4b561349"
@@ -6181,6 +6170,17 @@ ibiz-vue-pivottable@^1.0.6:
     vue "^2.6.10"
     vue-plotly "^1.1.0"
     vuedraggable "^2.23.0"
+
+ibz-gantt-elastic@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/ibz-gantt-elastic/-/ibz-gantt-elastic-0.0.2.tgz#46c8fa8eaddd02bbf4842ab8867eb4a6e6aa2206"
+  integrity sha512-qqvhYruQ6bjfgu2d0JmGFT8dYtkPj1AAY4ZwFXQi7IH7evIU/rY7p7dCM19h3E9mJkxRTPKQjXCURu/1I3l2jQ==
+  dependencies:
+    dayjs "^1.8.16"
+    resize-observer-polyfill "^1.5.1"
+    vue "^2.6.10"
+    vue-slider-component "^3.0.40"
+    vue-switches "^2.0.1"
 
 iconv-lite@0.4.24:
   version "0.4.24"
@@ -11276,10 +11276,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-view-design@^4.3.0:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/view-design/-/view-design-4.3.2.tgz#6f081c673b7742039bb38a3a51938efabb60d0a2"
-  integrity sha512-58GH2fu5TVtUeeXWWu0VQXqgV01fGKHXhViw4p80OM/+SzhCJS2qzZYYpVyXaGKQM1OfeJHZrVFA/xLfpXK+0w==
+view-design@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/view-design/-/view-design-4.4.0.tgz#c3eef5abdacd70601ed5efc9028b006657e66a8d"
+  integrity sha512-2+xbda6/USUm9Pn+D25NPsIBg7XVhkFC90Ycs0GcFQ4AHZ1QRwDGOj0PGA3eeL4yuVpigdDfmwmNJAoczYXlPA==
   dependencies:
     async-validator "^3.3.0"
     deepmerge "^2.2.1"

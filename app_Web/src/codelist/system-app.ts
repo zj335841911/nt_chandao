@@ -106,15 +106,17 @@ export default class SystemAPP {
      */
     public doItems(items: any[]): any[] {
         let _items: any[] = [];
-        items.forEach((item: any) => {
-            let itemdata:any = {};
-            Object.assign(itemdata,{id:item.pssysappid});
-            Object.assign(itemdata,{value:item.pssysappid});
-            Object.assign(itemdata,{text:item.pssysappname});
-            Object.assign(itemdata,{label:item.pssysappname});
-            
-            _items.push(itemdata);
-        });
+        if(items && items.length >0){
+            items.forEach((item: any) => {
+                let itemdata:any = {};
+                Object.assign(itemdata,{id:item.pssysappid});
+                Object.assign(itemdata,{value:item.pssysappid});
+                Object.assign(itemdata,{text:item.pssysappname});
+                Object.assign(itemdata,{label:item.pssysappname});
+                
+                _items.push(itemdata);
+            });
+        }
         return _items;
     }
 

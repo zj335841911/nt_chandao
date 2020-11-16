@@ -1,8 +1,8 @@
 <template>
-    <div class="app-mob-calendar ibzmyterritory-calendar ">
+    <div class="app-mob-calendar ibzmyterritory-calendar " @touchmove="gotouchmove" @touchstart="gotouchstart">
         <div v-if="show" :class="['calender_box' , activeItem]">
             <app-calendar
-                ref="calendar"
+                ref="calendar2"
                 @prev="prev"
                 @next="next"
                 :value="value"
@@ -15,7 +15,7 @@
                 @selectMonth="selectMonth"
                 :sign="sign"
                 :events="eventsDate"
-                :tileContent="tileContent"></app-calendar>
+                :tileContent="tileContent"/>
             <ion-segment :value="activeItem" @ionChange="ionChange">
                 <ion-segment-button value="bug">
                     <ion-label>Bug</ion-label>
@@ -815,7 +815,7 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      *
      * @memberof MyWork
      */
-    @Prop({default:false}) showCheack?: boolean;
+    @Prop({default:false}) isChoose?: boolean;
 
     /**
      * 选中或取消事件
@@ -855,6 +855,46 @@ export default class MyWorkBase extends Vue implements ControlInterface {
             this.appStateEvent.unsubscribe();
         }
         window.removeEventListener('contextmenu',()=>{});
+    }
+
+    /**
+     * 开始拖动位置
+     *
+     * @memberof MyWorkBase
+     */
+    public StarttouchLength = 0;
+
+    /**
+     * 开始滑动
+     *
+     * @memberof MyWorkBase
+     */
+    public gotouchstart(e:any){
+        let _this = this;
+        let touch :any=e.touches[0];   
+        let startY = touch.pageY; 
+        this.StarttouchLength = startY;
+        // console.log("开始",startY);
+        
+    }
+
+    /**
+     * touchmove
+     *  
+     *
+     * @memberof MyWorkBase
+     */
+    public gotouchmove(e:any) {
+        let touch :any=e.touches[0];   
+        let startY = touch.pageY; 
+        let calendar:any = this.$refs.calendar2;
+        if(calendar){
+            if(startY-this.StarttouchLength<0){
+                calendar.changeStyle2(false);
+            }else{
+                calendar.changeStyle2(true);
+            }
+        }
     }
 
 }

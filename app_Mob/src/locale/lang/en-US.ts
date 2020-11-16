@@ -1,16 +1,23 @@
+import syspost_en_US from '@locale/lanres/sys-post/sys-post_en_US';
 import branch_en_US from '@locale/lanres/branch/branch_en_US';
+import sysorganization_en_US from '@locale/lanres/sys-organization/sys-organization_en_US';
+import file_en_US from '@locale/lanres/file/file_en_US';
 import user_en_US from '@locale/lanres/user/user_en_US';
 import ibzfavorites_en_US from '@locale/lanres/ibz-favorites/ibz-favorites_en_US';
 import projectteam_en_US from '@locale/lanres/project-team/project-team_en_US';
 import build_en_US from '@locale/lanres/build/build_en_US';
 import task_en_US from '@locale/lanres/task/task_en_US';
 import taskestimate_en_US from '@locale/lanres/task-estimate/task-estimate_en_US';
+import systeammember_en_US from '@locale/lanres/sys-team-member/sys-team-member_en_US';
 import module_en_US from '@locale/lanres/module/module_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
 import dynadashboard_en_US from '@locale/lanres/dyna-dashboard/dyna-dashboard_en_US';
+import storyspec_en_US from '@locale/lanres/story-spec/story-spec_en_US';
 import action_en_US from '@locale/lanres/action/action_en_US';
 import casestep_en_US from '@locale/lanres/case-step/case-step_en_US';
 import productline_en_US from '@locale/lanres/product-line/product-line_en_US';
+import sysdepartment_en_US from '@locale/lanres/sys-department/sys-department_en_US';
+import usercontact_en_US from '@locale/lanres/user-contact/user-contact_en_US';
 import release_en_US from '@locale/lanres/release/release_en_US';
 import taskteam_en_US from '@locale/lanres/task-team/task-team_en_US';
 import productmodule_en_US from '@locale/lanres/product-module/product-module_en_US';
@@ -20,10 +27,14 @@ import story_en_US from '@locale/lanres/story/story_en_US';
 import ibzmyterritory_en_US from '@locale/lanres/ibz-my-territory/ibz-my-territory_en_US';
 import case_en_US from '@locale/lanres/case/case_en_US';
 import testmodule_en_US from '@locale/lanres/test-module/test-module_en_US';
+import sysupdatefeatures_en_US from '@locale/lanres/sys-update-features/sys-update-features_en_US';
 import productplan_en_US from '@locale/lanres/product-plan/product-plan_en_US';
 import ibztaskestimate_en_US from '@locale/lanres/ibz-taskestimate/ibz-taskestimate_en_US';
 import projectstats_en_US from '@locale/lanres/project-stats/project-stats_en_US';
+import sysemployee_en_US from '@locale/lanres/sys-employee/sys-employee_en_US';
 import ibztaskteam_en_US from '@locale/lanres/ibztaskteam/ibztaskteam_en_US';
+import sysupdatelog_en_US from '@locale/lanres/sys-update-log/sys-update-log_en_US';
+import systeam_en_US from '@locale/lanres/sys-team/sys-team_en_US';
 import bug_en_US from '@locale/lanres/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/project-module/project-module_en_US';
 import productstats_en_US from '@locale/lanres/product-stats/product-stats_en_US';
@@ -87,6 +98,8 @@ export default {
                 menuitem4: '我的',
                 menuitem6: '个人中心',
                 menuitem7: '用户选择',
+                menuitem8: '更新日志',
+                menuitem9: '登录地图test',
             },
             listmenu: {
                 menuitem1: '电脑',
@@ -165,19 +178,26 @@ export default {
             5005: 'Data deletion failed'
         }
     },
+    syspost: syspost_en_US,
     branch: branch_en_US,
+    sysorganization: sysorganization_en_US,
+    file: file_en_US,
     user: user_en_US,
     ibzfavorites: ibzfavorites_en_US,
     projectteam: projectteam_en_US,
     build: build_en_US,
     task: task_en_US,
     taskestimate: taskestimate_en_US,
+    systeammember: systeammember_en_US,
     module: module_en_US,
     product: product_en_US,
     dynadashboard: dynadashboard_en_US,
+    storyspec: storyspec_en_US,
     action: action_en_US,
     casestep: casestep_en_US,
     productline: productline_en_US,
+    sysdepartment: sysdepartment_en_US,
+    usercontact: usercontact_en_US,
     release: release_en_US,
     taskteam: taskteam_en_US,
     productmodule: productmodule_en_US,
@@ -187,10 +207,14 @@ export default {
     ibzmyterritory: ibzmyterritory_en_US,
     case: case_en_US,
     testmodule: testmodule_en_US,
+    sysupdatefeatures: sysupdatefeatures_en_US,
     productplan: productplan_en_US,
     ibztaskestimate: ibztaskestimate_en_US,
     projectstats: projectstats_en_US,
+    sysemployee: sysemployee_en_US,
     ibztaskteam: ibztaskteam_en_US,
+    sysupdatelog: sysupdatelog_en_US,
+    systeam: systeam_en_US,
     bug: bug_en_US,
     projectmodule: projectmodule_en_US,
     productstats: productstats_en_US,

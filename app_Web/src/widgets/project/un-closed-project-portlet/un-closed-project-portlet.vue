@@ -1,5 +1,5 @@
-<template src="./un-closed-project-portlet.html"/>
-<script lang='tsx'>
+<template src="./un-closed-project-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { UnClosedProjectPortletBase } from './un-closed-project-portlet-base';
@@ -15,8 +15,8 @@ import { UnClosedProjectPortletBase } from './un-closed-project-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class UnClosedProjectPortlet extends UnClosedProjectPortletBase { }
+export default class UnClosedProjectPortlet extends UnClosedProjectPortletBase {}
 </script>

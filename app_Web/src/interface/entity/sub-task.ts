@@ -461,4 +461,84 @@ export interface SubTask {
      * @memberof SubTask
      */
     files?: any;
+
+    /**
+     * 团队用户
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    usernames?: any;
+
+    /**
+     * 是否完成
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    isfinished?: any;
+
+    /**
+     * 回复数量
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    replycount?: any;
+
+    /**
+     * 是否填写描述
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    hasdetail?: any;
+
+    /**
+     * 最后的更新日期
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    updatedate?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    noticeusers?: any;
+
+    /**
+     * 进度
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    progressrate?: any;
+
+    /**
+     * 延期
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    delay?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    mailtopk?: any;
+
+    /**
+     * 联系人
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    mailtoconact?: any;
 }

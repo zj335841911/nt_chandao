@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import TotalCurOpenedStoryPriService from './total-cur-opened-story-pri-portlet-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * dashboard_sysportlet6部件基类
@@ -17,7 +16,6 @@ import { ViewTool } from '@/utils';
  * @extends {TotalCurOpenedStoryPriPortletBase}
  */
 export class TotalCurOpenedStoryPriPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class TotalCurOpenedStoryPriPortletBase extends MainControlBase {
      * @type {StoryUIService}
      * @memberof TotalCurOpenedStoryPriBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
 
     /**

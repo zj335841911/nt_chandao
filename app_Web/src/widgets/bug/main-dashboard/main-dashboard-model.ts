@@ -225,6 +225,21 @@ export default class MainModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
+      {
+        name: 'delay',
+      },
+      {
+        name: 'noticeusers',
+      },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

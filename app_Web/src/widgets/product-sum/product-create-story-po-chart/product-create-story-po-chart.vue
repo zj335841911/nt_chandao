@@ -1,5 +1,5 @@
-<template src="./product-create-story-po-chart.html"/>
-<script lang='tsx'>
+<template src="./product-create-story-po-chart.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductCreateStory_POChartBase } from './product-create-story-po-chart-base';
@@ -15,8 +15,8 @@ import { ProductCreateStory_POChartBase } from './product-create-story-po-chart-
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ProductCreateStory_POChart extends ProductCreateStory_POChartBase { }
+export default class ProductCreateStory_POChart extends ProductCreateStory_POChartBase {}
 </script>

@@ -1,12 +1,12 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, ListViewExpBarControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ListExpViewlistexpbarService from './list-exp-viewlistexpbar-listexpbar-service';
 import ProductUIService from '@/uiservice/product/product-ui-service';
 import CodeListService from "@service/app/codelist-service";
-
 
 /**
  * listexpbar部件基类
@@ -16,7 +16,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {ListExpViewlistexpbarListexpbarBase}
  */
 export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +65,7 @@ export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBa
      * @type {ProductUIService}
      * @memberof ListExpViewlistexpbarBase
      */  
-    public appUIService:ProductUIService = new ProductUIService(this.$store);
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
     /**
      * listexpbar_list 部件 selectionchange 事件
@@ -118,7 +117,7 @@ export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBa
      * @type {(string)}
      * @memberof ListExpViewlistexpbarBase
      */
-    public placeholder="产品名称，编号";
+    public placeholder="产品名称，编号，产品代号";
 
     /**
      * 呈现模式，可选值：horizontal或者vertical

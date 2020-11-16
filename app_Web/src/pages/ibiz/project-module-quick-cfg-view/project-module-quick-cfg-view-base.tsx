@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { OptionViewBase } from '@/studio-core';
 import ProjectModuleService from '@/service/project-module/project-module-service';
 import ProjectModuleAuthService from '@/authservice/project-module/project-module-auth-service';
@@ -48,7 +48,7 @@ export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
      * @type {string}
      * @memberof ProjectModuleQuickCfgViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
      *
      * @memberof ProjectModuleQuickCfgViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
         srfCaption: 'entities.projectmodule.views.quickcfgview.caption',
         srfTitle: 'entities.projectmodule.views.quickcfgview.title',
         srfSubTitle: 'entities.projectmodule.views.quickcfgview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,13 +95,45 @@ export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
      * @memberof ProjectModuleQuickCfgViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
-        view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
-        view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
-        view_leftbtn: { name: 'leftbtn', type: 'button', text: '左移', disabled: true },
-        view_rightbtn: { name: 'rightbtn', type: 'button', text: '右移', disabled: true },
-        view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
-        view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
+        view_okbtn: {
+            name: 'okbtn',
+            type: 'button',
+            text: '确定',
+            disabled: true,
+        },
+        view_cancelbtn: {
+            name: 'cancelbtn',
+            type: 'button',
+            text: '取消',
+            disabled: false,
+        },
+        view_leftbtn: {
+            name: 'leftbtn',
+            type: 'button',
+            text: '左移',
+            disabled: true,
+        },
+        view_rightbtn: {
+            name: 'rightbtn',
+            type: 'button',
+            text: '右移',
+            disabled: true,},
+        view_allleftbtn: {
+            name: 'allleftbtn',
+            type: 'button',
+            text: '全部左移',
+            disabled: true,
+        },
+        view_allrightbtn: {
+            name: 'allrightbtn',
+            type: 'button',
+            text: '全部右移',
+            disabled: true,
+        },
     };
 
 
@@ -110,9 +142,18 @@ export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectModuleQuickCfgViewBase
      */
 	protected viewtag: string = '0568d197dda832ceb89ad0442ab9f230';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectModuleQuickCfgViewBase
+     */ 
+    protected viewName: string = "ProjectModuleQuickCfgView";
 
 
     /**
@@ -131,7 +172,9 @@ export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
      * @type {Array<*>}
      * @memberof ProjectModuleQuickCfgViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

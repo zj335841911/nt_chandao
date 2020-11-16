@@ -107,20 +107,34 @@ export class StudioActionUtil {
         const config: any = await this.getConfig(viewName);
         if (config) {
             const params: any = {
-                "appType": "APPSTUDIO",
-                "appKey": Environment.AppId,
-                "dataType": "AppDesign_PSAppViewDesignRedirectView",
-                "srfkey": config.viewtag
+                appType: 'APPSTUDIO',
+                appKey: Environment.AppId,
+                dataType: 'AppDesign_PSAppViewDesignRedirectView',
+                srfkey: config.viewtag,
             };
             if (this.studioWin && this.studioWin.closed === false) {
-                this.studioWin.postMessage({
-                    type: 'OpenView',
-                    params
-                }, '*');
+                this.studioWin.postMessage(
+                    {
+                        type: 'OpenView',
+                        params,
+                    },
+                    '*'
+                );
                 Vue.prototype.$message.warning('请在已打开的配置平台查看!');
             } else {
-                console.log(`${Environment.StudioUrl}?ov=${JSON.stringify(params)}#/common_slnindex/srfkeys=${Environment.SlnId}/sysdesign_psdevslnsysmodeltreeexpview/srfkey=${Environment.SysId}`);
-                this.studioWin = window.open(`${Environment.StudioUrl}?ov=${encodeURIComponent(JSON.stringify(params))}#/common_slnindex/srfkeys=${Environment.SlnId}/sysdesign_psdevslnsysmodeltreeexpview/srfkey=${Environment.SysId}`, '_blank');
+                console.log(
+                    `${Environment.StudioUrl}?ov=${JSON.stringify(params)}#/common_slnindex/srfkeys=${
+                        Environment.SlnId
+                    }/sysdesign_psdevslnsysmodeltreeexpview/srfkey=${Environment.SysId}`
+                );
+                this.studioWin = window.open(
+                    `${Environment.StudioUrl}?ov=${encodeURIComponent(
+                        JSON.stringify(params)
+                    )}#/common_slnindex/srfkeys=${Environment.SlnId}/sysdesign_psdevslnsysmodeltreeexpview/srfkey=${
+                        Environment.SysId
+                    }`,
+                    '_blank'
+                );
             }
         }
     }
@@ -150,7 +164,7 @@ export class StudioActionUtil {
     protected async loadConfig(): Promise<void> {
         const response: any = await this.http.get('./assets/json/view-config.json');
         if (response && response.status === 200 && response.data) {
-            this.config = response.data
+            this.config = response.data;
         } else {
             console.warn('Studio操作控制器，视图参数信息加载失败!');
         }
@@ -175,5 +189,4 @@ export class StudioActionUtil {
     public static getInstance(): StudioActionUtil {
         return this.instance;
     }
-
 }

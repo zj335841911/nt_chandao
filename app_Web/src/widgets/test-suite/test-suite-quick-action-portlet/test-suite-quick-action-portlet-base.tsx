@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TestSuiteService from '@/service/test-suite/test-suite-service';
 import TestSuiteQuickActionService from './test-suite-quick-action-portlet-service';
 import TestSuiteUIService from '@/uiservice/test-suite/test-suite-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * dashboard_sysportlet4部件基类
@@ -17,7 +16,6 @@ import { ViewTool } from '@/utils';
  * @extends {TestSuiteQuickActionPortletBase}
  */
 export class TestSuiteQuickActionPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
      * @type {TestSuiteUIService}
      * @memberof TestSuiteQuickActionBase
      */  
-    public appUIService:TestSuiteUIService = new TestSuiteUIService(this.$store);
+    public appUIService: TestSuiteUIService = new TestSuiteUIService(this.$store);
 
     /**
      * 逻辑事件
@@ -230,10 +228,10 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
      * @memberof TestSuiteQuickActionBase
      */
     public uiactionModel: any = {
-        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
-        linkcasedash: {name: 'linkcasedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTSU_LINKCASE_BUT', uiaction: { tag: 'linkCaseDash', target: 'SINGLEKEY' } },
-        editsuitedash: {name: 'editsuitedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTSU_EDITSUITE_BUT', uiaction: { tag: 'EditsuiteDash', target: 'SINGLEKEY' } },
-        deletedash: {name: 'deletedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTSU_DELETE_BUT', uiaction: { tag: 'DeleteDash', target: 'SINGLEKEY' } },
+        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        linkcasedash: {name: 'linkcasedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTSU_LINKCASE_BUT', uiaction: { tag: 'linkCaseDash', target: 'SINGLEKEY' } },
+        editsuitedash: {name: 'editsuitedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTSU_EDITSUITE_BUT', uiaction: { tag: 'EditsuiteDash', target: 'SINGLEKEY' } },
+        deletedash: {name: 'deletedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTSU_DELETE_BUT', uiaction: { tag: 'DeleteDash', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -249,7 +247,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         actiontarget:'',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u3a61388_click",
@@ -259,7 +257,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTSU_LINKCASE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_ue9fd837_click",
@@ -269,7 +267,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTSU_EDITSUITE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_uacb055d_click",
@@ -279,7 +277,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTSU_DELETE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         }
     ];

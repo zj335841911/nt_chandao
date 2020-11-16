@@ -10,7 +10,6 @@ import './view-quick-group-tab.less';
  */
 @Component({})
 export class ViewQuickGroupTab extends Vue {
-
     /**
      * 快速分组代码表
      *
@@ -78,18 +77,25 @@ export class ViewQuickGroupTab extends Vue {
     }
 
     render() {
-        return <div class='view-quick-group-tab'>
-            <div class={{ 'tab-list': true, [this.tabMode]: true }}>
-                {this.items.map((item: any) => {
-                    const count = this.counterService?.counterData[item.codename];
-                    return <div class={{ 'tab-item': true, 'activated': this.selectItem.codename === item.codename }} on-click={() => this.select(item)}>
-                        <span class='item-label'>
-                            {item.text}
-                            {count != null ? <span class='item-count'>({count})</span> : null}
-                        </span>
-                    </div>;
-                })}
+        return (
+            <div class="view-quick-group-tab">
+                <div class={{ 'tab-list': true, [this.tabMode]: true }}>
+                    {this.items.map((item: any) => {
+                        const count = this.counterService?.counterData[item.codename];
+                        return (
+                            <div
+                                class={{ 'tab-item': true, activated: this.selectItem.codename === item.codename }}
+                                on-click={() => this.select(item)}
+                            >
+                                <span class="item-label">
+                                    {item.text}
+                                    {count != null ? <span class="item-count">({count})</span> : null}
+                                </span>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
-        </div>;
+        );
     }
 }

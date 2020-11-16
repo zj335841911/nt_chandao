@@ -1,5 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, PanelControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryKanBanService from './story-kan-ban-panel-service';
@@ -7,8 +8,6 @@ import StoryUIService from '@/uiservice/story/story-ui-service';
 import { PanelDetailModel,PanelRawitemModel,PanelTabPanelModel,PanelTabPageModel,PanelFieldModel,PanelContainerModel,PanelControlModel,PanelUserControlModel,PanelButtonModel } from '@/model/panel-detail';
 import StoryKanBanModel from './story-kan-ban-panel-model';
 import CodeListService from "@service/app/codelist-service";
-import { ViewTool } from '@/utils';
-
 
 /**
  * itemlayoutpanel部件基类
@@ -18,7 +17,6 @@ import { ViewTool } from '@/utils';
  * @extends {StoryKanBanPanelBase}
  */
 export class StoryKanBanPanelBase extends PanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -68,7 +66,7 @@ export class StoryKanBanPanelBase extends PanelControlBase {
      * @type {StoryUIService}
      * @memberof StoryKanBanBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 逻辑事件
@@ -118,13 +116,15 @@ export class StoryKanBanPanelBase extends PanelControlBase {
 ,
         rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem2', panel: this })
 ,
-        button1: new PanelButtonModel({ caption: '移除', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'ProjectUnlinkStory',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__STORY_UNLP_BUT',visabled: true,disabled: false} })
+        button1: new PanelButtonModel({ caption: '移除', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'ProjectUnlinkStory',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__STORY_UNLP_BUT',visible: true,disabled: false} })
 ,
         container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
 ,
         container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container1', panel: this })
 ,
         srfkey: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'srfkey', panel: this })
+,
+        stage: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'stage', panel: this })
 ,
         story: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'story', panel: this })
 ,
@@ -141,6 +141,7 @@ export class StoryKanBanPanelBase extends PanelControlBase {
      */
     public panelLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
 
 
 

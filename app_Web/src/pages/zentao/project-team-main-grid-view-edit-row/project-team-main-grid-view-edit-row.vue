@@ -1,5 +1,5 @@
-<template src="./project-team-main-grid-view-edit-row.html"/>
-<script lang='tsx'>
+<template src="./project-team-main-grid-view-edit-row.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectTeamMainGridView_EditRowBase } from './project-team-main-grid-view-edit-row-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/project-team/default-searchform/default-se
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectTeamMainGridView_EditRow extends ProjectTeamMainGridView_EditRowBase { }
+export default class ProjectTeamMainGridView_EditRow extends ProjectTeamMainGridView_EditRowBase {}
 </script>

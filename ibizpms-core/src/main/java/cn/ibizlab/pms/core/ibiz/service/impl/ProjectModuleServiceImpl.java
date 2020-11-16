@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibiz.domain.ProjectModule;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.ibiz.mapper.ProjectModuleMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -59,50 +61,59 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectModuleFixPathLogic fixpathLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectModuleRemoveModuleLogic removemoduleLogic;
+
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(ProjectModule et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
+        }
+        CachedBeanCopier.copy(get(et.getId()), et);
         fixpathLogic.execute(et);
         return true;
     }
 
     @Override
+    @Transactional
     public void createBatch(List<ProjectModule> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(ProjectModule et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
+        }
+        CachedBeanCopier.copy(get(et.getId()), et);
         fixpathLogic.execute(et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<ProjectModule> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
-        return result ;
+        boolean result = removeById(key);
+        return result;
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
@@ -111,11 +122,11 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Transactional
     public ProjectModule get(Long key) {
         ProjectModule et = getById(key);
-        if(et==null){
-            et=new ProjectModule();
+        if (et == null) {
+            et = new ProjectModule();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -128,20 +139,28 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
 
     @Override
     public boolean checkKey(ProjectModule et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public ProjectModule fix(ProjectModule et) {
         fixpathLogic.execute(et);
-         return et ;
+         return et;
+    }
+
+    @Override
+    @Transactional
+    public ProjectModule removeModule(ProjectModule et) {
+        removemoduleLogic.execute(et);
+         return et;
     }
 
     @Override
     @Transactional
     public boolean save(ProjectModule et) {
-        if(!saveOrUpdate(et))
+        if (!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -156,37 +175,37 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<ProjectModule> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<ProjectModule> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<ProjectModule> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
-
     @Override
     public void removeByParent(Long id) {
-        this.remove(new QueryWrapper<ProjectModule>().eq("parent",id));
+        this.remove(new QueryWrapper<ProjectModule>().eq("parent", id));
     }
 
-	@Override
+    @Override
     public List<ProjectModule> selectByRoot(Long id) {
         return baseMapper.selectByRoot(id);
     }
-
     @Override
     public void removeByRoot(Long id) {
-        this.remove(new QueryWrapper<ProjectModule>().eq("root",id));
+        this.remove(new QueryWrapper<ProjectModule>().eq("root", id));
     }
 
 
@@ -195,7 +214,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     @Override
     public Page<ProjectModule> searchByPath(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchByPath(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchByPath(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -204,7 +223,16 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     @Override
     public Page<ProjectModule> searchDefault(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 父模块
+     */
+    @Override
+    public Page<ProjectModule> searchParentModule(ProjectModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchParentModule(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -213,7 +241,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     @Override
     public Page<ProjectModule> searchRoot(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -222,7 +250,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     @Override
     public Page<ProjectModule> searchRoot_NoBranch(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot_NoBranch(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot_NoBranch(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -231,7 +259,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     @Override
     public Page<ProjectModule> searchRoot_Task(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot_Task(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot_Task(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -240,7 +268,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     @Override
     public Page<ProjectModule> searchTaskModules(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchTaskModules(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchTaskModules(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -252,22 +280,22 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     private void fillParentData(ProjectModule et){
         //实体关系[DER1N_IBZ_PROJECTMODULE_IBZ_PROJECTMODULE_PARENT]
-        if(!ObjectUtils.isEmpty(et.getParent())){
+        if (!ObjectUtils.isEmpty(et.getParent())) {
             cn.ibizlab.pms.core.ibiz.domain.ProjectModule parentmodule=et.getParentmodule();
-            if(ObjectUtils.isEmpty(parentmodule)){
+            if (ObjectUtils.isEmpty(parentmodule)) {
                 cn.ibizlab.pms.core.ibiz.domain.ProjectModule majorEntity=projectmoduleService.get(et.getParent());
                 et.setParentmodule(majorEntity);
-                parentmodule=majorEntity;
+                parentmodule = majorEntity;
             }
             et.setParentname(parentmodule.getName());
         }
         //实体关系[DER1N_IBZ_PROJECTMODULE_ZT_PROJECT_ROOT]
-        if(!ObjectUtils.isEmpty(et.getRoot())){
+        if (!ObjectUtils.isEmpty(et.getRoot())) {
             cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
-            if(ObjectUtils.isEmpty(ztproject)){
+            if (ObjectUtils.isEmpty(ztproject)) {
                 cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getRoot());
                 et.setZtproject(majorEntity);
-                ztproject=majorEntity;
+                ztproject = majorEntity;
             }
             et.setRootname(ztproject.getName());
         }
@@ -277,28 +305,31 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

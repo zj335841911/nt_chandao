@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
@@ -65,8 +65,14 @@ export class TestTaskMainDashboardViewBase extends DashboardViewBase {
 	 * @memberof TestTaskMainDashboardViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'testtask' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'testtask' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'testtask',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'testtask',
+        }
     };
 
     /**
@@ -74,7 +80,7 @@ export class TestTaskMainDashboardViewBase extends DashboardViewBase {
      *
      * @memberof TestTaskMainDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -87,8 +93,8 @@ export class TestTaskMainDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.testtask.views.maindashboardview.caption',
         srfTitle: 'entities.testtask.views.maindashboardview.title',
         srfSubTitle: 'entities.testtask.views.maindashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -98,7 +104,10 @@ export class TestTaskMainDashboardViewBase extends DashboardViewBase {
      * @memberof TestTaskMainDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -107,9 +116,18 @@ export class TestTaskMainDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestTaskMainDashboardViewBase
      */
 	protected viewtag: string = '7cba1f165fc6b4948ce752d3c3b68a34';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskMainDashboardViewBase
+     */ 
+    protected viewName: string = "TestTaskMainDashboardView";
 
 
     /**
@@ -128,7 +146,9 @@ export class TestTaskMainDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof TestTaskMainDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -66,8 +66,8 @@ export class MobChageFormModel {
                 dataType: 'INT',
             },
             {
-                name: 'assignedto',
-                prop: 'assignedto',
+                name: 'assignedtopk',
+                prop: 'assignedtopk',
                 dataType: 'TEXT',
             },
             {
@@ -103,6 +103,11 @@ export class MobChageFormModel {
             {
                 name: 'files',
                 prop: 'files',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'assignedto',
+                prop: 'assignedto',
                 dataType: 'TEXT',
             },
             {

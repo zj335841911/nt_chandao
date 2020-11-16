@@ -4,6 +4,7 @@ import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
 import { Environment } from '@/environments/environment';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 /**
  * 系统日志UI服务对象基类
  *
@@ -89,6 +90,7 @@ export default class ActionUIActionBase extends EntityUIActionBase {
      * @memberof  ActionUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'mobmapview',srfappde:'actions'});
         this.allViewMap.set(':',{viewname:'mobmdview9',srfappde:'actions'});
         this.allViewMap.set(':',{viewname:'allmobmdview9',srfappde:'actions'});
     }

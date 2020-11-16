@@ -68,7 +68,7 @@
     .embed-view-header {
       ion-toolbar {
         --background: @theme-color;
-        color:  @text-color;
+        color: @text-color;
       }
     }
   }
@@ -213,7 +213,7 @@
       .text {
         color: @theme-color;
       }
-      .van-notice-bar{
+      .van-notice-bar {
         color: @theme-color;
       }
     }
@@ -227,23 +227,53 @@
   }
 
   // 优先级工具栏
-  .mdview-tools{
+  .mdview-tools {
     .view-tool {
-        &-sorts {
-            &-item {
-                .active{
-                  display: flex;
-                  flex-grow: 1;
-                  font-size: 15px;
-                  color: @theme-color;
-              }
-                .sort-icon {
-                    .sort-select{
-                      color: @theme-color;
-                    }
-                }
+      &-sorts {
+        &-item {
+          .active {
+            display: flex;
+            flex-grow: 1;
+            font-size: 15px;
+            color: @theme-color;
+          }
+          .sort-icon {
+            .sort-select {
+              color: @theme-color;
             }
+          }
         }
+      }
     }
   }
+  // 树视图导航主题
+  .app-mob-treeview {
+    .treeNav {
+      .treeNav-active {
+        color: @theme-color;
+      }
+    }
+  }
+
+  //快速操作工具栏
+  .app-mob-mdctrl .app-mob-mdctrl-mdctrl .no-data ion-button {
+    --color: @theme-color;
+    --color-activated: @theme-color;
+  }
+
+  .app-select-tree-list {
+    .app-select-tree-list-item {
+      .index_text {
+        background: @theme-color;
+        color: @text-color;
+      }
+    }
+  }
+  .app-mob-treeview .tree_item_label .tree_item_index_text {
+    background: @theme-color;
+    color: @text-color;
+  }
+
+  // 用户自定义主题文件
+  .user_theme(@theme-color, @text-color);
 }

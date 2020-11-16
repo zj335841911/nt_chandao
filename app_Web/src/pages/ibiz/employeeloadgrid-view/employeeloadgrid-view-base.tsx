@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
-import EmployEeloadService from '@/service/employ-eeload/employ-eeload-service';
-import EmployEeloadAuthService from '@/authservice/employ-eeload/employ-eeload-auth-service';
+import EmpLoyeeloadService from '@/service/emp-loyeeload/emp-loyeeload-service';
+import EmpLoyeeloadAuthService from '@/authservice/emp-loyeeload/emp-loyeeload-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
-import EmployEeloadUIService from '@/uiservice/employ-eeload/employ-eeload-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import EmpLoyeeloadUIService from '@/uiservice/emp-loyeeload/emp-loyeeload-ui-service';
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,23 +51,23 @@ export class EMPLOYEELOADGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof EMPLOYEELOADGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
      *
-     * @type {EmployEeloadService}
+     * @type {EmpLoyeeloadService}
      * @memberof EMPLOYEELOADGridViewBase
      */
-    protected appEntityService: EmployEeloadService = new EmployEeloadService;
+    protected appEntityService: EmpLoyeeloadService = new EmpLoyeeloadService;
 
     /**
      * 实体权限服务对象
      *
-     * @type EmployEeloadUIService
+     * @type EmpLoyeeloadUIService
      * @memberof EMPLOYEELOADGridViewBase
      */
-    public appUIService: EmployEeloadUIService = new EmployEeloadUIService(this.$store);
+    public appUIService: EmpLoyeeloadUIService = new EmpLoyeeloadUIService(this.$store);
 
     /**
      * 视图模型数据
@@ -80,8 +80,8 @@ export class EMPLOYEELOADGridViewBase extends GridViewBase {
         srfCaption: 'entities.employeeload.views.gridview.caption',
         srfTitle: 'entities.employeeload.views.gridview.title',
         srfSubTitle: 'entities.employeeload.views.gridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class EMPLOYEELOADGridViewBase extends GridViewBase {
      * @memberof EMPLOYEELOADGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
 
@@ -101,9 +107,18 @@ export class EMPLOYEELOADGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof EMPLOYEELOADGridViewBase
      */
 	protected viewtag: string = 'e008123fe4c3014fac07b33dd79f6b13';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof EMPLOYEELOADGridViewBase
+     */ 
+    protected viewName: string = "EMPLOYEELOADGridView";
 
 
     /**
@@ -122,7 +137,9 @@ export class EMPLOYEELOADGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof EMPLOYEELOADGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -133,11 +150,11 @@ export class EMPLOYEELOADGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
 import TestReportAuthService from '@/authservice/test-report/test-report-auth-service';
@@ -48,7 +48,7 @@ export class TestReportEditView_tosumupBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportEditView_tosumupBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class TestReportEditView_tosumupBase extends EditViewBase {
      *
      * @memberof TestReportEditView_tosumupBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class TestReportEditView_tosumupBase extends EditViewBase {
         srfCaption: 'entities.testreport.views.editview_tosumup.caption',
         srfTitle: 'entities.testreport.views.editview_tosumup.title',
         srfSubTitle: 'entities.testreport.views.editview_tosumup.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,7 +95,10 @@ export class TestReportEditView_tosumupBase extends EditViewBase {
      * @memberof TestReportEditView_tosumupBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -104,9 +107,18 @@ export class TestReportEditView_tosumupBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestReportEditView_tosumupBase
      */
 	protected viewtag: string = 'c47c534ae15c1fd1a04b5ad78d174841';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportEditView_tosumupBase
+     */ 
+    protected viewName: string = "TestReportEditView_tosumup";
 
 
     /**
@@ -125,7 +137,9 @@ export class TestReportEditView_tosumupBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TestReportEditView_tosumupBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class BugGridView9_StoryaffectBase extends GridView9Base {
      * @type {string}
      * @memberof BugGridView9_StoryaffectBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class BugGridView9_StoryaffectBase extends GridView9Base {
         srfCaption: 'entities.bug.views.gridview9_storyaffect.caption',
         srfTitle: 'entities.bug.views.gridview9_storyaffect.title',
         srfSubTitle: 'entities.bug.views.gridview9_storyaffect.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,7 +91,10 @@ export class BugGridView9_StoryaffectBase extends GridView9Base {
      * @memberof BugGridView9_StoryaffectBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -100,9 +103,18 @@ export class BugGridView9_StoryaffectBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugGridView9_StoryaffectBase
      */
 	protected viewtag: string = '174408669d176924efbb3227d0784e93';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugGridView9_StoryaffectBase
+     */ 
+    protected viewName: string = "BugGridView9_Storyaffect";
 
 
     /**
@@ -121,7 +133,9 @@ export class BugGridView9_StoryaffectBase extends GridView9Base {
      * @type {Array<*>}
      * @memberof BugGridView9_StoryaffectBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -132,11 +146,11 @@ export class BugGridView9_StoryaffectBase extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'bug',

@@ -183,6 +183,15 @@ export default class DashboardQuickActionModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'modulename1',
+      },
+      {
+        name: 'files',
+      },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -1,11 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import TreeMainService from './tree-main-grid-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -15,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {TreeMainGridBase}
  */
 export class TreeMainGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +64,35 @@ export class TreeMainGridBase extends GridControlBase {
      * @type {StoryUIService}
      * @memberof TreeMainBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_assignedto_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_AssignTo(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
 
     /**
      * 逻辑事件
@@ -299,14 +326,15 @@ export class TreeMainGridBase extends GridControlBase {
      * @memberof TreeMainBase
      */  
     public ActionModel: any = {
-        ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', target: 'SINGLEKEY'},
-        ReviewStory: { name: 'ReviewStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', target: 'SINGLEKEY'},
-        CloseStory: { name: 'CloseStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', target: 'SINGLEKEY'},
-        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_EDIT_BUT', target: 'SINGLEKEY'},
-        OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CCASE_BUT', target: 'SINGLEKEY'},
-        SubStory: { name: 'SubStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_XQXF_BUT', target: 'SINGLEKEY'},
-        StoryFavorites: { name: 'StoryFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', target: 'SINGLEKEY'},
-        StoryNFavorites: { name: 'StoryNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY'}
+        AssignTo: { name: 'AssignTo',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_ASS_BUT', target: 'SINGLEKEY'},
+        ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', target: 'SINGLEKEY'},
+        ReviewStory: { name: 'ReviewStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', target: 'SINGLEKEY'},
+        CloseStory: { name: 'CloseStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', target: 'SINGLEKEY'},
+        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_EDIT_BUT', target: 'SINGLEKEY'},
+        OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CCASE_BUT', target: 'SINGLEKEY'},
+        SubStory: { name: 'SubStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_XQXF_BUT', target: 'SINGLEKEY'},
+        StoryFavorites: { name: 'StoryFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', target: 'SINGLEKEY'},
+        StoryNFavorites: { name: 'StoryNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY'}
     };
 
     /**
@@ -449,11 +477,13 @@ export class TreeMainGridBase extends GridControlBase {
      * @type {*}
      * @memberof TreeMainGridBase
      */
-    public rules: any = {
+    public rules() {
+        return {
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**
@@ -487,6 +517,15 @@ export class TreeMainGridBase extends GridControlBase {
         return ( this.hasRowEdit[args.column.property] && this.actualIsOpenEdit ) ? "edit-cell" : "info-cell";
     }
 
+
+    /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof TreeMainGridBase
+     */
+    protected isDeExport: boolean = true;
 
     /**
      * 所有导出列成员
@@ -573,18 +612,6 @@ export class TreeMainGridBase extends GridControlBase {
             langtag: 'entities.story.treemain_grid.exportColumns.ischild',
             show: true,
         },
-        {
-            name: 'product',
-            label: '所属产品',
-            langtag: 'entities.story.treemain_grid.exportColumns.product',
-            show: true,
-        },
-        {
-            name: 'prodoctname',
-            label: '产品名称',
-            langtag: 'entities.story.treemain_grid.exportColumns.prodoctname',
-            show: true,
-        },
     ]
 
     /**
@@ -598,6 +625,54 @@ export class TreeMainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'pri',
+                srfkey: 'Story__pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'plan',
+                srfkey: 'CurProductPlan',
+                codelistType : 'DYNAMIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'openedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'assignedto',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'status',
+                srfkey: 'Story__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'stage',
+                srfkey: 'Story__stage',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
         ]);
     }
 
@@ -612,6 +687,9 @@ export class TreeMainGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
+        if(Object.is('AssignTo', tag)) {
+            this.grid_assignedto_click(row, tag, $event);
+        }
         if(Object.is('ChangeStoryDetail', tag)) {
             this.grid_uagridcolumn1_u7b97712_click(row, tag, $event);
         }

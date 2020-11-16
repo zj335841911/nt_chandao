@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
@@ -65,8 +65,14 @@ export class CaseTestMainDashboardViewBase extends DashboardViewBase {
 	 * @memberof CaseTestMainDashboardViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'case' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'case' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'case',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'case',
+        }
     };
 
     /**
@@ -74,7 +80,7 @@ export class CaseTestMainDashboardViewBase extends DashboardViewBase {
      *
      * @memberof CaseTestMainDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -87,8 +93,8 @@ export class CaseTestMainDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.case.views.testmaindashboardview.caption',
         srfTitle: 'entities.case.views.testmaindashboardview.title',
         srfSubTitle: 'entities.case.views.testmaindashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -98,7 +104,10 @@ export class CaseTestMainDashboardViewBase extends DashboardViewBase {
      * @memberof CaseTestMainDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -107,9 +116,18 @@ export class CaseTestMainDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseTestMainDashboardViewBase
      */
 	protected viewtag: string = '454743e1c8070362a873d0d4fe35740b';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseTestMainDashboardViewBase
+     */ 
+    protected viewName: string = "CaseTestMainDashboardView";
 
 
     /**
@@ -128,7 +146,9 @@ export class CaseTestMainDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof CaseTestMainDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

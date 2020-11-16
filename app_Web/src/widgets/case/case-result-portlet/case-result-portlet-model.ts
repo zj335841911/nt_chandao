@@ -183,6 +183,15 @@ export default class CaseResultModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'modulename1',
+      },
+      {
+        name: 'files',
+      },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

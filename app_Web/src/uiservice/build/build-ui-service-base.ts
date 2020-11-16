@@ -21,6 +21,13 @@ export default class BuildUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  BuildUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  BuildUIServiceBase
@@ -89,13 +96,24 @@ export default class BuildUIServiceBase extends UIService {
      * @memberof  BuildUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'optionview',srfappde:'builds',component:'build-option-view'});
-        this.allViewMap.set(':',{viewname:'editformeditview',srfappde:'builds',component:'build-edit-form-edit-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'maingridview',srfappde:'builds',component:'build-main-grid-view'});
-        this.allViewMap.set(':',{viewname:'testroundsgridview',srfappde:'builds',component:'build-test-rounds-grid-view'});
-        this.allViewMap.set(':',{viewname:'mainview',srfappde:'builds',component:'build-main-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'builds',component:'build-edit-view'});
-        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'builds',component:'build-main-tab-exp-view'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'maingridview',
+            srfappde: 'builds',
+            component: 'build-main-grid-view',
+            openmode: '',
+            title: '版本',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'builds',
+            component: 'build-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '版本',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -186,8 +204,8 @@ export default class BuildUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{PROJECT:"%project%"});
-        Object.assign(params,{project:"%project%"});
+        Object.assign(context,{BUILD:"%id%",PROJECT:"%project%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%",build:"%id%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { build: '%build%' });
@@ -219,7 +237,6 @@ export default class BuildUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-
                 const _this: any = actionContext;
                 return response;
             }).catch((response: any) => {
@@ -495,7 +512,6 @@ export default class BuildUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '删除成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

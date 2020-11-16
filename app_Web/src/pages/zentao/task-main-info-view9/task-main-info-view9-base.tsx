@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
@@ -48,7 +48,7 @@ export class TaskMainInfoView9Base extends EditView9Base {
      * @type {string}
      * @memberof TaskMainInfoView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class TaskMainInfoView9Base extends EditView9Base {
         srfCaption: 'entities.task.views.maininfoview9.caption',
         srfTitle: 'entities.task.views.maininfoview9.title',
         srfSubTitle: 'entities.task.views.maininfoview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class TaskMainInfoView9Base extends EditView9Base {
      * @memberof TaskMainInfoView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -97,9 +100,18 @@ export class TaskMainInfoView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskMainInfoView9Base
      */
 	protected viewtag: string = '321ab2e4e87a29fef8eed086e951a006';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskMainInfoView9Base
+     */ 
+    protected viewName: string = "TaskMainInfoView9";
 
 
     /**
@@ -118,7 +130,9 @@ export class TaskMainInfoView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof TaskMainInfoView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

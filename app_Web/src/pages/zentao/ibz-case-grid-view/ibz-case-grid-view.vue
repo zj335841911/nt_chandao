@@ -1,5 +1,5 @@
-<template src="./ibz-case-grid-view.html"/>
-<script lang='tsx'>
+<template src="./ibz-case-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzCaseGridViewBase } from './ibz-case-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/ibz-case/default-searchform/default-search
     }
 })
 @VueLifeCycleProcessing()
-export default class IbzCaseGridView extends IbzCaseGridViewBase { }
+export default class IbzCaseGridView extends IbzCaseGridViewBase {}
 </script>

@@ -10,7 +10,6 @@ import './exp-control-layout.less';
  */
 @Component({})
 export class ExpControlLayout extends Vue {
-
     /**
      * 是否挂载完毕
      *
@@ -54,7 +53,7 @@ export class ExpControlLayout extends Vue {
     @Watch('showView')
     public showViewWatch(val: boolean, oldVal: boolean): void {
         this.showAnimation = true;
-        setTimeout(() => this.showAnimation = false, 500);
+        setTimeout(() => (this.showAnimation = false), 500);
         if (val) {
             this.calcSplit();
             this.split = this.defaultSplit;
@@ -141,37 +140,53 @@ export class ExpControlLayout extends Vue {
         if (this.$slots.title || this.$slots.quickGroupSearch || (!this.$slots.toolbar && this.$slots.quickSearch)) {
             showHeader = true;
         }
-        return <split class={{ 'exp-control-layout': true, 'animation': this.showAnimation }} v-model={this.split} mode={this.mode} min={(this.ctrlHeight > 0 || this.ctrlWidth > 0) ? this.defaultSplit : null}>
-            <template slot={this.mode === 'horizontal' ? 'left' : 'top'}>
-                <div class="exp-control-layout-exp">
-                    {this.$slots.toolbar ? <div key='exp-top' class='exp-top'>
-                        {this.$slots.toolbar ? <div class="exp-toolbar">{this.$slots.toolbar}</div> : null}
-                        {this.$slots.quickSearch ? <div class="exp-quick-search">
-                            {this.$slots.quickSearch}
-                        </div> : null}
-                    </div> : null}
-                    {showHeader ? <div key='exp-header' class="exp-header">
-                        {this.$slots.title ? <div class="exp-header-title">
-                            {this.$slots.title}
-                        </div> : null}
-                        {this.$slots.quickGroupSearch ? <div key='exp-quick-group-search' class='exp-quick-group-search'>
-                            {this.$slots.quickGroupSearch}
-                        </div> : null}
-                        {!this.$slots.toolbar && this.$slots.quickSearch ? <div class="exp-quick-search">
-                            {this.$slots.quickSearch}
-                        </div> : null}
-                    </div> : null}
-                    <div key='exp-content' class={{ 'exp-content': true, 'hidden-header': !showHeader, 'hidden-top': !this.$slots.toolbar }}>
-                        {this.$slots.expContent}
+        return (
+            <split
+                class={{ 'exp-control-layout': true, animation: this.showAnimation }}
+                v-model={this.split}
+                mode={this.mode}
+                min={this.ctrlHeight > 0 || this.ctrlWidth > 0 ? this.defaultSplit : null}
+            >
+                <template slot={this.mode === 'horizontal' ? 'left' : 'top'}>
+                    <div class="exp-control-layout-exp">
+                        {this.$slots.toolbar ? (
+                            <div key="exp-top" class="exp-top">
+                                {this.$slots.toolbar ? <div class="exp-toolbar">{this.$slots.toolbar}</div> : null}
+                                {this.$slots.quickSearch ? (
+                                    <div class="exp-quick-search">{this.$slots.quickSearch}</div>
+                                ) : null}
+                            </div>
+                        ) : null}
+                        {showHeader ? (
+                            <div key="exp-header" class="exp-header">
+                                {this.$slots.title ? <div class="exp-header-title">{this.$slots.title}</div> : null}
+                                {this.$slots.quickGroupSearch ? (
+                                    <div key="exp-quick-group-search" class="exp-quick-group-search">
+                                        {this.$slots.quickGroupSearch}
+                                    </div>
+                                ) : null}
+                                {!this.$slots.toolbar && this.$slots.quickSearch ? (
+                                    <div class="exp-quick-search">{this.$slots.quickSearch}</div>
+                                ) : null}
+                            </div>
+                        ) : null}
+                        <div
+                            key="exp-content"
+                            class={{
+                                'exp-content': true,
+                                'hidden-header': !showHeader,
+                                'hidden-top': !this.$slots.toolbar,
+                            }}
+                        >
+                            {this.$slots.expContent}
+                        </div>
                     </div>
-                </div>
-            </template>
-            <template slot={this.mode === 'horizontal' ? 'right' : 'bottom'}>
-                <div class="exp-control-layout-view">
-                    {this.$slots.default}
-                </div>
-            </template>
-        </split>;
+                </template>
+                <template slot={this.mode === 'horizontal' ? 'right' : 'bottom'}>
+                    <div class="exp-control-layout-view">{this.$slots.default}</div>
+                </template>
+            </split>
+        );
     }
 
     /**

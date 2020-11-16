@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -48,7 +48,7 @@ export class StoryMainView9_EditModeBase extends EditView9Base {
      * @type {string}
      * @memberof StoryMainView9_EditModeBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class StoryMainView9_EditModeBase extends EditView9Base {
 	 * @memberof StoryMainView9_EditModeBase
 	 */
     protected customViewNavContexts: any = {
-        'PRODUCT': { isRawValue: true, value: 'null' }
+        'PRODUCT': {
+            isRawValue: true,
+            value: 'null',
+        }
     };
 
     /**
@@ -88,8 +91,8 @@ export class StoryMainView9_EditModeBase extends EditView9Base {
         srfCaption: 'entities.story.views.mainview9_editmode.caption',
         srfTitle: 'entities.story.views.mainview9_editmode.title',
         srfSubTitle: 'entities.story.views.mainview9_editmode.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -99,7 +102,10 @@ export class StoryMainView9_EditModeBase extends EditView9Base {
      * @memberof StoryMainView9_EditModeBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -108,9 +114,18 @@ export class StoryMainView9_EditModeBase extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryMainView9_EditModeBase
      */
 	protected viewtag: string = '538555af88ea31549a5bc7dbf1e6286a';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMainView9_EditModeBase
+     */ 
+    protected viewName: string = "StoryMainView9_EditMode";
 
 
     /**
@@ -129,7 +144,9 @@ export class StoryMainView9_EditModeBase extends EditView9Base {
      * @type {Array<*>}
      * @memberof StoryMainView9_EditModeBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

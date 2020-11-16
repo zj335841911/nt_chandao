@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { OptionViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
@@ -48,7 +48,7 @@ export class TaskCloseTaskViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskCloseTaskViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,8 +74,14 @@ export class TaskCloseTaskViewBase extends OptionViewBase {
 	 * @memberof TaskCloseTaskViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'task' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'task' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'task',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
     /**
@@ -83,7 +89,7 @@ export class TaskCloseTaskViewBase extends OptionViewBase {
      *
      * @memberof TaskCloseTaskViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -96,8 +102,8 @@ export class TaskCloseTaskViewBase extends OptionViewBase {
         srfCaption: 'entities.task.views.closetaskview.caption',
         srfTitle: 'entities.task.views.closetaskview.title',
         srfSubTitle: 'entities.task.views.closetaskview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -107,13 +113,45 @@ export class TaskCloseTaskViewBase extends OptionViewBase {
      * @memberof TaskCloseTaskViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
-        view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
-        view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
-        view_leftbtn: { name: 'leftbtn', type: 'button', text: '左移', disabled: true },
-        view_rightbtn: { name: 'rightbtn', type: 'button', text: '右移', disabled: true },
-        view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
-        view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
+        view_okbtn: {
+            name: 'okbtn',
+            type: 'button',
+            text: '确定',
+            disabled: true,
+        },
+        view_cancelbtn: {
+            name: 'cancelbtn',
+            type: 'button',
+            text: '取消',
+            disabled: false,
+        },
+        view_leftbtn: {
+            name: 'leftbtn',
+            type: 'button',
+            text: '左移',
+            disabled: true,
+        },
+        view_rightbtn: {
+            name: 'rightbtn',
+            type: 'button',
+            text: '右移',
+            disabled: true,},
+        view_allleftbtn: {
+            name: 'allleftbtn',
+            type: 'button',
+            text: '全部左移',
+            disabled: true,
+        },
+        view_allrightbtn: {
+            name: 'allrightbtn',
+            type: 'button',
+            text: '全部右移',
+            disabled: true,
+        },
     };
 
 
@@ -122,9 +160,18 @@ export class TaskCloseTaskViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskCloseTaskViewBase
      */
 	protected viewtag: string = '507c506d62dc910a814332e6ae242266';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskCloseTaskViewBase
+     */ 
+    protected viewName: string = "TaskCloseTaskView";
 
 
     /**
@@ -143,7 +190,9 @@ export class TaskCloseTaskViewBase extends OptionViewBase {
      * @type {Array<*>}
      * @memberof TaskCloseTaskViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

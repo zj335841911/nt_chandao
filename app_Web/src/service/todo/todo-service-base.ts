@@ -1,10 +1,11 @@
-import { Http,Util } from '@/utils';
+import { Http } from '@/utils';
+import { Util } from '@/utils';
 import EntityService from '../entity-service';
 
 
 
 /**
- * 待办事宜表服务对象基类
+ * 待办服务对象基类
  *
  * @export
  * @class TodoServiceBase
@@ -196,6 +197,20 @@ export default class TodoServiceBase extends EntityService {
     }
 
     /**
+     * CreateCycle接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async CreateCycle(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/todos/${context.todo}/createcycle`,data,isloading);
+            return res;
+    }
+
+    /**
      * Finish接口方法
      *
      * @param {*} [context={}]
@@ -281,6 +296,21 @@ export default class TodoServiceBase extends EntityService {
     public async FetchMyTodo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/todos/fetchmytodo`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchMyTodoPc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async FetchMyTodoPc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/todos/fetchmytodopc`,tempData,isloading);
         return res;
     }
 

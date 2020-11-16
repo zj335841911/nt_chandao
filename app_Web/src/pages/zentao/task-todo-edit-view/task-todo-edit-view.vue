@@ -1,5 +1,5 @@
-<template src="./task-todo-edit-view.html"/>
-<script lang='tsx'>
+<template src="./task-todo-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskTodoEditViewBase } from './task-todo-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/task/pending-submission-form/pending-submission-
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskTodoEditView extends TaskTodoEditViewBase { }
+export default class TaskTodoEditView extends TaskTodoEditViewBase {}
 </script>

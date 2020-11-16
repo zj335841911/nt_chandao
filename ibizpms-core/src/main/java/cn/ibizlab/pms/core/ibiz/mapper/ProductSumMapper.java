@@ -17,12 +17,12 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface ProductSumMapper extends BaseMapper<ProductSum>{
+public interface ProductSumMapper extends BaseMapper<ProductSum> {
 
-    Page<ProductSum> searchDefault(IPage page, @Param("srf") ProductSumSearchContext context, @Param("ew") Wrapper<ProductSum> wrapper) ;
-    Page<ProductSum> searchProductBugcnt_QA(IPage page, @Param("srf") ProductSumSearchContext context, @Param("ew") Wrapper<ProductSum> wrapper) ;
-    Page<ProductSum> searchProductCreateStory(IPage page, @Param("srf") ProductSumSearchContext context, @Param("ew") Wrapper<ProductSum> wrapper) ;
-    Page<ProductSum> searchProductStorycntAndPlancnt(IPage page, @Param("srf") ProductSumSearchContext context, @Param("ew") Wrapper<ProductSum> wrapper) ;
+    Page<ProductSum> searchDefault(IPage page, @Param("srf") ProductSumSearchContext context, @Param("ew") Wrapper<ProductSum> wrapper);
+    Page<ProductSum> searchProductBugcnt_QA(IPage page, @Param("srf") ProductSumSearchContext context, @Param("ew") Wrapper<ProductSum> wrapper);
+    Page<ProductSum> searchProductCreateStory(IPage page, @Param("srf") ProductSumSearchContext context, @Param("ew") Wrapper<ProductSum> wrapper);
+    Page<ProductSum> searchProductStorycntAndPlancnt(IPage page, @Param("srf") ProductSumSearchContext context, @Param("ew") Wrapper<ProductSum> wrapper);
     @Override
     ProductSum selectById(Serializable id);
     @Override
@@ -33,13 +33,13 @@ public interface ProductSumMapper extends BaseMapper<ProductSum>{
     int update(@Param(Constants.ENTITY) ProductSum entity, @Param("ew") Wrapper<ProductSum> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

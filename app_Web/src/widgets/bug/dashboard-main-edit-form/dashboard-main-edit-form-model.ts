@@ -126,6 +126,11 @@ export default class DashboardMainEditModel {
         dataType: 'NSCODELIST',
       },
       {
+        name: 'storyversion',
+        prop: 'storyversion',
+        dataType: 'INT',
+      },
+      {
         name: 'pri',
         prop: 'pri',
         dataType: 'NSCODELIST',
@@ -181,8 +186,23 @@ export default class DashboardMainEditModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'project',
         prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'story',
+        prop: 'story',
         dataType: 'PICKUP',
       },
       {
@@ -234,11 +254,6 @@ export default class DashboardMainEditModel {
         name: 'lasteditedby',
         prop: 'lasteditedby',
         dataType: 'SSCODELIST',
-      },
-      {
-        name: 'story',
-        prop: 'story',
-        dataType: 'PICKUP',
       },
       {
         name: 'task',

@@ -1,5 +1,5 @@
-<template src="./suspend-nclose-form.html"/>
-<script lang='tsx'>
+<template src="./suspend-nclose-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { SuspendNCloseEditFormBase } from './suspend-nclose-form-base';
@@ -15,8 +15,8 @@ import { SuspendNCloseEditFormBase } from './suspend-nclose-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class SuspendNCloseEditForm extends SuspendNCloseEditFormBase { }
+export default class SuspendNCloseEditForm extends SuspendNCloseEditFormBase {}
 </script>

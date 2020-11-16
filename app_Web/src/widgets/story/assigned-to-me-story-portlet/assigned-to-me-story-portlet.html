@@ -1,8 +1,13 @@
-<div class='portlet assigned-to-me-story ' :style="{'height': isAdaptiveSize ? '100%' : getHeight,}">
+<div class='portlet assigned-to-me-story ' :style="{}">
         <p class='portlet-title'>
             <span>
             
             指派需求
+            </span>
+            <span class="portlet-action">
+                <a @click="uiAction('u39f0981', $event)" v-show="uiactionModel['more'].visible" :disabled="uiactionModel['more'].disabled">
+                  <span>MORE</span>
+                </a>
             </span>
         </p>
         <div class="portlet-with-title">

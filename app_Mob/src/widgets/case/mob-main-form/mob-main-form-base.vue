@@ -27,14 +27,18 @@
     v-show="detailsModel.title.visible" 
     :itemRules="this.rules.title" 
     :caption="$t('case.mobmain_form.details.title')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.title.disabled"
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.title" 
-    :context="context" 
+    v-if="data.title"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.title" 
     :itemParam="{}"/>
 </app-form-item>
@@ -51,17 +55,21 @@
     v-show="detailsModel.type.visible" 
     :itemRules="this.rules.type" 
     :caption="$t('case.mobmain_form.details.type')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.type.disabled"
     :error="detailsModel.type.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Testcase__type"
     :isCache="false" 
-    v-if="data.type" 
-    :context="context" 
+    v-if="data.type"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.type" 
     :itemParam="{}"/>
 </app-form-item>
@@ -78,17 +86,21 @@
     v-show="detailsModel.stage.visible" 
     :itemRules="this.rules.stage" 
     :caption="$t('case.mobmain_form.details.stage')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.stage.disabled"
     :error="detailsModel.stage.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Testcase__stage"
     :isCache="false" 
-    v-if="data.stage" 
-    :context="context" 
+    v-if="data.stage"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.stage" 
     :itemParam="{}"/>
 </app-form-item>
@@ -105,14 +117,18 @@
     v-show="detailsModel.precondition.visible" 
     :itemRules="this.rules.precondition" 
     :caption="$t('case.mobmain_form.details.precondition')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.precondition.disabled"
     :error="detailsModel.precondition.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.precondition" 
-    :context="context" 
+    v-if="data.precondition"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.precondition" 
     :itemParam="{}"/>
 </app-form-item>
@@ -129,17 +145,21 @@
     v-show="detailsModel.version.visible" 
     :itemRules="this.rules.version" 
     :caption="$t('case.mobmain_form.details.version')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.version.disabled"
     :error="detailsModel.version.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="CurCaseVersion"
     :isCache="false" 
-    v-if="data.version" 
-    :context="context" 
+    v-if="data.version"
+    :navigateContext ='{ "case": "%id%" } '
+    :navigateParam ='{ "case": "%id%" } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.version" 
     :itemParam="{}"/>
 </app-form-item>
@@ -153,6 +173,7 @@
     refreshitems='version' 
     viewname='case-step-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('case.mobmain_form.details.druipart1')"  
     paramItem='case' 
     style="" 
     :formState="formState" 
@@ -181,17 +202,65 @@
     v-show="detailsModel.keywords.visible" 
     :itemRules="this.rules.keywords" 
     :caption="$t('case.mobmain_form.details.keywords')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.keywords.disabled"
     :error="detailsModel.keywords.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.keywords" 
-    :context="context" 
+    v-if="data.keywords"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.keywords" 
     :itemParam="{}"/>
 </app-form-item>
+
+
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel1.visible" 
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
+    :caption="$t('case.mobmain_form.details.grouppanel1')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="1" 
+    :isInfoGroupMode="true" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='case' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart2.visible" 
+    :caption="$t('case.mobmain_form.details.druipart2')"  
+    paramItem='case' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_CASE","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
+    ]" 
+    tempMode='0'
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
 
 
     
@@ -467,6 +536,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     protected formState: Subject<any> = new Subject();
 
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobMainBase
+     */
+    public appStateEvent: Subscription | undefined;
+
     /**
      * 忽略表单项值变化
      *
@@ -656,6 +735,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     protected detailsModel: any = {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel1: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'case.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         group1: new FormGroupPanelModel({ caption: '测试用例基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'case.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -909,6 +992,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
 
 
 
@@ -1218,6 +1303,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Case")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1240,6 +1335,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1423,7 +1521,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 1;
+            this.drcounter = 2;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();
@@ -1449,7 +1547,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Case",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Case",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

@@ -8,7 +8,6 @@ import { ExpControlBase } from './ExpControlBase';
  * @extends {ExpControlBase}
  */
 export class DataViewExpBarControlBase extends ExpControlBase {
-
     /**
      * 数据视图是否单选
      *

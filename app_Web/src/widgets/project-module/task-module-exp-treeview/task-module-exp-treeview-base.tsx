@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProjectModuleService from '@/service/project-module/project-module-service';
 import TaskModuleExpService from './task-module-exp-treeview-service';
 import ProjectModuleUIService from '@/uiservice/project-module/project-module-ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * treeexpbar_tree部件基类
@@ -15,7 +14,6 @@ import { ViewTool } from '@/utils';
  * @extends {TaskModuleExpTreeBase}
  */
 export class TaskModuleExpTreeBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * @type {ProjectModuleUIService}
      * @memberof TaskModuleExpBase
      */  
-    public appUIService:ProjectModuleUIService = new ProjectModuleUIService(this.$store);
+    public appUIService: ProjectModuleUIService = new ProjectModuleUIService(this.$store);
 
     /**
      * zt_product_cm 部件 click 事件
@@ -574,13 +572,13 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * @memberof TaskModuleExpBase
      */
      public actionModel: any = {
-        ZT_PRODUCT_deuiaction1: {name:'deuiaction1',nodeOwner:'ZT_PRODUCT',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
-        BRANCHS_deuiaction1: {name:'deuiaction1',nodeOwner:'BRANCHS',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
-        ALL_deuiaction1: {name:'deuiaction1',nodeOwner:'ALL',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
-        MODULE_deuiaction1: {name:'deuiaction1',nodeOwner:'MODULE',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
-        ROOTMODULE_deuiaction1: {name:'deuiaction1',nodeOwner:'ROOTMODULE',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
-        Root_NoBranch_deuiaction1: {name:'deuiaction1',nodeOwner:'Root_NoBranch',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
-        ProjectModule_deuiaction1: {name:'deuiaction1',nodeOwner:'ProjectModule',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visabled: true, disabled: false},
+        ZT_PRODUCT_deuiaction1: {name:'deuiaction1',nodeOwner:'ZT_PRODUCT',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visible: true, disabled: false},
+        BRANCHS_deuiaction1: {name:'deuiaction1',nodeOwner:'BRANCHS',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visible: true, disabled: false},
+        ALL_deuiaction1: {name:'deuiaction1',nodeOwner:'ALL',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visible: true, disabled: false},
+        MODULE_deuiaction1: {name:'deuiaction1',nodeOwner:'MODULE',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visible: true, disabled: false},
+        ROOTMODULE_deuiaction1: {name:'deuiaction1',nodeOwner:'ROOTMODULE',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visible: true, disabled: false},
+        Root_NoBranch_deuiaction1: {name:'deuiaction1',nodeOwner:'Root_NoBranch',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visible: true, disabled: false},
+        ProjectModule_deuiaction1: {name:'deuiaction1',nodeOwner:'ProjectModule',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visible: true, disabled: false},
     }
 
     /**
@@ -1009,7 +1007,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.zt_product_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1029,7 +1027,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.branchs_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1049,7 +1047,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.all_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1069,7 +1067,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.module_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1089,7 +1087,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.rootmodule_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1109,7 +1107,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.root_nobranch_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1129,7 +1127,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.projectmodule_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -1186,7 +1184,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
             let flag:boolean = false;
             if(Object.values(result).length>0){
                 flag =Object.values(result).some((item:any) =>{
-                    return item.visabled === true;
+                    return item.visible === true;
                 })
             }
             if(flag){

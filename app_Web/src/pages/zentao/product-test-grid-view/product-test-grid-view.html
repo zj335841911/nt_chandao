@@ -2,7 +2,15 @@
     <template slot='title'>
     <span class='caption-info'>{{viewCaption}}</span>
     </template>
-    <i-input slot='quickSearch' clearable  v-show="!isExpandSearchForm" v-model="query" placeholder="产品名称,编号" search @on-search="onSearch($event)"/>
+    <i-input
+        slot='quickSearch'
+        clearable
+        v-show="!isExpandSearchForm"
+        v-model="query"
+        placeholder="产品名称,编号,产品代号"
+        search
+        @on-search="onSearch($event)"
+    />
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>
     </template>
@@ -24,6 +32,18 @@
             @closeview="closeView($event)">
         </view_searchform>
     </template>
+    <template slot="searchBar">
+                <view_searchbar 
+            :viewState="viewState"  
+            :viewparams="viewparams" 
+            :context="context" 
+            v-show="isExpandSearchForm"
+            @search="onSearch($event)"
+            name="searchbar"  
+            ref='searchbar' 
+            @closeview="closeView($event)">
+        </view_searchbar>
+    </template>
         <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 
@@ -32,6 +52,7 @@
         :showBusyIndicator="true"
         :isOpenEdit="false"
         :gridRowActiveMode="gridRowActiveMode"
+        :isformDruipart="isformDruipart"
         @save="onSave.apply(_self, arguments)"
         updateAction=""
         removeAction="Remove"

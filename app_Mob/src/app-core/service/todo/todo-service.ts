@@ -3,7 +3,7 @@ import {TodoServiceBase} from './todo-service-base';
 
 
 /**
- * 待办事宜表服务对象
+ * 待办服务对象
  *
  * @export
  * @class TodoService

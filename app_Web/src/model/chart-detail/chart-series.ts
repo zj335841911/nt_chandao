@@ -7,7 +7,6 @@ import { ChartDataSetField } from './chart-dataset-field';
  * @class ChartSeries
  */
 export class ChartSeries {
-
     /**
      * 序列类型
      *
@@ -62,7 +61,7 @@ export class ChartSeries {
      * @type {any}
      * @memberof ChartSeries
      */
-    public seriesMap:any = null;
+    public seriesMap: any = null;
 
     /**
      * 对象索引
@@ -86,7 +85,7 @@ export class ChartSeries {
      * @type {number}
      * @memberof ChartSeries
      */
-    public ecxObject:any;
+    public ecxObject: any;
 
     /**
      * 用户自定义配置
@@ -94,7 +93,7 @@ export class ChartSeries {
      * @type {number}
      * @memberof ChartSeries
      */
-    public ecObject:any;
+    public ecObject: any;
 
     /**
      * 序列索引
@@ -102,7 +101,7 @@ export class ChartSeries {
      * @type {number}
      * @memberof ChartSeries
      */
-    public seriesIndex:number = 0;
+    public seriesIndex: number = 0;
 
     /**
      * 数据集属性集合
@@ -110,7 +109,7 @@ export class ChartSeries {
      * @type {Array<ChartDataSetField>}
      * @memberof ChartSeries
      */
-    public dataSetFields:Array<ChartDataSetField> = [];
+    public dataSetFields: Array<ChartDataSetField> = [];
 
     /**
      * 取值方式
@@ -120,7 +119,7 @@ export class ChartSeries {
      * @type {string}
      * @memberof ChartSeries
      */
-    public seriesLayoutBy:string = "column";
+    public seriesLayoutBy: string = 'column';
 
     /**
      * 序列代码表
@@ -128,12 +127,12 @@ export class ChartSeries {
      * @type {*}
      * @memberof ChartSeries
      */
-    public seriesCodeList:any;
+    public seriesCodeList: any;
 
     /**
      * Creates an instance of ChartSeries.
      * ChartSeries 实例
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof ChartSeries
      */
@@ -141,18 +140,23 @@ export class ChartSeries {
         this.type = !Object.is(opts.type, '') ? opts.type : '';
         this.name = !Object.is(opts.name, '') ? opts.name : '';
         this.caption = !Object.is(opts.caption, '') ? opts.caption : '';
-        this.seriesIdField = (opts.seriesIdField && !Object.is(opts.seriesIdField, '')) ? opts.seriesIdField : (opts.seriesNameField && !Object.is(opts.seriesNameField, '')) ? opts.seriesNameField : '';
+        this.seriesIdField =
+            opts.seriesIdField && !Object.is(opts.seriesIdField, '')
+                ? opts.seriesIdField
+                : opts.seriesNameField && !Object.is(opts.seriesNameField, '')
+                ? opts.seriesNameField
+                : '';
         this.seriesNameField = !Object.is(opts.seriesNameField, '') ? opts.seriesNameField : '';
         this.index = this.index ? this.index : 0;
         this.chart = opts.chart ? opts.chart : null;
         this.dataSet = opts.dataSet ? opts.dataSet : [];
         this.ecxObject = opts.ecxObject ? opts.ecxObject : null;
         this.ecObject = opts.ecObject ? opts.ecObject : null;
-        this.seriesLayoutBy = opts.seriesLayoutBy ? opts.seriesLayoutBy:"column";
-        this.dataSetFields = opts.dataSetFields ? opts.dataSetFields:[];
-        this.seriesMap = opts.seriesMap ? opts.seriesMap:null;
-        this.seriesIndex = opts.seriesIndex? opts.seriesIndex:0;
-        this.seriesCodeList = opts.seriesCodeList?opts.seriesCodeList:null;
+        this.seriesLayoutBy = opts.seriesLayoutBy ? opts.seriesLayoutBy : 'column';
+        this.dataSetFields = opts.dataSetFields ? opts.dataSetFields : [];
+        this.seriesMap = opts.seriesMap ? opts.seriesMap : null;
+        this.seriesIndex = opts.seriesIndex ? opts.seriesIndex : 0;
+        this.seriesCodeList = opts.seriesCodeList ? opts.seriesCodeList : null;
     }
 
     /**

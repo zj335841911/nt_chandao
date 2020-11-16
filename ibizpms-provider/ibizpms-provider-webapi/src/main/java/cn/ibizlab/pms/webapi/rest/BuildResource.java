@@ -131,6 +131,17 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-MobProjectBuildCounter-all')")
+    @ApiOperation(value = "移动端项目版本计数器", tags = {"版本" },  notes = "移动端项目版本计数器")
+	@RequestMapping(method = RequestMethod.PUT, value = "/builds/{build_id}/mobprojectbuildcounter")
+    public ResponseEntity<BuildDTO> mobProjectBuildCounter(@PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setId(build_id);
+        domain = buildService.mobProjectBuildCounter(domain);
+        builddto = buildMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(builddto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-OneClickRelease-all')")
     @ApiOperation(value = "一键发布", tags = {"版本" },  notes = "一键发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/builds/{build_id}/oneclickrelease")
@@ -267,6 +278,28 @@ public class BuildResource {
                 .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchUpdateLog-all')")
+	@ApiOperation(value = "获取更新日志", tags = {"版本" } ,notes = "获取更新日志")
+    @RequestMapping(method= RequestMethod.GET , value="/builds/fetchupdatelog")
+	public ResponseEntity<List<BuildDTO>> fetchUpdateLog(BuildSearchContext context) {
+        Page<Build> domains = buildService.searchUpdateLog(context) ;
+        List<BuildDTO> list = buildMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchUpdateLog-all')")
+	@ApiOperation(value = "查询更新日志", tags = {"版本" } ,notes = "查询更新日志")
+    @RequestMapping(method= RequestMethod.POST , value="/builds/searchupdatelog")
+	public ResponseEntity<Page<BuildDTO>> searchUpdateLog(@RequestBody BuildSearchContext context) {
+        Page<Build> domains = buildService.searchUpdateLog(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
     @ApiOperation(value = "根据产品建立版本", tags = {"版本" },  notes = "根据产品建立版本")
@@ -360,6 +393,17 @@ public class BuildResource {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProduct(product_id);
         domain = buildService.linkStory(domain) ;
+        builddto = buildMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(builddto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-MobProjectBuildCounter-all')")
+    @ApiOperation(value = "根据产品版本", tags = {"版本" },  notes = "根据产品版本")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/builds/{build_id}/mobprojectbuildcounter")
+    public ResponseEntity<BuildDTO> mobProjectBuildCounterByProduct(@PathVariable("product_id") Long product_id, @PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setProduct(product_id);
+        domain = buildService.mobProjectBuildCounter(domain) ;
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
@@ -511,6 +555,29 @@ public class BuildResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchUpdateLog-all')")
+	@ApiOperation(value = "根据产品获取更新日志", tags = {"版本" } ,notes = "根据产品获取更新日志")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/builds/fetchupdatelog")
+	public ResponseEntity<List<BuildDTO>> fetchBuildUpdateLogByProduct(@PathVariable("product_id") Long product_id,BuildSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Build> domains = buildService.searchUpdateLog(context) ;
+        List<BuildDTO> list = buildMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchUpdateLog-all')")
+	@ApiOperation(value = "根据产品查询更新日志", tags = {"版本" } ,notes = "根据产品查询更新日志")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/builds/searchupdatelog")
+	public ResponseEntity<Page<BuildDTO>> searchBuildUpdateLogByProduct(@PathVariable("product_id") Long product_id, @RequestBody BuildSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Build> domains = buildService.searchUpdateLog(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
     @ApiOperation(value = "根据项目建立版本", tags = {"版本" },  notes = "根据项目建立版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds")
@@ -603,6 +670,17 @@ public class BuildResource {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProject(project_id);
         domain = buildService.linkStory(domain) ;
+        builddto = buildMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(builddto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-MobProjectBuildCounter-all')")
+    @ApiOperation(value = "根据项目版本", tags = {"版本" },  notes = "根据项目版本")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/builds/{build_id}/mobprojectbuildcounter")
+    public ResponseEntity<BuildDTO> mobProjectBuildCounterByProject(@PathVariable("project_id") Long project_id, @PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setProject(project_id);
+        domain = buildService.mobProjectBuildCounter(domain) ;
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
@@ -751,6 +829,29 @@ public class BuildResource {
 	public ResponseEntity<Page<BuildDTO>> searchBuildTestRoundsByProject(@PathVariable("project_id") Long project_id, @RequestBody BuildSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Build> domains = buildService.searchTestRounds(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchUpdateLog-all')")
+	@ApiOperation(value = "根据项目获取更新日志", tags = {"版本" } ,notes = "根据项目获取更新日志")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/builds/fetchupdatelog")
+	public ResponseEntity<List<BuildDTO>> fetchBuildUpdateLogByProject(@PathVariable("project_id") Long project_id,BuildSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Build> domains = buildService.searchUpdateLog(context) ;
+        List<BuildDTO> list = buildMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchUpdateLog-all')")
+	@ApiOperation(value = "根据项目查询更新日志", tags = {"版本" } ,notes = "根据项目查询更新日志")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/builds/searchupdatelog")
+	public ResponseEntity<Page<BuildDTO>> searchBuildUpdateLogByProject(@PathVariable("project_id") Long project_id, @RequestBody BuildSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Build> domains = buildService.searchUpdateLog(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(buildMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

@@ -1,11 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import IBZTaskTeamService from '@/service/ibztask-team/ibztask-team-service';
 import MainEditService from './main-edit-grid-service';
 import IBZTaskTeamUIService from '@/uiservice/ibztask-team/ibztask-team-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -15,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {MainEditGridBase}
  */
 export class MainEditGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +64,7 @@ export class MainEditGridBase extends GridControlBase {
      * @type {IBZTaskTeamUIService}
      * @memberof MainEditBase
      */  
-    public appUIService:IBZTaskTeamUIService = new IBZTaskTeamUIService(this.$store);
+    public appUIService: IBZTaskTeamUIService = new IBZTaskTeamUIService(this.$store);
 
 
     /**
@@ -179,7 +178,8 @@ export class MainEditGridBase extends GridControlBase {
      * @type {*}
      * @memberof MainEditGridBase
      */
-    public rules: any = {
+    public rules(){
+        return {
         consumed: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '总计消耗 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '总计消耗 值不能为空', trigger: 'blur' },
@@ -208,6 +208,7 @@ export class MainEditGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**
@@ -315,33 +316,33 @@ export class MainEditGridBase extends GridControlBase {
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any) {
         for (const item of this.items) {
-            if(Object.is(item.rowDataState, 'create')) {
-                continue;
-            }
-            let _removeAction = this.removeAction;
-            let _keys = item.srfkey;
-            const _context: any = JSON.parse(JSON.stringify(this.context));
-            await this.service.delete(_removeAction, Object.assign(_context, { [this.appDeName]: _keys }), Object.assign({ [this.appDeName]: _keys }, { viewparams: this.viewparams }), this.showBusyIndicator);
+            item.srfmajortext = item.account;
         }
         let successItems: any = [];
         for (const item of this.items) {
+            let result: Promise<any>;
+            const _appEntityService: any = this.appEntityService;
+            let curAction:string = "";
             const _context: any = JSON.parse(JSON.stringify(this.context));
             let { data: Data,context: Context } = this.service.handleRequestData(this.createAction, _context, item, true);
             if (Object.is(item.rowDataState, 'create')) {
                 Data.id = null;
                 Data.root = null;
+                curAction = this.createAction;
             }
-            let result: Promise<any>;
-            const _appEntityService: any = this.appEntityService;
-            if (_appEntityService[this.createAction] && _appEntityService[this.createAction] instanceof Function) {
-                result = _appEntityService[this.createAction](Context,Data, this.showBusyIndicator);
+            if(Object.is(item.rowDataState, 'update')){
+                curAction = this.updateAction;
+            }
+            if(!curAction) continue;
+            if (_appEntityService[curAction] && _appEntityService[curAction] instanceof Function) {
+                result =  _appEntityService[curAction](Context,Data, this.showBusyIndicator);
             }else{
-                result =this.appEntityService.Create(Context,Data, this.showBusyIndicator);
+                result =  _appEntityService.Create(Context,Data, this.showBusyIndicator);
             }
             result.then((response) => {
-                this.service.handleResponse(this.createAction, response);
+                this.service.handleResponse(curAction, response);
                 successItems.push(JSON.parse(JSON.stringify(response.data)));
-            })
+            }) 
         }
         this.$emit('save', successItems);
     }

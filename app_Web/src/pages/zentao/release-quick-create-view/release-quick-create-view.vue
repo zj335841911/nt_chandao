@@ -1,5 +1,5 @@
-<template src="./release-quick-create-view.html"/>
-<script lang='tsx'>
+<template src="./release-quick-create-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ReleaseQuickCreateViewBase } from './release-quick-create-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/release/quick-create-form/quick-create-form.vue'
     }
 })
 @VueLifeCycleProcessing()
-export default class ReleaseQuickCreateView extends ReleaseQuickCreateViewBase { }
+export default class ReleaseQuickCreateView extends ReleaseQuickCreateViewBase {}
 </script>

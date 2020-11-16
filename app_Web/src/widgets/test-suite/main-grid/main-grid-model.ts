@@ -23,6 +23,31 @@ export default class MainModel {
 	public getDataItems(): any[] {
     if(this.isDEExport){
 		  return [
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'desc',
+          prop: 'desc',
+          dataType: 'LONGTEXT',
+        },
+        {
+          name: 'addedby',
+          prop: 'addedby',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'addeddate',
+          prop: 'addeddate',
+          dataType: 'DATETIME',
+        },
       ]
     }else{
 		  return [

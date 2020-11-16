@@ -31,6 +31,7 @@ public class LogSearchContext extends QueryWrapperContext<Log> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

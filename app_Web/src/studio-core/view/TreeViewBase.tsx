@@ -8,7 +8,6 @@ import { MDViewBase } from './MDViewBase';
  * @extends {MDViewBase}
  */
 export class TreeViewBase extends MDViewBase {
-
     /**
      * 节点过滤值
      *
@@ -27,5 +26,4 @@ export class TreeViewBase extends MDViewBase {
             this.viewState.next({ tag: 'tree', action: 'filter', data: { srfnodefilter: this.srfnodefilter } });
         }
     }
-
 }

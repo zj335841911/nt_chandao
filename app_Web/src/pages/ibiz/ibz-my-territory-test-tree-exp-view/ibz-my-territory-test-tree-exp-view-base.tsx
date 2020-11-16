@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { TreeExpViewBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import IbzMyTerritoryAuthService from '@/authservice/ibz-my-territory/ibz-my-territory-auth-service';
@@ -62,7 +62,7 @@ export class IbzMyTerritoryTestTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof IbzMyTerritoryTestTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class IbzMyTerritoryTestTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.ibzmyterritory.views.testtreeexpview.caption',
         srfTitle: 'entities.ibzmyterritory.views.testtreeexpview.title',
         srfSubTitle: 'entities.ibzmyterritory.views.testtreeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class IbzMyTerritoryTestTreeExpViewBase extends TreeExpViewBase {
      * @memberof IbzMyTerritoryTestTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
 
@@ -95,9 +98,18 @@ export class IbzMyTerritoryTestTreeExpViewBase extends TreeExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzMyTerritoryTestTreeExpViewBase
      */
 	protected viewtag: string = 'bef7c08b651990569cd09ce805ebcfe3';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzMyTerritoryTestTreeExpViewBase
+     */ 
+    protected viewName: string = "IbzMyTerritoryTestTreeExpView";
 
 
     /**
@@ -116,7 +128,9 @@ export class IbzMyTerritoryTestTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof IbzMyTerritoryTestTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

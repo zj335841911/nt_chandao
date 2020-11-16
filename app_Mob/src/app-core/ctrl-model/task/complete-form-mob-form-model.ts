@@ -56,6 +56,11 @@ export class CompleteFormMobModel {
                 dataType: 'ACID',
             },
             {
+                name: 'project',
+                prop: 'project',
+                dataType: 'PICKUP',
+            },
+            {
                 name: 'consumed',
                 prop: 'consumed',
                 dataType: 'FLOAT',
@@ -82,6 +87,8 @@ export class CompleteFormMobModel {
             },
             {
                 name: 'files',
+                prop: 'files',
+                dataType: 'TEXT',
             },
             {
                 name: 'multiple',
@@ -92,6 +99,11 @@ export class CompleteFormMobModel {
                 name: 'comment',
                 prop: 'comment',
                 dataType: 'HTMLTEXT',
+            },
+            {
+                name: 'noticeusers',
+                prop: 'noticeusers',
+                dataType: 'TEXT',
             },
             {
                 name: 'task',

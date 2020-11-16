@@ -1,5 +1,5 @@
-<template src="./bug-type-project-chart.html"/>
-<script lang='tsx'>
+<template src="./bug-type-project-chart.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugType_ProjectChartBase } from './bug-type-project-chart-base';
@@ -15,8 +15,8 @@ import { BugType_ProjectChartBase } from './bug-type-project-chart-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class BugType_ProjectChart extends BugType_ProjectChartBase { }
+export default class BugType_ProjectChart extends BugType_ProjectChartBase {}
 </script>

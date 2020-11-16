@@ -38,6 +38,7 @@ public class DynaDashboardSearchContext extends QueryWrapperContext<DynaDashboar
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

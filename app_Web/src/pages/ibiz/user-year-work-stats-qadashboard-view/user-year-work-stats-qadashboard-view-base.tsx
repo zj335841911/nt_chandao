@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import UserYearWorkStatsService from '@/service/user-year-work-stats/user-year-work-stats-service';
 import UserYearWorkStatsAuthService from '@/authservice/user-year-work-stats/user-year-work-stats-auth-service';
@@ -65,7 +65,10 @@ export class UserYearWorkStatsQADashboardViewBase extends DashboardViewBase {
 	 * @memberof UserYearWorkStatsQADashboardViewBase
 	 */
     protected customViewNavContexts: any = {
-        'CURYEAR': { isRawValue: false, value: 'curyear' }
+        'CURYEAR': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
 	/**
@@ -76,7 +79,10 @@ export class UserYearWorkStatsQADashboardViewBase extends DashboardViewBase {
 	 * @memberof UserYearWorkStatsQADashboardViewBase
 	 */
     protected customViewParams: any = {
-        'curyear': { isRawValue: false, value: 'curyear' }
+        'curyear': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
     /**
@@ -84,7 +90,7 @@ export class UserYearWorkStatsQADashboardViewBase extends DashboardViewBase {
      *
      * @memberof UserYearWorkStatsQADashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -97,8 +103,8 @@ export class UserYearWorkStatsQADashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.useryearworkstats.views.qadashboardview.caption',
         srfTitle: 'entities.useryearworkstats.views.qadashboardview.title',
         srfSubTitle: 'entities.useryearworkstats.views.qadashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -108,7 +114,10 @@ export class UserYearWorkStatsQADashboardViewBase extends DashboardViewBase {
      * @memberof UserYearWorkStatsQADashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -117,9 +126,18 @@ export class UserYearWorkStatsQADashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof UserYearWorkStatsQADashboardViewBase
      */
 	protected viewtag: string = 'bb44ef7532c0933ed75b1da291dec073';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof UserYearWorkStatsQADashboardViewBase
+     */ 
+    protected viewName: string = "UserYearWorkStatsQADashboardView";
 
 
     /**
@@ -138,7 +156,9 @@ export class UserYearWorkStatsQADashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof UserYearWorkStatsQADashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -17,7 +17,15 @@
                 </i-col>
                       
                 <i-col v-show="detailsModel.rawitem1.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-rowitem">
-                    <br/>
+                    <app-rawitem
+                    :viewparams="viewparams" 
+                    :context="context"
+                    contentStyle=""
+                    sizeStyle=""
+                    contentType=""
+                    :htmlContent='`<br/>`'
+                >
+                </app-rawitem>
                 
                 
                 </i-col>
@@ -64,7 +72,15 @@
                         </i-col>
                               
                         <i-col v-show="detailsModel.rawitem2.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 2, offset: 0 }" style="" class="app-layoutpanel-rowitem">
-                            h
+                            <app-rawitem
+                            :viewparams="viewparams" 
+                            :context="context"
+                            contentStyle=""
+                            sizeStyle=""
+                            contentType=""
+                            :htmlContent='`h`'
+                        >
+                        </app-rawitem>
                         
                         
                         </i-col>
@@ -82,7 +98,7 @@
         </i-col>
         <i-col v-show="detailsModel.container3.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
             <row style="height:100%;">
-                        </row>
+                              </row>
         </i-col>
     </row>
 </div>

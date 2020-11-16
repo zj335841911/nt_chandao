@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import IBZCaseStepService from '@/service/ibzcase-step/ibzcase-step-service';
 import IBZCaseStepAuthService from '@/authservice/ibzcase-step/ibzcase-step-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import IBZCaseStepUIService from '@/uiservice/ibzcase-step/ibzcase-step-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      * @type {string}
      * @memberof CaseStepCarryOutEditModeBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
         srfCaption: 'entities.ibzcasestep.views.carryouteditmode.caption',
         srfTitle: 'entities.ibzcasestep.views.carryouteditmode.title',
         srfSubTitle: 'entities.ibzcasestep.views.carryouteditmode.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,7 +91,10 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      * @memberof CaseStepCarryOutEditModeBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -100,9 +103,18 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseStepCarryOutEditModeBase
      */
 	protected viewtag: string = 'a694d988e3134a33bb5a99e6e07246f6';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseStepCarryOutEditModeBase
+     */ 
+    protected viewName: string = "CaseStepCarryOutEditMode";
 
 
     /**
@@ -121,7 +133,9 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      * @type {Array<*>}
      * @memberof CaseStepCarryOutEditModeBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -132,11 +146,11 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'ibzcasestep',

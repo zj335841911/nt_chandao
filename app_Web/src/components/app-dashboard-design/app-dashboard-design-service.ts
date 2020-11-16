@@ -2,7 +2,6 @@ import { Http } from './../../utils/http/http';
 import UtilService from '@/utilservice/util-service';
 
 export default class AppDashboardDesignService {
-
     /**
      * 工具服务对象
      *
@@ -22,15 +21,21 @@ export default class AppDashboardDesignService {
      */
     public loadModel(serviceName: string, context: any, viewparams: any) {
         return new Promise((resolve: any, reject: any) => {
-            this.utilService.getService(serviceName).then((service: any) => {
-                service.loadModelData(JSON.stringify(context), viewparams).then((response: any) => {
-                    resolve(response);
-                }).catch((response: any) => {
+            this.utilService
+                .getService(serviceName)
+                .then((service: any) => {
+                    service
+                        .loadModelData(JSON.stringify(context), viewparams)
+                        .then((response: any) => {
+                            resolve(response);
+                        })
+                        .catch((response: any) => {
+                            reject(response);
+                        });
+                })
+                .catch((response: any) => {
                     reject(response);
                 });
-            }).catch((response: any) => {
-                reject(response);
-            });
         });
     }
 
@@ -45,15 +50,21 @@ export default class AppDashboardDesignService {
      */
     public saveModel(serviceName: string, context: any, viewparams: any) {
         return new Promise((resolve: any, reject: any) => {
-            this.utilService.getService(serviceName).then((service: any) => {
-                service.saveModelData(JSON.stringify(context), '', viewparams).then((response: any) => {
-                    resolve(response);
-                }).catch((response: any) => {
+            this.utilService
+                .getService(serviceName)
+                .then((service: any) => {
+                    service
+                        .saveModelData(JSON.stringify(context), '', viewparams)
+                        .then((response: any) => {
+                            resolve(response);
+                        })
+                        .catch((response: any) => {
+                            reject(response);
+                        });
+                })
+                .catch((response: any) => {
                     reject(response);
                 });
-            }).catch((response: any) => {
-                reject(response);
-            });
         });
     }
 
@@ -64,23 +75,26 @@ export default class AppDashboardDesignService {
      */
     public loadPortletList(context: any, viewparams: any): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
-            Http.getInstance().get('./assets/json/portlet-data.json').then((response: any) => {
-                if (response && response.status === 200 && response.data) {
-                    let result:Array<any> = [];
-                    if(typeof(response.data)=='string'){
-                        const index:number = response.data.lastIndexOf(",");
-                        result = JSON.parse((response.data).slice(0,index)+']');
-                    }else{
-                        result = response.data;
+            Http.getInstance()
+                .get('./assets/json/portlet-data.json')
+                .then((response: any) => {
+                    if (response && response.status === 200 && response.data) {
+                        let result: Array<any> = [];
+                        if (typeof response.data == 'string') {
+                            const index: number = response.data.lastIndexOf(',');
+                            result = JSON.parse(response.data.slice(0, index) + ']');
+                        } else {
+                            result = response.data;
+                        }
+                        const datas: any[] = this.filterData(result, viewparams.appdeName);
+                        const list = this.prepareList(datas);
+                        const groups = this.prepareGroup(datas);
+                        resolve({ data: datas, result: list.reverse(), groups: groups });
                     }
-                    const datas: any[] = this.filterData(result, viewparams.appdeName);
-                    const list = this.prepareList(datas);
-                    const groups = this.prepareGroup(datas);
-                    resolve({data: datas, result: list.reverse(), groups: groups});
-                }
-            }).catch((response: any) => {
-                console.log(response);
-            });
+                })
+                .catch((response: any) => {
+                    console.log(response);
+                });
         });
     }
 
@@ -93,10 +107,10 @@ export default class AppDashboardDesignService {
     public filterData(datas: any[] = [], dataType: string): any[] {
         let items: any[] = [];
         datas.forEach((data: any) => {
-            if(Object.is(data.type, 'app')) {
+            if (Object.is(data.type, 'app')) {
                 items.push(data);
             }
-            if(Object.is(data.appCodeName, dataType)) {
+            if (Object.is(data.appCodeName, dataType)) {
                 items.push(data);
             }
         });
@@ -114,13 +128,13 @@ export default class AppDashboardDesignService {
         let items: any[] = [];
         datas.forEach((data: any) => {
             let item = items.find((item: any) => Object.is(item.value, data.groupCodeName));
-            if(item) {
+            if (item) {
                 let _item = item.children.find((a: any) => Object.is(a.portletCodeName, data.portletCodeName));
-                if(!_item) {
+                if (!_item) {
                     item.children.push(data);
                 }
             } else {
-                items.push({name: data.groupName, value: data.groupCodeName, children: [data]});
+                items.push({ name: data.groupName, value: data.groupCodeName, children: [data] });
             }
         });
         return items;
@@ -133,21 +147,21 @@ export default class AppDashboardDesignService {
      */
     public prepareList(datas: any[] = []): any[] {
         let list: any[] = [];
-		datas.forEach((data: any) => {
-			let item = list.find((item: any) => Object.is(data.type, item.type));
-			if(!item) {
-				item = {};
-				Object.assign(item, { 
-					type: data.type,
-					name: Object.is(data.type, 'app') ? "全局" : data.appName,
-					children: []
-				});
-				list.push(item);
-			}
-			this.prepareList2(item.children, data);
-        })
-        return list
-	}
+        datas.forEach((data: any) => {
+            let item = list.find((item: any) => Object.is(data.type, item.type));
+            if (!item) {
+                item = {};
+                Object.assign(item, {
+                    type: data.type,
+                    name: Object.is(data.type, 'app') ? '全局' : data.appName,
+                    children: [],
+                });
+                list.push(item);
+            }
+            this.prepareList2(item.children, data);
+        });
+        return list;
+    }
 
     /**
      * 准备list项集合
@@ -157,18 +171,18 @@ export default class AppDashboardDesignService {
      * @memberof AppDashboardDesignService
      */
     public prepareList2(children: any[] = [], data: any = {}) {
-		let item = children.find((item: any) => Object.is(data.groupCodeName, item.type));
-		if(!item) {
-			item = {};
-			Object.assign(item, { 
-				type: data.groupCodeName,
-				name: data.groupName,
-				children: []
-			});
-			children.push(item);
-		}
-		let _item = item.children.find((a: any) => Object.is(a.portletCodeName, data.portletCodeName));
-        if(!_item) {
+        let item = children.find((item: any) => Object.is(data.groupCodeName, item.type));
+        if (!item) {
+            item = {};
+            Object.assign(item, {
+                type: data.groupCodeName,
+                name: data.groupName,
+                children: [],
+            });
+            children.push(item);
+        }
+        let _item = item.children.find((a: any) => Object.is(a.portletCodeName, data.portletCodeName));
+        if (!_item) {
             item.children.push(data);
         }
     }

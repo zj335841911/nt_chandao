@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Dept;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.DeptMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -55,42 +57,47 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
     @Transactional
     public boolean create(Dept et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
+        }
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
+    @Transactional
     public void createBatch(List<Dept> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(Dept et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
+        }
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<Dept> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
-        return result ;
+        boolean result = removeById(key);
+        return result;
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
@@ -99,11 +106,11 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
     @Transactional
     public Dept get(Long key) {
         Dept et = getById(key);
-        if(et==null){
-            et=new Dept();
+        if (et == null) {
+            et = new Dept();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -116,13 +123,14 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
 
     @Override
     public boolean checkKey(Dept et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(Dept et) {
-        if(!saveOrUpdate(et))
+        if (!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -137,27 +145,28 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<Dept> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<Dept> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<Dept> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
-
     @Override
     public void removeByParent(Long id) {
-        this.remove(new QueryWrapper<Dept>().eq("parent",id));
+        this.remove(new QueryWrapper<Dept>().eq("parent", id));
     }
 
 
@@ -166,7 +175,7 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
      */
     @Override
     public Page<Dept> searchDefault(DeptSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Dept> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Dept> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Dept>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -175,7 +184,7 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
      */
     @Override
     public Page<Dept> searchRoot(DeptSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Dept> pages=baseMapper.searchRoot(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Dept> pages=baseMapper.searchRoot(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Dept>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -187,12 +196,12 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
      */
     private void fillParentData(Dept et){
         //实体关系[DER1N__ZT_DEPT__ZT_DEPT__PARENT]
-        if(!ObjectUtils.isEmpty(et.getParent())){
+        if (!ObjectUtils.isEmpty(et.getParent())) {
             cn.ibizlab.pms.core.zentao.domain.Dept ibizparent=et.getIbizparent();
-            if(ObjectUtils.isEmpty(ibizparent)){
+            if (ObjectUtils.isEmpty(ibizparent)) {
                 cn.ibizlab.pms.core.zentao.domain.Dept majorEntity=deptService.get(et.getParent());
                 et.setIbizparent(majorEntity);
-                ibizparent=majorEntity;
+                ibizparent = majorEntity;
             }
             et.setParentname(ibizparent.getName());
         }
@@ -202,28 +211,31 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

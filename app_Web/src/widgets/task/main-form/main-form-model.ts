@@ -101,6 +101,11 @@ export default class MainModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'usernames',
+        prop: 'usernames',
+        dataType: 'TEXT',
+      },
+      {
         name: 'storyname',
         prop: 'storyname',
         dataType: 'PICKUPTEXT',
@@ -126,6 +131,11 @@ export default class MainModel {
         dataType: 'LONGTEXT',
       },
       {
+        name: 'noticeusers',
+        prop: 'noticeusers',
+        dataType: 'TEXT',
+      },
+      {
         name: 'files',
         prop: 'files',
         dataType: 'TEXT',
@@ -146,7 +156,17 @@ export default class MainModel {
       {
         name: 'mailto',
         prop: 'mailto',
-        dataType: 'LONGTEXT',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'id',

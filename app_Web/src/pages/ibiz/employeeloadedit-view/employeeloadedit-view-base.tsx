@@ -1,10 +1,10 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
-import EmployEeloadService from '@/service/employ-eeload/employ-eeload-service';
-import EmployEeloadAuthService from '@/authservice/employ-eeload/employ-eeload-auth-service';
+import EmpLoyeeloadService from '@/service/emp-loyeeload/emp-loyeeload-service';
+import EmpLoyeeloadAuthService from '@/authservice/emp-loyeeload/emp-loyeeload-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
-import EmployEeloadUIService from '@/uiservice/employ-eeload/employ-eeload-ui-service';
+import EmpLoyeeloadUIService from '@/uiservice/emp-loyeeload/emp-loyeeload-ui-service';
 
 /**
  * 员工负载表编辑视图视图基类
@@ -48,30 +48,30 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof EMPLOYEELOADEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
      *
-     * @type {EmployEeloadService}
+     * @type {EmpLoyeeloadService}
      * @memberof EMPLOYEELOADEditViewBase
      */
-    protected appEntityService: EmployEeloadService = new EmployEeloadService;
+    protected appEntityService: EmpLoyeeloadService = new EmpLoyeeloadService;
 
     /**
      * 实体权限服务对象
      *
-     * @type EmployEeloadUIService
+     * @type EmpLoyeeloadUIService
      * @memberof EMPLOYEELOADEditViewBase
      */
-    public appUIService: EmployEeloadUIService = new EmployEeloadUIService(this.$store);
+    public appUIService: EmpLoyeeloadUIService = new EmpLoyeeloadUIService(this.$store);
 
     /**
      * 是否显示信息栏
      *
      * @memberof EMPLOYEELOADEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
         srfCaption: 'entities.employeeload.views.editview.caption',
         srfTitle: 'entities.employeeload.views.editview.title',
         srfSubTitle: 'entities.employeeload.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
      * @memberof EMPLOYEELOADEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -106,13 +112,13 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
      * @memberof EMPLOYEELOADEditView
      */
     public toolBarModels: any = {
-        tbitem3: { name: 'tbitem3', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'Save', target: '', class: '' } },
+        tbitem3: { name: 'tbitem3', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'Save', target: '', class: '' } },
 
-        tbitem4: { name: 'tbitem4', caption: '保存并新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并新建', iconcls: 'sx-tb-saveandnew', icon: '../sasrfex/images/default/icon_saveandnew.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndNew', target: '', class: '' } },
+        tbitem4: { name: 'tbitem4', caption: '保存并新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并新建', iconcls: 'sx-tb-saveandnew', icon: '../sasrfex/images/default/icon_saveandnew.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndNew', target: '', class: '' } },
 
-        tbitem5: { name: 'tbitem5', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        tbitem5: { name: 'tbitem5', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
-        tbitem7: { name: 'tbitem7', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', uiaction: { tag: 'RemoveAndExit', target: 'SINGLEKEY', class: '' } },
+        tbitem7: { name: 'tbitem7', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', uiaction: { tag: 'RemoveAndExit', target: 'SINGLEKEY', class: '' } },
 
     };
 
@@ -123,9 +129,18 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof EMPLOYEELOADEditViewBase
      */
 	protected viewtag: string = 'cdb6ad5305bb1900e7349e9e057b3596';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof EMPLOYEELOADEditViewBase
+     */ 
+    protected viewName: string = "EMPLOYEELOADEditView";
 
 
     /**
@@ -144,7 +159,9 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof EMPLOYEELOADEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -249,7 +266,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.Save(datas, contextJO,paramJO,  $event, xData,this,"EmployEeload");
+        this.Save(datas, contextJO,paramJO,  $event, xData,this,"EmpLoyeeload");
     }
 
     /**
@@ -277,7 +294,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.SaveAndNew(datas, contextJO,paramJO,  $event, xData,this,"EmployEeload");
+        this.SaveAndNew(datas, contextJO,paramJO,  $event, xData,this,"EmpLoyeeload");
     }
 
     /**
@@ -305,7 +322,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"EmployEeload");
+        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"EmpLoyeeload");
     }
 
     /**
@@ -333,7 +350,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.RemoveAndExit(datas, contextJO,paramJO,  $event, xData,this,"EmployEeload");
+        this.RemoveAndExit(datas, contextJO,paramJO,  $event, xData,this,"EmpLoyeeload");
     }
 
     /**
@@ -361,7 +378,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.SaveAndStart(datas, contextJO,paramJO,  $event, xData,this,"EmployEeload");
+        this.SaveAndStart(datas, contextJO,paramJO,  $event, xData,this,"EmpLoyeeload");
     }
 
     /**
@@ -389,7 +406,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.ViewWFStep(datas, contextJO,paramJO,  $event, xData,this,"EmployEeload");
+        this.ViewWFStep(datas, contextJO,paramJO,  $event, xData,this,"EmpLoyeeload");
     }
 
     /**

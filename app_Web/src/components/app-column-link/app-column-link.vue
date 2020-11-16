@@ -5,15 +5,13 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component,Prop } from 'vue-property-decorator';
+import { Vue, Component, Prop } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 /**
  * 表格列链接
  */
-@Component({
-})
+@Component({})
 export default class AppColumnLink extends Vue {
-
     /**
      * 表格行数据
      *
@@ -30,21 +28,21 @@ export default class AppColumnLink extends Vue {
      */
     @Prop() public linkview?: any;
 
-        /**
+    /**
      * 局部上下文导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppColumnLink
      */
-    @Prop() public localContext!:any;
+    @Prop() public localContext!: any;
 
     /**
      * 局部导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppColumnLink
      */
-    @Prop() public localParam!:any;
+    @Prop() public localParam!: any;
 
     /**
      * 值项名称
@@ -60,7 +58,7 @@ export default class AppColumnLink extends Vue {
      * @type {*}
      * @memberof AppColumnLink
      */
-    @Prop({default:{}}) public context?:any;
+    @Prop({ default: {} }) public context?: any;
 
     /**
      * 导航参数
@@ -68,7 +66,7 @@ export default class AppColumnLink extends Vue {
      * @type {*}
      * @memberof AppColumnLink
      */
-    @Prop({default:{}}) public viewparams?:any;
+    @Prop({ default: {} }) public viewparams?: any;
 
     /**
      * 应用实体主键属性名称
@@ -76,7 +74,7 @@ export default class AppColumnLink extends Vue {
      * @type {string}
      * @memberof AppColumnLink
      */
-    @Prop() public deKeyField!:string;
+    @Prop() public deKeyField!: string;
 
     /**
      * 是否正在跳转页面
@@ -102,7 +100,7 @@ export default class AppColumnLink extends Vue {
      */
     public openLinkView($event: any): void {
         $event.stopPropagation();
-        if(this.isJumping) {
+        if (this.isJumping) {
             return;
         }
         this.isJumping = true;
@@ -110,7 +108,10 @@ export default class AppColumnLink extends Vue {
             this.isJumping = false;
         }, 1000);
         if (!this.data || !this.valueitem || !this.data[this.valueitem]) {
-            this.$Notice.error({ title: (this.$t('components.appColumnLink.error') as string), desc: (this.$t('components.appColumnLink.valueItemException') as string) });
+            this.$Notice.error({
+                title: this.$t('components.appColumnLink.error') as string,
+                desc: this.$t('components.appColumnLink.valueItemException') as string,
+            });
             return;
         }
         // 公共参数处理
@@ -149,7 +150,14 @@ export default class AppColumnLink extends Vue {
      * @memberof AppColumnLink
      */
     private openIndexViewTab(view: any, context: any, param: any): void {
-        const routePath = this.$viewTool.buildUpRoutePath(this.$route, this.context, view.deResParameters, view.parameters, [context] , param);
+        const routePath = this.$viewTool.buildUpRoutePath(
+            this.$route,
+            this.context,
+            view.deResParameters,
+            view.parameters,
+            [context],
+            param
+        );
         this.$router.push(routePath);
     }
 
@@ -229,67 +237,76 @@ export default class AppColumnLink extends Vue {
      * @memberof AppColumnLink
      */
     private openRedirectView($event: any, view: any, data: any): void {
-        this.$http.get(view.url, data).then((response: any) => {
-            if (!response || response.status !== 200) {
-                this.$Notice.error({ title: (this.$t('app.commonWords.error') as string), desc: (this.$t('app.commonWords.reqException') as string) });
-            }
-            if (response.status === 401) {
-                return;
-            }
-            const { data: result } = response;
+        this.$http
+            .get(view.url, data)
+            .then((response: any) => {
+                if (!response || response.status !== 200) {
+                    this.$Notice.error({
+                        title: this.$t('app.commonWords.error') as string,
+                        desc: this.$t('app.commonWords.reqException') as string,
+                    });
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                const { data: result } = response;
 
-            if (result.viewparams && !Object.is(result.viewparams.srfkey, '')) {
-                Object.assign(data, { srfkey: result.viewparams.srfkey });
-            }
+                if (result.viewparams && !Object.is(result.viewparams.srfkey, '')) {
+                    Object.assign(data, { srfkey: result.viewparams.srfkey });
+                }
 
-            if (Object.is(result.openmode, 'POPUPAPP') && result.url && !Object.is(result.url, '')) {
-                this.openPopupApp(result.url);
-            } else if (Object.is(result.openmode, 'INDEXVIEWTAB') || Object.is(result.openmode, '')) {
-                // 所有数据保持在同一级
-                if (data.srfparentdata) {
-                    Object.assign(data, data.srfparentdata);
-                    delete data.srfparentdata;
+                if (Object.is(result.openmode, 'POPUPAPP') && result.url && !Object.is(result.url, '')) {
+                    this.openPopupApp(result.url);
+                } else if (Object.is(result.openmode, 'INDEXVIEWTAB') || Object.is(result.openmode, '')) {
+                    // 所有数据保持在同一级
+                    if (data.srfparentdata) {
+                        Object.assign(data, data.srfparentdata);
+                        delete data.srfparentdata;
+                    }
+                    this.openIndexViewTab(view, null, data);
+                } else if (Object.is(result.openmode, 'POPUPMODAL')) {
+                    const viewname = this.$util.srfFilePath2(result.viewname);
+                    const view: any = {
+                        viewname: viewname,
+                        title: result.title,
+                        width: result.width,
+                        height: result.height,
+                    };
+                    this.openPopupModal(view, null, data);
+                } else if (result.openmode.startsWith('DRAWER')) {
+                    const viewname = this.$util.srfFilePath2(result.viewname);
+                    const view: any = {
+                        viewname: viewname,
+                        title: result.title,
+                        width: result.width,
+                        height: result.height,
+                        placement: result.openmode,
+                    };
+                    this.openDrawer(view, null, data);
+                } else if (Object.is(result.openmode, 'POPOVER')) {
+                    const viewname = this.$util.srfFilePath2(result.viewname);
+                    const view: any = {
+                        viewname: viewname,
+                        title: result.title,
+                        width: result.width,
+                        height: result.height,
+                        placement: result.openmode,
+                    };
+                    this.openPopOver($event, view, null, data);
                 }
-                this.openIndexViewTab(view, null, data);
-            } else if (Object.is(result.openmode, 'POPUPMODAL')) {
-                const viewname = this.$util.srfFilePath2(result.viewname);
-                const view: any = {
-                    viewname: viewname,
-                    title: result.title,
-                    width: result.width,
-                    height: result.height,
+            })
+            .catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    this.$Notice.error({
+                        title: this.$t('app.commonWords.error') as string,
+                        desc: this.$t('app.commonWords.reqException') as string,
+                    });
+                    return;
                 }
-                this.openPopupModal(view, null,data);
-            } else if (result.openmode.startsWith('DRAWER')) {
-                const viewname = this.$util.srfFilePath2(result.viewname);
-                const view: any = {
-                    viewname: viewname,
-                    title: result.title,
-                    width: result.width,
-                    height: result.height,
-                    placement: result.openmode,
+                if (response.status === 401) {
+                    return;
                 }
-                this.openDrawer(view, null, data);
-            } else if (Object.is(result.openmode, 'POPOVER')) {
-                const viewname = this.$util.srfFilePath2(result.viewname);
-                const view: any = {
-                    viewname: viewname,
-                    title: result.title,
-                    width: result.width,
-                    height: result.height,
-                    placement: result.openmode,
-                }
-                this.openPopOver($event, view, null, data);
-            }
-        }).catch((response: any) => {
-            if (!response || !response.status || !response.data) {
-                this.$Notice.error({ title: (this.$t('app.commonWords.error') as string), desc: (this.$t('app.commonWords.reqException') as string) });
-                return;
-            }
-            if (response.status === 401) {
-                return;
-            }
-        });
+            });
     }
 
     /**
@@ -303,7 +320,7 @@ export default class AppColumnLink extends Vue {
         if (result.datas && Array.isArray(result.datas)) {
             Object.assign(item, result.datas[0]);
         }
-        console.log(item);
+        this.$emit('refresh', item);
     }
 
     /**
@@ -315,29 +332,29 @@ export default class AppColumnLink extends Vue {
      */
     public handlePublicParams(arg: any): boolean {
         if (!this.data) {
-            this.$Notice.error({ title: (this.$t('components.appColumnLink.error') as string), desc: (this.$t('components.appColumnLink.rowDataException') as string) });
+            this.$Notice.error({
+                title: this.$t('components.appColumnLink.error') as string,
+                desc: this.$t('components.appColumnLink.rowDataException') as string,
+            });
             return false;
         }
         // 合并表单参数
         arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
         arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
-         // 附加参数处理
-        if (this.localContext && Object.keys(this.localContext).length >0) {
-            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
-            Object.assign(arg.context,_context);
+        // 附加参数处理
+        if (this.localContext && Object.keys(this.localContext).length > 0) {
+            let _context = this.$util.computedNavData(this.data, arg.context, arg.param, this.localContext);
+            Object.assign(arg.context, _context);
         }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
-            Object.assign(arg.param,_param);
+        if (this.localParam && Object.keys(this.localParam).length > 0) {
+            let _param = this.$util.computedNavData(this.data, arg.param, arg.param, this.localParam);
+            Object.assign(arg.param, _param);
         }
         return true;
     }
-
-
-
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import './app-column-link.less';
 </style>

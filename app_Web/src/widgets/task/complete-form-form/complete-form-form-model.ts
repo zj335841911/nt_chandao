@@ -56,14 +56,19 @@ export default class CompleteFormModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'consumed',
+        prop: 'consumed',
+        dataType: 'FLOAT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
       },
       {
-        name: 'consumed',
-        prop: 'consumed',
-        dataType: 'FLOAT',
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
       },
       {
         name: 'currentconsumed',
@@ -91,7 +96,14 @@ export default class CompleteFormModel {
         dataType: 'TEXT',
       },
       {
+        name: 'noticeusers',
+        prop: 'noticeusers',
+        dataType: 'TEXT',
+      },
+      {
         name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
       },
       {
         name: 'comment',

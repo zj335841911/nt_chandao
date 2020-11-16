@@ -38,6 +38,7 @@ public class CompileSearchContext extends QueryWrapperContext<Compile> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

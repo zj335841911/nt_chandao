@@ -1,5 +1,5 @@
-<template src="./todo-desc-edit-view9.html"/>
-<script lang='tsx'>
+<template src="./todo-desc-edit-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TodoDescEditView9Base } from './todo-desc-edit-view9-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/todo/dashboard-main-form/dashboard-main-form.vue
     }
 })
 @VueLifeCycleProcessing()
-export default class TodoDescEditView9 extends TodoDescEditView9Base { }
+export default class TodoDescEditView9 extends TodoDescEditView9Base {}
 </script>

@@ -17,28 +17,28 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface CaseMapper extends BaseMapper<Case>{
+public interface CaseMapper extends BaseMapper<Case> {
 
-    Page<Case> searchBatchNew(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchCurOpenedCase(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchCurSuite(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchCurTestTask(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchDefault(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchModuleRePortCase(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchModuleRePortCaseEntry(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchModuleRePortCase_Project(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchMyFavorites(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchNotCurTestSuite(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchNotCurTestTask(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchRePortCase(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchRePortCaseEntry(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchRePortCase_Project(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchRunERRePortCase(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchRunERRePortCaseEntry(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchRunERRePortCase_Project(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchRunRePortCase(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchRunRePortCaseEntry(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
-    Page<Case> searchRunRePortCase_Project(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
+    Page<Case> searchBatchNew(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchCurOpenedCase(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchCurSuite(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchCurTestTask(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchDefault(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchModuleRePortCase(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchModuleRePortCaseEntry(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchModuleRePortCase_Project(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchMyFavorites(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchNotCurTestSuite(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchNotCurTestTask(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchRePortCase(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchRePortCaseEntry(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchRePortCase_Project(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchRunERRePortCase(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchRunERRePortCaseEntry(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchRunERRePortCase_Project(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchRunRePortCase(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchRunRePortCaseEntry(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
+    Page<Case> searchRunRePortCase_Project(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper);
     @Override
     Case selectById(Serializable id);
     @Override
@@ -49,13 +49,13 @@ public interface CaseMapper extends BaseMapper<Case>{
     int update(@Param(Constants.ENTITY) Case entity, @Param("ew") Wrapper<Case> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -81,18 +81,18 @@ public interface CaseMapper extends BaseMapper<Case>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<Case> selectByBranch(@Param("id") Serializable id) ;
+    List<Case> selectByBranch(@Param("id") Serializable id);
 
-    List<Case> selectByFrombug(@Param("id") Serializable id) ;
+    List<Case> selectByFrombug(@Param("id") Serializable id);
 
-    List<Case> selectByFromcaseid(@Param("id") Serializable id) ;
+    List<Case> selectByFromcaseid(@Param("id") Serializable id);
 
-    List<Case> selectByModule(@Param("id") Serializable id) ;
+    List<Case> selectByModule(@Param("id") Serializable id);
 
-    List<Case> selectByProduct(@Param("id") Serializable id) ;
+    List<Case> selectByProduct(@Param("id") Serializable id);
 
-    List<Case> selectByStory(@Param("id") Serializable id) ;
+    List<Case> selectByStory(@Param("id") Serializable id);
 
-    List<Case> selectByLib(@Param("id") Serializable id) ;
+    List<Case> selectByLib(@Param("id") Serializable id);
 
 }

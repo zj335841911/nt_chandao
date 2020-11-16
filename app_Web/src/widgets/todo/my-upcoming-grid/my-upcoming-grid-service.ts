@@ -1,4 +1,5 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import TodoService from '@/service/todo/todo-service';
 import MyUpcomingModel from './my-upcoming-grid-model';
@@ -13,7 +14,7 @@ import MyUpcomingModel from './my-upcoming-grid-model';
 export default class MyUpcomingService extends ControlService {
 
     /**
-     * 待办事宜表服务对象
+     * 待办服务对象
      *
      * @type {TodoService}
      * @memberof MyUpcomingService
@@ -347,7 +348,7 @@ export default class MyUpcomingService extends ControlService {
                     requestData[item.prop] = context[item.name];
                 }
             }else{
-                if(item && item.isEditable && item.prop && item.name && (data[item.name] || Object.is(data[item.name],0)) ){
+                if(item && item.isEditable && item.prop && item.name && data.hasOwnProperty(item.name)){
                     requestData[item.prop] = data[item.name];
                 }
             }

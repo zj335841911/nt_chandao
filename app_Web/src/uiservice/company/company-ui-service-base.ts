@@ -21,6 +21,13 @@ export default class CompanyUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  CompanyUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  CompanyUIServiceBase
@@ -89,12 +96,15 @@ export default class CompanyUIServiceBase extends UIService {
      * @memberof  CompanyUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'depttreeexpview',srfappde:'companies',component:'company-dept-tree-exp-view'});
-        this.allViewMap.set(':',{viewname:'deptusertreeexpview',srfappde:'companies',component:'company-dept-user-tree-exp-view'});
-        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'companies',component:'company-main-tab-exp-view'});
-        this.allViewMap.set(':',{viewname:'mainview',srfappde:'companies',component:'company-main-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'companies',component:'company-edit-view'});
-        this.allViewMap.set(':',{viewname:'mainview9',srfappde:'companies',component:'company-main-view9'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'companies',
+            component: 'company-edit-view',
+            openmode: '',
+            title: '公司信息',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

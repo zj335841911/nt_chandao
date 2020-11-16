@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibiz.domain.ProductLine;
@@ -102,7 +103,7 @@ public class ProductLineServiceImpl implements IProductLineService {
      */
     @Override
     public Page<ProductLine> searchDefault(ProductLineSearchContext context) {
-        return new PageImpl<ProductLine>(new ArrayList(),context.getPageable(),0);
+        return new PageImpl<ProductLine>(new ArrayList(), context.getPageable(), 0);
     }
 
 

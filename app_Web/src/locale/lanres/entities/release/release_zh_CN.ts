@@ -24,6 +24,7 @@ export default {
     releasetype: "运行模式",
     builder: "构建者",
     builddate: "打包日期",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		optionview: {
@@ -155,6 +156,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			name: "发布名称",
@@ -163,6 +165,14 @@ export default {
 			date: "发布日期",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "ID",
+			name: "发布名称",
+			buildname: "版本",
+			status: "状态",
+			date: "发布日期",
+			product: "产品",
+    },
 		uiactions: {
 			release_linkstory: "关联需求",
 			refresh: "刷新",

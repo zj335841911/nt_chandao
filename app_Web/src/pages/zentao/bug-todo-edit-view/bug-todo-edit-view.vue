@@ -1,5 +1,5 @@
-<template src="./bug-todo-edit-view.html"/>
-<script lang='tsx'>
+<template src="./bug-todo-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugTodoEditViewBase } from './bug-todo-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/bug/pending-submission-form/pending-submission-f
     }
 })
 @VueLifeCycleProcessing()
-export default class BugTodoEditView extends BugTodoEditViewBase { }
+export default class BugTodoEditView extends BugTodoEditViewBase {}
 </script>

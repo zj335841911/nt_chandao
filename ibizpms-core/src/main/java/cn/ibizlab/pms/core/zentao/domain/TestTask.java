@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_testtask",resultMap = "TestTaskResultMap")
+@TableName(value = "zt_testtask", resultMap = "TestTaskResultMap")
 public class TestTask extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,16 +47,16 @@ public class TestTask extends EntityMP implements Serializable {
      * 结束日期
      */
     @TableField(value = "`end`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "end" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "end", format = "yyyy-MM-dd")
     @JsonProperty("end")
     private Timestamp end;
     /**
      * 开始日期
      */
     @TableField(value = "`begin`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "begin" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "begin", format = "yyyy-MM-dd")
     @JsonProperty("begin")
     private Timestamp begin;
     /**
@@ -100,8 +102,8 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -124,8 +126,8 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -197,6 +199,34 @@ public class TestTask extends EntityMP implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
+    /**
+     * 用例数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "casecnt")
+    @JsonProperty("casecnt")
+    private Integer casecnt;
+    /**
+     * 负责人（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "ownerpk")
+    @JsonProperty("ownerpk")
+    private String ownerpk;
+    /**
+     * 联系人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    private String mailtoconact;
+    /**
+     * 抄送给
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    private String mailtopk;
 
     /**
      * 
@@ -227,15 +257,15 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [结束日期]
      */
-    public void setEnd(Timestamp end){
-        this.end = end ;
-        this.modify("end",end);
+    public void setEnd(Timestamp end) {
+        this.end = end;
+        this.modify("end", end);
     }
 
     /**
      * 格式化日期 [结束日期]
      */
-    public String formatEnd(){
+    public String formatEnd() {
         if (this.end == null) {
             return null;
         }
@@ -245,15 +275,15 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [开始日期]
      */
-    public void setBegin(Timestamp begin){
-        this.begin = begin ;
-        this.modify("begin",begin);
+    public void setBegin(Timestamp begin) {
+        this.begin = begin;
+        this.modify("begin", begin);
     }
 
     /**
      * 格式化日期 [开始日期]
      */
-    public String formatBegin(){
+    public String formatBegin() {
         if (this.begin == null) {
             return null;
         }
@@ -263,103 +293,103 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [抄送给]
      */
-    public void setMailto(String mailto){
-        this.mailto = mailto ;
-        this.modify("mailto",mailto);
+    public void setMailto(String mailto) {
+        this.mailto = mailto;
+        this.modify("mailto", mailto);
     }
 
     /**
      * 设置 [优先级]
      */
-    public void setPri(Integer pri){
-        this.pri = pri ;
-        this.modify("pri",pri);
+    public void setPri(Integer pri) {
+        this.pri = pri;
+        this.modify("pri", pri);
     }
 
     /**
      * 设置 [子状态]
      */
-    public void setSubstatus(String substatus){
-        this.substatus = substatus ;
-        this.modify("substatus",substatus);
+    public void setSubstatus(String substatus) {
+        this.substatus = substatus;
+        this.modify("substatus", substatus);
     }
 
     /**
      * 设置 [report]
      */
-    public void setReport(String report){
-        this.report = report ;
-        this.modify("report",report);
+    public void setReport(String report) {
+        this.report = report;
+        this.modify("report", report);
     }
 
     /**
      * 设置 [描述]
      */
-    public void setDesc(String desc){
-        this.desc = desc ;
-        this.modify("desc",desc);
+    public void setDesc(String desc) {
+        this.desc = desc;
+        this.modify("desc", desc);
     }
 
     /**
      * 设置 [当前状态]
      */
-    public void setStatus(String status){
-        this.status = status ;
-        this.modify("status",status);
+    public void setStatus(String status) {
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [负责人]
      */
-    public void setOwner(String owner){
-        this.owner = owner ;
-        this.modify("owner",owner);
+    public void setOwner(String owner) {
+        this.owner = owner;
+        this.modify("owner", owner);
     }
 
     /**
      * 设置 [auto]
      */
-    public void setAuto(String auto){
-        this.auto = auto ;
-        this.modify("auto",auto);
+    public void setAuto(String auto) {
+        this.auto = auto;
+        this.modify("auto", auto);
     }
 
     /**
      * 设置 [名称]
      */
-    public void setName(String name){
-        this.name = name ;
-        this.modify("name",name);
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(Long product){
-        this.product = product ;
-        this.modify("product",product);
+    public void setProduct(Long product) {
+        this.product = product;
+        this.modify("product", product);
     }
 
     /**
      * 设置 [版本]
      */
-    public void setBuild(Long build){
-        this.build = build ;
-        this.modify("build",build);
+    public void setBuild(Long build) {
+        this.build = build;
+        this.modify("build", build);
     }
 
     /**
      * 设置 [所属项目]
      */
-    public void setProject(Long project){
-        this.project = project ;
-        this.modify("project",project);
+    public void setProject(Long project) {
+        this.project = project;
+        this.modify("project", project);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -371,7 +401,7 @@ public class TestTask extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

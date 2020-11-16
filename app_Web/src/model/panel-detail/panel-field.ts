@@ -8,7 +8,6 @@ import { PanelDetailModel } from './panel-detail';
  * @extends {PanelDetailModel}
  */
 export class PanelFieldModel extends PanelDetailModel {
-
     /**
      * 是否启用
      *
@@ -27,7 +26,7 @@ export class PanelFieldModel extends PanelDetailModel {
 
     /**
      * 表单项启用条件
-     * 
+     *
      * 0 不启用
      * 1 新建
      * 2 更新
@@ -41,7 +40,7 @@ export class PanelFieldModel extends PanelDetailModel {
     /**
      * Creates an instance of PanelFieldModel.
      * PanelFieldModel 实例
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof PanelFieldModel
      */
@@ -96,5 +95,4 @@ export class PanelFieldModel extends PanelDetailModel {
         }
         this.setDisabled(state);
     }
-
-} 
+}

@@ -1,8 +1,13 @@
-<div class='portlet assigned-to-me-bug ' :style="{'height': isAdaptiveSize ? '100%' : getHeight,}">
+<div class='portlet assigned-to-me-bug ' :style="{}">
         <p class='portlet-title'>
             <span>
             
-            指派给我的Bug
+            指派bug
+            </span>
+            <span class="portlet-action">
+                <a @click="uiAction('ubc43135', $event)" v-show="uiactionModel['more'].visible" :disabled="uiactionModel['more'].disabled">
+                  <span>MORE</span>
+                </a>
             </span>
         </p>
         <div class="portlet-with-title">

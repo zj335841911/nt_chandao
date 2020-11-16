@@ -8,7 +8,6 @@ import ViewEngine from './view-engine';
  * @extends {ViewEngine}
  */
 export default class GridExpViewEngine extends ViewEngine {
-
     /**
      * 表格导航栏部件
      *
@@ -19,7 +18,7 @@ export default class GridExpViewEngine extends ViewEngine {
 
     /**
      * Creates an instance of GridExpViewEngine.
-     * 
+     *
      * @memberof GridExpViewEngine
      */
     constructor() {
@@ -36,7 +35,6 @@ export default class GridExpViewEngine extends ViewEngine {
         this.gridExpBar = options.gridexpbar;
         super.init(options);
     }
-
 
     /**
      * 引擎加载
@@ -65,7 +63,6 @@ export default class GridExpViewEngine extends ViewEngine {
         super.onCtrlEvent(ctrlName, eventName, args);
         if (Object.is(ctrlName, 'gridexpbar')) {
             this.gridExpBarEvent(eventName, args);
-
         }
     }
 
@@ -97,6 +94,4 @@ export default class GridExpViewEngine extends ViewEngine {
     public getGridExpBar(): any {
         return this.gridExpBar;
     }
-
-
 }

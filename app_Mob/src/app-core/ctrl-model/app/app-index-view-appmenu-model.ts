@@ -122,6 +122,42 @@ export class AppIndexViewModel {
 	appfunctag: 'AppFunc2',
 	resourcetag: '',
 },
+        {
+	id: 'A9234AE1-B762-4769-8790-26A98A6CB817',
+	name: 'menuitem8',
+	text: '更新日志',
+	type: 'MENUITEM',
+	counterid: '',
+	tooltip: '更新日志',
+	expanded: false,
+	separator: false,
+	hidden: true,
+	hidesidebar: false,
+	opendefault: false,
+	iconcls: '',
+	icon: '',
+	textcls: '',
+	appfunctag: 'AppFunc3',
+	resourcetag: '',
+},
+        {
+	id: 'A211AE8E-A134-4271-A075-5BB2D7F14E34',
+	name: 'menuitem9',
+	text: '登录地图test',
+	type: 'MENUITEM',
+	counterid: '',
+	tooltip: '登录地图test',
+	expanded: false,
+	separator: false,
+	hidden: false,
+	hidesidebar: false,
+	opendefault: false,
+	iconcls: '',
+	icon: '',
+	textcls: '',
+	appfunctag: 'AppFunc4',
+	resourcetag: '',
+},
     ];
 
 	/**
@@ -132,6 +168,19 @@ export class AppIndexViewModel {
 	 * @memberof AppIndexViewModel
 	 */
 	private funcs: any[] = [
+        {
+            appfunctag: 'AppFunc3',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'sys-update-log-mob-mdview', 
+            codename: 'sysupdatelogmobmdview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/sysupdatelogs/:sysupdatelog?/mobmdview/:mobmdview?',
+            parameters: [
+                { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
+                { pathName: 'mobmdview', parameterName: 'mobmdview' },
+            ],
+        },
         {
             appfunctag: 'Auto22',
             appfuncyype: 'APPVIEW',
@@ -156,6 +205,19 @@ export class AppIndexViewModel {
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'mobmdview', parameterName: 'mobmdview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc4',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'action-mob-map-view', 
+            codename: 'actionmobmapview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/actions/:action?/mobmapview/:mobmapview?',
+            parameters: [
+                { pathName: 'actions', parameterName: 'action' },
+                { pathName: 'mobmapview', parameterName: 'mobmapview' },
             ],
         },
         {

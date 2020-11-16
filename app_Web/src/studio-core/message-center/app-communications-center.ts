@@ -21,7 +21,7 @@ export class AppCommunicationsCenter {
      * @type {AppCommunicationsCenter}
      * @memberof AppCommunicationsCenter
      */
-    private static readonly appCC: AppCommunicationsCenter = new AppCommunicationsCenter;
+    private static readonly appCC: AppCommunicationsCenter = new AppCommunicationsCenter();
     /**
      * 应用中心消息
      *
@@ -107,7 +107,7 @@ export class AppCommunicationsCenter {
         // 心跳时间
         keepalive: 60,
         clean: true,
-    }
+    };
     /**
      * 链接实例
      *
@@ -152,7 +152,10 @@ export class AppCommunicationsCenter {
      * Creates an instance of AppCommunicationsCenter.
      * @memberof AppCommunicationsCenter
      */
-    constructor(params?: { psdsconsoleurl: string, psdcconsoleid?: string, psdevslnsysid?: string, psdsconsoleid?: string }, opt: any = {}) {
+    constructor(
+        params?: { psdsconsoleurl: string; psdcconsoleid?: string; psdevslnsysid?: string; psdsconsoleid?: string },
+        opt: any = {}
+    ) {
         let me: any = this;
         if (AppCommunicationsCenter.appCC) {
             me = AppCommunicationsCenter.appCC;
@@ -334,7 +337,11 @@ export class AppCommunicationsCenter {
      * @returns {string}
      * @memberof AppCommunicationsCenter
      */
-    public command(observer: (content: any) => void, subtype?: 'update' | 'remove' | 'create' | 'all', deName?: string): string {
+    public command(
+        observer: (content: any) => void,
+        subtype?: 'update' | 'remove' | 'create' | 'all',
+        deName?: string
+    ): string {
         const arr: any[] = [];
         if (Object.is(subtype, 'update')) {
             arr.push(this.central.command.update.subscribe(observer, deName));
@@ -367,7 +374,11 @@ export class AppCommunicationsCenter {
      * @returns {string}
      * @memberof AppCommunicationsCenter
      */
-    public commandLocal(observer: (content: any) => void, subtype?: 'update' | 'remove' | 'create' | 'all', deName?: string): string {
+    public commandLocal(
+        observer: (content: any) => void,
+        subtype?: 'update' | 'remove' | 'create' | 'all',
+        deName?: string
+    ): string {
         const arr: any[] = [];
         if (Object.is(subtype, 'update')) {
             arr.push(this.current.command.update.subscribeLocal(observer, deName));
@@ -432,11 +443,12 @@ export class AppCommunicationsCenter {
      */
     protected createUUID(): string {
         function s4() {
-            return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
         }
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
     }
-
 }
 /**
  * 应用通讯中心实例

@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     id: "产品编号",
@@ -155,6 +154,7 @@ export default {
 		},
 	},
 	allproduct_grid: {
+		nodata: "",
 		columns: {
 			name: "产品名称",
 			currproject: "当前项目",
@@ -167,6 +167,7 @@ export default {
 		},
 	},
 	openitems_grid: {
+		nodata: "",
 		columns: {
 			name: "产品名称",
 			currproject: "当前项目",
@@ -197,6 +198,10 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 };

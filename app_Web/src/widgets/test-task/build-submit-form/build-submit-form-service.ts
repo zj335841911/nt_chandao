@@ -1,10 +1,12 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import TestTaskService from '@/service/test-task/test-task-service';
 import BuildSUBMITModel from './build-submit-form-model';
 import ProductService from '@/service/product/product-service';
 import ProjectService from '@/service/project/project-service';
 import BuildService from '@/service/build/build-service';
+import UserContactService from '@/service/user-contact/user-contact-service';
 
 
 /**
@@ -69,6 +71,14 @@ export default class BuildSUBMITService extends ControlService {
     public buildService: BuildService = new BuildService();
 
     /**
+     * 用户联系方式服务对象
+     *
+     * @type {UserContactService}
+     * @memberof BuildSUBMITService
+     */
+    public usercontactService: UserContactService = new UserContactService();
+
+    /**
      * 远端数据
      *
      * @type {*}
@@ -125,6 +135,9 @@ export default class BuildSUBMITService extends ControlService {
         }
         if (Object.is(serviceName, 'BuildService') && Object.is(interfaceName, 'FetchTestBuild')) {
             return this.doItems(this.buildService.FetchTestBuild(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'build');
+        }
+        if (Object.is(serviceName, 'UserContactService') && Object.is(interfaceName, 'FetchCurUSERCONTACT')) {
+            return this.doItems(this.usercontactService.FetchCurUSERCONTACT(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'usercontact');
         }
 
         return Promise.reject([])

@@ -19,4 +19,14 @@ export default {
       		title: "项目产品列表视图",
 		},
 	},
+	plan_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	default_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
 };

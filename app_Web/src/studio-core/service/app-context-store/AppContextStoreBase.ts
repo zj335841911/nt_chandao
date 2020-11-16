@@ -5,7 +5,6 @@
  * @class AppContextStoreBase
  */
 export class AppContextStoreBase {
-
     /**
      * 应用上下文
      *
@@ -22,7 +21,7 @@ export class AppContextStoreBase {
      * @param {{ data?: any, items?: any }} data 需要设置的数据
      * @memberof AppContextStoreBase
      */
-    public setContextData(context: any, appDeName: string, data: { data?: any, items?: any }) {
+    public setContextData(context: any, appDeName: string, data: { data?: any; items?: any }) {
         if (isExist(context) && isExistAndNotEmpty(appDeName) && isExist(data)) {
             context[`srf${appDeName}`] = data;
         }
@@ -36,12 +35,11 @@ export class AppContextStoreBase {
      * @returns {{ data?: any, items?: any }}
      * @memberof AppContextStoreBase
      */
-    public getContextData(context: any, appDeName: string): { data?: any, items?: any } {
+    public getContextData(context: any, appDeName: string): { data?: any; items?: any } {
         const data: any = {};
         if (isExist(context) && isExistAndNotEmpty(appDeName) && isExist(context[`srf${appDeName}`])) {
             Object.assign(data, context[`srf${appDeName}`]);
         }
         return data;
     }
-
 }

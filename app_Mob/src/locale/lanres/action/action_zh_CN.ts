@@ -15,8 +15,19 @@ export default {
     actionmanner: "操作方式",
     isactorss: "当前用户",
     date1: "显示日期",
+    today: "今天",
+    yesterday: "昨天",
+    thisweek: "本周",
+    lastweek: "上周",
+    thismonth: "本月",
+    lastmonth: "上月",
+    srfkey: "前端键值",
+    noticeusers: "消息通知用户",
   },
 	views: {
+		mobmapview: {
+			caption: '系统日志',
+		},
 		mobmdview9: {
 			caption: '通用',
 		},

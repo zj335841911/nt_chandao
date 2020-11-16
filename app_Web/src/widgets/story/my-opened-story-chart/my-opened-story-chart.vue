@@ -1,5 +1,5 @@
-<template src="./my-opened-story-chart.html"/>
-<script lang='tsx'>
+<template src="./my-opened-story-chart.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MyOpenedStoryChartBase } from './my-opened-story-chart-base';
@@ -15,8 +15,8 @@ import { MyOpenedStoryChartBase } from './my-opened-story-chart-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MyOpenedStoryChart extends MyOpenedStoryChartBase { }
+export default class MyOpenedStoryChart extends MyOpenedStoryChartBase {}
 </script>

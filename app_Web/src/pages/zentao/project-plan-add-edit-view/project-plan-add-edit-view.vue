@@ -1,5 +1,5 @@
-<template src="./project-plan-add-edit-view.html"/>
-<script lang='tsx'>
+<template src="./project-plan-add-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectPlanAddEditViewBase } from './project-plan-add-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/project/new-plan-form/new-plan-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectPlanAddEditView extends ProjectPlanAddEditViewBase { }
+export default class ProjectPlanAddEditView extends ProjectPlanAddEditViewBase {}
 </script>

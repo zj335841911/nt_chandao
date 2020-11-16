@@ -1,5 +1,5 @@
-<template src="./bug-type-project-portlet.html"/>
-<script lang='tsx'>
+<template src="./bug-type-project-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugType_ProjectPortletBase } from './bug-type-project-portlet-base';
@@ -15,10 +15,10 @@ import view_dashboard_BugTypeProject_chart from '@widgets/bug/bug-type-project-c
  */
 @Component({
     components: {
-        view_dashboard_BugTypeProject_chart, 
+        view_dashboard_BugTypeProject_chart,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class BugType_ProjectPortlet extends BugType_ProjectPortletBase { }
+export default class BugType_ProjectPortlet extends BugType_ProjectPortletBase {}
 </script>

@@ -1,5 +1,5 @@
-<template src="./resolve-form.html"/>
-<script lang='tsx'>
+<template src="./resolve-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ResolveEditFormBase } from './resolve-form-base';
@@ -15,8 +15,8 @@ import { ResolveEditFormBase } from './resolve-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ResolveEditForm extends ResolveEditFormBase { }
+export default class ResolveEditForm extends ResolveEditFormBase {}
 </script>

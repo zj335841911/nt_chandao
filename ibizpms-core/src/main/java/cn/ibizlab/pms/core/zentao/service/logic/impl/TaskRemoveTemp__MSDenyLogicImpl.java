@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Task;
  */
 @Slf4j
 @Service
-public class TaskRemoveTemp__MSDenyLogicImpl implements ITaskRemoveTemp__MSDenyLogic{
+public class TaskRemoveTemp__MSDenyLogicImpl implements ITaskRemoveTemp__MSDenyLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -41,26 +41,28 @@ public class TaskRemoveTemp__MSDenyLogicImpl implements ITaskRemoveTemp__MSDenyL
         return this.iBzSysDefaultService;
     }
 
-    public void execute(Task et){
+    @Override
+    public void execute(Task et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("taskremovetemp__msdenydefault",et);
-           cn.ibizlab.pms.core.zentao.domain.Task  taskremovetemp__msdenytemp =new cn.ibizlab.pms.core.zentao.domain.Task();
+           kieSession.setGlobal("taskremovetemp__msdenydefault", et);
+           cn.ibizlab.pms.core.zentao.domain.Task taskremovetemp__msdenytemp = new cn.ibizlab.pms.core.zentao.domain.Task();
            kieSession.insert(taskremovetemp__msdenytemp); 
-           kieSession.setGlobal("taskremovetemp__msdenytemp",taskremovetemp__msdenytemp);
-           kieSession.setGlobal("taskservice",taskservice);
-           kieSession.setGlobal("iBzSysTaskDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("taskremovetemp__msdenytemp", taskremovetemp__msdenytemp);
+           kieSession.setGlobal("taskservice", taskservice);
+           kieSession.setGlobal("iBzSysTaskDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.taskremovetemp__msdeny");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[行为[RemoveTemp]主状态拒绝逻辑]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

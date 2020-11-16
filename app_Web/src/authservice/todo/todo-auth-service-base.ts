@@ -1,7 +1,7 @@
 import AuthService from '../auth-service';
 
 /**
- * 待办事宜表权限服务对象基类
+ * 待办权限服务对象基类
  *
  * @export
  * @class TodoAuthServiceBase

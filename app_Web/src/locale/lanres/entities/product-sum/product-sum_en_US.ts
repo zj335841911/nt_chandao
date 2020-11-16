@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     id: "主键标识",
@@ -59,6 +58,7 @@ export default {
 		},
 	},
 	productplancntandstorycnt_po_grid: {
+		nodata: "",
 		columns: {
 			name: "产品名称",
 			plan: "计划数",
@@ -68,6 +68,7 @@ export default {
 		},
 	},
 	productbugcnt_qa_grid: {
+		nodata: "",
 		columns: {
 			name: "产品名称",
 			bugcnt: "创建bug数",
@@ -76,6 +77,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			name: "产品名称",
 			po: "产品负责人",
@@ -120,5 +122,17 @@ export default {
 			caption: "Remove And Close",
 			tip: "Remove And Close Window",
 		},
+	},
+	gridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+	},
+	productcreatestory_po_chart: {
+		nodata: "",
+	},
+	productbugcnt_qa_chart: {
+		nodata: "",
 	},
 };

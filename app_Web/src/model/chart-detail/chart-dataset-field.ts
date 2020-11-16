@@ -5,7 +5,6 @@
  * @class ChartDataSetField
  */
 export class ChartDataSetField {
-
     /**
      * 图表属性名称
      *
@@ -36,19 +35,19 @@ export class ChartDataSetField {
      * @type {string}
      * @memberof ChartDataSetField
      */
-    public groupMode:string ="";
+    public groupMode: string = '';
 
     /**
      * Creates an instance of ChartDataSetField.
      * ChartDataSetField 实例
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof ChartDataSetField
      */
     constructor(opts: any = {}) {
         this.name = !Object.is(opts.name, '') ? opts.name : '';
-        this.codelist = opts.codelist?opts.codelist:null;
-        this.isGroupField = opts.isGroupField?opts.isGroupField:false;
+        this.codelist = opts.codelist ? opts.codelist : null;
+        this.isGroupField = opts.isGroupField ? opts.isGroupField : false;
         this.groupMode = !Object.is(opts.groupMode, '') ? opts.groupMode : '';
     }
 

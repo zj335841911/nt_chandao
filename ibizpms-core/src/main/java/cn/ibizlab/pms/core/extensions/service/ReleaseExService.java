@@ -41,25 +41,6 @@ public class ReleaseExService extends ReleaseServiceImpl {
         return com.baomidou.mybatisplus.core.toolkit.ReflectionKit.getSuperClassGenericType(this.getClass().getSuperclass(), 1);
     }
 
-    @Override
-    @Transactional
-    public boolean create(Release et) {
-        String files = et.getFiles();
-        boolean flag = super.create(et);
-        if(flag && et.getId() != null && files != null) {
-            JSONArray jsonArray = JSONArray.parseArray(files);
-            List<cn.ibizlab.pms.core.zentao.domain.File> list = new ArrayList<>();
-            for (int i = 0; i < jsonArray.size(); i ++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                cn.ibizlab.pms.core.zentao.domain.File file = new cn.ibizlab.pms.core.zentao.domain.File();
-                file.setId(jsonObject.getLongValue("id"));
-                file.setObjectid(et.getId());
-                list.add(file);
-            }
-            fileService.updateBatch(list);
-        }
-        return flag;
-    }
 
     /**
      * 自定义行为[Activate]用户扩展

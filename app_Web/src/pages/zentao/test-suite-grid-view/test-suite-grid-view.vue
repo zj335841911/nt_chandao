@@ -1,5 +1,5 @@
-<template src="./test-suite-grid-view.html"/>
-<script lang='tsx'>
+<template src="./test-suite-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestSuiteGridViewBase } from './test-suite-grid-view-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/test-suite/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestSuiteGridView extends TestSuiteGridViewBase { }
+export default class TestSuiteGridView extends TestSuiteGridViewBase {}
 </script>

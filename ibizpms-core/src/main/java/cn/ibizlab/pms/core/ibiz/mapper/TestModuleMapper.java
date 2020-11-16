@@ -17,13 +17,14 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface TestModuleMapper extends BaseMapper<TestModule>{
+public interface TestModuleMapper extends BaseMapper<TestModule> {
 
-    Page<TestModule> searchByPath(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper) ;
-    Page<TestModule> searchDefault(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper) ;
-    Page<TestModule> searchRoot(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper) ;
-    Page<TestModule> searchRoot_NoBranch(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper) ;
-    Page<TestModule> searchTestModule(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper) ;
+    Page<TestModule> searchByPath(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper);
+    Page<TestModule> searchDefault(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper);
+    Page<TestModule> searchParentModule(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper);
+    Page<TestModule> searchRoot(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper);
+    Page<TestModule> searchRoot_NoBranch(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper);
+    Page<TestModule> searchTestModule(IPage page, @Param("srf") TestModuleSearchContext context, @Param("ew") Wrapper<TestModule> wrapper);
     @Override
     TestModule selectById(Serializable id);
     @Override
@@ -34,13 +35,13 @@ public interface TestModuleMapper extends BaseMapper<TestModule>{
     int update(@Param(Constants.ENTITY) TestModule entity, @Param("ew") Wrapper<TestModule> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -66,8 +67,8 @@ public interface TestModuleMapper extends BaseMapper<TestModule>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<TestModule> selectByParent(@Param("id") Serializable id) ;
+    List<TestModule> selectByParent(@Param("id") Serializable id);
 
-    List<TestModule> selectByRoot(@Param("id") Serializable id) ;
+    List<TestModule> selectByRoot(@Param("id") Serializable id);
 
 }

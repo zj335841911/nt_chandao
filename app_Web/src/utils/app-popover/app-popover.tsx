@@ -5,7 +5,7 @@ import preventOverflow from '@popperjs/core/lib/modifiers/preventOverflow.js';
 import flip from '@popperjs/core/lib/modifiers/flip.js';
 import { Placement } from '@popperjs/core/lib/enums';
 import { on } from '../dom/dom';
-import store from '../../store';
+import store from '@/store';
 import i18n from '@/locale';
 import './app-popover.less';
 
@@ -108,13 +108,22 @@ export class AppPopover {
             methods: {
                 click(e: MouseEvent) {
                     e.stopPropagation();
-                }
+                },
             },
             render(h: CreateElement) {
                 const content: any = this.content;
                 container.style.zIndex = (self.zIndex - 1).toString();
-                return <div v-show={self.showPopper} style={{ width: this.width + 'px', height: this.height + 'px', 'z-index': self.zIndex }} class="app-popover app-popper" on-click={this.click}>{(self.showPopper && content) ? content(h) : null}</div>;
-            }
+                return (
+                    <div
+                        v-show={self.showPopper}
+                        style={{ width: this.width + 'px', height: this.height + 'px', 'z-index': self.zIndex }}
+                        class="app-popover app-popper"
+                        on-click={this.click}
+                    >
+                        {self.showPopper && content ? content(h) : null}
+                    </div>
+                );
+            },
         });
     }
 
@@ -130,25 +139,39 @@ export class AppPopover {
      * @returns {Observable<any>}
      * @memberof AppPopover
      */
-    public openPop(event: MouseEvent, view: any, context: any = {}, data: any, position?: Placement, isAutoClose?: boolean): Observable<any> {
+    public openPop(
+        event: MouseEvent,
+        view: any,
+        context: any = {},
+        data: any,
+        position?: Placement,
+        isAutoClose?: boolean
+    ): Observable<any> {
         const subject = new Subject<any>();
-        this.openPopover(event, (h: CreateElement) => {
-            return h(view.viewname, {
-                props: {
-                    viewdata: JSON.stringify(context),
-                    viewDefaultUsage: false,
-                    viewUsage: 4,
-                    viewparam: JSON.stringify(data)
-                },
-                on: {
-                    close: (result: any) => {
-                        subject.next({ ret: 'OK', datas: result });
-                        subject.complete();
-                        subject.unsubscribe();
-                    }
-                }
-            })
-        }, position, isAutoClose, view.width, view.height);
+        this.openPopover(
+            event,
+            (h: CreateElement) => {
+                return h(view.viewname, {
+                    props: {
+                        viewdata: JSON.stringify(context),
+                        viewDefaultUsage: false,
+                        viewUsage: 4,
+                        viewparam: JSON.stringify(data),
+                    },
+                    on: {
+                        close: (result: any) => {
+                            subject.next({ ret: 'OK', datas: result });
+                            subject.complete();
+                            subject.unsubscribe();
+                        },
+                    },
+                });
+            },
+            position,
+            isAutoClose,
+            view.width,
+            view.height
+        );
         return subject.asObservable();
     }
 
@@ -164,7 +187,15 @@ export class AppPopover {
      * @param {*} [popperOption={}]
      * @memberof AppPopover
      */
-    public openPopover(event: any, content?: (h: CreateElement) => any, position: Placement = 'left-end', isAutoClose: boolean = true, width: number = 300, height: number = 300, popperOption: any = {}): void {
+    public openPopover(
+        event: any,
+        content?: (h: CreateElement) => any,
+        position: Placement = 'left-end',
+        isAutoClose: boolean = true,
+        width: number = 300,
+        height: number = 300,
+        popperOption: any = {}
+    ): void {
         // 阻止事件冒泡
         event.stopPropagation();
         const element: Element = event.toElement || event.srcElement;
@@ -187,7 +218,7 @@ export class AppPopover {
             placement: position,
             strategy: 'absolute',
             modifiers: [preventOverflow, flip],
-            ...popperOption
+            ...popperOption,
         });
         this.vueExample.$forceUpdate();
     }
@@ -219,5 +250,4 @@ export class AppPopover {
     public static getInstance() {
         return AppPopover.$popover;
     }
-
 }

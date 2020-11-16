@@ -1,5 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool,Util,ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import DeptService from '@/service/dept/dept-service';
 import MainService from './main-grid-service';
@@ -134,6 +135,14 @@ export class MainGridBase extends GridControlBase {
         Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__ADMIN', actiontarget: 'SINGLEKEY'},
         Edit: { name: 'Edit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__ADMIN', actiontarget: 'SINGLEKEY'}
     };
+
+    /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof MainBase
+     */  
+    public majorInfoColName:string = "name";
 
     /**
      * 本地缓存标识

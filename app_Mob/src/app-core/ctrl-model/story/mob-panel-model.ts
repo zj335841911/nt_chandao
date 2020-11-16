@@ -180,6 +180,39 @@ export class MobModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'assignedtopk',
+      },
+      {
+        name: 'noticeusers',
+      },
+      {
+        name: 'ibiz_sourceobject',
+      },
+      {
+        name: 'sourceobject',
+      },
+      {
+        name: 'ibiz_id',
+      },
+      {
+        name: 'sourcename',
+      },
+      {
+        name: 'sourceid',
+      },
+      {
+        name: 'ibiz_sourceid',
+      },
+      {
+        name: 'ibiz_sourcename',
+      },
     ]
   }
 

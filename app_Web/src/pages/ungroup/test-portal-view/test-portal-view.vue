@@ -1,5 +1,5 @@
-<template src="./test-portal-view.html"/>
-<script lang='tsx'>
+<template src="./test-portal-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestPortalViewBase } from './test-portal-view-base';
@@ -18,5 +18,5 @@ import view_dashboard from '@widgets/app/test-portal-view-db-dashboard/test-port
     }
 })
 @VueLifeCycleProcessing()
-export default class TestPortalView extends TestPortalViewBase { }
+export default class TestPortalView extends TestPortalViewBase {}
 </script>

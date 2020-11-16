@@ -56,6 +56,11 @@ export class MobMainModel {
                 dataType: 'PICKUPTEXT',
             },
             {
+                name: 'project',
+                prop: 'project',
+                dataType: 'PICKUP',
+            },
+            {
                 name: 'modulename',
                 prop: 'modulename',
                 dataType: 'PICKUPTEXT',

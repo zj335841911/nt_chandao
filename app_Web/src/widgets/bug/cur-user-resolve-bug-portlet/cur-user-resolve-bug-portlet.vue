@@ -1,5 +1,5 @@
-<template src="./cur-user-resolve-bug-portlet.html"/>
-<script lang='tsx'>
+<template src="./cur-user-resolve-bug-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CurUserResolveBugPortletBase } from './cur-user-resolve-bug-portlet-base';
@@ -15,10 +15,10 @@ import view_dashboard_sysportlet4_chart from '@widgets/bug/cur-user-resolve-bug-
  */
 @Component({
     components: {
-        view_dashboard_sysportlet4_chart, 
+        view_dashboard_sysportlet4_chart,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class CurUserResolveBugPortlet extends CurUserResolveBugPortletBase { }
+export default class CurUserResolveBugPortlet extends CurUserResolveBugPortletBase {}
 </script>

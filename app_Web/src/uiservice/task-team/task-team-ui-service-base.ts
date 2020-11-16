@@ -21,6 +21,13 @@ export default class TaskTeamUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  TaskTeamUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  TaskTeamUIServiceBase
@@ -89,7 +96,6 @@ export default class TaskTeamUIServiceBase extends UIService {
      * @memberof  TaskTeamUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'gridview9_look',srfappde:'taskteams',component:'task-team-grid-view9-look'});
     }
 
     /**

@@ -23,6 +23,76 @@ export default class Main_ReleaseSubModel {
 	public getDataItems(): any[] {
     if(this.isDEExport){
 		  return [
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'confirmed',
+          prop: 'confirmed',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openeddate',
+          prop: 'openeddate',
+          dataType: 'DATETIME',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'resolution',
+          prop: 'resolution',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'lastediteddate',
+          prop: 'lastediteddate',
+          dataType: 'DATETIME',
+        },
+        {
+          name: 'activateddate',
+          prop: 'activateddate',
+          dataType: 'DATE',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'projectname',
+          prop: 'projectname',
+          dataType: 'PICKUPTEXT',
+        },
       ]
     }else{
 		  return [

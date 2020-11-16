@@ -1,9 +1,12 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
+import cn.ibizlab.pms.core.ibiz.domain.ProjectTeam;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.ProjectMapper;
+import cn.ibizlab.pms.core.zentao.service.IProjectService;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONArray;
@@ -15,11 +18,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
@@ -48,18 +53,31 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     @Autowired
     TeamHelper teamHelper;
 
+    @Autowired
+    IProjectService projectService;
+
     String[] diffAttrs = {"desc"};
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(Project et) {
-
+        String sql = "select * from zt_project where (`name` = #{et.name} or `code` = #{et.code})";
+        Map<String,Object> param = new HashMap<>();
+        param.put("name", et.getName());
+        param.put("code", et.getCode());
+        List<JSONObject> nameList = projectService.select(sql,param);
+        if(!nameList.isEmpty() && nameList.size() > 0) {
+            throw new RuntimeException(String.format("[项目名称：%1$s]或[项目代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
+        }
         JSONArray projectproducts = JSONArray.parseArray(et.getSrfarray());
         fileHelper.processImgURL(et, null, null);
-        if (!this.retBool(this.baseMapper.insert(et)))
+        et.setCloseddate(new Timestamp(-28800000L));
+        et.setCanceleddate(new Timestamp(-28800000L));
+        et.setOpeneddate(ZTDateUtil.now());
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()), et);
-        fileHelper.updateObjectID(null, et.getId(), "product");
 
         //更新order
         et.setOrder(et.getId().intValue() * 5);
@@ -67,16 +85,18 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
 
         //DocLib
         DocLib docLib = new DocLib();
-        docLib.setType("project");
+        docLib.setType(StaticDict.Action__object_type.PROJECT.getValue());
         docLib.setProduct(et.getId());
         docLib.setName("项目主库");
-        docLib.setMain(1);
-        docLib.setAcl("default");
+        docLib.setOrgid(AuthenticationUser.getAuthenticationUser().getOrgid());
+        docLib.setMdeptid(AuthenticationUser.getAuthenticationUser().getMdeptid());
+        docLib.setMain(StaticDict.YesNo.ITEM_1.getValue());
+        docLib.setAcl(StaticDict.Doclib__acl.DEFAULT.getValue());
         docLibHelper.create(docLib);
 
         //Team
         Team team = new Team();
-        team.setType("project");
+        team.setType(StaticDict.Action__object_type.PROJECT.getValue());
         team.setRoot(et.getId());
         team.setAccount(AuthenticationUser.getAuthenticationUser().getUsername());
         team.setJoin(ZTDateUtil.now());
@@ -86,22 +106,24 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         teamHelper.create(team);
 
         //关联产品
-        projectProductHelper.remove(new QueryWrapper<ProjectProduct>().eq("project", et.getId()));
-        for (int i = 0; i < projectproducts.size(); i++) {
-            JSONObject json = projectproducts.getJSONObject(i);
-            ProjectProduct projectProduct = new ProjectProduct();
-            projectProduct.setProject(et.getId());
-            if (json.containsKey("products")) {
-                projectProduct.setProduct(json.getLongValue("products"));
-            } else {
-                continue;
+        projectProductHelper.remove(new QueryWrapper<ProjectProduct>().eq(StaticDict.Action__object_type.PROJECT.getValue(), et.getId()));
+        if(projectproducts != null) {
+            for (int i = 0; i < projectproducts.size(); i++) {
+                JSONObject json = projectproducts.getJSONObject(i);
+                ProjectProduct projectProduct = new ProjectProduct();
+                projectProduct.setProject(et.getId());
+                if (json.containsKey("products")) {
+                    projectProduct.setProduct(json.getLongValue("products"));
+                } else {
+                    continue;
+                }
+                projectProduct.setPlan(json.getLongValue("plans"));
+                projectProduct.setBranch(json.getLongValue("branchs"));
+                projectProductHelper.create(projectProduct);
             }
-            projectProduct.setPlan(json.getLongValue("plans"));
-            projectProduct.setBranch(json.getLongValue("branchs"));
-            projectProductHelper.create(projectProduct);
         }
 
-        actionHelper.create("project", et.getId(), "opened", "",
+        actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "",
                 StringUtils.isNotBlank(et.getProducts()) ? et.getProducts() : "", null, true);
 
 
@@ -109,8 +131,18 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     }
 
 
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(Project et) {
+        String sql = "select * from zt_project where (`name` = #{et.name} or `code` = #{et.code}) and `id` <> #{et.id}";
+        Map<String,Object> param = new HashMap<>();
+        param.put("name", et.getName());
+        param.put("code", et.getCode());
+        param.put("id", et.getId());
+        List<JSONObject> nameList = projectService.select(sql,param);
+        if(!nameList.isEmpty() && nameList.size() > 0) {
+            throw new RuntimeException(String.format("[项目名称：%1$s]或[项目代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
+        }
         String comment = et.getComment() == null ? "" : et.getComment();
         JSONArray projectproducts = JSONArray.parseArray(et.getSrfarray());
         Project old = new Project();
@@ -118,31 +150,33 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         fileHelper.processImgURL(et, null, null);
 
         fileHelper.processImgURL(et, null, null);
-        if (!this.internalUpdate(et))
+        if (!this.internalUpdate(et)) {
             return false;
-        fileHelper.updateObjectID(null, et.getId(), "project");
+        }
 
         //关联产品
-        projectProductHelper.remove(new QueryWrapper<ProjectProduct>().eq("project", et.getId()));
-        for (int i = 0; i < projectproducts.size(); i++) {
-            JSONObject json = projectproducts.getJSONObject(i);
-            ProjectProduct projectProduct = new ProjectProduct();
-            projectProduct.setProject(et.getId());
-            if (json.containsKey("products") && json.get("products") != null) {
-                projectProduct.setProduct(json.getLongValue("products"));
-            } else {
-                continue;
+        projectProductHelper.remove(new QueryWrapper<ProjectProduct>().eq(StaticDict.Action__object_type.PROJECT.getValue(), et.getId()));
+        if(projectproducts != null) {
+            for (int i = 0; i < projectproducts.size(); i++) {
+                JSONObject json = projectproducts.getJSONObject(i);
+                ProjectProduct projectProduct = new ProjectProduct();
+                projectProduct.setProject(et.getId());
+                if (json.containsKey("products") && json.get("products") != null) {
+                    projectProduct.setProduct(json.getLongValue("products"));
+                } else {
+                    continue;
+                }
+                projectProduct.setPlan(json.getLongValue("plans"));
+                projectProduct.setBranch(json.getLongValue("branchs"));
+                projectProductHelper.create(projectProduct);
             }
-            projectProduct.setPlan(json.getLongValue("plans"));
-            projectProduct.setBranch(json.getLongValue("branchs"));
-            projectProductHelper.create(projectProduct);
         }
 
         //Team 处理
 
         List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
+        Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.EDITED.getValue(), comment, "", null, true);
         if (changes.size() > 0) {
-            Action action = actionHelper.create("project", et.getId(), "edited", comment, "", null, true);
             actionHelper.logHistory(action.getId(), changes);
         }
 
@@ -150,74 +184,76 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean delete(Long key) {
 
         boolean result = removeById(key);
 
         //删除doclib
-        docLibHelper.remove(new QueryWrapper<DocLib>().eq("project", key));
+        docLibHelper.remove(new QueryWrapper<DocLib>().eq(StaticDict.Action__object_type.PROJECT.getValue(), key));
 
         return result;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project start(Project et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Project old = new Project();
         CachedBeanCopier.copy(get(et.getId()), old);
-        et.setStatus("doing");
+        et.setStatus(StaticDict.Project__status.DOING.getValue());
         this.internalUpdate(et);
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("project", et.getId(), "Started",
+            Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.STARTED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project activate(Project et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Project old = new Project();
         CachedBeanCopier.copy(get(et.getId()), old);
-        et.setStatus("doing");
+        et.setStatus(StaticDict.Project__status.DOING.getValue());
         this.internalUpdate(et);
         /* Readjust task. */
-        log.info("Readjust task 未实现");
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("project", et.getId(), "Activated",
+            Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.ACTIVATED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project close(Project et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Project old = new Project();
         CachedBeanCopier.copy(get(et.getId()), old);
-        et.setStatus("closed");
+        et.setStatus(StaticDict.Project__status.CLOSED.getValue());
         et.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());
         et.setCloseddate(ZTDateUtil.now());
         this.internalUpdate(et);
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("project", et.getId(), "Closed",
+            Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project putoff(Project et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Project old = new Project();
@@ -225,46 +261,51 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         this.internalUpdate(et);
         List<History> changes = ChangeUtil.diff(old, et, null, new String[]{"end", "days"}, null);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("project", et.getId(), "Delayed",
+            Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.DELAYED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project suspend(Project et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Project old = new Project();
         CachedBeanCopier.copy(get(et.getId()), old);
-        et.setStatus("suspended");
+        et.setStatus(StaticDict.Project__status.SUSPENDED.getValue());
         this.internalUpdate(et);
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("project", et.getId(), "Suspended",
+            Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.SUSPENDED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project linkStory(Project et) {
-        if (et.getId() == null || et.get("stories") == null)
+        if (et.getId() == null || et.get("stories") == null) {
             return et;
+        }
 
         int order = -1;
         ProjectStory maxProjectStory = projectStoryHelper.getOne(new QueryWrapper<ProjectStory>().eq("project", et.getId()).orderByDesc("`order`").last("limit 0,1"));
-        if (maxProjectStory != null)
+        if (maxProjectStory != null) {
             order = maxProjectStory.getOrder();
+        }
 
         for (String storyId :  et.get("stories").toString().split(",")) {
             Story story = storyHelper.get(Long.parseLong(storyId));
             ProjectStory exists = projectStoryHelper.getOne(new QueryWrapper<ProjectStory>().eq("project", et.getId()).eq("story", story.getId()));
-            if (exists != null)
+            if (exists != null) {
                 continue;
+            }
             ProjectStory projectStory = new ProjectStory();
             projectStory.setProject(et.getId());
             projectStory.setStory(story.getId());
@@ -272,8 +313,8 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
             projectStory.setVersion(story.getVersion());
             projectStory.setOrder(++order);
             projectStoryHelper.create(projectStory);
-
-            actionHelper.create("story", story.getId(), "linked2project",
+            storyHelper.setStage(story);
+            actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), story.getId(), StaticDict.Action__type.LINKED2PROJECT.getValue(),
                     "", String.valueOf(et.getId()), null, true);
         }
 
@@ -281,16 +322,17 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project unlinkStory(Project et) {
-        if (et.getId() == null || et.get("story") == null)
+        if (et.getId() == null || et.get("story") == null) {
             throw new RuntimeException("解除需求错误");
+        }
 
         projectStoryHelper.remove(new QueryWrapper<ProjectStory>().eq("project", et.getId()).eq("story", et.get("story")));
 
         //order 处理
 
-        actionHelper.create("story", Long.parseLong(et.get("story").toString()), "unlinkedfromproject",
+        actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), Long.parseLong(et.get("story").toString()), StaticDict.Action__type.UNLINKEDFROMPROJECT.getValue(),
                 "", String.valueOf(et.getId()), null, true);
 
         //需求的task处理
@@ -303,33 +345,44 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project batchUnlinkStory(Project et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project manageMembers(Project et) {
-        throw new RuntimeException("未实现");
+        List<ProjectTeam> list = et.getProjectteam();
+        teamHelper.remove(new QueryWrapper<Team>().eq("type","project").eq("root", et.getId()));
+        for(ProjectTeam projectTeam : list) {
+            projectTeam.setType(StaticDict.Action__object_type.PROJECT.getValue());
+            Team team = new Team();
+            CachedBeanCopier.copy(projectTeam, team);
+            team.setId(null);
+            team.setJoin(ZTDateUtil.now());
+            teamHelper.create(team);
+        }
+        return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project unlinkMember(Project et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project updateOrder(Project et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project importPlanStories(Project et) {
         List<Story> planStories = storyHelper.list(new QueryWrapper<Story>().eq("plan", et.getPlans()));
         String stories = "" ;
         for (Story story : planStories) {
-            if(stories.length()>0)
+            if(stories.length()>0) {
                 stories += ",";
+            }
             stories += story.getId() ;
         }
         if (StringUtils.isNotBlank(stories)) {

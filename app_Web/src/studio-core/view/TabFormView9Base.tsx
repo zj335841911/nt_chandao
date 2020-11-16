@@ -7,6 +7,4 @@ import { ViewBase } from './ViewBase';
  * @class TabFormView9Base
  * @extends {ViewBase}
  */
-export class TabFormView9Base extends ViewBase {
-
-}
+export class TabFormView9Base extends ViewBase {}

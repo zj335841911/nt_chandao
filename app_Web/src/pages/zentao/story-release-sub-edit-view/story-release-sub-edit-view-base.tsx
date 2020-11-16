@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -48,7 +48,7 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryReleaseSubEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
 	 * @memberof StoryReleaseSubEditViewBase
 	 */
     protected customViewParams: any = {
-        'plan': { isRawValue: false, value: 'plan' }
+        'plan': {
+            isRawValue: false,
+            value: 'plan',
+        }
     };
 
     /**
@@ -82,7 +85,7 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
      *
      * @memberof StoryReleaseSubEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -95,8 +98,8 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
         srfCaption: 'entities.story.views.releasesubeditview.caption',
         srfTitle: 'entities.story.views.releasesubeditview.title',
         srfSubTitle: 'entities.story.views.releasesubeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -106,8 +109,14 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
      * @memberof StoryReleaseSubEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -117,7 +126,7 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
      * @memberof StoryReleaseSubEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -128,9 +137,18 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryReleaseSubEditViewBase
      */
 	protected viewtag: string = '928e6614bcfbd67af3b596cf5dc5a46b';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryReleaseSubEditViewBase
+     */ 
+    protected viewName: string = "StoryReleaseSubEditView";
 
 
     /**
@@ -149,7 +167,9 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof StoryReleaseSubEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

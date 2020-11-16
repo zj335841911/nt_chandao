@@ -1,22 +1,23 @@
 <template>
-  <dropdown class="app-lang" v-if="localList.length > 1" trigger='click' @on-click="selectLang">
-    <span>
-        {{title}}
-        <icon size='18' type='md-arrow-dropdown'></icon>
-    </span>
-    <dropdown-menu slot='list'>                 
-      <dropdown-item v-for="(item) in localList" :name="item.type" :key="`lang-${item.type}`">{{item.name}}</dropdown-item>                    
-    </dropdown-menu>
-  </dropdown>
+    <dropdown class="app-lang" v-if="localList.length > 1" trigger="click" @on-click="selectLang">
+        <span>
+            {{ title }}
+            <icon size="18" type="md-arrow-dropdown"></icon>
+        </span>
+        <dropdown-menu slot="list">
+            <dropdown-item v-for="item in localList" :name="item.type" :key="`lang-${item.type}`">{{
+                item.name
+            }}</dropdown-item>
+        </dropdown-menu>
+    </dropdown>
 </template>
-<script lang = 'ts'>
+<script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
 import { localList } from '@locale/local-list';
 
 @Component({})
 export default class AppLang extends Vue {
-
     /**
      * 本地语言资源
      *
@@ -56,7 +57,6 @@ export default class AppLang extends Vue {
         this.title = local.name;
         localStorage.setItem('local', $evnet);
     }
-
 }
 </script>
 <style lang="less">

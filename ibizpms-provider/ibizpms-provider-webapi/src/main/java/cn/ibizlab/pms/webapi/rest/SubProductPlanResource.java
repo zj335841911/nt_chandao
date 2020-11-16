@@ -176,6 +176,17 @@ public class SubProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-MobProductPlanCounter-all')")
+    @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
+	@RequestMapping(method = RequestMethod.PUT, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/mobproductplancounter")
+    public ResponseEntity<SubProductPlanDTO> mobProductPlanCounterByProductPlan(@PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.mobProductPlanCounter(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Save-all')")
     @ApiOperation(value = "根据产品计划保存产品计划", tags = {"产品计划" },  notes = "根据产品计划保存产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/save")
@@ -459,6 +470,17 @@ public class SubProductPlanResource {
         ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
         domain.setParent(productplan_id);
         domain = productplanService.linkStory(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-MobProductPlanCounter-all')")
+    @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/mobproductplancounter")
+    public ResponseEntity<SubProductPlanDTO> mobProductPlanCounterByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.mobProductPlanCounter(domain) ;
         subproductplandto = subproductplanMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
     }

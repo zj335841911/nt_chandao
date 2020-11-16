@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import IbzLibService from '@/service/ibz-lib/ibz-lib-service';
 import IbzLibAuthService from '@/authservice/ibz-lib/ibz-lib-auth-service';
@@ -48,7 +48,7 @@ export class IbzLibEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof IbzLibEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class IbzLibEditView9Base extends EditView9Base {
 	 * @memberof IbzLibEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'caselib' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'caselib',
+        }
     };
 
     /**
@@ -88,8 +91,8 @@ export class IbzLibEditView9Base extends EditView9Base {
         srfCaption: 'entities.ibzlib.views.editview9.caption',
         srfTitle: 'entities.ibzlib.views.editview9.title',
         srfSubTitle: 'entities.ibzlib.views.editview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -99,7 +102,10 @@ export class IbzLibEditView9Base extends EditView9Base {
      * @memberof IbzLibEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -108,9 +114,18 @@ export class IbzLibEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzLibEditView9Base
      */
 	protected viewtag: string = '471a8a8d5b7ebf2a2e0fa7995c4e883c';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzLibEditView9Base
+     */ 
+    protected viewName: string = "IbzLibEditView9";
 
 
     /**
@@ -129,7 +144,9 @@ export class IbzLibEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof IbzLibEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

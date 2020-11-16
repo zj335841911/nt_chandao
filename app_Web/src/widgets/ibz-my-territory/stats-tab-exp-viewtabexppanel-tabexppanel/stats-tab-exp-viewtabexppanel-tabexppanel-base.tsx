@@ -1,10 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TabExpPanelControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import StatsTabExpViewtabexppanelService from './stats-tab-exp-viewtabexppanel-tabexppanel-service';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
-
+import IbzMyTerritoryAuthService from '@/authservice/ibz-my-territory/ibz-my-territory-auth-service';
+import { Environment } from '@/environments/environment';
 
 /**
  * tabexppanel部件基类
@@ -14,7 +16,6 @@ import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territo
  * @extends {StatsTabExpViewtabexppanelTabexppanelBase}
  */
 export class StatsTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,14 +65,14 @@ export class StatsTabExpViewtabexppanelTabexppanelBase extends TabExpPanelContro
      * @type {IbzMyTerritoryUIService}
      * @memberof StatsTabExpViewtabexppanelBase
      */  
-    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+    public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
     /**
      * 是否初始化
      *
      * @protected
      * @returns {any}
-     * @memberof StatsTabExpViewtabexppanel
+     * @memberof StatsTabExpViewtabexppanelBase
      */
     protected isInit: any = {
         tabviewpanel3:  true ,
@@ -84,15 +85,33 @@ export class StatsTabExpViewtabexppanelTabexppanelBase extends TabExpPanelContro
      *
      * @protected
      * @type {string}
-     * @memberof StatsTabExpViewtabexppanel
+     * @memberof StatsTabExpViewtabexppanelBase
      */
     protected activatedTabViewPanel: string = 'tabviewpanel3';
+
+    /**
+     * 实体权限服务对象
+     *
+     * @protected
+     * @type IbzMyTerritoryAuthServiceBase
+     * @memberof TabExpViewtabexppanelBase
+     */
+    protected appAuthService: IbzMyTerritoryAuthService = new IbzMyTerritoryAuthService();
+
+    /**
+     * 分页面板权限标识存储对象
+     *
+     * @protected
+     * @type {*}
+     * @memberof StatsTabExpViewtabexppanelBase
+     */
+    protected authResourceObject:any = {'tabviewpanel3':{resourcetag:null,visible: true,disabled: false},'tabviewpanel':{resourcetag:null,visible: true,disabled: false},'tabviewpanel2':{resourcetag:null,visible: true,disabled: false}};
 
     /**
      * 组件创建完毕
      *
      * @protected
-     * @memberof StatsTabExpViewtabexppanel
+     * @memberof StatsTabExpViewtabexppanelBase
      */
     protected ctrlCreated(): void {
         //设置分页导航srfparentdename和srfparentkey

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { MEditView9Base } from '@/studio-core';
 import TestResultService from '@/service/test-result/test-result-service';
 import TestResultAuthService from '@/authservice/test-result/test-result-auth-service';
@@ -67,8 +67,8 @@ export class TestResultMEditView9Base extends MEditView9Base {
         srfCaption: 'entities.testresult.views.meditview9.caption',
         srfTitle: 'entities.testresult.views.meditview9.title',
         srfSubTitle: 'entities.testresult.views.meditview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -78,7 +78,10 @@ export class TestResultMEditView9Base extends MEditView9Base {
      * @memberof TestResultMEditView9Base
      */
     protected containerModel: any = {
-        view_meditviewpanel: { name: 'meditviewpanel', type: 'MULTIEDITVIEWPANEL' },
+        view_meditviewpanel: {
+            name: 'meditviewpanel',
+            type: 'MULTIEDITVIEWPANEL',
+        },
     };
 
 
@@ -87,9 +90,18 @@ export class TestResultMEditView9Base extends MEditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestResultMEditView9Base
      */
 	protected viewtag: string = '136cd30bd141450ecd9e7791215733e6';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestResultMEditView9Base
+     */ 
+    protected viewName: string = "TestResultMEditView9";
 
 
 
@@ -99,7 +111,9 @@ export class TestResultMEditView9Base extends MEditView9Base {
      * @type {Array<*>}
      * @memberof TestResultMEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

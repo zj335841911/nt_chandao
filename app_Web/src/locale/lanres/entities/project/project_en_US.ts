@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     openedversion: "当前系统版本",
@@ -71,6 +70,10 @@ export default {
     closetaskcnt: "关闭任务数",
     canceltaskcnt: "取消任务数",
     storychangecnt: "需求变更数",
+    noticeusers: "消息通知用户",
+    doclibcnt: "文档数量",
+    orgid: "组织标识",
+    mdeptid: "部门标识",
   },
 	views: {
 		storymeditview9: {
@@ -96,6 +99,10 @@ export default {
 		editview_putoff: {
 			caption: "项目",
       		title: "项目",
+		},
+		moreundoneprojectgridview9: {
+			caption: "未完成项目",
+      		title: "项目表格视图",
 		},
 		mainmygridview: {
 			caption: "项目",
@@ -163,6 +170,14 @@ export default {
 		},
 		gridview9_unclosed: {
 			caption: "未关闭的项目",
+      		title: "项目表格视图",
+		},
+		undoneprojectgridview: {
+			caption: "未完成项目",
+      		title: "项目表格视图",
+		},
+		moreundoneprogridview: {
+			caption: "未完成项目",
       		title: "项目表格视图",
 		},
 		editview_suspend: {
@@ -435,6 +450,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			name: "项目名称",
@@ -446,6 +462,7 @@ export default {
 		},
 	},
 	mainmy_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			code: "项目代号",
@@ -461,6 +478,7 @@ export default {
 		},
 	},
 	involvedproject_grid: {
+		nodata: "",
 		columns: {
 			name: "项目名称",
 			storycnt: "需求总数",
@@ -470,7 +488,30 @@ export default {
 		uiactions: {
 		},
 	},
+	undoneproject_grid: {
+		nodata: "",
+		columns: {
+			name: "项目名称",
+			doclibcnt: "文档数量",
+			openedby: "由谁添加",
+			openeddate: "添加时间",
+		},
+		uiactions: {
+		},
+	},
+	moreundoneproject_grid: {
+		nodata: "",
+		columns: {
+			name: "项目名称",
+			doclibcnt: "文档数量",
+			openedby: "由谁添加",
+			openeddate: "添加时间",
+		},
+		uiactions: {
+		},
+	},
 	main2_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			name: "项目名称",
@@ -591,5 +632,30 @@ export default {
 			caption: "取消置顶",
 			tip: "取消置顶",
 		},
+	},
+	moreundoneprogridviewtoolbar_toolbar: {
+	},
+	moreundoneprojectgridview9toolbar_toolbar: {
+	},
+	exp_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	sidebar_list: {
+		nodata: "",
+		uiactions: {
+        project_projecttop: "置顶",
+        project_cancelprojecttop: "取消置顶",
+		},
+	},
+	projectstatusbar_chart: {
+		nodata: "",
+	},
+	involvedproject_dev_chart: {
+		nodata: "",
+	},
+	burndown_chart: {
+		nodata: "",
 	},
 };

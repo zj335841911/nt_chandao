@@ -21,6 +21,9 @@ export default {
     frontapplication: "系统应用",
     backgroundid: "后台体系",
     sqlid: "运行数据库",
+    createbugcnt: "产生的bug",
+    builderpk: "构建者（选择）",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		optionview: {
@@ -126,6 +129,7 @@ export default {
 			date: "打包日期", 
 			scmpath: "源代码地址", 
 			filepath: "下载地址", 
+			files: "上传发行包", 
 			desc: "描述", 
 			id: "id", 
 			product: "产品", 
@@ -154,6 +158,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			productname: "产品名称",
@@ -164,6 +169,17 @@ export default {
 			builder: "构建者",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "ID",
+			productname: "产品名称",
+			name: "名称编号",
+			scmpath: "源代码地址",
+			filepath: "下载地址",
+			date: "打包日期",
+			builder: "构建者",
+			product: "产品",
+			project: "所属项目",
+    },
 		uiactions: {
 			build_linkstories: "关联需求",
 			build_submittotesting: "提交测试",
@@ -173,6 +189,7 @@ export default {
 		},
 	},
 	testrounds_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			productname: "产品名称",
@@ -216,6 +233,10 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
+		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 };

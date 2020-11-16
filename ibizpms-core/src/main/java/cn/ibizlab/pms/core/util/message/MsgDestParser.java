@@ -117,13 +117,15 @@ public class MsgDestParser {
     }
 
     private String queryIds(Set<String> accountList) {
-        if (CollectionUtils.isEmpty(accountList))
+        if (CollectionUtils.isEmpty(accountList)) {
             return null;
+        }
 
         List<User> destIds = userService.list(new QueryWrapper<User>().in("account", accountList));
 
-        if (CollectionUtils.isEmpty(destIds))
+        if (CollectionUtils.isEmpty(destIds)) {
             return null;
+        }
 
         StringBuilder builder = new StringBuilder();
         for (User user : destIds) {
@@ -140,8 +142,9 @@ public class MsgDestParser {
      */
     public static Set<String> getAccountSet(String... strings) {
         Set<String> set = new HashSet<>();
-        if (strings == null)
+        if (strings == null) {
             return null;
+        }
 
         for (int i = 0; i < strings.length; i++) {
             if (!StringUtils.isEmpty(strings[i])) {

@@ -87,15 +87,15 @@ export class FooterItemsService {
         let i: number = -1;
         if (index !== undefined && index > -1 && index < items.length) {
             items.splice(index, 0, fun);
-            i = index
+            i = index;
         } else if (fun) {
             items.push(fun);
-            i = (items.length - 1);
+            i = items.length - 1;
         }
         return {
             remove: () => {
                 return this.remove(items, i);
-            }
+            },
         };
     }
 
@@ -135,5 +135,4 @@ export class FooterItemsService {
     public tickTrigger(): Observable<void> {
         return this.tickSubject.asObservable();
     }
-
 }

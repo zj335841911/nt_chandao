@@ -5,49 +5,12 @@
 
     
               <ion-toolbar>
-    <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-    <ion-button class="filter-btn" size="small" slot="end"  @click="openSearchform"><ion-icon  slot="end" name="filter-outline"></ion-icon>过滤</ion-button>  
+    <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
   </ion-toolbar>
 
     </ion-header>
 
-    <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
-        <ion-header>
-            <ion-toolbar translucent>
-                <ion-title>条件搜索</ion-title>
-            </ion-toolbar>
-        </ion-header>
-        <div class="searchform_content">
-            <view_searchform
-    :viewState="viewState"
-    viewName="StoryLinkStoryMobMPickupView"  
-    :viewparams="viewparams" 
-    :context="context" 
-     
-    :viewtag="viewtag"
-    :showBusyIndicator="true"
-    updateAction=""
-    removeAction=""
-    loaddraftAction="FilterGetDraft"
-    loadAction="FilterGet"
-    createAction=""
-    WFSubmitAction=""
-    WFStartAction=""
-    style='' 
-    name="searchform"  
-    ref='searchform' 
-    @closeview="closeView($event)">
-</view_searchform>
-        </div>
-        <ion-footer>
-        <div class="search-btn">
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
-        </div>
-        </ion-footer>
-    </van-popup>
-    <div id="searchformstorylinkstorymobmpickupview"></div>
-    <ion-content>
+    <ion-content >
                 <view_pickupviewpanel
             :viewState="viewState"
             viewName="StoryLinkStoryMobMPickupView"  
@@ -63,12 +26,12 @@
         </view_pickupviewpanel>
     </ion-content>
     <ion-footer class="view-footer">
-        <ion-toolbar style="text-align: center;">
-    <div class="mobpickupview_button">
-      <ion-button class="pick-btn" @click="onClickCancel" color="medium">{{$t('app.button.cancel')}}</ion-button>
+        <div class="mpicker_buttons">
+    <div class="demobmpickupview_button">
+      <div class="selectedCount"  @click="select_click">已选择：{{viewSelections.length}}<ion-icon name="chevron-up-outline"></ion-icon></div>
       <ion-button class="pick-btn" @click="onClickOk" :disabled="viewSelections.length === 0">{{$t('app.button.confirm')}}</ion-button>
     </div>
-</ion-toolbar>
+</div>
 
     </ion-footer>
 </ion-page>
@@ -76,12 +39,13 @@
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import StoryService from '@/app-core/service/story/story-service';
 
 import MobMPickupViewEngine from '@engine/view/mob-mpickup-view-engine';
 import StoryUIService from '@/ui-service/story/story-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -182,6 +146,14 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof StoryLinkStoryMobMPickupViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
+
+    /**
      * 标题状态
      *
      * @memberof StoryLinkStoryMobMPickupViewBase
@@ -271,7 +243,6 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * @memberof StoryLinkStoryMobMPickupViewBase
      */
     protected containerModel: any = {
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_pickupviewpanel: { name: 'pickupviewpanel', type: 'PICKUPVIEWPANEL' },
         view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
         view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
@@ -297,7 +268,6 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * @memberof StoryLinkStoryMobMPickupViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
-
 
 
     /**
@@ -332,6 +302,8 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
         }
         return true;
     }
+
+
 
     /**
      * 视图引擎
@@ -423,6 +395,9 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
             _this.loadModel();
         }
         this.thirdPartyInit();
+        if(this.viewparams.selectedData){
+            this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', this.viewparams.selectedData);
+        }
 
     }
 
@@ -573,6 +548,19 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     }
 
     /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof StoryLinkStoryMobMPickupViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
+
+    /**
      * 视图选中数据
      *
      * @type {any[]}
@@ -631,10 +619,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
         const pickupviewpanel: any = this.$refs.pickupviewpanel;
         if (pickupviewpanel) {
             this.quickValue = event.detail.value;
-            let response = await pickupviewpanel.quickSearch(this.quickValue);
-            if (response) {
-                
-            }
+            pickupviewpanel.quickSearch(this.quickValue);
         }
     }
 

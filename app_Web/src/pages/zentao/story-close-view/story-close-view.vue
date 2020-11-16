@@ -1,5 +1,5 @@
-<template src="./story-close-view.html"/>
-<script lang='tsx'>
+<template src="./story-close-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryCloseViewBase } from './story-close-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/story/cosed-form/cosed-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryCloseView extends StoryCloseViewBase { }
+export default class StoryCloseView extends StoryCloseViewBase {}
 </script>

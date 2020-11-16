@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { OptionViewBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import ActionAuthService from '@/authservice/action/action-auth-service';
@@ -48,7 +48,7 @@ export class ActionOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof ActionOptionViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class ActionOptionViewBase extends OptionViewBase {
 	 * @memberof ActionOptionViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTID': { isRawValue: false, value: 'objectid' }
+        'OBJECTID': {
+            isRawValue: false,
+            value: 'objectid',
+        }
     };
 
 	/**
@@ -85,8 +88,14 @@ export class ActionOptionViewBase extends OptionViewBase {
 	 * @memberof ActionOptionViewBase
 	 */
     protected customViewParams: any = {
-        'objecttype': { isRawValue: false, value: 'OBJECTTYPE' },
-        'objectid': { isRawValue: false, value: 'objectid' }
+        'objecttype': {
+            isRawValue: false,
+            value: 'OBJECTTYPE',
+        },
+        'objectid': {
+            isRawValue: false,
+            value: 'objectid',
+        }
     };
 
     /**
@@ -94,7 +103,7 @@ export class ActionOptionViewBase extends OptionViewBase {
      *
      * @memberof ActionOptionViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -107,8 +116,8 @@ export class ActionOptionViewBase extends OptionViewBase {
         srfCaption: 'entities.action.views.optionview.caption',
         srfTitle: 'entities.action.views.optionview.title',
         srfSubTitle: 'entities.action.views.optionview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -118,13 +127,45 @@ export class ActionOptionViewBase extends OptionViewBase {
      * @memberof ActionOptionViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
-        view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
-        view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
-        view_leftbtn: { name: 'leftbtn', type: 'button', text: '左移', disabled: true },
-        view_rightbtn: { name: 'rightbtn', type: 'button', text: '右移', disabled: true },
-        view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
-        view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
+        view_okbtn: {
+            name: 'okbtn',
+            type: 'button',
+            text: '确定',
+            disabled: true,
+        },
+        view_cancelbtn: {
+            name: 'cancelbtn',
+            type: 'button',
+            text: '取消',
+            disabled: false,
+        },
+        view_leftbtn: {
+            name: 'leftbtn',
+            type: 'button',
+            text: '左移',
+            disabled: true,
+        },
+        view_rightbtn: {
+            name: 'rightbtn',
+            type: 'button',
+            text: '右移',
+            disabled: true,},
+        view_allleftbtn: {
+            name: 'allleftbtn',
+            type: 'button',
+            text: '全部左移',
+            disabled: true,
+        },
+        view_allrightbtn: {
+            name: 'allrightbtn',
+            type: 'button',
+            text: '全部右移',
+            disabled: true,
+        },
     };
 
 
@@ -133,9 +174,18 @@ export class ActionOptionViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ActionOptionViewBase
      */
 	protected viewtag: string = 'af6f4065b0510b7994c3cd2bc6074440';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionOptionViewBase
+     */ 
+    protected viewName: string = "ActionOptionView";
 
 
     /**
@@ -154,7 +204,9 @@ export class ActionOptionViewBase extends OptionViewBase {
      * @type {Array<*>}
      * @memberof ActionOptionViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

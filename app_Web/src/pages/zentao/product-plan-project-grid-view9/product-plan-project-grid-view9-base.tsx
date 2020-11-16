@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
 import ProductPlanAuthService from '@/authservice/product-plan/product-plan-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import ProductPlanUIService from '@/uiservice/product-plan/product-plan-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProductPlanProjectGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof ProductPlanProjectGridView9Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ProductPlanProjectGridView9Base extends GridView9Base {
         srfCaption: 'entities.productplan.views.projectgridview9.caption',
         srfTitle: 'entities.productplan.views.projectgridview9.title',
         srfSubTitle: 'entities.productplan.views.projectgridview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,7 +91,10 @@ export class ProductPlanProjectGridView9Base extends GridView9Base {
      * @memberof ProductPlanProjectGridView9Base
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -100,9 +103,18 @@ export class ProductPlanProjectGridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductPlanProjectGridView9Base
      */
 	protected viewtag: string = '908a34af4784424622d2f7905335d023';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPlanProjectGridView9Base
+     */ 
+    protected viewName: string = "ProductPlanProjectGridView9";
 
 
     /**
@@ -121,7 +133,9 @@ export class ProductPlanProjectGridView9Base extends GridView9Base {
      * @type {Array<*>}
      * @memberof ProductPlanProjectGridView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -132,11 +146,11 @@ export class ProductPlanProjectGridView9Base extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'productplan',

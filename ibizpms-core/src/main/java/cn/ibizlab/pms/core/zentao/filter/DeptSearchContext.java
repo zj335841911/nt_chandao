@@ -59,6 +59,7 @@ public class DeptSearchContext extends QueryWrapperContext<Dept> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

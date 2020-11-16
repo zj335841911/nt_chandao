@@ -3,6 +3,11 @@ export default {
         "1": "创建",
         "empty": "",
     },
+    SYS_UPDATE_BRANCH: {
+        "PC": "PC",
+        "MOB": "MOB",
+        "empty": "",
+    },
     Testresult__result: {
         "n/a": "忽略",
         "pass": "通过",
@@ -56,6 +61,11 @@ export default {
         "ICLOSE": "由我关闭",
         "empty": "",
     },
+    DOCLIBTYPE: {
+        "doc": "文档",
+        "file": "附件",
+        "empty": "",
+    },
     RealNameProjectM: {
         "empty": "",
     },
@@ -86,6 +96,16 @@ export default {
         "closed": "已关闭",
         "empty": "",
     },
+    ProductActionQuickpacket: {
+        "All": "所有",
+        "today": "今天",
+        "yesterday": "昨天",
+        "thisweek": "本周",
+        "lastweek": "上周",
+        "thismonth": "本月",
+        "lastmonth": "上月",
+        "empty": "",
+    },
     Pri: {
         "1": "一般",
         "2": "最高",
@@ -95,6 +115,9 @@ export default {
     },
     Beginend_disable: {
         "on": "暂时不设定时间",
+        "empty": "",
+    },
+    SysOperator: {
         "empty": "",
     },
     UserRealNameW: {
@@ -128,6 +151,11 @@ export default {
         "empty": "",
     },
     ProductBranch: {
+        "empty": "",
+    },
+    Doc__type: {
+        "text": "文档",
+        "url": "链接",
         "empty": "",
     },
     RunSQL: {
@@ -237,6 +265,12 @@ export default {
     Role: {
         "empty": "",
     },
+    Doc__acl: {
+        "open": "公开",
+        "private": "私有",
+        "custom": "自定义",
+        "empty": "",
+    },
     Date_disable: {
         "on": "待定",
         "empty": "",
@@ -266,6 +300,11 @@ export default {
         "empty": "",
     },
     BugUserRealName: {
+        "empty": "",
+    },
+    Story__type: {
+        "requirement": "用户需求",
+        "story": "软件需求",
         "empty": "",
     },
     BeginendDropList: {
@@ -427,6 +466,11 @@ export default {
     ProductPlan: {
         "empty": "",
     },
+    SYS_UPDATE_LOG_TYPE: {
+        "10": "功能增强",
+        "20": "优化",
+        "empty": "",
+    },
     Task__pri: {
         "1": "1",
         "2": "2",
@@ -541,6 +585,11 @@ export default {
     BackendBuild: {
         "empty": "",
     },
+    BurnQuickpacket: {
+        "exWeek": "去除周末",
+        "Week": "显示周末",
+        "empty": "",
+    },
     Testcase__stage: {
         "unittest": "单元测试阶段",
         "feature": "功能测试阶段",
@@ -586,6 +635,12 @@ export default {
         "COMPLETED": "已完成",
         "CLOSED": "已关闭",
         "CANCELLED": "已取消",
+        "empty": "",
+    },
+    Doclib__type: {
+        "product": "产品文档库",
+        "project": "项目文档库",
+        "custom": "自定义文档库",
         "empty": "",
     },
     ActionManner: {
@@ -649,6 +704,20 @@ export default {
         "31": "31号",
         "empty": "",
     },
+    Burninterval: {
+        "1": "间隔1天",
+        "2": "间隔2天",
+        "3": "间隔3天",
+        "4": "间隔4天",
+        "5": "间隔5天",
+        "6": "间隔6天",
+        "7": "间隔7天",
+        "8": "间隔8天",
+        "9": "间隔9天",
+        "10": "间隔10天",
+        "11": "间隔11天",
+        "empty": "",
+    },
     YesNo: {
         "1": "是",
         "0": "否",
@@ -672,6 +741,32 @@ export default {
         "1": "不需要评审",
         "empty": "",
     },
+    File__object_type: {
+        "product": "产品",
+        "story": "需求",
+        "productplan": "计划",
+        "release": "发布",
+        "project": "项目",
+        "task": "任务",
+        "build": "版本",
+        "bug": "Bug",
+        "case": "用例",
+        "caseresult": "用例结果",
+        "stepresult": "用例步骤",
+        "testtask": "测试单",
+        "user": "用户",
+        "doc": "文档",
+        "doclib": "文档库",
+        "todo": "待办",
+        "branch": "分支",
+        "module": "模块",
+        "testsuite": "套件",
+        "caselib": "用例库",
+        "testreport": "报告",
+        "entry": "应用",
+        "webhook": "Webhook",
+        "empty": "",
+    },
     Module__type: {
         "line": "产品线",
         "story": "需求",
@@ -690,9 +785,17 @@ export default {
         "closed": "已关闭",
         "empty": "",
     },
+    CurDocVersion: {
+        "empty": "",
+    },
     CaseQuickpacketMy: {
         "TOME": "给我的用例",
         "ICREATE": "我建的用例",
+        "empty": "",
+    },
+    Doclib__acl: {
+        "default": "默认",
+        "custom": "自定义",
         "empty": "",
     },
     YesNo2: {
@@ -717,6 +820,15 @@ export default {
     TestTask: {
         "empty": "",
     },
+    Bug__color: {
+        "#3da7f5": "#3da7f5",
+        "#75c941": "#75c941",
+        "#2dbdb2": "#2dbdb2",
+        "#797ec9": "#797ec9",
+        "#ffaf38": "#ffaf38",
+        "#ff4e3e": "#ff4e3e",
+        "empty": "",
+    },
     Product__status: {
         "normal": "正常",
         "closed": "结束",
@@ -736,8 +848,7 @@ export default {
     ProjectProductPlan: {
         "empty": "",
     },
-    NeedNotReview: {
-        "0": "不需要评审",
+    UserRealNameTaskMTeam: {
         "empty": "",
     },
     TestQuickpacket: {
@@ -911,6 +1022,15 @@ export default {
         "blocked": "被阻塞",
         "empty": "",
     },
+    Story__color: {
+        "#3da7f5": "#3da7f5",
+        "#75c941": "#75c941",
+        "#2dbdb2": "#2dbdb2",
+        "#797ec9": "#797ec9",
+        "#ffaf38": "#ffaf38",
+        "#ff4e3e": "#ff4e3e",
+        "empty": "",
+    },
     Private_choose: {
         "1": "是",
         "empty": "",
@@ -931,6 +1051,11 @@ export default {
         "normal": "正常",
         "blocked": "被阻塞",
         "investigate": "研究中",
+        "empty": "",
+    },
+    TestsuiteTypeNew: {
+        "private": "私有",
+        "public": "公开",
         "empty": "",
     },
     Story__quickpacket: {

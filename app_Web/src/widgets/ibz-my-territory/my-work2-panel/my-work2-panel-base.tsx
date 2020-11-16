@@ -1,5 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, PanelControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import MyWork2Service from './my-work2-panel-service';
@@ -7,8 +8,6 @@ import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territo
 import { PanelDetailModel,PanelRawitemModel,PanelTabPanelModel,PanelTabPageModel,PanelFieldModel,PanelContainerModel,PanelControlModel,PanelUserControlModel,PanelButtonModel } from '@/model/panel-detail';
 import MyWork2Model from './my-work2-panel-model';
 import CodeListService from "@service/app/codelist-service";
-import { ViewTool } from '@/utils';
-
 
 /**
  * list_itempanel部件基类
@@ -18,7 +17,6 @@ import { ViewTool } from '@/utils';
  * @extends {MyWork2PanelBase}
  */
 export class MyWork2PanelBase extends PanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -68,7 +66,7 @@ export class MyWork2PanelBase extends PanelControlBase {
      * @type {IbzMyTerritoryUIService}
      * @memberof MyWork2Base
      */  
-    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+    public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
 
     /**
@@ -78,7 +76,7 @@ export class MyWork2PanelBase extends PanelControlBase {
      * @memberof MyWork2
      */
     public detailsModel: any = {
-        realname: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'realname', panel: this })
+        account: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'account', panel: this })
 ,
         container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
 ,

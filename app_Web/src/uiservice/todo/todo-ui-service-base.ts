@@ -6,7 +6,7 @@ import TodoService from '@/service/todo/todo-service';
 import TodoAuthService from '@/authservice/todo/todo-auth-service';
 
 /**
- * 待办事宜表UI服务对象基类
+ * 待办UI服务对象基类
  *
  * @export
  * @class TodoUIServiceBase
@@ -19,6 +19,13 @@ export default class TodoUIServiceBase extends UIService {
      * @memberof  TodoUIServiceBase
      */
     public isEnableWorkflow:boolean = false;
+
+    /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  TodoUIServiceBase
+     */
+    public isEnableDEMainState:boolean = true;
 
     /**
      * 当前UI服务对应的数据服务对象
@@ -89,18 +96,24 @@ export default class TodoUIServiceBase extends UIService {
      * @memberof  TodoUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'baseeditview9',srfappde:'todos',component:'todo-base-edit-view9'});
-        this.allViewMap.set(':',{viewname:'dashboardview_link',srfappde:'todos',component:'todo-dashboard-view-link'});
-        this.allViewMap.set(':',{viewname:'assigntoview',srfappde:'todos',component:'todo-assign-to-view'});
-        this.allViewMap.set(':',{viewname:'closeview',srfappde:'todos',component:'todo-close-view'});
-        this.allViewMap.set(':',{viewname:'desceditview9',srfappde:'todos',component:'todo-desc-edit-view9'});
-        this.allViewMap.set(':',{viewname:'finishview',srfappde:'todos',component:'todo-finish-view'});
-        this.allViewMap.set(':',{viewname:'todocreateview',srfappde:'todos',component:'todo-todo-create-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'todos',component:'todo-grid-view'});
-        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'todos',component:'todo-grid-view9'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'todos',component:'todo-edit-view'});
-        this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'todos',component:'todo-dashboard-view'});
-        this.allViewMap.set(':',{viewname:'activiteview',srfappde:'todos',component:'todo-activite-view'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'todos',
+            component: 'todo-grid-view',
+            openmode: '',
+            title: '待办',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'todos',
+            component: 'todo-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '待办',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -433,7 +446,6 @@ export default class TodoUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关闭成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -575,7 +587,6 @@ export default class TodoUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '删除成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -724,7 +735,6 @@ export default class TodoUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -937,7 +947,6 @@ export default class TodoUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '激活成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1020,6 +1029,51 @@ export default class TodoUIServiceBase extends UIService {
     }
 
     /**
+     * MORE
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Todo_More(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'todos', parameterName: 'todo' },
+            { pathName: 'gridview', parameterName: 'gridview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
+    }
+
+    /**
      * 完成
      *
      * @param {any[]} args 当前数据
@@ -1078,7 +1132,6 @@ export default class TodoUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '完成成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

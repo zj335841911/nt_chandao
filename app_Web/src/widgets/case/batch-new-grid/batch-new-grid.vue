@@ -1,5 +1,5 @@
-<template src="./batch-new-grid.html"/>
-<script lang='tsx'>
+<template src="./batch-new-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BatchNewGridBase } from './batch-new-grid-base';
@@ -15,8 +15,8 @@ import { BatchNewGridBase } from './batch-new-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class BatchNewGrid extends BatchNewGridBase { }
+export default class BatchNewGrid extends BatchNewGridBase {}
 </script>

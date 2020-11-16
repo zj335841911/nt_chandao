@@ -14,7 +14,13 @@ export class ViewTool {
      * @returns
      * @memberof ViewTool
      */
-    public static getViewdata(viewParam: any = {}, deResParameters: any[], parameters: any[], args: any[], data: any = {}): any {
+    public static getViewdata(
+        viewParam: any = {},
+        deResParameters: any[],
+        parameters: any[],
+        args: any[],
+        data: any = {}
+    ): any {
         let viewdata: any = {};
 
         let [arg] = args;
@@ -25,7 +31,7 @@ export class ViewTool {
         Object.assign(viewdata, indexViewParam);
 
         // 关系应用实体参数
-        deResParameters.forEach(({ pathName, parameterName }: { pathName: string, parameterName: string }) => {
+        deResParameters.forEach(({ pathName, parameterName }: { pathName: string; parameterName: string }) => {
             if (viewParam[parameterName] && !Object.is(viewParam[parameterName], '')) {
                 Object.assign(viewdata, { [parameterName]: viewParam[parameterName] });
             } else if (arg[parameterName] && !Object.is(arg[parameterName], '')) {
@@ -34,7 +40,7 @@ export class ViewTool {
         });
 
         // 当前视图参数（应用实体视图）
-        parameters.forEach(({ pathName, parameterName }: { pathName: string, parameterName: string }) => {
+        parameters.forEach(({ pathName, parameterName }: { pathName: string; parameterName: string }) => {
             if (arg[parameterName] && !Object.is(arg[parameterName], '')) {
                 Object.assign(viewdata, { [parameterName]: arg[parameterName] });
             }
@@ -60,7 +66,14 @@ export class ViewTool {
      * @returns {string}
      * @memberof ViewTool
      */
-    public static buildUpRoutePath(route: Route, viewParam: any = {}, deResParameters: any[], parameters: any[], args: any[], data: any): string {
+    public static buildUpRoutePath(
+        route: Route,
+        viewParam: any = {},
+        deResParameters: any[],
+        parameters: any[],
+        args: any[],
+        data: any
+    ): string {
         const indexRoutePath = this.getIndexRoutePath(route);
         const deResRoutePath = this.getDeResRoutePath(viewParam, deResParameters, args);
         const deRoutePath = this.getActiveRoutePath(parameters, args, data, viewParam);
@@ -77,7 +90,10 @@ export class ViewTool {
      */
     public static getIndexRoutePath(route: Route): string {
         const { parameters: _parameters }: { parameters: any[] } = route.meta;
-        const { pathName: _pathName, parameterName: _parameterName }: { pathName: string, parameterName: string } = _parameters[0];
+        const {
+            pathName: _pathName,
+            parameterName: _parameterName,
+        }: { pathName: string; parameterName: string } = _parameters[0];
         const param = route.params[_parameterName];
         if (isExistAndNotEmpty(param)) {
             return `/${_pathName}/${param}`;
@@ -100,11 +116,19 @@ export class ViewTool {
         let [arg] = args;
         arg = arg ? arg : {};
         if (deResParameters && deResParameters.length > 0) {
-            deResParameters.forEach(({ pathName, parameterName }: { pathName: string, parameterName: string }) => {
+            deResParameters.forEach(({ pathName, parameterName }: { pathName: string; parameterName: string }) => {
                 let value: any = null;
-                if (viewParam[parameterName] && !Object.is(viewParam[parameterName], '') && !Object.is(viewParam[parameterName], 'null')) {
+                if (
+                    viewParam[parameterName] &&
+                    !Object.is(viewParam[parameterName], '') &&
+                    !Object.is(viewParam[parameterName], 'null')
+                ) {
                     value = viewParam[parameterName];
-                } else if (arg[parameterName] && !Object.is(arg[parameterName], '') && !Object.is(arg[parameterName], 'null')) {
+                } else if (
+                    arg[parameterName] &&
+                    !Object.is(arg[parameterName], '') &&
+                    !Object.is(arg[parameterName], 'null')
+                ) {
                     value = arg[parameterName];
                 }
                 routePath = `${routePath}/${pathName}` + (isExistAndNotEmpty(value) ? `/${value}` : '');
@@ -136,7 +160,10 @@ export class ViewTool {
             } else if (parameters.length === 2) {
                 let [arg] = args;
                 arg = arg ? arg : {};
-                const [{ pathName: _pathName, parameterName: _parameterName }, { pathName: _pathName2, parameterName: _parameterName2 }] = parameters;
+                const [
+                    { pathName: _pathName, parameterName: _parameterName },
+                    { pathName: _pathName2, parameterName: _parameterName2 },
+                ] = parameters;
                 const _value: any = arg[_parameterName] || viewParam[_parameterName] || null;
                 routePath = `/${_pathName}${isExistAndNotEmpty(_value) ? `/${_value}` : ''}/${_pathName2}`;
                 if (Object.keys(data).length > 0) {
@@ -168,13 +195,13 @@ export class ViewTool {
                 Object.assign(context, { [key]: param });
             }
         });
-        if (route && route.fullPath && route.fullPath.indexOf("?") > -1) {
-            const _viewparams: any = route.fullPath.slice(route.fullPath.indexOf("?") + 1);
-            const _viewparamArray: Array<string> = decodeURIComponent(_viewparams).split(";")
+        if (route && route.fullPath && route.fullPath.indexOf('?') > -1) {
+            const _viewparams: any = route.fullPath.slice(route.fullPath.indexOf('?') + 1);
+            const _viewparamArray: Array<string> = decodeURIComponent(_viewparams).split(';');
             if (_viewparamArray.length > 0) {
                 _viewparamArray.forEach((item: any) => {
                     Object.assign(viewparams, qs.parse(item));
-                })
+                });
             }
         }
     }
@@ -197,7 +224,7 @@ export class ViewTool {
      * @memberof ViewTool
      */
     public static setIndexParameters(parameters: any[]): void {
-        this.indexParameters = [...parameters]
+        this.indexParameters = [...parameters];
     }
 
     /**
@@ -260,7 +287,7 @@ export class ViewTool {
             const _item = ActionModel[key];
             if (_item && _item['dataaccaction'] && UIService) {
                 let dataActionResult: any;
-                if (Object.is(_item['actiontarget'], "NONE") || Object.is(_item['actiontarget'], "")) {
+                if (Object.is(_item['actiontarget'], 'NONE') || Object.is(_item['actiontarget'], '')) {
                     dataActionResult = UIService.getResourceOPPrivs(_item['dataaccaction']);
                 } else {
                     if (data && Object.keys(data).length > 0) {
@@ -273,14 +300,14 @@ export class ViewTool {
                     if (_item.noprivdisplaymode === 1) {
                         _item.disabled = true;
                     }
-                    if ((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)) {
-                        _item.visabled = false;
+                    if (_item.noprivdisplaymode === 2 || _item.noprivdisplaymode === 6) {
+                        _item.visible = false;
                     } else {
-                        _item.visabled = true;
+                        _item.visible = true;
                     }
                 }
                 if (dataActionResult === 1) {
-                    _item.visabled = true;
+                    _item.visible = true;
                     _item.disabled = false;
                 }
                 result.push(dataActionResult);

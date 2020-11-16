@@ -40,6 +40,12 @@ export default {
     istop: "是否置顶",
     testtaskcnt: "测试单数",
     testsuitecnt: "套件数",
+    popk: "产品负责人（选择）",
+    qdpk: "测试负责人（选择）",
+    rdpk: "发布负责人（选择）",
+    noticeusers: "消息通知用户",
+    orgid: "组织标识",
+    mdeptid: "部门标识",
   },
 	views: {
 		testtabexpview: {
@@ -361,6 +367,7 @@ export default {
 		},
 	},
 	mainproject_grid: {
+		nodata: "",
 		columns: {
 			name: "产品名称",
 			code: "产品代号",
@@ -369,6 +376,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			name: "产品名称",
 			code: "产品代号",
@@ -380,6 +388,7 @@ export default {
 		},
 	},
 	test_grid: {
+		nodata: "",
 		columns: {
 			name: "产品名称",
 			code: "产品代号",
@@ -391,6 +400,7 @@ export default {
 		},
 	},
 	main2_grid: {
+		nodata: "",
 		columns: {
 			name: "产品名称",
 			code: "产品代号",
@@ -498,5 +508,38 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
+	exp_list: {
+		nodata: "",
+		uiactions: {
+			new: "新建",
+		},
+	},
+	testexp_list: {
+		nodata: "",
+		uiactions: {
+			new: "新建",
+		},
+	},
+	testsidebar_list: {
+		nodata: "",
+		uiactions: {
+			product_producttop: "置顶",
+			product_cancelproducttop: "取消置顶",
+		},
+	},
+	sidebar_list: {
+		nodata: "",
+		uiactions: {
+			product_producttop: "置顶",
+			product_cancelproducttop: "取消置顶",
+		},
+	},
+	productstatus_chart: {
+		nodata: "",
 	},
 };

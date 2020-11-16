@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
@@ -48,7 +48,7 @@ export class CaseMainNewViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseMainNewViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,8 +74,14 @@ export class CaseMainNewViewBase extends EditViewBase {
 	 * @memberof CaseMainNewViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PRODUCTMODULE': { isRawValue: false, value: 'productmodule' },
-        'PRODUCT': { isRawValue: false, value: 'product' }
+        'PRODUCTMODULE': {
+            isRawValue: false,
+            value: 'productmodule',
+        },
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
 	/**
@@ -86,8 +92,14 @@ export class CaseMainNewViewBase extends EditViewBase {
 	 * @memberof CaseMainNewViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'productmodule': { isRawValue: false, value: 'productmodule' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'productmodule': {
+            isRawValue: false,
+            value: 'productmodule',
+        }
     };
 
     /**
@@ -95,7 +107,7 @@ export class CaseMainNewViewBase extends EditViewBase {
      *
      * @memberof CaseMainNewViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -108,8 +120,8 @@ export class CaseMainNewViewBase extends EditViewBase {
         srfCaption: 'entities.case.views.mainnewview.caption',
         srfTitle: 'entities.case.views.mainnewview.title',
         srfSubTitle: 'entities.case.views.mainnewview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -119,8 +131,14 @@ export class CaseMainNewViewBase extends EditViewBase {
      * @memberof CaseMainNewViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -130,7 +148,7 @@ export class CaseMainNewViewBase extends EditViewBase {
      * @memberof CaseMainNewView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -141,9 +159,18 @@ export class CaseMainNewViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseMainNewViewBase
      */
 	protected viewtag: string = '5890a810365fec51e801d2cffce44fde';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseMainNewViewBase
+     */ 
+    protected viewName: string = "CaseMainNewView";
 
 
     /**
@@ -162,7 +189,9 @@ export class CaseMainNewViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof CaseMainNewViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

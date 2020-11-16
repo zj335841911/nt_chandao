@@ -565,4 +565,44 @@ export interface Bug {
      * @memberof Bug
      */
     overduebugs?: any;
+
+    /**
+     * 相关用例
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    casename?: any;
+
+    /**
+     * 延期
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    delay?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    noticeusers?: any;
+
+    /**
+     * 抄送给
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    mailtopk?: any;
+
+    /**
+     * 联系人
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    mailtoconact?: any;
 }

@@ -1,11 +1,23 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import TodoService from '@/service/todo/todo-service';
 import MainService from './main-form-service';
 import TodoUIService from '@/uiservice/todo/todo-ui-service';
-import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
-
+import {
+    FormButtonModel,
+    FormPageModel,
+    FormItemModel,
+    FormDRUIPartModel,
+    FormPartModel,
+    FormGroupPanelModel,
+    FormIFrameModel,
+    FormRowItemModel,
+    FormTabPageModel,
+    FormTabPanelModel,
+    FormUserControlModel,
+} from '@/model/form-detail';
 
 /**
  * form部件基类
@@ -15,7 +27,6 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  * @extends {MainEditFormBase}
  */
 export class MainEditFormBase extends EditFormControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +76,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {TodoUIService}
      * @memberof MainBase
      */  
-    public appUIService:TodoUIService = new TodoUIService(this.$store);
+    public appUIService: TodoUIService = new TodoUIService(this.$store);
 
     /**
      * 表单数据对象
@@ -105,8 +116,16 @@ export class MainEditFormBase extends EditFormControlBase {
         formitem10: null,
         private: null,
         id: null,
-        todo:null,
+        todo: null,
     };
+
+    /**
+     * 主信息属性映射表单项名称
+     *
+     * @type {*}
+     * @memberof MainEditFormBase
+     */
+    public majorMessageField: string = 'name';
 
     /**
      * 属性值规则
@@ -114,23 +133,65 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainEditFormBase
      */
-    public rules: any = {
-        task: [
-            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
+    public rules(): any{
+        return {
+            task: [
+                {
+                    required: this.detailsModel.task.required,
+                    type: 'string',
+                    message: '待办名称 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.task.required,
+                    type: 'string',
+                    message: '待办名称 值不能为空',
+                    trigger: 'blur',
+                },
         ],
-        story: [
-            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
+            story: [
+                {
+                    required: this.detailsModel.story.required,
+                    type: 'string',
+                    message: '待办名称 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.story.required,
+                    type: 'string',
+                    message: '待办名称 值不能为空',
+                    trigger: 'blur',
+                },
         ],
-        bug: [
-            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
+            bug: [
+                {
+                    required: this.detailsModel.bug.required,
+                    type: 'string',
+                    message: '待办名称 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.bug.required,
+                    type: 'string',
+                    message: '待办名称 值不能为空',
+                    trigger: 'blur',
+                },
         ],
-        name: [
-            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
+            name: [
+                {
+                    required: this.detailsModel.name.required,
+                    type: 'string',
+                    message: '待办名称 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.name.required,
+                    type: 'string',
+                    message: '待办名称 值不能为空',
+                    trigger: 'blur',
+                },
         ],
+        }
     }
 
     /**
@@ -159,67 +220,222 @@ export class MainEditFormBase extends EditFormControlBase {
 
         formpage1: new FormPageModel({ caption: '添加待办', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        srforikey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
+        srfkey: new FormItemModel({
+    caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
-        srfmajortext: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        srfmajortext: new FormItemModel({
+    caption: '待办名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        srftempmode: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfuf: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        srfuf: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfdeid: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        srfdeid: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        srfsourcekey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        date: new FormItemModel({
+    caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        date_disable: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'date_disable', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        date_disable: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'date_disable', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        cycle_enable: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'cycle_enable', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        cycle_enable: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'cycle_enable', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        config_type: new FormItemModel({ caption: '周期类型', detailType: 'FORMITEM', name: 'config_type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        config_type: new FormItemModel({
+    caption: '周期类型', detailType: 'FORMITEM', name: 'config_type', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        idvalue: new FormItemModel({ caption: '关联编号', detailType: 'FORMITEM', name: 'idvalue', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        idvalue: new FormItemModel({
+    caption: '关联编号', detailType: 'FORMITEM', name: 'idvalue', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        formitem3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem3', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        formitem3: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'formitem3', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        formitem4: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem4', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        formitem4: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'formitem4', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        formitem5: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem5', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        formitem5: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'formitem5', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        formitem2: new FormItemModel({ caption: '提前', detailType: 'FORMITEM', name: 'formitem2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        formitem2: new FormItemModel({
+    caption: '提前', detailType: 'FORMITEM', name: 'formitem2', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        formitem6: new FormItemModel({ caption: '天生成待办', detailType: 'FORMITEM', name: 'formitem6', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        formitem6: new FormItemModel({
+    caption: '天生成待办', detailType: 'FORMITEM', name: 'formitem6', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        formitem: new FormItemModel({ caption: '过期时间', detailType: 'FORMITEM', name: 'formitem', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        formitem: new FormItemModel({
+    caption: '过期时间', detailType: 'FORMITEM', name: 'formitem', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        type: new FormItemModel({ caption: '类型', detailType: 'FORMITEM', name: 'type', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        type: new FormItemModel({
+    caption: '类型', detailType: 'FORMITEM', name: 'type', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        pri: new FormItemModel({
+    caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        task: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'task', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        task: new FormItemModel({
+    caption: '待办名称', detailType: 'FORMITEM', name: 'task', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        story: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'story', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        story: new FormItemModel({
+    caption: '待办名称', detailType: 'FORMITEM', name: 'story', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        bug: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'bug', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        bug: new FormItemModel({
+    caption: '待办名称', detailType: 'FORMITEM', name: 'bug', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        name: new FormItemModel({ caption: '待办名称', detailType: 'FORMITEM', name: 'name', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        name: new FormItemModel({
+    caption: '待办名称', detailType: 'FORMITEM', name: 'name', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        desc: new FormItemModel({
+    caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        status: new FormItemModel({ caption: '状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        status: new FormItemModel({
+    caption: '状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        begin: new FormItemModel({ caption: '起止时间', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        begin: new FormItemModel({
+    caption: '起止时间', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        end: new FormItemModel({ caption: '~', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        end: new FormItemModel({
+    caption: '~', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        formitem10: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem10', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        formitem10: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'formitem10', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        private: new FormItemModel({ caption: '私人事务', detailType: 'FORMITEM', name: 'private', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        private: new FormItemModel({
+    caption: '私人事务', detailType: 'FORMITEM', name: 'private', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
+        id: new FormItemModel({
+    caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
     };
 
@@ -230,7 +446,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @returns {Promise<void>}
      * @memberof MainEditFormBase
      */
-    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+    public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
 
         if (Object.is(name, '') || Object.is(name, 'cycle_enable')) {
@@ -319,12 +535,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'task')) {
                 ret = false;
             }
-            this.rules.task.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
+            this.detailsModel.task.required = ret;
         }
         if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = false;
@@ -341,12 +552,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'story')) {
                 ret = false;
             }
-            this.rules.story.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
+            this.detailsModel.story.required = ret;
         }
         if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = false;
@@ -363,12 +569,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'bug')) {
                 ret = false;
             }
-            this.rules.bug.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
+            this.detailsModel.bug.required = ret;
         }
         if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = false;
@@ -385,12 +586,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'custom') && this.$verify.testCond(_type, 'ISNOTNULL', '')) {
                 ret = false;
             }
-            this.rules.name.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
+            this.detailsModel.name.required = ret;
         }
         if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = false;
@@ -430,7 +626,13 @@ export class MainEditFormBase extends EditFormControlBase {
      * 新建默认值
      * @memberof MainEditFormBase
      */
-    public createDefault(){                    
+    public createDefault() {                    
+        if (this.data.hasOwnProperty('date')) {
+            this.data['date'] = this.$util.dateFormat(new Date());
+        }
+        if (this.data.hasOwnProperty('formitem')) {
+            this.data['formitem'] = this.$util.dateFormat(new Date());
+        }
         if (this.data.hasOwnProperty('status')) {
             this.data['status'] = 'wait';
         }

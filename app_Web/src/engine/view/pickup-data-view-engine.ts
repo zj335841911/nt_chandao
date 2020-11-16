@@ -8,7 +8,6 @@ import MDViewEngine from './md-view-engine';
  * @extends {MDViewEngine}
  */
 export default class PickupDataViewEngine extends MDViewEngine {
-
     /**
      * 数据视图部件
      *
@@ -51,7 +50,6 @@ export default class PickupDataViewEngine extends MDViewEngine {
         super.onCtrlEvent(ctrlName, eventName, args);
     }
 
-
     /**
      * 获取多数据部件
      *
@@ -61,5 +59,4 @@ export default class PickupDataViewEngine extends MDViewEngine {
     public getMDCtrl(): any {
         return this.dataview;
     }
-
 }

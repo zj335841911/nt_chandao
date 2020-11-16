@@ -17,15 +17,15 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface UserMapper extends BaseMapper<User>{
+public interface UserMapper extends BaseMapper<User> {
 
-    Page<User> searchBugUser(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper) ;
-    Page<User> searchDefault(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper) ;
-    Page<User> searchGetByCommiter(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper) ;
-    Page<User> searchProjectTeamM(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper) ;
-    Page<User> searchProjectTeamUser(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper) ;
-    Page<User> searchProjectTeamUser_Task(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper) ;
-    Page<User> searchTaskTeam(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper) ;
+    Page<User> searchBugUser(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper);
+    Page<User> searchDefault(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper);
+    Page<User> searchGetByCommiter(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper);
+    Page<User> searchProjectTeamM(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper);
+    Page<User> searchProjectTeamUser(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper);
+    Page<User> searchProjectTeamUserTask(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper);
+    Page<User> searchTaskTeam(IPage page, @Param("srf") UserSearchContext context, @Param("ew") Wrapper<User> wrapper);
     @Override
     User selectById(Serializable id);
     @Override
@@ -36,13 +36,13 @@ public interface UserMapper extends BaseMapper<User>{
     int update(@Param(Constants.ENTITY) User entity, @Param("ew") Wrapper<User> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

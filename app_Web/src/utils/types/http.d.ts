@@ -1,4 +1,4 @@
-import Vue, { VNode, CreateElement } from "vue";
+import Vue, { VNode, CreateElement } from 'vue';
 
 /**
  * Http net 对象
@@ -51,7 +51,7 @@ export declare interface Http {
     put(url: string, data: any, isloading?: boolean, serialnumber?: number): Promise<any>;
 }
 
-declare module "vue/types/vue" {
+declare module 'vue/types/vue' {
     interface Vue {
         /**
          * Http net 对象

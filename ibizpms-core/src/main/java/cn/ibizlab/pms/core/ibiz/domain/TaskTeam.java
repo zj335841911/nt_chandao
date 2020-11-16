@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_team",resultMap = "TaskTeamResultMap")
+@TableName(value = "zt_team", resultMap = "TaskTeamResultMap")
 public class TaskTeam extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -127,8 +129,8 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -137,8 +139,8 @@ public class TaskTeam extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00")
     @TableField(value = "`join`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "join" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "join", format = "yyyy-MM-dd")
     @JsonProperty("join")
     private Timestamp join;
     /**
@@ -171,87 +173,87 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [角色]
      */
-    public void setRole(String role){
-        this.role = role ;
-        this.modify("role",role);
+    public void setRole(String role) {
+        this.role = role;
+        this.modify("role", role);
     }
 
     /**
      * 设置 [编号]
      */
-    public void setRoot(Long root){
-        this.root = root ;
-        this.modify("root",root);
+    public void setRoot(Long root) {
+        this.root = root;
+        this.modify("root", root);
     }
 
     /**
      * 设置 [受限用户]
      */
-    public void setLimited(String limited){
-        this.limited = limited ;
-        this.modify("limited",limited);
+    public void setLimited(String limited) {
+        this.limited = limited;
+        this.modify("limited", limited);
     }
 
     /**
      * 设置 [排序]
      */
-    public void setOrder(Integer order){
-        this.order = order ;
-        this.modify("order",order);
+    public void setOrder(Integer order) {
+        this.order = order;
+        this.modify("order", order);
     }
 
     /**
      * 设置 [可用工日]
      */
-    public void setDays(Integer days){
-        this.days = days ;
-        this.modify("days",days);
+    public void setDays(Integer days) {
+        this.days = days;
+        this.modify("days", days);
     }
 
     /**
      * 设置 [团队类型]
      */
-    public void setType(String type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [最初预计]
      */
-    public void setEstimate(Double estimate){
-        this.estimate = estimate ;
-        this.modify("estimate",estimate);
+    public void setEstimate(Double estimate) {
+        this.estimate = estimate;
+        this.modify("estimate", estimate);
     }
 
     /**
      * 设置 [用户]
      */
-    public void setAccount(String account){
-        this.account = account ;
-        this.modify("account",account);
+    public void setAccount(String account) {
+        this.account = account;
+        this.modify("account", account);
     }
 
     /**
      * 设置 [总计消耗]
      */
-    public void setConsumed(Double consumed){
-        this.consumed = consumed ;
-        this.modify("consumed",consumed);
+    public void setConsumed(Double consumed) {
+        this.consumed = consumed;
+        this.modify("consumed", consumed);
     }
 
     /**
      * 设置 [加盟日]
      */
-    public void setJoin(Timestamp join){
-        this.join = join ;
-        this.modify("join",join);
+    public void setJoin(Timestamp join) {
+        this.join = join;
+        this.modify("join", join);
     }
 
     /**
      * 格式化日期 [加盟日]
      */
-    public String formatJoin(){
+    public String formatJoin() {
         if (this.join == null) {
             return null;
         }
@@ -261,23 +263,23 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [可用工时/天]
      */
-    public void setHours(Double hours){
-        this.hours = hours ;
-        this.modify("hours",hours);
+    public void setHours(Double hours) {
+        this.hours = hours;
+        this.modify("hours", hours);
     }
 
     /**
      * 设置 [预计剩余]
      */
-    public void setLeft(Double left){
-        this.left = left ;
-        this.modify("left",left);
+    public void setLeft(Double left) {
+        this.left = left;
+        this.modify("left", left);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -289,7 +291,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

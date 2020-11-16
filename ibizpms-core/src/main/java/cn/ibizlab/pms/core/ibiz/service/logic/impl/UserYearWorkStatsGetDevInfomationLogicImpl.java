@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.ibiz.domain.UserYearWorkStats;
  */
 @Slf4j
 @Service
-public class UserYearWorkStatsGetDevInfomationLogicImpl implements IUserYearWorkStatsGetDevInfomationLogic{
+public class UserYearWorkStatsGetDevInfomationLogicImpl implements IUserYearWorkStatsGetDevInfomationLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -34,22 +34,24 @@ public class UserYearWorkStatsGetDevInfomationLogicImpl implements IUserYearWork
         return this.iBzSysDefaultService;
     }
 
-    public void execute(UserYearWorkStats et){
+    @Override
+    public void execute(UserYearWorkStats et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("useryearworkstatsgetdevinfomationdefault",et);
-           kieSession.setGlobal("iBzSysUseryearworkstatsDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("useryearworkstatsgetdevinfomationdefault", et);
+           kieSession.setGlobal("iBzSysUseryearworkstatsDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.useryearworkstatsgetdevinfomation");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[获取研发人员相关数据]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

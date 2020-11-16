@@ -435,6 +435,50 @@ mock.onGet(new RegExp(/^\/actions\/fetchmobtype(\?[\w-./?%&=,]*)*$/)).reply((con
     return [status, records ?  records : []];
 });
     
+// FetchMyTrends
+mock.onGet(new RegExp(/^\/actions\/fetchmytrends$/)).reply((config: any) => {
+    console.groupCollapsed("实体:action 方法: FetchMyTrends");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchMyTrends
+mock.onGet(new RegExp(/^\/actions\/fetchmytrends(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:action 方法: FetchMyTrends");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchProductTrends
 mock.onGet(new RegExp(/^\/actions\/fetchproducttrends$/)).reply((config: any) => {
     console.groupCollapsed("实体:action 方法: FetchProductTrends");

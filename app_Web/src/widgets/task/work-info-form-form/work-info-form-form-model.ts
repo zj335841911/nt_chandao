@@ -86,6 +86,11 @@ export default class WorkInfoFormModel {
         dataType: 'DATE',
       },
       {
+        name: 'delay',
+        prop: 'delay',
+        dataType: 'TEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

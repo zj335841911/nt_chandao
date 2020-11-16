@@ -9,7 +9,6 @@ import { events } from '../global';
  * @extends {ViewBase}
  */
 export class ExpViewBase extends ViewBase {
-
     /**
      * 应用实体服务
      *
@@ -27,9 +26,15 @@ export class ExpViewBase extends ViewBase {
      */
     protected viewMounted(): void {
         super.viewMounted();
-        this.accLocalTags.push(this.$acc.commandLocal(() => {
-            this.loadModel();
-        }, 'update', this.appDeName.toUpperCase()));
+        this.accLocalTags.push(
+            this.$acc.commandLocal(
+                () => {
+                    this.loadModel();
+                },
+                'update',
+                this.appDeName.toUpperCase()
+            )
+        );
     }
 
     /**
@@ -67,8 +72,7 @@ export class ExpViewBase extends ViewBase {
                     this.$appService.navHistory.setCaption({ tag: this.viewtag, info: this.model.dataInfo });
                     this.$emit(events.view.MODEL_LOADED, data);
                 }
-            })
+            });
         }
     }
-
 }

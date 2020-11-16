@@ -1,5 +1,5 @@
-<template src="./product-plan-sub-plan-create-view.html"/>
-<script lang='tsx'>
+<template src="./product-plan-sub-plan-create-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductPlanSubPlanCreateViewBase } from './product-plan-sub-plan-create-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/sub-product-plan/main-sub-plan-form/main-sub-pla
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductPlanSubPlanCreateView extends ProductPlanSubPlanCreateViewBase { }
+export default class ProductPlanSubPlanCreateView extends ProductPlanSubPlanCreateViewBase {}
 </script>

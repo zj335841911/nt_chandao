@@ -45,6 +45,7 @@ public class EntrySearchContext extends QueryWrapperContext<Entry> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

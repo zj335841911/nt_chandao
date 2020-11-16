@@ -17,10 +17,12 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface FileMapper extends BaseMapper<File>{
+public interface FileMapper extends BaseMapper<File> {
 
-    Page<File> searchDefault(IPage page, @Param("srf") FileSearchContext context, @Param("ew") Wrapper<File> wrapper) ;
-    Page<File> searchType(IPage page, @Param("srf") FileSearchContext context, @Param("ew") Wrapper<File> wrapper) ;
+    Page<File> searchDefault(IPage page, @Param("srf") FileSearchContext context, @Param("ew") Wrapper<File> wrapper);
+    Page<File> searchDocLibFile(IPage page, @Param("srf") FileSearchContext context, @Param("ew") Wrapper<File> wrapper);
+    Page<File> searchProductDocLibFile(IPage page, @Param("srf") FileSearchContext context, @Param("ew") Wrapper<File> wrapper);
+    Page<File> searchType(IPage page, @Param("srf") FileSearchContext context, @Param("ew") Wrapper<File> wrapper);
     @Override
     File selectById(Serializable id);
     @Override
@@ -31,13 +33,13 @@ public interface FileMapper extends BaseMapper<File>{
     int update(@Param(Constants.ENTITY) File entity, @Param("ew") Wrapper<File> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

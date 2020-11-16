@@ -1,6 +1,7 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import InvolvedProject_devService from './involved-project-dev-chart-service';
@@ -10,7 +11,6 @@ import moment from "moment";
 import CodeListService from "@service/app/codelist-service";
 import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries,ChartRadarSeries} from '@/model/chart-detail';
 
-
 /**
  * chart部件基类
  *
@@ -19,7 +19,6 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
  * @extends {InvolvedProject_devChartBase}
  */
 export class InvolvedProject_devChartBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -69,14 +68,15 @@ export class InvolvedProject_devChartBase extends MainControlBase {
      * @type {ProjectUIService}
      * @memberof InvolvedProject_devBase
      */  
-    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
+    
 
     /**
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof InvolvedProject_devBase
+     * @memberof InvolvedProject_dev
      */
     public getDatas(): any[] {
         return [];
@@ -86,7 +86,7 @@ export class InvolvedProject_devChartBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof InvolvedProject_devBase
+     * @memberof InvolvedProject_dev
      */
     public getData(): any {
         return null;
@@ -96,7 +96,7 @@ export class InvolvedProject_devChartBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof InvolvedProject_devBase
+     * @memberof InvolvedProject_dev
      */
     @Prop({ default: true }) public showBusyIndicator!: boolean;
 
@@ -104,14 +104,14 @@ export class InvolvedProject_devChartBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof InvolvedProject_devBase
+     * @memberof InvolvedProject_dev
      */
     @Prop() public fetchAction!: string;  
 
     /**
     * Vue声明周期(组件初始化完毕)
     *
-    * @memberof InvolvedProject_devBase
+    * @memberof InvolvedProject_dev
     */
     public created() {
          this.afterCreated();     
@@ -120,7 +120,7 @@ export class InvolvedProject_devChartBase extends MainControlBase {
     /**
     * 执行created后的逻辑
     *
-    * @memberof InvolvedProject_devBase
+    * @memberof InvolvedProject_dev
     */
     public afterCreated(){
         if (this.viewState) {
@@ -138,7 +138,7 @@ export class InvolvedProject_devChartBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof InvolvedProject_devBase
+     * @memberof InvolvedProject_dev
      */
     public destroyed() {
         this.afterDestroy();
@@ -147,7 +147,7 @@ export class InvolvedProject_devChartBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof InvolvedProject_devBase
+     * @memberof InvolvedProject_dev
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -212,18 +212,8 @@ export class InvolvedProject_devChartBase extends MainControlBase {
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
-        label:{
-            show: true,
-            position: 'outside',
-        },
-        labelLine:{
-            show: true,
-            length: 10,
-            lineStyle: {
-                width: 1,
-                type: 'solid'
-            }
-        },
+        label:{show:false},
+        labelLine:{show:false},
         itemStyle:{
             borderColor: '#fff',
             borderWidth: 1
@@ -253,6 +243,7 @@ export class InvolvedProject_devChartBase extends MainControlBase {
      * @memberof ChartBase
      */   
     public chartUserParams:any ={
+        legend:{show:false},
         color:["#0068B7","#1aa1e6","#81cef2","#FF5D5D",'#FDC137','#00DA88','#7ECFF','#8666B8','#BD7B46']
     };
 
@@ -278,8 +269,8 @@ export class InvolvedProject_devChartBase extends MainControlBase {
      */   
     public chartOption:any = {
         title:{
-            show:false ,
-            text:'参与项目(年度总结)_测试人员',
+            show:true ,
+            text:'参与项目(年度总结)',
             subtext:''
         },
         legend:{
@@ -326,7 +317,10 @@ export class InvolvedProject_devChartBase extends MainControlBase {
         const parentdata: any = {};
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
-        Object.assign(arg,{viewparams:this.viewparams,page:0,size:1000});
+        let tempViewParams:any = parentdata.viewparams?parentdata.viewparams:{};
+        Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg,{viewparams:tempViewParams});
+        Object.assign(arg,{page:0,size:1000});
         this.service.search(this.fetchAction,JSON.parse(JSON.stringify(this.context)),arg,this.showBusyIndicator).then((res) => {
             if (res) {
                this.transformToBasicChartSetData(res.data,(codelist:any) =>{_this.drawCharts(codelist)});
@@ -665,7 +659,7 @@ export class InvolvedProject_devChartBase extends MainControlBase {
         }
         // 补全空白分类
         if(returnArray.length >0){
-            let emptyText = (groupFieldModel[0] && groupFieldModel[0].codeList)?groupFieldModel[0].codeList.emptytext:"未定义";
+            let emptyText = (groupFieldModel[0] && groupFieldModel[0].codeList)?groupFieldModel[0].codeList.emptytext:(this.$t('app.chart.undefined') as string);
             returnArray.forEach((item:any) =>{
                 if(!item[groupField[0]]){
                     item[groupField[0]] = emptyText;
@@ -731,11 +725,11 @@ export class InvolvedProject_devChartBase extends MainControlBase {
                     return Number(a[groupField[0].name]) - Number(b[groupField[0].name]);
                 });
             }else if(Object.is(groupField[0].groupMode,"QUARTER")){
-                returnArray = this.handleSortGroupData(arr,groupField,"季度");
+                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.chart.quarter') as string));
             }else if(Object.is(groupField[0].groupMode,"MONTH")){
-                returnArray = this.handleSortGroupData(arr,groupField,"月");
+                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.calendar.month') as string));
             }else if(Object.is(groupField[0].groupMode,"YEARWEEK")){
-                returnArray = this.handleSortGroupData(arr,groupField,"周");
+                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.calendar.week') as string));
             }else if(Object.is(groupField[0].groupMode,"DAY")){
                 returnArray = arr.sort((a:any, b:any) => {
                     return moment(a[groupField[0].name]).unix() - moment(b[groupField[0].name]).unix();
@@ -1129,4 +1123,6 @@ export class InvolvedProject_devChartBase extends MainControlBase {
             }
         })
     }
+
+
 }

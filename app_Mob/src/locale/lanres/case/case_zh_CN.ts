@@ -56,10 +56,25 @@ export default {
     libname: "用例库",
     lastrunresult1: "测试用例结果",
     isfavorites: "是否收藏",
+    modulename1: "模块名称",
+    files: "附件",
+    noticeusers: "消息通知用户",
   },
 	views: {
+		mobmdview_testtask: {
+			caption: '测试用例',
+		},
+		mobmdview_testsuite: {
+			caption: '测试用例',
+		},
+		usr2mobmpickupview: {
+			caption: '关联用例',
+		},
 		mobmdview: {
 			caption: '测试用例',
+		},
+		usr2mobpickupmdview: {
+			caption: '关联用例',
 		},
 		mobeditview: {
 			caption: '测试用例',
@@ -68,6 +83,8 @@ export default {
 	mobmain_form: {
 		details: {
 			druipart1: '', 
+			druipart2: '', 
+			grouppanel1: '历史记录', 
 			group1: '测试用例基本信息', 
 			formpage1: '基本信息', 
 			srfupdatedate: '修改日期', 
@@ -100,8 +117,16 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmdviewrighttoolbar_toolbar: {
+	mobmdview_testtaskrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联需求',
+			tip: '关联需求',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+	},
+	mobmdviewrighttoolbar_toolbar: {
+	},
+	mobmdview_testsuiterighttoolbar_toolbar: {
 	},
 };

@@ -111,6 +111,12 @@ export default class TodoDescModel {
       {
         name: 'date_disable',
       },
+      {
+        name: 'assignedtopk',
+      },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

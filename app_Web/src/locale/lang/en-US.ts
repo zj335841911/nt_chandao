@@ -1,3 +1,5 @@
+import enUSUser from '../user/en-US.user';
+import { Util } from '@/utils/util/util';
 import productplan_en_US from '@locale/lanres/entities/product-plan/product-plan_en_US';
 import projectproduct_en_US from '@locale/lanres/entities/project-product/project-product_en_US';
 import case_en_US from '@locale/lanres/entities/case/case_en_US';
@@ -13,11 +15,13 @@ import suitecase_en_US from '@locale/lanres/entities/suite-case/suite-case_en_US
 import burn_en_US from '@locale/lanres/entities/burn/burn_en_US';
 import substory_en_US from '@locale/lanres/entities/sub-story/sub-story_en_US';
 import subproductplan_en_US from '@locale/lanres/entities/sub-product-plan/sub-product-plan_en_US';
-import employeeload_en_US from '@locale/lanres/entities/employ-eeload/employ-eeload_en_US';
+import employeeload_en_US from '@locale/lanres/entities/emp-loyeeload/emp-loyeeload_en_US';
+import doccontent_en_US from '@locale/lanres/entities/doc-content/doc-content_en_US';
 import storyspec_en_US from '@locale/lanres/entities/story-spec/story-spec_en_US';
 import usertpl_en_US from '@locale/lanres/entities/user-tpl/user-tpl_en_US';
 import ibzfavorites_en_US from '@locale/lanres/entities/ibz-favorites/ibz-favorites_en_US';
 import branch_en_US from '@locale/lanres/entities/branch/branch_en_US';
+import sysdepartment_en_US from '@locale/lanres/entities/sys-department/sys-department_en_US';
 import productstats_en_US from '@locale/lanres/entities/product-stats/product-stats_en_US';
 import ibzprojectmember_en_US from '@locale/lanres/entities/ibz-project-member/ibz-project-member_en_US';
 import action_en_US from '@locale/lanres/entities/action/action_en_US';
@@ -42,7 +46,9 @@ import doclib_en_US from '@locale/lanres/entities/doc-lib/doc-lib_en_US';
 import productmodule_en_US from '@locale/lanres/entities/product-module/product-module_en_US';
 import module_en_US from '@locale/lanres/entities/module/module_en_US';
 import testmodule_en_US from '@locale/lanres/entities/test-module/test-module_en_US';
+import doclibmodule_en_US from '@locale/lanres/entities/doc-lib-module/doc-lib-module_en_US';
 import productlife_en_US from '@locale/lanres/entities/product-life/product-life_en_US';
+import usercontact_en_US from '@locale/lanres/entities/user-contact/user-contact_en_US';
 import task_en_US from '@locale/lanres/entities/task/task_en_US';
 import build_en_US from '@locale/lanres/entities/build/build_en_US';
 import testresult_en_US from '@locale/lanres/entities/test-result/test-result_en_US';
@@ -57,19 +63,23 @@ import testreport_en_US from '@locale/lanres/entities/test-report/test-report_en
 import projectstats_en_US from '@locale/lanres/entities/project-stats/project-stats_en_US';
 import testrun_en_US from '@locale/lanres/entities/test-run/test-run_en_US';
 import ibzmyterritory_en_US from '@locale/lanres/entities/ibz-my-territory/ibz-my-territory_en_US';
+import sysupdatelog_en_US from '@locale/lanres/entities/sys-update-log/sys-update-log_en_US';
+import doc_en_US from '@locale/lanres/entities/doc/doc_en_US';
 import bug_en_US from '@locale/lanres/entities/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/entities/project-module/project-module_en_US';
 import ibzdoc_en_US from '@locale/lanres/entities/ibz-doc/ibz-doc_en_US';
 import pssysapp_en_US from '@locale/lanres/entities/pssys-app/pssys-app_en_US';
 import ibzcase_en_US from '@locale/lanres/entities/ibz-case/ibz-case_en_US';
 import pssystemdbcfg_en_US from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_en_US';
+import sysupdatefeatures_en_US from '@locale/lanres/entities/sys-update-features/sys-update-features_en_US';
 import release_en_US from '@locale/lanres/entities/release/release_en_US';
 import dynadashboard_en_US from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_en_US';
+import sysemployee_en_US from '@locale/lanres/entities/sys-employee/sys-employee_en_US';
 import components_en_US from '@locale/lanres/components/components_en_US';
 import codelist_en_US from '@locale/lanres/codelist/codelist_en_US';
 import userCustom_en_US from '@locale/lanres/userCustom/userCustom_en_US';
 
-export default {
+const data: any = {
     app: {
         commonWords:{
             error: "Error",
@@ -89,7 +99,9 @@ export default {
             deleteError: "Failed to delete",
             delDataFail: "Failed to delete data",
             noData: "No data",
-            startsuccess:"Start successful"
+            startsuccess:"Start successful",
+            createFailed: 'Unable to create',
+            isExist: 'existed'
         },
         local:{
             new: "New",
@@ -204,15 +216,13 @@ export default {
                 menuitem3: "产品主页",
                 menuitem2: "项目主页",
                 menuitem1: "测试主页",
+                menuitem16: "文档",
                 menuitem22: "统计",
                 menuitem25: "年度统计",
                 menuitem10: "用例库",
                 menuitem11: "用户",
                 menuitem7: "iBiz软件生产管理",
-                menuitem16: "plus",
-                menuitem19: "产品",
-                menuitem21: "模块",
-                menuitem17: "需求",
+                menuitem8: "更新日志",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
                 menuitem5: "项目",
@@ -341,10 +351,12 @@ export default {
         substory: substory_en_US,
         subproductplan: subproductplan_en_US,
         employeeload: employeeload_en_US,
+        doccontent: doccontent_en_US,
         storyspec: storyspec_en_US,
         usertpl: usertpl_en_US,
         ibzfavorites: ibzfavorites_en_US,
         branch: branch_en_US,
+        sysdepartment: sysdepartment_en_US,
         productstats: productstats_en_US,
         ibzprojectmember: ibzprojectmember_en_US,
         action: action_en_US,
@@ -369,7 +381,9 @@ export default {
         productmodule: productmodule_en_US,
         module: module_en_US,
         testmodule: testmodule_en_US,
+        doclibmodule: doclibmodule_en_US,
         productlife: productlife_en_US,
+        usercontact: usercontact_en_US,
         task: task_en_US,
         build: build_en_US,
         testresult: testresult_en_US,
@@ -384,16 +398,24 @@ export default {
         projectstats: projectstats_en_US,
         testrun: testrun_en_US,
         ibzmyterritory: ibzmyterritory_en_US,
+        sysupdatelog: sysupdatelog_en_US,
+        doc: doc_en_US,
         bug: bug_en_US,
         projectmodule: projectmodule_en_US,
         ibzdoc: ibzdoc_en_US,
         pssysapp: pssysapp_en_US,
         ibzcase: ibzcase_en_US,
         pssystemdbcfg: pssystemdbcfg_en_US,
+        sysupdatefeatures: sysupdatefeatures_en_US,
         release: release_en_US,
         dynadashboard: dynadashboard_en_US,
+        sysemployee: sysemployee_en_US,
     },
     components: components_en_US,
     codelist: codelist_en_US,
     userCustom: userCustom_en_US,
 };
+// 合并用户自定义多语言
+Util.mergeDeepObject(data, enUSUser);
+// 默认导出
+export default data;

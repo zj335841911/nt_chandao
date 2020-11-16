@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { OptionViewBase } from '@/studio-core';
 import TaskEstimateService from '@/service/task-estimate/task-estimate-service';
 import TaskEstimateAuthService from '@/authservice/task-estimate/task-estimate-auth-service';
@@ -48,7 +48,7 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskEstimateOptionViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
      *
      * @memberof TaskEstimateOptionViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
         srfCaption: 'entities.taskestimate.views.optionview.caption',
         srfTitle: 'entities.taskestimate.views.optionview.title',
         srfSubTitle: 'entities.taskestimate.views.optionview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,13 +95,45 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
      * @memberof TaskEstimateOptionViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
-        view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
-        view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
-        view_leftbtn: { name: 'leftbtn', type: 'button', text: '左移', disabled: true },
-        view_rightbtn: { name: 'rightbtn', type: 'button', text: '右移', disabled: true },
-        view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
-        view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
+        view_okbtn: {
+            name: 'okbtn',
+            type: 'button',
+            text: '确定',
+            disabled: true,
+        },
+        view_cancelbtn: {
+            name: 'cancelbtn',
+            type: 'button',
+            text: '取消',
+            disabled: false,
+        },
+        view_leftbtn: {
+            name: 'leftbtn',
+            type: 'button',
+            text: '左移',
+            disabled: true,
+        },
+        view_rightbtn: {
+            name: 'rightbtn',
+            type: 'button',
+            text: '右移',
+            disabled: true,},
+        view_allleftbtn: {
+            name: 'allleftbtn',
+            type: 'button',
+            text: '全部左移',
+            disabled: true,
+        },
+        view_allrightbtn: {
+            name: 'allrightbtn',
+            type: 'button',
+            text: '全部右移',
+            disabled: true,
+        },
     };
 
 
@@ -110,9 +142,18 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskEstimateOptionViewBase
      */
 	protected viewtag: string = '4acc52d66d0c31e82166d85b1b0cd826';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskEstimateOptionViewBase
+     */ 
+    protected viewName: string = "TaskEstimateOptionView";
 
 
     /**
@@ -131,7 +172,9 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
      * @type {Array<*>}
      * @memberof TaskEstimateOptionViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

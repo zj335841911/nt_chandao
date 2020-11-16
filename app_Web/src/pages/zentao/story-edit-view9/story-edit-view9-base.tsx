@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -48,7 +48,7 @@ export class StoryEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof StoryEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class StoryEditView9Base extends EditView9Base {
 	 * @memberof StoryEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'story' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'story',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class StoryEditView9Base extends EditView9Base {
 	 * @memberof StoryEditView9Base
 	 */
     protected customViewParams: any = {
-        'objecttype': { isRawValue: true, value: 'story' }
+        'objecttype': {
+            isRawValue: true,
+            value: 'story',
+        }
     };
 
     /**
@@ -99,8 +105,8 @@ export class StoryEditView9Base extends EditView9Base {
         srfCaption: 'entities.story.views.editview9.caption',
         srfTitle: 'entities.story.views.editview9.title',
         srfSubTitle: 'entities.story.views.editview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -110,8 +116,14 @@ export class StoryEditView9Base extends EditView9Base {
      * @memberof StoryEditView9Base
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -130,9 +142,18 @@ export class StoryEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryEditView9Base
      */
 	protected viewtag: string = 'a9d151a6bb5fb2481836a7e0ed5afb7e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryEditView9Base
+     */ 
+    protected viewName: string = "StoryEditView9";
 
 
     /**
@@ -151,7 +172,9 @@ export class StoryEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof StoryEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

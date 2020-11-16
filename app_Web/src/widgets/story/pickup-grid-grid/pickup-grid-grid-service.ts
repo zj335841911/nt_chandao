@@ -1,4 +1,5 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import StoryService from '@/service/story/story-service';
 import PickupGridModel from './pickup-grid-grid-model';
@@ -347,7 +348,7 @@ export default class PickupGridService extends ControlService {
                     requestData[item.prop] = context[item.name];
                 }
             }else{
-                if(item && item.isEditable && item.prop && item.name && (data[item.name] || Object.is(data[item.name],0)) ){
+                if(item && item.isEditable && item.prop && item.name && data.hasOwnProperty(item.name)){
                     requestData[item.prop] = data[item.name];
                 }
             }

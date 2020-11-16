@@ -17,70 +17,70 @@ import org.springframework.stereotype.Component;
  * 实体[PSSysSFPub] 服务对象接口
  */
 @Component
-public class PSSysSFPubFallback implements PSSysSFPubFeignClient{
+public class PSSysSFPubFallback implements PSSysSFPubFeignClient {
 
-    public Page<PSSysSFPub> select(){
-            return null;
-     }
+    public Page<PSSysSFPub> select() {
+        return null;
+    }
 
-    public PSSysSFPub create(PSSysSFPub pssyssfpub){
-            return null;
-     }
-    public Boolean createBatch(List<PSSysSFPub> pssyssfpubs){
-            return false;
-     }
+    public PSSysSFPub create(PSSysSFPub pssyssfpub) {
+        return null;
+    }
+    public Boolean createBatch(List<PSSysSFPub> pssyssfpubs) {
+        return false;
+    }
 
-    public PSSysSFPub update(String pssyssfpubid, PSSysSFPub pssyssfpub){
-            return null;
-     }
-    public Boolean updateBatch(List<PSSysSFPub> pssyssfpubs){
-            return false;
-     }
-
-
-    public Boolean remove(String pssyssfpubid){
-            return false;
-     }
-    public Boolean removeBatch(Collection<String> idList){
-            return false;
-     }
-
-    public PSSysSFPub get(String pssyssfpubid){
-            return null;
-     }
+    public PSSysSFPub update(String pssyssfpubid, PSSysSFPub pssyssfpub) {
+        return null;
+    }
+    public Boolean updateBatch(List<PSSysSFPub> pssyssfpubs) {
+        return false;
+    }
 
 
-    public String getByCodeName(String codeName){
+    public Boolean remove(String pssyssfpubid) {
+        return false;
+    }
+    public Boolean removeBatch(Collection<String> idList) {
+        return false;
+    }
+
+    public PSSysSFPub get(String pssyssfpubid) {
+        return null;
+    }
+
+
+    public String getByCodeName(String codeName) {
             return null;
     }
 
 
     public PSSysSFPub getDraft(){
-            return null;
+        return null;
     }
 
 
 
-    public Boolean checkKey(PSSysSFPub pssyssfpub){
-            return false;
-     }
+    public Boolean checkKey(PSSysSFPub pssyssfpub) {
+        return false;
+    }
 
 
-    public Boolean save(PSSysSFPub pssyssfpub){
-            return false;
-     }
-    public Boolean saveBatch(List<PSSysSFPub> pssyssfpubs){
-            return false;
-     }
+    public Boolean save(PSSysSFPub pssyssfpub) {
+        return false;
+    }
+    public Boolean saveBatch(List<PSSysSFPub> pssyssfpubs) {
+        return false;
+    }
 
-    public Page<PSSysSFPub> searchBuild(PSSysSFPubSearchContext context){
-            return null;
-     }
+    public Page<PSSysSFPub> searchBuild(PSSysSFPubSearchContext context) {
+        return null;
+    }
 
 
-    public Page<PSSysSFPub> searchDefault(PSSysSFPubSearchContext context){
-            return null;
-     }
+    public Page<PSSysSFPub> searchDefault(PSSysSFPubSearchContext context) {
+        return null;
+    }
 
 
 }

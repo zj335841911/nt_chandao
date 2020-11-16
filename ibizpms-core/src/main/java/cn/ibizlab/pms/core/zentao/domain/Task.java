@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_task",resultMap = "TaskResultMap")
+@TableName(value = "zt_task", resultMap = "TaskResultMap")
 public class Task extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,9 +63,9 @@ public class Task extends EntityMP implements Serializable {
      * 创建日期
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`openeddate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`openeddate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
     private Timestamp openeddate;
     /**
@@ -77,8 +79,8 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -102,8 +104,8 @@ public class Task extends EntityMP implements Serializable {
      * 实际开始
      */
     @TableField(value = "`realstarted`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "realstarted" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "realstarted", format = "yyyy-MM-dd")
     @JsonProperty("realstarted")
     private Timestamp realstarted;
     /**
@@ -135,16 +137,16 @@ public class Task extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`lastediteddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "lastediteddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
     private Timestamp lastediteddate;
     /**
      * 指派日期
      */
     @TableField(value = "`assigneddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "assigneddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "assigneddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("assigneddate")
     private Timestamp assigneddate;
     /**
@@ -182,8 +184,8 @@ public class Task extends EntityMP implements Serializable {
      * 关闭时间
      */
     @TableField(value = "`closeddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "closeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("closeddate")
     private Timestamp closeddate;
     /**
@@ -214,23 +216,23 @@ public class Task extends EntityMP implements Serializable {
      * 预计开始
      */
     @TableField(value = "`eststarted`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "eststarted" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "eststarted", format = "yyyy-MM-dd")
     @JsonProperty("eststarted")
     private Timestamp eststarted;
     /**
      * 截止日期
      */
     @TableField(value = "`deadline`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "deadline" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "deadline", format = "yyyy-MM-dd")
     @JsonProperty("deadline")
     private Timestamp deadline;
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -271,16 +273,16 @@ public class Task extends EntityMP implements Serializable {
      * 取消时间
      */
     @TableField(value = "`canceleddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "canceleddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "canceleddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("canceleddate")
     private Timestamp canceleddate;
     /**
      * 实际完成
      */
     @TableField(value = "`finisheddate`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "finisheddate" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "finisheddate", format = "yyyy-MM-dd")
     @JsonProperty("finisheddate")
     private Timestamp finisheddate;
     /**
@@ -464,6 +466,77 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "files")
     @JsonProperty("files")
     private String files;
+    /**
+     * 团队用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "usernames")
+    @JsonProperty("usernames")
+    private String usernames;
+    /**
+     * 是否完成
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isfinished")
+    @JsonProperty("isfinished")
+    private String isfinished;
+    /**
+     * 回复数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "replycount")
+    @JsonProperty("replycount")
+    private Integer replycount;
+    /**
+     * 是否填写描述
+     */
+    @TableField(exist = false)
+    @JSONField(name = "hasdetail")
+    @JsonProperty("hasdetail")
+    private String hasdetail;
+    /**
+     * 最后的更新日期
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    private String noticeusers;
+    /**
+     * 进度
+     */
+    @TableField(exist = false)
+    @JSONField(name = "progressrate")
+    @JsonProperty("progressrate")
+    private String progressrate;
+    /**
+     * 延期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delay")
+    @JsonProperty("delay")
+    private String delay;
+    /**
+     * 属性
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    private String mailtopk;
+    /**
+     * 联系人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    private String mailtoconact;
 
     /**
      * 
@@ -526,55 +599,55 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 设置 [由谁取消]
      */
-    public void setCanceledby(String canceledby){
-        this.canceledby = canceledby ;
-        this.modify("canceledby",canceledby);
+    public void setCanceledby(String canceledby) {
+        this.canceledby = canceledby;
+        this.modify("canceledby", canceledby);
     }
 
     /**
      * 设置 [预计剩余]
      */
-    public void setLeft(Double left){
-        this.left = left ;
-        this.modify("left",left);
+    public void setLeft(Double left) {
+        this.left = left;
+        this.modify("left", left);
     }
 
     /**
      * 设置 [标题颜色]
      */
-    public void setColor(String color){
-        this.color = color ;
-        this.modify("color",color);
+    public void setColor(String color) {
+        this.color = color;
+        this.modify("color", color);
     }
 
     /**
      * 设置 [由谁完成]
      */
-    public void setFinishedby(String finishedby){
-        this.finishedby = finishedby ;
-        this.modify("finishedby",finishedby);
+    public void setFinishedby(String finishedby) {
+        this.finishedby = finishedby;
+        this.modify("finishedby", finishedby);
     }
 
     /**
      * 设置 [完成者列表]
      */
-    public void setFinishedlist(String finishedlist){
-        this.finishedlist = finishedlist ;
-        this.modify("finishedlist",finishedlist);
+    public void setFinishedlist(String finishedlist) {
+        this.finishedlist = finishedlist;
+        this.modify("finishedlist", finishedlist);
     }
 
     /**
      * 设置 [实际开始]
      */
-    public void setRealstarted(Timestamp realstarted){
-        this.realstarted = realstarted ;
-        this.modify("realstarted",realstarted);
+    public void setRealstarted(Timestamp realstarted) {
+        this.realstarted = realstarted;
+        this.modify("realstarted", realstarted);
     }
 
     /**
      * 格式化日期 [实际开始]
      */
-    public String formatRealstarted(){
+    public String formatRealstarted() {
         if (this.realstarted == null) {
             return null;
         }
@@ -584,39 +657,39 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 设置 [由谁关闭]
      */
-    public void setClosedby(String closedby){
-        this.closedby = closedby ;
-        this.modify("closedby",closedby);
+    public void setClosedby(String closedby) {
+        this.closedby = closedby;
+        this.modify("closedby", closedby);
     }
 
     /**
      * 设置 [子状态]
      */
-    public void setSubstatus(String substatus){
-        this.substatus = substatus ;
-        this.modify("substatus",substatus);
+    public void setSubstatus(String substatus) {
+        this.substatus = substatus;
+        this.modify("substatus", substatus);
     }
 
     /**
      * 设置 [关闭原因]
      */
-    public void setClosedreason(String closedreason){
-        this.closedreason = closedreason ;
-        this.modify("closedreason",closedreason);
+    public void setClosedreason(String closedreason) {
+        this.closedreason = closedreason;
+        this.modify("closedreason", closedreason);
     }
 
     /**
      * 设置 [指派日期]
      */
-    public void setAssigneddate(Timestamp assigneddate){
-        this.assigneddate = assigneddate ;
-        this.modify("assigneddate",assigneddate);
+    public void setAssigneddate(Timestamp assigneddate) {
+        this.assigneddate = assigneddate;
+        this.modify("assigneddate", assigneddate);
     }
 
     /**
      * 格式化日期 [指派日期]
      */
-    public String formatAssigneddate(){
+    public String formatAssigneddate() {
         if (this.assigneddate == null) {
             return null;
         }
@@ -626,39 +699,39 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 设置 [优先级]
      */
-    public void setPri(Integer pri){
-        this.pri = pri ;
-        this.modify("pri",pri);
+    public void setPri(Integer pri) {
+        this.pri = pri;
+        this.modify("pri", pri);
     }
 
     /**
      * 设置 [任务状态]
      */
-    public void setStatus(String status){
-        this.status = status ;
-        this.modify("status",status);
+    public void setStatus(String status) {
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [任务名称]
      */
-    public void setName(String name){
-        this.name = name ;
-        this.modify("name",name);
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [关闭时间]
      */
-    public void setCloseddate(Timestamp closeddate){
-        this.closeddate = closeddate ;
-        this.modify("closeddate",closeddate);
+    public void setCloseddate(Timestamp closeddate) {
+        this.closeddate = closeddate;
+        this.modify("closeddate", closeddate);
     }
 
     /**
      * 格式化日期 [关闭时间]
      */
-    public String formatCloseddate(){
+    public String formatCloseddate() {
         if (this.closeddate == null) {
             return null;
         }
@@ -668,39 +741,39 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 设置 [任务类型]
      */
-    public void setType(String type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [指派给]
      */
-    public void setAssignedto(String assignedto){
-        this.assignedto = assignedto ;
-        this.modify("assignedto",assignedto);
+    public void setAssignedto(String assignedto) {
+        this.assignedto = assignedto;
+        this.modify("assignedto", assignedto);
     }
 
     /**
      * 设置 [任务描述]
      */
-    public void setDesc(String desc){
-        this.desc = desc ;
-        this.modify("desc",desc);
+    public void setDesc(String desc) {
+        this.desc = desc;
+        this.modify("desc", desc);
     }
 
     /**
      * 设置 [预计开始]
      */
-    public void setEststarted(Timestamp eststarted){
-        this.eststarted = eststarted ;
-        this.modify("eststarted",eststarted);
+    public void setEststarted(Timestamp eststarted) {
+        this.eststarted = eststarted;
+        this.modify("eststarted", eststarted);
     }
 
     /**
      * 格式化日期 [预计开始]
      */
-    public String formatEststarted(){
+    public String formatEststarted() {
         if (this.eststarted == null) {
             return null;
         }
@@ -710,15 +783,15 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 设置 [截止日期]
      */
-    public void setDeadline(Timestamp deadline){
-        this.deadline = deadline ;
-        this.modify("deadline",deadline);
+    public void setDeadline(Timestamp deadline) {
+        this.deadline = deadline;
+        this.modify("deadline", deadline);
     }
 
     /**
      * 格式化日期 [截止日期]
      */
-    public String formatDeadline(){
+    public String formatDeadline() {
         if (this.deadline == null) {
             return null;
         }
@@ -728,39 +801,39 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 设置 [抄送给]
      */
-    public void setMailto(String mailto){
-        this.mailto = mailto ;
-        this.modify("mailto",mailto);
+    public void setMailto(String mailto) {
+        this.mailto = mailto;
+        this.modify("mailto", mailto);
     }
 
     /**
      * 设置 [总计消耗]
      */
-    public void setConsumed(Double consumed){
-        this.consumed = consumed ;
-        this.modify("consumed",consumed);
+    public void setConsumed(Double consumed) {
+        this.consumed = consumed;
+        this.modify("consumed", consumed);
     }
 
     /**
      * 设置 [最初预计]
      */
-    public void setEstimate(Double estimate){
-        this.estimate = estimate ;
-        this.modify("estimate",estimate);
+    public void setEstimate(Double estimate) {
+        this.estimate = estimate;
+        this.modify("estimate", estimate);
     }
 
     /**
      * 设置 [取消时间]
      */
-    public void setCanceleddate(Timestamp canceleddate){
-        this.canceleddate = canceleddate ;
-        this.modify("canceleddate",canceleddate);
+    public void setCanceleddate(Timestamp canceleddate) {
+        this.canceleddate = canceleddate;
+        this.modify("canceleddate", canceleddate);
     }
 
     /**
      * 格式化日期 [取消时间]
      */
-    public String formatCanceleddate(){
+    public String formatCanceleddate() {
         if (this.canceleddate == null) {
             return null;
         }
@@ -770,15 +843,15 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 设置 [实际完成]
      */
-    public void setFinisheddate(Timestamp finisheddate){
-        this.finisheddate = finisheddate ;
-        this.modify("finisheddate",finisheddate);
+    public void setFinisheddate(Timestamp finisheddate) {
+        this.finisheddate = finisheddate;
+        this.modify("finisheddate", finisheddate);
     }
 
     /**
      * 格式化日期 [实际完成]
      */
-    public String formatFinisheddate(){
+    public String formatFinisheddate() {
         if (this.finisheddate == null) {
             return null;
         }
@@ -788,55 +861,55 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 设置 [需求版本]
      */
-    public void setStoryversion(Integer storyversion){
-        this.storyversion = storyversion ;
-        this.modify("storyversion",storyversion);
+    public void setStoryversion(Integer storyversion) {
+        this.storyversion = storyversion;
+        this.modify("storyversion", storyversion);
     }
 
     /**
      * 设置 [所属项目]
      */
-    public void setProject(Long project){
-        this.project = project ;
-        this.modify("project",project);
+    public void setProject(Long project) {
+        this.project = project;
+        this.modify("project", project);
     }
 
     /**
      * 设置 [相关需求]
      */
-    public void setStory(Long story){
-        this.story = story ;
-        this.modify("story",story);
+    public void setStory(Long story) {
+        this.story = story;
+        this.modify("story", story);
     }
 
     /**
      * 设置 [父任务]
      */
-    public void setParent(Long parent){
-        this.parent = parent ;
-        this.modify("parent",parent);
+    public void setParent(Long parent) {
+        this.parent = parent;
+        this.modify("parent", parent);
     }
 
     /**
      * 设置 [来源Bug]
      */
-    public void setFrombug(Long frombug){
-        this.frombug = frombug ;
-        this.modify("frombug",frombug);
+    public void setFrombug(Long frombug) {
+        this.frombug = frombug;
+        this.modify("frombug", frombug);
     }
 
     /**
      * 设置 [id]
      */
-    public void setModule(Long module){
-        this.module = module ;
-        this.modify("module",module);
+    public void setModule(Long module) {
+        this.module = module;
+        this.modify("module", module);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -848,7 +921,7 @@ public class Task extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

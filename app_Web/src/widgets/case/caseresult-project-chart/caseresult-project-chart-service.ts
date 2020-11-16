@@ -1,4 +1,5 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import CaseService from '@/service/case/case-service';
 import CaseresultProjectModel from './caseresult-project-chart-model';

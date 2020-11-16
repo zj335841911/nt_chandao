@@ -27,14 +27,18 @@
     v-show="detailsModel.projectname.visible" 
     :itemRules="this.rules.projectname" 
     :caption="$t('task.mobmain_form.details.projectname')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.projectname.disabled"
     :error="detailsModel.projectname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.projectname" 
-    :context="context" 
+    v-if="data.projectname"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.projectname" 
     :itemParam="{}"/>
 </app-form-item>
@@ -51,14 +55,18 @@
     v-show="detailsModel.modulename.visible" 
     :itemRules="this.rules.modulename" 
     :caption="$t('task.mobmain_form.details.modulename')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.modulename.disabled"
     :error="detailsModel.modulename.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.modulename" 
-    :context="context" 
+    v-if="data.modulename"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.modulename" 
     :itemParam="{}"/>
 </app-form-item>
@@ -75,14 +83,18 @@
     v-show="detailsModel.name.visible" 
     :itemRules="this.rules.name" 
     :caption="$t('task.mobmain_form.details.name')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.name.disabled"
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.name" 
-    :context="context" 
+    v-if="data.name"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.name" 
     :itemParam="{}"/>
 </app-form-item>
@@ -99,17 +111,21 @@
     v-show="detailsModel.type.visible" 
     :itemRules="this.rules.type" 
     :caption="$t('task.mobmain_form.details.type')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.type.disabled"
     :error="detailsModel.type.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Task__type"
     :isCache="false" 
-    v-if="data.type" 
-    :context="context" 
+    v-if="data.type"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.type" 
     :itemParam="{}"/>
 </app-form-item>
@@ -126,17 +142,21 @@
     v-show="detailsModel.assignedto.visible" 
     :itemRules="this.rules.assignedto" 
     :caption="$t('task.mobmain_form.details.assignedto')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.assignedto.disabled"
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.assignedto" 
-    :context="context" 
+    v-if="data.assignedto"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.assignedto" 
     :itemParam="{}"/>
 </app-form-item>
@@ -153,14 +173,18 @@
     v-show="detailsModel.assigneddate.visible" 
     :itemRules="this.rules.assigneddate" 
     :caption="$t('task.mobmain_form.details.assigneddate')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.assigneddate.disabled"
     :error="detailsModel.assigneddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.assigneddate" 
-    :context="context" 
+    v-if="data.assigneddate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.assigneddate" 
     :itemParam="{}"/>
 </app-form-item>
@@ -189,6 +213,7 @@
     refreshitems='' 
     viewname='task-team-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('task.mobmain_form.details.druipart1')"  
     paramItem='task' 
     style="" 
     :formState="formState" 
@@ -221,17 +246,21 @@
     v-show="detailsModel.status.visible" 
     :itemRules="this.rules.status" 
     :caption="$t('task.mobmain_form.details.status')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.status.disabled"
     :error="detailsModel.status.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Task__status"
     :isCache="false" 
-    v-if="data.status" 
-    :context="context" 
+    v-if="data.status"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.status" 
     :itemParam="{}"/>
 </app-form-item>
@@ -248,17 +277,21 @@
     v-show="detailsModel.pri.visible" 
     :itemRules="this.rules.pri" 
     :caption="$t('task.mobmain_form.details.pri')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.pri.disabled"
     :error="detailsModel.pri.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Task__pri"
     :isCache="false" 
-    v-if="data.pri" 
-    :context="context" 
+    v-if="data.pri"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.pri" 
     :itemParam="{}"/>
 </app-form-item>
@@ -275,14 +308,18 @@
     v-show="detailsModel.estimate.visible" 
     :itemRules="this.rules.estimate" 
     :caption="$t('task.mobmain_form.details.estimate')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.estimate.disabled"
     :error="detailsModel.estimate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.estimate" 
-    :context="context" 
+    v-if="data.estimate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.estimate" 
     :itemParam="{}"/>
 </app-form-item>
@@ -299,14 +336,18 @@
     v-show="detailsModel.consumed.visible" 
     :itemRules="this.rules.consumed" 
     :caption="$t('task.mobmain_form.details.consumed')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.consumed.disabled"
     :error="detailsModel.consumed.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.consumed" 
-    :context="context" 
+    v-if="data.consumed"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.consumed" 
     :itemParam="{}"/>
 </app-form-item>
@@ -323,14 +364,18 @@
     v-show="detailsModel.left.visible" 
     :itemRules="this.rules.left" 
     :caption="$t('task.mobmain_form.details.left')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.left.disabled"
     :error="detailsModel.left.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.left" 
-    :context="context" 
+    v-if="data.left"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.left" 
     :itemParam="{}"/>
 </app-form-item>
@@ -347,14 +392,18 @@
     v-show="detailsModel.eststarted.visible" 
     :itemRules="this.rules.eststarted" 
     :caption="$t('task.mobmain_form.details.eststarted')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.eststarted.disabled"
     :error="detailsModel.eststarted.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.eststarted" 
-    :context="context" 
+    v-if="data.eststarted"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.eststarted" 
     :itemParam="{}"/>
 </app-form-item>
@@ -371,14 +420,18 @@
     v-show="detailsModel.realstarted.visible" 
     :itemRules="this.rules.realstarted" 
     :caption="$t('task.mobmain_form.details.realstarted')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.realstarted.disabled"
     :error="detailsModel.realstarted.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.realstarted" 
-    :context="context" 
+    v-if="data.realstarted"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.realstarted" 
     :itemParam="{}"/>
 </app-form-item>
@@ -395,14 +448,18 @@
     v-show="detailsModel.deadline.visible" 
     :itemRules="this.rules.deadline" 
     :caption="$t('task.mobmain_form.details.deadline')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.deadline.disabled"
     :error="detailsModel.deadline.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.deadline" 
-    :context="context" 
+    v-if="data.deadline"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.deadline" 
     :itemParam="{}"/>
 </app-form-item>
@@ -419,17 +476,21 @@
     v-show="detailsModel.finishedby.visible" 
     :itemRules="this.rules.finishedby" 
     :caption="$t('task.mobmain_form.details.finishedby')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.finishedby.disabled"
     :error="detailsModel.finishedby.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.finishedby" 
-    :context="context" 
+    v-if="data.finishedby"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.finishedby" 
     :itemParam="{}"/>
 </app-form-item>
@@ -446,17 +507,21 @@
     v-show="detailsModel.closedby.visible" 
     :itemRules="this.rules.closedby" 
     :caption="$t('task.mobmain_form.details.closedby')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.closedby.disabled"
     :error="detailsModel.closedby.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.closedby" 
-    :context="context" 
+    v-if="data.closedby"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.closedby" 
     :itemParam="{}"/>
 </app-form-item>
@@ -473,14 +538,18 @@
     v-show="detailsModel.closeddate.visible" 
     :itemRules="this.rules.closeddate" 
     :caption="$t('task.mobmain_form.details.closeddate')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.closeddate.disabled"
     :error="detailsModel.closeddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.closeddate" 
-    :context="context" 
+    v-if="data.closeddate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.closeddate" 
     :itemParam="{}"/>
 </app-form-item>
@@ -497,17 +566,21 @@
     v-show="detailsModel.closedreason.visible" 
     :itemRules="this.rules.closedreason" 
     :caption="$t('task.mobmain_form.details.closedreason')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.closedreason.disabled"
     :error="detailsModel.closedreason.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Task__closed_reason"
     :isCache="false" 
-    v-if="data.closedreason" 
-    :context="context" 
+    v-if="data.closedreason"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.closedreason" 
     :itemParam="{}"/>
 </app-form-item>
@@ -524,13 +597,58 @@
     v-show="detailsModel.desc.visible" 
     :itemRules="this.rules.desc" 
     :caption="$t('task.mobmain_form.details.desc')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
+    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
+
+
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel3.visible" 
+    :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" 
+    :caption="$t('task.mobmain_form.details.grouppanel3')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="1" 
+    :isInfoGroupMode="true" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='task' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='file-mob-mdview9' 
+    v-show="detailsModel.druipart3.visible" 
+    :caption="$t('task.mobmain_form.details.druipart3')"  
+    paramItem='task' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_TASK","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
+    ]" 
+    tempMode='0'
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ "objecttype": "task" } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
 
 
 
@@ -543,7 +661,7 @@
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
     :caption="$t('task.mobmain_form.details.grouppanel2')" 
     :isShowCaption="true" 
-    :titleBarCloseMode="0" 
+    :titleBarCloseMode="1" 
     :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
@@ -556,6 +674,7 @@
     refreshitems='' 
     viewname='action-mob-mdview9' 
     v-show="detailsModel.druipart2.visible" 
+    :caption="$t('task.mobmain_form.details.druipart2')"  
     paramItem='task' 
     style="" 
     :formState="formState" 
@@ -849,6 +968,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     protected formState: Subject<any> = new Subject();
 
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobMainBase
+     */
+    public appStateEvent: Subscription | undefined;
+
     /**
      * 忽略表单项值变化
      *
@@ -900,6 +1029,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         projectname: null,
+        project: null,
         modulename: null,
         name: null,
         type: null,
@@ -962,6 +1092,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected rules: any = {
+        name: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast}}
+        ],
+        deadline: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("deadline").isPast}}
+        ],
     }
 
     /**
@@ -971,6 +1107,48 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMainBase
      */
     public deRules:any = {
+                deadline:[
+                  {
+                      type:"GROUP",
+                      condOP:"OR",
+                      ruleInfo:"截至日期必须大于等于预计开始", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      group:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"ISNULL",
+                      ruleInfo:"", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      deName:"eststarted",
+                  },
+                  {
+                      type:"SIMPLE",
+                      condOP:"GTANDEQ",
+                      ruleInfo:"截至日期必须大于等于预计开始", 
+                      isKeyCond:false,
+                      paramValue:"eststarted",
+                      paramType:"ENTITYFIELD",
+                      isNotMode:false,
+                      deName:"deadline",
+                  },
+                        ]
+                  },
+                ],
+                name:[
+                  {
+                      type:"STRINGLENGTH",
+                      condOP:"",
+                      ruleInfo:"任务名称不大于10", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      maxValue:100,
+                      deName:"name",
+                      isIncludeMaxValue:true,
+                      isIncludeMinValue:false,
+                  },
+                ],
     };
 
     /**
@@ -1055,6 +1233,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: false, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
+        druipart3: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart3', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel3: new FormGroupPanelModel({ caption: '附件', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmain_form', extractMode: 'ITEM', details: [] } })
+, 
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
 , 
         grouppanel2: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmain_form', extractMode: 'ITEM', details: [] } })
@@ -1080,6 +1262,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         projectname: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         modulename: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1229,6 +1413,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.projectname')
     onProjectnameChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'projectname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 project 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.project')
+    onProjectChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'project', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1516,6 +1712,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
             }
             this.detailsModel.grouppanel1.setVisible(ret);
         }
+
+
+
 
 
 
@@ -1849,6 +2048,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Task")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1871,6 +2080,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -2054,7 +2266,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 2;
+            this.drcounter = 3;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();
@@ -2080,7 +2292,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

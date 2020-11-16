@@ -518,6 +518,95 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
     private String files;
 
+    /**
+     * 属性 [USERNAMES]
+     *
+     */
+    @JSONField(name = "usernames")
+    @JsonProperty("usernames")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String usernames;
+
+    /**
+     * 属性 [ISFINISHED]
+     *
+     */
+    @JSONField(name = "isfinished")
+    @JsonProperty("isfinished")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String isfinished;
+
+    /**
+     * 属性 [REPLYCOUNT]
+     *
+     */
+    @JSONField(name = "replycount")
+    @JsonProperty("replycount")
+    private Integer replycount;
+
+    /**
+     * 属性 [HASDETAIL]
+     *
+     */
+    @JSONField(name = "hasdetail")
+    @JsonProperty("hasdetail")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String hasdetail;
+
+    /**
+     * 属性 [UPDATEDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
+
+    /**
+     * 属性 [NOTICEUSERS]
+     *
+     */
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String noticeusers;
+
+    /**
+     * 属性 [PROGRESSRATE]
+     *
+     */
+    @JSONField(name = "progressrate")
+    @JsonProperty("progressrate")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String progressrate;
+
+    /**
+     * 属性 [DELAY]
+     *
+     */
+    @JSONField(name = "delay")
+    @JsonProperty("delay")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String delay;
+
+    /**
+     * 属性 [MAILTOPK]
+     *
+     */
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String mailtopk;
+
+    /**
+     * 属性 [MAILTOCONACT]
+     *
+     */
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String mailtoconact;
+
 
     /**
      * 设置 [CANCELEDBY]

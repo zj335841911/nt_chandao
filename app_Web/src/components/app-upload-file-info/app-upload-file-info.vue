@@ -1,7 +1,9 @@
 <template>
-  <div class="app-upload-file-info">
-      <a class="file-item" v-for="file in files" @click="() => onDownload(file)"><i class="el-icon-document"></i>{{file.name}}</a>
-  </div>
+    <div class="app-upload-file-info">
+        <a class="file-item" v-for="file in files" @click="() => onDownload(file)">
+            <i class="el-icon-document"></i>{{ file.name }}
+        </a>
+    </div>
 </template>
 
 <script lang="ts">
@@ -10,10 +12,8 @@ import { Environment } from '@/environments/environment';
 import { CreateElement } from 'vue';
 import { Subject, Unsubscribable } from 'rxjs';
 
-@Component({
-})
+@Component({})
 export default class AppUploadFileInfo extends Vue {
-
     /**
      * 初始化值
      *
@@ -70,17 +70,17 @@ export default class AppUploadFileInfo extends Vue {
      * @memberof AppUploadFileInfo
      */
     private dataProcess(): void {
-        if(this.value){
+        if (this.value) {
             let files = JSON.parse(this.value);
-            if(files.length){
+            if (files.length) {
                 files.forEach((file: any) => {
                     let url = `${this.downloadUrl}/${file.id}`;
                     file.url = url;
                 });
-            }else{
-              files = []
+            } else {
+                files = [];
             }
-            this.files =files;
+            this.files = files;
         }
     }
 
@@ -93,7 +93,6 @@ export default class AppUploadFileInfo extends Vue {
         this.dataProcess();
     }
 
-
     /**
      * 下载文件
      *
@@ -103,10 +102,9 @@ export default class AppUploadFileInfo extends Vue {
     public onDownload(file: any) {
         window.open(file.url);
     }
-
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import './app-upload-file-info.less';
 </style>

@@ -131,6 +131,17 @@ public class ProjectModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectmoduledto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-RemoveModule-all')")
+    @ApiOperation(value = "删除模块", tags = {"任务模块" },  notes = "删除模块")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projectmodules/{projectmodule_id}/removemodule")
+    public ResponseEntity<ProjectModuleDTO> removeModule(@PathVariable("projectmodule_id") Long projectmodule_id, @RequestBody ProjectModuleDTO projectmoduledto) {
+        ProjectModule domain = projectmoduleMapping.toDomain(projectmoduledto);
+        domain.setId(projectmodule_id);
+        domain = projectmoduleService.removeModule(domain);
+        projectmoduledto = projectmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectmoduledto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Save-all')")
     @ApiOperation(value = "保存任务模块", tags = {"任务模块" },  notes = "保存任务模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/save")
@@ -186,6 +197,28 @@ public class ProjectModuleResource {
     @RequestMapping(method= RequestMethod.POST , value="/projectmodules/searchdefault")
 	public ResponseEntity<Page<ProjectModuleDTO>> searchDefault(@RequestBody ProjectModuleSearchContext context) {
         Page<ProjectModule> domains = projectmoduleService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchParentModule-all')")
+	@ApiOperation(value = "获取父模块", tags = {"任务模块" } ,notes = "获取父模块")
+    @RequestMapping(method= RequestMethod.GET , value="/projectmodules/fetchparentmodule")
+	public ResponseEntity<List<ProjectModuleDTO>> fetchParentModule(ProjectModuleSearchContext context) {
+        Page<ProjectModule> domains = projectmoduleService.searchParentModule(context) ;
+        List<ProjectModuleDTO> list = projectmoduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchParentModule-all')")
+	@ApiOperation(value = "查询父模块", tags = {"任务模块" } ,notes = "查询父模块")
+    @RequestMapping(method= RequestMethod.POST , value="/projectmodules/searchparentmodule")
+	public ResponseEntity<Page<ProjectModuleDTO>> searchParentModule(@RequestBody ProjectModuleSearchContext context) {
+        Page<ProjectModule> domains = projectmoduleService.searchParentModule(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -375,6 +408,17 @@ public class ProjectModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectmoduledto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-RemoveModule-all')")
+    @ApiOperation(value = "根据项目任务模块", tags = {"任务模块" },  notes = "根据项目任务模块")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/removemodule")
+    public ResponseEntity<ProjectModuleDTO> removeModuleByProject(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @RequestBody ProjectModuleDTO projectmoduledto) {
+        ProjectModule domain = projectmoduleMapping.toDomain(projectmoduledto);
+        domain.setRoot(project_id);
+        domain = projectmoduleService.removeModule(domain) ;
+        projectmoduledto = projectmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectmoduledto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Save-all')")
     @ApiOperation(value = "根据项目保存任务模块", tags = {"任务模块" },  notes = "根据项目保存任务模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules/save")
@@ -439,6 +483,29 @@ public class ProjectModuleResource {
 	public ResponseEntity<Page<ProjectModuleDTO>> searchProjectModuleDefaultByProject(@PathVariable("project_id") Long project_id, @RequestBody ProjectModuleSearchContext context) {
         context.setN_root_eq(project_id);
         Page<ProjectModule> domains = projectmoduleService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchParentModule-all')")
+	@ApiOperation(value = "根据项目获取父模块", tags = {"任务模块" } ,notes = "根据项目获取父模块")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectmodules/fetchparentmodule")
+	public ResponseEntity<List<ProjectModuleDTO>> fetchProjectModuleParentModuleByProject(@PathVariable("project_id") Long project_id,ProjectModuleSearchContext context) {
+        context.setN_root_eq(project_id);
+        Page<ProjectModule> domains = projectmoduleService.searchParentModule(context) ;
+        List<ProjectModuleDTO> list = projectmoduleMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-searchParentModule-all')")
+	@ApiOperation(value = "根据项目查询父模块", tags = {"任务模块" } ,notes = "根据项目查询父模块")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectmodules/searchparentmodule")
+	public ResponseEntity<Page<ProjectModuleDTO>> searchProjectModuleParentModuleByProject(@PathVariable("project_id") Long project_id, @RequestBody ProjectModuleSearchContext context) {
+        context.setN_root_eq(project_id);
+        Page<ProjectModule> domains = projectmoduleService.searchParentModule(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

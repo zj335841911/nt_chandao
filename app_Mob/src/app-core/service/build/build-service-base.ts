@@ -278,6 +278,34 @@ export class BuildServiceBase extends EntityService {
     }
 
     /**
+     * MobProjectBuildCounter接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BuildServiceBase
+     */
+    public async MobProjectBuildCounter(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/builds/${context.build}/mobprojectbuildcounter`,data,isloading);
+            
+            return res;
+        }
+        if(context.product && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/builds/${context.build}/mobprojectbuildcounter`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().put(`/builds/${context.build}/mobprojectbuildcounter`,data,isloading);
+            return res;
+    }
+
+    /**
      * OneClickRelease接口方法
      *
      * @param {*} [context={}]
@@ -458,6 +486,31 @@ export class BuildServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/builds/fetchtestrounds`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchUpdateLog接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BuildServiceBase
+     */
+    public async FetchUpdateLog(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/builds/fetchupdatelog`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/builds/fetchupdatelog`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/builds/fetchupdatelog`,tempData,isloading);
         return res;
     }
 

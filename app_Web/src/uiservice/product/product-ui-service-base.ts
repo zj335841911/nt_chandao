@@ -21,6 +21,13 @@ export default class ProductUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  ProductUIServiceBase
+     */
+    public isEnableDEMainState:boolean = true;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  ProductUIServiceBase
@@ -89,32 +96,33 @@ export default class ProductUIServiceBase extends UIService {
      * @memberof  ProductUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'testtabexpview',srfappde:'products',component:'product-test-tab-exp-view'});
-        this.allViewMap.set(':',{viewname:'expeditview',srfappde:'products',component:'product-exp-edit-view'});
-        this.allViewMap.set(':',{viewname:'htmlview',srfappde:'products',component:'product-html-view'});
-        this.allViewMap.set(':',{viewname:'projectgridview9',srfappde:'products',component:'product-project-grid-view9'});
-        this.allViewMap.set(':',{viewname:'testdashboardview',srfappde:'products',component:'product-test-dashboard-view'});
-        this.allViewMap.set(':',{viewname:'testgridview',srfappde:'products',component:'product-test-grid-view'});
-        this.allViewMap.set(':',{viewname:'chartview',srfappde:'products',component:'product-chart-view'});
-        this.allViewMap.set(':',{viewname:'wizardview',srfappde:'products',component:'product-wizard-view'});
-        this.allViewMap.set(':',{viewname:'editview_close',srfappde:'products',component:'product-edit-view-close'});
-        this.allViewMap.set(':',{viewname:'gridview_unclosed',srfappde:'products',component:'product-grid-view-un-closed'});
-        this.allViewMap.set(':',{viewname:'storytreeexpview',srfappde:'products',component:'product-story-tree-exp-view'});
-        this.allViewMap.set(':',{viewname:'casetreeexpview',srfappde:'products',component:'product-case-tree-exp-view'});
-        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'products',component:'product-main-tab-exp-view'});
-        this.allViewMap.set(':',{viewname:'testleftsidebarlistview',srfappde:'products',component:'product-test-left-sidebar-list-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'products',component:'product-grid-view'});
-        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'products',component:'product-pickup-view'});
-        this.allViewMap.set(':',{viewname:'leftsidebarlistview',srfappde:'products',component:'product-left-sidebar-list-view'});
-        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'products',component:'product-pickup-grid-view'});
-        this.allViewMap.set(':',{viewname:'dashboardinfomainview9',srfappde:'products',component:'product-dashboard-info-main-view9'});
-        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'products',component:'product-main-dashboard-view'});
-        this.allViewMap.set(':',{viewname:'mainview_edit',srfappde:'products',component:'product-main-view-edit'});
-        this.allViewMap.set(':',{viewname:'testlistexpview',srfappde:'products',component:'product-test-list-exp-view'});
-        this.allViewMap.set(':',{viewname:'mytesttabexpview',srfappde:'products',component:'product-my-test-tab-exp-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'products',component:'product-edit-view'});
-        this.allViewMap.set(':',{viewname:'listexpview',srfappde:'products',component:'product-list-exp-view'});
-        this.allViewMap.set(':',{viewname:'bugtreeexpview',srfappde:'products',component:'product-bug-tree-exp-view'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'products',
+            component: 'product-grid-view',
+            openmode: '',
+            title: '所有产品',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('PICKUPVIEW:', {
+            viewname: 'pickupview',
+            srfappde: 'products',
+            component: 'product-pickup-view',
+            openmode: '',
+            title: '产品',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'products',
+            component: 'product-edit-view',
+            openmode: 'DRAWER_LEFT',
+            title: '产品',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -189,7 +197,6 @@ export default class ProductUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '取消置顶成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -568,7 +575,6 @@ export default class ProductUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '置顶成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -710,7 +716,6 @@ export default class ProductUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

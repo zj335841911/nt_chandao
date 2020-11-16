@@ -17,65 +17,65 @@ import org.springframework.stereotype.Component;
  * 实体[PSSubSysServiceAPI] 服务对象接口
  */
 @Component
-public class PSSubSysServiceAPIFallback implements PSSubSysServiceAPIFeignClient{
+public class PSSubSysServiceAPIFallback implements PSSubSysServiceAPIFeignClient {
 
-    public Page<PSSubSysServiceAPI> select(){
-            return null;
-     }
+    public Page<PSSubSysServiceAPI> select() {
+        return null;
+    }
 
-    public PSSubSysServiceAPI create(PSSubSysServiceAPI pssubsysserviceapi){
-            return null;
-     }
-    public Boolean createBatch(List<PSSubSysServiceAPI> pssubsysserviceapis){
-            return false;
-     }
+    public PSSubSysServiceAPI create(PSSubSysServiceAPI pssubsysserviceapi) {
+        return null;
+    }
+    public Boolean createBatch(List<PSSubSysServiceAPI> pssubsysserviceapis) {
+        return false;
+    }
 
-    public PSSubSysServiceAPI update(String pssubsysserviceapiid, PSSubSysServiceAPI pssubsysserviceapi){
-            return null;
-     }
-    public Boolean updateBatch(List<PSSubSysServiceAPI> pssubsysserviceapis){
-            return false;
-     }
-
-
-    public Boolean remove(String pssubsysserviceapiid){
-            return false;
-     }
-    public Boolean removeBatch(Collection<String> idList){
-            return false;
-     }
-
-    public PSSubSysServiceAPI get(String pssubsysserviceapiid){
-            return null;
-     }
+    public PSSubSysServiceAPI update(String pssubsysserviceapiid, PSSubSysServiceAPI pssubsysserviceapi) {
+        return null;
+    }
+    public Boolean updateBatch(List<PSSubSysServiceAPI> pssubsysserviceapis) {
+        return false;
+    }
 
 
-    public String getByCodeName(String codeName){
+    public Boolean remove(String pssubsysserviceapiid) {
+        return false;
+    }
+    public Boolean removeBatch(Collection<String> idList) {
+        return false;
+    }
+
+    public PSSubSysServiceAPI get(String pssubsysserviceapiid) {
+        return null;
+    }
+
+
+    public String getByCodeName(String codeName) {
             return null;
     }
 
 
     public PSSubSysServiceAPI getDraft(){
-            return null;
+        return null;
     }
 
 
 
-    public Boolean checkKey(PSSubSysServiceAPI pssubsysserviceapi){
-            return false;
-     }
+    public Boolean checkKey(PSSubSysServiceAPI pssubsysserviceapi) {
+        return false;
+    }
 
 
-    public Boolean save(PSSubSysServiceAPI pssubsysserviceapi){
-            return false;
-     }
-    public Boolean saveBatch(List<PSSubSysServiceAPI> pssubsysserviceapis){
-            return false;
-     }
+    public Boolean save(PSSubSysServiceAPI pssubsysserviceapi) {
+        return false;
+    }
+    public Boolean saveBatch(List<PSSubSysServiceAPI> pssubsysserviceapis) {
+        return false;
+    }
 
-    public Page<PSSubSysServiceAPI> searchDefault(PSSubSysServiceAPISearchContext context){
-            return null;
-     }
+    public Page<PSSubSysServiceAPI> searchDefault(PSSubSysServiceAPISearchContext context) {
+        return null;
+    }
 
 
 }

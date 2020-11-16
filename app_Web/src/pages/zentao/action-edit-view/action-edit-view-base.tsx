@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import ActionAuthService from '@/authservice/action/action-auth-service';
@@ -48,7 +48,7 @@ export class ActionEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ActionEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class ActionEditViewBase extends EditViewBase {
      *
      * @memberof ActionEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class ActionEditViewBase extends EditViewBase {
         srfCaption: 'entities.action.views.editview.caption',
         srfTitle: 'entities.action.views.editview.title',
         srfSubTitle: 'entities.action.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,7 +95,10 @@ export class ActionEditViewBase extends EditViewBase {
      * @memberof ActionEditViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -104,9 +107,18 @@ export class ActionEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ActionEditViewBase
      */
 	protected viewtag: string = 'f8b69912b3ca27b5d083c8fb1971c84a';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionEditViewBase
+     */ 
+    protected viewName: string = "ActionEditView";
 
 
     /**
@@ -125,7 +137,9 @@ export class ActionEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ActionEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -21,6 +21,13 @@ export default class ProductLifeUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  ProductLifeUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  ProductLifeUIServiceBase
@@ -89,9 +96,6 @@ export default class ProductLifeUIServiceBase extends UIService {
      * @memberof  ProductLifeUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'roadmaplistview',srfappde:'productlives',component:'product-life-road-map-list-view'});
-        this.allViewMap.set(':',{viewname:'roadmaplistview9',srfappde:'productlives',component:'product-life-road-map-list-view9'});
-        this.allViewMap.set(':',{viewname:'roadmapslistview9',srfappde:'productlives',component:'product-life-road-map-slist-view9'});
     }
 
     /**

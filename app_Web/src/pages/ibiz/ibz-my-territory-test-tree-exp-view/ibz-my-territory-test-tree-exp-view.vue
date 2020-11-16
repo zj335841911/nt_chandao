@@ -1,5 +1,5 @@
-<template src="./ibz-my-territory-test-tree-exp-view.html"/>
-<script lang='tsx'>
+<template src="./ibz-my-territory-test-tree-exp-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzMyTerritoryTestTreeExpViewBase } from './ibz-my-territory-test-tree-exp-view-base';
@@ -18,5 +18,5 @@ import view_treeexpbar from '@widgets/ibz-my-territory/test-tree-exp-viewtreeexp
     }
 })
 @VueLifeCycleProcessing()
-export default class IbzMyTerritoryTestTreeExpView extends IbzMyTerritoryTestTreeExpViewBase { }
+export default class IbzMyTerritoryTestTreeExpView extends IbzMyTerritoryTestTreeExpViewBase {}
 </script>

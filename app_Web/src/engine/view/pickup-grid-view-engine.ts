@@ -8,11 +8,10 @@ import GridViewEngine from './grid-view-engine';
  * @extends {GridViewEngine}
  */
 export default class PickupGridViewEngine extends GridViewEngine {
-
     /**
      * Creates an instance of PickupGridViewEngine.
-     * 
-     * 
+     *
+     *
      * @memberof PickupGridViewEngine
      */
     constructor() {
@@ -29,7 +28,7 @@ export default class PickupGridViewEngine extends GridViewEngine {
     public MDCtrlEvent(eventName: string, args: any): void {
         if (Object.is(eventName, 'rowdblclick') && this.gridRowAllowActive(2)) {
             this.view.$emit('viewdatasactivated', args);
-            return ;
+            return;
         }
         super.MDCtrlEvent(eventName, args);
     }

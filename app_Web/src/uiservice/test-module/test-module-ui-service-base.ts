@@ -21,6 +21,13 @@ export default class TestModuleUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  TestModuleUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  TestModuleUIServiceBase
@@ -89,14 +96,33 @@ export default class TestModuleUIServiceBase extends UIService {
      * @memberof  TestModuleUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'testmodules',component:'test-module-edit-view'});
-        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'testmodules',component:'test-module-pickup-grid-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'testmodules',component:'test-module-grid-view'});
-        this.allViewMap.set(':',{viewname:'gridviewbranch',srfappde:'testmodules',component:'test-module-grid-view-branch'});
-        this.allViewMap.set(':',{viewname:'gridviewmain',srfappde:'testmodules',component:'test-module-grid-view-main'});
-        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'testmodules',component:'test-module-tree-exp-view'});
-        this.allViewMap.set(':',{viewname:'quickcfgview',srfappde:'testmodules',component:'test-module-quick-cfg-view'});
-        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'testmodules',component:'test-module-pickup-view'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'testmodules',
+            component: 'test-module-edit-view',
+            openmode: '',
+            title: '测试模块',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'testmodules',
+            component: 'test-module-grid-view',
+            openmode: '',
+            title: '测试模块',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('PICKUPVIEW:', {
+            viewname: 'pickupview',
+            srfappde: 'testmodules',
+            component: 'test-module-pickup-view',
+            openmode: '',
+            title: '测试模块',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

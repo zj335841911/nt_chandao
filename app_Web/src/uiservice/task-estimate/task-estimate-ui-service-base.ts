@@ -21,6 +21,13 @@ export default class TaskEstimateUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  TaskEstimateUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  TaskEstimateUIServiceBase
@@ -89,8 +96,6 @@ export default class TaskEstimateUIServiceBase extends UIService {
      * @memberof  TaskEstimateUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'optionview',srfappde:'taskestimates',component:'task-estimate-option-view'});
-        this.allViewMap.set(':',{viewname:'editgridview9',srfappde:'taskestimates',component:'task-estimate-edit-grid-view9'});
     }
 
     /**

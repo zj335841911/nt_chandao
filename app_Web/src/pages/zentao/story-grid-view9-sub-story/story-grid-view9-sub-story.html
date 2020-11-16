@@ -1,6 +1,9 @@
 <studio-embed-view viewName="storygridview9_substory" viewTitle="子需求" class='degridview9 story-grid-view9-sub-story'>
     <template slot='title'>
-    <span class='caption-image'><i class='    fa fa-star-o    '></i></span>
+    <span class='caption-image'>
+            <i class='
+    fa fa-star-o    '></i>
+        </span>
     <span class='caption-info'>{{viewCaption}}</span>
     </template>
     <view_grid 
@@ -11,6 +14,7 @@
         :showBusyIndicator="true"
         :isOpenEdit="false"
         :gridRowActiveMode="gridRowActiveMode"
+        :isformDruipart="isformDruipart"
         @save="onSave.apply(_self, arguments)"
         updateAction=""
         removeAction="Remove"

@@ -325,4 +325,52 @@ export interface Product {
      * @memberof Product
      */
     testsuitecnt?: any;
+
+    /**
+     * 产品负责人（选择）
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    popk?: any;
+
+    /**
+     * 测试负责人（选择）
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    qdpk?: any;
+
+    /**
+     * 发布负责人（选择）
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    rdpk?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    noticeusers?: any;
+
+    /**
+     * 组织标识
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    orgid?: any;
+
+    /**
+     * 部门标识
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    mdeptid?: any;
 }

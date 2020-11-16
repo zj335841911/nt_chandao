@@ -96,6 +96,11 @@ export default class PendingSubmissionModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'noticeusers',
+        prop: 'noticeusers',
+        dataType: 'TEXT',
+      },
+      {
         name: 'storyname',
         prop: 'storyname',
         dataType: 'PICKUPTEXT',
@@ -136,7 +141,17 @@ export default class PendingSubmissionModel {
       {
         name: 'mailto',
         prop: 'mailto',
-        dataType: 'LONGTEXT',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'id',

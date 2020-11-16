@@ -17,15 +17,16 @@
     ref='appmenu' 
     @closeview="closeView($event)">
 </view_appmenu>
-    <app-update-log v-if="updateLogStatus"></app-update-log>
+    <app-update-log></app-update-log>
 </div>
 </template>
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 
+import { AnimationService } from '@ibiz-core/service/animation-service'
 import { Environment } from '@/environments/environment';
 
 
@@ -112,6 +113,14 @@ export default class AppIndexViewBase extends Vue {
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof AppIndexViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
+
+    /**
      * 标题状态
      *
      * @memberof AppIndexViewBase
@@ -145,7 +154,7 @@ export default class AppIndexViewBase extends Vue {
     protected model: any = {
         srfTitle: 'iBiz软件生产管理',
         srfCaption: 'app.views.appindexview.caption',
-        srfSubCaption: '工作太',
+        srfSubCaption: '工作台',
         dataInfo: '',
         viewname:'app.views.appindexview',
         iconcls: '',
@@ -284,7 +293,6 @@ export default class AppIndexViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        this.updateLogStatus = Environment.useUpdateLog && !localStorage.getItem('updateLogStatus')?true:false;
 
         localStorage.setItem('lanArray',JSON.stringify(["ZH-CN","EN-US"]));
 
@@ -441,6 +449,19 @@ export default class AppIndexViewBase extends Vue {
         }
     }
 
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof AppIndexViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
+
 
     /**
      * 菜单位置
@@ -466,14 +487,6 @@ export default class AppIndexViewBase extends Vue {
             return 'app-default-theme';
         }
     }
-
-    /**
-     * 显示更新日志
-     *
-     * @readonly
-     * @memberof AppIndexViewBase
-     */
-    public updateLogStatus:boolean = true;
 
     /**
      * 当前字体

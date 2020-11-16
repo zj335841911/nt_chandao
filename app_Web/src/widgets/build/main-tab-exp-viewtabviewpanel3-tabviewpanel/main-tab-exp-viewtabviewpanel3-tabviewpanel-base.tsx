@@ -1,10 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
 import MainTabExpViewtabviewpanel3Service from './main-tab-exp-viewtabviewpanel3-tabviewpanel-service';
 import BuildUIService from '@/uiservice/build/build-ui-service';
-
 
 /**
  * tabviewpanel3部件基类
@@ -14,7 +14,6 @@ import BuildUIService from '@/uiservice/build/build-ui-service';
  * @extends {MainTabExpViewtabviewpanel3TabviewpanelBase}
  */
 export class MainTabExpViewtabviewpanel3TabviewpanelBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,7 +63,7 @@ export class MainTabExpViewtabviewpanel3TabviewpanelBase extends MainControlBase
      * @type {BuildUIService}
      * @memberof MainTabExpViewtabviewpanel3Base
      */  
-    public appUIService:BuildUIService = new BuildUIService(this.$store);
+    public appUIService: BuildUIService = new BuildUIService(this.$store);
 
 
     /**

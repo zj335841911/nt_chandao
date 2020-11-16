@@ -8,7 +8,6 @@ import { MDViewBase } from './MDViewBase';
  * @extends {MDViewBase}
  */
 export class CalendarViewBase extends MDViewBase {
-
     /**
      * 快速搜索
      *
@@ -76,6 +75,5 @@ export class CalendarViewBase extends MDViewBase {
      */
     public refresh() {
         this.onSearch();
-    };
-
+    }
 }

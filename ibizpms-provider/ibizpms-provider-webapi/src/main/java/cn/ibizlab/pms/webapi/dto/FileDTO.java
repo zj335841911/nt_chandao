@@ -136,6 +136,15 @@ public class FileDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String extra;
 
+    /**
+     * 属性 [STRSIZE]
+     *
+     */
+    @JSONField(name = "strsize")
+    @JsonProperty("strsize")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String strsize;
+
 
     /**
      * 设置 [PATHNAME]

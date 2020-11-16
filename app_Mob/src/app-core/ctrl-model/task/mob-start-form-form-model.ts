@@ -66,6 +66,11 @@ export class MobStartFormModel {
                 dataType: 'FLOAT',
             },
             {
+                name: 'noticeusers',
+                prop: 'noticeusers',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'comment',
                 prop: 'comment',
                 dataType: 'HTMLTEXT',

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -107,9 +107,18 @@ export class BugMainDashboardView_LinkBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugMainDashboardView_LinkBase
      */
 	protected viewtag: string = '8c8adbf0a7db27078e01a8b32716fa71';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugMainDashboardView_LinkBase
+     */ 
+    protected viewName:string = "BugMainDashboardView_Link";
 
 
     /**

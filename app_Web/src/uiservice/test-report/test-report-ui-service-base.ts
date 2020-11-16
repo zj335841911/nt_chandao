@@ -21,6 +21,13 @@ export default class TestReportUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  TestReportUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  TestReportUIServiceBase
@@ -89,24 +96,24 @@ export default class TestReportUIServiceBase extends UIService {
      * @memberof  TestReportUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'projectgridview',srfappde:'testreports',component:'test-report-project-grid-view'});
-        this.allViewMap.set(':',{viewname:'projectmaininfoview',srfappde:'testreports',component:'test-report-project-main-info-view'});
-        this.allViewMap.set(':',{viewname:'mainediteditview',srfappde:'testreports',component:'test-report-main-edit-edit-view'});
-        this.allViewMap.set(':',{viewname:'projecttabexpview',srfappde:'testreports',component:'test-report-project-tab-exp-view'});
-        this.allViewMap.set(':',{viewname:'maininfoview',srfappde:'testreports',component:'test-report-main-info-view'});
-        this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'testreports',component:'test-report-dashboard-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'testreports',component:'test-report-grid-view'});
-        this.allViewMap.set(':',{viewname:'projectmainediteditview',srfappde:'testreports',component:'test-report-project-main-edit-edit-view'});
-        this.allViewMap.set(':',{viewname:'editview_r',srfappde:'testreports',component:'test-report-edit-view-r'});
-        this.allViewMap.set(':',{viewname:'editview_testtasks',srfappde:'testreports',component:'test-report-edit-view-test-tasks'});
-        this.allViewMap.set(':',{viewname:'actioneditview',srfappde:'testreports',component:'test-report-action-edit-view'});
-        this.allViewMap.set(':',{viewname:'editview_tosumup',srfappde:'testreports',component:'test-report-edit-view-tosumup'});
-        this.allViewMap.set(':',{viewname:'editview_report',srfappde:'testreports',component:'test-report-edit-view-report'});
-        this.allViewMap.set(':',{viewname:'editview_project',srfappde:'testreports',component:'test-report-edit-view-project'});
-        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'testreports',component:'test-report-main-tab-exp-view'});
-        this.allViewMap.set(':',{viewname:'projectdashboardview',srfappde:'testreports',component:'test-reportproject-dashboard-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'testreports',component:'test-report-edit-view'});
-        this.allViewMap.set(':',{viewname:'editview_testrange',srfappde:'testreports',component:'test-report-edit-view-test-range'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'testreports',
+            component: 'test-report-grid-view',
+            openmode: '',
+            title: '测试报告',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'testreports',
+            component: 'test-report-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '测试报告',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -312,7 +319,6 @@ export default class TestReportUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

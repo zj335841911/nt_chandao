@@ -23,6 +23,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			account: "团队",
 			estimate: "最初预计",

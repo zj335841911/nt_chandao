@@ -1,5 +1,5 @@
-<template src="./bug-stats-edit-view.html"/>
-<script lang='tsx'>
+<template src="./bug-stats-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugStatsEditViewBase } from './bug-stats-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/bug-stats/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BugStatsEditView extends BugStatsEditViewBase { }
+export default class BugStatsEditView extends BugStatsEditViewBase {}
 </script>

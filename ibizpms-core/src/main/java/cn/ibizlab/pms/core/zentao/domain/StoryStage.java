@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_storystage",resultMap = "StoryStageResultMap")
+@TableName(value = "zt_storystage", resultMap = "StoryStageResultMap")
 public class StoryStage extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,7 +46,7 @@ public class StoryStage extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -99,33 +101,33 @@ public class StoryStage extends EntityMP implements Serializable {
     /**
      * 设置 [设置阶段者]
      */
-    public void setStagedby(String stagedby){
-        this.stagedby = stagedby ;
-        this.modify("stagedby",stagedby);
+    public void setStagedby(String stagedby) {
+        this.stagedby = stagedby;
+        this.modify("stagedby", stagedby);
     }
 
     /**
      * 设置 [所处阶段]
      */
-    public void setStage(String stage){
-        this.stage = stage ;
-        this.modify("stage",stage);
+    public void setStage(String stage) {
+        this.stage = stage;
+        this.modify("stage", stage);
     }
 
     /**
      * 设置 [需求]
      */
-    public void setStory(Long story){
-        this.story = story ;
-        this.modify("story",story);
+    public void setStory(Long story) {
+        this.story = story;
+        this.modify("story", story);
     }
 
     /**
      * 设置 [平台/分支]
      */
-    public void setBranch(Long branch){
-        this.branch = branch ;
-        this.modify("branch",branch);
+    public void setBranch(Long branch) {
+        this.branch = branch;
+        this.modify("branch", branch);
     }
 
 
@@ -139,7 +141,7 @@ public class StoryStage extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

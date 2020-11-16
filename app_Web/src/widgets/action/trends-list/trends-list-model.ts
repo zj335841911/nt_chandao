@@ -48,6 +48,9 @@ export default class TrendsModel {
 				name: 'date',
 			},
 			{
+				name: 'srfkey',
+			},
+			{
 				name: 'objecttype',
 			},
       {

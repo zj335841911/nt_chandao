@@ -52,6 +52,7 @@ public class IbzLibModuleSearchContext extends QueryWrapperContext<IbzLibModule>
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

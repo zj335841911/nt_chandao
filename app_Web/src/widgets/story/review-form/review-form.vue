@@ -1,5 +1,5 @@
-<template src="./review-form.html"/>
-<script lang='tsx'>
+<template src="./review-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ReviewEditFormBase } from './review-form-base';
@@ -15,8 +15,8 @@ import { ReviewEditFormBase } from './review-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ReviewEditForm extends ReviewEditFormBase { }
+export default class ReviewEditForm extends ReviewEditFormBase {}
 </script>

@@ -1,5 +1,5 @@
-<template src="./story-pickup-grid-view4.html"/>
-<script lang='tsx'>
+<template src="./story-pickup-grid-view4.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryPickupGridView4Base } from './story-pickup-grid-view4-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/story/pickup-grid-grid/pickup-grid-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryPickupGridView4 extends StoryPickupGridView4Base { }
+export default class StoryPickupGridView4 extends StoryPickupGridView4Base {}
 </script>

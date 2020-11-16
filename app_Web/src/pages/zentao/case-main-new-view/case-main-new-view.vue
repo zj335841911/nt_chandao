@@ -1,5 +1,5 @@
-<template src="./case-main-new-view.html"/>
-<script lang='tsx'>
+<template src="./case-main-new-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseMainNewViewBase } from './case-main-new-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/case/main-new-form/main-new-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseMainNewView extends CaseMainNewViewBase { }
+export default class CaseMainNewView extends CaseMainNewViewBase {}
 </script>

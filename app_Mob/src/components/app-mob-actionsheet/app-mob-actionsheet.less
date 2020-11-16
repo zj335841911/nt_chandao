@@ -4,7 +4,7 @@
   .cancel-icon {
     width: 16px;
     height: 16px;
-    background-color: #fcfcfc;
+    background-color: @from-main-background;
     position: absolute;
     right: 12px;
     top: 50%;
@@ -18,7 +18,7 @@
       font-size: 16px;
       right: 0;
       top: 0;
-      color:#969696;
+      color:@from-main-color;
       z-index:9999;
     }
   }
@@ -27,13 +27,13 @@
     top: 50%;
     margin-top: -3px;
     position: absolute;
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
     color: currentcolor;
     border-top: 5px solid;
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
-    color: #969696;
+    color: @from-main-color;
   }
   .van-action-sheet{
     width: 100%;
@@ -45,7 +45,7 @@
     line-height: 40px;
     padding-right: 26px;
     height: 40px;
-    color:#969696;
+    color:@from-main-color;
   }
 }
 

@@ -1,5 +1,5 @@
-<template src="./action-bar-portlet.html"/>
-<script lang='tsx'>
+<template src="./action-bar-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ActionBarPortletBase } from './action-bar-portlet-base';
@@ -15,8 +15,8 @@ import { ActionBarPortletBase } from './action-bar-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ActionBarPortlet extends ActionBarPortletBase { }
+export default class ActionBarPortlet extends ActionBarPortletBase {}
 </script>

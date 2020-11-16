@@ -2,7 +2,7 @@ import { AppNavHistory } from '../app-nav-history/AppNavHistory';
 import { AppContextStore } from '../app-context-store/AppContextStore';
 import { AppViewStore } from '../app-view-store/AppViewStore';
 import { Environment } from '@/environments/environment';
-import { Util } from '@/utils';
+import { Http, Util } from '@/utils';
 import { AppEvent } from '../../events/app-event';
 
 /**
@@ -12,7 +12,6 @@ import { AppEvent } from '../../events/app-event';
  * @class AppServiceBase
  */
 export class AppServiceBase {
-
     /**
      * 应用导航工具类
      *
@@ -50,8 +49,16 @@ export class AppServiceBase {
      * @param {string} [redirect]
      * @memberof AppServiceBase
      */
-    public logout(redirect?: string): void {
-        this.doLogin(null, redirect);
+    async logout(redirect?: string): Promise<void> {
+        // 如果是CAS模式，调用后台登出
+        if (Environment.LoginMode.toUpperCase() === 'CAS') {
+            try {
+                await Http.getInstance().get('/v7/casproxylogout', {}, false);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        this.doLogin(null, redirect, false);
     }
 
     /**
@@ -62,7 +69,7 @@ export class AppServiceBase {
      * @return {*}  {void}
      * @memberof AppServiceBase
      */
-    public doLogin(data?: any, redirect: string = location.href): void {
+    async doLogin(data?: any, redirect: string = location.href, isLogin = true): Promise<void> {
         const win: any = window;
         if (win.isDoLogin) {
             return;
@@ -72,7 +79,13 @@ export class AppServiceBase {
             localStorage.removeItem('user');
         }
         this.clearToken();
-        if (data && data.loginurl && !Object.is(data.loginurl, '') && data.originurl && !Object.is(data.originurl, '')) {
+        if (
+            data &&
+            data.loginurl &&
+            !Object.is(data.loginurl, '') &&
+            data.originurl &&
+            !Object.is(data.originurl, '')
+        ) {
             let _url = encodeURIComponent(encodeURIComponent(location.href));
             let loginUrl: string = data.loginurl;
             const originUrl: string = data.originurl;
@@ -86,12 +99,24 @@ export class AppServiceBase {
             location.href = loginUrl;
         } else {
             // 后期此处应调用后天退出，明确可以退出后才退出
-            if (Environment.LoginMode === 'UAA') {
+            if (Environment.LoginMode.toUpperCase() === 'UAA') {
                 location.href = `${Environment.LoginUrl}?redirect=${encodeURIComponent(redirect)}`;
-            } else if (Environment.LoginMode === 'CAS') {
-                location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(`${Environment.CasUrl}/login?service=${encodeURIComponent(`${window.location.origin}${Environment.BaseUrl}/appdata?RU=${encodeURIComponent(redirect)}`)}`)}`;
+            } else if (Environment.LoginMode.toUpperCase() === 'CAS') {
+                if (isLogin) {
+                    location.href = `${Environment.CasUrl}/login?service=${encodeURIComponent(
+                        `${location.origin}/cas-login.html?RU=${encodeURIComponent(location.href)}`
+                    )}`;
+                } else {
+                    location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(
+                        `${Environment.CasUrl}/login?service=${encodeURIComponent(
+                            `${location.origin}/cas-login.html?RU=${encodeURIComponent(location.href)}`
+                        )}`
+                    )}`;
+                }
             } else {
-                location.href = `${location.origin}${location.pathname}#/login?redirect=${encodeURIComponent(redirect)}`;
+                location.href = `${location.origin}${location.pathname}#/login?redirect=${encodeURIComponent(
+                    redirect
+                )}`;
                 setTimeout(() => {
                     location.reload();
                 }, 100);

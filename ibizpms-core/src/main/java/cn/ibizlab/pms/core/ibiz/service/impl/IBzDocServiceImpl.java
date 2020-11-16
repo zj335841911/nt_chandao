@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibiz.domain.IBzDoc;
@@ -102,7 +103,7 @@ public class IBzDocServiceImpl implements IIBzDocService {
      */
     @Override
     public Page<IBzDoc> searchDefault(IBzDocSearchContext context) {
-        return new PageImpl<IBzDoc>(new ArrayList(),context.getPageable(),0);
+        return new PageImpl<IBzDoc>(new ArrayList(), context.getPageable(), 0);
     }
 
 

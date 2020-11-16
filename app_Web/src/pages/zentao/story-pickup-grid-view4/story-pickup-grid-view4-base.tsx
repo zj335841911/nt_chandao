@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { PickupGridViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -48,7 +48,7 @@ export class StoryPickupGridView4Base extends PickupGridViewBase {
      * @type {string}
      * @memberof StoryPickupGridView4Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -74,9 +74,22 @@ export class StoryPickupGridView4Base extends PickupGridViewBase {
 	 * @memberof StoryPickupGridView4Base
 	 */
     protected customViewParams: any = {
-        'srfparentkey': { isRawValue: false, value: 'srfparentkey' },
-        'project': { isRawValue: false, value: 'project' },
-        'build': { isRawValue: false, value: 'build' }
+        'srfparentkey': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        },
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'n_parent_gtandeq': {
+            isRawValue: true,
+            value: '0',
+        },
+        'build': {
+            isRawValue: false,
+            value: 'build',
+        }
     };
 
     /**
@@ -90,8 +103,8 @@ export class StoryPickupGridView4Base extends PickupGridViewBase {
         srfCaption: 'entities.story.views.pickupgridview4.caption',
         srfTitle: 'entities.story.views.pickupgridview4.title',
         srfSubTitle: 'entities.story.views.pickupgridview4.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -101,7 +114,10 @@ export class StoryPickupGridView4Base extends PickupGridViewBase {
      * @memberof StoryPickupGridView4Base
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -110,9 +126,18 @@ export class StoryPickupGridView4Base extends PickupGridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryPickupGridView4Base
      */
 	protected viewtag: string = '0681bc3d1ffa8e147640ab0dd005d3b5';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryPickupGridView4Base
+     */ 
+    protected viewName: string = "StoryPickupGridView4";
 
 
     /**
@@ -131,7 +156,9 @@ export class StoryPickupGridView4Base extends PickupGridViewBase {
      * @type {Array<*>}
      * @memberof StoryPickupGridView4Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

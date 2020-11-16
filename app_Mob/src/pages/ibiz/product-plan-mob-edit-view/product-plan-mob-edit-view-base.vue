@@ -1,28 +1,12 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'product-plan-mob-edit-view': true }">
     
     <ion-header>
-        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
-            <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
-            </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                    </div>
-                </div>
-            </ion-buttons>
-        </ion-toolbar>
 
     
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_form
             :viewState="viewState"
             viewName="ProductPlanMobEditView"  
@@ -49,17 +33,43 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
+    <ion-footer class="view-footer">
+                <div  class = "fab_container">
+            <ion-button :id="viewtag+'_bottom_button'" :style="button_style" v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobmainedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobmainedit.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobmainedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event)" size="large">
+                    <ion-icon name="edit"></ion-icon>
+                <span class="btn-inner-text">{{$t('productplan.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('productplan.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobdelete.disabled}" v-show="righttoolbarModels.deuiaction1_mobdelete.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobdelete.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobdelete' }, $event)" size="large">
+                    <ion-icon name="remove"></ion-icon>
+                <span class="btn-inner-text">{{$t('productplan.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('productplan.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
+            </div>
+        
+                </div>
+            </van-popup>
+        </div>
+    </ion-footer>
 </ion-page>
 </template>
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductPlanService from '@/app-core/service/product-plan/product-plan-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
 import ProductPlanUIService from '@/ui-service/product-plan/product-plan-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -160,6 +170,14 @@ export default class ProductPlanMobEditViewBase extends Vue {
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof ProductPlanMobEditViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
+
+    /**
      * 标题状态
      *
      * @memberof ProductPlanMobEditViewBase
@@ -173,7 +191,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ProductPlanMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'productplan', 'srfparentkey': '%productplan%' };
 
     /**
      * 视图导航参数
@@ -182,7 +200,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ProductPlanMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%productplan%', 'objecttype': 'productplan' };
 
     /**
      * 视图模型数据
@@ -279,7 +297,56 @@ export default class ProductPlanMobEditViewBase extends Vue {
     * @memberof ProductPlanMobEditView
     */
     public righttoolbarModels: any = {
+            deuiaction1_mobmainedit: { name: 'deuiaction1_mobmainedit', caption: '编辑', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_EDIT_BUT', uiaction: { tag: 'MobMainEdit', target: 'SINGLEKEY' } },
+
+            deuiaction1_mobdelete: { name: 'deuiaction1_mobdelete', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_DELETE_BUT', uiaction: { tag: 'MobDelete', target: 'SINGLEKEY' } },
+
     };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof ProductPlanMobEditView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof ProductPlanMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof ProductPlanMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof ProductPlanMobEditView 
+     */
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
+    }
 
     
 
@@ -384,6 +451,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * @memberof ProductPlanMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -398,6 +466,12 @@ export default class ProductPlanMobEditViewBase extends Vue {
         this.afterMounted();
     }
 
+    /**
+     * 底部按钮样式
+     * 
+     * @memberof ProductPlanMobEditViewBase
+     */
+    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
@@ -412,6 +486,8 @@ export default class ProductPlanMobEditViewBase extends Vue {
         }
         this.thirdPartyInit();
 
+        // 拖动样式
+        AnimationService.draggable(document.getElementById(this.viewtag+'_bottom_button'),(style:any)=>{this.button_style = style});
     }
 
     /**
@@ -506,6 +582,86 @@ export default class ProductPlanMobEditViewBase extends Vue {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductPlanMobEditViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1_mobmainedit')) {
+            this.righttoolbar_deuiaction1_mobmainedit_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_mobdelete')) {
+            this.righttoolbar_deuiaction1_mobdelete_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobmainedit_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('productplan_ui_action');
+        if (curUIService) {
+            curUIService.ProductPlan_MobMainEdit(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobdelete_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('productplan_ui_action');
+        if (curUIService) {
+            curUIService.ProductPlan_MobDelete(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 第三方关闭视图
@@ -592,6 +748,19 @@ export default class ProductPlanMobEditViewBase extends Vue {
             _this.onRefreshView();
         }
     }
+
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof ProductPlanMobEditViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
 
 
     /**

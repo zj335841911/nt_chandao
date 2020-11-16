@@ -4,15 +4,26 @@
             <icon type="ios-arrow-back" />
         </div>
         <div ref="scrollBody" class="tags-body">
-            <div ref="scrollChild" class="tags-container" :style="{left: styleLeft + 'px'}">
+            <div ref="scrollChild" class="tags-container" :style="{ left: styleLeft + 'px' }">
                 <transition-group name="tags-transition">
                     <template v-for="(item, index) of appService.navHistory.historyList">
-                        <Tag ref="tagElement" :key="item.tag + index" :class="isActive(item) ? 'tag-is-active' : ''" :name="index" closable @click.native="changePage(item)" @on-close="onClose(item)">
+                        <Tag
+                            ref="tagElement"
+                            :key="item.tag + index"
+                            :class="isActive(item) ? 'tag-is-active' : ''"
+                            :name="index"
+                            closable
+                            @click.native="changePage(item)"
+                            @on-close="onClose(item)"
+                        >
                             <div class="tag-text">
-                                <div :title="item.caption" class='tag-caption-content'>
-                                    <i v-if="item.meta.iconCls && !Object.is(item.meta.iconCls, '')" :class="item.meta.iconCls"></i>
+                                <div :title="item.caption" class="tag-caption-content">
+                                    <i
+                                        v-if="item.meta.iconCls && !Object.is(item.meta.iconCls, '')"
+                                        :class="item.meta.iconCls"
+                                    ></i>
                                     <img v-else :src="item.meta.imgPath" class="text-icon" />
-                                    &nbsp;{{item.caption}}
+                                    &nbsp;{{ item.caption }}
                                 </div>
                             </div>
                         </Tag>
@@ -29,11 +40,11 @@
             </div>
             <DropdownMenu slot="list">
                 <template v-for="(action, index) of actions">
-                    <DropdownItem :key="index" :name="action.value">{{$t(action.text)}}</DropdownItem>
+                    <DropdownItem :key="index" :name="action.value">{{ $t(action.text) }}</DropdownItem>
                 </template>
             </DropdownMenu>
-        </Dropdown >
-    </div >
+        </Dropdown>
+    </div>
 </template>
 
 <script lang="ts">
@@ -44,16 +55,18 @@ import { HistoryItem } from '../../studio-core/service/app-nav-history/AppNavHis
 
 @Component({})
 export default class TabPageExp extends Vue {
-
     protected appService: AppService = new AppService();
 
     @Provide()
     public styleLeft: number = 0;
 
     @Provide()
-    public actions: any[] = [{ text: 'app.tabpage.closeall', value: 'closeAll' }, { text: 'app.tabpage.closeother', value: 'closeOther' }];
+    public actions: any[] = [
+        { text: 'app.tabpage.closeall', value: 'closeAll' },
+        { text: 'app.tabpage.closeother', value: 'closeOther' },
+    ];
 
-    @Watch("$route")
+    @Watch('$route')
     public onRouteChange(newVal: any) {
         this.moveToView(newVal);
         this.$emit('change', newVal);
@@ -72,7 +85,7 @@ export default class TabPageExp extends Vue {
         const scrollBody: any = this.$refs.scrollBody;
         const scrollChild: any = this.$refs.scrollChild;
         if (scrollBody && scrollChild && scrollChild.offsetWidth > scrollBody.offsetWidth) {
-            if ((scrollChild.offsetWidth - scrollBody.offsetWidth + this.styleLeft) > 100) {
+            if (scrollChild.offsetWidth - scrollBody.offsetWidth + this.styleLeft > 100) {
                 this.styleLeft -= 100;
             } else {
                 this.styleLeft = scrollBody.offsetWidth - scrollChild.offsetWidth;
@@ -129,14 +142,16 @@ export default class TabPageExp extends Vue {
                     } else {
                         this.$router.push('/');
                     }
-                }
+                },
             });
         } else {
             this.appService.navHistory.remove(item);
             if (this.appService.navHistory.historyList.length > 0) {
                 if (this.appService.navHistory.isRouteSame(item.to, this.$route)) {
                     // this.$router.back();
-                    let go: any = this.appService.navHistory.historyList[this.appService.navHistory.historyList.length-1].to;
+                    let go: any = this.appService.navHistory.historyList[
+                        this.appService.navHistory.historyList.length - 1
+                    ].to;
                     this.$router.push({ path: go.path, params: go.params, query: go.query });
                 }
             } else {
@@ -182,7 +197,7 @@ export default class TabPageExp extends Vue {
             this.$router.push({ path: page.path, params: page.params, query: page.query });
         } else {
             const path: string | null = window.sessionStorage.getItem(Environment.AppName);
-            if(path) {
+            if (path) {
                 this.$router.push({ path: path });
             } else {
                 this.$router.push('/');
@@ -203,7 +218,7 @@ export default class TabPageExp extends Vue {
             pages.forEach((page, index) => {
                 const tag: any = this.$refs.tagElement;
                 if (!tag) {
-                    return ;
+                    return;
                 }
                 const el = tag[index].$el;
                 if (Object.is(page.fullPath, page.fullPath)) {
@@ -222,13 +237,13 @@ export default class TabPageExp extends Vue {
      * @param {number} leftWidth
      * @memberof TabPageExp
      */
-    public setLeft(tag: { offsetWidth: number; }, leftWidth: number) {
+    public setLeft(tag: { offsetWidth: number }, leftWidth: number) {
         if (tag) {
             const scrollBody: any = this.$refs.scrollBody;
             if (leftWidth < -this.styleLeft) {
                 this.styleLeft = -leftWidth;
-            } else if ((leftWidth + tag.offsetWidth) > (scrollBody.offsetWidth - this.styleLeft)) {
-                this.styleLeft -= (leftWidth + tag.offsetWidth) - (scrollBody.offsetWidth - this.styleLeft);
+            } else if (leftWidth + tag.offsetWidth > scrollBody.offsetWidth - this.styleLeft) {
+                this.styleLeft -= leftWidth + tag.offsetWidth - (scrollBody.offsetWidth - this.styleLeft);
             }
         }
     }
@@ -247,7 +262,7 @@ export default class TabPageExp extends Vue {
             this.appService.navHistory.removeOther({ to: this.$route });
             this.moveToView(this.$route);
         }
-    }  
+    }
 }
 </script>
 

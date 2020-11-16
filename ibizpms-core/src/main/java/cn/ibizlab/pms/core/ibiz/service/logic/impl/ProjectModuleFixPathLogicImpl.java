@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.ibiz.domain.ProjectModule;
  */
 @Slf4j
 @Service
-public class ProjectModuleFixPathLogicImpl implements IProjectModuleFixPathLogic{
+public class ProjectModuleFixPathLogicImpl implements IProjectModuleFixPathLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -41,26 +41,28 @@ public class ProjectModuleFixPathLogicImpl implements IProjectModuleFixPathLogic
         return this.iBzSysDefaultService;
     }
 
-    public void execute(ProjectModule et){
+    @Override
+    public void execute(ProjectModule et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
-           cn.ibizlab.pms.core.zentao.domain.Module  projectmodulefixpathzt_module =new cn.ibizlab.pms.core.zentao.domain.Module();
+           kieSession = kieContainer.newKieSession();
+           cn.ibizlab.pms.core.zentao.domain.Module projectmodulefixpathzt_module = new cn.ibizlab.pms.core.zentao.domain.Module();
            kieSession.insert(projectmodulefixpathzt_module); 
-           kieSession.setGlobal("projectmodulefixpathzt_module",projectmodulefixpathzt_module);
+           kieSession.setGlobal("projectmodulefixpathzt_module", projectmodulefixpathzt_module);
            kieSession.insert(et); 
-           kieSession.setGlobal("projectmodulefixpathdefault",et);
-           kieSession.setGlobal("moduleservice",moduleservice);
-           kieSession.setGlobal("iBzSysProjectmoduleDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("projectmodulefixpathdefault", et);
+           kieSession.setGlobal("moduleservice", moduleservice);
+           kieSession.setGlobal("iBzSysProjectmoduleDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.projectmodulefixpath");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[重建模块路径]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

@@ -1,5 +1,5 @@
-<template src="./assigned-to-me-story-portlet.html"/>
-<script lang='tsx'>
+<template src="./assigned-to-me-story-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { AssignedToMeStoryPortletBase } from './assigned-to-me-story-portlet-base';
@@ -15,8 +15,8 @@ import { AssignedToMeStoryPortletBase } from './assigned-to-me-story-portlet-bas
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class AssignedToMeStoryPortlet extends AssignedToMeStoryPortletBase { }
+export default class AssignedToMeStoryPortlet extends AssignedToMeStoryPortletBase {}
 </script>

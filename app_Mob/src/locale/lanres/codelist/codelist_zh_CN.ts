@@ -24,6 +24,12 @@ export default {
     RelatedStory: {
         empty: '',
     },
+    Realease_sort: {
+        'all': '所有',
+        'normal': '正常',
+        'terminate': '停止维护',
+        empty: '',
+    },
     Testcase__stage: {
         'unittest': '单元测试阶段',
         'feature': '功能测试阶段',
@@ -31,6 +37,9 @@ export default {
         'system': '系统测试阶段',
         'smoke': '冒烟测试阶段',
         'bvt': '版本验证阶段',
+        empty: '',
+    },
+    ProductBranch_Cache: {
         empty: '',
     },
     Casestep__type: {
@@ -43,6 +52,11 @@ export default {
         'open': '默认设置(有产品视图权限，即可访问)',
         'private': '私有产品(相关负责人和项目团队成员才能访问)',
         'custom': '自定义白名单(团队成员和白名单的成员可以访问)',
+        empty: '',
+    },
+    BugCodeList2: {
+        'All': '所有',
+        'active': '未解决',
         empty: '',
     },
     Project__status: {
@@ -101,6 +115,9 @@ export default {
         '4': '最低',
         empty: '',
     },
+    SysOperator: {
+        empty: '',
+    },
     YesNo: {
         '1': '是',
         '0': '否',
@@ -154,6 +171,15 @@ export default {
         '2': '2',
         '3': '3',
         '4': '4',
+        empty: '',
+    },
+    MobTestQuickpacket: {
+        'ALL': '全部',
+        'ICREATE': '待测测试单',
+        'IREVIEW': '测试中测试单',
+        'MORE': '更多',
+        'ICLOSE': '被阻塞测试单',
+        'Tested': '已测测试单',
         empty: '',
     },
     Bug__browser: {
@@ -229,6 +255,11 @@ export default {
     BugModule: {
         empty: '',
     },
+    CaseQuickpachet: {
+        'ALL': '所有',
+        'TOME': '需求变动',
+        empty: '',
+    },
     Role: {
         empty: '',
     },
@@ -267,6 +298,21 @@ export default {
         '2': '2',
         '3': '3',
         '4': '4',
+        empty: '',
+    },
+    MobStoryQuickGroup: {
+        'ALL': '所有',
+        'UNCLOSED': '未关闭',
+        'TOME': '指给我',
+        'ICREATE': '我创建',
+        'MORE': '更多',
+        'IREVIEW': '我评审',
+        'DRAFT': '草稿',
+        'ICLOSE': '我关闭',
+        'ACTIVED': '激活',
+        'CHANGED': '已变更',
+        'TOBECLOSED': '待关闭',
+        'CLOSED': '已关闭',
         empty: '',
     },
     Story__pri: {
@@ -417,6 +463,12 @@ export default {
         'others': '其他',
         empty: '',
     },
+    Zt__productplan: {
+        'All': '所有',
+        'UNEXPIRED': '未过期',
+        'ISEXPIRED': '已过期',
+        empty: '',
+    },
     Team__type: {
         'project': '项目团队',
         'task': '任务团队',
@@ -551,6 +603,19 @@ export default {
         'webhook': 'Webhook',
         empty: '',
     },
+    CaseTestTaskQuickpachet: {
+        'ALL': '所有用例',
+        'TOME': '指派给我',
+        empty: '',
+    },
+    ProductPlan: {
+        empty: '',
+    },
+    SYS_UPDATE_LOG_TYPE: {
+        '10': '功能增强',
+        '20': '优化',
+        empty: '',
+    },
     Task__pri: {
         '1': '1',
         '2': '2',
@@ -577,6 +642,20 @@ export default {
         empty: '',
     },
     UserRealNameProject: {
+        empty: '',
+    },
+    MobBugQuickGroup: {
+        'All': '所有',
+        'UNCLOSED': '未关闭',
+        'ICREATE': '由我创建',
+        'MORE': '更多',
+        'TOME': '指派给我',
+        'BYME': '由我解决',
+        'WAITCLOSED': '待关闭',
+        'UNRESOLVED': '未解决',
+        'UNCONFIRMED': '未确认',
+        'UNASSIGNED': '未指派',
+        'EXPIREDBUG': '过期Bug',
         empty: '',
     },
     Bug__severity_mob: {
@@ -625,6 +704,11 @@ export default {
         'pass': '通过',
         'fail': '失败',
         'blocked': '阻塞',
+        empty: '',
+    },
+    YesNo3: {
+        'yes': '是',
+        'no': '否',
         empty: '',
     },
     Story__source: {

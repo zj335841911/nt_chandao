@@ -1,10 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, ListControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ExpService from './exp-list-service';
 import ProductUIService from '@/uiservice/product/product-ui-service';
-
 
 /**
  * listexpbar_list部件基类
@@ -14,7 +14,6 @@ import ProductUIService from '@/uiservice/product/product-ui-service';
  * @extends {ExpListBase}
  */
 export class ExpListBase extends ListControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,7 +63,7 @@ export class ExpListBase extends ListControlBase {
      * @type {ProductUIService}
      * @memberof ExpBase
      */  
-    public appUIService:ProductUIService = new ProductUIService(this.$store);
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
     /**
      * listexpbar_list_quicktoolbar 部件 click 事件
@@ -144,6 +143,19 @@ export class ExpListBase extends ListControlBase {
      * @memberof ExpListBase
      */
     public minorSortPSDEF: string = 'id';
+
+        /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof ProductListExpView
+     */
+    public listexpviewlistexpbar_list_quicktoolbarModels: any = {
+        deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
+
+    };
+
+
 
 
 }

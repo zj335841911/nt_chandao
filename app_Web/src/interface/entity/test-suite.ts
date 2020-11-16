@@ -85,4 +85,12 @@ export interface TestSuite {
      * @memberof TestSuite
      */
     product?: any;
+
+    /**
+     * 用例数
+     *
+     * @returns {*}
+     * @memberof TestSuite
+     */
+    casecnt?: any;
 }

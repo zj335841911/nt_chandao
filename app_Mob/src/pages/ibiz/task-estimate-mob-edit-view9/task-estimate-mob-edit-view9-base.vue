@@ -40,12 +40,13 @@
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import IbzTaskestimateService from '@/app-core/service/ibz-taskestimate/ibz-taskestimate-service';
 
 import MobEditView9Engine from '@engine/view/mob-edit-view9-engine';
 import IbzTaskestimateUIService from '@/ui-service/ibz-taskestimate/ibz-taskestimate-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -144,6 +145,14 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * @memberof TaskEstimateMobEditView9Base
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof TaskEstimateMobEditView9Base
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
@@ -269,7 +278,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * @memberof TaskEstimateMobEditView9Base
      */
     protected parseViewParam(): void {
-        const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
+        const { context, param } = this.$viewTool.formatNavigateViewParam(this, false);
         this.context = { ...context };
         this.viewparams = { ...param }
     }
@@ -333,7 +342,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
         if (this.panelState) {
-            this.panelState.subscribe((res: any) => {
+            this.panelStateEvent = this.panelState.subscribe((res: any) => {
                 if (Object.is(res.tag, 'meditviewpanel')) {
                     if (Object.is(res.action, 'save')) {
                         this.viewState.next({ tag: 'form', action: 'save', data: res.data });
@@ -421,8 +430,8 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * @memberof TaskEstimateMobEditView9Base
      */
     protected afterDestroyed(){
-        if (this.panelState) {
-            this.panelState.unsubscribe();
+        if (this.panelStateEvent) {
+            this.panelStateEvent.unsubscribe();
         }
 
     }
@@ -569,14 +578,35 @@ export default class TaskEstimateMobEditView9Base extends Vue {
         }
     }
 
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof TaskEstimateMobEditView9Base
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
+
 
     /**
-     * 面板定于对象
+     * 面板通知对象
      *
      * @type {Subject<ViewState>}
      * @memberof TaskEstimateMobEditView9Base
      */
     @Prop() public panelState ?:Subject<ViewState>;
+
+    /**
+     * 面板订阅对象
+     *
+     * @type {Subject<ViewState>}
+     * @memberof TaskEstimateMobEditView9Base
+     */
+    public panelStateEvent: Subscription | undefined;
 
 
 }

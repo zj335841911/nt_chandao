@@ -60,6 +60,30 @@ export default class AllTrendsModel {
       {
         name: 'date1',
       },
+      {
+        name: 'today',
+      },
+      {
+        name: 'yesterday',
+      },
+      {
+        name: 'thisweek',
+      },
+      {
+        name: 'lastweek',
+      },
+      {
+        name: 'thismonth',
+      },
+      {
+        name: 'lastmonth',
+      },
+      {
+        name: 'srfkey',
+      },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

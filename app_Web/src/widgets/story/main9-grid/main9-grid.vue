@@ -1,5 +1,5 @@
-<template src="./main9-grid.html"/>
-<script lang='tsx'>
+<template src="./main9-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { Main9GridBase } from './main9-grid-base';
@@ -15,8 +15,8 @@ import { Main9GridBase } from './main9-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class Main9Grid extends Main9GridBase { }
+export default class Main9Grid extends Main9GridBase {}
 </script>

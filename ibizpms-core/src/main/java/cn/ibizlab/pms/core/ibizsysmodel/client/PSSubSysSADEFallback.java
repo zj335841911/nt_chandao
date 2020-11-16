@@ -17,65 +17,65 @@ import org.springframework.stereotype.Component;
  * 实体[PSSubSysSADE] 服务对象接口
  */
 @Component
-public class PSSubSysSADEFallback implements PSSubSysSADEFeignClient{
+public class PSSubSysSADEFallback implements PSSubSysSADEFeignClient {
 
-    public Page<PSSubSysSADE> select(){
-            return null;
-     }
+    public Page<PSSubSysSADE> select() {
+        return null;
+    }
 
-    public PSSubSysSADE create(PSSubSysSADE pssubsyssade){
-            return null;
-     }
-    public Boolean createBatch(List<PSSubSysSADE> pssubsyssades){
-            return false;
-     }
+    public PSSubSysSADE create(PSSubSysSADE pssubsyssade) {
+        return null;
+    }
+    public Boolean createBatch(List<PSSubSysSADE> pssubsyssades) {
+        return false;
+    }
 
-    public PSSubSysSADE update(String pssubsyssadeid, PSSubSysSADE pssubsyssade){
-            return null;
-     }
-    public Boolean updateBatch(List<PSSubSysSADE> pssubsyssades){
-            return false;
-     }
-
-
-    public Boolean remove(String pssubsyssadeid){
-            return false;
-     }
-    public Boolean removeBatch(Collection<String> idList){
-            return false;
-     }
-
-    public PSSubSysSADE get(String pssubsyssadeid){
-            return null;
-     }
+    public PSSubSysSADE update(String pssubsyssadeid, PSSubSysSADE pssubsyssade) {
+        return null;
+    }
+    public Boolean updateBatch(List<PSSubSysSADE> pssubsyssades) {
+        return false;
+    }
 
 
-    public String getByCodeName(String codeName){
+    public Boolean remove(String pssubsyssadeid) {
+        return false;
+    }
+    public Boolean removeBatch(Collection<String> idList) {
+        return false;
+    }
+
+    public PSSubSysSADE get(String pssubsyssadeid) {
+        return null;
+    }
+
+
+    public String getByCodeName(String codeName) {
             return null;
     }
 
 
     public PSSubSysSADE getDraft(){
-            return null;
+        return null;
     }
 
 
 
-    public Boolean checkKey(PSSubSysSADE pssubsyssade){
-            return false;
-     }
+    public Boolean checkKey(PSSubSysSADE pssubsyssade) {
+        return false;
+    }
 
 
-    public Boolean save(PSSubSysSADE pssubsyssade){
-            return false;
-     }
-    public Boolean saveBatch(List<PSSubSysSADE> pssubsyssades){
-            return false;
-     }
+    public Boolean save(PSSubSysSADE pssubsyssade) {
+        return false;
+    }
+    public Boolean saveBatch(List<PSSubSysSADE> pssubsyssades) {
+        return false;
+    }
 
-    public Page<PSSubSysSADE> searchDefault(PSSubSysSADESearchContext context){
-            return null;
-     }
+    public Page<PSSubSysSADE> searchDefault(PSSubSysSADESearchContext context) {
+        return null;
+    }
 
 
 }

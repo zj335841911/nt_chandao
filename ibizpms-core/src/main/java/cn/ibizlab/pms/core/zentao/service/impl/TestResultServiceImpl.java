@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.TestResult;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.TestResultMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -65,42 +67,47 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
     @Transactional
     public boolean create(TestResult et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
+        }
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
+    @Transactional
     public void createBatch(List<TestResult> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(TestResult et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
+        }
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<TestResult> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
-        return result ;
+        boolean result = removeById(key);
+        return result;
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
@@ -109,11 +116,11 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
     @Transactional
     public TestResult get(Long key) {
         TestResult et = getById(key);
-        if(et==null){
-            et=new TestResult();
+        if (et == null) {
+            et = new TestResult();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -126,13 +133,14 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
 
     @Override
     public boolean checkKey(TestResult et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(TestResult et) {
-        if(!saveOrUpdate(et))
+        if (!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -147,57 +155,55 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<TestResult> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<TestResult> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<TestResult> selectByIbizcase(Long id) {
         return baseMapper.selectByIbizcase(id);
     }
-
     @Override
     public void removeByIbizcase(Long id) {
-        this.remove(new QueryWrapper<TestResult>().eq("case",id));
+        this.remove(new QueryWrapper<TestResult>().eq("case", id));
     }
 
-	@Override
+    @Override
     public List<TestResult> selectByCompile(Long id) {
         return baseMapper.selectByCompile(id);
     }
-
     @Override
     public void removeByCompile(Long id) {
-        this.remove(new QueryWrapper<TestResult>().eq("compile",id));
+        this.remove(new QueryWrapper<TestResult>().eq("compile", id));
     }
 
-	@Override
+    @Override
     public List<TestResult> selectByJob(Long id) {
         return baseMapper.selectByJob(id);
     }
-
     @Override
     public void removeByJob(Long id) {
-        this.remove(new QueryWrapper<TestResult>().eq("job",id));
+        this.remove(new QueryWrapper<TestResult>().eq("job", id));
     }
 
-	@Override
+    @Override
     public List<TestResult> selectByRun(Long id) {
         return baseMapper.selectByRun(id);
     }
-
     @Override
     public void removeByRun(Long id) {
-        this.remove(new QueryWrapper<TestResult>().eq("run",id));
+        this.remove(new QueryWrapper<TestResult>().eq("run", id));
     }
 
 
@@ -206,7 +212,7 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
      */
     @Override
     public Page<TestResult> searchCurTestRun(TestResultSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestResult> pages=baseMapper.searchCurTestRun(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestResult> pages=baseMapper.searchCurTestRun(context.getPages(), context, context.getSelectCond());
         return new PageImpl<TestResult>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -215,7 +221,7 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
      */
     @Override
     public Page<TestResult> searchDefault(TestResultSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestResult> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestResult> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<TestResult>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -227,12 +233,12 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
      */
     private void fillParentData(TestResult et){
         //实体关系[DER1N_ZT_TESTRESULT_ZT_CASE_CASE]
-        if(!ObjectUtils.isEmpty(et.getIbizcase())){
+        if (!ObjectUtils.isEmpty(et.getIbizcase())) {
             cn.ibizlab.pms.core.zentao.domain.Case ztcase=et.getZtcase();
-            if(ObjectUtils.isEmpty(ztcase)){
+            if (ObjectUtils.isEmpty(ztcase)) {
                 cn.ibizlab.pms.core.zentao.domain.Case majorEntity=caseService.get(et.getIbizcase());
                 et.setZtcase(majorEntity);
-                ztcase=majorEntity;
+                ztcase = majorEntity;
             }
             et.setVersion(ztcase.getVersion());
             et.setTitle(ztcase.getTitle());
@@ -247,28 +253,31 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

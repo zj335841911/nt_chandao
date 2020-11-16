@@ -17,10 +17,10 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface BurnMapper extends BaseMapper<Burn>{
+public interface BurnMapper extends BaseMapper<Burn> {
 
-    Page<Burn> searchDefault(IPage page, @Param("srf") BurnSearchContext context, @Param("ew") Wrapper<Burn> wrapper) ;
-    Page<Burn> searchESTIMATEANDLEFT(IPage page, @Param("srf") BurnSearchContext context, @Param("ew") Wrapper<Burn> wrapper) ;
+    Page<Burn> searchDefault(IPage page, @Param("srf") BurnSearchContext context, @Param("ew") Wrapper<Burn> wrapper);
+    Page<Burn> searchESTIMATEANDLEFT(IPage page, @Param("srf") BurnSearchContext context, @Param("ew") Wrapper<Burn> wrapper);
     @Override
     Burn selectById(Serializable id);
     @Override
@@ -31,13 +31,13 @@ public interface BurnMapper extends BaseMapper<Burn>{
     int update(@Param(Constants.ENTITY) Burn entity, @Param("ew") Wrapper<Burn> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -63,8 +63,8 @@ public interface BurnMapper extends BaseMapper<Burn>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<Burn> selectByProject(@Param("id") Serializable id) ;
+    List<Burn> selectByProject(@Param("id") Serializable id);
 
-    List<Burn> selectByTask(@Param("id") Serializable id) ;
+    List<Burn> selectByTask(@Param("id") Serializable id);
 
 }

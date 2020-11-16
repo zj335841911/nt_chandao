@@ -31,10 +31,14 @@ public class UserContactSearchContext extends QueryWrapperContext<UserContact> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
+            this.getSearchCond().and( wrapper ->
+                     wrapper.like("listname", query)   
+            );
 		 }
 	}
 }

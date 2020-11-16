@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_dept",resultMap = "DeptResultMap")
+@TableName(value = "zt_dept", resultMap = "DeptResultMap")
 public class Dept extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -88,8 +90,8 @@ public class Dept extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -135,71 +137,71 @@ public class Dept extends EntityMP implements Serializable {
     /**
      * 设置 [负责人]
      */
-    public void setManager(String manager){
-        this.manager = manager ;
-        this.modify("manager",manager);
+    public void setManager(String manager) {
+        this.manager = manager;
+        this.modify("manager", manager);
     }
 
     /**
      * 设置 [grade]
      */
-    public void setGrade(Integer grade){
-        this.grade = grade ;
-        this.modify("grade",grade);
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+        this.modify("grade", grade);
     }
 
     /**
      * 设置 [function]
      */
-    public void setFunction(String function){
-        this.function = function ;
-        this.modify("function",function);
+    public void setFunction(String function) {
+        this.function = function;
+        this.modify("function", function);
     }
 
     /**
      * 设置 [order]
      */
-    public void setOrder(Integer order){
-        this.order = order ;
-        this.modify("order",order);
+    public void setOrder(Integer order) {
+        this.order = order;
+        this.modify("order", order);
     }
 
     /**
      * 设置 [path]
      */
-    public void setPath(String path){
-        this.path = path ;
-        this.modify("path",path);
+    public void setPath(String path) {
+        this.path = path;
+        this.modify("path", path);
     }
 
     /**
      * 设置 [position]
      */
-    public void setPosition(String position){
-        this.position = position ;
-        this.modify("position",position);
+    public void setPosition(String position) {
+        this.position = position;
+        this.modify("position", position);
     }
 
     /**
      * 设置 [部门名称]
      */
-    public void setName(String name){
-        this.name = name ;
-        this.modify("name",name);
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [parent]
      */
-    public void setParent(Long parent){
-        this.parent = parent ;
-        this.modify("parent",parent);
+    public void setParent(Long parent) {
+        this.parent = parent;
+        this.modify("parent", parent);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -211,7 +213,7 @@ public class Dept extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
@@ -48,7 +48,7 @@ export class TestTaskEditView9_InfoBase extends EditView9Base {
      * @type {string}
      * @memberof TestTaskEditView9_InfoBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class TestTaskEditView9_InfoBase extends EditView9Base {
         srfCaption: 'entities.testtask.views.editview9_info.caption',
         srfTitle: 'entities.testtask.views.editview9_info.title',
         srfSubTitle: 'entities.testtask.views.editview9_info.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class TestTaskEditView9_InfoBase extends EditView9Base {
      * @memberof TestTaskEditView9_InfoBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -97,9 +100,18 @@ export class TestTaskEditView9_InfoBase extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestTaskEditView9_InfoBase
      */
 	protected viewtag: string = '706ea523d286cec9ae0c2509f20daa8e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskEditView9_InfoBase
+     */ 
+    protected viewName: string = "TestTaskEditView9_Info";
 
 
     /**
@@ -118,7 +130,9 @@ export class TestTaskEditView9_InfoBase extends EditView9Base {
      * @type {Array<*>}
      * @memberof TestTaskEditView9_InfoBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

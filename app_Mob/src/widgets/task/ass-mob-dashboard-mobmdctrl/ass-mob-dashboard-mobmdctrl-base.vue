@@ -3,11 +3,7 @@
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                    <div class="selectall">
-                        <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
-                    </div>
-                    <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                    <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uf95e8d0', item)"><ion-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></ion-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
                             <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ucb39267', item)"><ion-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></ion-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
@@ -18,26 +14,22 @@
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
-                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
                     </ion-item-sliding>
                 </template>
             </ion-list>
-            <ion-list class="items" ref="ionlist">
+            <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                    <div class="selectall">
-                        <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
-                    </div>
                       <div class="item-grouped" v-for="obj in group_data" :key="obj.index">
                       <van-collapse v-model="activeName" @change="changeCollapse">
                         <van-collapse-item v-if="obj.items && obj.items.length > 0" :name="obj.text">
                           <template #title>
                             <div>{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
                           </template>
-                      <ion-item-sliding  :ref="item.srfkey" v-for="item in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                      <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uf95e8d0', item)"><ion-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></ion-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
                             <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ucb39267', item)"><ion-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></ion-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
@@ -48,7 +40,7 @@
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
-                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
@@ -90,10 +82,10 @@
                 </template>
                 <template v-else>
                     <ion-list  v-model="selectedArray"   v-if="isMutli" class="pickUpList">
-                        <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item" >
+                        <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item" >
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
-                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
@@ -101,10 +93,10 @@
                     </ion-list>
                     <div class="pickUpList">
                     <ion-radio-group  :value="selectedValue" v-if="!isMutli">
-                        <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
+                        <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
-                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
@@ -113,8 +105,22 @@
                     </div>
                 </template>
             </ion-list>
-            <div class="no-data" v-if="items.length == 0">暂无数据</div>
-            <div class="scrollToTop" @click="scrollToTop" ref="scroll" v-show="isEnableScrollTop && showScrollButton"> <van-icon name="back-top" /></div>            
+             <div  v-if="items.length == 0" class="no-data">
+                <div>暂无数据</div>
+                              <div class="app-toolbar-container ">
+                <div class="app-quick-toolbar toolbar-left-bottons">
+                        <ion-button class="app-view-toolbar-button" v-show="mdctrl_quicktoolbarModels.deuiaction1.visabled" :disabled="mdctrl_quicktoolbarModels.deuiaction1.disabled" @click="mdctrl_quicktoolbar_click({ tag: 'deuiaction1' }, $event)" >
+                    <ion-icon class="ibiz-button-icon" name="more"> </ion-icon>
+                
+                </ion-button>
+            
+                </div>
+            </div>
+            </div>
+            <div v-show="!allLoaded && isNeedLoaddingText && viewType == 'DEMOBMDVIEW'" class="loadding" >
+                    <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
+                    <ion-spinner name="dots"></ion-spinner>
+            </div>                          
         </div>
     </div>
 </template>
@@ -311,7 +317,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
@@ -373,7 +379,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
@@ -404,7 +410,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
@@ -594,13 +600,6 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     */
     @Prop() public opendata?: Function; 
 
-    /**
-    * 是否能长按
-    *
-    * @type {Function}
-    * @memberof Mob
-    */
-    @Prop({ default: true }) public isEnableChoose?: Boolean;
 
     /**
     * 当前选中数组
@@ -618,6 +617,13 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     */
     @Prop() public close?:Function;
 
+    /**
+    * 是否显示加载文字
+    *
+    * @type {boolean}
+    * @memberof AssMobDASHBOARD
+    */
+    @Prop({ default: true}) public isNeedLoaddingText?:boolean;
 
     /**
     * 是否为临时模式
@@ -795,30 +801,6 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     }
 
     /**
-    * 底部状态
-    *
-    * @type {String}
-    * @memberof AssMobDASHBOARD
-    */
-    // public bottomStatus: String = "";
-
-    /**
-    * 顶部状态
-    *
-    * @type {String}
-    * @memberof AssMobDASHBOARD
-    */
-    // public topStatus: String = "";
-
-    /**
-    * 
-    *
-    * @type {Number}
-    * @memberof AssMobDASHBOARD
-    */
-    // public moveTranslate: Number = 0;
-
-    /**
     * searchKey 搜索关键字
     *
     * @type {string}
@@ -890,24 +872,6 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     */
     public sort: any = { sort:'id,desc'};
     
-    /**
-    * 底部改变状态
-    * 
-    * @memberof AssMobDASHBOARD
-    */
-    public handleBottomChange(status: String) {
-    //   this.bottomStatus = status;
-    }
-
-    /**
-    * 顶部改变状态
-    * 
-    * @memberof AssMobDASHBOARD
-    */
-    public handleTopChange(status: String) {
-    //   this.moveTranslate = 1;
-    //   this.topStatus = status;
-    }
 
     /**
      * 上拉加载更多数据
@@ -915,7 +879,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * @memberof AssMobDASHBOARD
      */
     public async loadBottom(): Promise<any> {
-        if (((this.pageNumber + 1) * this.pageSize) >= this.pageTotal) {
+        if (this.allLoaded) {
           return;
         }
         this.pageNumber++;
@@ -924,7 +888,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
             Object.assign(params, this.viewparams);
         }
         Object.assign(params, { query: this.searchKey, page: this.pageNumber, size: this.pageSize });
-        let response: any = await this.load(params, 'bottom');
+        let response: any = await this.load(params, 'bottom',false);
         let loadmoreBottom: any = this.$refs.loadmoreBottom;
         if (loadmoreBottom) {
             loadmoreBottom.complete();
@@ -1001,18 +965,20 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
         })
     }
 
-    /**
-     * 长按
-     *
-     * @memberof AssMobDASHBOARD
-     */
-    public onPress(){
-        let _this = this;
-        window.addEventListener('contextmenu',(e:any)=>{
-            _this.onCheackChange();
-            e.preventDefault();
-        });
-    }
+      
+   /**
+    * 工具栏 TaskAssMobMDView9 模型
+    *
+    * @type {*}
+    * @memberof TaskAssMobMDView9
+    */
+    public mdctrl_quicktoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyAssMore', target: 'NONE' } },
+
+    };
+
+    
+
 
     /**
      * 长按状态改变事件
@@ -1020,7 +986,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * @memberof AssMobDASHBOARD
      */
     public onCheackChange(){
-        this.$emit('showCheackChange', !this.showCheack);
+        this.$emit('isChooseChange', !this.isChoose);
     }
 
     /**
@@ -1046,7 +1012,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * @returns {Promise<any>}
      * @memberof AssMobDASHBOARD
      */
-    private async load(data: any = {}, type: string = ""): Promise<any> {
+    private async load(data: any = {}, type: string = "",isloadding = this.showBusyIndicator): Promise<any> {
         if (!data.page) {
             Object.assign(data, { page: this.pageNumber });
         }
@@ -1067,7 +1033,8 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
         let tempViewParams:any = parentdata.viewparams?parentdata.viewparams:{};
         Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
         Object.assign(data,{viewparams:tempViewParams});
-        const response: any = await this.service.search(this.fetchAction, this.context, data, this.showBusyIndicator);
+        const response: any = await this.service.search(this.fetchAction, this.context, data, isloadding);
+        this.bottomLoadding = false;
         if (!response || response.status !== 200) {
             this.$notify({ type: 'danger', message: response.error.message });
             return response;
@@ -1075,6 +1042,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
 
         this.$emit('load', (response.data && response.data.records) ? response.data.records : []);
         this.pageTotal = response.data.total;
+        this.$emit('pageTotalChange',this.pageTotal);
         if (type == 'top') {
             this.items = [];
             this.items = response.data.records;
@@ -1087,7 +1055,15 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
             this.items = response.data.records;
         }
         this.items.forEach((item:any)=>{
-            Object.assign(item,this.getActionState(item));    
+            // 计算是否选中
+            let index = this.selectdata.findIndex((temp:any)=>{return temp.srfkey == item.srfkey});
+            if(index != -1 || Object.is(this.selectedValue,item.srfkey)){
+                item.checked = true;
+            }else{
+                item.checked = false;
+            }
+            Object.assign(item,this.getActionState(item)); 
+            // 计算权限   
             this.setSlidingDisabled(item);
         });
         if(this.isEnableGroup){
@@ -1124,20 +1100,6 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     }
 
     /**
-    * 全选
-    *
-    * @private
-    * @param {*} [arg={}]
-    * @memberof AssMobDASHBOARD
-    */
-    private handleClick() {
-        this.items.forEach((item: any) => {
-            item.value = true;
-        });
-        this.selectednumber = this.items.length;
-    }
-
-    /**
      * checkbox 选中回调
      *
      * @param {*} data
@@ -1155,7 +1117,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
             if (item.value) {
                 this.selectednumber++;
             }
-            if (Object.is(item.taskid, value)) {
+            if (Object.is(item.id, value)) {
                 if (detail.checked) {
                     this.selectdata.push(this.items[index]);
                 } else {
@@ -1189,7 +1151,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     * @memberof AssMobDASHBOARD
     */
     public item_click(item:any){
-        if(this.showCheack){
+        if(this.isChoose){
             let count = this.selectedArray.findIndex((i) => {
             return i.mobentityid == item.mobentityid;
         });
@@ -1236,9 +1198,6 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     * @memberof AssMobDASHBOARD
     */
     public created() {
-        if (this.isEnableChoose) {
-           this.onPress();
-        }
         this.afterCreated();
     }
 
@@ -1293,27 +1252,31 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     }
 
     /**
-     * vue 生命周期
+     * 滚动条事件（计算是否到底部）
      *
      * @memberof AssMobDASHBOARD
      */
-    public mounted(){
-      let list:any = this.$refs.mdctrl;
-      let scroll:any = this.$refs.scroll;        
-      if(list){
-        list.addEventListener('touchend',()=>{
-          this.$store.commit('setPopupStatus',true)
-        }, false)
-        list.addEventListener('scroll', (e:any) => {
-          if (scroll && list) {
-            if (list.scrollTop >= 500) {
-              this.showScrollButton = true;
+    public scroll(e:any){
+        let list:any = this.$refs.mdctrl;
+        if(list){
+            let scrollTop = list.scrollTop;
+            let clientHeight = list.clientHeight;
+            let scrollHeight = list.scrollHeight;
+            if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
+                if(!this.allLoaded){
+                    this.bottomLoadding = true;
+                    this.loadBottom();
+                }
             }
-            scroll.style.opacity = (list.scrollTop-200) * 0.001;
-          }
-        }, false)
-      }
+        }
     }
+
+    /**
+     * 底部加载状态
+     *
+     * @memberof AssMobDASHBOARD
+     */
+    public bottomLoadding = false;
 
     /**
      * vue 生命周期
@@ -1401,7 +1364,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      */
     public closeSlidings () {
         let ionlist:any = this.$refs.ionlist;
-        if (ionlist.children) {
+        if (ionlist && ionlist.children) {
           ionlist.children.forEach((sliding:any) => {
             if(typeof sliding.close === 'function'){
               sliding.close();
@@ -1431,7 +1394,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      *
      * @memberof Mdctrl
      */
-    @Prop({default:false}) showCheack?: boolean;
+    @Prop({default:false}) isChoose?: boolean;
 
     /**
      * 选中或取消事件
@@ -1442,46 +1405,43 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
         let count = this.selectedArray.findIndex((i) => {
             return i.id == item.id;
         });
-        let re = false;
+        let tempFalg = false;
         if(count == -1){
-            re = true;
+            tempFalg = true;
             this.selectedArray.push(item);
         }else{
             this.selectedArray.splice(count,1);
         }
         this.items.forEach((_item:any,index:number)=>{
             if(_item.id == item.id){
-                this.items[index].checked = re;
+                this.items[index].checked = tempFalg;
             }
         });
+        if(!item.checked){
+            this.$emit("checkBoxChange",false)
+        }else if(this.selectedArray.length == this.items.length){
+            this.$emit("checkBoxChange",true)
+        }
     }
-    
+
     /**
      * 全选事件
      *
      * @memberof Mdctrl
      */
-    public checkboxAll(item:any) {
-        this.selectAllIschecked = item.detail.checked;
-        if(this.selectAllIschecked){
-            this.selectedArray = JSON.parse(JSON.stringify(this.items));
+    public checkboxAll(value:any) {
+        for (let index = 0; index < this.items.length; index++) {
+            const item = this.items[index];
+            this.items[index].checked = value;
+        }
+        if(value){
+            this.selectedArray = [...this.items];
         }else{
             this.selectedArray = [];
         }
-        this.items.forEach((item:any,index:number)=>{
-            this.items[index].checked = this.selectAllIschecked
-        });
         this.$forceUpdate();
     }
 
-
-    /**
-     * 全选按钮选中状态
-     *
-     * @memberof Mdctrl
-     */
-    public selectAllIschecked = false;
-    
 
     /**
      * 界面行为模型
@@ -1529,41 +1489,51 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     }
 
     /**
-     * 是否开启置顶功能
+     * 长按定时器
      *
-     * @type {GlobalUiService}
      * @memberof AssMobDASHBOARDBase
      */
-    public isEnableScrollTop:boolean = true;
+    public timeOutEvent :number = 0;
 
     /**
-     * 显示置顶按钮
-     *
-     * @type {GlobalUiService}
-     * @memberof AssMobDASHBOARDBase
-     */
-    public showScrollButton:boolean = false;
-
-    /**
-     * 滑回顶部
+     * 开始长按
      *
      * @memberof AssMobDASHBOARDBase
      */
-    public scrollToTop(){
-      let mdctrl:any = this.$refs.mdctrl;
-      if (mdctrl) {  
-        requestAnimationFrame(function () {
-          let top:number = mdctrl.scrollTop;
-          let speed:number = top / 6;
-          if (top!= 0) {
-              mdctrl.scrollTop -= speed;
-          }
-        });
-        if (mdctrl.scrollTop != 0) {
-          requestAnimationFrame(this.scrollToTop);
-        }
-      }
+    public gotouchstart(){
+        let _this = this;
+        clearTimeout(this.timeOutEvent); //清除定时器
+        this.timeOutEvent = 0;
+        this.timeOutEvent = setTimeout(() => {
+            if(_this.timeOutEvent > 0){
+                this.onCheackChange();
+            }
+            console.log(this.timeOutEvent);
+            this.timeOutEvent = 0
+        }, 2000); //这里设置定时
     }
+
+    /**
+     * touchmove
+     *  如果手指有移动，则取消所有事件，此时说明用户只是要移动而不是长按
+     *
+     * @memberof AssMobDASHBOARDBase
+     */
+    public gotouchmove() {
+        clearTimeout(this.timeOutEvent); //清除定时器
+        this.timeOutEvent = 0;
+    }
+
+    /**
+     * touchend
+     * 结束长按
+     *
+     * @memberof AssMobDASHBOARDBase
+     */
+    public gotouchend() {
+        this.timeOutEvent = 0;
+    }
+
 }
 </script>
 

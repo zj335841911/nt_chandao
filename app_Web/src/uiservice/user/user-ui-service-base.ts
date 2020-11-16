@@ -21,6 +21,13 @@ export default class UserUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  UserUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  UserUIServiceBase
@@ -89,12 +96,24 @@ export default class UserUIServiceBase extends UIService {
      * @memberof  UserUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'users',component:'user-pickup-view'});
-        this.allViewMap.set(':',{viewname:'infoeditview',srfappde:'users',component:'user-infoedit-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'users',component:'user-edit-view'});
-        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'users',component:'user-pickup-grid-view'});
-        this.allViewMap.set(':',{viewname:'maingridview',srfappde:'users',component:'user-main-grid-view'});
-        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'users',component:'user-tree-exp-view'});
+        this.allViewMap.set('PICKUPVIEW:', {
+            viewname: 'pickupview',
+            srfappde: 'users',
+            component: 'user-pickup-view',
+            openmode: '',
+            title: '用户',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'users',
+            component: 'user-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '用户信息',
+            width: 750,
+            height: 0
+        });
     }
 
     /**
@@ -158,7 +177,6 @@ export default class UserUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '同步账号成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -230,7 +248,6 @@ export default class UserUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '删除成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

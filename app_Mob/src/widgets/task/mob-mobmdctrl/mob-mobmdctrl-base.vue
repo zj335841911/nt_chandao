@@ -3,54 +3,50 @@
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                    <div class="selectall">
-                        <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
-                    </div>
-                    <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                    <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.confirmStoryChangeCz.visabled" :disabled="item.confirmStoryChangeCz.disabled" color="primary" @click="mdctrl_click($event, 'u50d1ea3', item)"><ion-icon v-if="item.confirmStoryChangeCz.icon && item.confirmStoryChangeCz.isShowIcon" :name="item.confirmStoryChangeCz.icon"></ion-icon><ion-label v-if="item.confirmStoryChangeCz.isShowCaption">确认</ion-label></ion-item-option>
                             <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u78657a8', item)"><ion-icon v-if="item.TaskFavoritesMob.icon && item.TaskFavoritesMob.isShowIcon" :name="item.TaskFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
                             <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u7e33b1f', item)"><ion-icon v-if="item.TaskNFavoritesMob.icon && item.TaskNFavoritesMob.isShowIcon" :name="item.TaskNFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ufe8825d', item)"><ion-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></ion-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.StartMobTeamTask.visabled" :disabled="item.StartMobTeamTask.disabled" color="primary" @click="mdctrl_click($event, 'uc655bcc', item)"><ion-icon v-if="item.StartMobTeamTask.icon && item.StartMobTeamTask.isShowIcon" :name="item.StartMobTeamTask.icon"></ion-icon><ion-label v-if="item.StartMobTeamTask.isShowCaption">开始</ion-label></ion-item-option>
                             <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uaa5b5c3', item)"><ion-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></ion-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.DoneTaskMob.visabled" :disabled="item.DoneTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u5503b9a', item)"><ion-icon v-if="item.DoneTaskMob.icon && item.DoneTaskMob.isShowIcon" :name="item.DoneTaskMob.icon"></ion-icon><ion-label v-if="item.DoneTaskMob.isShowCaption">完成</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.PauseTaskMob.visabled" :disabled="item.PauseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uc1096d7', item)"><ion-icon v-if="item.PauseTaskMob.icon && item.PauseTaskMob.isShowIcon" :name="item.PauseTaskMob.icon"></ion-icon><ion-label v-if="item.PauseTaskMob.isShowCaption">暂停</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.finishTask1.visabled" :disabled="item.finishTask1.disabled" color="primary" @click="mdctrl_click($event, 'uc50cd90', item)"><ion-icon v-if="item.finishTask1.icon && item.finishTask1.isShowIcon" :name="item.finishTask1.icon"></ion-icon><ion-label v-if="item.finishTask1.isShowCaption">完成</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.PauseMobTeamTask.visabled" :disabled="item.PauseMobTeamTask.disabled" color="primary" @click="mdctrl_click($event, 'ue0846ea', item)"><ion-icon v-if="item.PauseMobTeamTask.icon && item.PauseMobTeamTask.isShowIcon" :name="item.PauseMobTeamTask.icon"></ion-icon><ion-label v-if="item.PauseMobTeamTask.isShowCaption">暂停</ion-label></ion-item-option>
                             <ion-item-option v-show="item.CancelTaskMob.visabled" :disabled="item.CancelTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u77523c1', item)"><ion-icon v-if="item.CancelTaskMob.icon && item.CancelTaskMob.isShowIcon" :name="item.CancelTaskMob.icon"></ion-icon><ion-label v-if="item.CancelTaskMob.isShowCaption">取消</ion-label></ion-item-option>
                             <ion-item-option v-show="item.CloseTaskMob.visabled" :disabled="item.CloseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u3834ce6', item)"><ion-icon v-if="item.CloseTaskMob.icon && item.CloseTaskMob.isShowIcon" :name="item.CloseTaskMob.icon"></ion-icon><ion-label v-if="item.CloseTaskMob.isShowCaption">关闭</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ActiveMobTask.visabled" :disabled="item.ActiveMobTask.disabled" color="primary" @click="mdctrl_click($event, 'uadbed1d', item)"><ion-icon v-if="item.ActiveMobTask.icon && item.ActiveMobTask.isShowIcon" :name="item.ActiveMobTask.icon"></ion-icon><ion-label v-if="item.ActiveMobTask.isShowCaption">激活</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ConsumedMobTaskTeam.visabled" :disabled="item.ConsumedMobTaskTeam.disabled" color="primary" @click="mdctrl_click($event, 'ue6a8f61', item)"><ion-icon v-if="item.ConsumedMobTaskTeam.icon && item.ConsumedMobTaskTeam.isShowIcon" :name="item.ConsumedMobTaskTeam.icon"></ion-icon><ion-label v-if="item.ConsumedMobTaskTeam.isShowCaption">工时</ion-label></ion-item-option>
                             <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u2ec10d0', item)"><ion-icon v-if="item.deleteMob.icon && item.deleteMob.isShowIcon" :name="item.deleteMob.icon"></ion-icon><ion-label v-if="item.deleteMob.isShowCaption">删除</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
-                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
                     </ion-item-sliding>
                 </template>
             </ion-list>
-            <ion-list class="items" ref="ionlist">
+            <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                    <div class="selectall">
-                        <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
-                    </div>
-                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                      <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.confirmStoryChangeCz.visabled" :disabled="item.confirmStoryChangeCz.disabled" color="primary" @click="mdctrl_click($event, 'u50d1ea3', item)"><ion-icon v-if="item.confirmStoryChangeCz.icon && item.confirmStoryChangeCz.isShowIcon" :name="item.confirmStoryChangeCz.icon"></ion-icon><ion-label v-if="item.confirmStoryChangeCz.isShowCaption">确认</ion-label></ion-item-option>
                             <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u78657a8', item)"><ion-icon v-if="item.TaskFavoritesMob.icon && item.TaskFavoritesMob.isShowIcon" :name="item.TaskFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
                             <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u7e33b1f', item)"><ion-icon v-if="item.TaskNFavoritesMob.icon && item.TaskNFavoritesMob.isShowIcon" :name="item.TaskNFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ufe8825d', item)"><ion-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></ion-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.StartMobTeamTask.visabled" :disabled="item.StartMobTeamTask.disabled" color="primary" @click="mdctrl_click($event, 'uc655bcc', item)"><ion-icon v-if="item.StartMobTeamTask.icon && item.StartMobTeamTask.isShowIcon" :name="item.StartMobTeamTask.icon"></ion-icon><ion-label v-if="item.StartMobTeamTask.isShowCaption">开始</ion-label></ion-item-option>
                             <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uaa5b5c3', item)"><ion-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></ion-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.DoneTaskMob.visabled" :disabled="item.DoneTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u5503b9a', item)"><ion-icon v-if="item.DoneTaskMob.icon && item.DoneTaskMob.isShowIcon" :name="item.DoneTaskMob.icon"></ion-icon><ion-label v-if="item.DoneTaskMob.isShowCaption">完成</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.PauseTaskMob.visabled" :disabled="item.PauseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uc1096d7', item)"><ion-icon v-if="item.PauseTaskMob.icon && item.PauseTaskMob.isShowIcon" :name="item.PauseTaskMob.icon"></ion-icon><ion-label v-if="item.PauseTaskMob.isShowCaption">暂停</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.finishTask1.visabled" :disabled="item.finishTask1.disabled" color="primary" @click="mdctrl_click($event, 'uc50cd90', item)"><ion-icon v-if="item.finishTask1.icon && item.finishTask1.isShowIcon" :name="item.finishTask1.icon"></ion-icon><ion-label v-if="item.finishTask1.isShowCaption">完成</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.PauseMobTeamTask.visabled" :disabled="item.PauseMobTeamTask.disabled" color="primary" @click="mdctrl_click($event, 'ue0846ea', item)"><ion-icon v-if="item.PauseMobTeamTask.icon && item.PauseMobTeamTask.isShowIcon" :name="item.PauseMobTeamTask.icon"></ion-icon><ion-label v-if="item.PauseMobTeamTask.isShowCaption">暂停</ion-label></ion-item-option>
                             <ion-item-option v-show="item.CancelTaskMob.visabled" :disabled="item.CancelTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u77523c1', item)"><ion-icon v-if="item.CancelTaskMob.icon && item.CancelTaskMob.isShowIcon" :name="item.CancelTaskMob.icon"></ion-icon><ion-label v-if="item.CancelTaskMob.isShowCaption">取消</ion-label></ion-item-option>
                             <ion-item-option v-show="item.CloseTaskMob.visabled" :disabled="item.CloseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u3834ce6', item)"><ion-icon v-if="item.CloseTaskMob.icon && item.CloseTaskMob.isShowIcon" :name="item.CloseTaskMob.icon"></ion-icon><ion-label v-if="item.CloseTaskMob.isShowCaption">关闭</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ActiveMobTask.visabled" :disabled="item.ActiveMobTask.disabled" color="primary" @click="mdctrl_click($event, 'uadbed1d', item)"><ion-icon v-if="item.ActiveMobTask.icon && item.ActiveMobTask.isShowIcon" :name="item.ActiveMobTask.icon"></ion-icon><ion-label v-if="item.ActiveMobTask.isShowCaption">激活</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ConsumedMobTaskTeam.visabled" :disabled="item.ConsumedMobTaskTeam.disabled" color="primary" @click="mdctrl_click($event, 'ue6a8f61', item)"><ion-icon v-if="item.ConsumedMobTaskTeam.icon && item.ConsumedMobTaskTeam.isShowIcon" :name="item.ConsumedMobTaskTeam.icon"></ion-icon><ion-label v-if="item.ConsumedMobTaskTeam.isShowCaption">工时</ion-label></ion-item-option>
                             <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u2ec10d0', item)"><ion-icon v-if="item.deleteMob.icon && item.deleteMob.isShowIcon" :name="item.deleteMob.icon"></ion-icon><ion-label v-if="item.deleteMob.isShowCaption">删除</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
-                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
@@ -88,10 +84,10 @@
                 </template>
                 <template v-else>
                     <ion-list  v-model="selectedArray"   v-if="isMutli" class="pickUpList">
-                        <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item" >
+                        <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item" >
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
-                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
@@ -99,10 +95,10 @@
                     </ion-list>
                     <div class="pickUpList">
                     <ion-radio-group  :value="selectedValue" v-if="!isMutli">
-                        <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
+                        <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
-                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
@@ -111,8 +107,13 @@
                     </div>
                 </template>
             </ion-list>
-            <div class="no-data" v-if="items.length == 0">暂无数据</div>
-            <div class="scrollToTop" @click="scrollToTop" ref="scroll" v-show="isEnableScrollTop && showScrollButton"> <van-icon name="back-top" /></div>            
+             <div  v-if="items.length == 0" class="no-data">
+                <div>暂无数据</div>
+            </div>
+            <div v-show="!allLoaded && isNeedLoaddingText && viewType == 'DEMOBMDVIEW'" class="loadding" >
+                    <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
+                    <ion-spinner name="dots"></ion-spinner>
+            </div>                          
         </div>
     </div>
 </template>
@@ -348,7 +349,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ufe8825d_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_uc655bcc_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -357,7 +358,7 @@ export default class MobBase extends Vue implements ControlInterface {
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
@@ -365,7 +366,7 @@ export default class MobBase extends Vue implements ControlInterface {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
-            curUIService.Task_StartTaskMob(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Task_StartMobTeamTask(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -410,7 +411,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u5503b9a_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_uc50cd90_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -419,7 +420,7 @@ export default class MobBase extends Vue implements ControlInterface {
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
@@ -427,7 +428,7 @@ export default class MobBase extends Vue implements ControlInterface {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
-            curUIService.Task_DoneTaskMob(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Task_finishTask1(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -441,7 +442,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_uc1096d7_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_ue0846ea_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -450,7 +451,7 @@ export default class MobBase extends Vue implements ControlInterface {
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
@@ -458,7 +459,7 @@ export default class MobBase extends Vue implements ControlInterface {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
-            curUIService.Task_PauseTaskMob(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Task_PauseMobTeamTask(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -521,6 +522,68 @@ export default class MobBase extends Vue implements ControlInterface {
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
             curUIService.Task_CloseTaskMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_uadbed1d_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_ActiveMobTask(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ue6a8f61_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        Object.assign(paramJO, {});
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_ConsumedMobTaskTeam(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -671,13 +734,6 @@ export default class MobBase extends Vue implements ControlInterface {
     */
     @Prop() public opendata?: Function; 
 
-    /**
-    * 是否能长按
-    *
-    * @type {Function}
-    * @memberof Mob
-    */
-    @Prop({ default: true }) public isEnableChoose?: Boolean;
 
     /**
     * 当前选中数组
@@ -695,6 +751,13 @@ export default class MobBase extends Vue implements ControlInterface {
     */
     @Prop() public close?:Function;
 
+    /**
+    * 是否显示加载文字
+    *
+    * @type {boolean}
+    * @memberof Mob
+    */
+    @Prop({ default: true}) public isNeedLoaddingText?:boolean;
 
     /**
     * 是否为临时模式
@@ -850,30 +913,6 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
     /**
-    * 底部状态
-    *
-    * @type {String}
-    * @memberof Mob
-    */
-    // public bottomStatus: String = "";
-
-    /**
-    * 顶部状态
-    *
-    * @type {String}
-    * @memberof Mob
-    */
-    // public topStatus: String = "";
-
-    /**
-    * 
-    *
-    * @type {Number}
-    * @memberof Mob
-    */
-    // public moveTranslate: Number = 0;
-
-    /**
     * searchKey 搜索关键字
     *
     * @type {string}
@@ -945,24 +984,6 @@ export default class MobBase extends Vue implements ControlInterface {
     */
     public sort: any = { sort:'id,desc'};
     
-    /**
-    * 底部改变状态
-    * 
-    * @memberof Mob
-    */
-    public handleBottomChange(status: String) {
-    //   this.bottomStatus = status;
-    }
-
-    /**
-    * 顶部改变状态
-    * 
-    * @memberof Mob
-    */
-    public handleTopChange(status: String) {
-    //   this.moveTranslate = 1;
-    //   this.topStatus = status;
-    }
 
     /**
      * 上拉加载更多数据
@@ -970,7 +991,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public async loadBottom(): Promise<any> {
-        if (((this.pageNumber + 1) * this.pageSize) >= this.pageTotal) {
+        if (this.allLoaded) {
           return;
         }
         this.pageNumber++;
@@ -979,7 +1000,7 @@ export default class MobBase extends Vue implements ControlInterface {
             Object.assign(params, this.viewparams);
         }
         Object.assign(params, { query: this.searchKey, page: this.pageNumber, size: this.pageSize });
-        let response: any = await this.load(params, 'bottom');
+        let response: any = await this.load(params, 'bottom',false);
         let loadmoreBottom: any = this.$refs.loadmoreBottom;
         if (loadmoreBottom) {
             loadmoreBottom.complete();
@@ -1056,18 +1077,6 @@ export default class MobBase extends Vue implements ControlInterface {
         })
     }
 
-    /**
-     * 长按
-     *
-     * @memberof Mob
-     */
-    public onPress(){
-        let _this = this;
-        window.addEventListener('contextmenu',(e:any)=>{
-            _this.onCheackChange();
-            e.preventDefault();
-        });
-    }
 
     /**
      * 长按状态改变事件
@@ -1075,7 +1084,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public onCheackChange(){
-        this.$emit('showCheackChange', !this.showCheack);
+        this.$emit('isChooseChange', !this.isChoose);
     }
 
     /**
@@ -1101,7 +1110,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof Mob
      */
-    private async load(data: any = {}, type: string = ""): Promise<any> {
+    private async load(data: any = {}, type: string = "",isloadding = this.showBusyIndicator): Promise<any> {
         if (!data.page) {
             Object.assign(data, { page: this.pageNumber });
         }
@@ -1122,7 +1131,8 @@ export default class MobBase extends Vue implements ControlInterface {
         let tempViewParams:any = parentdata.viewparams?parentdata.viewparams:{};
         Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
         Object.assign(data,{viewparams:tempViewParams});
-        const response: any = await this.service.search(this.fetchAction, this.context, data, this.showBusyIndicator);
+        const response: any = await this.service.search(this.fetchAction, this.context, data, isloadding);
+        this.bottomLoadding = false;
         if (!response || response.status !== 200) {
             this.$notify({ type: 'danger', message: response.error.message });
             return response;
@@ -1130,7 +1140,7 @@ export default class MobBase extends Vue implements ControlInterface {
 
         this.$emit('load', (response.data && response.data.records) ? response.data.records : []);
         this.pageTotal = response.data.total;
-            this.$emit('pageTotalChange',this.pageTotal);
+        this.$emit('pageTotalChange',this.pageTotal);
         if (type == 'top') {
             this.items = [];
             this.items = response.data.records;
@@ -1143,7 +1153,15 @@ export default class MobBase extends Vue implements ControlInterface {
             this.items = response.data.records;
         }
         this.items.forEach((item:any)=>{
-            Object.assign(item,this.getActionState(item));    
+            // 计算是否选中
+            let index = this.selectdata.findIndex((temp:any)=>{return temp.srfkey == item.srfkey});
+            if(index != -1 || Object.is(this.selectedValue,item.srfkey)){
+                item.checked = true;
+            }else{
+                item.checked = false;
+            }
+            Object.assign(item,this.getActionState(item)); 
+            // 计算权限   
             this.setSlidingDisabled(item);
         });
         if(this.isEnableGroup){
@@ -1153,20 +1171,6 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
 
-
-    /**
-    * 全选
-    *
-    * @private
-    * @param {*} [arg={}]
-    * @memberof Mob
-    */
-    private handleClick() {
-        this.items.forEach((item: any) => {
-            item.value = true;
-        });
-        this.selectednumber = this.items.length;
-    }
 
     /**
      * checkbox 选中回调
@@ -1186,7 +1190,7 @@ export default class MobBase extends Vue implements ControlInterface {
             if (item.value) {
                 this.selectednumber++;
             }
-            if (Object.is(item.taskid, value)) {
+            if (Object.is(item.id, value)) {
                 if (detail.checked) {
                     this.selectdata.push(this.items[index]);
                 } else {
@@ -1220,7 +1224,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public item_click(item:any){
-        if(this.showCheack){
+        if(this.isChoose){
             let count = this.selectedArray.findIndex((i) => {
             return i.mobentityid == item.mobentityid;
         });
@@ -1267,9 +1271,6 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public created() {
-        if (this.isEnableChoose) {
-           this.onPress();
-        }
         this.afterCreated();
     }
 
@@ -1324,27 +1325,31 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
     /**
-     * vue 生命周期
+     * 滚动条事件（计算是否到底部）
      *
      * @memberof Mob
      */
-    public mounted(){
-      let list:any = this.$refs.mdctrl;
-      let scroll:any = this.$refs.scroll;        
-      if(list){
-        list.addEventListener('touchend',()=>{
-          this.$store.commit('setPopupStatus',true)
-        }, false)
-        list.addEventListener('scroll', (e:any) => {
-          if (scroll && list) {
-            if (list.scrollTop >= 500) {
-              this.showScrollButton = true;
+    public scroll(e:any){
+        let list:any = this.$refs.mdctrl;
+        if(list){
+            let scrollTop = list.scrollTop;
+            let clientHeight = list.clientHeight;
+            let scrollHeight = list.scrollHeight;
+            if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
+                if(!this.allLoaded){
+                    this.bottomLoadding = true;
+                    this.loadBottom();
+                }
             }
-            scroll.style.opacity = (list.scrollTop-200) * 0.001;
-          }
-        }, false)
-      }
+        }
     }
+
+    /**
+     * 底部加载状态
+     *
+     * @memberof Mob
+     */
+    public bottomLoadding = false;
 
     /**
      * vue 生命周期
@@ -1414,23 +1419,29 @@ export default class MobBase extends Vue implements ControlInterface {
         if (Object.is(tag, 'u7e33b1f')) {
             this.mdctrl_u7e33b1f_click();
         }
-        if (Object.is(tag, 'ufe8825d')) {
-            this.mdctrl_ufe8825d_click();
+        if (Object.is(tag, 'uc655bcc')) {
+            this.mdctrl_uc655bcc_click();
         }
         if (Object.is(tag, 'uaa5b5c3')) {
             this.mdctrl_uaa5b5c3_click();
         }
-        if (Object.is(tag, 'u5503b9a')) {
-            this.mdctrl_u5503b9a_click();
+        if (Object.is(tag, 'uc50cd90')) {
+            this.mdctrl_uc50cd90_click();
         }
-        if (Object.is(tag, 'uc1096d7')) {
-            this.mdctrl_uc1096d7_click();
+        if (Object.is(tag, 'ue0846ea')) {
+            this.mdctrl_ue0846ea_click();
         }
         if (Object.is(tag, 'u77523c1')) {
             this.mdctrl_u77523c1_click();
         }
         if (Object.is(tag, 'u3834ce6')) {
             this.mdctrl_u3834ce6_click();
+        }
+        if (Object.is(tag, 'uadbed1d')) {
+            this.mdctrl_uadbed1d_click();
+        }
+        if (Object.is(tag, 'ue6a8f61')) {
+            this.mdctrl_ue6a8f61_click();
         }
         if (Object.is(tag, 'u2ec10d0')) {
             this.mdctrl_u2ec10d0_click();
@@ -1444,7 +1455,7 @@ export default class MobBase extends Vue implements ControlInterface {
      */
     public closeSlidings () {
         let ionlist:any = this.$refs.ionlist;
-        if (ionlist.children) {
+        if (ionlist && ionlist.children) {
           ionlist.children.forEach((sliding:any) => {
             if(typeof sliding.close === 'function'){
               sliding.close();
@@ -1474,7 +1485,7 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @memberof Mdctrl
      */
-    @Prop({default:false}) showCheack?: boolean;
+    @Prop({default:false}) isChoose?: boolean;
 
     /**
      * 选中或取消事件
@@ -1485,46 +1496,43 @@ export default class MobBase extends Vue implements ControlInterface {
         let count = this.selectedArray.findIndex((i) => {
             return i.id == item.id;
         });
-        let re = false;
+        let tempFalg = false;
         if(count == -1){
-            re = true;
+            tempFalg = true;
             this.selectedArray.push(item);
         }else{
             this.selectedArray.splice(count,1);
         }
         this.items.forEach((_item:any,index:number)=>{
             if(_item.id == item.id){
-                this.items[index].checked = re;
+                this.items[index].checked = tempFalg;
             }
         });
+        if(!item.checked){
+            this.$emit("checkBoxChange",false)
+        }else if(this.selectedArray.length == this.items.length){
+            this.$emit("checkBoxChange",true)
+        }
     }
-    
+
     /**
      * 全选事件
      *
      * @memberof Mdctrl
      */
-    public checkboxAll(item:any) {
-        this.selectAllIschecked = item.detail.checked;
-        if(this.selectAllIschecked){
-            this.selectedArray = JSON.parse(JSON.stringify(this.items));
+    public checkboxAll(value:any) {
+        for (let index = 0; index < this.items.length; index++) {
+            const item = this.items[index];
+            this.items[index].checked = value;
+        }
+        if(value){
+            this.selectedArray = [...this.items];
         }else{
             this.selectedArray = [];
         }
-        this.items.forEach((item:any,index:number)=>{
-            this.items[index].checked = this.selectAllIschecked
-        });
         this.$forceUpdate();
     }
 
-
-    /**
-     * 全选按钮选中状态
-     *
-     * @memberof Mdctrl
-     */
-    public selectAllIschecked = false;
-    
 
     /**
      * 界面行为模型
@@ -1536,12 +1544,18 @@ export default class MobBase extends Vue implements ControlInterface {
         confirmStoryChangeCz: { name: 'confirmStoryChangeCz',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', target: 'SINGLEKEY',icon:'search',isShowCaption:false,isShowIcon:true},
         TaskFavoritesMob: { name: 'TaskFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', target: 'SINGLEKEY',icon:'star-outline',isShowCaption:false,isShowIcon:true},
         TaskNFavoritesMob: { name: 'TaskNFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', target: 'SINGLEKEY',icon:'star-half-outline',isShowCaption:false,isShowIcon:true},
-        StartTaskMob: { name: 'StartTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_START_BUT', target: 'SINGLEKEY',icon:'play',isShowCaption:false,isShowIcon:true},
+        StartMobTeamTask: { name: 'StartMobTeamTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_START_BUT', target: 'SINGLEKEY',icon:'play',isShowCaption:false,isShowIcon:true},
+        StartTaskMob: { name: 'StartTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_START_BUT', target: 'SINGLEKEY',icon:'play',},
         AssignTaskMob: { name: 'AssignTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', target: 'SINGLEKEY',icon:'people',isShowCaption:false,isShowIcon:true},
-        DoneTaskMob: { name: 'DoneTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', target: 'SINGLEKEY',icon:'checkmark-circle-outline',isShowCaption:false,isShowIcon:true},
-        PauseTaskMob: { name: 'PauseTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', target: 'SINGLEKEY',icon:'pause',isShowCaption:false,isShowIcon:true},
+        finishTask1: { name: 'finishTask1',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', target: 'SINGLEKEY',icon:'checkmark-circle-outline',isShowCaption:false,isShowIcon:true},
+        DoneTaskMob: { name: 'DoneTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', target: 'SINGLEKEY',icon:'checkmark-circle-outline',},
+        PauseMobTeamTask: { name: 'PauseMobTeamTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', target: 'SINGLEKEY',icon:'pause',isShowCaption:false,isShowIcon:true},
+        PauseTaskMob: { name: 'PauseTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', target: 'SINGLEKEY',icon:'pause',},
         CancelTaskMob: { name: 'CancelTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CANCEL_BUT', target: 'SINGLEKEY',icon:'power',isShowCaption:false,isShowIcon:true},
         CloseTaskMob: { name: 'CloseTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', target: 'SINGLEKEY',icon:'backspace',isShowCaption:false,isShowIcon:true},
+        ActiveMobTask: { name: 'ActiveMobTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_ACTIVATION_BUT', target: 'SINGLEKEY',icon:'magic',isShowCaption:false,isShowIcon:true},
+        ConsumedMobTaskTeam: { name: 'ConsumedMobTaskTeam',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CONSUM_BUT', target: 'SINGLEKEY',icon:'clock-o',isShowCaption:false,isShowIcon:true},
+        WorkHoursMob: { name: 'WorkHoursMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CONSUM_BUT', target: 'SINGLEKEY',icon:'clock-o',},
         deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_DELETE_BUT', target: 'SINGLEKEY',icon:'remove',isShowCaption:false,isShowIcon:true}
     };
 
@@ -1575,41 +1589,51 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 是否开启置顶功能
+     * 长按定时器
      *
-     * @type {GlobalUiService}
      * @memberof MobBase
      */
-    public isEnableScrollTop:boolean = true;
+    public timeOutEvent :number = 0;
 
     /**
-     * 显示置顶按钮
-     *
-     * @type {GlobalUiService}
-     * @memberof MobBase
-     */
-    public showScrollButton:boolean = false;
-
-    /**
-     * 滑回顶部
+     * 开始长按
      *
      * @memberof MobBase
      */
-    public scrollToTop(){
-      let mdctrl:any = this.$refs.mdctrl;
-      if (mdctrl) {  
-        requestAnimationFrame(function () {
-          let top:number = mdctrl.scrollTop;
-          let speed:number = top / 6;
-          if (top!= 0) {
-              mdctrl.scrollTop -= speed;
-          }
-        });
-        if (mdctrl.scrollTop != 0) {
-          requestAnimationFrame(this.scrollToTop);
-        }
-      }
+    public gotouchstart(){
+        let _this = this;
+        clearTimeout(this.timeOutEvent); //清除定时器
+        this.timeOutEvent = 0;
+        this.timeOutEvent = setTimeout(() => {
+            if(_this.timeOutEvent > 0){
+                this.onCheackChange();
+            }
+            console.log(this.timeOutEvent);
+            this.timeOutEvent = 0
+        }, 2000); //这里设置定时
     }
+
+    /**
+     * touchmove
+     *  如果手指有移动，则取消所有事件，此时说明用户只是要移动而不是长按
+     *
+     * @memberof MobBase
+     */
+    public gotouchmove() {
+        clearTimeout(this.timeOutEvent); //清除定时器
+        this.timeOutEvent = 0;
+    }
+
+    /**
+     * touchend
+     * 结束长按
+     *
+     * @memberof MobBase
+     */
+    public gotouchend() {
+        this.timeOutEvent = 0;
+    }
+
 }
 </script>
 

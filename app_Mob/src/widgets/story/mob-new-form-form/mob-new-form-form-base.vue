@@ -217,32 +217,41 @@
 
 
 <app-form-item 
-    name='assignedto' 
+    name='assignedtopk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="assignedto_item"  
-    :itemValue="this.data.assignedto" 
-    v-show="detailsModel.assignedto.visible" 
-    :itemRules="this.rules.assignedto" 
-    :caption="$t('story.mobnewform_form.details.assignedto')"  
+    ref="assignedtopk_item"  
+    :itemValue="this.data.assignedtopk" 
+    v-show="detailsModel.assignedtopk.visible" 
+    :itemRules="this.rules.assignedtopk" 
+    :caption="$t('story.mobnewform_form.details.assignedtopk')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.assignedto.disabled"
-    :error="detailsModel.assignedto.error" 
+    :disabled="detailsModel.assignedtopk.disabled"
+    :error="detailsModel.assignedtopk.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.assignedto.disabled" 
-    :data="data" 
-    :context="context" 
+        <app-mob-picker
+    name='assignedtopk'
+    deMajorField='personname'
+    deKeyField='username'
+    valueitem='assignedto' 
+    style=""  
+    :formState="formState"
+    :data="data"
+    :context="context"
     :viewparams="viewparams"
-    :value="data.assignedto"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.assignedto = $event" />
+    :itemParam='{ }' 
+    :disabled="detailsModel.assignedtopk.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'sysemployee', interfaceName: 'FetchDefault'}"
+    :value="data.assignedtopk" 
+    :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
 </app-form-item>
 
 
@@ -366,7 +375,7 @@
     name='spec' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="spec_item"  
     :itemValue="this.data.spec" 
     v-show="detailsModel.spec.visible" 
@@ -374,9 +383,10 @@
     :caption="$t('story.mobnewform_form.details.spec')"  
     :labelWidth="100"  
     :isShowCaption="true"
+    :disabled="detailsModel.spec.disabled"
     :error="detailsModel.spec.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.spec" @change="(val) =>{this.data.spec =val}" :disabled="detailsModel.spec.disabled" :data="JSON.stringify(this.data)"  name="spec" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.spec" @change="(val) =>{this.data.spec =val}" :disabled="detailsModel.spec.disabled" :data="JSON.stringify(this.data)"  name="spec" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -386,7 +396,7 @@
     name='verify' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="verify_item"  
     :itemValue="this.data.verify" 
     v-show="detailsModel.verify.visible" 
@@ -394,43 +404,46 @@
     :caption="$t('story.mobnewform_form.details.verify')"  
     :labelWidth="100"  
     :isShowCaption="true"
+    :disabled="detailsModel.verify.disabled"
     :error="detailsModel.verify.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
 
 
 <app-form-item 
-    name='mailto' 
+    name='mailtopk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="mailto_item"  
-    :itemValue="this.data.mailto" 
-    v-show="detailsModel.mailto.visible" 
-    :itemRules="this.rules.mailto" 
-    :caption="$t('story.mobnewform_form.details.mailto')"  
+    ref="mailtopk_item"  
+    :itemValue="this.data.mailtopk" 
+    v-show="detailsModel.mailtopk.visible" 
+    :itemRules="this.rules.mailtopk" 
+    :caption="$t('story.mobnewform_form.details.mailtopk')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.mailto.disabled"
-    :error="detailsModel.mailto.error" 
+    :disabled="detailsModel.mailtopk.disabled"
+    :error="detailsModel.mailtopk.error" 
     :isEmptyCaption="false">
-        <app-mob-check-list 
-    orMode="str"
-    valueSeparator=","
-    textSeparator=","
-    type="dynamic"  
-    tag="UserRealName"
-    :disabled="detailsModel.mailto.disabled" 
+        <app-mob-mpicker 
     :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.mailto"   
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.mailto = $event"/>
+    :disabled="detailsModel.mailtopk.disabled"
+    :value="data.mailtopk"
+    name="mailtopk"
+    :context="context"
+    :viewparams="viewparams"
+    :service="service"
+    deMajorField='personname'
+    deKeyField='sysemployee'
+    :pickupView="{ viewname: 'sys-employee-user-tree-mob-mpickup-view', title: '人员移动端多数据选择视图（人员树）', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange" 
+    style=""/>
+
 </app-form-item>
 
 
@@ -733,6 +746,16 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      */
     protected formState: Subject<any> = new Subject();
 
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobNewFormBase
+     */
+    public appStateEvent: Subscription | undefined;
+
     /**
      * 忽略表单项值变化
      *
@@ -792,7 +815,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         source: null,
         sourcenote: null,
         reviewedby: null,
-        assignedto: null,
+        assignedtopk: null,
         neednotreview: null,
         title: null,
         pri: null,
@@ -800,8 +823,10 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         spec: null,
         verify: null,
         mailto: null,
+        mailtopk: null,
         keywords: null,
         id: null,
+        assignedto: null,
         story: null,
     };
 
@@ -975,7 +1000,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
 , 
         reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        assignedto: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        assignedtopk: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'assignedtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         neednotreview: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'neednotreview', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -991,9 +1016,13 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
 , 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        mailtopk: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -1202,15 +1231,15 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 assignedto 值
+     * 监控表单属性 assignedtopk 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobNewForm
      */
-    @Watch('data.assignedto')
-    onAssignedtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
+    @Watch('data.assignedtopk')
+    onAssignedtopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedtopk', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1298,6 +1327,18 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 mailtopk 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.mailtopk')
+    onMailtopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailtopk', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 keywords 值
      *
      * @param {*} newVal
@@ -1321,6 +1362,18 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
+    /**
+     * 监控表单属性 assignedto 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.assignedto')
+    onAssignedtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
+    }
+
 
     /**
      * 重置表单项值
@@ -1341,6 +1394,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.onFormItemValueChange({ name: 'plan', value: null });
         }
         if (Object.is(name, 'neednotreview')) {
+            this.onFormItemValueChange({ name: 'assignedtopk', value: null });
             this.onFormItemValueChange({ name: 'assignedto', value: null });
         }
     }
@@ -1395,8 +1449,10 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             if (this.$verify.testCond(_neednotreview, 'ISNULL', '')) {
                 ret = true;
             }
-            this.detailsModel.assignedto.setDisabled(!ret);
+            this.detailsModel.assignedtopk.setDisabled(!ret);
         }
+
+
 
 
 
@@ -1698,6 +1754,16 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Story")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1720,6 +1786,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1929,7 +1998,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

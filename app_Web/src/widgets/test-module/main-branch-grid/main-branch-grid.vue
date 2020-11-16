@@ -1,5 +1,5 @@
-<template src="./main-branch-grid.html"/>
-<script lang='tsx'>
+<template src="./main-branch-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainBranchGridBase } from './main-branch-grid-base';
@@ -15,8 +15,8 @@ import { MainBranchGridBase } from './main-branch-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MainBranchGrid extends MainBranchGridBase { }
+export default class MainBranchGrid extends MainBranchGridBase {}
 </script>

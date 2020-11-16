@@ -21,6 +21,13 @@ export default class TestSuiteUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  TestSuiteUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  TestSuiteUIServiceBase
@@ -89,10 +96,24 @@ export default class TestSuiteUIServiceBase extends UIService {
      * @memberof  TestSuiteUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'editview9',srfappde:'testsuites',component:'test-suite-edit-view9'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'testsuites',component:'test-suite-edit-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'testsuites',component:'test-suite-grid-view'});
-        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'testsuites',component:'test-suite-main-dashboard-view'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'testsuites',
+            component: 'test-suite-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '测试套件',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'testsuites',
+            component: 'test-suite-grid-view',
+            openmode: '',
+            title: '测试套件',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -144,6 +165,11 @@ export default class TestSuiteUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         const parameters: any[] = [
             { pathName: 'testsuites', parameterName: 'testsuite' },
         ];
@@ -298,7 +324,6 @@ export default class TestSuiteUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -359,10 +384,14 @@ export default class TestSuiteUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         const parameters: any[] = [
             { pathName: 'testsuites', parameterName: 'testsuite' },
         ];
-            actionContext.closeView(null);
             const openDrawer = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
                 container.subscribe((result: any) => {
@@ -373,6 +402,7 @@ export default class TestSuiteUIServiceBase extends UIService {
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
                     }
+                    _this.closeView(null);
                     return result.datas;
                 });
             }

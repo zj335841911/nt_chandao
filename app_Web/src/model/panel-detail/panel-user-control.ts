@@ -8,9 +8,7 @@ import { PanelDetailModel } from './panel-detail';
  * @extends {PanelDetailModel}
  */
 export class PanelUserControlModel extends PanelDetailModel {
-
-
-    constructor(otps:any = {}) {
+    constructor(otps: any = {}) {
         super(otps);
     }
 }

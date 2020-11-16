@@ -24,6 +24,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			desc: "步骤",
@@ -34,6 +35,7 @@ export default {
 		},
 	},
 	mainr_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			desc: "步骤",

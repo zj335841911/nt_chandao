@@ -7,6 +7,4 @@ import { EditViewBase } from './EditViewBase';
  * @class EditView3Base
  * @extends {EditViewBase}
  */
-export class EditView3Base extends EditViewBase {
-
-}
+export class EditView3Base extends EditViewBase {}

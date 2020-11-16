@@ -1,5 +1,6 @@
 import { Http,Util,HttpResponse } from '@/ibiz-core/utils';
 import  { EntityService }  from '@/ibiz-core';
+import { GetCurUserConcatLogic } from './get-cur-user-concat-logic';
 
 
 
@@ -362,6 +363,34 @@ export class TestTaskServiceBase extends EntityService {
     }
 
     /**
+     * MobTestTaskCounter接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async MobTestTaskCounter(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.testtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/testtasks/${context.testtask}/mobtesttaskcounter`,data,isloading);
+            
+            return res;
+        }
+        if(context.product && context.testtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/${context.testtask}/mobtesttaskcounter`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/mobtesttaskcounter`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -471,5 +500,45 @@ export class TestTaskServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/testtasks/fetchdefault`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * FetchMyTestTaskPc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async FetchMyTestTaskPc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/testtasks/fetchmytesttaskpc`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/testtasks/fetchmytesttaskpc`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/testtasks/fetchmytesttaskpc`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * GetUserConcat接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async GetUserConcat(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let appLogic:GetCurUserConcatLogic = new GetCurUserConcatLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        const res = await appLogic.onExecute(context,data,isloading?true:false);
+        return {status:200,data:res};
     }
 }

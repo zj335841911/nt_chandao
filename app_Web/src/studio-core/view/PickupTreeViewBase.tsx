@@ -9,7 +9,6 @@ import { TreeViewBase } from './TreeViewBase';
  * @extends {MDViewBase}
  */
 export class PickupTreeViewBase extends TreeViewBase {
-
     /**
      * 选中数据字符串
      *
@@ -34,7 +33,7 @@ export class PickupTreeViewBase extends TreeViewBase {
      * @type {boolean}
      * @memberof PickupTreeViewBase
      */
-    @Prop({default: true})
+    @Prop({ default: true })
     public isShowButton!: boolean;
 
     /**

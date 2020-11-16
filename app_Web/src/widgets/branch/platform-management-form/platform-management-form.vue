@@ -1,5 +1,5 @@
-<template src="./platform-management-form.html"/>
-<script lang='tsx'>
+<template src="./platform-management-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { PlatformManagementEditFormBase } from './platform-management-form-base';
@@ -15,8 +15,8 @@ import { PlatformManagementEditFormBase } from './platform-management-form-base'
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class PlatformManagementEditForm extends PlatformManagementEditFormBase { }
+export default class PlatformManagementEditForm extends PlatformManagementEditFormBase {}
 </script>

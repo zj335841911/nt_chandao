@@ -33,8 +33,12 @@
     :error="detailsModel.realname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.realname" 
-    :context="context" 
+    v-if="data.realname"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.realname" 
     :itemParam="{}"/>
 </app-form-item>
@@ -57,11 +61,15 @@
     :error="detailsModel.gender.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="User__gender"
     :isCache="false" 
-    v-if="data.gender" 
-    :context="context" 
+    v-if="data.gender"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.gender" 
     :itemParam="{}"/>
 </app-form-item>
@@ -84,8 +92,12 @@
     :error="detailsModel.account.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.account" 
-    :context="context" 
+    v-if="data.account"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.account" 
     :itemParam="{}"/>
 </app-form-item>
@@ -108,8 +120,12 @@
     :error="detailsModel.address.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.address" 
-    :context="context" 
+    v-if="data.address"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.address" 
     :itemParam="{}"/>
 </app-form-item>
@@ -132,8 +148,12 @@
     :error="detailsModel.dingding.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.dingding" 
-    :context="context" 
+    v-if="data.dingding"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.dingding" 
     :itemParam="{}"/>
 </app-form-item>
@@ -156,8 +176,12 @@
     :error="detailsModel.phone.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.phone" 
-    :context="context" 
+    v-if="data.phone"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.phone" 
     :itemParam="{}"/>
 </app-form-item>
@@ -180,8 +204,12 @@
     :error="detailsModel.mobile.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.mobile" 
-    :context="context" 
+    v-if="data.mobile"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.mobile" 
     :itemParam="{}"/>
 </app-form-item>
@@ -204,11 +232,15 @@
     :error="detailsModel.role.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="Role"
     :isCache="false" 
-    v-if="data.role" 
-    :context="context" 
+    v-if="data.role"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.role" 
     :itemParam="{}"/>
 </app-form-item>
@@ -231,8 +263,12 @@
     :error="detailsModel.qq.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.qq" 
-    :context="context" 
+    v-if="data.qq"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.qq" 
     :itemParam="{}"/>
 </app-form-item>
@@ -255,8 +291,12 @@
     :error="detailsModel.weixin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.weixin" 
-    :context="context" 
+    v-if="data.weixin"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.weixin" 
     :itemParam="{}"/>
 </app-form-item>
@@ -534,6 +574,16 @@ export default class UserCenterBase extends Vue implements ControlInterface {
      * @memberof UserCenter
      */
     protected formState: Subject<any> = new Subject();
+
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof UserCenterBase
+     */
+    public appStateEvent: Subscription | undefined;
 
     /**
      * 忽略表单项值变化
@@ -1331,6 +1381,16 @@ export default class UserCenterBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"User")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1353,6 +1413,9 @@ export default class UserCenterBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1562,7 +1625,7 @@ export default class UserCenterBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"User",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"User",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

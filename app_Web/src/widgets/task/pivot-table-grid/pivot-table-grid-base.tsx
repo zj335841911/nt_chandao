@@ -1,12 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import PivotTableService from './pivot-table-grid-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +16,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {PivotTableGridBase}
  */
 export class PivotTableGridBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +65,7 @@ export class PivotTableGridBase extends MainControlBase {
      * @type {TaskUIService}
      * @memberof PivotTableBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
 
     /**
@@ -622,11 +621,13 @@ export class PivotTableGridBase extends MainControlBase {
      * @type {*}
      * @memberof PivotTable
      */
-    public rules: any = {
+    public rules(){
+        return {
         srfkey: [
              { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**
@@ -641,7 +642,7 @@ export class PivotTableGridBase extends MainControlBase {
      */
     public validate(property:string, data:any, rowIndex:number):Promise<any>{
         return new Promise((resolve, reject) => {
-            this.$util.validateItem(property,data,this.rules).then(()=>{
+            this.$util.validateItem(property,data,this.rules() as any).then(()=>{
                 this.gridItemsModel[rowIndex][property].setError(null);
                 resolve(true);
             }).catch((res: any) => {
@@ -663,7 +664,7 @@ export class PivotTableGridBase extends MainControlBase {
         for(let item of this.items){
           index++;
           if(item.rowDataState === "create" || item.rowDataState === "update"){
-            for(let property of Object.keys(this.rules)){
+            for(let property of Object.keys(this.rules() as any)){
               if(!await this.validate(property,item,index)){
                 validateState = false;
               }

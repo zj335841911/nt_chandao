@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -32,10 +34,10 @@ import cn.ibizlab.pms.util.domain.EntityClient;
 public class PSSysReqModule extends EntityClient implements Serializable {
     @Override
     public void modify(String field, Object val) {
-        getExtensionparams().put("dirtyflagenable",true);
+        getExtensionparams().put("dirtyflagenable", true);
         super.modify(field, val);
     }
-    
+
     /**
      * 系统需求模块名称
      */
@@ -47,15 +49,15 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
 
     /**
      * 系统需求模块标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @JSONField(name = "pssysreqmoduleid")
     @JsonProperty("pssysreqmoduleid")
     private String pssysreqmoduleid;
@@ -80,8 +82,8 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
@@ -247,145 +249,145 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     /**
      * 设置 [系统需求模块名称]
      */
-    public void setPssysreqmodulename(String pssysreqmodulename){
+    public void setPssysreqmodulename(String pssysreqmodulename) {
         this.pssysreqmodulename = pssysreqmodulename ;
-        this.modify("pssysreqmodulename",pssysreqmodulename);
+        this.modify("pssysreqmodulename", pssysreqmodulename);
     }
 
     /**
      * 设置 [内容]
      */
-    public void setContent(String content){
+    public void setContent(String content) {
         this.content = content ;
-        this.modify("content",content);
+        this.modify("content", content);
     }
 
     /**
      * 设置 [代码标识]
      */
-    public void setCodename(String codename){
+    public void setCodename(String codename) {
         this.codename = codename ;
-        this.modify("codename",codename);
+        this.modify("codename", codename);
     }
 
     /**
      * 设置 [备注]
      */
-    public void setMemo(String memo){
+    public void setMemo(String memo) {
         this.memo = memo ;
-        this.modify("memo",memo);
+        this.modify("memo", memo);
     }
 
     /**
      * 设置 [模块标记]
      */
-    public void setModuletag(String moduletag){
+    public void setModuletag(String moduletag) {
         this.moduletag = moduletag ;
-        this.modify("moduletag",moduletag);
+        this.modify("moduletag", moduletag);
     }
 
     /**
      * 设置 [模块编号]
      */
-    public void setModulesn(String modulesn){
+    public void setModulesn(String modulesn) {
         this.modulesn = modulesn ;
-        this.modify("modulesn",modulesn);
+        this.modify("modulesn", modulesn);
     }
 
     /**
      * 设置 [模块标记2]
      */
-    public void setModuletag2(String moduletag2){
+    public void setModuletag2(String moduletag2) {
         this.moduletag2 = moduletag2 ;
-        this.modify("moduletag2",moduletag2);
+        this.modify("moduletag2", moduletag2);
     }
 
     /**
      * 设置 [模块标记3]
      */
-    public void setModuletag3(String moduletag3){
+    public void setModuletag3(String moduletag3) {
         this.moduletag3 = moduletag3 ;
-        this.modify("moduletag3",moduletag3);
+        this.modify("moduletag3", moduletag3);
     }
 
     /**
      * 设置 [模块标记4]
      */
-    public void setModuletag4(String moduletag4){
+    public void setModuletag4(String moduletag4) {
         this.moduletag4 = moduletag4 ;
-        this.modify("moduletag4",moduletag4);
+        this.modify("moduletag4", moduletag4);
     }
 
     /**
      * 设置 [用户分类]
      */
-    public void setUsercat(String usercat){
+    public void setUsercat(String usercat) {
         this.usercat = usercat ;
-        this.modify("usercat",usercat);
+        this.modify("usercat", usercat);
     }
 
     /**
      * 设置 [用户标记2]
      */
-    public void setUsertag2(String usertag2){
+    public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
-        this.modify("usertag2",usertag2);
+        this.modify("usertag2", usertag2);
     }
 
     /**
      * 设置 [用户标记]
      */
-    public void setUsertag(String usertag){
+    public void setUsertag(String usertag) {
         this.usertag = usertag ;
-        this.modify("usertag",usertag);
+        this.modify("usertag", usertag);
     }
 
     /**
      * 设置 [用户标记3]
      */
-    public void setUsertag3(String usertag3){
+    public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
-        this.modify("usertag3",usertag3);
+        this.modify("usertag3", usertag3);
     }
 
     /**
      * 设置 [用户标记4]
      */
-    public void setUsertag4(String usertag4){
+    public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
-        this.modify("usertag4",usertag4);
+        this.modify("usertag4", usertag4);
     }
 
     /**
      * 设置 [系统]
      */
-    public void setPssystemid(String pssystemid){
+    public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
-        this.modify("pssystemid",pssystemid);
+        this.modify("pssystemid", pssystemid);
     }
 
     /**
      * 设置 [系统]
      */
-    public void setPssystemname(String pssystemname){
+    public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
-        this.modify("pssystemname",pssystemname);
+        this.modify("pssystemname", pssystemname);
     }
 
     /**
      * 设置 [父需求模块]
      */
-    public void setPpssysreqmoduleid(String ppssysreqmoduleid){
+    public void setPpssysreqmoduleid(String ppssysreqmoduleid) {
         this.ppssysreqmoduleid = ppssysreqmoduleid ;
-        this.modify("ppssysreqmoduleid",ppssysreqmoduleid);
+        this.modify("ppssysreqmoduleid", ppssysreqmoduleid);
     }
 
     /**
      * 设置 [系统模块]
      */
-    public void setPsmoduleid(String psmoduleid){
+    public void setPsmoduleid(String psmoduleid) {
         this.psmoduleid = psmoduleid ;
-        this.modify("psmoduleid",psmoduleid);
+        this.modify("psmoduleid", psmoduleid);
     }
 
     /**
@@ -398,7 +400,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("pssysreqmoduleid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

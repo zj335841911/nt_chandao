@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { ListViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductAuthService from '@/authservice/product/product-auth-service';
 import ListViewEngine from '@engine/view/list-view-engine';
 import ProductUIService from '@/uiservice/product/product-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProductTestLeftSidebarListViewBase
      */ 
-    protected dataControl:string = "list";
+    protected dataControl: string = "list";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
         srfCaption: 'entities.product.views.testleftsidebarlistview.caption',
         srfTitle: 'entities.product.views.testleftsidebarlistview.title',
         srfSubTitle: 'entities.product.views.testleftsidebarlistview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProductTestLeftSidebarListViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_list: { name: 'list', type: 'LIST' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_list: {
+            name: 'list',
+            type: 'LIST',
+        },
     };
 
     /**
@@ -102,9 +108,9 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProductTestLeftSidebarListView
      */
     public toolBarModels: any = {
-        deuiaction3_testmanager: { name: 'deuiaction3_testmanager', caption: '管理', 'isShowCaption': false, 'isShowIcon': true, tooltip: '管理', iconcls: 'fa fa-list', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'TestManager', target: 'NONE', class: '' } },
+        deuiaction3_testmanager: { name: 'deuiaction3_testmanager', caption: '管理', 'isShowCaption': false, 'isShowIcon': true, tooltip: '管理', iconcls: 'fa fa-list', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'TestManager', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': false, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': false, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 
@@ -116,9 +122,9 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProductTestLeftSidebarListView
      */
     public testleftsidebarlistviewlist_quicktoolbarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '置顶', 'isShowCaption': false, 'isShowIcon': true, tooltip: '置顶', iconcls: 'fa fa-hand-o-up', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', uiaction: { tag: 'ProductTop', target: 'SINGLEKEY', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '置顶', 'isShowCaption': false, 'isShowIcon': true, tooltip: '置顶', iconcls: 'fa fa-hand-o-up', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', uiaction: { tag: 'ProductTop', target: 'SINGLEKEY', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '取消置顶', 'isShowCaption': false, 'isShowIcon': true, tooltip: '取消置顶', iconcls: 'fa fa-hand-o-down', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', uiaction: { tag: 'CancelProductTop', target: 'SINGLEKEY', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '取消置顶', 'isShowCaption': false, 'isShowIcon': true, tooltip: '取消置顶', iconcls: 'fa fa-hand-o-down', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'TOP', uiaction: { tag: 'CancelProductTop', target: 'SINGLEKEY', class: '' } },
 
     };
 
@@ -129,9 +135,18 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductTestLeftSidebarListViewBase
      */
 	protected viewtag: string = '7af111f4c127f7032c3e12e8c5fc0045';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductTestLeftSidebarListViewBase
+     */ 
+    protected viewName: string = "ProductTestLeftSidebarListView";
 
 
     /**
@@ -150,7 +165,9 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @type {Array<*>}
      * @memberof ProductTestLeftSidebarListViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -162,11 +179,11 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
         this.engine.init({
             view: this,
             list: this.$refs.list,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'product',
             majorPSDEField: 'name',

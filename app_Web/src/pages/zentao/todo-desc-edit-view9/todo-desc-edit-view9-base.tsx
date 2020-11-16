@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import TodoService from '@/service/todo/todo-service';
 import TodoAuthService from '@/authservice/todo/todo-auth-service';
@@ -48,7 +48,7 @@ export class TodoDescEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof TodoDescEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class TodoDescEditView9Base extends EditView9Base {
         srfCaption: 'entities.todo.views.desceditview9.caption',
         srfTitle: 'entities.todo.views.desceditview9.title',
         srfSubTitle: 'entities.todo.views.desceditview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class TodoDescEditView9Base extends EditView9Base {
      * @memberof TodoDescEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -97,9 +100,18 @@ export class TodoDescEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TodoDescEditView9Base
      */
 	protected viewtag: string = '7c7a1fdf074c475a128c920a952762fa';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoDescEditView9Base
+     */ 
+    protected viewName: string = "TodoDescEditView9";
 
 
     /**
@@ -118,7 +130,9 @@ export class TodoDescEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof TodoDescEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

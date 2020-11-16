@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import IbzMyTerritoryAuthService from '@/authservice/ibz-my-territory/ibz-my-territory-auth-service';
@@ -62,7 +62,7 @@ export class IbzMyTerritoryStatsTabExpViewBase extends TabExpViewBase {
      *
      * @memberof IbzMyTerritoryStatsTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class IbzMyTerritoryStatsTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.ibzmyterritory.views.statstabexpview.caption',
         srfTitle: 'entities.ibzmyterritory.views.statstabexpview.title',
         srfSubTitle: 'entities.ibzmyterritory.views.statstabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class IbzMyTerritoryStatsTabExpViewBase extends TabExpViewBase {
      * @memberof IbzMyTerritoryStatsTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -95,9 +98,18 @@ export class IbzMyTerritoryStatsTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzMyTerritoryStatsTabExpViewBase
      */
 	protected viewtag: string = 'c8171c13c1ba215f65c8587df1d98ba5';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzMyTerritoryStatsTabExpViewBase
+     */ 
+    protected viewName: string = "IbzMyTerritoryStatsTabExpView";
 
 
     /**
@@ -116,7 +128,9 @@ export class IbzMyTerritoryStatsTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof IbzMyTerritoryStatsTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

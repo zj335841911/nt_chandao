@@ -1,8 +1,9 @@
 <template>
 <div class="app-mob-meditviewpanel ibztaskteam-meditviewpanel ">
 <div class="app-medit-view-panel">
-    <div v-for="(item,index) in items" :key="index" class="app-medit-view-panel-card">
+    <div v-for="item in items" :key="item.id" class="app-medit-view-panel-card">
         <ion-card>
+          <div class="meditviewpanel_delete_icon_container" ><ion-icon @click="deleteItem(item)" class="meditviewpanel_delete_icon" name="close-circle-outline"></ion-icon></div>
           <ion-card-content>
             <task-team-mob-edit-view9 
               class="viewcontainer2"
@@ -479,9 +480,10 @@ export default class MainBase extends Vue implements ControlInterface {
      * 删除方法
      *
      * @type {string}
-     * @memberof Meditviewpanel
+     * @memberof Main
      */
-    public deleteItem(item: any, index: number) {
+    public deleteItem(item:any) {
+        let index = this.items.findIndex((i)=>{return Object.is(item.id,i.id)});
         this.items.splice(index,1);
     }
 

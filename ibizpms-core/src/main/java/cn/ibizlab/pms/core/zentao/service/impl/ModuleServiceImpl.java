@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Module;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.ModuleMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -70,29 +72,24 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Transactional
     public boolean create(Module et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
+        }
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
+    @Transactional
     public void createBatch(List<Module> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
         @Override
     @Transactional
     public boolean update(Module et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTModuleHelper.edit(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "update"), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-        et.set("ztrst", rst);
-        return bRst;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ModuleHelper.class).edit(et);
     }
 
     @Override
@@ -102,12 +99,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
         @Override
     @Transactional
     public boolean remove(Long key) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        Module et = this.get(key);
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTModuleHelper.delete(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
-        et.set("ztrst", rst);
-        return bRst;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ModuleHelper.class).delete(key);
     }
 
     @Override
@@ -122,11 +114,11 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Transactional
     public Module get(Long key) {
         Module et = getById(key);
-        if(et==null){
-            et=new Module();
+        if (et == null) {
+            et = new Module();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -139,26 +131,20 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
     @Override
     public boolean checkKey(Module et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
     public Module fix(Module et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTModuleHelper.fix(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "fix"), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-        et.set("ztrst", rst);
-        return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ModuleHelper.class).fix(et);
     }
 
     @Override
     @Transactional
     public boolean save(Module et) {
-        if(!saveOrUpdate(et))
+        if (!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -173,37 +159,37 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<Module> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<Module> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<Module> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
-
     @Override
     public void removeByBranch(Long id) {
-        this.remove(new QueryWrapper<Module>().eq("branch",id));
+        this.remove(new QueryWrapper<Module>().eq("branch", id));
     }
 
-	@Override
+    @Override
     public List<Module> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
-
     @Override
     public void removeByParent(Long id) {
-        this.remove(new QueryWrapper<Module>().eq("parent",id));
+        this.remove(new QueryWrapper<Module>().eq("parent", id));
     }
 
 
@@ -212,7 +198,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchBugModule(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchBugModule(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchBugModule(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -221,7 +207,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchDefault(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -230,7 +216,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchDocModule(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchDocModule(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchDocModule(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -239,7 +225,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchLine(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchLine(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchLine(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -248,7 +234,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchStoryModule(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchStoryModule(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchStoryModule(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -260,12 +246,12 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     private void fillParentData(Module et){
         //实体关系[DER1N__ZT_MODULE__ZT_MODULE__PARENT]
-        if(!ObjectUtils.isEmpty(et.getParent())){
+        if (!ObjectUtils.isEmpty(et.getParent())) {
             cn.ibizlab.pms.core.zentao.domain.Module ibizparent=et.getIbizparent();
-            if(ObjectUtils.isEmpty(ibizparent)){
+            if (ObjectUtils.isEmpty(ibizparent)) {
                 cn.ibizlab.pms.core.zentao.domain.Module majorEntity=moduleService.get(et.getParent());
                 et.setIbizparent(majorEntity);
-                ibizparent=majorEntity;
+                ibizparent = majorEntity;
             }
             et.setParentname(ibizparent.getName());
         }
@@ -275,28 +261,52 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+    @Override
+    public List<Module> getModuleByIds(List<Long> ids) {
+         return this.listByIds(ids);
+    }
+
+    @Override
+    public List<Module> getModuleByEntities(List<Module> entities) {
+        List ids =new ArrayList();
+        for(Module entity : entities){
+            Serializable id=entity.getId();
+            if (!ObjectUtils.isEmpty(id)) {
+                ids.add(id);
+            }
+        }
+        if (ids.size() > 0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
+    }
+
+
 
 
 }

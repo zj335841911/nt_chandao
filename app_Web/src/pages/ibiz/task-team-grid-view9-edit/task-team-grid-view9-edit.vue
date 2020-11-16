@@ -1,5 +1,5 @@
-<template src="./task-team-grid-view9-edit.html"/>
-<script lang='tsx'>
+<template src="./task-team-grid-view9-edit.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskTeamGridView9_EditBase } from './task-team-grid-view9-edit-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/ibztask-team/main-edit-grid/main-edit-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskTeamGridView9_Edit extends TaskTeamGridView9_EditBase { }
+export default class TaskTeamGridView9_Edit extends TaskTeamGridView9_EditBase {}
 </script>

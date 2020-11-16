@@ -1,5 +1,5 @@
-<template src="./my-group-main-grid.html"/>
-<script lang='tsx'>
+<template src="./my-group-main-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MyGroupMainGridBase } from './my-group-main-grid-base';
@@ -15,8 +15,8 @@ import { MyGroupMainGridBase } from './my-group-main-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MyGroupMainGrid extends MyGroupMainGridBase { }
+export default class MyGroupMainGrid extends MyGroupMainGridBase {}
 </script>

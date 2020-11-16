@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface DynaDashboardMapper extends BaseMapper<DynaDashboard>{
+public interface DynaDashboardMapper extends BaseMapper<DynaDashboard> {
 
-    Page<DynaDashboard> searchDefault(IPage page, @Param("srf") DynaDashboardSearchContext context, @Param("ew") Wrapper<DynaDashboard> wrapper) ;
+    Page<DynaDashboard> searchDefault(IPage page, @Param("srf") DynaDashboardSearchContext context, @Param("ew") Wrapper<DynaDashboard> wrapper);
     @Override
     DynaDashboard selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface DynaDashboardMapper extends BaseMapper<DynaDashboard>{
     int update(@Param(Constants.ENTITY) DynaDashboard entity, @Param("ew") Wrapper<DynaDashboard> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

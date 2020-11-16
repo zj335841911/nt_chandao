@@ -1,4 +1,5 @@
-import { Http,Util } from '@/utils';
+import { Http } from '@/utils';
+import { Util } from '@/utils';
 import EntityService from '../entity-service';
 
 
@@ -186,6 +187,36 @@ export default class FileServiceBase extends EntityService {
     }
 
     /**
+     * FetchDocLibFile接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async FetchDocLibFile(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/files/fetchdoclibfile`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchProductDocLibFile接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async FetchProductDocLibFile(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/files/fetchproductdoclibfile`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchType接口方法
      *
      * @param {*} [context={}]
@@ -198,5 +229,17 @@ export default class FileServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/files/fetchtype`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * Ibzdownload接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async Ibzdownload(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 }

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { ViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductAuthService from '@/authservice/product/product-auth-service';
@@ -68,8 +68,8 @@ export class ProductHtmlViewBase extends ViewBase {
         srfCaption: 'entities.product.views.htmlview.caption',
         srfTitle: 'entities.product.views.htmlview.title',
         srfSubTitle: 'entities.product.views.htmlview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -87,9 +87,18 @@ export class ProductHtmlViewBase extends ViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductHtmlViewBase
      */
 	protected viewtag: string = '0846a45e5ffdd4d8f857575cfa955dce';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductHtmlViewBase
+     */ 
+    protected viewName: string = "ProductHtmlView";
 
 
     /**
@@ -108,7 +117,9 @@ export class ProductHtmlViewBase extends ViewBase {
      * @type {Array<*>}
      * @memberof ProductHtmlViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

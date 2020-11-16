@@ -1,5 +1,5 @@
-<template src="./story-affect-bug-grid.html"/>
-<script lang='tsx'>
+<template src="./story-affect-bug-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryAffectBugGridBase } from './story-affect-bug-grid-base';
@@ -15,8 +15,8 @@ import { StoryAffectBugGridBase } from './story-affect-bug-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class StoryAffectBugGrid extends StoryAffectBugGridBase { }
+export default class StoryAffectBugGrid extends StoryAffectBugGridBase {}
 </script>

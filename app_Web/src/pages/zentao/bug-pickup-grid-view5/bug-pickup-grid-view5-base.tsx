@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { PickupGridViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -48,7 +48,7 @@ export class BugPickupGridView5Base extends PickupGridViewBase {
      * @type {string}
      * @memberof BugPickupGridView5Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class BugPickupGridView5Base extends PickupGridViewBase {
         srfCaption: 'entities.bug.views.pickupgridview5.caption',
         srfTitle: 'entities.bug.views.pickupgridview5.title',
         srfSubTitle: 'entities.bug.views.pickupgridview5.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class BugPickupGridView5Base extends PickupGridViewBase {
      * @memberof BugPickupGridView5Base
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -97,9 +100,18 @@ export class BugPickupGridView5Base extends PickupGridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugPickupGridView5Base
      */
 	protected viewtag: string = 'becbcfda999bc9082dd51a7629f00dd7';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugPickupGridView5Base
+     */ 
+    protected viewName: string = "BugPickupGridView5";
 
 
     /**
@@ -118,7 +130,9 @@ export class BugPickupGridView5Base extends PickupGridViewBase {
      * @type {Array<*>}
      * @memberof BugPickupGridView5Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

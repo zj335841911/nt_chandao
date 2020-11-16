@@ -1,5 +1,5 @@
-<template src="./project-task-tree-exp-view.html"/>
-<script lang='tsx'>
+<template src="./project-task-tree-exp-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectTaskTreeExpViewBase } from './project-task-tree-exp-view-base';
@@ -18,5 +18,5 @@ import view_treeexpbar from '@widgets/project/task-tree-exp-viewtreeexpbar-treee
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectTaskTreeExpView extends ProjectTaskTreeExpViewBase { }
+export default class ProjectTaskTreeExpView extends ProjectTaskTreeExpViewBase {}
 </script>

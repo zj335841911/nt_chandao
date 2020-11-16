@@ -7,7 +7,6 @@ import ViewEngine from './view-engine';
  * @class GridViewEngine
  */
 export default class WizardViewEngine extends ViewEngine {
-
     /**
      * 向导面板部件
      *

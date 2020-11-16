@@ -42,7 +42,7 @@
     v-show="detailsModel.productname.visible" 
     :itemRules="this.rules.productname" 
     :caption="$t('bug.mobnewfrom_form.details.productname')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.productname.disabled"
     :error="detailsModel.productname.error" 
@@ -82,7 +82,7 @@
     v-show="detailsModel.branch.visible" 
     :itemRules="this.rules.branch" 
     :caption="$t('bug.mobnewfrom_form.details.branch')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.branch.disabled"
     :error="detailsModel.branch.error" 
@@ -113,7 +113,7 @@
     v-show="detailsModel.modulename.visible" 
     :itemRules="this.rules.modulename" 
     :caption="$t('bug.mobnewfrom_form.details.modulename')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.modulename.disabled"
     :error="detailsModel.modulename.error" 
@@ -153,7 +153,7 @@
     v-show="detailsModel.projectname.visible" 
     :itemRules="this.rules.projectname" 
     :caption="$t('bug.mobnewfrom_form.details.projectname')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.projectname.disabled"
     :error="detailsModel.projectname.error" 
@@ -193,7 +193,7 @@
     v-show="detailsModel.openedbuild.visible" 
     :itemRules="this.rules.openedbuild" 
     :caption="$t('bug.mobnewfrom_form.details.openedbuild')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.openedbuild.disabled"
     :error="detailsModel.openedbuild.error" 
@@ -223,7 +223,7 @@
     v-show="detailsModel.assignedto.visible" 
     :itemRules="this.rules.assignedto" 
     :caption="$t('bug.mobnewfrom_form.details.assignedto')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.assignedto.disabled"
     :error="detailsModel.assignedto.error" 
@@ -254,7 +254,7 @@
     v-show="detailsModel.deadline.visible" 
     :itemRules="this.rules.deadline" 
     :caption="$t('bug.mobnewfrom_form.details.deadline')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.deadline.disabled"
     :error="detailsModel.deadline.error" 
@@ -279,7 +279,7 @@
     v-show="detailsModel.type.visible" 
     :itemRules="this.rules.type" 
     :caption="$t('bug.mobnewfrom_form.details.type')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.type.disabled"
     :error="detailsModel.type.error" 
@@ -310,7 +310,7 @@
     v-show="detailsModel.os.visible" 
     :itemRules="this.rules.os" 
     :caption="$t('bug.mobnewfrom_form.details.os')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.os.disabled"
     :error="detailsModel.os.error" 
@@ -341,7 +341,7 @@
     v-show="detailsModel.browser.visible" 
     :itemRules="this.rules.browser" 
     :caption="$t('bug.mobnewfrom_form.details.browser')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.browser.disabled"
     :error="detailsModel.browser.error" 
@@ -376,7 +376,7 @@
     v-show="detailsModel.title.visible" 
     :itemRules="this.rules.title" 
     :caption="$t('bug.mobnewfrom_form.details.title')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.title.disabled"
     :error="detailsModel.title.error" 
@@ -402,7 +402,7 @@
     v-show="detailsModel.severity.visible" 
     :itemRules="this.rules.severity" 
     :caption="$t('bug.mobnewfrom_form.details.severity')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.severity.disabled"
     :error="detailsModel.severity.error" 
@@ -433,7 +433,7 @@
     v-show="detailsModel.pri.visible" 
     :itemRules="this.rules.pri" 
     :caption="$t('bug.mobnewfrom_form.details.pri')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.pri.disabled"
     :error="detailsModel.pri.error" 
@@ -464,11 +464,12 @@
     v-show="detailsModel.steps.visible" 
     :itemRules="this.rules.steps" 
     :caption="$t('bug.mobnewfrom_form.details.steps')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
+    :disabled="detailsModel.steps.disabled"
     :error="detailsModel.steps.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
@@ -499,7 +500,7 @@
     v-show="detailsModel.storyname.visible" 
     :itemRules="this.rules.storyname" 
     :caption="$t('bug.mobnewfrom_form.details.storyname')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.storyname.disabled"
     :error="detailsModel.storyname.error" 
@@ -539,7 +540,7 @@
     v-show="detailsModel.taskname.visible" 
     :itemRules="this.rules.taskname" 
     :caption="$t('bug.mobnewfrom_form.details.taskname')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.taskname.disabled"
     :error="detailsModel.taskname.error" 
@@ -554,13 +555,13 @@
     :formState="formState"
     :data="data"
     :context="context"
-    :navigateContext ='{ "n_project_eq": "%project%" } '
-    :navigateParam ='{ "n_project_eq": "%project%" } '
+    :navigateContext ='{ "project": "%project%" } '
+    :navigateParam ='{ "project": "%project%" } '
     :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.taskname.disabled"
     :service="service"
-    :acParams="{ serviceName: 'task', interfaceName: 'FetchDefault'}"
+    :acParams="{ serviceName: 'task', interfaceName: 'FetchBugTask'}"
     :value="data.taskname" 
     @formitemvaluechange="onFormItemValueChange"
     @change="($event)=>this.data.taskname = $event">
@@ -579,7 +580,7 @@
     v-show="detailsModel.mailto.visible" 
     :itemRules="this.rules.mailto" 
     :caption="$t('bug.mobnewfrom_form.details.mailto')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.mailto.disabled"
     :error="detailsModel.mailto.error" 
@@ -612,7 +613,7 @@
     v-show="detailsModel.keywords.visible" 
     :itemRules="this.rules.keywords" 
     :caption="$t('bug.mobnewfrom_form.details.keywords')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.keywords.disabled"
     :error="detailsModel.keywords.error" 
@@ -624,6 +625,39 @@
     unit=""
     :disabled="detailsModel.keywords.disabled" 
     @change="($event)=>this.data.keywords = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='files' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="files_item"  
+    :itemValue="this.data.files" 
+    v-show="detailsModel.files.visible" 
+    :itemRules="this.rules.files" 
+    :caption="$t('bug.mobnewfrom_form.details.files')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.files.disabled"
+    :error="detailsModel.files.error" 
+    :isEmptyCaption="false">
+        <app-mob-file-upload 
+    name='files' 
+    style="overflow: auto;" 
+    :multiple="true" 
+    :formState="formState" 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)" 
+    :value="data.files" 
+    :disabled="detailsModel.files.disabled" 
+    :context="context" 
+    :viewparams="viewparams" 
+    :uploadParam='{}' 
+    :exportParam='{}' 
+    @formitemvaluechange="onFormItemValueChange" />
 </app-form-item>
 
 
@@ -904,6 +938,16 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
      */
     protected formState: Subject<any> = new Subject();
 
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobNewFROMBase
+     */
+    public appStateEvent: Subscription | undefined;
+
     /**
      * 忽略表单项值变化
      *
@@ -977,6 +1021,7 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         taskname: null,
         mailto: null,
         keywords: null,
+        files: null,
         id: null,
         bug: null,
     };
@@ -1186,6 +1231,8 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -1564,6 +1611,18 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 files 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFROM
+     */
+    @Watch('data.files')
+    onFilesChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'files', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -1632,6 +1691,7 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
@@ -1959,6 +2019,16 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Bug")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1981,6 +2051,9 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -2190,7 +2263,7 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Bug",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

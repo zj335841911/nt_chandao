@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface GroupPrivMapper extends BaseMapper<GroupPriv>{
+public interface GroupPrivMapper extends BaseMapper<GroupPriv> {
 
-    Page<GroupPriv> searchDefault(IPage page, @Param("srf") GroupPrivSearchContext context, @Param("ew") Wrapper<GroupPriv> wrapper) ;
+    Page<GroupPriv> searchDefault(IPage page, @Param("srf") GroupPrivSearchContext context, @Param("ew") Wrapper<GroupPriv> wrapper);
     @Override
     GroupPriv selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface GroupPrivMapper extends BaseMapper<GroupPriv>{
     int update(@Param(Constants.ENTITY) GroupPriv entity, @Param("ew") Wrapper<GroupPriv> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

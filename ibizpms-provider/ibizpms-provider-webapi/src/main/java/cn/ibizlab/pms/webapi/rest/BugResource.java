@@ -367,6 +367,17 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
+    @ApiOperation(value = "更新需求版本", tags = {"Bug" },  notes = "更新需求版本")
+	@RequestMapping(method = RequestMethod.PUT, value = "/bugs/{bug_id}/updatestoryversion")
+    public ResponseEntity<BugDTO> updateStoryVersion(@PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setId(bug_id);
+        domain = bugService.updateStoryVersion(domain);
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
 	@ApiOperation(value = "获取指派给我Bug", tags = {"Bug" } ,notes = "获取指派给我Bug")
     @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchassignedtomybug")
@@ -385,6 +396,28 @@ public class BugResource {
     @RequestMapping(method= RequestMethod.POST , value="/bugs/searchassignedtomybug")
 	public ResponseEntity<Page<BugDTO>> searchAssignedToMyBug(@RequestBody BugSearchContext context) {
         Page<Bug> domains = bugService.searchAssignedToMyBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "获取指派给我Bug（PC）", tags = {"Bug" } ,notes = "获取指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchassignedtomybugpc")
+	public ResponseEntity<List<BugDTO>> fetchAssignedToMyBugPc(BugSearchContext context) {
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "查询指派给我Bug（PC）", tags = {"Bug" } ,notes = "查询指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.POST , value="/bugs/searchassignedtomybugpc")
+	public ResponseEntity<Page<BugDTO>> searchAssignedToMyBugPc(@RequestBody BugSearchContext context) {
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -825,6 +858,28 @@ public class BugResource {
     @RequestMapping(method= RequestMethod.POST , value="/bugs/searchmyfavorites")
 	public ResponseEntity<Page<BugDTO>> searchMyFavorites(@RequestBody BugSearchContext context) {
         Page<Bug> domains = bugService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "获取计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "获取计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchnotcurplanlinkbug")
+	public ResponseEntity<List<BugDTO>> fetchNotCurPlanLinkBug(BugSearchContext context) {
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "查询计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "查询计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/bugs/searchnotcurplanlinkbug")
+	public ResponseEntity<Page<BugDTO>> searchNotCurPlanLinkBug(@RequestBody BugSearchContext context) {
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -1300,6 +1355,17 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/bugs/{bug_id}/updatestoryversion")
+    public ResponseEntity<BugDTO> updateStoryVersionByProduct(@PathVariable("product_id") Long product_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setProduct(product_id);
+        domain = bugService.updateStoryVersion(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
 	@ApiOperation(value = "根据产品获取指派给我Bug", tags = {"Bug" } ,notes = "根据产品获取指派给我Bug")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchassignedtomybug")
@@ -1320,6 +1386,29 @@ public class BugResource {
 	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody BugSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Bug> domains = bugService.searchAssignedToMyBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据产品获取指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据产品获取指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchassignedtomybugpc")
+	public ResponseEntity<List<BugDTO>> fetchBugAssignedToMyBugPcByProduct(@PathVariable("product_id") Long product_id,BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据产品查询指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据产品查询指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchassignedtomybugpc")
+	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugPcByProduct(@PathVariable("product_id") Long product_id, @RequestBody BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -1780,6 +1869,29 @@ public class BugResource {
 	public ResponseEntity<Page<BugDTO>> searchBugMyFavoritesByProduct(@PathVariable("product_id") Long product_id, @RequestBody BugSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Bug> domains = bugService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据产品获取计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据产品获取计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchnotcurplanlinkbug")
+	public ResponseEntity<List<BugDTO>> fetchBugNotCurPlanLinkBugByProduct(@PathVariable("product_id") Long product_id,BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据产品查询计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据产品查询计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchnotcurplanlinkbug")
+	public ResponseEntity<Page<BugDTO>> searchBugNotCurPlanLinkBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -2259,6 +2371,17 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/bugs/{bug_id}/updatestoryversion")
+    public ResponseEntity<BugDTO> updateStoryVersionByStory(@PathVariable("story_id") Long story_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setStory(story_id);
+        domain = bugService.updateStoryVersion(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
 	@ApiOperation(value = "根据需求获取指派给我Bug", tags = {"Bug" } ,notes = "根据需求获取指派给我Bug")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/bugs/fetchassignedtomybug")
@@ -2279,6 +2402,29 @@ public class BugResource {
 	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugByStory(@PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Bug> domains = bugService.searchAssignedToMyBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据需求获取指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据需求获取指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/bugs/fetchassignedtomybugpc")
+	public ResponseEntity<List<BugDTO>> fetchBugAssignedToMyBugPcByStory(@PathVariable("story_id") Long story_id,BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据需求查询指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据需求查询指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/bugs/searchassignedtomybugpc")
+	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugPcByStory(@PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -2739,6 +2885,29 @@ public class BugResource {
 	public ResponseEntity<Page<BugDTO>> searchBugMyFavoritesByStory(@PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Bug> domains = bugService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据需求获取计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据需求获取计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/bugs/fetchnotcurplanlinkbug")
+	public ResponseEntity<List<BugDTO>> fetchBugNotCurPlanLinkBugByStory(@PathVariable("story_id") Long story_id,BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据需求查询计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据需求查询计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/bugs/searchnotcurplanlinkbug")
+	public ResponseEntity<Page<BugDTO>> searchBugNotCurPlanLinkBugByStory(@PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -3218,6 +3387,17 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/bugs/{bug_id}/updatestoryversion")
+    public ResponseEntity<BugDTO> updateStoryVersionByProject(@PathVariable("project_id") Long project_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setProject(project_id);
+        domain = bugService.updateStoryVersion(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
 	@ApiOperation(value = "根据项目获取指派给我Bug", tags = {"Bug" } ,notes = "根据项目获取指派给我Bug")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchassignedtomybug")
@@ -3238,6 +3418,29 @@ public class BugResource {
 	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugByProject(@PathVariable("project_id") Long project_id, @RequestBody BugSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Bug> domains = bugService.searchAssignedToMyBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据项目获取指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据项目获取指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchassignedtomybugpc")
+	public ResponseEntity<List<BugDTO>> fetchBugAssignedToMyBugPcByProject(@PathVariable("project_id") Long project_id,BugSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据项目查询指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据项目查询指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/bugs/searchassignedtomybugpc")
+	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugPcByProject(@PathVariable("project_id") Long project_id, @RequestBody BugSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -3698,6 +3901,29 @@ public class BugResource {
 	public ResponseEntity<Page<BugDTO>> searchBugMyFavoritesByProject(@PathVariable("project_id") Long project_id, @RequestBody BugSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Bug> domains = bugService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据项目获取计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据项目获取计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchnotcurplanlinkbug")
+	public ResponseEntity<List<BugDTO>> fetchBugNotCurPlanLinkBugByProject(@PathVariable("project_id") Long project_id,BugSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据项目查询计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据项目查询计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/bugs/searchnotcurplanlinkbug")
+	public ResponseEntity<Page<BugDTO>> searchBugNotCurPlanLinkBugByProject(@PathVariable("project_id") Long project_id, @RequestBody BugSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -4177,6 +4403,17 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/updatestoryversion")
+    public ResponseEntity<BugDTO> updateStoryVersionByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setStory(story_id);
+        domain = bugService.updateStoryVersion(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
 	@ApiOperation(value = "根据产品需求获取指派给我Bug", tags = {"Bug" } ,notes = "根据产品需求获取指派给我Bug")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/bugs/fetchassignedtomybug")
@@ -4197,6 +4434,29 @@ public class BugResource {
 	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Bug> domains = bugService.searchAssignedToMyBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据产品需求获取指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据产品需求获取指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/bugs/fetchassignedtomybugpc")
+	public ResponseEntity<List<BugDTO>> fetchBugAssignedToMyBugPcByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBugPc-all')")
+	@ApiOperation(value = "根据产品需求查询指派给我Bug（PC）", tags = {"Bug" } ,notes = "根据产品需求查询指派给我Bug（PC）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/bugs/searchassignedtomybugpc")
+	public ResponseEntity<Page<BugDTO>> searchBugAssignedToMyBugPcByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchAssignedToMyBugPc(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -4657,6 +4917,29 @@ public class BugResource {
 	public ResponseEntity<Page<BugDTO>> searchBugMyFavoritesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Bug> domains = bugService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据产品需求获取计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据产品需求获取计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/bugs/fetchnotcurplanlinkbug")
+	public ResponseEntity<List<BugDTO>> fetchBugNotCurPlanLinkBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchNotCurPlanLinkBug-all')")
+	@ApiOperation(value = "根据产品需求查询计划关联bug（去除已关联）", tags = {"Bug" } ,notes = "根据产品需求查询计划关联bug（去除已关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/bugs/searchnotcurplanlinkbug")
+	public ResponseEntity<Page<BugDTO>> searchBugNotCurPlanLinkBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchNotCurPlanLinkBug(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

@@ -1,33 +1,32 @@
 <template>
-    <el-autocomplete 
-      class='text-value' 
-      :value-key="deMajorField" 
-      :disabled="disabled" 
-      v-model="curvalue" 
-      size='small'
-      :trigger-on-focus="true" 
-      :fetch-suggestions="onSearch" 
-      :sort="sort"
-      @select="onACSelect"
-      @input="onInput" 
-      @blur="onBlur" 
-      style='width:100%;'>
+    <el-autocomplete
+        class="text-value"
+        :value-key="deMajorField"
+        :disabled="disabled"
+        v-model="curvalue"
+        size="small"
+        :trigger-on-focus="true"
+        :fetch-suggestions="onSearch"
+        :sort="sort"
+        @select="onACSelect"
+        @input="onInput"
+        @blur="onBlur"
+        style="width: 100%"
+    >
         <template v-slot:suffix>
-            <i v-if="curvalue && !disabled" class='el-icon-circle-close' @click="onClear"></i>
+            <i v-if="curvalue && !disabled" class="el-icon-circle-close" @click="onClear"></i>
             <i class="el-icon-arrow-down"></i>
         </template>
     </el-autocomplete>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { Component, Vue, Prop, Model, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
-@Component({
-})
+@Component({})
 export default class AppAutocomplete extends Vue {
-
     /**
      * 表单数据
      *
@@ -58,7 +57,7 @@ export default class AppAutocomplete extends Vue {
      * @type {*}
      * @memberof AppFormDRUIPart
      */
-    @Prop({default: {}}) public acParams?: any;
+    @Prop({ default: {} }) public acParams?: any;
 
     /**
      * 表单服务
@@ -74,7 +73,7 @@ export default class AppAutocomplete extends Vue {
      * @type {string}
      * @memberof AppAutocomplete
      */
-    @Prop({default: 'srfmajortext'}) public deMajorField!: string;
+    @Prop({ default: 'srfmajortext' }) public deMajorField!: string;
 
     /**
      * 应用实体主键属性名称
@@ -82,7 +81,7 @@ export default class AppAutocomplete extends Vue {
      * @type {string}
      * @memberof AppAutocomplete
      */
-    @Prop({default: 'srfkey'}) public deKeyField!: string;
+    @Prop({ default: 'srfkey' }) public deKeyField!: string;
 
     /**
      * 是否启用
@@ -102,19 +101,19 @@ export default class AppAutocomplete extends Vue {
 
     /**
      * 局部上下文导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppAutocomplete
      */
-    @Prop() public localContext!:any;
+    @Prop() public localContext!: any;
 
     /**
      * 局部导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppAutocomplete
      */
-    @Prop() public localParam!:any;
+    @Prop() public localParam!: any;
 
     /**
      * 值项名称
@@ -131,7 +130,6 @@ export default class AppAutocomplete extends Vue {
      * @memberof AppAutocomplete
      */
     @Prop() public sort?: string;
-
 
     /**
      * 值
@@ -187,8 +185,8 @@ export default class AppAutocomplete extends Vue {
 
     /**
      * 执行搜索数据
-     * @param query 
-     * @param callback 
+     * @param query
+     * @param callback
      */
     public onSearch(query: any, callback: any): void {
         // 公共参数处理
@@ -206,51 +204,54 @@ export default class AppAutocomplete extends Vue {
             query = '';
         }
         this.inputState = false;
-        if(this.sort && !Object.is(this.sort, "")) {
+        if (this.sort && !Object.is(this.sort, '')) {
             Object.assign(_param, { sort: this.sort });
         }
         Object.assign(_param, { query: query });
         // 错误信息国际化
-        let error: string = (this.$t('components.appAutocomplete.error') as any);
-        let miss: string = (this.$t('components.appAutocomplete.miss') as any);
-        let requestException: string = (this.$t('components.appAutocomplete.requestException') as any);
+        let error: string = this.$t('components.appAutocomplete.error') as any;
+        let miss: string = this.$t('components.appAutocomplete.miss') as any;
+        let requestException: string = this.$t('components.appAutocomplete.requestException') as any;
 
-        if(!this.service){
-            this.$Notice.error({ title: error, desc: miss+'service' });
-        } else if(!this.acParams.serviceName) {
-            this.$Notice.error({ title: error, desc: miss+'serviceName' });
-        } else if(!this.acParams.interfaceName) {
-            this.$Notice.error({ title: error, desc: miss+'interfaceName' });
+        if (!this.service) {
+            this.$Notice.error({ title: error, desc: miss + 'service' });
+        } else if (!this.acParams.serviceName) {
+            this.$Notice.error({ title: error, desc: miss + 'serviceName' });
+        } else if (!this.acParams.interfaceName) {
+            this.$Notice.error({ title: error, desc: miss + 'interfaceName' });
         } else {
-          this.service.getItems(this.acParams.serviceName,this.acParams.interfaceName, _context, _param).then((response: any) => {
-              if (!response) {
-                  this.$Notice.error({ title: error, desc: requestException });
-              } else {
-                  this.items = [...response];
-              }
-              if (callback) {
-                  callback(this.items);
-              }
-          }).catch((error: any) => {
-              if (callback) {
-                  callback([]);
-              }
-          });
-        } 
+            this.service
+                .getItems(this.acParams.serviceName, this.acParams.interfaceName, _context, _param)
+                .then((response: any) => {
+                    if (!response) {
+                        this.$Notice.error({ title: error, desc: requestException });
+                    } else {
+                        this.items = [...response];
+                    }
+                    if (callback) {
+                        callback(this.items);
+                    }
+                })
+                .catch((error: any) => {
+                    if (callback) {
+                        callback([]);
+                    }
+                });
+        }
     }
 
     /**
      * 选中数据回调
-     * @param item 
+     * @param item
      */
     public onACSelect(item: any): void {
-      if (this.name) {
-          this.$emit('formitemvaluechange', { name: this.name, value: item[this.deMajorField] });
-      }
-      if (this.valueitem) {
-          this.$emit('formitemvaluechange', { name: this.valueitem, value: item[this.deKeyField] });
-      }
-  }
+        if (this.name) {
+            this.$emit('formitemvaluechange', { name: this.name, value: item[this.deMajorField] });
+        }
+        if (this.valueitem) {
+            this.$emit('formitemvaluechange', { name: this.valueitem, value: item[this.deKeyField] });
+        }
+    }
 
     /**
      * 输入过程中
@@ -265,7 +266,7 @@ export default class AppAutocomplete extends Vue {
 
     /**
      * 失去焦点事件
-     * @param e 
+     * @param e
      */
     public onBlur(e: any): void {
         let val: string = e.target.value;
@@ -288,7 +289,6 @@ export default class AppAutocomplete extends Vue {
         this.$forceUpdate();
     }
 
-    
     /**
      * 公共参数处理
      *
@@ -298,27 +298,29 @@ export default class AppAutocomplete extends Vue {
      */
     public handlePublicParams(arg: any): boolean {
         if (!this.data) {
-            this.$Notice.error({ title: (this.$t('components.AppAutocomplete.error') as any), desc: (this.$t('components.AppAutocomplete.formdataException') as any) });
+            this.$Notice.error({
+                title: this.$t('components.AppAutocomplete.error') as any,
+                desc: this.$t('components.AppAutocomplete.formdataException') as any,
+            });
             return false;
         }
         // 合并表单参数
         arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
         arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
         // 附加参数处理
-        if (this.localContext && Object.keys(this.localContext).length >0) {
-            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
-            Object.assign(arg.context,_context);
+        if (this.localContext && Object.keys(this.localContext).length > 0) {
+            let _context = this.$util.computedNavData(this.data, arg.context, arg.param, this.localContext);
+            Object.assign(arg.context, _context);
         }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
-            Object.assign(arg.param,_param);
+        if (this.localParam && Object.keys(this.localParam).length > 0) {
+            let _param = this.$util.computedNavData(this.data, arg.param, arg.param, this.localParam);
+            Object.assign(arg.param, _param);
         }
         return true;
     }
-
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import './app-autocomplete.less';
 </style>

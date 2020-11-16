@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -48,7 +48,7 @@ export class BugStepsInfoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugStepsInfoEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class BugStepsInfoEditViewBase extends EditViewBase {
      *
      * @memberof BugStepsInfoEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class BugStepsInfoEditViewBase extends EditViewBase {
         srfCaption: 'entities.bug.views.stepsinfoeditview.caption',
         srfTitle: 'entities.bug.views.stepsinfoeditview.title',
         srfSubTitle: 'entities.bug.views.stepsinfoeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,7 +95,10 @@ export class BugStepsInfoEditViewBase extends EditViewBase {
      * @memberof BugStepsInfoEditViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -104,9 +107,18 @@ export class BugStepsInfoEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugStepsInfoEditViewBase
      */
 	protected viewtag: string = '6558930042f15c2297572f51d7e77df5';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugStepsInfoEditViewBase
+     */ 
+    protected viewName: string = "BugStepsInfoEditView";
 
 
     /**
@@ -125,7 +137,9 @@ export class BugStepsInfoEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BugStepsInfoEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

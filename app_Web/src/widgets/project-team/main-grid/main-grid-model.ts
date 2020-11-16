@@ -23,6 +23,41 @@ export default class MainModel {
 	public getDataItems(): any[] {
     if(this.isDEExport){
 		  return [
+        {
+          name: 'account',
+          prop: 'account',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'role',
+          prop: 'role',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'join',
+          prop: 'join',
+          dataType: 'DATE',
+        },
+        {
+          name: 'days',
+          prop: 'days',
+          dataType: 'INT',
+        },
+        {
+          name: 'hours',
+          prop: 'hours',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'total',
+          prop: 'total',
+          dataType: 'INT',
+        },
+        {
+          name: 'limited',
+          prop: 'limited',
+          dataType: 'SSCODELIST',
+        },
       ]
     }else{
 		  return [
@@ -86,6 +121,12 @@ export default class MainModel {
           name: 'projectteam',
           prop: 'id',
         },
+      {
+        name: 'n_account_eq',
+        prop: 'n_account_eq',
+        dataType: 'TEXT',
+      },
+
         {
           name:'size',
           prop:'size'

@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import TaskUIService from '@/uiservice/task/task-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TaskGridView9_StoryRelatedBase extends GridView9Base {
      * @type {string}
      * @memberof TaskGridView9_StoryRelatedBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -69,6 +69,34 @@ export class TaskGridView9_StoryRelatedBase extends GridView9Base {
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskGridView9_StoryRelatedBase
+	 */
+    protected customViewNavContexts: any = {
+        'N_STORY_EQ': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskGridView9_StoryRelatedBase
+	 */
+    protected customViewParams: any = {
+        'n_story_eq': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
+    };
+
     /**
      * 视图模型数据
      *
@@ -80,8 +108,8 @@ export class TaskGridView9_StoryRelatedBase extends GridView9Base {
         srfCaption: 'entities.task.views.gridview9_storyrelated.caption',
         srfTitle: 'entities.task.views.gridview9_storyrelated.title',
         srfSubTitle: 'entities.task.views.gridview9_storyrelated.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,7 +119,10 @@ export class TaskGridView9_StoryRelatedBase extends GridView9Base {
      * @memberof TaskGridView9_StoryRelatedBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -100,9 +131,18 @@ export class TaskGridView9_StoryRelatedBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskGridView9_StoryRelatedBase
      */
 	protected viewtag: string = '5895951b7f1045198682c8d51cd85482';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskGridView9_StoryRelatedBase
+     */ 
+    protected viewName: string = "TaskGridView9_StoryRelated";
 
 
     /**
@@ -121,7 +161,9 @@ export class TaskGridView9_StoryRelatedBase extends GridView9Base {
      * @type {Array<*>}
      * @memberof TaskGridView9_StoryRelatedBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -132,11 +174,11 @@ export class TaskGridView9_StoryRelatedBase extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'task',

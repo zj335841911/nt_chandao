@@ -1,5 +1,5 @@
-<template src="./close-form.html"/>
-<script lang='tsx'>
+<template src="./close-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CloseEditFormBase } from './close-form-base';
@@ -15,8 +15,8 @@ import { CloseEditFormBase } from './close-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class CloseEditForm extends CloseEditFormBase { }
+export default class CloseEditForm extends CloseEditFormBase {}
 </script>

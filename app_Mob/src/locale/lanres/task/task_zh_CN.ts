@@ -57,6 +57,16 @@ export default {
     status1: "任务状态",
     tasktype: "任务类型",
     files: "附件",
+    usernames: "团队用户",
+    isfinished: "是否完成",
+    replycount: "回复数量",
+    hasdetail: "是否填写描述",
+    updatedate: "最后的更新日期",
+    noticeusers: "消息通知用户",
+    progressrate: "进度",
+    delay: "延期",
+    mailtopk: "属性",
+    mailtoconact: "联系人",
   },
 	views: {
 		mobmdview: {
@@ -70,6 +80,12 @@ export default {
 		},
 		stopmoboptionview: {
 			caption: '暂停',
+		},
+		editmobeditview: {
+			caption: '任务',
+		},
+		activemobtask: {
+			caption: '激活',
 		},
 		cancelmoboptionview: {
 			caption: '取消',
@@ -113,6 +129,9 @@ export default {
 		newmobeditview: {
 			caption: '任务',
 		},
+		usr2moboptionview: {
+			caption: '继续',
+		},
 	},
 	mobstartform_form: {
 		details: {
@@ -131,6 +150,7 @@ export default {
 			realstarted: '实际开始', 
 			consumed: '总计消耗', 
 			left: '预计剩余', 
+			noticeusers: '消息通知用户', 
 			comment: '备注', 
 			id: '编号', 
 		},
@@ -156,6 +176,7 @@ export default {
 			multiple: '多人任务', 
 			left: '预计剩余', 
 			comment: '备注', 
+			noticeusers: '消息通知用户', 
 			id: '编号', 
 		},
 		uiactions: {
@@ -176,6 +197,7 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			id: '编号', 
+			project: '所属项目', 
 			consumed: '之前消耗', 
 			currentconsumed: '本次消耗', 
 			totaltime: '总计耗时', 
@@ -184,6 +206,7 @@ export default {
 			files: '附件', 
 			multiple: '多人任务', 
 			comment: '备注', 
+			noticeusers: '消息通知用户', 
 		},
 		uiactions: {
 		},
@@ -203,7 +226,53 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			comment: '备注', 
+			noticeusers: '消息通知用户', 
 			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	mobactiviteform_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '分组面板', 
+			group1: '任务基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			assignedto: '指派给', 
+			left: '预计剩余', 
+			comment: '备注', 
+			project: '所属项目', 
+			multiple: '多人任务', 
+			noticeusers: '消息通知用户', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	estimatemob_form: {
+		details: {
+			druipart2: '', 
+			grouppanel1: '工时', 
+			druipart1: '', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			id: '编号', 
+			name: '任务名称', 
 		},
 		uiactions: {
 		},
@@ -229,6 +298,7 @@ export default {
 			allmodules: '所有模块', 
 			assignedto: '指派给', 
 			multiple: '多人任务', 
+			noticeusers: '消息通知用户', 
 			story: '相关需求', 
 			storyname: '相关需求', 
 			name: '任务名称', 
@@ -247,6 +317,8 @@ export default {
 		details: {
 			druipart1: '任务团队', 
 			grouppanel1: '分组面板', 
+			druipart3: '', 
+			grouppanel3: '附件', 
 			druipart2: '', 
 			grouppanel2: '历史记录', 
 			group1: '任务基本信息', 
@@ -260,6 +332,7 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			projectname: '所属项目', 
+			project: '所属项目', 
 			modulename: '所属模块', 
 			name: '任务名称', 
 			type: '任务类型', 
@@ -284,11 +357,19 @@ export default {
 		uiactions: {
 		},
 	},
-	estimatemob_form: {
+	mobmainedit_form: {
 		details: {
+			group1: '任务基本信息', 
 			druipart2: '', 
-			grouppanel1: '工时', 
+			grouppanel8: '分组面板', 
+			grouppanel1: '基本信息', 
+			grouppanel4: '工时信息', 
+			grouppanel6: '任务描述', 
+			grouppanel7: '备注', 
 			druipart1: '', 
+			grouppanel9: '历史记录', 
+			grouppanel5: '任务的一生', 
+			grouppanel3: '分组面板', 
 			formpage1: '基本信息', 
 			srfupdatedate: '最后修改日期', 
 			srforikey: '', 
@@ -300,6 +381,40 @@ export default {
 			srfsourcekey: '', 
 			id: '编号', 
 			name: '任务名称', 
+			multiple: '多人任务', 
+			projectname: '所属项目', 
+			project: '所属项目', 
+			module: 'id', 
+			modulename: '所属模块', 
+			allmodules: '所有模块', 
+			storyname: '相关需求', 
+			story: '相关需求', 
+			parentname: '父任务', 
+			parent: '父任务', 
+			assignedto: '指派给', 
+			storyversion: '需求版本', 
+			type: '任务类型', 
+			status: '任务状态', 
+			pri: '优先级', 
+			mailto: '抄送给', 
+			eststarted: '预计开始', 
+			deadline: '截止日期', 
+			estimate: '最初预计', 
+			consumed: '总计消耗', 
+			left: '预计剩余', 
+			openedby: '由谁创建', 
+			realstarted: '实际开始', 
+			finishedby: '由谁完成', 
+			finisheddate: '实际完成', 
+			canceledby: '由谁取消', 
+			canceleddate: '取消时间', 
+			closedby: '由谁关闭', 
+			closedreason: '关闭原因', 
+			closeddate: '关闭时间', 
+			noticeusers: '消息通知用户', 
+			desc: '任务描述', 
+			comment: '备注', 
+			files: '附件', 
 		},
 		uiactions: {
 		},
@@ -327,12 +442,18 @@ export default {
 			tip: '新建',
 		},
 	},
+	editmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
 	mobeditviewrighttoolbar_toolbar: {
 		deuiaction1_confirmstorychangecz: {
 			caption: '确认',
 			tip: '确认',
 		},
-		deuiaction1_starttaskmob: {
+		deuiaction1_startmobteamtask: {
 			caption: '开始',
 			tip: '开始',
 		},
@@ -340,17 +461,25 @@ export default {
 			caption: '指派',
 			tip: '指派',
 		},
-		deuiaction1_workhoursmob: {
+		deuiaction1_activemobtask: {
+			caption: '激活',
+			tip: '激活',
+		},
+		deuiaction1_consumedmobtaskteam: {
 			caption: '工时',
 			tip: '工时',
 		},
-		deuiaction1_donetaskmob: {
+		deuiaction1_finishtask1: {
 			caption: '完成',
 			tip: '完成',
 		},
-		deuiaction1_pausetaskmob: {
+		deuiaction1_pausemobteamtask: {
 			caption: '暂停',
 			tip: '暂停',
+		},
+		deuiaction1_restartmobteamtask: {
+			caption: '继续',
+			tip: '继续',
 		},
 		deuiaction1_canceltaskmob: {
 			caption: '取消',
@@ -360,24 +489,16 @@ export default {
 			caption: '关闭',
 			tip: '关闭',
 		},
+		deuiaction1_mobmainedit: {
+			caption: '编辑',
+			tip: '编辑',
+		},
 		deuiaction1_deletemob: {
 			caption: '删除',
 			tip: '删除',
 		},
 	},
 	assmobmdview9mdctrl_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: '更多',
-		},
-	},
-	favoritemobmdview9mdctrl_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: '更多',
-		},
-	},
-	favoritemobmdviewmdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {
 			caption: '更多',
 			tip: '更多',
@@ -393,6 +514,14 @@ export default {
 		tbitem1_myassmore: {
 			caption: '更多',
 			tip: '更多',
+		},
+		tbitem2: {
+			caption: '-',
+			tip: '',
+		},
+		deuiaction1: {
+			caption: '过滤',
+			tip: '过滤',
 		},
 	},
 };

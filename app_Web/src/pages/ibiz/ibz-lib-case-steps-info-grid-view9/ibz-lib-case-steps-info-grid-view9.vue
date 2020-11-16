@@ -1,5 +1,5 @@
-<template src="./ibz-lib-case-steps-info-grid-view9.html"/>
-<script lang='tsx'>
+<template src="./ibz-lib-case-steps-info-grid-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzLibCaseStepsInfoGridView9Base } from './ibz-lib-case-steps-info-grid-view9-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/ibz-lib-casesteps/main-info-grid/main-info-grid.
     }
 })
 @VueLifeCycleProcessing()
-export default class IbzLibCaseStepsInfoGridView9 extends IbzLibCaseStepsInfoGridView9Base { }
+export default class IbzLibCaseStepsInfoGridView9 extends IbzLibCaseStepsInfoGridView9Base {}
 </script>

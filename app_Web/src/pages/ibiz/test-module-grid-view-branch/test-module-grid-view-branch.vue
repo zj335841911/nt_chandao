@@ -1,5 +1,5 @@
-<template src="./test-module-grid-view-branch.html"/>
-<script lang='tsx'>
+<template src="./test-module-grid-view-branch.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestModuleGridViewBranchBase } from './test-module-grid-view-branch-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/test-module/main-branch-grid/main-branch-grid.vu
     }
 })
 @VueLifeCycleProcessing()
-export default class TestModuleGridViewBranch extends TestModuleGridViewBranchBase { }
+export default class TestModuleGridViewBranch extends TestModuleGridViewBranchBase {}
 </script>

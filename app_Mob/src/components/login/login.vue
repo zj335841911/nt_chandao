@@ -94,12 +94,20 @@ export default class Login extends Vue {
     public isVisitorsMode:boolean = Environment.VisitorsMode;
 
     /**
+     * 是否开启第三方免登
+     *
+     * @type {string}
+     * @memberof Login
+     */
+    public isEnableThirdPartyLogin:boolean = Environment.enableThirdPartyLogin;
+
+    /**
      * 生命周期
      * 
      * @memberof Login
      */
     public created(){
-        this.platform = this.thirdPartyService.platform;
+        this.platform = this.isEnableThirdPartyLogin?this.thirdPartyService.platform:"";
         if(this.platform){
             this.thirdLogin();
         }

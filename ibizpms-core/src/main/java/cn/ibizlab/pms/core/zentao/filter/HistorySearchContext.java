@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.zentao.domain.History;
 @Data
 public class HistorySearchContext extends QueryWrapperContext<History> {
 
+	private String n_field_leftlike;//[字段]
+	public void setN_field_leftlike(String n_field_leftlike) {
+        this.n_field_leftlike = n_field_leftlike;
+        if(!ObjectUtils.isEmpty(this.n_field_leftlike)){
+            this.getSearchCond().likeRight("field", n_field_leftlike);
+        }
+    }
 	private Long n_action_eq;//[关联日志]
 	public void setN_action_eq(Long n_action_eq) {
         this.n_action_eq = n_action_eq;
@@ -38,6 +45,7 @@ public class HistorySearchContext extends QueryWrapperContext<History> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

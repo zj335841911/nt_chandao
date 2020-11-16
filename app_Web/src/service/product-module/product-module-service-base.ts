@@ -1,4 +1,5 @@
-import { Http,Util } from '@/utils';
+import { Http } from '@/utils';
+import { Util } from '@/utils';
 import EntityService from '../entity-service';
 
 
@@ -223,6 +224,27 @@ export default class ProductModuleServiceBase extends EntityService {
     }
 
     /**
+     * RemoveModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async RemoveModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productmodules/${context.productmodule}/removemodule`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().put(`/productmodules/${context.productmodule}/removemodule`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -304,6 +326,26 @@ export default class ProductModuleServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/productmodules/fetchdefault`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchParentModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async FetchParentModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchparentmodule`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productmodules/fetchparentmodule`,tempData,isloading);
         return res;
     }
 

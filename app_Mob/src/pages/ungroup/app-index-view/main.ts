@@ -17,6 +17,15 @@ import { ibizMobileComponentsInitialize } from '../../../ibiz-mobile-components-
 ionicInitialize({ mode: 'ios' });
 ibizMobileComponentsInitialize();
 
+import VueAMap from "vue-amap";
+Vue.use(VueAMap);
+VueAMap.initAMapApiLoader({
+    key: "6e350f60986cba316719fdc7bd55d8d3",
+    plugin: [
+      "AMap.Geocoder",
+      "AMap.Geolocation" 
+    ],
+})
 // 模拟数据
 if (process.env.NODE_ENV === 'development') {
     require('@/mock');

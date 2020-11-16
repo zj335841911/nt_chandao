@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface IbzLibCaseStepMapper extends BaseMapper<IbzLibCaseStep>{
+public interface IbzLibCaseStepMapper extends BaseMapper<IbzLibCaseStep> {
 
-    Page<IbzLibCaseStep> searchDefault(IPage page, @Param("srf") IbzLibCaseStepSearchContext context, @Param("ew") Wrapper<IbzLibCaseStep> wrapper) ;
+    Page<IbzLibCaseStep> searchDefault(IPage page, @Param("srf") IbzLibCaseStepSearchContext context, @Param("ew") Wrapper<IbzLibCaseStep> wrapper);
     @Override
     IbzLibCaseStep selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface IbzLibCaseStepMapper extends BaseMapper<IbzLibCaseStep>{
     int update(@Param(Constants.ENTITY) IbzLibCaseStep entity, @Param("ew") Wrapper<IbzLibCaseStep> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

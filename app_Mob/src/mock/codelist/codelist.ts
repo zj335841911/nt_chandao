@@ -125,6 +125,34 @@ const datas: Array<any> = [
         "items": []
     },
     {
+        srfkey: 'Realease_sort',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'all',
+                label: '所有',
+                text: '所有',
+                value: 'all',
+                disabled: false,
+            },
+            {
+                id: 'normal',
+                label: '正常',
+                text: '正常',
+                value: 'normal',
+                disabled: false,
+            },
+            {
+                id: 'terminate',
+                label: '停止维护',
+                text: '停止维护',
+                value: 'terminate',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Testcase__stage',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -172,6 +200,14 @@ const datas: Array<any> = [
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "ProductBranch_Cache",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Branch",
+        "appdedataset":"FetchCurProduct",
+        "items": []
     },
     {
         srfkey: 'Casestep__type',
@@ -225,6 +261,27 @@ const datas: Array<any> = [
                 label: '自定义白名单(团队成员和白名单的成员可以访问)',
                 text: '自定义白名单(团队成员和白名单的成员可以访问)',
                 value: 'custom',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'BugCodeList2',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'All',
+                label: '所有',
+                text: '所有',
+                value: 'All',
+                disabled: false,
+            },
+            {
+                id: 'active',
+                label: '未解决',
+                text: '未解决',
+                value: 'active',
                 disabled: false,
             },
         ]
@@ -553,6 +610,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "SysOperator",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
+    },
+    {
         srfkey: 'YesNo',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -731,7 +796,7 @@ const datas: Array<any> = [
         "srfkey": "UserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"User",
+        "appdataentity":"SysEmployee",
         "appdedataset":"FetchDefault",
         "items": []
     },
@@ -824,6 +889,55 @@ const datas: Array<any> = [
                 label: '4',
                 text: '4',
                 value: 4,
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'MobTestQuickpacket',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'ALL',
+                label: '全部',
+                text: '全部',
+                value: 'ALL',
+                disabled: false,
+            },
+            {
+                id: 'ICREATE',
+                label: '待测测试单',
+                text: '待测测试单',
+                value: 'ICREATE',
+                disabled: false,
+            },
+            {
+                id: 'IREVIEW',
+                label: '测试中测试单',
+                text: '测试中测试单',
+                value: 'IREVIEW',
+                disabled: false,
+            },
+            {
+                id: 'MORE',
+                label: '更多',
+                text: '更多',
+                value: 'MORE',
+                disabled: false,
+            },
+            {
+                id: 'ICLOSE',
+                label: '被阻塞测试单',
+                text: '被阻塞测试单',
+                value: 'ICLOSE',
+                disabled: false,
+            },
+            {
+                id: 'Tested',
+                label: '已测测试单',
+                text: '已测测试单',
+                value: 'Tested',
                 disabled: false,
             },
         ]
@@ -1215,6 +1329,27 @@ const datas: Array<any> = [
         "items": []
     },
     {
+        srfkey: 'CaseQuickpachet',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'ALL',
+                label: '所有',
+                text: '所有',
+                value: 'ALL',
+                disabled: false,
+            },
+            {
+                id: 'TOME',
+                label: '需求变动',
+                text: '需求变动',
+                value: 'TOME',
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "Role",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -1412,6 +1547,97 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'MobStoryQuickGroup',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'ALL',
+                label: '所有',
+                text: '所有',
+                value: 'ALL',
+                disabled: false,
+            },
+            {
+                id: 'UNCLOSED',
+                label: '未关闭',
+                text: '未关闭',
+                value: 'UNCLOSED',
+                disabled: false,
+            },
+            {
+                id: 'TOME',
+                label: '指给我',
+                text: '指给我',
+                value: 'TOME',
+                disabled: false,
+            },
+            {
+                id: 'ICREATE',
+                label: '我创建',
+                text: '我创建',
+                value: 'ICREATE',
+                disabled: false,
+            },
+            {
+                id: 'MORE',
+                label: '更多',
+                text: '更多',
+                value: 'MORE',
+                disabled: false,
+            },
+            {
+                id: 'IREVIEW',
+                label: '我评审',
+                text: '我评审',
+                value: 'IREVIEW',
+                disabled: false,
+            },
+            {
+                id: 'DRAFT',
+                label: '草稿',
+                text: '草稿',
+                value: 'DRAFT',
+                disabled: false,
+            },
+            {
+                id: 'ICLOSE',
+                label: '我关闭',
+                text: '我关闭',
+                value: 'ICLOSE',
+                disabled: false,
+            },
+            {
+                id: 'ACTIVED',
+                label: '激活',
+                text: '激活',
+                value: 'ACTIVED',
+                disabled: false,
+            },
+            {
+                id: 'CHANGED',
+                label: '已变更',
+                text: '已变更',
+                value: 'CHANGED',
+                disabled: false,
+            },
+            {
+                id: 'TOBECLOSED',
+                label: '待关闭',
+                text: '待关闭',
+                value: 'TOBECLOSED',
+                disabled: false,
+            },
+            {
+                id: 'CLOSED',
+                label: '已关闭',
+                text: '已关闭',
+                value: 'CLOSED',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Story__pri',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -1464,7 +1690,7 @@ const datas: Array<any> = [
         "srfkey": "BugUserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"User",
+        "appdataentity":"SysEmployee",
         "appdedataset":"FetchBugUser",
         "items": []
     },
@@ -2351,6 +2577,34 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Zt__productplan',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'All',
+                label: '所有',
+                text: '所有',
+                value: 'All',
+                disabled: false,
+            },
+            {
+                id: 'UNEXPIRED',
+                label: '未过期',
+                text: '未过期',
+                value: 'UNEXPIRED',
+                disabled: false,
+            },
+            {
+                id: 'ISEXPIRED',
+                label: '已过期',
+                text: '已过期',
+                value: 'ISEXPIRED',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Team__type',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -3192,6 +3446,56 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'CaseTestTaskQuickpachet',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'ALL',
+                label: '所有用例',
+                text: '所有用例',
+                value: 'ALL',
+                disabled: false,
+            },
+            {
+                id: 'TOME',
+                label: '指派给我',
+                text: '指派给我',
+                value: 'TOME',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "ProductPlan",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"ProductPlan",
+        "appdedataset":"FetchCurProductPlan",
+        "items": []
+    },
+    {
+        srfkey: 'SYS_UPDATE_LOG_TYPE',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '10',
+                label: '功能增强',
+                text: '功能增强',
+                value: '10',
+                disabled: false,
+            },
+            {
+                id: '20',
+                label: '优化',
+                text: '优化',
+                value: '20',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Task__pri',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -3314,9 +3618,93 @@ const datas: Array<any> = [
         "srfkey": "UserRealNameProject",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"User",
+        "appdataentity":"SysEmployee",
         "appdedataset":"FetchProjectTeamUser",
         "items": []
+    },
+    {
+        srfkey: 'MobBugQuickGroup',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'All',
+                label: '所有',
+                text: '所有',
+                value: 'All',
+                disabled: false,
+            },
+            {
+                id: 'UNCLOSED',
+                label: '未关闭',
+                text: '未关闭',
+                value: 'UNCLOSED',
+                disabled: false,
+            },
+            {
+                id: 'ICREATE',
+                label: '由我创建',
+                text: '由我创建',
+                value: 'ICREATE',
+                disabled: false,
+            },
+            {
+                id: 'MORE',
+                label: '更多',
+                text: '更多',
+                value: 'MORE',
+                disabled: false,
+            },
+            {
+                id: 'TOME',
+                label: '指派给我',
+                text: '指派给我',
+                value: 'TOME',
+                disabled: false,
+            },
+            {
+                id: 'BYME',
+                label: '由我解决',
+                text: '由我解决',
+                value: 'BYME',
+                disabled: false,
+            },
+            {
+                id: 'WAITCLOSED',
+                label: '待关闭',
+                text: '待关闭',
+                value: 'WAITCLOSED',
+                disabled: false,
+            },
+            {
+                id: 'UNRESOLVED',
+                label: '未解决',
+                text: '未解决',
+                value: 'UNRESOLVED',
+                disabled: false,
+            },
+            {
+                id: 'UNCONFIRMED',
+                label: '未确认',
+                text: '未确认',
+                value: 'UNCONFIRMED',
+                disabled: false,
+            },
+            {
+                id: 'UNASSIGNED',
+                label: '未指派',
+                text: '未指派',
+                value: 'UNASSIGNED',
+                disabled: false,
+            },
+            {
+                id: 'EXPIREDBUG',
+                label: '过期Bug',
+                text: '过期Bug',
+                value: 'EXPIREDBUG',
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: 'Bug__severity_mob',
@@ -3532,8 +3920,8 @@ const datas: Array<any> = [
         "srfkey": "CurStory",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"StorySpec",
+        "appdedataset":"FetchVersion",
         "items": []
     },
     {
@@ -3567,6 +3955,27 @@ const datas: Array<any> = [
                 label: '阻塞',
                 text: '阻塞',
                 value: 'blocked',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'YesNo3',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'yes',
+                label: '是',
+                text: '是',
+                value: 'yes',
+                disabled: false,
+            },
+            {
+                id: 'no',
+                label: '否',
+                text: '否',
+                value: 'no',
                 disabled: false,
             },
         ]
@@ -3757,7 +4166,7 @@ const datas: Array<any> = [
         "srfkey": "UserRealNameTaskTeam",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"User",
+        "appdataentity":"SysEmployee",
         "appdedataset":"FetchTaskTeam",
         "items": []
     },

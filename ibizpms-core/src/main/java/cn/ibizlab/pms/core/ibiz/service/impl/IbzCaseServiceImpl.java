@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibiz.domain.IbzCase;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.ibiz.mapper.IbzCaseMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -61,14 +63,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
         @Override
     @Transactional
     public boolean create(IbzCase et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes()); 
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTIbzCaseHelper.create(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "create"), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-        et.set("ztrst", rst);
-        return bRst;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzCaseHelper.class).create(et);
     }
 
     @Override
@@ -78,14 +73,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
         @Override
     @Transactional
     public boolean update(IbzCase et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTIbzCaseHelper.edit(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "update"), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-        et.set("ztrst", rst);
-        return bRst;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzCaseHelper.class).edit(et);
     }
 
     @Override
@@ -95,12 +83,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
         @Override
     @Transactional
     public boolean remove(Long key) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        IbzCase et = this.get(key);
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTIbzCaseHelper.delete(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
-        et.set("ztrst", rst);
-        return bRst;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzCaseHelper.class).delete(key);
     }
 
     @Override
@@ -115,11 +98,11 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     @Transactional
     public IbzCase get(Long key) {
         IbzCase et = getById(key);
-        if(et==null){
-            et=new IbzCase();
+        if (et == null) {
+            et = new IbzCase();
             et.setId(key);
         }
-        else{
+        else {
             et.setIbzlibcasesteps(ibzlibcasestepsService.selectByIbizcase(key));
         }
         return et;
@@ -133,13 +116,14 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
 
     @Override
     public boolean checkKey(IbzCase et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(IbzCase et) {
-        if(!saveOrUpdate(et))
+        if (!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -154,37 +138,37 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<IbzCase> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<IbzCase> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<IbzCase> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
-
     @Override
     public void removeByModule(Long id) {
-        this.remove(new QueryWrapper<IbzCase>().eq("module",id));
+        this.remove(new QueryWrapper<IbzCase>().eq("module", id));
     }
 
-	@Override
+    @Override
     public List<IbzCase> selectByLib(Long id) {
         return baseMapper.selectByLib(id);
     }
-
     @Override
     public void removeByLib(Long id) {
-        this.remove(new QueryWrapper<IbzCase>().eq("lib",id));
+        this.remove(new QueryWrapper<IbzCase>().eq("lib", id));
     }
 
 
@@ -193,7 +177,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
      */
     @Override
     public Page<IbzCase> searchDefault(IbzCaseSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzCase> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzCase> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzCase>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -205,22 +189,22 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
      */
     private void fillParentData(IbzCase et){
         //实体关系[DER1N_IBZ_CASE_IBZ_LIBMODULE_MODULE]
-        if(!ObjectUtils.isEmpty(et.getModule())){
+        if (!ObjectUtils.isEmpty(et.getModule())) {
             cn.ibizlab.pms.core.ibiz.domain.IbzLibModule libmodule=et.getLibmodule();
-            if(ObjectUtils.isEmpty(libmodule)){
+            if (ObjectUtils.isEmpty(libmodule)) {
                 cn.ibizlab.pms.core.ibiz.domain.IbzLibModule majorEntity=ibzlibmoduleService.get(et.getModule());
                 et.setLibmodule(majorEntity);
-                libmodule=majorEntity;
+                libmodule = majorEntity;
             }
             et.setModulename(libmodule.getName());
         }
         //实体关系[DER1N_IBZ_CASE_IBZ_LIB_LIB]
-        if(!ObjectUtils.isEmpty(et.getLib())){
+        if (!ObjectUtils.isEmpty(et.getLib())) {
             cn.ibizlab.pms.core.ibiz.domain.IbzLib caselib=et.getCaselib();
-            if(ObjectUtils.isEmpty(caselib)){
+            if (ObjectUtils.isEmpty(caselib)) {
                 cn.ibizlab.pms.core.ibiz.domain.IbzLib majorEntity=ibzlibService.get(et.getLib());
                 et.setCaselib(majorEntity);
-                caselib=majorEntity;
+                caselib = majorEntity;
             }
             et.setLibname(caselib.getName());
         }
@@ -230,28 +214,31 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

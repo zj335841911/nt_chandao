@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_effort",resultMap = "EffortResultMap")
+@TableName(value = "zt_effort", resultMap = "EffortResultMap")
 public class Effort extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -68,16 +70,16 @@ public class Effort extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`end`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "end" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "end", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("end")
     private Timestamp end;
     /**
      * date
      */
     @TableField(value = "`date`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
     /**
@@ -111,8 +113,8 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -121,8 +123,8 @@ public class Effort extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`begin`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "begin" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "begin", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("begin")
     private Timestamp begin;
 
@@ -131,39 +133,39 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 设置 [user]
      */
-    public void setUser(String user){
-        this.user = user ;
-        this.modify("user",user);
+    public void setUser(String user) {
+        this.user = user;
+        this.modify("user", user);
     }
 
     /**
      * 设置 [idvalue]
      */
-    public void setIdvalue(Integer idvalue){
-        this.idvalue = idvalue ;
-        this.modify("idvalue",idvalue);
+    public void setIdvalue(Integer idvalue) {
+        this.idvalue = idvalue;
+        this.modify("idvalue", idvalue);
     }
 
     /**
      * 设置 [status]
      */
-    public void setStatus(String status){
-        this.status = status ;
-        this.modify("status",status);
+    public void setStatus(String status) {
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [end]
      */
-    public void setEnd(Timestamp end){
-        this.end = end ;
-        this.modify("end",end);
+    public void setEnd(Timestamp end) {
+        this.end = end;
+        this.modify("end", end);
     }
 
     /**
      * 格式化日期 [end]
      */
-    public String formatEnd(){
+    public String formatEnd() {
         if (this.end == null) {
             return null;
         }
@@ -173,15 +175,15 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 设置 [date]
      */
-    public void setDate(Timestamp date){
-        this.date = date ;
-        this.modify("date",date);
+    public void setDate(Timestamp date) {
+        this.date = date;
+        this.modify("date", date);
     }
 
     /**
      * 格式化日期 [date]
      */
-    public String formatDate(){
+    public String formatDate() {
         if (this.date == null) {
             return null;
         }
@@ -191,47 +193,47 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 设置 [name]
      */
-    public void setName(String name){
-        this.name = name ;
-        this.modify("name",name);
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [desc]
      */
-    public void setDesc(String desc){
-        this.desc = desc ;
-        this.modify("desc",desc);
+    public void setDesc(String desc) {
+        this.desc = desc;
+        this.modify("desc", desc);
     }
 
     /**
      * 设置 [todo]
      */
-    public void setTodo(String todo){
-        this.todo = todo ;
-        this.modify("todo",todo);
+    public void setTodo(String todo) {
+        this.todo = todo;
+        this.modify("todo", todo);
     }
 
     /**
      * 设置 [type]
      */
-    public void setType(String type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [begin]
      */
-    public void setBegin(Timestamp begin){
-        this.begin = begin ;
-        this.modify("begin",begin);
+    public void setBegin(Timestamp begin) {
+        this.begin = begin;
+        this.modify("begin", begin);
     }
 
     /**
      * 格式化日期 [begin]
      */
-    public String formatBegin(){
+    public String formatBegin() {
         if (this.begin == null) {
             return null;
         }
@@ -241,7 +243,7 @@ public class Effort extends EntityMP implements Serializable {
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -253,7 +255,7 @@ public class Effort extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

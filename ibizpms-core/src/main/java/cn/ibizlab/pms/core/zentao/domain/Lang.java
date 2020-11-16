@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_lang",resultMap = "LangResultMap")
+@TableName(value = "zt_lang", resultMap = "LangResultMap")
 public class Lang extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,8 +53,8 @@ public class Lang extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -97,55 +99,55 @@ public class Lang extends EntityMP implements Serializable {
     /**
      * 设置 [module]
      */
-    public void setModule(String module){
-        this.module = module ;
-        this.modify("module",module);
+    public void setModule(String module) {
+        this.module = module;
+        this.modify("module", module);
     }
 
     /**
      * 设置 [key]
      */
-    public void setKey(String key){
-        this.key = key ;
-        this.modify("key",key);
+    public void setKey(String key) {
+        this.key = key;
+        this.modify("key", key);
     }
 
     /**
      * 设置 [section]
      */
-    public void setSection(String section){
-        this.section = section ;
-        this.modify("section",section);
+    public void setSection(String section) {
+        this.section = section;
+        this.modify("section", section);
     }
 
     /**
      * 设置 [lang]
      */
-    public void setLang(String lang){
-        this.lang = lang ;
-        this.modify("lang",lang);
+    public void setLang(String lang) {
+        this.lang = lang;
+        this.modify("lang", lang);
     }
 
     /**
      * 设置 [system]
      */
-    public void setSystem(String system){
-        this.system = system ;
-        this.modify("system",system);
+    public void setSystem(String system) {
+        this.system = system;
+        this.modify("system", system);
     }
 
     /**
      * 设置 [value]
      */
-    public void setValue(String value){
-        this.value = value ;
-        this.modify("value",value);
+    public void setValue(String value) {
+        this.value = value;
+        this.modify("value", value);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -157,7 +159,7 @@ public class Lang extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

@@ -70,16 +70,27 @@ export default {
     buildproject: "版本项目",
     createbuild: "创建版本",
     overduebugs: "过期天数",
+    casename: "相关用例",
+    delay: "延期",
+    noticeusers: "消息通知用户",
+    mailtopk: "抄送给",
+    mailtoconact: "联系人",
   },
 	views: {
 		colsemobeditview: {
 			caption: 'Bug',
+		},
+		usr3mobmpickupbuildcreatebugview: {
+			caption: '关联bug',
 		},
 		planmobmdview9: {
 			caption: '计划下属',
 		},
 		cmoboptionview: {
 			caption: '确认Bug',
+		},
+		editnewmobeditview: {
+			caption: 'Bug',
 		},
 		rmoboptionview: {
 			caption: '解决Bug',
@@ -111,20 +122,59 @@ export default {
 		assigntomobeditview: {
 			caption: 'Bug',
 		},
+		usr3mobmpickupview: {
+			caption: '关联bug',
+		},
 		assmobmdview: {
 			caption: 'Bug',
+		},
+		usr3mobpickupmdview: {
+			caption: 'Bug',
+		},
+		usr3mobmpickupleftview: {
+			caption: '关联bug',
+		},
+		usr2mobmpickupview: {
+			caption: '关联bug',
+		},
+		usr3mobpickupbuildresolvedmdview: {
+			caption: 'Bug',
+		},
+		usr3mobpickupmdview1: {
+			caption: 'Bug',
+		},
+		usr2mobpickupmdview: {
+			caption: '关联bug',
 		},
 		resolvemobeditview: {
 			caption: 'Bug',
 		},
+		logmobmdview9: {
+			caption: '更新日志',
+		},
 		activationmobeditview: {
+			caption: 'Bug',
+		},
+		usr4mobmdview: {
 			caption: 'Bug',
 		},
 		closemoboptionview: {
 			caption: '关闭Bug',
 		},
+		usr3mobmdview: {
+			caption: 'Bug',
+		},
 		assmoremobmdview: {
 			caption: '指派给我的Bug',
+		},
+		usr2mobmdview: {
+			caption: 'Bug',
+		},
+		usr6mobmdview: {
+			caption: 'Bug',
+		},
+		usr5mobmdview: {
+			caption: 'Bug',
 		},
 	},
 	closemob_form: {
@@ -149,6 +199,8 @@ export default {
 	},
 	mobmain_form: {
 		details: {
+			druipart2: '', 
+			grouppanel2: '附件', 
 			druipart1: '', 
 			grouppanel1: '变更历史', 
 			group1: 'Bug基本信息', 
@@ -289,6 +341,67 @@ export default {
 		uiactions: {
 		},
 	},
+	mobmaindataedit_form: {
+		details: {
+			grouppanel1: '分组面板', 
+			grouppanel3: '基本信息', 
+			grouppanel4: '项目/需求/任务', 
+			druipart1: '', 
+			grouppanel6: '历史记录', 
+			grouppanel5: 'Bug的一生', 
+			grouppanel2: '分组面板', 
+			group1: 'Bug基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '修改日期', 
+			srforikey: '', 
+			srfkey: 'Bug编号', 
+			srfmajortext: 'Bug标题', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			id: 'Bug编号', 
+			title: 'Bug标题', 
+			product: '所属产品', 
+			productname: '产品', 
+			branch: '', 
+			branchname: '平台/分支', 
+			module: '所属模块', 
+			modulename: '模块名称', 
+			plan: '所属计划', 
+			type: 'Bug类型', 
+			severity: '严重程度', 
+			storyversion: '需求版本', 
+			pri: '优先级', 
+			status: 'Bug状态', 
+			activatedcount: '激活次数', 
+			activateddate: '激活日期', 
+			confirmed: '是否确认', 
+			assignedto: '当前指派', 
+			deadline: '截止日期', 
+			os: '操作系统', 
+			browser: '浏览器', 
+			keywords: '关键词', 
+			mailto: '抄送给', 
+			project: '所属项目', 
+			story: '相关需求', 
+			projectname: '项目', 
+			storyname: '相关需求', 
+			taskname: '相关任务', 
+			openedby: '由谁创建', 
+			openedbuild: '影响版本', 
+			resolvedby: '由谁解决', 
+			resolution: '解决方案', 
+			resolvedbuild: '解决版本', 
+			closedby: '由谁关闭', 
+			lasteditedby: '最后修改者', 
+			steps: '重现步骤', 
+			comment: '备注', 
+			files: '附件', 
+		},
+		uiactions: {
+		},
+	},
 	mobnewfrom_form: {
 		details: {
 			grouppanel1: '分组面板', 
@@ -326,6 +439,7 @@ export default {
 			taskname: '相关任务', 
 			mailto: '抄送给', 
 			keywords: '关键词', 
+			files: '附件', 
 			id: 'Bug编号', 
 		},
 		uiactions: {
@@ -350,7 +464,17 @@ export default {
 			tip: 'tbitem1',
 		},
 	},
-	planmobmdview9righttoolbar_toolbar: {
+	usr2mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联bug',
+			tip: 'deuiaction1',
+		},
+	},
+	editnewmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 		deuiaction1_assingtobugmob: {
@@ -369,12 +493,38 @@ export default {
 			caption: '解决',
 			tip: 'deuiaction1_resolvebugmob',
 		},
+		deuiaction1_mobmainedit: {
+			caption: '编辑',
+			tip: 'deuiaction1_mobmainedit',
+		},
 		deuiaction1_closebugmob: {
 			caption: '关闭',
 			tip: 'deuiaction1_closebugmob',
 		},
 	},
+	usr3mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联bug',
+			tip: 'deuiaction1',
+		},
+	},
+	planmobmdview9righttoolbar_toolbar: {
+	},
+	usr6mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联bug',
+			tip: 'deuiaction1',
+		},
+	},
 	mobmdviewrighttoolbar_toolbar: {
+	},
+	usr4mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联bug',
+			tip: 'deuiaction1',
+		},
+	},
+	usr5mobmdviewrighttoolbar_toolbar: {
 	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {

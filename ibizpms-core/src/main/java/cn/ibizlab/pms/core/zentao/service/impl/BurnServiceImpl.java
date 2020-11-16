@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Burn;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.BurnMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -59,42 +61,47 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     @Transactional
     public boolean create(Burn et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
+        }
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
+    @Transactional
     public void createBatch(List<Burn> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(Burn et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
+        }
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<Burn> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
-        return result ;
+        boolean result = removeById(key);
+        return result;
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<String> idList) {
         removeByIds(idList);
     }
@@ -103,11 +110,11 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     @Transactional
     public Burn get(String key) {
         Burn et = getById(key);
-        if(et==null){
-            et=new Burn();
+        if (et == null) {
+            et = new Burn();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -120,7 +127,7 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
 
     @Override
     public boolean checkKey(Burn et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
@@ -132,8 +139,9 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     @Override
     @Transactional
     public boolean save(Burn et) {
-        if(!saveOrUpdate(et))
+        if (!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -148,37 +156,37 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<Burn> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<Burn> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<Burn> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
-
     @Override
     public void removeByProject(Long id) {
-        this.remove(new QueryWrapper<Burn>().eq("project",id));
+        this.remove(new QueryWrapper<Burn>().eq("project", id));
     }
 
-	@Override
+    @Override
     public List<Burn> selectByTask(Long id) {
         return baseMapper.selectByTask(id);
     }
-
     @Override
     public void removeByTask(Long id) {
-        this.remove(new QueryWrapper<Burn>().eq("task",id));
+        this.remove(new QueryWrapper<Burn>().eq("task", id));
     }
 
 
@@ -187,7 +195,7 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
      */
     @Override
     public Page<Burn> searchDefault(BurnSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Burn> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Burn> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Burn>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -196,7 +204,7 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
      */
     @Override
     public Page<Burn> searchESTIMATEANDLEFT(BurnSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Burn> pages=baseMapper.searchESTIMATEANDLEFT(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Burn> pages=baseMapper.searchESTIMATEANDLEFT(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Burn>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -208,12 +216,12 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
      */
     private void fillParentData(Burn et){
         //实体关系[DER1N_ZT_BURN_ZT_TASK_TASK]
-        if(!ObjectUtils.isEmpty(et.getTask())){
+        if (!ObjectUtils.isEmpty(et.getTask())) {
             cn.ibizlab.pms.core.zentao.domain.Task zttask=et.getZttask();
-            if(ObjectUtils.isEmpty(zttask)){
+            if (ObjectUtils.isEmpty(zttask)) {
                 cn.ibizlab.pms.core.zentao.domain.Task majorEntity=taskService.get(et.getTask());
                 et.setZttask(majorEntity);
-                zttask=majorEntity;
+                zttask = majorEntity;
             }
             et.setConsumed(zttask.getConsumed());
             et.setLeft(zttask.getLeft());
@@ -225,28 +233,31 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

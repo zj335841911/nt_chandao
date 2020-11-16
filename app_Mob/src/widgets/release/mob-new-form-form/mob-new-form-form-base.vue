@@ -202,7 +202,7 @@
     name='desc' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="desc_item"  
     :itemValue="this.data.desc" 
     v-show="detailsModel.desc.visible" 
@@ -210,10 +210,44 @@
     :caption="$t('release.mobnewform_form.details.desc')"  
     :labelWidth="100"  
     :isShowCaption="true"
+    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"release",objectid:"%id%",version:"editor"}' :exportparams='{objecttype:"release",objectid:"%id%",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
+</app-form-item>
+
+
+
+<app-form-item 
+    name='files' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="files_item"  
+    :itemValue="this.data.files" 
+    v-show="detailsModel.files.visible" 
+    :itemRules="this.rules.files" 
+    :caption="$t('release.mobnewform_form.details.files')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.files.disabled"
+    :error="detailsModel.files.error" 
+    :isEmptyCaption="false">
+        <app-mob-file-upload 
+    name='files' 
+    style="overflow: auto;" 
+    :multiple="true" 
+    :formState="formState" 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)" 
+    :value="data.files" 
+    :disabled="detailsModel.files.disabled" 
+    :context="context" 
+    :viewparams="viewparams" 
+    :uploadParam='{}' 
+    :exportParam='{}' 
+    @formitemvaluechange="onFormItemValueChange" />
 </app-form-item>
 
 
@@ -490,6 +524,16 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      */
     protected formState: Subject<any> = new Subject();
 
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobNewFormBase
+     */
+    public appStateEvent: Subscription | undefined;
+
     /**
      * 忽略表单项值变化
      *
@@ -546,6 +590,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         buildname: null,
         date: null,
         desc: null,
+        files: null,
         id: null,
         release: null,
     };
@@ -732,6 +777,8 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
 , 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         id: new FormItemModel({ caption: 'ID', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
@@ -905,6 +952,18 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 files 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.files')
+    onFilesChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'files', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -952,6 +1011,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
@@ -1261,6 +1321,16 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Release")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1283,6 +1353,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1492,7 +1565,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Release",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Release",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

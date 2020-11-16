@@ -1,5 +1,5 @@
-<template src="./exp-list.html"/>
-<script lang='tsx'>
+<template src="./exp-list.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ExpListBase } from './exp-list-base';
@@ -15,8 +15,8 @@ import { ExpListBase } from './exp-list-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ExpList extends ExpListBase { }
+export default class ExpList extends ExpListBase {}
 </script>

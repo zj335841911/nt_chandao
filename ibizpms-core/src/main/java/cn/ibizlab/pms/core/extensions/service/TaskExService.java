@@ -4,6 +4,9 @@ import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
 import cn.ibizlab.pms.core.ibiz.filter.IbzFavoritesSearchContext;
 import cn.ibizlab.pms.core.ibiz.service.IIbzFavoritesService;
 import cn.ibizlab.pms.core.ibiz.service.impl.IbzFavoritesServiceImpl;
+import cn.ibizlab.pms.core.ou.client.SysEmployeeFeignClient;
+import cn.ibizlab.pms.core.ou.domain.SysEmployee;
+import cn.ibizlab.pms.core.ou.filter.SysEmployeeSearchContext;
 import cn.ibizlab.pms.core.util.message.SendMessage;
 import cn.ibizlab.pms.core.util.zentao.service.IIBZZTFileService;
 import cn.ibizlab.pms.core.zentao.domain.File;
@@ -11,6 +14,7 @@ import cn.ibizlab.pms.core.zentao.domain.TaskEstimate;
 import cn.ibizlab.pms.core.zentao.filter.TaskSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IFileService;
 import cn.ibizlab.pms.core.zentao.service.impl.TaskServiceImpl;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -43,30 +47,33 @@ public class TaskExService extends TaskServiceImpl {
     @Autowired
     IIbzFavoritesService iIbzFavoritesService;
 
+    @Autowired
+    SysEmployeeFeignClient sysEmployeeFeignClient;
+
     @Override
     protected Class currentModelClass() {
         return com.baomidou.mybatisplus.core.toolkit.ReflectionKit.getSuperClassGenericType(this.getClass().getSuperclass(), 1);
     }
 
     @Override
-    public boolean create(Task et) {
-        String files = et.getFiles();
-        boolean flag = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).create(et);
-        if(flag && et.getId() != null && files != null) {
-            JSONArray jsonArray = JSONArray.parseArray(files);
-            List<File> list = new ArrayList<>();
-            for (int i = 0; i < jsonArray.size(); i ++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                File file = new File();
-                file.setId(jsonObject.getLongValue("id"));
-                file.setObjectid(et.getId());
-                file.setAddedby(et.getOpenedby());
-                file.setAddeddate(et.getOpeneddate());
-                list.add(file);
+    @Transactional
+    public Task taskForward(Task et) {
+        Object actioninfo = et.get("actioninfo");
+        et = this.get(et.getId());
+        if(StaticDict.YesNo.ITEM_1.getValue().equals(et.getMultiple())) {
+            if (!AuthenticationUser.getAuthenticationUser().getUsername().equals(et.getAssignedto())) {
+                SysEmployeeSearchContext context = new SysEmployeeSearchContext();
+                context.setN_username_in(et.getAssignedto());
+                Page<SysEmployee> page = sysEmployeeFeignClient.searchDefault(context);
+                List<SysEmployee> list = page.getContent();
+                if (list.size() > 0) {
+                    throw new RuntimeException(String.format(actioninfo.toString(), list.get(0).getPersonname()));
+                }
+                throw new RuntimeException(String.format(actioninfo.toString(), et.getAssignedto()));
             }
-            iFileService.updateBatch(list);
         }
-        return flag;
+        //自定义代码
+        return et;
     }
 
     /**
@@ -160,18 +167,7 @@ public class TaskExService extends TaskServiceImpl {
             return;
         }
         boolean flag = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).batchCreate(list);
-//        for(Task task : list) {
-//            task
-//        }
-//        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-//        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-//        JSONObject jo = new JSONObject();
-//        jo.put("project", list.get(0).getProject());
-//        jo.put("story", 0);
-//        jo.put("module", 0);
-//        jo.put("parent", list.get(0).getParent());
-//        jo.put("srfArray", list);
-//        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.batchCreate(zentaoSid, jo, rst);
+
         if (flag) {
             log.error("子任务批量添加成功");
         } else {
@@ -179,36 +175,6 @@ public class TaskExService extends TaskServiceImpl {
         }
     }
 
-//    /**
-//     * 自定义行为[RecordEstimate]用户扩展
-//     * @param et
-//     * @return
-//     */
-//    @Override
-//    @Transactional
-//    public Task recordEstimate(Task et) {
-//        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-//        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-//        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
-//        List<TaskEstimate> list = et.getTaskestimate();
-//        int i = 1;
-//        JSONArray jsonArray = new JSONArray();
-//        for(TaskEstimate taskEstimate : list) {
-//            if(taskEstimate.getId() == null) {
-//                taskEstimate.setId(Long.parseLong(String.valueOf(i)));
-//                JSONObject jsonObject = (JSONObject) JSONObject.toJSON(taskEstimate);
-//                i ++;
-//                jsonArray.add(jsonObject);
-//            }
-//        }
-//        jo.put("srfarray", jsonArray);
-//        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.recordEstimate(zentaoSid, jo, rst);
-//        if (bRst && rst.getEtId() != null) {
-//            et = this.get(rst.getEtId());
-//        }
-//        et.set("ztrst", rst);
-//        return et;
-//    }
     /**
      * 自定义行为[Restart]用户扩展
      * @param et
@@ -231,75 +197,6 @@ public class TaskExService extends TaskServiceImpl {
         return super.start(et);
     }
 
-//    @Override
-//    @Transactional
-////    @SendMessage
-//    public boolean create(Task et) {
-//        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-//        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-//        JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
-//        DecimalFormat df = new DecimalFormat("#.00");
-//        if(et.getMultiple() != null && "1".equals(et.getMultiple())) {
-//            List<TaskTeam> list = et.getTaskteam();
-//            if(!list.isEmpty() && list.size() > 0) {
-//                jo.put("assignedTo", list.get(0).getAccount());
-//                double estimate = 0;
-//                JSONArray team = new JSONArray();
-//                JSONArray teamEstimate = new JSONArray();
-//                for (TaskTeam taskTeam : list) {
-//                    team.add(taskTeam.getAccount());
-//                    teamEstimate.add(taskTeam.getEstimate());
-//                    if(taskTeam.getEstimate() != null) {
-//                        estimate = estimate + taskTeam.getEstimate();
-//                    }
-//                }
-//                jo.put("estimate", df.format(estimate));
-//                jo.put("team", team);
-//                jo.put("teamEstimate", teamEstimate);
-//            }
-//        }
-//        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.create(zentaoSid, jo, rst);
-//        if (bRst && rst.getEtId() != null) {
-//            et = this.get(rst.getEtId());
-//        }
-//        et.set("ztrst", rst);
-//        return bRst;
-//    }
-
-//    @Override
-//    @Transactional
-//    @SendMessage
-//    public boolean update(Task et) {
-//        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-//        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-//        JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
-//        if(et.getMultiple() != null && "1".equals(et.getMultiple())) {
-//            List<TaskTeam> list = et.getTaskteam();
-//            if(!list.isEmpty() && list.size() > 0) {
-//                JSONArray team = new JSONArray();
-//                JSONArray teamEstimate = new JSONArray();
-//                JSONArray teamLeft = new JSONArray();
-//                JSONArray teamConsumed = new JSONArray();
-//                for (TaskTeam taskTeam : list) {
-//                    team.add(taskTeam.getAccount());
-//                    teamEstimate.add(taskTeam.getEstimate());
-//                    teamLeft.add(taskTeam.getLeft());
-//                    teamConsumed.add(taskTeam.getConsumed());
-//                }
-//                jo.put("team", team);
-//                jo.put("teamEstimate", teamEstimate);
-//                jo.put("teamLeft", teamLeft);
-//                jo.put("teamConsumed", teamConsumed);
-//            }
-//        }
-//        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.edit(zentaoSid, jo, rst);
-//        if (bRst && rst.getEtId() != null) {
-//            et = this.get(rst.getEtId());
-//        }
-//        et.set("ztrst", rst);
-//        return bRst;
-//    }
-
     /**
      * 查询集合 通过模块查询
      */
@@ -307,6 +204,9 @@ public class TaskExService extends TaskServiceImpl {
     public Page<Task> searchByModule(TaskSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchByModule(context.getPages(),context,context.getSelectCond());
         for(Task task : pages.getRecords()) {
+            if(task.getParent() == 0) {
+                continue;
+            }
             TaskSearchContext context1 = new TaskSearchContext();
             context1.setSelectCond(context.getSelectCond().clone());
             context1.setN_parent_eq(task.getId());
@@ -321,9 +221,12 @@ public class TaskExService extends TaskServiceImpl {
      * 查询集合 项目任务
      */
     @Override
-    public Page<Task> searchProjectTASK(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectTASK(context.getPages(),context,context.getSelectCond());
+    public Page<Task> searchProjectTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectTask(context.getPages(),context,context.getSelectCond());
         for(Task task : pages.getRecords()) {
+            if(task.getParent() == 0) {
+                continue;
+            }
             TaskSearchContext context1 = new TaskSearchContext();
             context1.setSelectCond(context.getSelectCond().clone());
             context1.setN_parent_eq(task.getId());
@@ -348,11 +251,11 @@ public class TaskExService extends TaskServiceImpl {
             // et.setTaskestimate(taskestimateService.selectByTask(key));
         }
         IbzFavoritesSearchContext ibzFavoritesSearchContext = new IbzFavoritesSearchContext();
-        ibzFavoritesSearchContext.setN_type_eq("task");
+        ibzFavoritesSearchContext.setN_type_eq(StaticDict.Action__object_type.TASK.getValue());
         ibzFavoritesSearchContext.setN_objectid_eq(key);
         ibzFavoritesSearchContext.setN_account_eq(cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser().getLoginname());
         if(iIbzFavoritesService.searchDefault(ibzFavoritesSearchContext).getContent().size() > 0) {
-            et.setIsfavorites("1");
+            et.setIsfavorites(StaticDict.YesNo.ITEM_1.getValue());
         }
         return et;
     }

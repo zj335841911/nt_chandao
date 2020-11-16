@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -65,8 +65,14 @@ export class BugMainDashboardViewBase extends DashboardViewBase {
 	 * @memberof BugMainDashboardViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'bug' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'bug' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'bug',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'bug',
+        }
     };
 
     /**
@@ -74,7 +80,7 @@ export class BugMainDashboardViewBase extends DashboardViewBase {
      *
      * @memberof BugMainDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -87,8 +93,8 @@ export class BugMainDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.bug.views.maindashboardview.caption',
         srfTitle: 'entities.bug.views.maindashboardview.title',
         srfSubTitle: 'entities.bug.views.maindashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -98,7 +104,10 @@ export class BugMainDashboardViewBase extends DashboardViewBase {
      * @memberof BugMainDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -107,9 +116,18 @@ export class BugMainDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugMainDashboardViewBase
      */
 	protected viewtag: string = '1540523a668e920d831510cfbec2c5e2';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugMainDashboardViewBase
+     */ 
+    protected viewName: string = "BugMainDashboardView";
 
 
     /**
@@ -128,7 +146,9 @@ export class BugMainDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof BugMainDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

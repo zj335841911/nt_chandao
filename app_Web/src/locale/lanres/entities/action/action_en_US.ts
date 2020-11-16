@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     extra: "附加值",
@@ -16,6 +15,14 @@ export default {
     actionmanner: "操作方式",
     isactorss: "当前用户",
     date1: "显示日期",
+    today: "今天",
+    yesterday: "昨天",
+    thisweek: "本周",
+    lastweek: "上周",
+    thismonth: "本月",
+    lastmonth: "上月",
+    srfkey: "前端键值",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		myalltrendslistview: {
@@ -33,6 +40,10 @@ export default {
 		projecttrendslistview9: {
 			caption: "系统日志",
       		title: "产品动态",
+		},
+		mytrendslistview: {
+			caption: "系统日志",
+      		title: "系统日志列表视图",
 		},
 		producttrendslistview9: {
 			caption: "系统日志",
@@ -73,6 +84,7 @@ export default {
 			objecttype: "对象类型", 
 			objectid: "对象ID", 
 			comment: "备注", 
+			noticeusers: "消息通知用户", 
 			id: "id", 
 		},
 		uiactions: {
@@ -94,6 +106,7 @@ export default {
 			srfsourcekey: "", 
 			lastcomment: "", 
 			objectid: "对象ID", 
+			noticeusers: "消息通知用户", 
 			objecttype: "对象类型", 
 			id: "id", 
 		},
@@ -106,6 +119,21 @@ export default {
 		deuiaction1: {
 			caption: "添加备注",
 			tip: "添加备注",
+		},
+	},
+	classifybytype_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	trends_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	grouptrends_list: {
+		nodata: "",
+		uiactions: {
 		},
 	},
 };

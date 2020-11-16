@@ -7,6 +7,4 @@ import { ExpViewBase } from './ExpViewBase';
  * @class TreeExpViewBase
  * @extends {ExpViewBase}
  */
-export class TreeExpViewBase extends ExpViewBase {
-
-}
+export class TreeExpViewBase extends ExpViewBase {}

@@ -111,6 +111,12 @@ export class MobModel {
       {
         name: 'date_disable',
       },
+      {
+        name: 'assignedtopk',
+      },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

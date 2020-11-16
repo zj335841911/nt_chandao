@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_bug",resultMap = "BugResultMap")
+@TableName(value = "zt_bug", resultMap = "BugResultMap")
 public class Bug extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -69,8 +71,8 @@ public class Bug extends EntityMP implements Serializable {
      * 激活日期
      */
     @TableField(value = "`activateddate`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "activateddate" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "activateddate", format = "yyyy-MM-dd")
     @JsonProperty("activateddate")
     private Timestamp activateddate;
     /**
@@ -94,8 +96,8 @@ public class Bug extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`lastediteddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "lastediteddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
     private Timestamp lastediteddate;
     /**
@@ -174,17 +176,17 @@ public class Bug extends EntityMP implements Serializable {
      * 创建日期
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`openeddate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`openeddate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
     private Timestamp openeddate;
     /**
      * 关闭日期
      */
     @TableField(value = "`closeddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "closeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("closeddate")
     private Timestamp closeddate;
     /**
@@ -199,16 +201,16 @@ public class Bug extends EntityMP implements Serializable {
      * 指派日期
      */
     @TableField(value = "`assigneddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "assigneddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "assigneddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("assigneddate")
     private Timestamp assigneddate;
     /**
      * 截止日期
      */
     @TableField(value = "`deadline`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "deadline" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "deadline", format = "yyyy-MM-dd")
     @JsonProperty("deadline")
     private Timestamp deadline;
     /**
@@ -223,8 +225,8 @@ public class Bug extends EntityMP implements Serializable {
      * 解决日期
      */
     @TableField(value = "`resolveddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "resolveddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "resolveddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("resolveddate")
     private Timestamp resolveddate;
     /**
@@ -262,8 +264,8 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -287,8 +289,8 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * Bug编号
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -587,6 +589,41 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "overduebugs")
     @JsonProperty("overduebugs")
     private Integer overduebugs;
+    /**
+     * 相关用例
+     */
+    @TableField(exist = false)
+    @JSONField(name = "casename")
+    @JsonProperty("casename")
+    private String casename;
+    /**
+     * 延期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delay")
+    @JsonProperty("delay")
+    private String delay;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    private String noticeusers;
+    /**
+     * 抄送给
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    private String mailtopk;
+    /**
+     * 联系人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    private String mailtoconact;
 
     /**
      * 
@@ -705,39 +742,39 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [严重程度]
      */
-    public void setSeverity(Integer severity){
-        this.severity = severity ;
-        this.modify("severity",severity);
+    public void setSeverity(Integer severity) {
+        this.severity = severity;
+        this.modify("severity", severity);
     }
 
     /**
      * 设置 [需求版本]
      */
-    public void setStoryversion(Integer storyversion){
-        this.storyversion = storyversion ;
-        this.modify("storyversion",storyversion);
+    public void setStoryversion(Integer storyversion) {
+        this.storyversion = storyversion;
+        this.modify("storyversion", storyversion);
     }
 
     /**
      * 设置 [相关Bug]
      */
-    public void setLinkbug(String linkbug){
-        this.linkbug = linkbug ;
-        this.modify("linkbug",linkbug);
+    public void setLinkbug(String linkbug) {
+        this.linkbug = linkbug;
+        this.modify("linkbug", linkbug);
     }
 
     /**
      * 设置 [激活日期]
      */
-    public void setActivateddate(Timestamp activateddate){
-        this.activateddate = activateddate ;
-        this.modify("activateddate",activateddate);
+    public void setActivateddate(Timestamp activateddate) {
+        this.activateddate = activateddate;
+        this.modify("activateddate", activateddate);
     }
 
     /**
      * 格式化日期 [激活日期]
      */
-    public String formatActivateddate(){
+    public String formatActivateddate() {
         if (this.activateddate == null) {
             return null;
         }
@@ -747,95 +784,95 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [指派给]
      */
-    public void setAssignedto(String assignedto){
-        this.assignedto = assignedto ;
-        this.modify("assignedto",assignedto);
+    public void setAssignedto(String assignedto) {
+        this.assignedto = assignedto;
+        this.modify("assignedto", assignedto);
     }
 
     /**
      * 设置 [解决方案]
      */
-    public void setResolution(String resolution){
-        this.resolution = resolution ;
-        this.modify("resolution",resolution);
+    public void setResolution(String resolution) {
+        this.resolution = resolution;
+        this.modify("resolution", resolution);
     }
 
     /**
      * 设置 [result]
      */
-    public void setResult(Integer result){
-        this.result = result ;
-        this.modify("result",result);
+    public void setResult(Integer result) {
+        this.result = result;
+        this.modify("result", result);
     }
 
     /**
      * 设置 [关键词]
      */
-    public void setKeywords(String keywords){
-        this.keywords = keywords ;
-        this.modify("keywords",keywords);
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+        this.modify("keywords", keywords);
     }
 
     /**
      * 设置 [由谁关闭]
      */
-    public void setClosedby(String closedby){
-        this.closedby = closedby ;
-        this.modify("closedby",closedby);
+    public void setClosedby(String closedby) {
+        this.closedby = closedby;
+        this.modify("closedby", closedby);
     }
 
     /**
      * 设置 [浏览器]
      */
-    public void setBrowser(String browser){
-        this.browser = browser ;
-        this.modify("browser",browser);
+    public void setBrowser(String browser) {
+        this.browser = browser;
+        this.modify("browser", browser);
     }
 
     /**
      * 设置 [重现步骤]
      */
-    public void setSteps(String steps){
-        this.steps = steps ;
-        this.modify("steps",steps);
+    public void setSteps(String steps) {
+        this.steps = steps;
+        this.modify("steps", steps);
     }
 
     /**
      * 设置 [v2]
      */
-    public void setV2(String v2){
-        this.v2 = v2 ;
-        this.modify("v2",v2);
+    public void setV2(String v2) {
+        this.v2 = v2;
+        this.modify("v2", v2);
     }
 
     /**
      * 设置 [是否确认]
      */
-    public void setConfirmed(Integer confirmed){
-        this.confirmed = confirmed ;
-        this.modify("confirmed",confirmed);
+    public void setConfirmed(Integer confirmed) {
+        this.confirmed = confirmed;
+        this.modify("confirmed", confirmed);
     }
 
     /**
      * 设置 [激活次数]
      */
-    public void setActivatedcount(Integer activatedcount){
-        this.activatedcount = activatedcount ;
-        this.modify("activatedcount",activatedcount);
+    public void setActivatedcount(Integer activatedcount) {
+        this.activatedcount = activatedcount;
+        this.modify("activatedcount", activatedcount);
     }
 
     /**
      * 设置 [关闭日期]
      */
-    public void setCloseddate(Timestamp closeddate){
-        this.closeddate = closeddate ;
-        this.modify("closeddate",closeddate);
+    public void setCloseddate(Timestamp closeddate) {
+        this.closeddate = closeddate;
+        this.modify("closeddate", closeddate);
     }
 
     /**
      * 格式化日期 [关闭日期]
      */
-    public String formatCloseddate(){
+    public String formatCloseddate() {
         if (this.closeddate == null) {
             return null;
         }
@@ -845,23 +882,23 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [抄送给]
      */
-    public void setMailto(String mailto){
-        this.mailto = mailto ;
-        this.modify("mailto",mailto);
+    public void setMailto(String mailto) {
+        this.mailto = mailto;
+        this.modify("mailto", mailto);
     }
 
     /**
      * 设置 [指派日期]
      */
-    public void setAssigneddate(Timestamp assigneddate){
-        this.assigneddate = assigneddate ;
-        this.modify("assigneddate",assigneddate);
+    public void setAssigneddate(Timestamp assigneddate) {
+        this.assigneddate = assigneddate;
+        this.modify("assigneddate", assigneddate);
     }
 
     /**
      * 格式化日期 [指派日期]
      */
-    public String formatAssigneddate(){
+    public String formatAssigneddate() {
         if (this.assigneddate == null) {
             return null;
         }
@@ -871,15 +908,15 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [截止日期]
      */
-    public void setDeadline(Timestamp deadline){
-        this.deadline = deadline ;
-        this.modify("deadline",deadline);
+    public void setDeadline(Timestamp deadline) {
+        this.deadline = deadline;
+        this.modify("deadline", deadline);
     }
 
     /**
      * 格式化日期 [截止日期]
      */
-    public String formatDeadline(){
+    public String formatDeadline() {
         if (this.deadline == null) {
             return null;
         }
@@ -889,23 +926,23 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [标题颜色]
      */
-    public void setColor(String color){
-        this.color = color ;
-        this.modify("color",color);
+    public void setColor(String color) {
+        this.color = color;
+        this.modify("color", color);
     }
 
     /**
      * 设置 [解决日期]
      */
-    public void setResolveddate(Timestamp resolveddate){
-        this.resolveddate = resolveddate ;
-        this.modify("resolveddate",resolveddate);
+    public void setResolveddate(Timestamp resolveddate) {
+        this.resolveddate = resolveddate;
+        this.modify("resolveddate", resolveddate);
     }
 
     /**
      * 格式化日期 [解决日期]
      */
-    public String formatResolveddate(){
+    public String formatResolveddate() {
         if (this.resolveddate == null) {
             return null;
         }
@@ -915,239 +952,239 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [Bug类型]
      */
-    public void setType(String type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [Bug状态]
      */
-    public void setStatus(String status){
-        this.status = status ;
-        this.modify("status",status);
+    public void setStatus(String status) {
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [影响版本]
      */
-    public void setOpenedbuild(String openedbuild){
-        this.openedbuild = openedbuild ;
-        this.modify("openedbuild",openedbuild);
+    public void setOpenedbuild(String openedbuild) {
+        this.openedbuild = openedbuild;
+        this.modify("openedbuild", openedbuild);
     }
 
     /**
      * 设置 [v1]
      */
-    public void setV1(String v1){
-        this.v1 = v1 ;
-        this.modify("v1",v1);
+    public void setV1(String v1) {
+        this.v1 = v1;
+        this.modify("v1", v1);
     }
 
     /**
      * 设置 [lines]
      */
-    public void setLines(String lines){
-        this.lines = lines ;
-        this.modify("lines",lines);
+    public void setLines(String lines) {
+        this.lines = lines;
+        this.modify("lines", lines);
     }
 
     /**
      * 设置 [子状态]
      */
-    public void setSubstatus(String substatus){
-        this.substatus = substatus ;
-        this.modify("substatus",substatus);
+    public void setSubstatus(String substatus) {
+        this.substatus = substatus;
+        this.modify("substatus", substatus);
     }
 
     /**
      * 设置 [found]
      */
-    public void setFound(String found){
-        this.found = found ;
-        this.modify("found",found);
+    public void setFound(String found) {
+        this.found = found;
+        this.modify("found", found);
     }
 
     /**
      * 设置 [解决者]
      */
-    public void setResolvedby(String resolvedby){
-        this.resolvedby = resolvedby ;
-        this.modify("resolvedby",resolvedby);
+    public void setResolvedby(String resolvedby) {
+        this.resolvedby = resolvedby;
+        this.modify("resolvedby", resolvedby);
     }
 
     /**
      * 设置 [解决版本]
      */
-    public void setResolvedbuild(String resolvedbuild){
-        this.resolvedbuild = resolvedbuild ;
-        this.modify("resolvedbuild",resolvedbuild);
+    public void setResolvedbuild(String resolvedbuild) {
+        this.resolvedbuild = resolvedbuild;
+        this.modify("resolvedbuild", resolvedbuild);
     }
 
     /**
      * 设置 [优先级]
      */
-    public void setPri(Integer pri){
-        this.pri = pri ;
-        this.modify("pri",pri);
+    public void setPri(Integer pri) {
+        this.pri = pri;
+        this.modify("pri", pri);
     }
 
     /**
      * 设置 [操作系统]
      */
-    public void setOs(String os){
-        this.os = os ;
-        this.modify("os",os);
+    public void setOs(String os) {
+        this.os = os;
+        this.modify("os", os);
     }
 
     /**
      * 设置 [hardware]
      */
-    public void setHardware(String hardware){
-        this.hardware = hardware ;
-        this.modify("hardware",hardware);
+    public void setHardware(String hardware) {
+        this.hardware = hardware;
+        this.modify("hardware", hardware);
     }
 
     /**
      * 设置 [Bug标题]
      */
-    public void setTitle(String title){
-        this.title = title ;
-        this.modify("title",title);
+    public void setTitle(String title) {
+        this.title = title;
+        this.modify("title", title);
     }
 
     /**
      * 设置 [用例版本]
      */
-    public void setCaseversion(Integer caseversion){
-        this.caseversion = caseversion ;
-        this.modify("caseversion",caseversion);
+    public void setCaseversion(Integer caseversion) {
+        this.caseversion = caseversion;
+        this.modify("caseversion", caseversion);
     }
 
     /**
      * 设置 [代码类型]
      */
-    public void setRepotype(String repotype){
-        this.repotype = repotype ;
-        this.modify("repotype",repotype);
+    public void setRepotype(String repotype) {
+        this.repotype = repotype;
+        this.modify("repotype", repotype);
     }
 
     /**
      * 设置 [转需求]
      */
-    public void setTostory(Long tostory){
-        this.tostory = tostory ;
-        this.modify("tostory",tostory);
+    public void setTostory(Long tostory) {
+        this.tostory = tostory;
+        this.modify("tostory", tostory);
     }
 
     /**
      * 设置 [应用]
      */
-    public void setEntry(Long entry){
-        this.entry = entry ;
-        this.modify("entry",entry);
+    public void setEntry(Long entry) {
+        this.entry = entry;
+        this.modify("entry", entry);
     }
 
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(Long product){
-        this.product = product ;
-        this.modify("product",product);
+    public void setProduct(Long product) {
+        this.product = product;
+        this.modify("product", product);
     }
 
     /**
      * 设置 [转任务]
      */
-    public void setTotask(Long totask){
-        this.totask = totask ;
-        this.modify("totask",totask);
+    public void setTotask(Long totask) {
+        this.totask = totask;
+        this.modify("totask", totask);
     }
 
     /**
      * 设置 [所属计划]
      */
-    public void setPlan(Long plan){
-        this.plan = plan ;
-        this.modify("plan",plan);
+    public void setPlan(Long plan) {
+        this.plan = plan;
+        this.modify("plan", plan);
     }
 
     /**
      * 设置 [所属模块]
      */
-    public void setModule(Long module){
-        this.module = module ;
-        this.modify("module",module);
+    public void setModule(Long module) {
+        this.module = module;
+        this.modify("module", module);
     }
 
     /**
      * 设置 [平台/分支]
      */
-    public void setBranch(Long branch){
-        this.branch = branch ;
-        this.modify("branch",branch);
+    public void setBranch(Long branch) {
+        this.branch = branch;
+        this.modify("branch", branch);
     }
 
     /**
      * 设置 [重复ID]
      */
-    public void setDuplicatebug(Long duplicatebug){
-        this.duplicatebug = duplicatebug ;
-        this.modify("duplicatebug",duplicatebug);
+    public void setDuplicatebug(Long duplicatebug) {
+        this.duplicatebug = duplicatebug;
+        this.modify("duplicatebug", duplicatebug);
     }
 
     /**
      * 设置 [代码]
      */
-    public void setRepo(Long repo){
-        this.repo = repo ;
-        this.modify("repo",repo);
+    public void setRepo(Long repo) {
+        this.repo = repo;
+        this.modify("repo", repo);
     }
 
     /**
      * 设置 [相关需求]
      */
-    public void setStory(Long story){
-        this.story = story ;
-        this.modify("story",story);
+    public void setStory(Long story) {
+        this.story = story;
+        this.modify("story", story);
     }
 
     /**
      * 设置 [相关用例]
      */
-    public void setIbizcase(Long ibizcase){
-        this.ibizcase = ibizcase ;
-        this.modify("case",ibizcase);
+    public void setIbizcase(Long ibizcase) {
+        this.ibizcase = ibizcase;
+        this.modify("case", ibizcase);
     }
 
     /**
      * 设置 [所属项目]
      */
-    public void setProject(Long project){
-        this.project = project ;
-        this.modify("project",project);
+    public void setProject(Long project) {
+        this.project = project;
+        this.modify("project", project);
     }
 
     /**
      * 设置 [相关任务]
      */
-    public void setTask(Long task){
-        this.task = task ;
-        this.modify("task",task);
+    public void setTask(Long task) {
+        this.task = task;
+        this.modify("task", task);
     }
 
     /**
      * 设置 [测试单]
      */
-    public void setTesttask(Long testtask){
-        this.testtask = testtask ;
-        this.modify("testtask",testtask);
+    public void setTesttask(Long testtask) {
+        this.testtask = testtask;
+        this.modify("testtask", testtask);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -1159,7 +1196,7 @@ public class Bug extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

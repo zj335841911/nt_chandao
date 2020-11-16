@@ -7,6 +7,4 @@ import { ViewBase } from './ViewBase';
  * @class FormPickupDataViewBase
  * @extends {ViewBase}
  */
-export class FormPickupDataViewBase extends ViewBase {
-
-}
+export class FormPickupDataViewBase extends ViewBase {}

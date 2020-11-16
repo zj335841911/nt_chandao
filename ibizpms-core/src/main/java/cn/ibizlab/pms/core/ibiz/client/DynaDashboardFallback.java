@@ -17,6 +17,6 @@ import org.springframework.stereotype.Component;
  * 实体[DynaDashboard] 服务对象接口
  */
 @Component
-public class DynaDashboardFallback implements DynaDashboardFeignClient{
+public class DynaDashboardFallback implements DynaDashboardFeignClient {
 
 }

@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     assignedto: "指派给",
@@ -56,6 +55,17 @@ export default {
     neednotreview: "不需要评审",
     isfavorites: "是否收藏",
     ischild: "是否可以细分",
+    mailtoconact: "联系人",
+    mailtopk: "抄送给",
+    assignedtopk: "指派给（选择）",
+    noticeusers: "消息通知用户",
+    ibiz_sourceobject: "来源对象",
+    sourceobject: "来源对象",
+    ibiz_id: "IBIZ标识",
+    sourcename: "来源对象名称",
+    sourceid: "来源对象标识",
+    ibiz_sourceid: "来源对象标识",
+    ibiz_sourcename: "来源对象名称",
   },
 	views: {
 		pickupgridview4: {
@@ -154,6 +164,10 @@ export default {
 			caption: "需求",
       		title: "story表格视图",
 		},
+		calendareditview: {
+			caption: "日历",
+      		title: "需求编辑视图（日历）",
+		},
 		planeditview: {
 			caption: "需求",
       		title: "需求",
@@ -226,7 +240,7 @@ export default {
 			caption: "需求",
       		title: "需求",
 		},
-		mainview_link: {
+		maindashboardview_link: {
 			caption: "需求",
       		title: "需求数据看板视图",
 		},
@@ -287,7 +301,9 @@ export default {
 			estimate: "预计", 
 			spec: "需求描述", 
 			verify: "验收标准", 
+			mailtopk: "抄送给", 
 			mailto: "抄送给", 
+			mailtoconact: "", 
 			keywords: "关键词", 
 			id: "编号", 
 		},
@@ -430,7 +446,9 @@ export default {
 			estimate: "预计工时", 
 			keywords: "关键词", 
 			mailto: "抄送给", 
+			mailtoconact: "", 
 			product: "所属产品", 
+			mailtopk: "抄送给", 
 			openedby: "由谁创建", 
 			openeddate: "于", 
 			assignedto: "指派给", 
@@ -474,7 +492,9 @@ export default {
 			verify: "验收标准", 
 			files: "附件", 
 			mailto: "抄送给", 
+			mailtoconact: "", 
 			keywords: "关键词", 
+			mailtopk: "抄送给", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -557,6 +577,7 @@ export default {
 			formpage1: "基本信息", 
 			grouppanel1: "分组面板", 
 			grouppanel2: "分组面板", 
+			grouppanel4: "分组面板", 
 			grouppanel3: "分组面板", 
 			group2: "操作信息", 
 			formpage2: "需求的一生", 
@@ -588,7 +609,7 @@ export default {
 			reviewedby: "由谁评审", 
 			revieweddate: "评审时间", 
 			closedby: "由谁关闭", 
-			closeddate: "关闭日期	", 
+			closeddate: "于", 
 			closedreason: "关闭原因", 
 			lasteditedby: "最后修改", 
 			lastediteddate: "于", 
@@ -644,8 +665,9 @@ export default {
 			plan: "计划", 
 			source: "需求来源", 
 			sourcenote: "来源备注", 
-			reviewedby: "由谁评审", 
 			assignedto: "由谁评审", 
+			neednotreview: "", 
+			reviewedby: "由谁评审", 
 			project: "项目", 
 			title: "需求名称", 
 			pri: "优先级", 
@@ -653,7 +675,9 @@ export default {
 			spec: "需求描述", 
 			verify: "验收标准", 
 			files: "附件", 
-			mailto: "抄送给", 
+			mailtoconact: "联系人", 
+			mailto: "", 
+			mailtopk: "抄送给", 
 			keywords: "关键词", 
 			id: "编号", 
 		},
@@ -680,8 +704,9 @@ export default {
 			plan: "计划", 
 			source: "需求来源", 
 			sourcenote: "来源备注", 
-			reviewedby: "由谁评审", 
 			assignedto: "由谁评审", 
+			neednotreview: "", 
+			reviewedby: "由谁评审", 
 			project: "项目", 
 			title: "需求名称", 
 			pri: "优先级", 
@@ -690,8 +715,10 @@ export default {
 			verify: "验收标准", 
 			files: "附件", 
 			mailto: "抄送给", 
+			mailtoconact: "", 
 			keywords: "关键词", 
 			id: "编号", 
+			mailtopk: "抄送给", 
 		},
 		uiactions: {
 		},
@@ -746,7 +773,57 @@ export default {
 		uiactions: {
 		},
 	},
+	storyspeccalendar_form: {
+		details: {
+			button1: "指派", 
+			button2: "评审", 
+			button3: "激活", 
+			button4: "关闭", 
+			button5: "变更", 
+			button6: "细分", 
+			button7: "编辑", 
+			grouppanel1: "操作", 
+			grouppanel11: "需求描述", 
+			grouppanel21: "验收标准", 
+			group11: "需求描述信息", 
+			druipart1: "", 
+			_grouppanel1: "操作历史", 
+			grouppanel31: "需求描述", 
+			formpage1: "基本信息", 
+			srfupdatedate: "最后修改日期", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			parent: "父需求", 
+			id: "", 
+			status: "", 
+			title: "", 
+			version: "", 
+			pri: "优先级", 
+			stage: "所处阶段", 
+			estimate: "预计工时", 
+			isfavorites: "是否收藏", 
+			ischild: "是否可以细分", 
+			formitem: "版本号", 
+			spec: "需求描述", 
+			verify: "验收标准", 
+		},
+		uiactions: {
+        story_assigntodash: "指派",
+        story_reviewstorydash: "评审",
+        story_activitedash: "激活",
+        story_closestorydash: "关闭",
+        story_changestorydetaildash: "变更",
+        story_substorycz: "细分",
+        story_openbaseinfoc: "编辑",
+		},
+	},
 	main3_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -756,6 +833,21 @@ export default {
 			status: "当前状态",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			module: "所属模块",
+			isfavorites: "是否收藏",
+			ischild: "是否可以细分",
+    },
 		uiactions: {
         story_changestorydetail: "变更",
         story_reviewstory: "评审",
@@ -768,6 +860,7 @@ export default {
 		},
 	},
 	main_plansub_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -780,11 +873,27 @@ export default {
 			stage: "阶段",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			module: "所属模块",
+			isfavorites: "是否收藏",
+			ischild: "是否可以细分",
+    },
 		uiactions: {
         story_unlinkstory: "移除关联",
 		},
 	},
 	pickupgrid_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -801,6 +910,7 @@ export default {
 		},
 	},
 	projectstory_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -813,12 +923,28 @@ export default {
 			stage: "阶段",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			module: "所属模块",
+			isfavorites: "是否收藏",
+			ischild: "是否可以细分",
+    },
 		uiactions: {
         story_breakdowntasks: "分解任务",
         story_projectunlinkstory: "移除",
 		},
 	},
 	main_buildsub_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -830,11 +956,27 @@ export default {
 			stage: "阶段",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			module: "所属模块",
+			isfavorites: "是否收藏",
+			ischild: "是否可以细分",
+    },
 		uiactions: {
         story_buildunlinkstory: "解绑需求",
 		},
 	},
 	main_reportsub_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -849,6 +991,7 @@ export default {
 		},
 	},
 	storyrelated_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			title: "需求名称",
@@ -857,6 +1000,7 @@ export default {
 		},
 	},
 	treemain_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -884,8 +1028,81 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
-			product: "所属产品",
+    },
+		uiactions: {
+        story_assignto: "指派",
+        story_changestorydetail: "变更",
+        story_reviewstory: "评审",
+        story_closestory: "关闭",
+        story_openbaseinfoeditview: "编辑",
+        story_opencasecreateview: "建用例",
+        story_substory: "需求细分",
+        story_storyfavorites: "收藏",
+        story_storynfavorites: "取消收藏",
+		},
+	},
+	main_releasesub_grid: {
+		nodata: "",
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			modulename: "所属模块名称",
+			openedby: "创建",
+			estimate: "预计",
+			status: "当前状态",
+			stage: "所处阶段",
+			uagridcolumn1: "操作",
+		},
+    exportColumns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			module: "所属模块",
+			isfavorites: "是否收藏",
+			ischild: "是否可以细分",
+    },
+		uiactions: {
+        story_releaseunlinkstory: "移除关联",
+		},
+	},
+	myfavoritemain_grid: {
+		nodata: "",
+		columns: {
+			id: "ID",
+			pri: "P",
 			prodoctname: "产品名称",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			uagridcolumn1: "操作",
+		},
+    exportColumns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			module: "所属模块",
+			isfavorites: "是否收藏",
+			ischild: "是否可以细分",
     },
 		uiactions: {
         story_changestorydetail: "变更",
@@ -898,23 +1115,19 @@ export default {
         story_storynfavorites: "取消收藏",
 		},
 	},
-	main_releasesub_grid: {
+	main9_grid: {
+		nodata: "",
 		columns: {
-			id: "ID",
+			id: "编号",
 			pri: "P",
 			title: "需求名称",
-			modulename: "所属模块名称",
-			openedby: "创建",
-			estimate: "预计",
-			status: "当前状态",
-			stage: "所处阶段",
-			uagridcolumn1: "操作",
+			status: "状态",
 		},
 		uiactions: {
-        story_releaseunlinkstory: "移除关联",
 		},
 	},
-	myfavoritemain_grid: {
+	mygroupmain_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -929,6 +1142,21 @@ export default {
 			modulename: "所属模块名称",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			module: "所属模块",
+			isfavorites: "是否收藏",
+			ischild: "是否可以细分",
+    },
 		uiactions: {
         story_changestorydetail: "变更",
         story_reviewstory: "评审",
@@ -940,44 +1168,8 @@ export default {
         story_storynfavorites: "取消收藏",
 		},
 	},
-	main9_grid: {
-		columns: {
-			pri: "P",
-			title: "需求名称",
-			status: "状态",
-		},
-		uiactions: {
-		},
-	},
-	mygroupmain_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			prodoctname: "产品名称",
-			title: "需求名称",
-			plan: "计划",
-			openedby: "创建",
-			assignedto: "指派",
-			estimate: "预计",
-			status: "状态",
-			stage: "阶段",
-			modulename: "所属模块名称",
-			uagridcolumn1: "操作",
-		},
-		uiactions: {
-        exit: "返回",
-        story_activitedash: "激活",
-        story_changestorydetaildash: "变更",
-        story_reviewstorydash: "评审",
-        story_assigntodash: "指派",
-        story_closestorydash: "关闭",
-        story_substorycz: "细分",
-        story_openbaseinfoc: "编辑",
-        story_delete: "删除",
-        story_returnedit: "退出",
-		},
-	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -991,7 +1183,23 @@ export default {
 			modulename: "所属模块名称",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			module: "所属模块",
+			isfavorites: "是否收藏",
+			ischild: "是否可以细分",
+    },
 		uiactions: {
+        story_assignto: "指派",
         story_changestorydetail: "变更",
         story_reviewstory: "评审",
         story_closestory: "关闭",
@@ -1003,12 +1211,28 @@ export default {
 		},
 	},
 	main2_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
 			title: "需求名称",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			module: "所属模块",
+			isfavorites: "是否收藏",
+			ischild: "是否可以细分",
+    },
 		uiactions: {
         story_changestorydetail: "变更",
         story_reviewstory: "评审",
@@ -1070,6 +1294,10 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	plansubeditviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1104,6 +1332,10 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		deuiaction6: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	curprojectwgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1125,6 +1357,10 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		deuiaction6: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	kanbanviewtoolbar_toolbar: {
@@ -1150,6 +1386,10 @@ export default {
 			caption: "关联需求",
 			tip: "关联需求",
 		},
+		deuiaction2: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	releasesubeditviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1165,6 +1405,10 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	maingridviewtoolbar_toolbar: {
@@ -1194,6 +1438,14 @@ export default {
 			caption: "Edit",
 			tip: "Edit {0}",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction3: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	releasesubgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1203,6 +1455,10 @@ export default {
 		deuiaction2: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction3: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	myfavoritesgridviewtoolbar_toolbar: {
@@ -1214,11 +1470,44 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	mainmygridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	main2gridviewtoolbar_toolbar: {
 		tbitem13: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	myopenedstory_chart: {
+		nodata: "",
+	},
+	myopenedstory_stage_chart: {
+		nodata: "",
+	},
+	storykanban_kanban: {
+		nodata: "",
+		uiactions: {
 		},
 	},
 };

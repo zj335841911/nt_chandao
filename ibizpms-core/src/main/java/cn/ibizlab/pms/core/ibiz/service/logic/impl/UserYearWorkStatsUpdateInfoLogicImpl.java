@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.ibiz.domain.UserYearWorkStats;
  */
 @Slf4j
 @Service
-public class UserYearWorkStatsUpdateInfoLogicImpl implements IUserYearWorkStatsUpdateInfoLogic{
+public class UserYearWorkStatsUpdateInfoLogicImpl implements IUserYearWorkStatsUpdateInfoLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -41,23 +41,25 @@ public class UserYearWorkStatsUpdateInfoLogicImpl implements IUserYearWorkStatsU
         return this.iBzSysDefaultService;
     }
 
-    public void execute(UserYearWorkStats et){
+    @Override
+    public void execute(UserYearWorkStats et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("useryearworkstatsupdateinfodefault",et);
-           kieSession.setGlobal("useryearworkstatsservice",useryearworkstatsservice);
-           kieSession.setGlobal("iBzSysUseryearworkstatsDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("useryearworkstatsupdateinfodefault", et);
+           kieSession.setGlobal("useryearworkstatsservice", useryearworkstatsservice);
+           kieSession.setGlobal("iBzSysUseryearworkstatsDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.useryearworkstatsupdateinfo");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[更新相关信息]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

@@ -21,6 +21,13 @@ export default class UserYearWorkStatsUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  UserYearWorkStatsUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  UserYearWorkStatsUIServiceBase
@@ -89,12 +96,15 @@ export default class UserYearWorkStatsUIServiceBase extends UIService {
      * @memberof  UserYearWorkStatsUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'infoeditview9',srfappde:'useryearworkstats',component:'user-year-work-stats-info-edit-view9'});
-        this.allViewMap.set(':',{viewname:'titleeditview9',srfappde:'useryearworkstats',component:'user-year-work-stats-title-edit-view9'});
-        this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'useryearworkstats',component:'user-year-work-stats-dashboard-view'});
-        this.allViewMap.set(':',{viewname:'qadashboardview',srfappde:'useryearworkstats',component:'user-year-work-stats-qadashboard-view'});
-        this.allViewMap.set(':',{viewname:'podashboardview',srfappde:'useryearworkstats',component:'user-year-work-stats-podashboard-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'useryearworkstats',component:'user-year-work-stats-edit-view'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'useryearworkstats',
+            component: 'user-year-work-stats-edit-view',
+            openmode: 'DRAWER_TOP',
+            title: '用户年度工作内容统计',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

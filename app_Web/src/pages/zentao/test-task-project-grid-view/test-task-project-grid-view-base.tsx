@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestTaskProjectGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
 	 * @memberof TestTaskProjectGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' }
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
 	/**
@@ -88,7 +91,10 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
 	 * @memberof TestTaskProjectGridViewBase
 	 */
     protected customViewParams: any = {
-        'project': { isRawValue: false, value: 'project' }
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -102,8 +108,8 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
         srfCaption: 'entities.testtask.views.projectgridview.caption',
         srfTitle: 'entities.testtask.views.projectgridview.title',
         srfSubTitle: 'entities.testtask.views.projectgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -113,8 +119,14 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      * @memberof TestTaskProjectGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -124,15 +136,15 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      * @memberof TestTaskProjectGridView
      */
     public toolBarModels: any = {
-        deuiaction3_testreport: { name: 'deuiaction3_testreport', caption: '测试报告', 'isShowCaption': true, 'isShowIcon': true, tooltip: '测试报告', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__REPORT_CREATE_BUT', uiaction: { tag: 'TestReport', target: 'MULTIKEY', class: '' } },
+        deuiaction3_testreport: { name: 'deuiaction3_testreport', caption: '测试报告', 'isShowCaption': true, 'isShowIcon': true, tooltip: '测试报告', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__REPORT_CREATE_BUT', uiaction: { tag: 'TestReport', target: 'MULTIKEY', class: '' } },
 
-        deuiaction3_reports: { name: 'deuiaction3_reports', caption: '报告列表', 'isShowCaption': true, 'isShowIcon': true, tooltip: '报告列表', iconcls: 'fa fa-flag', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJECT_REPORT_BUT', uiaction: { tag: 'Reports', target: 'NONE', class: '' } },
+        deuiaction3_reports: { name: 'deuiaction3_reports', caption: '报告列表', 'isShowCaption': true, 'isShowIcon': true, tooltip: '报告列表', iconcls: 'fa fa-flag', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJECT_REPORT_BUT', uiaction: { tag: 'Reports', target: 'NONE', class: '' } },
 
-        deuiaction3_projectcreate: { name: 'deuiaction3_projectcreate', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_CREATE_BUT', uiaction: { tag: 'ProjectCreate', target: 'NONE', class: '' } },
+        deuiaction3_projectcreate: { name: 'deuiaction3_projectcreate', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_CREATE_BUT', uiaction: { tag: 'ProjectCreate', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
-        deuiaction1: { name: 'deuiaction1', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
     };
 
@@ -143,9 +155,18 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestTaskProjectGridViewBase
      */
 	protected viewtag: string = '72614f86125fa2a1421156c17116a4e3';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskProjectGridViewBase
+     */ 
+    protected viewName: string = "TestTaskProjectGridView";
 
 
     /**
@@ -164,7 +185,9 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof TestTaskProjectGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -175,11 +198,11 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'testtask',
@@ -210,6 +233,9 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
         }
         if (Object.is($event.tag, 'deuiaction1')) {
             this.toolbar_deuiaction1_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction4')) {
+            this.toolbar_deuiaction4_click(null, '', $event2);
         }
     }
 
@@ -412,6 +438,34 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
     }
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"TestTask");
+    }
+
+    /**
      * 打开新建数据视图
      *
      * @param {any[]} args
@@ -556,5 +610,22 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
             return ;
         }
         xData.exportExcel($event.exportparms);
+    }
+    /**
+     * 过滤
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof TestTaskProjectGridViewBase
+     */
+    public ToggleFilter(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (_this.hasOwnProperty('isExpandSearchForm')) {
+            _this.isExpandSearchForm = !_this.isExpandSearchForm;
+        }
     }
 }

@@ -110,9 +110,18 @@ export class IBZProStoryModuleOptionViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IBZProStoryModuleOptionViewBase
      */
 	protected viewtag: string = '87ca9109af86ed2745dcf7aa21294541';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IBZProStoryModuleOptionViewBase
+     */ 
+    protected viewName:string = "IBZProStoryModuleOptionView";
 
 
     /**

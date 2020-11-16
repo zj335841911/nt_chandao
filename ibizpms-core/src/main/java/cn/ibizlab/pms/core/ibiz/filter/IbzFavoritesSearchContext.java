@@ -59,6 +59,7 @@ public class IbzFavoritesSearchContext extends QueryWrapperContext<IbzFavorites>
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

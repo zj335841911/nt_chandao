@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface CronMapper extends BaseMapper<Cron>{
+public interface CronMapper extends BaseMapper<Cron> {
 
-    Page<Cron> searchDefault(IPage page, @Param("srf") CronSearchContext context, @Param("ew") Wrapper<Cron> wrapper) ;
+    Page<Cron> searchDefault(IPage page, @Param("srf") CronSearchContext context, @Param("ew") Wrapper<Cron> wrapper);
     @Override
     Cron selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface CronMapper extends BaseMapper<Cron>{
     int update(@Param(Constants.ENTITY) Cron entity, @Param("ew") Wrapper<Cron> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

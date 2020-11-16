@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      * @type {string}
      * @memberof BugBuildSubGridView_DoneBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,9 +77,18 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
 	 * @memberof BugBuildSubGridView_DoneBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' },
-        'PRODUCT': { isRawValue: false, value: 'product' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'srfparentkey' }
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
 	/**
@@ -90,9 +99,18 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
 	 * @memberof BugBuildSubGridView_DoneBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'srfparentkey': { isRawValue: false, value: 'srfparentkey' },
-        'project': { isRawValue: false, value: 'project' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'srfparentkey': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        },
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -106,8 +124,8 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
         srfCaption: 'entities.bug.views.buildsubgridview_done.caption',
         srfTitle: 'entities.bug.views.buildsubgridview_done.title',
         srfSubTitle: 'entities.bug.views.buildsubgridview_done.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,8 +135,18 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      * @memberof BugBuildSubGridView_DoneBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
+        },
     };
 
     /**
@@ -128,7 +156,9 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      * @memberof BugBuildSubGridView_Done
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '关联bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联bug', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_LINK_BUT', uiaction: { tag: 'openBugGridView', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '关联bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联bug', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_LINK_BUT', uiaction: { tag: 'openBugGridView', target: 'NONE', class: '' } },
+
+        deuiaction2: { name: 'deuiaction2', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
     };
 
@@ -139,9 +169,18 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugBuildSubGridView_DoneBase
      */
 	protected viewtag: string = 'f8ffad31189703973765c5a9c4fc8a5c';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugBuildSubGridView_DoneBase
+     */ 
+    protected viewName: string = "BugBuildSubGridView_Done";
 
 
     /**
@@ -160,7 +199,9 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof BugBuildSubGridView_DoneBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -171,11 +212,11 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'bug',
@@ -194,6 +235,9 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
     public toolbar_click($event: any, $event2?: any): void {
         if (Object.is($event.tag, 'deuiaction1')) {
             this.toolbar_deuiaction1_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.toolbar_deuiaction2_click(null, '', $event2);
         }
     }
 
@@ -279,6 +323,34 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
         // 界面行为
         const curUIService:BugUIService  = new BugUIService();
         curUIService.Bug_openBugGridView(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"Bug");
     }
 
     /**
@@ -390,4 +462,21 @@ export class BugBuildSubGridView_DoneBase extends GridViewBase {
     }
 
 
+    /**
+     * 过滤
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof BugBuildSubGridView_DoneBase
+     */
+    public ToggleFilter(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (_this.hasOwnProperty('isExpandSearchForm')) {
+            _this.isExpandSearchForm = !_this.isExpandSearchForm;
+        }
+    }
 }

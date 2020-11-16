@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     title: "名称",
@@ -64,6 +63,7 @@ export default {
 		},
 	},
 	mainsubplan_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			title: "名称",

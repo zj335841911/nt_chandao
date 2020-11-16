@@ -23,6 +23,81 @@ export default class MyFavoriteMainModel {
 	public getDataItems(): any[] {
     if(this.isDEExport){
 		  return [
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'status1',
+          prop: 'status1',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'finishedby',
+          prop: 'finishedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'consumed',
+          prop: 'consumed',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'left',
+          prop: 'left',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'deadline',
+          prop: 'deadline',
+          dataType: 'DATE',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'tasktype',
+          prop: 'tasktype',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUPDATA',
+        },
+        {
+          name: 'projectname',
+          prop: 'projectname',
+          dataType: 'PICKUPTEXT',
+        },
       ]
     }else{
 		  return [
@@ -82,14 +157,14 @@ export default class MyFavoriteMainModel {
           dataType: 'FLOAT',
         },
         {
+          name: 'progressrate',
+          prop: 'progressrate',
+          dataType: 'TEXT',
+        },
+        {
           name: 'deadline',
           prop: 'deadline',
           dataType: 'DATE',
-        },
-        {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
         },
         {
           name: 'tasktype',
@@ -99,6 +174,40 @@ export default class MyFavoriteMainModel {
         {
           name: 'frombug',
           prop: 'frombug',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'srfmstag',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'story',
+          prop: 'story',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'module',
+          prop: 'module',
           dataType: 'PICKUP',
         },
         {
@@ -112,38 +221,9 @@ export default class MyFavoriteMainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'project',
           prop: 'project',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'isfavorites',
-          prop: 'isfavorites',
-          dataType: 'TEXT',
         },
         {
           name: 'task',

@@ -1,5 +1,5 @@
-<template src="./employ-eeload-treeview.html"/>
-<script lang='tsx'>
+<template src="./employ-eeload-treeview.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { EmployEeloadTreeBase } from './employ-eeload-treeview-base';
@@ -15,8 +15,8 @@ import { EmployEeloadTreeBase } from './employ-eeload-treeview-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class EmployEeloadTree extends EmployEeloadTreeBase { }
+export default class EmployEeloadTree extends EmployEeloadTreeBase {}
 </script>

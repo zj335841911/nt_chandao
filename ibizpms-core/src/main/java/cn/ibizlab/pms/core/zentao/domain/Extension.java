@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_extension",resultMap = "ExtensionResultMap")
+@TableName(value = "zt_extension", resultMap = "ExtensionResultMap")
 public class Extension extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,8 +53,8 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -117,8 +119,8 @@ public class Extension extends EntityMP implements Serializable {
      * installedTime
      */
     @TableField(value = "`installedtime`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "installedtime" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "installedtime", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("installedtime")
     private Timestamp installedtime;
     /**
@@ -155,87 +157,87 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [dirs]
      */
-    public void setDirs(String dirs){
-        this.dirs = dirs ;
-        this.modify("dirs",dirs);
+    public void setDirs(String dirs) {
+        this.dirs = dirs;
+        this.modify("dirs", dirs);
     }
 
     /**
      * 设置 [status]
      */
-    public void setStatus(String status){
-        this.status = status ;
-        this.modify("status",status);
+    public void setStatus(String status) {
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [code]
      */
-    public void setCode(String code){
-        this.code = code ;
-        this.modify("code",code);
+    public void setCode(String code) {
+        this.code = code;
+        this.modify("code", code);
     }
 
     /**
      * 设置 [depends]
      */
-    public void setDepends(String depends){
-        this.depends = depends ;
-        this.modify("depends",depends);
+    public void setDepends(String depends) {
+        this.depends = depends;
+        this.modify("depends", depends);
     }
 
     /**
      * 设置 [type]
      */
-    public void setType(String type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [files]
      */
-    public void setFiles(String files){
-        this.files = files ;
-        this.modify("files",files);
+    public void setFiles(String files) {
+        this.files = files;
+        this.modify("files", files);
     }
 
     /**
      * 设置 [zentaoCompatible]
      */
-    public void setZentaocompatible(String zentaocompatible){
-        this.zentaocompatible = zentaocompatible ;
-        this.modify("zentaocompatible",zentaocompatible);
+    public void setZentaocompatible(String zentaocompatible) {
+        this.zentaocompatible = zentaocompatible;
+        this.modify("zentaocompatible", zentaocompatible);
     }
 
     /**
      * 设置 [license]
      */
-    public void setLicense(String license){
-        this.license = license ;
-        this.modify("license",license);
+    public void setLicense(String license) {
+        this.license = license;
+        this.modify("license", license);
     }
 
     /**
      * 设置 [name]
      */
-    public void setName(String name){
-        this.name = name ;
-        this.modify("name",name);
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [installedTime]
      */
-    public void setInstalledtime(Timestamp installedtime){
-        this.installedtime = installedtime ;
-        this.modify("installedtime",installedtime);
+    public void setInstalledtime(Timestamp installedtime) {
+        this.installedtime = installedtime;
+        this.modify("installedtime", installedtime);
     }
 
     /**
      * 格式化日期 [installedTime]
      */
-    public String formatInstalledtime(){
+    public String formatInstalledtime() {
         if (this.installedtime == null) {
             return null;
         }
@@ -245,39 +247,39 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [site]
      */
-    public void setSite(String site){
-        this.site = site ;
-        this.modify("site",site);
+    public void setSite(String site) {
+        this.site = site;
+        this.modify("site", site);
     }
 
     /**
      * 设置 [author]
      */
-    public void setAuthor(String author){
-        this.author = author ;
-        this.modify("author",author);
+    public void setAuthor(String author) {
+        this.author = author;
+        this.modify("author", author);
     }
 
     /**
      * 设置 [desc]
      */
-    public void setDesc(String desc){
-        this.desc = desc ;
-        this.modify("desc",desc);
+    public void setDesc(String desc) {
+        this.desc = desc;
+        this.modify("desc", desc);
     }
 
     /**
      * 设置 [version]
      */
-    public void setVersion(String version){
-        this.version = version ;
-        this.modify("version",version);
+    public void setVersion(String version) {
+        this.version = version;
+        this.modify("version", version);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -289,7 +291,7 @@ public class Extension extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

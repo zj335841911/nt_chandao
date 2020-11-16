@@ -1,11 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import MainService from './main-grid-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -15,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {MainGridBase}
  */
 export class MainGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +64,7 @@ export class MainGridBase extends GridControlBase {
      * @type {TaskUIService}
      * @memberof MainBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 逻辑事件
@@ -131,7 +130,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u7f3dc22_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u9e51301_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -148,7 +147,7 @@ export class MainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_StartTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+        curUIService.Task_MStartTaskDash1(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -187,7 +186,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u2618d3d_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u0e87c97_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -204,7 +203,7 @@ export class MainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_DoneTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+        curUIService.Task_done(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -327,15 +326,17 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        AssignTask: { name: 'AssignTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', target: 'SINGLEKEY'},
-        confirmStoryChange: { name: 'confirmStoryChange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', target: 'SINGLEKEY'},
-        StartTask: { name: 'StartTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', target: 'SINGLEKEY'},
-        CloseTask: { name: 'CloseTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', target: 'SINGLEKEY'},
-        DoneTask: { name: 'DoneTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', target: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_EDIT_BUT', target: 'SINGLEKEY'},
-        NewSubTask: { name: 'NewSubTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_SUBTASKS_BUT', target: 'SINGLEKEY'},
-        TaskFavorites: { name: 'TaskFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', target: 'SINGLEKEY'},
-        TaskNFavorites: { name: 'TaskNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', target: 'SINGLEKEY'}
+        AssignTask: { name: 'AssignTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', target: 'SINGLEKEY'},
+        confirmStoryChange: { name: 'confirmStoryChange',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', target: 'SINGLEKEY'},
+        MStartTaskDash1: { name: 'MStartTaskDash1',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', target: 'SINGLEKEY'},
+        StartTask: { name: 'StartTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', target: 'SINGLEKEY'},
+        CloseTask: { name: 'CloseTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', target: 'SINGLEKEY'},
+        done: { name: 'done',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', target: 'SINGLEKEY'},
+        DoneTask: { name: 'DoneTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', target: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_EDIT_BUT', target: 'SINGLEKEY'},
+        NewSubTask: { name: 'NewSubTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_SUBTASKS_BUT', target: 'SINGLEKEY'},
+        TaskFavorites: { name: 'TaskFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', target: 'SINGLEKEY'},
+        TaskNFavorites: { name: 'TaskNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', target: 'SINGLEKEY'}
     };
 
     /**
@@ -391,7 +392,7 @@ export class MainGridBase extends GridControlBase {
             label: '任务名称',
             langtag: 'entities.task.main_grid.columns.name',
             show: true,
-            unit: 'STAR',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -443,6 +444,14 @@ export class MainGridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
+            name: 'progressrate',
+            label: '%',
+            langtag: 'entities.task.main_grid.columns.progressrate',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
             name: 'deadline',
             label: '截止日期',
             langtag: 'entities.task.main_grid.columns.deadline',
@@ -478,11 +487,13 @@ export class MainGridBase extends GridControlBase {
      * @type {*}
      * @memberof MainGridBase
      */
-    public rules: any = {
+    public rules() {
+        return {
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**
@@ -501,6 +512,7 @@ export class MainGridBase extends GridControlBase {
         'estimate':false,
         'consumed':false,
         'left':false,
+        'progressrate':false,
         'deadline':false,
         'uagridcolumn1':false,
     };
@@ -516,6 +528,15 @@ export class MainGridBase extends GridControlBase {
         return ( this.hasRowEdit[args.column.property] && this.actualIsOpenEdit ) ? "edit-cell" : "info-cell";
     }
 
+
+    /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof MainGridBase
+     */
+    protected isDeExport: boolean = true;
 
     /**
      * 所有导出列成员
@@ -627,6 +648,46 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'pri',
+                srfkey: 'Task__pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'status',
+                srfkey: 'Task__status',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'status1',
+                srfkey: 'TaskStatusCK',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'assignedto',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'finishedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
         ]);
     }
 
@@ -647,14 +708,14 @@ export class MainGridBase extends GridControlBase {
         if(Object.is('confirmStoryChange', tag)) {
             this.grid_uagridcolumn1_u94afee5_click(row, tag, $event);
         }
-        if(Object.is('StartTask', tag)) {
-            this.grid_uagridcolumn1_u7f3dc22_click(row, tag, $event);
+        if(Object.is('MStartTaskDash1', tag)) {
+            this.grid_uagridcolumn1_u9e51301_click(row, tag, $event);
         }
         if(Object.is('CloseTask', tag)) {
             this.grid_uagridcolumn1_u164e1c8_click(row, tag, $event);
         }
-        if(Object.is('DoneTask', tag)) {
-            this.grid_uagridcolumn1_u2618d3d_click(row, tag, $event);
+        if(Object.is('done', tag)) {
+            this.grid_uagridcolumn1_u0e87c97_click(row, tag, $event);
         }
         if(Object.is('MainEdit', tag)) {
             this.grid_uagridcolumn1_u90f5316_click(row, tag, $event);

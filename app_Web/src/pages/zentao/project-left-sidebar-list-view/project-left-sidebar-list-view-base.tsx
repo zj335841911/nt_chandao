@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { ListViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
 import ListViewEngine from '@engine/view/list-view-engine';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProjectLeftSidebarListViewBase
      */ 
-    protected dataControl:string = "list";
+    protected dataControl: string = "list";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
         srfCaption: 'entities.project.views.leftsidebarlistview.caption',
         srfTitle: 'entities.project.views.leftsidebarlistview.title',
         srfSubTitle: 'entities.project.views.leftsidebarlistview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProjectLeftSidebarListViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_list: { name: 'list', type: 'LIST' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_list: {
+            name: 'list',
+            type: 'LIST',
+        },
     };
 
     /**
@@ -102,11 +108,11 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProjectLeftSidebarListView
      */
     public toolBarModels: any = {
-        deuiaction3_manager: { name: 'deuiaction3_manager', caption: '管理', 'isShowCaption': false, 'isShowIcon': true, tooltip: '管理', iconcls: 'fa fa-list', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_MANAGE_BUT', uiaction: { tag: 'Manager', target: 'NONE', class: '' } },
+        deuiaction3_manager: { name: 'deuiaction3_manager', caption: '管理', 'isShowCaption': false, 'isShowIcon': true, tooltip: '管理', iconcls: 'fa fa-list', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_MANAGE_BUT', uiaction: { tag: 'Manager', target: 'NONE', class: '' } },
 
-        deuiaction3_create: { name: 'deuiaction3_create', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
+        deuiaction3_create: { name: 'deuiaction3_create', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': false, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': false, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
     };
 
@@ -118,9 +124,9 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProjectLeftSidebarListView
      */
     public leftsidebarlistviewlist_quicktoolbarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '置顶', 'isShowCaption': false, 'isShowIcon': true, tooltip: '置顶', iconcls: 'fa fa-hand-o-up', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', uiaction: { tag: 'ProjectTop', target: 'SINGLEKEY', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '置顶', 'isShowCaption': false, 'isShowIcon': true, tooltip: '置顶', iconcls: 'fa fa-hand-o-up', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', uiaction: { tag: 'ProjectTop', target: 'SINGLEKEY', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '取消置顶', 'isShowCaption': false, 'isShowIcon': true, tooltip: '取消置顶', iconcls: 'fa fa-hand-o-down', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', uiaction: { tag: 'CancelProjectTop', target: 'SINGLEKEY', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '取消置顶', 'isShowCaption': false, 'isShowIcon': true, tooltip: '取消置顶', iconcls: 'fa fa-hand-o-down', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'TOP', uiaction: { tag: 'CancelProjectTop', target: 'SINGLEKEY', class: '' } },
 
     };
 
@@ -131,9 +137,18 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectLeftSidebarListViewBase
      */
 	protected viewtag: string = '7c79a923d0cdd1a5bc41a34367809077';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectLeftSidebarListViewBase
+     */ 
+    protected viewName: string = "ProjectLeftSidebarListView";
 
 
     /**
@@ -152,7 +167,9 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
      * @type {Array<*>}
      * @memberof ProjectLeftSidebarListViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -164,11 +181,11 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
         this.engine.init({
             view: this,
             list: this.$refs.list,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'project',
             majorPSDEField: 'name',

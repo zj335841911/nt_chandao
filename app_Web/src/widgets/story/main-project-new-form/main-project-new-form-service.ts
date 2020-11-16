@@ -1,9 +1,11 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import StoryService from '@/service/story/story-service';
 import MainProjectNewModel from './main-project-new-form-model';
 import ProductService from '@/service/product/product-service';
 import ProductModuleService from '@/service/product-module/product-module-service';
+import UserContactService from '@/service/user-contact/user-contact-service';
 
 
 /**
@@ -60,6 +62,14 @@ export default class MainProjectNewService extends ControlService {
     public productmoduleService: ProductModuleService = new ProductModuleService();
 
     /**
+     * 用户联系方式服务对象
+     *
+     * @type {UserContactService}
+     * @memberof MainProjectNewService
+     */
+    public usercontactService: UserContactService = new UserContactService();
+
+    /**
      * 远端数据
      *
      * @type {*}
@@ -113,6 +123,9 @@ export default class MainProjectNewService extends ControlService {
         }
         if (Object.is(serviceName, 'ProductModuleService') && Object.is(interfaceName, 'FetchStoryModule')) {
             return this.doItems(this.productmoduleService.FetchStoryModule(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'productmodule');
+        }
+        if (Object.is(serviceName, 'UserContactService') && Object.is(interfaceName, 'FetchCurUSERCONTACT')) {
+            return this.doItems(this.usercontactService.FetchCurUSERCONTACT(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'usercontact');
         }
 
         return Promise.reject([])

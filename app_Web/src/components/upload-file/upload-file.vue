@@ -1,27 +1,32 @@
 <template>
     <div class="upload-file">
-        <upload 
-          :action="url" 
-          :headers="headers ? headers : null"
-          :multiple="multiple === true ? true : false" 
-          :paste="paste === false ? false : true"
-          :disabled="disabled === true ? true : false" 
-          :data="data ? data : null"
-          :type="type === 'select' ? 'select' : 'drag'" 
-          :show-upload-list="showuploadlist === true ? true : false"
-          :accept="accept ? accept : null" 
-          :format="format ? format : []"
-          :maxsize="maxsize ? maxsize : null" 
-          :on-before-upload="beforeupload" 
-          :on-success="success"
-          :on-error="error" 
-          :on-remove="remove" 
-          :on-format-error="formaterror"
-          :on-exceeded-size="exceededsize" 
-          :on-progress="progress">
+        <upload
+            :action="url"
+            :headers="headers ? headers : null"
+            :multiple="multiple === true ? true : false"
+            :paste="paste === false ? false : true"
+            :disabled="disabled === true ? true : false"
+            :data="data ? data : null"
+            :type="type === 'select' ? 'select' : 'drag'"
+            :show-upload-list="showuploadlist === true ? true : false"
+            :accept="accept ? accept : null"
+            :format="format ? format : []"
+            :maxsize="maxsize ? maxsize : null"
+            :on-before-upload="beforeupload"
+            :on-success="success"
+            :on-error="error"
+            :on-remove="remove"
+            :on-format-error="formaterror"
+            :on-exceeded-size="exceededsize"
+            :on-progress="progress"
+        >
             <div class="upload-text">
-                <p>{{$t('components.uploadFile.imgMsg')}}</p>
-                <p><span class="text-style">{{$t('components.uploadFile.localUpload')}}</span>{{$t('components.uploadFile.or')}}<span class="text-style">{{$t('components.uploadFile.imgMsg1')}}</span></p>
+                <p>{{ $t('components.uploadFile.imgMsg') }}</p>
+                <p>
+                    <span class="text-style">{{ $t('components.uploadFile.localUpload') }}</span>
+                    {{ $t('components.uploadFile.or') }}
+                    <span class="text-style">{{ $t('components.uploadFile.imgMsg1') }}</span>
+                </p>
             </div>
         </upload>
     </div>
@@ -32,7 +37,6 @@ import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
 
 @Component({})
 export default class UploadFile extends Vue {
-
     /**
      * 上传路径
      * @type {any}
@@ -57,28 +61,28 @@ export default class UploadFile extends Vue {
     /**
      * 是否支持粘贴上传文件
      * @type {boolean}
-     * @memberof UploadFile 
+     * @memberof UploadFile
      */
     @Prop() public paste?: boolean;
 
     /**
      * 是否禁用
      * @type {boolean}
-     * @memberof UploadFile 
+     * @memberof UploadFile
      */
     @Prop() public disabled?: boolean;
 
     /**
      * 上传时附带的额外参数
      * @type {any}
-     * @memberof UploadFile 
+     * @memberof UploadFile
      */
     @Prop() public data?: any;
 
     /**
      * 上传控件的类型，可选值为 select（点击选择），drag（支持拖拽）
      * @type {any}
-     * @memberof UploadFile 
+     * @memberof UploadFile
      */
     @Prop() public type?: any;
 
@@ -115,8 +119,8 @@ export default class UploadFile extends Vue {
      * 上传文件之前的钩子，参数为上传的文件，若返回 false 或者 Promise 则停止上传
      */
     @Emit()
-    public beforeupload(file:any) {
-        console.log('beforeupload---------'+file);
+    public beforeupload(file: any) {
+        console.log('beforeupload---------' + file);
     }
 
     /**
@@ -166,10 +170,9 @@ export default class UploadFile extends Vue {
     public exceededsize(file: any, fileList: any) {
         console.log('exceededsize---------' + file);
     }
-
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import './upload-file.less';
 </style>

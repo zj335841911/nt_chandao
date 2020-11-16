@@ -1,5 +1,5 @@
-<template src="./test-module-grid-view-main.html"/>
-<script lang='tsx'>
+<template src="./test-module-grid-view-main.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestModuleGridViewMainBase } from './test-module-grid-view-main-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/test-module/main-row-grid/main-row-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestModuleGridViewMain extends TestModuleGridViewMainBase { }
+export default class TestModuleGridViewMain extends TestModuleGridViewMainBase {}
 </script>

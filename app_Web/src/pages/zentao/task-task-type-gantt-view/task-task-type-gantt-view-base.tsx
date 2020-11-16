@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { GanttViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
@@ -47,7 +47,7 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      * @type {string}
      * @memberof TaskTaskTypeGanttViewBase
      */ 
-    protected dataControl:string = "gantt";
+    protected dataControl: string = "gantt";
 
     /**
      * 实体服务对象
@@ -76,8 +76,8 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
         srfCaption: 'entities.task.views.tasktypeganttview.caption',
         srfTitle: 'entities.task.views.tasktypeganttview.title',
         srfSubTitle: 'entities.task.views.tasktypeganttview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -87,7 +87,10 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      * @memberof TaskTaskTypeGanttViewBase
      */
     protected containerModel: any = {
-        view_gantt: { name: 'gantt', type: 'GANTT' },
+        view_gantt: {
+            name: 'gantt',
+            type: 'GANTT',
+        },
     };
 
 
@@ -96,9 +99,18 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskTaskTypeGanttViewBase
      */
 	protected viewtag: string = '5ef23f01b2cffa48351b3272dfeeaf14';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskTaskTypeGanttViewBase
+     */ 
+    protected viewName: string = "TaskTaskTypeGanttView";
 
 
 
@@ -108,7 +120,9 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      * @type {Array<*>}
      * @memberof TaskTaskTypeGanttViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

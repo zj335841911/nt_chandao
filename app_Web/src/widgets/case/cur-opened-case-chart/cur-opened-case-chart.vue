@@ -1,5 +1,5 @@
-<template src="./cur-opened-case-chart.html"/>
-<script lang='tsx'>
+<template src="./cur-opened-case-chart.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CurOpenedCaseChartBase } from './cur-opened-case-chart-base';
@@ -15,8 +15,8 @@ import { CurOpenedCaseChartBase } from './cur-opened-case-chart-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class CurOpenedCaseChart extends CurOpenedCaseChartBase { }
+export default class CurOpenedCaseChart extends CurOpenedCaseChartBase {}
 </script>

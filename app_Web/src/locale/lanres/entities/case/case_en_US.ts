@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     lastediteddate: "修改日期",
@@ -57,6 +56,9 @@ export default {
     libname: "用例库",
     lastrunresult1: "测试用例结果",
     isfavorites: "是否收藏",
+    modulename1: "模块名称",
+    files: "附件",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		editview: {
@@ -191,6 +193,10 @@ export default {
 			caption: "测试用例",
       		title: "测试用例表格视图",
 		},
+		tobugtesteditview: {
+			caption: "转BUG",
+      		title: "转BUG",
+		},
 		runerentrygridview: {
 			caption: "测试结果条目",
       		title: "测试用例表格视图（测试结果条目）",
@@ -239,6 +245,7 @@ export default {
 			precondition: "前置条件", 
 			keywords: "关键词", 
 			id: "用例编号", 
+			files: "附件", 
 		},
 		uiactions: {
 		},
@@ -246,6 +253,8 @@ export default {
 	maininfo_form: {
 		details: {
 			druipart1: "用例步骤", 
+			druipart2: "", 
+			grouppanel1: "附件", 
 			group1: "测试用例基本信息", 
 			formpage1: "基本信息", 
 			srfupdatedate: "修改日期", 
@@ -376,6 +385,8 @@ export default {
 			storyname: "需求名称", 
 			type: "用例类型", 
 			stage: "适用阶段", 
+			version: "用例版本", 
+			storyversion: "需求版本", 
 			pri: "优先级", 
 			status: "用例状态", 
 			keywords: "关键词", 
@@ -407,6 +418,8 @@ export default {
 			productname: "产品名称", 
 			module: "所属模块", 
 			modulename: "模块名称", 
+			modulename1: "模块名称", 
+			storyname: "相关需求", 
 			type: "用例类型", 
 			stage: "适用阶段", 
 			pri: "优先级", 
@@ -420,6 +433,7 @@ export default {
 			lasteditedby: "最后修改者", 
 			lastediteddate: "于", 
 			id: "用例编号", 
+			story: "相关需求", 
 		},
 		uiactions: {
 		},
@@ -502,7 +516,32 @@ export default {
 		uiactions: {
 		},
 	},
+	tobugtesttask_form: {
+		details: {
+			rawitem1: "", 
+			rawitem2: "", 
+			grouppanel2: "分组面板", 
+			druipart2: "", 
+			grouppanel1: "执行结果", 
+			group1: "测试用例基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "用例编号", 
+			srfmajortext: "用例标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			resultcnt: "共执行", 
+			resultfalicnt: "失败", 
+			id: "用例编号", 
+		},
+		uiactions: {
+		},
+	},
 	storyaffectcase_grid: {
+		nodata: "",
 		columns: {
 			pri: "P",
 			title: "用例标题",
@@ -514,6 +553,7 @@ export default {
 		},
 	},
 	storyrelated_grid: {
+		nodata: "",
 		columns: {
 			pri: "P",
 			title: "用例标题",
@@ -522,6 +562,7 @@ export default {
 		},
 	},
 	testmaingrid_grid: {
+		nodata: "",
 		columns: {
 			id: "id",
 			pri: "P",
@@ -538,16 +579,34 @@ export default {
 			casesteps: "S",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "id",
+			pri: "P",
+			title: "用例标题",
+			type: "用例类型",
+			openedby: "创建",
+			lastrunner: "执行人",
+			lastrundate: "执行时间",
+			lastrunresult: "结果",
+			status: "状态",
+			status1: "状态",
+			tobugcnt: "B",
+			resultcnt: "R",
+			casesteps: "S",
+			lastrunresult1: "测试用例结果",
+			isfavorites: "是否收藏",
+    },
 		uiactions: {
         case_edits: "概况",
         case_confirmchange: "确认用例变动",
-        case_newbugbycaseresult: "转Bug",
+        case_newbugbytestcaseresult: "转Bug",
         case_caseopentestrunresultview: "结果",
         case_caseexecute: "执行",
         case_unlinkcase: "移除",
 		},
 	},
 	mainlinktest_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			version: "版本",
@@ -564,6 +623,7 @@ export default {
 		},
 	},
 	reportmaingrid_grid: {
+		nodata: "",
 		columns: {
 			id: "id",
 			pri: "P",
@@ -583,6 +643,7 @@ export default {
 		},
 	},
 	maingrid_grid: {
+		nodata: "",
 		columns: {
 			id: "id",
 			pri: "P",
@@ -614,7 +675,6 @@ export default {
 			casesteps: "S",
 			lastrunresult1: "测试用例结果",
 			isfavorites: "是否收藏",
-			product: "所属产品",
     },
 		uiactions: {
         case_confirmstorychange: "确认",
@@ -628,6 +688,7 @@ export default {
 		},
 	},
 	batchnew_grid: {
+		nodata: "",
 		columns: {
 			modulename: "所属模块",
 			storyname: "相关需求",
@@ -638,6 +699,7 @@ export default {
 		},
 	},
 	maingrid_suitsub_grid: {
+		nodata: "",
 		columns: {
 			id: "id",
 			pri: "P",
@@ -650,6 +712,23 @@ export default {
 			casesteps: "S",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "id",
+			pri: "P",
+			title: "用例标题",
+			type: "用例类型",
+			openedby: "创建",
+			lastrunner: "执行人",
+			lastrundate: "执行时间",
+			lastrunresult: "结果",
+			status: "状态",
+			status1: "状态",
+			tobugcnt: "B",
+			resultcnt: "R",
+			casesteps: "S",
+			lastrunresult1: "测试用例结果",
+			isfavorites: "是否收藏",
+    },
 		uiactions: {
         case_unlinksuitecase: "移除",
         case_opentestrunresultview: "结果",
@@ -657,6 +736,7 @@ export default {
 		},
 	},
 	caseresultentry_grid: {
+		nodata: "",
 		columns: {
 			lastrunresult1: "条目",
 			resultcnt: "值",
@@ -666,6 +746,7 @@ export default {
 		},
 	},
 	main2_grid: {
+		nodata: "",
 		columns: {
 			pri: "P",
 			title: "用例标题",
@@ -675,6 +756,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			pri: "P",
 			title: "用例标题",
@@ -767,6 +849,10 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	gridviewtoolbar_toolbar: {
 		deuiaction3_batchnew: {
@@ -785,5 +871,32 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+	},
+	caseresultproject_chart: {
+		nodata: "无",
+	},
+	casetypeproject_chart: {
+		nodata: "无",
+	},
+	casemoduleproject_chart: {
+		nodata: "无",
+	},
+	caselastrunnerproject_chart: {
+		nodata: "无",
+	},
+	caseresult_chart: {
+		nodata: "无",
+	},
+	casetype_chart: {
+		nodata: "无",
+	},
+	casemodule_chart: {
+		nodata: "无",
+	},
+	caselastrunner_chart: {
+		nodata: "无",
+	},
+	curopenedcase_chart: {
+		nodata: "无",
 	},
 };

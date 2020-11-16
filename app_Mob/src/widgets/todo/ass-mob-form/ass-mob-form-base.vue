@@ -18,32 +18,41 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='assignto' 
+    name='assignedtopk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="assignto_item"  
-    :itemValue="this.data.assignto" 
-    v-show="detailsModel.assignto.visible" 
-    :itemRules="this.rules.assignto" 
-    :caption="$t('todo.assmob_form.details.assignto')"  
+    ref="assignedtopk_item"  
+    :itemValue="this.data.assignedtopk" 
+    v-show="detailsModel.assignedtopk.visible" 
+    :itemRules="this.rules.assignedtopk" 
+    :caption="$t('todo.assmob_form.details.assignedtopk')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.assignto.disabled"
-    :error="detailsModel.assignto.error" 
+    :disabled="detailsModel.assignedtopk.disabled"
+    :error="detailsModel.assignedtopk.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.assignto.disabled" 
-    :data="data" 
-    :context="context" 
+        <app-mob-picker
+    name='assignedtopk'
+    deMajorField='personname'
+    deKeyField='username'
+    valueitem='assignedto' 
+    style=""  
+    :formState="formState"
+    :data="data"
+    :context="context"
     :viewparams="viewparams"
-    :value="data.assignto"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.assignto = $event" />
+    :itemParam='{ }' 
+    :disabled="detailsModel.assignedtopk.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'sysemployee', interfaceName: 'FetchDefault'}"
+    :value="data.assignedtopk" 
+    :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
 </app-form-item>
 
 
@@ -407,6 +416,16 @@ export default class AssMobBase extends Vue implements ControlInterface {
      */
     protected formState: Subject<any> = new Subject();
 
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof AssMobBase
+     */
+    public appStateEvent: Subscription | undefined;
+
     /**
      * 忽略表单项值变化
      *
@@ -456,7 +475,8 @@ export default class AssMobBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        assignto: null,
+        assignedto: null,
+        assignedtopk: null,
         date: null,
         begin: null,
         end: null,
@@ -503,7 +523,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @memberof AssMob
      */
     protected rules: any = {
-        assignto: [
+        assignedto: [
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
         ],
@@ -614,7 +634,9 @@ export default class AssMobBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        assignto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        assignedtopk: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -711,15 +733,27 @@ export default class AssMobBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 assignto 值
+     * 监控表单属性 assignedto 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof AssMob
      */
-    @Watch('data.assignto')
-    onAssigntoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assignto', newVal: newVal, oldVal: oldVal });
+    @Watch('data.assignedto')
+    onAssignedtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 assignedtopk 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof AssMob
+     */
+    @Watch('data.assignedtopk')
+    onAssignedtopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedtopk', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -806,6 +840,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
@@ -1111,6 +1146,16 @@ export default class AssMobBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Todo")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1133,6 +1178,9 @@ export default class AssMobBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1342,7 +1390,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

@@ -8,7 +8,6 @@ import ViewEngine from './view-engine';
  * @extends {ViewEngine}
  */
 export default class DataViewExpViewEngine extends ViewEngine {
-
     /**
      * 卡片导航栏部件
      *
@@ -19,7 +18,7 @@ export default class DataViewExpViewEngine extends ViewEngine {
 
     /**
      * Creates an instance of DataViewExpViewEngine.
-     * 
+     *
      * @memberof DataViewExpViewEngine
      */
     constructor() {
@@ -36,7 +35,6 @@ export default class DataViewExpViewEngine extends ViewEngine {
         this.dataviewExpBar = options.dataviewexpbar;
         super.init(options);
     }
-
 
     /**
      * 引擎加载
@@ -65,7 +63,6 @@ export default class DataViewExpViewEngine extends ViewEngine {
         super.onCtrlEvent(ctrlName, eventName, args);
         if (Object.is(ctrlName, 'dataviewexpbar')) {
             this.dataviewExpBarEvent(eventName, args);
-
         }
     }
 
@@ -97,6 +94,4 @@ export default class DataViewExpViewEngine extends ViewEngine {
     public getDataviewExpBar(): any {
         return this.dataviewExpBar;
     }
-
-
 }

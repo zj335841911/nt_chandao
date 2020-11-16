@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_testrun",resultMap = "TestRunResultMap")
+@TableName(value = "zt_testrun", resultMap = "TestRunResultMap")
 public class TestRun extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,8 +55,8 @@ public class TestRun extends EntityMP implements Serializable {
      * 最后执行时间
      */
     @TableField(value = "`lastrundate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lastrundate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "lastrundate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastrundate")
     private Timestamp lastrundate;
     /**
@@ -84,8 +86,8 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -135,23 +137,23 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 设置 [结果]
      */
-    public void setLastrunresult(String lastrunresult){
-        this.lastrunresult = lastrunresult ;
-        this.modify("lastrunresult",lastrunresult);
+    public void setLastrunresult(String lastrunresult) {
+        this.lastrunresult = lastrunresult;
+        this.modify("lastrunresult", lastrunresult);
     }
 
     /**
      * 设置 [最后执行时间]
      */
-    public void setLastrundate(Timestamp lastrundate){
-        this.lastrundate = lastrundate ;
-        this.modify("lastrundate",lastrundate);
+    public void setLastrundate(Timestamp lastrundate) {
+        this.lastrundate = lastrundate;
+        this.modify("lastrundate", lastrundate);
     }
 
     /**
      * 格式化日期 [最后执行时间]
      */
-    public String formatLastrundate(){
+    public String formatLastrundate() {
         if (this.lastrundate == null) {
             return null;
         }
@@ -161,55 +163,55 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 设置 [指派给]
      */
-    public void setAssignedto(String assignedto){
-        this.assignedto = assignedto ;
-        this.modify("assignedto",assignedto);
+    public void setAssignedto(String assignedto) {
+        this.assignedto = assignedto;
+        this.modify("assignedto", assignedto);
     }
 
     /**
      * 设置 [最后执行人]
      */
-    public void setLastrunner(String lastrunner){
-        this.lastrunner = lastrunner ;
-        this.modify("lastrunner",lastrunner);
+    public void setLastrunner(String lastrunner) {
+        this.lastrunner = lastrunner;
+        this.modify("lastrunner", lastrunner);
     }
 
     /**
      * 设置 [当前状态]
      */
-    public void setStatus(String status){
-        this.status = status ;
-        this.modify("status",status);
+    public void setStatus(String status) {
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [用例版本]
      */
-    public void setVersion(Integer version){
-        this.version = version ;
-        this.modify("version",version);
+    public void setVersion(Integer version) {
+        this.version = version;
+        this.modify("version", version);
     }
 
     /**
      * 设置 [测试用例]
      */
-    public void setIbizcase(Long ibizcase){
-        this.ibizcase = ibizcase ;
-        this.modify("case",ibizcase);
+    public void setIbizcase(Long ibizcase) {
+        this.ibizcase = ibizcase;
+        this.modify("case", ibizcase);
     }
 
     /**
      * 设置 [测试单]
      */
-    public void setTask(Long task){
-        this.task = task ;
-        this.modify("task",task);
+    public void setTask(Long task) {
+        this.task = task;
+        this.modify("task", task);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -221,7 +223,7 @@ public class TestRun extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

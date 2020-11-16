@@ -101,4 +101,60 @@ export interface DocLib {
      * @memberof DocLib
      */
     product?: any;
+
+    /**
+     * 文档数量
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    doccnt?: any;
+
+    /**
+     * 文件库类型
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    doclibtype?: any;
+
+    /**
+     * 所属项目
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    projectname?: any;
+
+    /**
+     * 所属产品
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    productname?: any;
+
+    /**
+     * 是否收藏
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    isfavourites?: any;
+
+    /**
+     * 组织标识
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    orgid?: any;
+
+    /**
+     * 部门标识
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    mdeptid?: any;
 }

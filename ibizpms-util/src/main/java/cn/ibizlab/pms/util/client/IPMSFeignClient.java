@@ -28,4 +28,12 @@ public interface IPMSFeignClient {
      */
     @GetMapping(value = "/ztusers/uaaloginname")
     JSONObject getZTUser(@RequestParam("uaaloginname") String uaaloginname);
+
+    /**
+     * 记录
+     *
+     * @return true：成功
+     */
+    @PostMapping(value = "/recordloginlog")
+    Boolean recordLoginLog(@RequestParam("username") String username);
 }

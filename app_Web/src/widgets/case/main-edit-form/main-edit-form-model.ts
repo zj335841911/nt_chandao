@@ -72,6 +72,8 @@ export default class MainEditModel {
       },
       {
         name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
       },
       {
         name: 'product',
@@ -112,6 +114,16 @@ export default class MainEditModel {
         name: 'stage',
         prop: 'stage',
         dataType: 'SMCODELIST',
+      },
+      {
+        name: 'version',
+        prop: 'version',
+        dataType: 'INT',
+      },
+      {
+        name: 'storyversion',
+        prop: 'storyversion',
+        dataType: 'PICKUPDATA',
       },
       {
         name: 'pri',

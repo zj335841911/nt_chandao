@@ -7,6 +7,4 @@ import { CalendarViewBase } from './CalendarViewBase';
  * @class CalendarView9Base
  * @extends {CalendarViewBase}
  */
-export class CalendarView9Base extends CalendarViewBase {
-
-}
+export class CalendarView9Base extends CalendarViewBase {}

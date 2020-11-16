@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import IbzMyTerritoryAuthService from '@/authservice/ibz-my-territory/ibz-my-territory-auth-service';
@@ -62,7 +62,7 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
      *
      * @memberof IbzMyTerritoryDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.ibzmyterritory.views.dashboardview.caption',
         srfTitle: 'entities.ibzmyterritory.views.dashboardview.title',
         srfSubTitle: 'entities.ibzmyterritory.views.dashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
      * @memberof IbzMyTerritoryDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -95,9 +98,18 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzMyTerritoryDashboardViewBase
      */
 	protected viewtag: string = 'd8df5ca51341d33ccc19208dde3f2cce';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzMyTerritoryDashboardViewBase
+     */ 
+    protected viewName: string = "IbzMyTerritoryDashboardView";
 
 
     /**
@@ -116,7 +128,9 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof IbzMyTerritoryDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

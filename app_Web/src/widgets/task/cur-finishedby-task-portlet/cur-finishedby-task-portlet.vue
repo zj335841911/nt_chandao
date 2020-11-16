@@ -1,5 +1,5 @@
-<template src="./cur-finishedby-task-portlet.html"/>
-<script lang='tsx'>
+<template src="./cur-finishedby-task-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CurFinishedbyTaskPortletBase } from './cur-finishedby-task-portlet-base';
@@ -15,10 +15,10 @@ import view_dashboard_sysportlet3_chart from '@widgets/task/my-finishedby-task-c
  */
 @Component({
     components: {
-        view_dashboard_sysportlet3_chart, 
+        view_dashboard_sysportlet3_chart,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class CurFinishedbyTaskPortlet extends CurFinishedbyTaskPortletBase { }
+export default class CurFinishedbyTaskPortlet extends CurFinishedbyTaskPortletBase {}
 </script>

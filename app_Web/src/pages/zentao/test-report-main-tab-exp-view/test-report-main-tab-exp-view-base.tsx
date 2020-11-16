@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
 import TestReportAuthService from '@/authservice/test-report/test-report-auth-service';
@@ -65,8 +65,14 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
 	 * @memberof TestReportMainTabExpViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'testreport' },
-        'BUILDS': { isRawValue: false, value: 'builds' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'testreport',
+        },
+        'BUILDS': {
+            isRawValue: false,
+            value: 'builds',
+        }
     };
 
 	/**
@@ -77,7 +83,10 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
 	 * @memberof TestReportMainTabExpViewBase
 	 */
     protected customViewParams: any = {
-        'builds': { isRawValue: false, value: 'builds' }
+        'builds': {
+            isRawValue: false,
+            value: 'builds',
+        }
     };
 
     /**
@@ -85,7 +94,7 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
      *
      * @memberof TestReportMainTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -98,8 +107,8 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.testreport.views.maintabexpview.caption',
         srfTitle: 'entities.testreport.views.maintabexpview.title',
         srfSubTitle: 'entities.testreport.views.maintabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -109,7 +118,10 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
      * @memberof TestReportMainTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -118,9 +130,18 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestReportMainTabExpViewBase
      */
 	protected viewtag: string = 'ea7a4f0ccc237a45f39ffb2e3df7e9fd';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportMainTabExpViewBase
+     */ 
+    protected viewName: string = "TestReportMainTabExpView";
 
 
     /**
@@ -139,7 +160,9 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof TestReportMainTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

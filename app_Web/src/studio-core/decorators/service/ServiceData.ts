@@ -1,5 +1,4 @@
 class ServiceData {
-
     /**
      * 全局服务
      *
@@ -55,7 +54,6 @@ class ServiceData {
         }
         return this.service[name];
     }
-
 }
 // 导出实例
 export const serviceData = new ServiceData();

@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface RepoBranchMapper extends BaseMapper<RepoBranch>{
+public interface RepoBranchMapper extends BaseMapper<RepoBranch> {
 
-    Page<RepoBranch> searchDefault(IPage page, @Param("srf") RepoBranchSearchContext context, @Param("ew") Wrapper<RepoBranch> wrapper) ;
+    Page<RepoBranch> searchDefault(IPage page, @Param("srf") RepoBranchSearchContext context, @Param("ew") Wrapper<RepoBranch> wrapper);
     @Override
     RepoBranch selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface RepoBranchMapper extends BaseMapper<RepoBranch>{
     int update(@Param(Constants.ENTITY) RepoBranch entity, @Param("ew") Wrapper<RepoBranch> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

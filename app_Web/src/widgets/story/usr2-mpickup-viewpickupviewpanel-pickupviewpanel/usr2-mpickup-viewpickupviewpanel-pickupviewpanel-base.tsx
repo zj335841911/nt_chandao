@@ -1,11 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import Usr2MPickupViewpickupviewpanelService from './usr2-mpickup-viewpickupviewpanel-pickupviewpanel-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 import Usr2MPickupViewpickupviewpanelModel from './usr2-mpickup-viewpickupviewpanel-pickupviewpanel-model';
-
 
 /**
  * pickupviewpanel部件基类
@@ -15,7 +15,6 @@ import Usr2MPickupViewpickupviewpanelModel from './usr2-mpickup-viewpickupviewpa
  * @extends {Usr2MPickupViewpickupviewpanelPickupviewpanelBase}
  */
 export class Usr2MPickupViewpickupviewpanelPickupviewpanelBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +64,7 @@ export class Usr2MPickupViewpickupviewpanelPickupviewpanelBase extends MainContr
      * @type {StoryUIService}
      * @memberof Usr2MPickupViewpickupviewpanelBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
 
 

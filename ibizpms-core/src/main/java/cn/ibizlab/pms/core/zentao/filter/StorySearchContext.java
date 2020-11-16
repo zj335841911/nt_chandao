@@ -139,6 +139,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().eq("color", n_color_eq);
         }
     }
+	private String n_keywords_like;//[关键词]
+	public void setN_keywords_like(String n_keywords_like) {
+        this.n_keywords_like = n_keywords_like;
+        if(!ObjectUtils.isEmpty(this.n_keywords_like)){
+            this.getSearchCond().like("keywords", n_keywords_like);
+        }
+    }
 	private String n_lasteditedby_eq;//[最后修改]
 	public void setN_lasteditedby_eq(String n_lasteditedby_eq) {
         this.n_lasteditedby_eq = n_lasteditedby_eq;
@@ -237,6 +244,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().eq("parent", n_parent_eq);
         }
     }
+	private Long n_parent_gtandeq;//[父需求]
+	public void setN_parent_gtandeq(Long n_parent_gtandeq) {
+        this.n_parent_gtandeq = n_parent_gtandeq;
+        if(!ObjectUtils.isEmpty(this.n_parent_gtandeq)){
+            this.getSearchCond().ge("parent", n_parent_gtandeq);
+        }
+    }
 	private Long n_module_eq;//[所属模块]
 	public void setN_module_eq(Long n_module_eq) {
         this.n_module_eq = n_module_eq;
@@ -304,6 +318,7 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

@@ -1,4 +1,5 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import BugService from '@/service/bug/bug-service';
 import CaseToBugModel from './case-to-bug-form-model';
@@ -7,6 +8,7 @@ import ModuleService from '@/service/module/module-service';
 import ProjectService from '@/service/project/project-service';
 import StoryService from '@/service/story/story-service';
 import TaskService from '@/service/task/task-service';
+import UserContactService from '@/service/user-contact/user-contact-service';
 
 
 /**
@@ -87,6 +89,14 @@ export default class CaseToBugService extends ControlService {
     public taskService: TaskService = new TaskService();
 
     /**
+     * 用户联系方式服务对象
+     *
+     * @type {UserContactService}
+     * @memberof CaseToBugService
+     */
+    public usercontactService: UserContactService = new UserContactService();
+
+    /**
      * 远端数据
      *
      * @type {*}
@@ -147,8 +157,11 @@ export default class CaseToBugService extends ControlService {
         if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchBugStory')) {
             return this.doItems(this.storyService.FetchBugStory(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
         }
-        if (Object.is(serviceName, 'TaskService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.taskService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'task');
+        if (Object.is(serviceName, 'TaskService') && Object.is(interfaceName, 'FetchBugTask')) {
+            return this.doItems(this.taskService.FetchBugTask(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'task');
+        }
+        if (Object.is(serviceName, 'UserContactService') && Object.is(interfaceName, 'FetchCurUSERCONTACT')) {
+            return this.doItems(this.usercontactService.FetchCurUSERCONTACT(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'usercontact');
         }
 
         return Promise.reject([])

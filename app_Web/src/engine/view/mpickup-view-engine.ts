@@ -8,7 +8,6 @@ import ViewEngine from './view-engine';
  * @extends {ViewEngine}
  */
 export default class MPickupViewEngine extends ViewEngine {
-
     /**
      * 选择视图面板
      *
@@ -19,7 +18,7 @@ export default class MPickupViewEngine extends ViewEngine {
 
     /**
      * Creates an instance of MPickupViewEngine.
-     * 
+     *
      * @memberof MPickupViewEngine
      */
     constructor() {
@@ -34,13 +33,16 @@ export default class MPickupViewEngine extends ViewEngine {
      */
     public init(options: any): void {
         this.pickupViewPanel = options.pickupviewpanel;
-        if (options.view.viewdata && options.view.viewdata.selectedData && Array.isArray(options.view.viewdata.selectedData)) {
+        if (
+            options.view.viewdata &&
+            options.view.viewdata.selectedData &&
+            Array.isArray(options.view.viewdata.selectedData)
+        ) {
             options.view.viewSelections = [...options.view.viewdata.selectedData];
             delete options.view.viewdata.selectedData;
         }
         super.init(options);
     }
-
 
     /**
      * 引擎加载
@@ -95,7 +97,7 @@ export default class MPickupViewEngine extends ViewEngine {
         });
         const _disbaled: boolean = this.view.containerModel[`view_${ctrlName}`].selections.length > 0 ? true : false;
         this.view.containerModel.view_rightbtn = _disbaled;
-        if(!this.view.isShowButton){
+        if (!this.view.isShowButton) {
             this.view.$emit('viewdataschange', [...args]);
         }
     }

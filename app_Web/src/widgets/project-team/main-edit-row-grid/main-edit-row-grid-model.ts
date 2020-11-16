@@ -57,6 +57,11 @@ export default class Main_EditRowModel {
           isEditable:true
         },
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'username',
           prop: 'username',
           dataType: 'TEXT',

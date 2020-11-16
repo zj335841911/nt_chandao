@@ -1,28 +1,12 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'test-suite-mob-edit-view': true }">
     
     <ion-header>
-        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
-            <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
-            </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                    </div>
-                </div>
-            </ion-buttons>
-        </ion-toolbar>
 
     
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_form
             :viewState="viewState"
             viewName="TestSuiteMobEditView"  
@@ -54,12 +38,13 @@
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TestSuiteService from '@/app-core/service/test-suite/test-suite-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
 import TestSuiteUIService from '@/ui-service/test-suite/test-suite-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -160,6 +145,14 @@ export default class TestSuiteMobEditViewBase extends Vue {
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof TestSuiteMobEditViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
+
+    /**
      * 标题状态
      *
      * @memberof TestSuiteMobEditViewBase
@@ -173,7 +166,7 @@ export default class TestSuiteMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TestSuiteMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'testsuite', 'srfparentkey': '%testsuite%' };
 
     /**
      * 视图导航参数
@@ -182,7 +175,7 @@ export default class TestSuiteMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TestSuiteMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%testsuite%', 'objecttype': 'testsuite' };
 
     /**
      * 视图模型数据
@@ -592,6 +585,19 @@ export default class TestSuiteMobEditViewBase extends Vue {
             _this.onRefreshView();
         }
     }
+
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof TestSuiteMobEditViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
 
 
     /**

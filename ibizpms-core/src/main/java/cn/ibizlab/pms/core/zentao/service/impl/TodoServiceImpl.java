@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Todo;
@@ -35,12 +36,13 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.TodoMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
 
 /**
- * 实体[待办事宜表] 服务对象接口实现
+ * 实体[待办] 服务对象接口实现
  */
 @Slf4j
 @Service("TodoServiceImpl")
@@ -94,14 +96,14 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Override
     @Transactional
     public Todo get(Long key) {
-        Todo tempET=new Todo();
-        tempET.set("id",key);
+        Todo tempET = new Todo();
+        tempET.set("id", key);
         Todo et = getById(key);
-        if(et==null){
-            et=new Todo();
+        if (et == null) {
+            et = new Todo();
             et.setId(key);
         }
-        else{
+        else {
         }
         gettodotitleLogic.execute(et);
         resetbeginendLogic.execute(et);
@@ -127,12 +129,19 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 
     @Override
     public boolean checkKey(Todo et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
     public Todo close(Todo et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TodoHelper.class).close(et);
+    }
+
+    @Override
+    @Transactional
+    public Todo createCycle(Todo et) {
+        //自定义代码
+        return et;
     }
 
         @Override
@@ -144,8 +153,9 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Override
     @Transactional
     public boolean save(Todo et) {
-        if(!saveOrUpdate(et))
+        if (!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -160,14 +170,16 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<Todo> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<Todo> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
     }
 
       /**
@@ -180,7 +192,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
   	
   		cn.ibizlab.pms.core.util.message.IMsgService dingTalkMsgService = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.message.IMsgService.class);
   		if(dingTalkMsgService!=null){
-        	dingTalkMsgService.send(et, "待办事宜表", pcLinkView, mobLinkView);
+        	dingTalkMsgService.send(et, "待办", pcLinkView, mobLinkView);
 		}
 	  	return et;
 	}
@@ -213,7 +225,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
      */
     @Override
     public Page<Todo> searchDefault(TodoSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -222,7 +234,16 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
      */
     @Override
     public Page<Todo> searchMyTodo(TodoSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyTodo(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyTodo(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的待办
+     */
+    @Override
+    public Page<Todo> searchMyTodoPc(TodoSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyTodoPc(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -231,7 +252,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
      */
     @Override
     public Page<Todo> searchMyUpcoming(TodoSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyUpcoming(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyUpcoming(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -242,28 +263,31 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

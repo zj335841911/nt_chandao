@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { TreeExpViewBase } from '@/studio-core';
 import IbzLibModuleService from '@/service/ibz-lib-module/ibz-lib-module-service';
 import IbzLibModuleAuthService from '@/authservice/ibz-lib-module/ibz-lib-module-auth-service';
@@ -62,7 +62,7 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof IbzLibModuleCaseTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.ibzlibmodule.views.casetreeexpview.caption',
         srfTitle: 'entities.ibzlibmodule.views.casetreeexpview.title',
         srfSubTitle: 'entities.ibzlibmodule.views.casetreeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
      * @memberof IbzLibModuleCaseTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
 
@@ -95,9 +98,18 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzLibModuleCaseTreeExpViewBase
      */
 	protected viewtag: string = '99b83386d61eab84cd7d65a445def4ed';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzLibModuleCaseTreeExpViewBase
+     */ 
+    protected viewName: string = "IbzLibModuleCaseTreeExpView";
 
 
     /**
@@ -116,7 +128,9 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof IbzLibModuleCaseTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

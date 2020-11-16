@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
@@ -62,7 +62,7 @@ export class ProjectMainDashboardViewBase extends DashboardViewBase {
      *
      * @memberof ProjectMainDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class ProjectMainDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.project.views.maindashboardview.caption',
         srfTitle: 'entities.project.views.maindashboardview.title',
         srfSubTitle: 'entities.project.views.maindashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class ProjectMainDashboardViewBase extends DashboardViewBase {
      * @memberof ProjectMainDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -95,9 +98,18 @@ export class ProjectMainDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectMainDashboardViewBase
      */
 	protected viewtag: string = '85ee867b09a2d6303c061d91374ec975';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectMainDashboardViewBase
+     */ 
+    protected viewName: string = "ProjectMainDashboardView";
 
 
     /**
@@ -116,7 +128,9 @@ export class ProjectMainDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof ProjectMainDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,5 +1,5 @@
-<template src="./bug-stats-grid-view.html"/>
-<script lang='tsx'>
+<template src="./bug-stats-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugStatsGridViewBase } from './bug-stats-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/bug-stats/default-searchform/default-searc
     }
 })
 @VueLifeCycleProcessing()
-export default class BugStatsGridView extends BugStatsGridViewBase { }
+export default class BugStatsGridView extends BugStatsGridViewBase {}
 </script>

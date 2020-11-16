@@ -1,5 +1,5 @@
-<template src="./main-edit-row-grid.html"/>
-<script lang='tsx'>
+<template src="./main-edit-row-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainEditRowGridBase } from './main-edit-row-grid-base';
@@ -15,8 +15,8 @@ import { MainEditRowGridBase } from './main-edit-row-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MainEditRowGrid extends MainEditRowGridBase { }
+export default class MainEditRowGrid extends MainEditRowGridBase {}
 </script>

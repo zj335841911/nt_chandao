@@ -1,5 +1,5 @@
-<template src="./bug-opened-by-portlet.html"/>
-<script lang='tsx'>
+<template src="./bug-opened-by-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugOpenedByPortletBase } from './bug-opened-by-portlet-base';
@@ -15,10 +15,10 @@ import view_dashboard_sysportlet13_chart from '@widgets/bug/bug-opened-by-chart/
  */
 @Component({
     components: {
-        view_dashboard_sysportlet13_chart, 
+        view_dashboard_sysportlet13_chart,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class BugOpenedByPortlet extends BugOpenedByPortletBase { }
+export default class BugOpenedByPortlet extends BugOpenedByPortletBase {}
 </script>

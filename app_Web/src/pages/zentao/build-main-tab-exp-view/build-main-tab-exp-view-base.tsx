@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
 import BuildAuthService from '@/authservice/build/build-auth-service';
@@ -65,10 +65,22 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
 	 * @memberof BuildMainTabExpViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'srfparentkey': { isRawValue: false, value: 'build' },
-        'project': { isRawValue: false, value: 'project' },
-        'objecttype': { isRawValue: true, value: 'build' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'srfparentkey': {
+            isRawValue: false,
+            value: 'build',
+        },
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'objecttype': {
+            isRawValue: true,
+            value: 'build',
+        }
     };
 
     /**
@@ -76,7 +88,7 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
      *
      * @memberof BuildMainTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -89,8 +101,8 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.build.views.maintabexpview.caption',
         srfTitle: 'entities.build.views.maintabexpview.title',
         srfSubTitle: 'entities.build.views.maintabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -100,7 +112,10 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
      * @memberof BuildMainTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -109,9 +124,18 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BuildMainTabExpViewBase
      */
 	protected viewtag: string = 'fffe78c32fb25b287d0c5165d46f8dd2';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BuildMainTabExpViewBase
+     */ 
+    protected viewName: string = "BuildMainTabExpView";
 
 
     /**
@@ -130,7 +154,9 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof BuildMainTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

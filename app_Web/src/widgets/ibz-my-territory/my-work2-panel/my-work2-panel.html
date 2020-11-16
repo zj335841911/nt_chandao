@@ -5,12 +5,12 @@
                       <div v-show="detailsModel.container2.visible" class="app-layoutpanel-container container-lefttop-margin" style="width: 230px;">
                     <div style="height:100%;display: flex;justify-content: flex-start;align-items: flex-start;margin:0px 0px 0px 0px">
                               
-                        <div v-show="detailsModel.realname.visible" style="font-size:20px;font-weight:bold" class="app-layoutpanel-field  panelitem-20px">
+                        <div v-show="detailsModel.account.visible" style="font-size:20px;font-weight:bold" class="app-layoutpanel-field  panelitem-20px">
                             <div class="item-field">
                             
                             <div class="item-field-content">
                             
-                        <app-span :value="data.realname" name="realname" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""> </app-span> 
+                        <app-span :value="data.account" name="account" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  tag='UserRealName' codelistType='DYNAMIC' style=""> </app-span> 
                         
                             </div>
                         </div>
@@ -25,7 +25,15 @@
                             <div style="height:100%;display: flex;flex-direction: row;">
                                       
                                 <div v-show="detailsModel.rawitem1.visible" style="" class="app-layoutpanel-rowitem">
-                                    今天剩余工作总计
+                                    <app-rawitem
+                                    :viewparams="viewparams" 
+                                    :context="context"
+                                    contentStyle=""
+                                    sizeStyle="height: 40px;"
+                                    contentType=""
+                                    :htmlContent='`今天剩余工作总计`'
+                                >
+                                </app-rawitem>
                                 
                                 
                                 </div>
@@ -37,7 +45,15 @@
                                     <div style="height:100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
                                               
                                         <div v-show="detailsModel.rawitem2.visible" style="" class="app-layoutpanel-rowitem">
-                                            我的任务
+                                            <app-rawitem
+                                            :viewparams="viewparams" 
+                                            :context="context"
+                                            contentStyle=""
+                                            sizeStyle="height: 30px;"
+                                            contentType=""
+                                            :htmlContent='`我的任务`'
+                                        >
+                                        </app-rawitem>
                                         
                                         
                                         </div>
@@ -73,7 +89,15 @@
                                     <div style="height:100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
                                               
                                         <div v-show="detailsModel.rawitem3.visible" style="" class="app-layoutpanel-rowitem">
-                                            我的bug
+                                            <app-rawitem
+                                            :viewparams="viewparams" 
+                                            :context="context"
+                                            contentStyle=""
+                                            sizeStyle="height: 30px;"
+                                            contentType=""
+                                            :htmlContent='`我的bug`'
+                                        >
+                                        </app-rawitem>
                                         
                                         
                                         </div>
@@ -109,7 +133,15 @@
                                     <div style="height:100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
                                               
                                         <div v-show="detailsModel.rawitem4.visible" style="" class="app-layoutpanel-rowitem">
-                                            我的需求
+                                            <app-rawitem
+                                            :viewparams="viewparams" 
+                                            :context="context"
+                                            contentStyle=""
+                                            sizeStyle="height: 30px;"
+                                            contentType=""
+                                            :htmlContent='`我的需求`'
+                                        >
+                                        </app-rawitem>
                                         
                                         
                                         </div>
@@ -128,7 +160,15 @@
                                         </div>
                                               
                                         <div v-show="detailsModel.rawitem7.visible" style="color:rgba(255, 93, 93, 1);text-align:center" class="app-layoutpanel-rowitem text-center-red">
-                                            ---
+                                            <app-rawitem
+                                            :viewparams="viewparams" 
+                                            :context="context"
+                                            contentStyle="text-center-red"
+                                            sizeStyle=""
+                                            contentType=""
+                                            :htmlContent='`---`'
+                                        >
+                                        </app-rawitem>
                                         
                                         
                                         </div>
@@ -138,7 +178,15 @@
                                     <div style="height:100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
                                               
                                         <div v-show="detailsModel.rawitem5.visible" style="" class="app-layoutpanel-rowitem">
-                                            未关闭的项目
+                                            <app-rawitem
+                                            :viewparams="viewparams" 
+                                            :context="context"
+                                            contentStyle=""
+                                            sizeStyle="height: 30px;"
+                                            contentType=""
+                                            :htmlContent='`未关闭的项目`'
+                                        >
+                                        </app-rawitem>
                                         
                                         
                                         </div>
@@ -174,7 +222,15 @@
                                     <div style="height:100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
                                               
                                         <div v-show="detailsModel.rawitem6.visible" style="" class="app-layoutpanel-rowitem">
-                                            未关闭的产品
+                                            <app-rawitem
+                                            :viewparams="viewparams" 
+                                            :context="context"
+                                            contentStyle=""
+                                            sizeStyle="height: 30px;"
+                                            contentType=""
+                                            :htmlContent='`未关闭的产品`'
+                                        >
+                                        </app-rawitem>
                                         
                                         
                                         </div>
@@ -193,7 +249,15 @@
                                         </div>
                                               
                                         <div v-show="detailsModel.rawitem8.visible" style="color:rgba(255, 93, 93, 1);text-align:center" class="app-layoutpanel-rowitem text-center-red">
-                                            ---
+                                            <app-rawitem
+                                            :viewparams="viewparams" 
+                                            :context="context"
+                                            contentStyle="text-center-red"
+                                            sizeStyle=""
+                                            contentType=""
+                                            :htmlContent='`---`'
+                                        >
+                                        </app-rawitem>
                                         
                                         
                                         </div>

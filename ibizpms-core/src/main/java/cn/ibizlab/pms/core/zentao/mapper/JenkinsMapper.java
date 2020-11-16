@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface JenkinsMapper extends BaseMapper<Jenkins>{
+public interface JenkinsMapper extends BaseMapper<Jenkins> {
 
-    Page<Jenkins> searchDefault(IPage page, @Param("srf") JenkinsSearchContext context, @Param("ew") Wrapper<Jenkins> wrapper) ;
+    Page<Jenkins> searchDefault(IPage page, @Param("srf") JenkinsSearchContext context, @Param("ew") Wrapper<Jenkins> wrapper);
     @Override
     Jenkins selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface JenkinsMapper extends BaseMapper<Jenkins>{
     int update(@Param(Constants.ENTITY) Jenkins entity, @Param("ew") Wrapper<Jenkins> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

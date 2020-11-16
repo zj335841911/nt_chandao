@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -48,7 +48,7 @@ export class BugDashboardMainEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof BugDashboardMainEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class BugDashboardMainEditView9Base extends EditView9Base {
         srfCaption: 'entities.bug.views.dashboardmaineditview9.caption',
         srfTitle: 'entities.bug.views.dashboardmaineditview9.title',
         srfSubTitle: 'entities.bug.views.dashboardmaineditview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class BugDashboardMainEditView9Base extends EditView9Base {
      * @memberof BugDashboardMainEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -97,9 +100,18 @@ export class BugDashboardMainEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugDashboardMainEditView9Base
      */
 	protected viewtag: string = 'ec9a5987de12c718961f243f4034efea';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugDashboardMainEditView9Base
+     */ 
+    protected viewName: string = "BugDashboardMainEditView9";
 
 
     /**
@@ -118,7 +130,9 @@ export class BugDashboardMainEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof BugDashboardMainEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

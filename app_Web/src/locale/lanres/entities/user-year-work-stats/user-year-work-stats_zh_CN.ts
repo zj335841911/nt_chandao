@@ -185,4 +185,13 @@ export default {
 		uiactions: {
 		},
 	},
+	monthopenedbugandcase_chart: {
+		nodata: "",
+	},
+	monthfinishtaskandbug_chart: {
+		nodata: "",
+	},
+	monthopenedstory_chart: {
+		nodata: "",
+	},
 };

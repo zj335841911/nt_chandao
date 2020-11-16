@@ -21,6 +21,13 @@ export default class ProjectTeamUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  ProjectTeamUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  ProjectTeamUIServiceBase
@@ -89,8 +96,15 @@ export default class ProjectTeamUIServiceBase extends UIService {
      * @memberof  ProjectTeamUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('MDATAVIEW:',{viewname:'maingridview',srfappde:'projectteams',component:'project-team-main-grid-view'});
-        this.allViewMap.set(':',{viewname:'maingridview_editrow',srfappde:'projectteams',component:'project-team-main-grid-view-edit-row'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'maingridview',
+            srfappde: 'projectteams',
+            component: 'project-team-main-grid-view',
+            openmode: '',
+            title: '项目团队',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -168,7 +182,6 @@ export default class ProjectTeamUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '移除成功' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

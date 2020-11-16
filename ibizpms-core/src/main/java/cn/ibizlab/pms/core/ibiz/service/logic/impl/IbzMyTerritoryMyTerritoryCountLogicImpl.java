@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.ibiz.domain.IbzMyTerritory;
  */
 @Slf4j
 @Service
-public class IbzMyTerritoryMyTerritoryCountLogicImpl implements IIbzMyTerritoryMyTerritoryCountLogic{
+public class IbzMyTerritoryMyTerritoryCountLogicImpl implements IIbzMyTerritoryMyTerritoryCountLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -34,22 +34,24 @@ public class IbzMyTerritoryMyTerritoryCountLogicImpl implements IIbzMyTerritoryM
         return this.iBzSysDefaultService;
     }
 
-    public void execute(IbzMyTerritory et){
+    @Override
+    public void execute(IbzMyTerritory et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("ibzmyterritorymyterritorycountdefault",et);
-           kieSession.setGlobal("iBzSysIbzmyterritoryDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("ibzmyterritorymyterritorycountdefault", et);
+           kieSession.setGlobal("iBzSysIbzmyterritoryDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.ibzmyterritorymyterritorycount");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[我的地盘移动端计数器]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

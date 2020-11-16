@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_company",resultMap = "CompanyResultMap")
+@TableName(value = "zt_company", resultMap = "CompanyResultMap")
 public class Company extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -58,8 +60,8 @@ public class Company extends EntityMP implements Serializable {
     /**
      * 逻辑删除标志
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -74,8 +76,8 @@ public class Company extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -127,79 +129,79 @@ public class Company extends EntityMP implements Serializable {
     /**
      * 设置 [admins]
      */
-    public void setAdmins(String admins){
-        this.admins = admins ;
-        this.modify("admins",admins);
+    public void setAdmins(String admins) {
+        this.admins = admins;
+        this.modify("admins", admins);
     }
 
     /**
      * 设置 [传真]
      */
-    public void setFax(String fax){
-        this.fax = fax ;
-        this.modify("fax",fax);
+    public void setFax(String fax) {
+        this.fax = fax;
+        this.modify("fax", fax);
     }
 
     /**
      * 设置 [官网]
      */
-    public void setWebsite(String website){
-        this.website = website ;
-        this.modify("website",website);
+    public void setWebsite(String website) {
+        this.website = website;
+        this.modify("website", website);
     }
 
     /**
      * 设置 [邮政编码]
      */
-    public void setZipcode(String zipcode){
-        this.zipcode = zipcode ;
-        this.modify("zipcode",zipcode);
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+        this.modify("zipcode", zipcode);
     }
 
     /**
      * 设置 [通讯地址]
      */
-    public void setAddress(String address){
-        this.address = address ;
-        this.modify("address",address);
+    public void setAddress(String address) {
+        this.address = address;
+        this.modify("address", address);
     }
 
     /**
      * 设置 [内网]
      */
-    public void setBackyard(String backyard){
-        this.backyard = backyard ;
-        this.modify("backyard",backyard);
+    public void setBackyard(String backyard) {
+        this.backyard = backyard;
+        this.modify("backyard", backyard);
     }
 
     /**
      * 设置 [公司名称]
      */
-    public void setName(String name){
-        this.name = name ;
-        this.modify("name",name);
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [匿名登陆]
      */
-    public void setGuest(String guest){
-        this.guest = guest ;
-        this.modify("guest",guest);
+    public void setGuest(String guest) {
+        this.guest = guest;
+        this.modify("guest", guest);
     }
 
     /**
      * 设置 [联系电话]
      */
-    public void setPhone(String phone){
-        this.phone = phone ;
-        this.modify("phone",phone);
+    public void setPhone(String phone) {
+        this.phone = phone;
+        this.modify("phone", phone);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -211,7 +213,7 @@ public class Company extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

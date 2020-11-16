@@ -87,6 +87,7 @@ public class IBZProStoryModuleSearchContext extends QueryWrapperContext<IBZProSt
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

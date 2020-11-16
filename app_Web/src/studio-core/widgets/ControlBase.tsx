@@ -189,7 +189,7 @@ export class ControlBase extends Vue {
      * @protected
      * @memberof ControlBase
      */
-    protected ctrlCreated(): void { }
+    protected ctrlCreated(): void {}
 
     /**
      * 组件挂载完毕
@@ -206,7 +206,7 @@ export class ControlBase extends Vue {
      * @protected
      * @memberof ControlBase
      */
-    protected ctrlMounted(): void { }
+    protected ctrlMounted(): void {}
 
     /**
      * 组件销毁
@@ -231,12 +231,12 @@ export class ControlBase extends Vue {
      */
     protected ctrlDestroyed(): void {
         // 销毁计数器定时器
-        if(this.counterServiceArray && this.counterServiceArray.length >0){
-            this.counterServiceArray.forEach((item:any) =>{
-                if(item.destroyCounter && item.destroyCounter instanceof Function){
+        if (this.counterServiceArray && this.counterServiceArray.length > 0) {
+            this.counterServiceArray.forEach((item: any) => {
+                if (item.destroyCounter && item.destroyCounter instanceof Function) {
                     item.destroyCounter();
                 }
-            })
+            });
         }
     }
 
@@ -260,7 +260,7 @@ export class ControlBase extends Vue {
      * @memberof ControlBase
      */
     public closeView(args: any[]): void {
-        this.$emit("closeview", args);
+        this.$emit('closeview', args);
     }
 
     /**
@@ -288,6 +288,5 @@ export class ControlBase extends Vue {
      *
      * @memberof ControlBase
      */
-    public onSearch(args: any): void {
-    }
+    public onSearch(args: any): void {}
 }

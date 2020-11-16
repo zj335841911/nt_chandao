@@ -2,10 +2,12 @@
     <div :class="{ 'bug-assigned': true, 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
         <i-form>
         <el-table v-if="isDisplay === true"
-            :span-method="rowSpanMethod"
             :cell-style="{background:'#fff',borderBottom:'solid 1px #e8e8e8',borderRight:'solid 1px #e8e8e8'}"
             size="mini"
             stripe
+            :span-method="rowSpanMethod"
+            :tree-props="{children: 'children', hasChildren: 'children?true:false'}"
+            row-key="groupById"
             :height="tableHeight"
             ref='multipleTable' :data="itemsRenderList" :show-header="!isHideHeader">
                 <template slot="empty">
@@ -15,6 +17,13 @@
                 </template>
                 <template v-if="!isSingleSelect">
                     <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                </template>
+                <template>
+                    <el-table-column show-overflow-tooltip prop="group" label="分组" :min-width="80">
+                        <template v-slot="{row,column,$index}">
+                            <span>{{ row.group }}</span>
+                        </template>
+                    </el-table-column>
                 </template>
                 <template v-if="getColumnState('assignedto')">
                     <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.bugstats.bugassignedto_grid.columns.assignedto')" :width="200"  :align="'center'">
@@ -62,7 +71,7 @@
                     </el-table-column>
                 </template>
                 <template v-if="getColumnState('bugtotal')">
-                    <el-table-column show-overflow-tooltip :prop="'bugtotal'" :label="$t('entities.bugstats.bugassignedto_grid.columns.bugtotal')" :width="200"  :align="'center'">
+                    <el-table-column show-overflow-tooltip :prop="'bugtotalnum'" :label="$t('entities.bugstats.bugassignedto_grid.columns.bugtotal')" :width="200"  :align="'center'">
                         <template slot="header">
                         <span class="column-header ">
                             {{$t('entities.bugstats.bugassignedto_grid.columns.bugtotal')}}
@@ -128,6 +137,8 @@ export default class BugassignedToGrid extends BugassignedToGridBase {
             // 排序并合并设置合并行规则
             this.listSort();
             this.setRowSpanRule();
+            //  设置bug合计数
+            this.setBugTotal();
         }
     }
     // assignedto
@@ -144,18 +155,49 @@ export default class BugassignedToGrid extends BugassignedToGridBase {
     }
 
     /**
+     * 设置bug合计列总数
+     * @memberof MainGrid
+     */
+    public setBugTotal() {
+        this.infoList.forEach((info: any) => {
+            let tempArray:Array<any> = this.itemsRenderList.filter((curr: any) => {return curr.assignedto === info.firstIndex});
+            let bugTotal: number = 0;
+            tempArray.forEach((temp: any) => {
+                bugTotal += temp.bugtotal;
+            })
+            this.itemsRenderList.forEach((item: any) => {
+                if(item.assignedto === info.firstIndex) {
+                    item.bugtotalnum = bugTotal;
+                }
+            })
+        })
+    }
+
+    /**
      * 设置合并行规则
      * @memberof MainGrid
      */
     public setRowSpanRule() {
         let tempArray:Array<any> = [];
-        this.itemsRenderList.forEach((item:any) => {
-            let firstIndex:number = this.itemsRenderList.findIndex((curr:any) => {return curr.assignedto === item.assignedto;});
-            if (tempArray.findIndex((curr:any) => {return curr.firstIndex === firstIndex}) === -1) {
-                tempArray.push({length:this.itemsRenderList.filter((curr:any) => {return curr.assignedto === item.assignedto}).length,firstIndex:firstIndex})
+        //  分组情况下使用
+        this.itemsRenderList.forEach((items: any) => {
+            if(items.children && items.children.length > 0) {
+                items.children.forEach((children: any, index: number) => {
+                    children.parent_length = items.children.length;
+                    if(index == 0) {
+                        children.isFirstChildren = true;
+                    }
+                })
             }
         })
-        this.infoList = [...tempArray];
+        //  原本逻辑
+        // this.itemsRenderList.forEach((item:any) => {
+        //     let firstIndex:number = this.itemsRenderList.findIndex((curr:any) => {return curr.assignedto === item.assignedto;});
+        //     if (tempArray.findIndex((curr:any) => {return curr.firstIndex === firstIndex}) === -1) {
+        //         tempArray.push({length:this.itemsRenderList.filter((curr:any) => {return curr.assignedto === item.assignedto}).length,firstIndex:firstIndex})
+        //     }
+        // })
+        // this.infoList = [...tempArray];
     }
 
     /**
@@ -163,22 +205,42 @@ export default class BugassignedToGrid extends BugassignedToGridBase {
      * @memberof MainGrid
      */
     public rowSpanMethod({ row, column, rowIndex, columnIndex }:{row:any, column:any, rowIndex:any, columnIndex:any}) {
-        if (columnIndex === 0) {
-            let index = this.infoList.findIndex((item:any) => {
-                return item.firstIndex === rowIndex;
-            })
-            if (index > -1) {
+        let allColumns:Array<any> = ['assignedto','productname','bugcnt','bugtotal'];
+        //  分组时使用
+        if(row && row.children) {
+            if(columnIndex == (this.isSingleSelect ? 0:1)) {
+                return [1, allColumns.length+1];
+            } else if(columnIndex > (this.isSingleSelect ? 0:1)) {
+                return [0,0];
+            }
+        } else if(row.parent_length && row.parent_length>0) {
+            if((columnIndex === 0 || columnIndex === 1 || columnIndex === 4) && row.isFirstChildren) {
                 return {
-                    rowspan: this.infoList[index].length,
+                    rowspan: row.parent_length,
                     colspan: 1
-                }
-            } else {
-                return {
-                    rowspan: 0,
-                    colspan: 0
-                }
+                };
+            } else if((columnIndex === 0 || columnIndex === 1 || columnIndex === 4) && !row.isFirstChildren) {
+                return [0,0];
             }
         }
+        //  默认样式
+
+        // if (columnIndex === 1) {
+        //     let index = this.infoList.findIndex((item:any) => {
+        //         return item.firstIndex === rowIndex;
+        //     })
+        //     if (index > -1) {
+        //         return {
+        //             rowspan: this.infoList[index].length,
+        //             colspan: 1
+        //         }
+        //     } else {
+        //         return {
+        //             rowspan: 0,
+        //             colspan: 0
+        //         }
+        //     }
+        // }
     }
 }
 </script>

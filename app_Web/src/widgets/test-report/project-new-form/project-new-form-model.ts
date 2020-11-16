@@ -144,6 +144,11 @@ export default class Project_NewModel {
         dataType: 'LONGTEXT',
       },
       {
+        name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

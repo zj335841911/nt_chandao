@@ -18,6 +18,37 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
+    name='branch' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="branch_item"  
+    :itemValue="this.data.branch" 
+    v-show="detailsModel.branch.visible" 
+    :itemRules="this.rules.branch" 
+    :caption="$t('productplan.mobmain_form.details.branch')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.branch.disabled"
+    :error="detailsModel.branch.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+    codeListType="DYNAMIC" 
+    tag="ProductBranch_Cache"
+    :isCache="false" 
+    v-if="data.branch"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.branch" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
     name='title' 
     class='' 
     uiStyle="DEFAULT"  
@@ -27,14 +58,18 @@
     v-show="detailsModel.title.visible" 
     :itemRules="this.rules.title" 
     :caption="$t('productplan.mobmain_form.details.title')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.title.disabled"
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.title" 
-    :context="context" 
+    v-if="data.title"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.title" 
     :itemParam="{}"/>
 </app-form-item>
@@ -51,14 +86,18 @@
     v-show="detailsModel.begin.visible" 
     :itemRules="this.rules.begin" 
     :caption="$t('productplan.mobmain_form.details.begin')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.begin.disabled"
     :error="detailsModel.begin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.begin" 
-    :context="context" 
+    v-if="data.begin"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.begin" 
     :itemParam="{}"/>
 </app-form-item>
@@ -75,14 +114,18 @@
     v-show="detailsModel.end.visible" 
     :itemRules="this.rules.end" 
     :caption="$t('productplan.mobmain_form.details.end')"  
-    :labelWidth="130"  
+    :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.end.disabled"
     :error="detailsModel.end.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.end" 
-    :context="context" 
+    v-if="data.end"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.end" 
     :itemParam="{}"/>
 </app-form-item>
@@ -90,25 +133,22 @@
 
 
 <app-form-item 
-    name='storycnt' 
+    name='desc' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="storycnt_item"  
-    :itemValue="this.data.storycnt" 
-    v-show="detailsModel.storycnt.visible" 
-    :itemRules="this.rules.storycnt" 
-    :caption="$t('productplan.mobmain_form.details.storycnt')"  
-    :labelWidth="130"  
+    ref="desc_item"  
+    :itemValue="this.data.desc" 
+    v-show="detailsModel.desc.visible" 
+    :itemRules="this.rules.desc" 
+    :caption="$t('productplan.mobmain_form.details.desc')"  
+    :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.storycnt.disabled"
-    :error="detailsModel.storycnt.error" 
+    :disabled="detailsModel.desc.disabled"
+    :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.storycnt" 
-    :context="context" 
-    :value="data.storycnt" 
-    :itemParam="{}"/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+
 </app-form-item>
 
 
@@ -135,6 +175,7 @@
     refreshitems='' 
     viewname='story-mob-mdview9' 
     v-show="detailsModel.druipart2.visible" 
+    :caption="$t('productplan.mobmain_form.details.druipart2')"  
     paramItem='productplan' 
     style="" 
     :formState="formState" 
@@ -154,30 +195,6 @@
 
     
 </app-form-group>
-
-
-
-<app-form-item 
-    name='bugcnt' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="bugcnt_item"  
-    :itemValue="this.data.bugcnt" 
-    v-show="detailsModel.bugcnt.visible" 
-    :itemRules="this.rules.bugcnt" 
-    :caption="$t('productplan.mobmain_form.details.bugcnt')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.bugcnt.disabled"
-    :error="detailsModel.bugcnt.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.bugcnt" 
-    :context="context" 
-    :value="data.bugcnt" 
-    :itemParam="{}"/>
-</app-form-item>
 
 
 
@@ -203,12 +220,57 @@
     refreshitems='' 
     viewname='bug-plan-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('productplan.mobmain_form.details.druipart1')"  
     paramItem='productplan' 
     style="" 
     :formState="formState" 
     :parentdata='{"srfparentdefname":"PLAN","srfparentdename":"ZT_PRODUCTPLAN","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_BUG_ZT_PRODUCTPLAN_PLAN","SRFDER1NID":"DER1N_ZT_BUG_ZT_PRODUCTPLAN_PLAN"}' 
     :parameters="[
         { pathName: 'products', parameterName: 'product' },
+    ]" 
+    tempMode='0'
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
+
+
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel3.visible" 
+    :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" 
+    :caption="$t('productplan.mobmain_form.details.grouppanel3')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="1" 
+    :isInfoGroupMode="true" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='productplan' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart3.visible" 
+    :caption="$t('productplan.mobmain_form.details.druipart3')"  
+    paramItem='productplan' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_PRODUCTPLAN","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
     ]" 
     tempMode='0'
     :context="context" 
@@ -497,6 +559,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     protected formState: Subject<any> = new Subject();
 
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobMainBase
+     */
+    public appStateEvent: Subscription | undefined;
+
     /**
      * 忽略表单项值变化
      *
@@ -546,10 +618,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        branch: null,
         title: null,
         begin: null,
         end: null,
         storycnt: null,
+        desc: null,
         bugcnt: null,
         id: null,
         productplan: null,
@@ -691,6 +765,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         grouppanel2: new FormGroupPanelModel({ caption: '关联Bug详情', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
+        druipart3: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart3', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel3: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
+, 
         group1: new FormGroupPanelModel({ caption: '产品计划基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -709,6 +787,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         title: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -716,6 +796,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         storycnt: new FormItemModel({ caption: '需求数', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         bugcnt: new FormItemModel({ caption: 'bug数', detailType: 'FORMITEM', name: 'bugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -808,6 +890,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 branch 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.branch')
+    onBranchChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'branch', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 title 值
      *
      * @param {*} newVal
@@ -853,6 +947,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.storycnt')
     onStorycntChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'storycnt', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 desc 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.desc')
+    onDescChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -950,6 +1056,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
             }
             this.detailsModel.grouppanel2.setVisible(ret);
         }
+
+
+
+
 
 
 
@@ -1257,6 +1367,16 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"ProductPlan")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1279,6 +1399,9 @@ export default class MobMainBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 
@@ -1462,7 +1585,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 2;
+            this.drcounter = 3;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();
@@ -1488,7 +1611,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"ProductPlan",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"ProductPlan",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

@@ -27,6 +27,7 @@ export default {
 		},
 	},
 	main_editrow_grid: {
+		nodata: "",
 		columns: {
 			account: "用户",
 			role: "角色",
@@ -41,6 +42,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			account: "用户",
 			role: "角色",
@@ -51,6 +53,15 @@ export default {
 			limited: "受限用户",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			account: "用户",
+			role: "角色",
+			join: "加盟日",
+			days: "可用工日",
+			hours: "可用工时/天",
+			total: "总计可用",
+			limited: "受限用户",
+    },
 		uiactions: {
 			projectteam_removemember: "移除成员",
 		},
@@ -60,6 +71,14 @@ export default {
 			formpage1: "常规条件", 
 			dept: "选择部门", 
 			teams: "复制团队", 
+		},
+		uiactions: {
+		},
+	},
+	main2_searchform: {
+		details: {
+			formpage1: "常规条件", 
+			n_account_eq: "用户", 
 		},
 		uiactions: {
 		},
@@ -86,6 +105,10 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
+		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 };

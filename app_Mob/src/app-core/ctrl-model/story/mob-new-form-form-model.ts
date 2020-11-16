@@ -96,8 +96,8 @@ export class MobNewFormModel {
                 dataType: 'SMCODELIST',
             },
             {
-                name: 'assignedto',
-                prop: 'assignedto',
+                name: 'assignedtopk',
+                prop: 'assignedtopk',
                 dataType: 'TEXT',
             },
             {
@@ -136,6 +136,11 @@ export class MobNewFormModel {
                 dataType: 'SMCODELIST',
             },
             {
+                name: 'mailtopk',
+                prop: 'mailtopk',
+                dataType: 'SMCODELIST',
+            },
+            {
                 name: 'keywords',
                 prop: 'keywords',
                 dataType: 'TEXT',
@@ -144,6 +149,11 @@ export class MobNewFormModel {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
+            },
+            {
+                name: 'assignedto',
+                prop: 'assignedto',
+                dataType: 'TEXT',
             },
             {
                 name: 'story',

@@ -1,6 +1,7 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import MyFinishedbyTaskService from './my-finishedby-task-chart-service';
@@ -10,7 +11,6 @@ import moment from "moment";
 import CodeListService from "@service/app/codelist-service";
 import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries,ChartRadarSeries} from '@/model/chart-detail';
 
-
 /**
  * dashboard_sysportlet3_chart部件基类
  *
@@ -19,7 +19,6 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
  * @extends {MyFinishedbyTaskChartBase}
  */
 export class MyFinishedbyTaskChartBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -69,8 +68,9 @@ export class MyFinishedbyTaskChartBase extends MainControlBase {
      * @type {TaskUIService}
      * @memberof MyFinishedbyTaskBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
+    
 
     /**
      * 获取多项数据
@@ -212,18 +212,8 @@ export class MyFinishedbyTaskChartBase extends MainControlBase {
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
-        label:{
-            show: true,
-            position: 'outside',
-        },
-        labelLine:{
-            show: true,
-            length: 10,
-            lineStyle: {
-                width: 1,
-                type: 'solid'
-            }
-        },
+        label:{show:false},
+        labelLine:{show:false},
         itemStyle:{
             borderColor: '#fff',
             borderWidth: 1
@@ -253,6 +243,7 @@ export class MyFinishedbyTaskChartBase extends MainControlBase {
      * @memberof Dashboard_sysportlet3_chartBase
      */   
     public chartUserParams:any ={
+        legend:{show:false},
         color:["#CAAC32","#0075A9","#22AC38","#2B4D6D",'#FF9100','#FF3D00','#F57F17','#00E5FF','#00B0FF','#2979FF','#3D5AFE','#651FFF','#D500F9']
     };
 
@@ -278,8 +269,8 @@ export class MyFinishedbyTaskChartBase extends MainControlBase {
      */   
     public chartOption:any = {
         title:{
-            show:false ,
-            text:'',
+            show:true ,
+            text:'完成任务',
             subtext:''
         },
         legend:{
@@ -326,7 +317,10 @@ export class MyFinishedbyTaskChartBase extends MainControlBase {
         const parentdata: any = {};
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
-        Object.assign(arg,{viewparams:this.viewparams,page:0,size:1000});
+        let tempViewParams:any = parentdata.viewparams?parentdata.viewparams:{};
+        Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg,{viewparams:tempViewParams});
+        Object.assign(arg,{page:0,size:1000});
         this.service.search(this.fetchAction,JSON.parse(JSON.stringify(this.context)),arg,this.showBusyIndicator).then((res) => {
             if (res) {
                this.transformToBasicChartSetData(res.data,(codelist:any) =>{_this.drawCharts(codelist)});

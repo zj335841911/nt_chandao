@@ -1,5 +1,5 @@
-<template src="./assign-to-me-portlet.html"/>
-<script lang='tsx'>
+<template src="./assign-to-me-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { AssignToMePortletBase } from './assign-to-me-portlet-base';
@@ -15,8 +15,8 @@ import { AssignToMePortletBase } from './assign-to-me-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class AssignToMePortlet extends AssignToMePortletBase { }
+export default class AssignToMePortlet extends AssignToMePortletBase {}
 </script>

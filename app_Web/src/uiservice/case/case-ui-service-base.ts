@@ -21,6 +21,13 @@ export default class CaseUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  CaseUIServiceBase
+     */
+    public isEnableDEMainState:boolean = true;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  CaseUIServiceBase
@@ -89,44 +96,24 @@ export default class CaseUIServiceBase extends UIService {
      * @memberof  CaseUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'cases',component:'case-edit-view'});
-        this.allViewMap.set(':',{viewname:'moduleentrygridview',srfappde:'cases',component:'case-module-entry-grid-view'});
-        this.allViewMap.set(':',{viewname:'casefavorite',srfappde:'cases',component:'case-case-favorite'});
-        this.allViewMap.set(':',{viewname:'linkcasegridview',srfappde:'cases',component:'case-link-case-grid-view'});
-        this.allViewMap.set(':',{viewname:'reportlinkgridview',srfappde:'cases',component:'case-report-link-grid-view'});
-        this.allViewMap.set(':',{viewname:'typeentrygridview',srfappde:'cases',component:'case-type-entry-grid-view'});
-        this.allViewMap.set(':',{viewname:'optionview',srfappde:'cases',component:'case-option-view'});
-        this.allViewMap.set(':',{viewname:'gridview9_my',srfappde:'cases',component:'case-grid-view9-my'});
-        this.allViewMap.set(':',{viewname:'gridview9_storyaffect',srfappde:'cases',component:'case-grid-view9-storyaffect'});
-        this.allViewMap.set(':',{viewname:'curtesttaskgridview',srfappde:'cases',component:'case-cur-test-task-grid-view'});
-        this.allViewMap.set(':',{viewname:'tobugeditview',srfappde:'cases',component:'case-to-bug-edit-view'});
-        this.allViewMap.set(':',{viewname:'maingridview',srfappde:'cases',component:'case-main-grid-view'});
-        this.allViewMap.set(':',{viewname:'totalopenedcasechartview9',srfappde:'cases',component:'case-total-opened-case-chart-view9'});
-        this.allViewMap.set(':',{viewname:'testmaindashboardview',srfappde:'cases',component:'case-test-main-dashboard-view'});
-        this.allViewMap.set(':',{viewname:'maininfoeditview9',srfappde:'cases',component:'case-main-info-edit-view9'});
-        this.allViewMap.set(':',{viewname:'testmaindetaileditview9',srfappde:'cases',component:'case-test-main-detail-edit-view9'});
-        this.allViewMap.set(':',{viewname:'mainnewview',srfappde:'cases',component:'case-main-new-view'});
-        this.allViewMap.set(':',{viewname:'gridview9_storyrelated',srfappde:'cases',component:'case-grid-view9-story-related'});
-        this.allViewMap.set(':',{viewname:'batchnewgridview',srfappde:'cases',component:'case-batch-new-grid-view'});
-        this.allViewMap.set(':',{viewname:'testoptionview',srfappde:'cases',component:'case-test-option-view'});
-        this.allViewMap.set(':',{viewname:'exceditview',srfappde:'cases',component:'case-exc-edit-view'});
-        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'cases',component:'case-main-dashboard-view'});
-        this.allViewMap.set(':',{viewname:'cursuitgridview',srfappde:'cases',component:'case-cur-suit-grid-view'});
-        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'cases',component:'case-grid-view9'});
-        this.allViewMap.set(':',{viewname:'projectreportlinkgridview',srfappde:'cases',component:'case-project-report-link-grid-view'});
-        this.allViewMap.set(':',{viewname:'casetypechartview9',srfappde:'cases',component:'case-case-type-chart-view9'});
-        this.allViewMap.set(':',{viewname:'resultentrygridview',srfappde:'cases',component:'caseresult-entry-grid-view'});
-        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'cases',component:'case-main-edit-view'});
-        this.allViewMap.set(':',{viewname:'runresultchartview9',srfappde:'cases',component:'case-run-result-chart-view9'});
-        this.allViewMap.set(':',{viewname:'modulechartview9',srfappde:'cases',component:'case-module-chart-view9'});
-        this.allViewMap.set(':',{viewname:'mainmynewgridview',srfappde:'cases',component:'case-main-my-new-grid-view'});
-        this.allViewMap.set(':',{viewname:'maindetaileditview9',srfappde:'cases',component:'case-main-detail-edit-view9'});
-        this.allViewMap.set(':',{viewname:'gridview9_mecretae',srfappde:'cases',component:'case-grid-view9-me-cretae'});
-        this.allViewMap.set(':',{viewname:'runerentrygridview',srfappde:'cases',component:'case-runerentry-grid-view'});
-        this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'cases',component:'case-main-my-grid-view'});
-        this.allViewMap.set(':',{viewname:'suitelinkcasegridview',srfappde:'cases',component:'casesuite-link-case-grid-view'});
-        this.allViewMap.set(':',{viewname:'testtaskexceditview',srfappde:'cases',component:'case-test-task-exc-edit-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'cases',component:'case-grid-view'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'cases',
+            component: 'case-edit-view',
+            openmode: '',
+            title: '测试用例',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'cases',
+            component: 'case-grid-view',
+            openmode: '',
+            title: '测试用例',
+            width: 0,
+            height: 0
+        });
     }
 
     /**
@@ -223,14 +210,14 @@ export default class CaseUIServiceBase extends UIService {
         this.allDeMainStateOPPrivsMap.set('blocked__no__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('blocked__pass__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('blocked__pass__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('casechange__blocked__0',Object.assign({'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0},{'SRFUR__CASE_TOBUG_BUT':1,'SRFUR__CASE_CASERUN_BUT':1,'SRFUR__CASE_EDIT_BUT':1,'SRFUR__CASE_UNLINK_BUT':1,'SRFUR__CASE_FAVOR_BUT':1,'SRFUR__CASE_RUN_BUT':1,'SRFUR__CASE_RESULT_BUT':1,'SRFUR__CASE_CONFIRM_BUT':1,'SRFUR__CASE_CASERESULT_BUT':1,'SRFUR__CASE_CASETOBUG_BUT':1,'SRFUR__CASE_DELETE_BUT':1,}));
-        this.allDeMainStateOPPrivsMap.set('casechange__blocked__1',Object.assign({'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0},{'SRFUR__CASE_EDIT_BUT':1,'SRFUR__CASE_UNLINK_BUT':1,'SRFUR__CASE_CASETOBUG_BUT':1,'SRFUR__CASE_CASERESULT_BUT':1,'SRFUR__CASE_RUN_BUT':1,'SRFUR__CASE_DELETE_BUT':1,'SRFUR__CASE_NFAVOR_BUT':1,'SRFUR__CASE_CONFIRM_BUT':1,'SRFUR__CASE_TOBUG_BUT':1,'SRFUR__CASE_RESULT_BUT':1,'SRFUR__CASE_CASERUN_BUT':1,}));
-        this.allDeMainStateOPPrivsMap.set('casechange__fail__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('casechange__fail__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('casechange__blocked__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_DELETE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('casechange__blocked__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_DELETE_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('casechange__fail__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('casechange__fail__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('casechange__n/a__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('casechange__n/a__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('casechange__no__0',Object.assign({'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0},{'SRFUR__CASE_CASETOBUG_BUT':1,'SRFUR__CASE_CASERUN_BUT':1,'SRFUR__CASE_FAVOR_BUT':1,'SRFUR__CASE_EDIT_BUT':1,'SRFUR__CASE_CASERESULT_BUT':1,'SRFUR__CASE_DELETE_BUT':1,'SRFUR__CASE_RUN_BUT':1,'SRFUR__CASE_TOBUG_BUT':1,'SRFUR__CASE_RESULT_BUT':1,'SRFUR__CASE_CONFIRM_BUT':1,'SRFUR__CASE_UNLINK_BUT':1,}));
-        this.allDeMainStateOPPrivsMap.set('casechange__no__1',Object.assign({'CASECOF':0,'CASERESULT':0,'CASERUN':0,'CASETOBUG':0,'CONFIRM':0,'CREATE':0,'DELETE':0,'EDIT':0,'READ':0,'RESULT':0,'RUN':0,'TOBUG':0,'UNLINK':0,'UPDATE':0},{'SRFUR__CASE_CONFIRM_BUT':1,'SRFUR__CASE_NFAVOR_BUT':1,'SRFUR__CASE_DELETE_BUT':1,'SRFUR__CASE_EDIT_BUT':1,'SRFUR__CASE_CASERUN_BUT':1,'SRFUR__CASE_RUN_BUT':1,'SRFUR__CASE_UNLINK_BUT':1,'SRFUR__CASE_RESULT_BUT':1,'SRFUR__CASE_CASERESULT_BUT':1,'SRFUR__CASE_TOBUG_BUT':1,'SRFUR__CASE_CASETOBUG_BUT':1,}));
+        this.allDeMainStateOPPrivsMap.set('casechange__no__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_DELETE_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('casechange__no__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_DELETE_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('casechange__pass__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_RUN_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('casechange__pass__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_RESULT_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('done__blocked__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,}));
@@ -263,16 +250,16 @@ export default class CaseUIServiceBase extends UIService {
         this.allDeMainStateOPPrivsMap.set('normal__no__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('normal__pass__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('normal__pass__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('storychange__blocked__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_RESULT_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('storychange__blocked__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('storychange__fail__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('storychange__blocked__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_RESULT_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('storychange__blocked__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('storychange__fail__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('storychange__fail__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('storychange__n/a__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('storychange__n/a__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_RUN_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('storychange__no__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('storychange__no__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('storychange__pass__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('storychange__pass__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_EDIT_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('storychange__no__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('storychange__no__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('storychange__pass__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_EDIT_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('storychange__pass__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_UNLINK_BUT':0,'SRFUR__CASE_CASERESULT_BUT':0,'SRFUR__CASE_RESULT_BUT':0,'SRFUR__CASE_CASERUN_BUT':0,'SRFUR__CASE_CASETOBUG_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_RUN_BUT':0,'SRFUR__CASE_EDIT_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('wait__blocked__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('wait__blocked__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('wait__fail__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_FAVOR_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,}));
@@ -341,8 +328,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-option-view', 
-                height: 850, 
-                width: 1350,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.case.views.optionview.title'),
             };
             openPopupModal(view, data);
@@ -398,7 +385,6 @@ export default class CaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '收藏成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -472,7 +458,6 @@ export default class CaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '移除成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -547,7 +532,7 @@ export default class CaseUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if (_this.Refresh && _this.Refresh instanceof Function) {
+                    if (_this.Refresh) {
                         _this.Refresh(result.datas,context,params, $event, xData,actionContext);
                     }
                     return result.datas;
@@ -685,8 +670,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-to-bug-edit-view', 
-                height: 850, 
-                width: 1350,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.case.views.tobugeditview.title'),
             };
             openPopupModal(view, data);
@@ -709,6 +694,8 @@ export default class CaseUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{TASK:"%task%"});
+        Object.assign(params,{task:"%task%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { case: '%case%' });
@@ -740,7 +727,6 @@ export default class CaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '确认用例变动成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -812,7 +798,6 @@ export default class CaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '确认成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -894,8 +879,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-test-task-exc-edit-view', 
-                height: 850, 
-                width: 1350,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.case.views.testtaskexceditview.title'),
             };
             openPopupModal(view, data);
@@ -959,8 +944,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-test-option-view', 
-                height: 850, 
-                width: 1350,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.case.views.testoptionview.title'),
             };
             openPopupModal(view, data);
@@ -1107,8 +1092,8 @@ export default class CaseUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{IDS:"%id%",SUITE:"%suite%",VERSIONS:"%version%"});
-        Object.assign(params,{versions:"%version%",ids:"%id%",suite:"%suite%"});
+        Object.assign(context,{IDS:"%id%",ID:"0",SUITE:"%suite%",VERSIONS:"%version%"});
+        Object.assign(params,{id:"0",versions:"%version%",ids:"%id%",suite:"%suite%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'MULTIKEY';
         Object.assign(context, { case: '%case%' });
@@ -1140,7 +1125,6 @@ export default class CaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '保存成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1213,7 +1197,6 @@ export default class CaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1293,8 +1276,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-exc-edit-view', 
-                height: 850, 
-                width: 1350,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.case.views.exceditview.title'),
             };
             openPopupModal(view, data);
@@ -1359,7 +1342,6 @@ export default class CaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1434,7 +1416,6 @@ export default class CaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '移除成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1509,7 +1490,7 @@ export default class CaseUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if (_this.Refresh && _this.Refresh instanceof Function) {
+                    if (_this.Refresh) {
                         _this.Refresh(result.datas,context,params, $event, xData,actionContext);
                     }
                     return result.datas;
@@ -1581,9 +1562,75 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-exc-edit-view', 
-                height: 850, 
-                width: 1350,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.case.views.exceditview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 转Bug
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Case_NewBugByTestCaseResult(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{TASK:"%task%"});
+        Object.assign(params,{task:"%task%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { case: '%case%' });
+        Object.assign(params, { id: '%case%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'cases', parameterName: 'case' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    _this.closeView(null);
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'case-to-bug-test-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.case.views.tobugtesteditview.title'),
             };
             openPopupModal(view, data);
     }
@@ -1644,8 +1691,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-option-view', 
-                height: 850, 
-                width: 1350,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.case.views.optionview.title'),
             };
             openPopupModal(view, data);
@@ -1668,8 +1715,8 @@ export default class CaseUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{IDS:"%id%",TASK:"%task%",VERSIONS:"%version%"});
-        Object.assign(params,{versions:"%version%",ids:"%id%",task:"%task%"});
+        Object.assign(context,{IDS:"%id%",TASK:"%task%",ID:"0",VERSIONS:"%version%"});
+        Object.assign(params,{id:"0",versions:"%version%",ids:"%id%",task:"%task%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'MULTIKEY';
         Object.assign(context, { case: '%case%' });
@@ -1701,7 +1748,6 @@ export default class CaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '保存成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1843,13 +1889,14 @@ export default class CaseUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
+                    _this.closeView(null);
                     return result.datas;
                 });
             }
             const view: any = {
                 viewname: 'case-to-bug-edit-view', 
-                height: 850, 
-                width: 1350,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.case.views.tobugeditview.title'),
             };
             openPopupModal(view, data);

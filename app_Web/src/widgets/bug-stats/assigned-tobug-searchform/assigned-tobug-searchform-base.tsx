@@ -1,12 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, SearchFormControlBase } from '@/studio-core';
 import BugStatsService from '@/service/bug-stats/bug-stats-service';
 import AssignedTOBugService from './assigned-tobug-searchform-service';
 import BugStatsUIService from '@/uiservice/bug-stats/bug-stats-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-
 
 /**
  * searchform部件基类
@@ -16,7 +16,6 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
  * @extends {AssignedTOBugSearchFormBase}
  */
 export class AssignedTOBugSearchFormBase extends SearchFormControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +65,7 @@ export class AssignedTOBugSearchFormBase extends SearchFormControlBase {
      * @type {BugStatsUIService}
      * @memberof AssignedTOBugBase
      */  
-    public appUIService:BugStatsUIService = new BugStatsUIService(this.$store);
+    public appUIService: BugStatsUIService = new BugStatsUIService(this.$store);
 
 
     /**

@@ -21,11 +21,11 @@
                                 <div  class="table-order" v-if="item.hasOwnProperty('child_order_num') && i === 0"> {{ item.child_order_num }} </div>
                                 <div v-if="!isEdit" class="table-td">
                                     <slot :item="{row: item, index: index, column: col}">
-                                        {{ (col.render ? col.render(item[col.name]) : item[col.name]) }}
+                                        {{ (col.render ? col.render(gridItemCodelist(item,col)) : gridItemCodelist(item,col)) }}
                                     </slot>
                                 </div>
                                 <div v-if="isEdit" class="table-td-edit">
-                                    <slot :name="col.name" :row="item" :$index="index" :column="col">
+                                    <slot v-if="refreshSelect" :name="col.name" :row="item" :$index="index" :column="col">
                                         <i-input class="table-edit-input" v-model="item[col.name]" @on-change="onEditChange(item, col.name,index)"></i-input>
                                     </slot>
                                     <el-select class="table-edit-group" v-if="groupfield && i === 0" size="small" clearable v-model="item[groupfield]" @change="onEditChange(item, groupfield,index)">
@@ -52,7 +52,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
 @Component({})
 export default class GroupStepTable extends Vue {
@@ -88,6 +88,22 @@ export default class GroupStepTable extends Vue {
      * @memberof GroupStepTable
      */
     @Prop() groupfield!: string;
+
+    /**
+     * 下拉列表组件刷新
+     * 
+     * @type {string}
+     * @memberof GroupStepTable
+     */
+    public refreshSelect: boolean = true;
+
+    @Watch('data')
+    public watchData(newVal: any[], oldVal: any[]) {
+        this.refreshSelect = false;
+        this.$nextTick(() => {
+            this.refreshSelect = true;
+        })
+    }
 
     /**
      * 获取分组项集合
@@ -141,6 +157,25 @@ export default class GroupStepTable extends Vue {
             }
         });
         return datas;
+    }
+
+    /**
+     * 解析表格项代码表
+     * 
+     * @memberof GroupStepTable
+     */
+    public gridItemCodelist(item: any,col: any){
+        let gridItem = item[col.name];
+        if(col.codelistId){
+            let codelist: any = this.$store.getters.getCodeList(col.codelistId);
+            if(codelist){
+                const data = codelist.items.find((code:any) => Object.is(code.value, item[col.name]));
+                if(data){
+                    gridItem = data.text;
+                }
+            }
+        }
+        return gridItem;
     }
 
     /**

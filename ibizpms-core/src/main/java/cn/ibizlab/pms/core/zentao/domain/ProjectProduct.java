@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -36,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_projectproduct",resultMap = "ProjectProductResultMap")
+@TableName(value = "zt_projectproduct", resultMap = "ProjectProductResultMap")
 public class ProjectProduct extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,7 +46,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -136,33 +138,33 @@ public class ProjectProduct extends EntityMP implements Serializable {
     /**
      * 设置 [产品]
      */
-    public void setProduct(Long product){
-        this.product = product ;
-        this.modify("product",product);
+    public void setProduct(Long product) {
+        this.product = product;
+        this.modify("product", product);
     }
 
     /**
      * 设置 [产品计划]
      */
-    public void setPlan(Long plan){
-        this.plan = plan ;
-        this.modify("plan",plan);
+    public void setPlan(Long plan) {
+        this.plan = plan;
+        this.modify("plan", plan);
     }
 
     /**
      * 设置 [平台/分支]
      */
-    public void setBranch(Long branch){
-        this.branch = branch ;
-        this.modify("branch",branch);
+    public void setBranch(Long branch) {
+        this.branch = branch;
+        this.modify("branch", branch);
     }
 
     /**
      * 设置 [项目]
      */
-    public void setProject(Long project){
-        this.project = project ;
-        this.modify("project",project);
+    public void setProject(Long project) {
+        this.project = project;
+        this.modify("project", project);
     }
 
 
@@ -176,7 +178,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

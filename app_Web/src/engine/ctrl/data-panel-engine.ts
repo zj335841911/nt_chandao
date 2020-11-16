@@ -9,7 +9,6 @@ import { events, ctrl } from '@/studio-core/global';
  * @extends {ViewEngine}
  */
 export default class DataPanelEngine extends ViewEngine {
-
     /**
      * 快捷信息栏部件
      *
@@ -94,8 +93,6 @@ export default class DataPanelEngine extends ViewEngine {
                     this.dataPanel.onInputDataChange(data.data);
                 }
             }
-
         }
     }
-
 }

@@ -1,5 +1,5 @@
 <div :class="{ 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
-        <i-form>
+    <i-form>
         <el-table v-if="isDisplay === true"
             :border="isDragendCol"
             :highlight-current-row ="isSingleSelect"
@@ -10,13 +10,13 @@
             :height="tableHeight"
             @row-click="rowClick($event)"  
             @select-all="selectAll($event)"  
-            @select="select($event)"  
+            @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
             ref='multipleTable' :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
-                无数据 
+                {{$t('entities.taskestimate.mainedit_grid.nodata')}} 
                 <span class="quick-toolbar">
                 </span>
             </template>
@@ -94,12 +94,12 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.Edit.visabled" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.taskestimate.mainedit_grid.uiactions.taskestimate_edit')">
+                          <a v-show="scope.row.Edit.visible" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.taskestimate.mainedit_grid.uiactions.taskestimate_edit')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Remove.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.taskestimate.mainedit_grid.uiactions.remove')">
+                          <divider v-show="scope.row.Remove.visible" type='vertical'></divider>
+                          <a v-show="scope.row.Remove.visible" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.taskestimate.mainedit_grid.uiactions.remove')">
                             <i class='fa fa-remove'></i>
                             
                           </a>

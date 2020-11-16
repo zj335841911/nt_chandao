@@ -1,4 +1,4 @@
-import { serviceData } from './ServiceData'
+import { serviceData } from './ServiceData';
 
 /**
  * 服务注入器
@@ -9,12 +9,10 @@ import { serviceData } from './ServiceData'
  * @returns {*}
  */
 export function ServiceProvide(name: string, module?: string): any {
-
     /**
      * 装饰器处理
      */
-    return function(target: any) {
+    return function (target: any) {
         serviceData.add(new target(), name, module);
-    }
-
+    };
 }

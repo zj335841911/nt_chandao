@@ -1,5 +1,5 @@
-<template src="./test-report-project-main-info-view.html"/>
-<script lang='tsx'>
+<template src="./test-report-project-main-info-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestReportProjectMainInfoViewBase } from './test-report-project-main-info-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/test-report/main-info-form/main-info-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestReportProjectMainInfoView extends TestReportProjectMainInfoViewBase { }
+export default class TestReportProjectMainInfoView extends TestReportProjectMainInfoViewBase {}
 </script>

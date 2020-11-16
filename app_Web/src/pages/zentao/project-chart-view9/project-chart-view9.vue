@@ -1,5 +1,5 @@
-<template src="./project-chart-view9.html"/>
-<script lang='tsx'>
+<template src="./project-chart-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectChartView9Base } from './project-chart-view9-base';
@@ -18,5 +18,5 @@ import view_chart from '@widgets/project/involved-project-dev-chart/involved-pro
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectChartView9 extends ProjectChartView9Base { }
+export default class ProjectChartView9 extends ProjectChartView9Base {}
 </script>

@@ -9,7 +9,6 @@ import { ViewBase } from './ViewBase';
  * @extends {ViewBase}
  */
 export class PickupViewBase extends ViewBase {
-
     /**
      * 是否单选
      *

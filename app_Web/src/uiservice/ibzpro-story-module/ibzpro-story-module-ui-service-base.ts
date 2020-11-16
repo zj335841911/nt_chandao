@@ -21,6 +21,13 @@ export default class IBZProStoryModuleUIServiceBase extends UIService {
     public isEnableWorkflow:boolean = false;
 
     /**
+     * 是否支持实体主状态
+     * 
+     * @memberof  IBZProStoryModuleUIServiceBase
+     */
+    public isEnableDEMainState:boolean = false;
+
+    /**
      * 当前UI服务对应的数据服务对象
      * 
      * @memberof  IBZProStoryModuleUIServiceBase
@@ -89,9 +96,24 @@ export default class IBZProStoryModuleUIServiceBase extends UIService {
      * @memberof  IBZProStoryModuleUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'ibzprostorymodules',component:'ibzpro-story-module-edit-view'});
-        this.allViewMap.set(':',{viewname:'optionview',srfappde:'ibzprostorymodules',component:'ibzpro-story-module-option-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'ibzprostorymodules',component:'ibzpro-story-module-grid-view'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'ibzprostorymodules',
+            component: 'ibzpro-story-module-edit-view',
+            openmode: '',
+            title: '需求模块',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'ibzprostorymodules',
+            component: 'ibzpro-story-module-grid-view',
+            openmode: '',
+            title: '需求模块',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

@@ -1,28 +1,12 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'release-mob-edit-view': true }">
     
     <ion-header>
-        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
-            <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
-            </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                    </div>
-                </div>
-            </ion-buttons>
-        </ion-toolbar>
 
     
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_form
             :viewState="viewState"
             viewName="ReleaseMobEditView"  
@@ -49,17 +33,59 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
+    <ion-footer class="view-footer">
+                <div  class = "fab_container">
+            <ion-button :id="viewtag+'_bottom_button'" :style="button_style" v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobactive.disabled}" v-show="righttoolbarModels.deuiaction1_mobactive.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobactive.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobactive' }, $event)" size="large">
+                    <ion-icon name="play"></ion-icon>
+                <span class="btn-inner-text">{{$t('release.mobeditviewrighttoolbar_toolbar.deuiaction1_mobactive.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('release.mobeditviewrighttoolbar_toolbar.deuiaction1_mobactive.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobterminal.disabled}" v-show="righttoolbarModels.deuiaction1_mobterminal.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobterminal.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobterminal' }, $event)" size="large">
+                    <ion-icon name="pause"></ion-icon>
+                <span class="btn-inner-text">{{$t('release.mobeditviewrighttoolbar_toolbar.deuiaction1_mobterminal.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('release.mobeditviewrighttoolbar_toolbar.deuiaction1_mobterminal.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobedit.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobedit' }, $event)" size="large">
+                    <ion-icon name="edit"></ion-icon>
+                <span class="btn-inner-text">{{$t('release.mobeditviewrighttoolbar_toolbar.deuiaction1_mobedit.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('release.mobeditviewrighttoolbar_toolbar.deuiaction1_mobedit.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobremove.disabled}" v-show="righttoolbarModels.deuiaction1_mobremove.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobremove.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobremove' }, $event)" size="large">
+                    <ion-icon name="remove"></ion-icon>
+                <span class="btn-inner-text">{{$t('release.mobeditviewrighttoolbar_toolbar.deuiaction1_mobremove.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('release.mobeditviewrighttoolbar_toolbar.deuiaction1_mobremove.caption')}}</span>
+            </div>
+        
+                </div>
+            </van-popup>
+        </div>
+    </ion-footer>
 </ion-page>
 </template>
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ReleaseService from '@/app-core/service/release/release-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
 import ReleaseUIService from '@/ui-service/release/release-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -160,6 +186,14 @@ export default class ReleaseMobEditViewBase extends Vue {
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof ReleaseMobEditViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
+
+    /**
      * 标题状态
      *
      * @memberof ReleaseMobEditViewBase
@@ -173,7 +207,7 @@ export default class ReleaseMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ReleaseMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'release', 'srfparentkey': '%release%' };
 
     /**
      * 视图导航参数
@@ -182,7 +216,7 @@ export default class ReleaseMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ReleaseMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%release%', 'objecttype': 'release' };
 
     /**
      * 视图模型数据
@@ -279,7 +313,60 @@ export default class ReleaseMobEditViewBase extends Vue {
     * @memberof ReleaseMobEditView
     */
     public righttoolbarModels: any = {
+            deuiaction1_mobactive: { name: 'deuiaction1_mobactive', caption: '激活', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__RELEASE_ACTIVE', uiaction: { tag: 'MobActive', target: 'SINGLEKEY' } },
+
+            deuiaction1_mobterminal: { name: 'deuiaction1_mobterminal', caption: '停止维护', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__RELEASE_TERMINATE', uiaction: { tag: 'MobTerminal', target: 'SINGLEKEY' } },
+
+            deuiaction1_mobedit: { name: 'deuiaction1_mobedit', caption: '编辑', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__RELEASE_COMMON', uiaction: { tag: 'MobEdit', target: 'SINGLEKEY' } },
+
+            deuiaction1_mobremove: { name: 'deuiaction1_mobremove', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__RELEASE_COMMON', uiaction: { tag: 'MobRemove', target: 'SINGLEKEY' } },
+
     };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof ReleaseMobEditView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof ReleaseMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof ReleaseMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof ReleaseMobEditView 
+     */
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
+    }
 
     
 
@@ -384,6 +471,7 @@ export default class ReleaseMobEditViewBase extends Vue {
      * @memberof ReleaseMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -398,6 +486,12 @@ export default class ReleaseMobEditViewBase extends Vue {
         this.afterMounted();
     }
 
+    /**
+     * 底部按钮样式
+     * 
+     * @memberof ReleaseMobEditViewBase
+     */
+    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
@@ -412,6 +506,8 @@ export default class ReleaseMobEditViewBase extends Vue {
         }
         this.thirdPartyInit();
 
+        // 拖动样式
+        AnimationService.draggable(document.getElementById(this.viewtag+'_bottom_button'),(style:any)=>{this.button_style = style});
     }
 
     /**
@@ -506,6 +602,156 @@ export default class ReleaseMobEditViewBase extends Vue {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ReleaseMobEditViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1_mobactive')) {
+            this.righttoolbar_deuiaction1_mobactive_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_mobterminal')) {
+            this.righttoolbar_deuiaction1_mobterminal_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_mobedit')) {
+            this.righttoolbar_deuiaction1_mobedit_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_mobremove')) {
+            this.righttoolbar_deuiaction1_mobremove_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof ReleaseMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobactive_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('release_ui_action');
+        if (curUIService) {
+            curUIService.Release_MobActive(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof ReleaseMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobterminal_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('release_ui_action');
+        if (curUIService) {
+            curUIService.Release_MobTerminal(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof ReleaseMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobedit_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('release_ui_action');
+        if (curUIService) {
+            curUIService.Release_MobEdit(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof ReleaseMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobremove_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('release_ui_action');
+        if (curUIService) {
+            curUIService.Release_MobRemove(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 第三方关闭视图
@@ -592,6 +838,19 @@ export default class ReleaseMobEditViewBase extends Vue {
             _this.onRefreshView();
         }
     }
+
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof ReleaseMobEditViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
 
 
     /**

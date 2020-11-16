@@ -1,9 +1,10 @@
-<template src="./product-test-grid-view.html"/>
-<script lang='tsx'>
+<template src="./product-test-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductTestGridViewBase } from './product-test-grid-view-base';
 import view_grid from '@widgets/product/test-grid/test-grid.vue';
+import view_searchbar from '@widgets/product/custom-searchbar/custom-searchbar.vue';
 import view_searchform from '@widgets/product/default-searchform/default-searchform.vue';
 
 /**
@@ -16,9 +17,10 @@ import view_searchform from '@widgets/product/default-searchform/default-searchf
 @Component({
     components: {
         view_grid, 
+        view_searchbar, 
         view_searchform, 
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductTestGridView extends ProductTestGridViewBase { }
+export default class ProductTestGridView extends ProductTestGridViewBase {}
 </script>

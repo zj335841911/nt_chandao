@@ -8,7 +8,6 @@ import { FormDetailModel } from './form-detail';
  * @extends {FormDetailModel}
  */
 export class FormGroupPanelModel extends FormDetailModel {
-
     /**
      * 实体界面行为组
      *
@@ -44,7 +43,7 @@ export class FormGroupPanelModel extends FormDetailModel {
     /**
      * Creates an instance of FormGroupPanelModel.
      * 创建 FormGroupPanelModel 实例
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof FormGroupPanelModel
      */
@@ -72,5 +71,4 @@ export class FormGroupPanelModel extends FormDetailModel {
             }
         }
     }
-
 }

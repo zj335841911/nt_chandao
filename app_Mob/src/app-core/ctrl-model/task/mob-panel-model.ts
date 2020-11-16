@@ -186,6 +186,36 @@ export class MobModel {
       {
         name: 'files',
       },
+      {
+        name: 'usernames',
+      },
+      {
+        name: 'isfinished',
+      },
+      {
+        name: 'replycount',
+      },
+      {
+        name: 'hasdetail',
+      },
+      {
+        name: 'updatedate',
+      },
+      {
+        name: 'noticeusers',
+      },
+      {
+        name: 'progressrate',
+      },
+      {
+        name: 'delay',
+      },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

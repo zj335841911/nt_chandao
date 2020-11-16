@@ -1,10 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TreeExpBarControlBase } from '@/studio-core';
 import IbzLibModuleService from '@/service/ibz-lib-module/ibz-lib-module-service';
 import CaseTreeExpViewtreeexpbarService from './case-tree-exp-viewtreeexpbar-treeexpbar-service';
 import IbzLibModuleUIService from '@/uiservice/ibz-lib-module/ibz-lib-module-ui-service';
-
 
 /**
  * treeexpbar部件基类
@@ -14,7 +14,6 @@ import IbzLibModuleUIService from '@/uiservice/ibz-lib-module/ibz-lib-module-ui-
  * @extends {CaseTreeExpViewtreeexpbarTreeExpBarBase}
  */
 export class CaseTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
-
     /**
      * 获取部件类型
      *
@@ -64,7 +63,7 @@ export class CaseTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBa
      * @type {IbzLibModuleUIService}
      * @memberof CaseTreeExpViewtreeexpbarBase
      */  
-    public appUIService:IbzLibModuleUIService = new IbzLibModuleUIService(this.$store);
+    public appUIService: IbzLibModuleUIService = new IbzLibModuleUIService(this.$store);
 
     /**
      * treeexpbar_tree 部件 selectionchange 事件

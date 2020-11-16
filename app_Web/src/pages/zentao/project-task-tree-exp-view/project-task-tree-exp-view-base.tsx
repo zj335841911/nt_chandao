@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { TreeExpViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
@@ -62,7 +62,7 @@ export class ProjectTaskTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof ProjectTaskTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class ProjectTaskTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.project.views.tasktreeexpview.caption',
         srfTitle: 'entities.project.views.tasktreeexpview.title',
         srfSubTitle: 'entities.project.views.tasktreeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class ProjectTaskTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProjectTaskTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
 
@@ -95,9 +98,18 @@ export class ProjectTaskTreeExpViewBase extends TreeExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectTaskTreeExpViewBase
      */
 	protected viewtag: string = '103bc77ad54de2476db1d4e9c788cd4e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectTaskTreeExpViewBase
+     */ 
+    protected viewName: string = "ProjectTaskTreeExpView";
 
 
     /**
@@ -116,7 +128,9 @@ export class ProjectTaskTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof ProjectTaskTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

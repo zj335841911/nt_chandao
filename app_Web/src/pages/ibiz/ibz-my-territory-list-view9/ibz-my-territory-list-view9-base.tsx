@@ -1,12 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { ListView9Base } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import IbzMyTerritoryAuthService from '@/authservice/ibz-my-territory/ibz-my-territory-auth-service';
 import ListView9Engine from '@engine/view/list-view9-engine';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
      * @type {string}
      * @memberof IbzMyTerritoryListView9Base
      */ 
-    protected dataControl:string = "list";
+    protected dataControl: string = "list";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
 	 * @memberof IbzMyTerritoryListView9Base
 	 */
     protected customViewParams: any = {
-        'n_account_eq': { isRawValue: false, value: 'srfloginname' }
+        'n_account_eq': {
+            isRawValue: false,
+            value: 'srfloginname',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
         srfCaption: 'entities.ibzmyterritory.views.listview9.caption',
         srfTitle: 'entities.ibzmyterritory.views.listview9.title',
         srfSubTitle: 'entities.ibzmyterritory.views.listview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,7 +105,10 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
      * @memberof IbzMyTerritoryListView9Base
      */
     protected containerModel: any = {
-        view_list: { name: 'list', type: 'LIST' },
+        view_list: {
+            name: 'list',
+            type: 'LIST',
+        },
     };
 
 
@@ -111,9 +117,18 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzMyTerritoryListView9Base
      */
 	protected viewtag: string = 'e9f72c81d94c56a08c355c2ba2e20d07';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzMyTerritoryListView9Base
+     */ 
+    protected viewName: string = "IbzMyTerritoryListView9";
 
 
     /**
@@ -132,7 +147,9 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
      * @type {Array<*>}
      * @memberof IbzMyTerritoryListView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import TestDashboardQuickActionService from './test-dashboard-quick-action-portlet-service';
 import CaseUIService from '@/uiservice/case/case-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-import { ViewTool } from '@/utils';
-
 
 /**
  * dashboard_sysportlet4部件基类
@@ -17,7 +16,6 @@ import { ViewTool } from '@/utils';
  * @extends {TestDashboardQuickActionPortletBase}
  */
 export class TestDashboardQuickActionPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
      * @type {CaseUIService}
      * @memberof TestDashboardQuickActionBase
      */  
-    public appUIService:CaseUIService = new CaseUIService(this.$store);
+    public appUIService: CaseUIService = new CaseUIService(this.$store);
 
     /**
      * 逻辑事件
@@ -278,11 +276,11 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
      * @memberof TestDashboardQuickActionBase
      */
     public uiactionModel: any = {
-        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
-        caseexecute: {name: 'caseexecute', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 1, dataaccaction: 'SRFUR__CASE_CASERUN_BUT', uiaction: { tag: 'CaseExecute', target: 'SINGLEKEY' } },
-        caseopentestrunresultview: {name: 'caseopentestrunresultview', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 1, dataaccaction: 'SRFUR__CASE_CASERESULT_BUT', uiaction: { tag: 'CASEOpenTestRunResultView', target: 'SINGLEKEY' } },
-        maineditcz: {name: 'maineditcz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CASE_EDIT_BUT', uiaction: { tag: 'MainEditCz', target: 'SINGLEKEY' } },
-        deletecz: {name: 'deletecz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CASE_DELETE_BUT', uiaction: { tag: 'deleteCz', target: 'SINGLEKEY' } },
+        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        caseexecute: {name: 'caseexecute', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 1, dataaccaction: 'SRFUR__CASE_CASERUN_BUT', uiaction: { tag: 'CaseExecute', target: 'SINGLEKEY' } },
+        caseopentestrunresultview: {name: 'caseopentestrunresultview', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 1, dataaccaction: 'SRFUR__CASE_CASERESULT_BUT', uiaction: { tag: 'CASEOpenTestRunResultView', target: 'SINGLEKEY' } },
+        maineditcz: {name: 'maineditcz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CASE_EDIT_BUT', uiaction: { tag: 'MainEditCz', target: 'SINGLEKEY' } },
+        deletecz: {name: 'deletecz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CASE_DELETE_BUT', uiaction: { tag: 'deleteCz', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -298,7 +296,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         actiontarget:'',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u3c66854_click",
@@ -308,7 +306,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         noprivdisplaymode: 1,
         dataaccaction:'SRFUR__CASE_CASERUN_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u20add63_click",
@@ -318,7 +316,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         noprivdisplaymode: 1,
         dataaccaction:'SRFUR__CASE_CASERESULT_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u75d5960_click",
@@ -328,7 +326,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_EDIT_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u4bcdc26_click",
@@ -338,7 +336,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_DELETE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         }
     ];

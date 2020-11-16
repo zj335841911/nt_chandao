@@ -1,5 +1,5 @@
-<template src="./main-project-new-form.html"/>
-<script lang='tsx'>
+<template src="./main-project-new-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainProjectNewEditFormBase } from './main-project-new-form-base';
@@ -15,8 +15,8 @@ import { MainProjectNewEditFormBase } from './main-project-new-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MainProjectNewEditForm extends MainProjectNewEditFormBase { }
+export default class MainProjectNewEditForm extends MainProjectNewEditFormBase {}
 </script>
