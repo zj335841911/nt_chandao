@@ -1,12 +1,23 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import IbzProjectMemberService from '@/service/ibz-project-member/ibz-project-member-service';
 import MainService from './main-form-service';
 import IbzProjectMemberUIService from '@/uiservice/ibz-project-member/ibz-project-member-ui-service';
-import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
-
+import {
+    FormButtonModel,
+    FormPageModel,
+    FormItemModel,
+    FormDRUIPartModel,
+    FormPartModel,
+    FormGroupPanelModel,
+    FormIFrameModel,
+    FormRowItemModel,
+    FormTabPageModel,
+    FormTabPanelModel,
+    FormUserControlModel,
+} from '@/model/form-detail';
 
 /**
  * form部件基类
@@ -16,7 +27,6 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  * @extends {MainEditFormBase}
  */
 export class MainEditFormBase extends EditFormControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +76,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {IbzProjectMemberUIService}
      * @memberof MainBase
      */  
-    public appUIService:IbzProjectMemberUIService = new IbzProjectMemberUIService(this.$store);
+    public appUIService: IbzProjectMemberUIService = new IbzProjectMemberUIService(this.$store);
 
     /**
      * 逻辑事件
@@ -121,7 +131,7 @@ export class MainEditFormBase extends EditFormControlBase {
         fifthmember: null,
         sixthmember: null,
         id: null,
-        ibzprojectmember:null,
+        ibzprojectmember: null,
     };
 
     /**
@@ -130,7 +140,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainEditFormBase
      */
-    public majorMessageField: string = "";
+    public majorMessageField: string = '';
 
     /**
      * 属性值规则
@@ -138,7 +148,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainEditFormBase
      */
-    public rules():any{
+    public rules(): any{
         return {
         }
     }
@@ -159,48 +169,149 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
-        button1: new FormButtonModel({ caption: '团队管理', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'TeamManagement',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__PROJT_TM_BUT',visible: true,disabled: false} }),
+        button1: new FormButtonModel({
+    caption: '团队管理', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    disabled: false,
+    uiaction: {
+        type: 'DEUIACTION',
+        tag: 'TeamManagement',
+        actiontarget: 'SINGLEKEY',
+        noprivdisplaymode: 2,
+        dataaccaction: 'SRFUR__PROJT_TM_BUT',
+        visible: true,
+        disabled: false,
+        }
+}),
 
         group1: new FormGroupPanelModel({ caption: '项目相关成员基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzprojectmember.main_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srforikey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfkey: new FormItemModel({
+    caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfmajortext: new FormItemModel({ caption: '项目名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfmajortext: new FormItemModel({
+    caption: '项目名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srftempmode: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfuf: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfuf: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfdeid: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfdeid: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfsourcekey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        pm: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'pm', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        pm: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'pm', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        po: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'po', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        po: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'po', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        qd: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'qd', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        qd: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'qd', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        rd: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'rd', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        rd: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'rd', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        fristmember: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'fristmember', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        fristmember: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'fristmember', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        secondmember: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'secondmember', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        secondmember: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'secondmember', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        thirdmember: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'thirdmember', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        thirdmember: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'thirdmember', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        fourthmember: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'fourthmember', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        fourthmember: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'fourthmember', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        fifthmember: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'fifthmember', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        fifthmember: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'fifthmember', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        sixthmember: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'sixthmember', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        sixthmember: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'sixthmember', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        id: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        id: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
     };
 
@@ -211,7 +322,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @returns {Promise<void>}
      * @memberof MainEditFormBase
      */
-    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+    public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
 
 

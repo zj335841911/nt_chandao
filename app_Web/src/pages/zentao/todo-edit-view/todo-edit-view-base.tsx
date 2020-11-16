@@ -48,7 +48,7 @@ export class TodoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TodoEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class TodoEditViewBase extends EditViewBase {
 	 * @memberof TodoEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'SRFLOGINNAME': { isRawValue: false, value: 'srfloginname' }
+        'SRFLOGINNAME': {
+            isRawValue: false,
+            value: 'srfloginname',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class TodoEditViewBase extends EditViewBase {
 	 * @memberof TodoEditViewBase
 	 */
     protected customViewParams: any = {
-        'srfloginname': { isRawValue: false, value: 'srfloginname' }
+        'srfloginname': {
+            isRawValue: false,
+            value: 'srfloginname',
+        }
     };
 
     /**
@@ -93,7 +99,7 @@ export class TodoEditViewBase extends EditViewBase {
      *
      * @memberof TodoEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -106,8 +112,8 @@ export class TodoEditViewBase extends EditViewBase {
         srfCaption: 'entities.todo.views.editview.caption',
         srfTitle: 'entities.todo.views.editview.title',
         srfSubTitle: 'entities.todo.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,8 +123,14 @@ export class TodoEditViewBase extends EditViewBase {
      * @memberof TodoEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -150,7 +162,7 @@ export class TodoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TodoEditViewBase
      */ 
-    protected viewName:string = "TodoEditView";
+    protected viewName: string = "TodoEditView";
 
 
     /**
@@ -169,7 +181,9 @@ export class TodoEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TodoEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

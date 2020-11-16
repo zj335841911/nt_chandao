@@ -1,5 +1,5 @@
-<template src="./bug-grid-view.html"/>
-<script lang='tsx'>
+<template src="./bug-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugGridViewBase } from './bug-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchbar from '@widgets/bug/custom-searchbar/custom-searchbar.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BugGridView extends BugGridViewBase { }
+export default class BugGridView extends BugGridViewBase {}
 </script>

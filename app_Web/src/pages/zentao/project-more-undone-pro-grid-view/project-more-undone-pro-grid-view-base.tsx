@@ -6,7 +6,7 @@ import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProjectMoreUndoneProGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectMoreUndoneProGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class ProjectMoreUndoneProGridViewBase extends GridViewBase {
 	 * @memberof ProjectMoreUndoneProGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_status_noteq': { isRawValue: true, value: 'closed' }
+        'n_status_noteq': {
+            isRawValue: true,
+            value: 'closed',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class ProjectMoreUndoneProGridViewBase extends GridViewBase {
         srfCaption: 'entities.project.views.moreundoneprogridview.caption',
         srfTitle: 'entities.project.views.moreundoneprogridview.title',
         srfSubTitle: 'entities.project.views.moreundoneprogridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,9 +105,18 @@ export class ProjectMoreUndoneProGridViewBase extends GridViewBase {
      * @memberof ProjectMoreUndoneProGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -134,7 +146,7 @@ export class ProjectMoreUndoneProGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectMoreUndoneProGridViewBase
      */ 
-    protected viewName:string = "ProjectMoreUndoneProGridView";
+    protected viewName: string = "ProjectMoreUndoneProGridView";
 
 
     /**
@@ -153,7 +165,9 @@ export class ProjectMoreUndoneProGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof ProjectMoreUndoneProGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -164,11 +178,11 @@ export class ProjectMoreUndoneProGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

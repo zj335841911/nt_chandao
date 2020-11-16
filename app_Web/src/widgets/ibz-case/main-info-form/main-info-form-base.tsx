@@ -1,12 +1,23 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import IbzCaseService from '@/service/ibz-case/ibz-case-service';
 import MainInfoService from './main-info-form-service';
 import IbzCaseUIService from '@/uiservice/ibz-case/ibz-case-ui-service';
-import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
-
+import {
+    FormButtonModel,
+    FormPageModel,
+    FormItemModel,
+    FormDRUIPartModel,
+    FormPartModel,
+    FormGroupPanelModel,
+    FormIFrameModel,
+    FormRowItemModel,
+    FormTabPageModel,
+    FormTabPanelModel,
+    FormUserControlModel,
+} from '@/model/form-detail';
 
 /**
  * form部件基类
@@ -16,7 +27,6 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  * @extends {MainInfoEditFormBase}
  */
 export class MainInfoEditFormBase extends EditFormControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +76,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      * @type {IbzCaseUIService}
      * @memberof MainInfoBase
      */  
-    public appUIService:IbzCaseUIService = new IbzCaseUIService(this.$store);
+    public appUIService: IbzCaseUIService = new IbzCaseUIService(this.$store);
 
 
     /**
@@ -103,7 +113,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
         id: null,
         title: null,
         precondition: null,
-        ibzcase:null,
+        ibzcase: null,
     };
 
     /**
@@ -112,7 +122,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainInfoEditFormBase
      */
-    public majorMessageField: string = "title";
+    public majorMessageField: string = 'title';
 
     /**
      * 属性值规则
@@ -120,7 +130,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainInfoEditFormBase
      */
-    public rules():any{
+    public rules(): any{
         return {
         }
     }
@@ -151,25 +161,75 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srforikey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfkey: new FormItemModel({ caption: '用例编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+        srfkey: new FormItemModel({
+    caption: '用例编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
-        srfmajortext: new FormItemModel({ caption: '用例标题', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfmajortext: new FormItemModel({
+    caption: '用例标题', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srftempmode: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfuf: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfuf: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfdeid: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfdeid: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfsourcekey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        id: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+        id: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
-        title: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        title: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        precondition: new FormItemModel({ caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        precondition: new FormItemModel({
+    caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
     };
 }

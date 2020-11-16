@@ -6,7 +6,7 @@ import TestTaskService from '@/service/test-task/test-task-service';
 import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TestTaskGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestTaskGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class TestTaskGridViewBase extends GridViewBase {
         srfCaption: 'entities.testtask.views.gridview.caption',
         srfTitle: 'entities.testtask.views.gridview.title',
         srfSubTitle: 'entities.testtask.views.gridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class TestTaskGridViewBase extends GridViewBase {
      * @memberof TestTaskGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class TestTaskGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestTaskGridViewBase
      */ 
-    protected viewName:string = "TestTaskGridView";
+    protected viewName: string = "TestTaskGridView";
 
 
     /**
@@ -147,7 +153,9 @@ export class TestTaskGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof TestTaskGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -158,11 +166,11 @@ export class TestTaskGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'testtask',
@@ -541,14 +549,14 @@ export class TestTaskGridViewBase extends GridViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'TestQuickpacket', codelistType: 'STATIC' };
-        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
+        if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {
                 this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
             } else {
                 console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
             }
-        } else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
+        } else if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
             this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
                 this.quickGroupModel = res;
             }).catch((error:any) => {

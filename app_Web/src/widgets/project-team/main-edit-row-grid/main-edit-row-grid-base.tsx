@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import ProjectTeamService from '@/service/project-team/project-team-service';
 import Main_EditRowService from './main-edit-row-grid-service';
 import ProjectTeamUIService from '@/uiservice/project-team/project-team-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {Main_EditRowGridBase}
  */
 export class Main_EditRowGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class Main_EditRowGridBase extends GridControlBase {
      * @type {ProjectTeamUIService}
      * @memberof Main_EditRowBase
      */  
-    public appUIService:ProjectTeamUIService = new ProjectTeamUIService(this.$store);
+    public appUIService: ProjectTeamUIService = new ProjectTeamUIService(this.$store);
 
     /**
      * 逻辑事件

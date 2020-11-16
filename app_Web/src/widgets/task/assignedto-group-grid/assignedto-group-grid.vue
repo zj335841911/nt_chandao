@@ -1,5 +1,5 @@
-<template src="./assignedto-group-grid.html"/>
-<script lang='tsx'>
+<template src="./assignedto-group-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { AssignedtoGroupGridBase } from './assignedto-group-grid-base';
@@ -15,8 +15,8 @@ import { AssignedtoGroupGridBase } from './assignedto-group-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class AssignedtoGroupGrid extends AssignedtoGroupGridBase { }
+export default class AssignedtoGroupGrid extends AssignedtoGroupGridBase {}
 </script>

@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TodoService from '@/service/todo/todo-service';
 import TodoDashboardActionsService from './todo-dashboard-actions-portlet-service';
 import TodoUIService from '@/uiservice/todo/todo-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-
 
 /**
  * dashboard_sysportlet2部件基类
@@ -17,7 +16,6 @@ import UIService from '@/uiservice/ui-service';
  * @extends {TodoDashboardActionsPortletBase}
  */
 export class TodoDashboardActionsPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @type {TodoUIService}
      * @memberof TodoDashboardActionsBase
      */  
-    public appUIService:TodoUIService = new TodoUIService(this.$store);
+    public appUIService: TodoUIService = new TodoUIService(this.$store);
 
     /**
      * 逻辑事件

@@ -1,5 +1,5 @@
-<template src="./calendar-main-form.html"/>
-<script lang='tsx'>
+<template src="./calendar-main-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CalendarMainEditFormBase } from './calendar-main-form-base';
@@ -15,11 +15,11 @@ import { CalendarMainEditFormBase } from './calendar-main-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class CalendarMainEditForm extends CalendarMainEditFormBase { }
+export default class CalendarMainEditForm extends CalendarMainEditFormBase {}
 </script>
-<style lang='less'>
+<style lang="less">
 @import './calendar-main-form.less';
 </style>

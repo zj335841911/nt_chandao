@@ -1,5 +1,5 @@
-<template src="./pri-task-group-grid.html"/>
-<script lang='tsx'>
+<template src="./pri-task-group-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { PriTaskGroupGridBase } from './pri-task-group-grid-base';
@@ -15,8 +15,8 @@ import { PriTaskGroupGridBase } from './pri-task-group-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class PriTaskGroupGrid extends PriTaskGroupGridBase { }
+export default class PriTaskGroupGrid extends PriTaskGroupGridBase {}
 </script>

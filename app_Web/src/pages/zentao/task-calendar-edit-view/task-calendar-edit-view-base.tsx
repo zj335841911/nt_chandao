@@ -48,7 +48,7 @@ export class TaskCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskCalendarEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,8 +74,14 @@ export class TaskCalendarEditViewBase extends EditViewBase {
 	 * @memberof TaskCalendarEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'task' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'task' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'task',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
     /**
@@ -83,7 +89,7 @@ export class TaskCalendarEditViewBase extends EditViewBase {
      *
      * @memberof TaskCalendarEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -96,8 +102,8 @@ export class TaskCalendarEditViewBase extends EditViewBase {
         srfCaption: 'entities.task.views.calendareditview.caption',
         srfTitle: 'entities.task.views.calendareditview.title',
         srfSubTitle: 'entities.task.views.calendareditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -107,7 +113,10 @@ export class TaskCalendarEditViewBase extends EditViewBase {
      * @memberof TaskCalendarEditViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -127,7 +136,7 @@ export class TaskCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskCalendarEditViewBase
      */ 
-    protected viewName:string = "TaskCalendarEditView";
+    protected viewName: string = "TaskCalendarEditView";
 
 
     /**
@@ -146,7 +155,9 @@ export class TaskCalendarEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TaskCalendarEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

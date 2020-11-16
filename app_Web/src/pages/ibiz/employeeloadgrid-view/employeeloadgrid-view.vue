@@ -1,5 +1,5 @@
-<template src="./employeeloadgrid-view.html"/>
-<script lang='tsx'>
+<template src="./employeeloadgrid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { EMPLOYEELOADGridViewBase } from './employeeloadgrid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/emp-loyeeload/workload-searchform/workload
     }
 })
 @VueLifeCycleProcessing()
-export default class EMPLOYEELOADGridView extends EMPLOYEELOADGridViewBase { }
+export default class EMPLOYEELOADGridView extends EMPLOYEELOADGridViewBase {}
 </script>

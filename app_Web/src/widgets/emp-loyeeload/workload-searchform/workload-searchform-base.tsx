@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, SearchFormControlBase } from '@/studio-core';
 import EmpLoyeeloadService from '@/service/emp-loyeeload/emp-loyeeload-service';
 import WorkloadService from './workload-searchform-service';
 import EmpLoyeeloadUIService from '@/uiservice/emp-loyeeload/emp-loyeeload-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-
 
 /**
  * searchform部件基类
@@ -17,7 +16,6 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
  * @extends {WorkloadSearchFormBase}
  */
 export class WorkloadSearchFormBase extends SearchFormControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class WorkloadSearchFormBase extends SearchFormControlBase {
      * @type {EmpLoyeeloadUIService}
      * @memberof WorkloadBase
      */  
-    public appUIService:EmpLoyeeloadUIService = new EmpLoyeeloadUIService(this.$store);
+    public appUIService: EmpLoyeeloadUIService = new EmpLoyeeloadUIService(this.$store);
 
 
     /**

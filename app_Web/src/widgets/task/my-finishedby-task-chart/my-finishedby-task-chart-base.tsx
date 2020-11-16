@@ -1,7 +1,7 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import MyFinishedbyTaskService from './my-finishedby-task-chart-service';
@@ -11,7 +11,6 @@ import moment from "moment";
 import CodeListService from "@service/app/codelist-service";
 import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries,ChartRadarSeries} from '@/model/chart-detail';
 
-
 /**
  * dashboard_sysportlet3_chart部件基类
  *
@@ -20,7 +19,6 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
  * @extends {MyFinishedbyTaskChartBase}
  */
 export class MyFinishedbyTaskChartBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -70,7 +68,7 @@ export class MyFinishedbyTaskChartBase extends MainControlBase {
      * @type {TaskUIService}
      * @memberof MyFinishedbyTaskBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     
 

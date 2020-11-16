@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, SearchFormControlBase } from '@/studio-core';
 import UserContactService from '@/service/user-contact/user-contact-service';
 import DefaultService from './default-searchform-service';
 import UserContactUIService from '@/uiservice/user-contact/user-contact-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-
 
 /**
  * searchform部件基类
@@ -17,7 +16,6 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
  * @extends {DefaultSearchFormBase}
  */
 export class DefaultSearchFormBase extends SearchFormControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
      * @type {UserContactUIService}
      * @memberof DefaultBase
      */  
-    public appUIService:UserContactUIService = new UserContactUIService(this.$store);
+    public appUIService: UserContactUIService = new UserContactUIService(this.$store);
 
 
     /**

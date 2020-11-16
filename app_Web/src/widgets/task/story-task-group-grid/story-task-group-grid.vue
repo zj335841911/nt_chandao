@@ -1,5 +1,5 @@
-<template src="./story-task-group-grid.html"/>
-<script lang='tsx'>
+<template src="./story-task-group-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryTaskGroupGridBase } from './story-task-group-grid-base';
@@ -15,8 +15,8 @@ import { StoryTaskGroupGridBase } from './story-task-group-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class StoryTaskGroupGrid extends StoryTaskGroupGridBase { }
+export default class StoryTaskGroupGrid extends StoryTaskGroupGridBase {}
 </script>

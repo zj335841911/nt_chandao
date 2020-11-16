@@ -1,5 +1,5 @@
-<template src="./main-look-grid.html"/>
-<script lang='tsx'>
+<template src="./main-look-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainLookGridBase } from './main-look-grid-base';
@@ -15,8 +15,8 @@ import { MainLookGridBase } from './main-look-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MainLookGrid extends MainLookGridBase { }
+export default class MainLookGrid extends MainLookGridBase {}
 </script>

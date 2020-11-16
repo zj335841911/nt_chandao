@@ -1,12 +1,23 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import DocService from '@/service/doc/doc-service';
 import DOCSTATUSService from './docstatus-form-service';
 import DocUIService from '@/uiservice/doc/doc-ui-service';
-import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
-
+import {
+    FormButtonModel,
+    FormPageModel,
+    FormItemModel,
+    FormDRUIPartModel,
+    FormPartModel,
+    FormGroupPanelModel,
+    FormIFrameModel,
+    FormRowItemModel,
+    FormTabPageModel,
+    FormTabPanelModel,
+    FormUserControlModel,
+} from '@/model/form-detail';
 
 /**
  * form部件基类
@@ -16,7 +27,6 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  * @extends {DOCSTATUSEditFormBase}
  */
 export class DOCSTATUSEditFormBase extends EditFormControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +76,7 @@ export class DOCSTATUSEditFormBase extends EditFormControlBase {
      * @type {DocUIService}
      * @memberof DOCSTATUSBase
      */  
-    public appUIService:DocUIService = new DocUIService(this.$store);
+    public appUIService: DocUIService = new DocUIService(this.$store);
 
     /**
      * 表单数据对象
@@ -95,7 +105,7 @@ export class DOCSTATUSEditFormBase extends EditFormControlBase {
         myfavouritecnt: null,
         formitemex4: null,
         id: null,
-        doc:null,
+        doc: null,
     };
 
     /**
@@ -104,7 +114,7 @@ export class DOCSTATUSEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof DOCSTATUSEditFormBase
      */
-    public majorMessageField: string = "";
+    public majorMessageField: string = '';
 
     /**
      * 属性值规则
@@ -112,7 +122,7 @@ export class DOCSTATUSEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof DOCSTATUSEditFormBase
      */
-    public rules():any{
+    public rules(): any{
         return {
         }
     }
@@ -161,45 +171,145 @@ export class DOCSTATUSEditFormBase extends EditFormControlBase {
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srforikey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfkey: new FormItemModel({ caption: '文档编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+        srfkey: new FormItemModel({
+    caption: '文档编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
-        srfmajortext: new FormItemModel({ caption: '文档标题', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfmajortext: new FormItemModel({
+    caption: '文档标题', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srftempmode: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfuf: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfuf: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfdeid: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfdeid: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfsourcekey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        alldoccnt1: new FormItemModel({ caption: '所有文档数量', detailType: 'FORMITEM', name: 'alldoccnt1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        alldoccnt1: new FormItemModel({
+    caption: '所有文档数量', detailType: 'FORMITEM', name: 'alldoccnt1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        recentupdatecnt: new FormItemModel({ caption: '最近更新数量', detailType: 'FORMITEM', name: 'recentupdatecnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        recentupdatecnt: new FormItemModel({
+    caption: '最近更新数量', detailType: 'FORMITEM', name: 'recentupdatecnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        formitemex1: new FormItemModel({ caption: '所有', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        formitemex1: new FormItemModel({
+    caption: '所有', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        alldoccnt2: new FormItemModel({ caption: '所有文档数量', detailType: 'FORMITEM', name: 'alldoccnt2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        alldoccnt2: new FormItemModel({
+    caption: '所有文档数量', detailType: 'FORMITEM', name: 'alldoccnt2', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        recentaddcnt: new FormItemModel({ caption: '最近添加数量', detailType: 'FORMITEM', name: 'recentaddcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        recentaddcnt: new FormItemModel({
+    caption: '最近添加数量', detailType: 'FORMITEM', name: 'recentaddcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        formitemex2: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        formitemex2: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        alldoccnt3: new FormItemModel({ caption: '所有文档数量', detailType: 'FORMITEM', name: 'alldoccnt3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        alldoccnt3: new FormItemModel({
+    caption: '所有文档数量', detailType: 'FORMITEM', name: 'alldoccnt3', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        mydoccnt: new FormItemModel({ caption: '我的文档数量', detailType: 'FORMITEM', name: 'mydoccnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        mydoccnt: new FormItemModel({
+    caption: '我的文档数量', detailType: 'FORMITEM', name: 'mydoccnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        formitemex3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        formitemex3: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'formitemex3', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        alldoccnt4: new FormItemModel({ caption: '所有文档数量', detailType: 'FORMITEM', name: 'alldoccnt4', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        alldoccnt4: new FormItemModel({
+    caption: '所有文档数量', detailType: 'FORMITEM', name: 'alldoccnt4', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        myfavouritecnt: new FormItemModel({ caption: '我的收藏数量', detailType: 'FORMITEM', name: 'myfavouritecnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        myfavouritecnt: new FormItemModel({
+    caption: '我的收藏数量', detailType: 'FORMITEM', name: 'myfavouritecnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        formitemex4: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        formitemex4: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'formitemex4', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        id: new FormItemModel({ caption: '文档编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+        id: new FormItemModel({
+    caption: '文档编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
     };
 }

@@ -6,7 +6,7 @@ import SubProductPlanService from '@/service/sub-product-plan/sub-product-plan-s
 import SubProductPlanAuthService from '@/authservice/sub-product-plan/sub-product-plan-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import SubProductPlanUIService from '@/uiservice/sub-product-plan/sub-product-plan-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductPlanSubPlanGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
 	 * @memberof ProductPlanSubPlanGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'ZT_PRODUCTPLAN': { isRawValue: false, value: 'SRFPARENTKEY' }
+        'ZT_PRODUCTPLAN': {
+            isRawValue: false,
+            value: 'SRFPARENTKEY',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
         srfCaption: 'entities.subproductplan.views.subplangridview.caption',
         srfTitle: 'entities.subproductplan.views.subplangridview.title',
         srfSubTitle: 'entities.subproductplan.views.subplangridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,7 +105,10 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
      * @memberof ProductPlanSubPlanGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -122,7 +128,7 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductPlanSubPlanGridViewBase
      */ 
-    protected viewName:string = "ProductPlanSubPlanGridView";
+    protected viewName: string = "ProductPlanSubPlanGridView";
 
 
     /**
@@ -141,7 +147,9 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof ProductPlanSubPlanGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -152,11 +160,11 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'subproductplan',
@@ -173,7 +181,7 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
      */
     public handleviewRes(): void {
         if (this.context.srfparentkey) {
-            Object.assign(this.context,{'productplan':this.context.srfparentkey});
+            Object.assign(this.context, { 'productplan': this.context.srfparentkey });
         }
     }
 

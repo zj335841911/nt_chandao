@@ -6,7 +6,7 @@ import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class BugGridView9_StoryFormBugBase extends GridView9Base {
      * @type {string}
      * @memberof BugGridView9_StoryFormBugBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,14 @@ export class BugGridView9_StoryFormBugBase extends GridView9Base {
 	 * @memberof BugGridView9_StoryFormBugBase
 	 */
     protected customViewNavContexts: any = {
-        'STORY': { isRawValue: true, value: 'null' },
-        'N_ID_EQ': { isRawValue: false, value: 'frombug' }
+        'STORY': {
+            isRawValue: true,
+            value: 'null',
+        },
+        'N_ID_EQ': {
+            isRawValue: false,
+            value: 'frombug',
+        }
     };
 
 	/**
@@ -89,8 +95,14 @@ export class BugGridView9_StoryFormBugBase extends GridView9Base {
 	 * @memberof BugGridView9_StoryFormBugBase
 	 */
     protected customViewParams: any = {
-        'story': { isRawValue: true, value: 'null' },
-        'n_id_eq': { isRawValue: false, value: 'frombug' }
+        'story': {
+            isRawValue: true,
+            value: 'null',
+        },
+        'n_id_eq': {
+            isRawValue: false,
+            value: 'frombug',
+        }
     };
 
     /**
@@ -104,8 +116,8 @@ export class BugGridView9_StoryFormBugBase extends GridView9Base {
         srfCaption: 'entities.bug.views.gridview9_storyformbug.caption',
         srfTitle: 'entities.bug.views.gridview9_storyformbug.title',
         srfSubTitle: 'entities.bug.views.gridview9_storyformbug.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -115,7 +127,10 @@ export class BugGridView9_StoryFormBugBase extends GridView9Base {
      * @memberof BugGridView9_StoryFormBugBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -135,7 +150,7 @@ export class BugGridView9_StoryFormBugBase extends GridView9Base {
      * @type {string}
      * @memberof BugGridView9_StoryFormBugBase
      */ 
-    protected viewName:string = "BugGridView9_StoryFormBug";
+    protected viewName: string = "BugGridView9_StoryFormBug";
 
 
     /**
@@ -154,7 +169,9 @@ export class BugGridView9_StoryFormBugBase extends GridView9Base {
      * @type {Array<*>}
      * @memberof BugGridView9_StoryFormBugBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -165,11 +182,11 @@ export class BugGridView9_StoryFormBugBase extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'bug',

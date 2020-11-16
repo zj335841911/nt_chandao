@@ -1,5 +1,5 @@
-<template src="./all-trends-portlet.html"/>
-<script lang='tsx'>
+<template src="./all-trends-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { AllTrendsPortletBase } from './all-trends-portlet-base';
@@ -15,8 +15,8 @@ import { AllTrendsPortletBase } from './all-trends-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class AllTrendsPortlet extends AllTrendsPortletBase { }
+export default class AllTrendsPortlet extends AllTrendsPortletBase {}
 </script>

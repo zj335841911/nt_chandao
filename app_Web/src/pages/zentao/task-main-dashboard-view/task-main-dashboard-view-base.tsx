@@ -65,8 +65,14 @@ export class TaskMainDashboardViewBase extends DashboardViewBase {
 	 * @memberof TaskMainDashboardViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'task' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'task' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'task',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
     /**
@@ -74,7 +80,7 @@ export class TaskMainDashboardViewBase extends DashboardViewBase {
      *
      * @memberof TaskMainDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -87,8 +93,8 @@ export class TaskMainDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.task.views.maindashboardview.caption',
         srfTitle: 'entities.task.views.maindashboardview.title',
         srfSubTitle: 'entities.task.views.maindashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -98,7 +104,10 @@ export class TaskMainDashboardViewBase extends DashboardViewBase {
      * @memberof TaskMainDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -118,7 +127,7 @@ export class TaskMainDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof TaskMainDashboardViewBase
      */ 
-    protected viewName:string = "TaskMainDashboardView";
+    protected viewName: string = "TaskMainDashboardView";
 
 
     /**
@@ -137,7 +146,9 @@ export class TaskMainDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof TaskMainDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

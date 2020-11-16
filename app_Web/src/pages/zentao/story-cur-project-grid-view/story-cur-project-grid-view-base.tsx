@@ -6,7 +6,7 @@ import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import StoryUIService from '@/uiservice/story/story-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryCurProjectGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
 	 * @memberof StoryCurProjectGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'story' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'story',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
         srfCaption: 'entities.story.views.curprojectgridview.caption',
         srfTitle: 'entities.story.views.curprojectgridview.title',
         srfSubTitle: 'entities.story.views.curprojectgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,9 +105,18 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
      * @memberof StoryCurProjectGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
+        },
     };
 
     /**
@@ -146,7 +158,7 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryCurProjectGridViewBase
      */ 
-    protected viewName:string = "StoryCurProjectGridView";
+    protected viewName: string = "StoryCurProjectGridView";
 
 
     /**
@@ -165,7 +177,9 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof StoryCurProjectGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -176,11 +190,11 @@ export class StoryCurProjectGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'story',

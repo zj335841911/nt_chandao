@@ -6,7 +6,7 @@ import SysUpdateFeaturesService from '@/service/sys-update-features/sys-update-f
 import SysUpdateFeaturesAuthService from '@/authservice/sys-update-features/sys-update-features-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import SysUpdateFeaturesUIService from '@/uiservice/sys-update-features/sys-update-features-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class SysUpdateFeaturesLastGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateFeaturesLastGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class SysUpdateFeaturesLastGridViewBase extends GridViewBase {
         srfCaption: 'entities.sysupdatefeatures.views.lastgridview.caption',
         srfTitle: 'entities.sysupdatefeatures.views.lastgridview.title',
         srfSubTitle: 'entities.sysupdatefeatures.views.lastgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class SysUpdateFeaturesLastGridViewBase extends GridViewBase {
      * @memberof SysUpdateFeaturesLastGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
 
@@ -112,7 +118,7 @@ export class SysUpdateFeaturesLastGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateFeaturesLastGridViewBase
      */ 
-    protected viewName:string = "SysUpdateFeaturesLastGridView";
+    protected viewName: string = "SysUpdateFeaturesLastGridView";
 
 
     /**
@@ -131,7 +137,9 @@ export class SysUpdateFeaturesLastGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof SysUpdateFeaturesLastGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -142,11 +150,11 @@ export class SysUpdateFeaturesLastGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

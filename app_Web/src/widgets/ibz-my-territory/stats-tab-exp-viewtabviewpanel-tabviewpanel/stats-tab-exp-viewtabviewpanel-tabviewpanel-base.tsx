@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import StatsTabExpViewtabviewpanelService from './stats-tab-exp-viewtabviewpanel-tabviewpanel-service';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
-
 
 /**
  * tabviewpanel部件基类
@@ -15,7 +14,6 @@ import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territo
  * @extends {StatsTabExpViewtabviewpanelTabviewpanelBase}
  */
 export class StatsTabExpViewtabviewpanelTabviewpanelBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class StatsTabExpViewtabviewpanelTabviewpanelBase extends MainControlBase
      * @type {IbzMyTerritoryUIService}
      * @memberof StatsTabExpViewtabviewpanelBase
      */  
-    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+    public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
 
     /**

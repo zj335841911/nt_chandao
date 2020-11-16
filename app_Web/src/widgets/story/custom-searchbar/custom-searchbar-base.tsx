@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import CustomService from './custom-searchbar-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 import moment from 'moment';
-
 
 /**
  * searchbar部件基类
@@ -16,7 +15,6 @@ import moment from 'moment';
  * @extends {CustomSearchbarBase}
  */
 export class CustomSearchbarBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class CustomSearchbarBase extends MainControlBase {
      * @type {StoryUIService}
      * @memberof CustomBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
 
     /**

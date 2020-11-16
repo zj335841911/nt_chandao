@@ -48,7 +48,7 @@ export class CaseMainEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseMainEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,8 +74,14 @@ export class CaseMainEditViewBase extends EditViewBase {
 	 * @memberof CaseMainEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'case' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'case' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'case',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'case',
+        }
     };
 
     /**
@@ -83,7 +89,7 @@ export class CaseMainEditViewBase extends EditViewBase {
      *
      * @memberof CaseMainEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -96,8 +102,8 @@ export class CaseMainEditViewBase extends EditViewBase {
         srfCaption: 'entities.case.views.maineditview.caption',
         srfTitle: 'entities.case.views.maineditview.title',
         srfSubTitle: 'entities.case.views.maineditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -107,8 +113,14 @@ export class CaseMainEditViewBase extends EditViewBase {
      * @memberof CaseMainEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -140,7 +152,7 @@ export class CaseMainEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseMainEditViewBase
      */ 
-    protected viewName:string = "CaseMainEditView";
+    protected viewName: string = "CaseMainEditView";
 
 
     /**
@@ -159,7 +171,9 @@ export class CaseMainEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof CaseMainEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

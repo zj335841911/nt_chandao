@@ -6,7 +6,7 @@ import IbzLibCaseStepTmpService from '@/service/ibz-lib-case-step-tmp/ibz-lib-ca
 import IbzLibCaseStepTmpAuthService from '@/authservice/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import IbzLibCaseStepTmpUIService from '@/uiservice/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class IbzLibCaseStepsGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof IbzLibCaseStepsGridView9Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class IbzLibCaseStepsGridView9Base extends GridView9Base {
         srfCaption: 'entities.ibzlibcasesteptmp.views.gridview9.caption',
         srfTitle: 'entities.ibzlibcasesteptmp.views.gridview9.title',
         srfSubTitle: 'entities.ibzlibcasesteptmp.views.gridview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class IbzLibCaseStepsGridView9Base extends GridView9Base {
      * @memberof IbzLibCaseStepsGridView9Base
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -124,7 +130,7 @@ export class IbzLibCaseStepsGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof IbzLibCaseStepsGridView9Base
      */ 
-    protected viewName:string = "IbzLibCaseStepsGridView9";
+    protected viewName: string = "IbzLibCaseStepsGridView9";
 
 
     /**
@@ -143,7 +149,9 @@ export class IbzLibCaseStepsGridView9Base extends GridView9Base {
      * @type {Array<*>}
      * @memberof IbzLibCaseStepsGridView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -154,11 +162,11 @@ export class IbzLibCaseStepsGridView9Base extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'ibzlibcasesteptmp',

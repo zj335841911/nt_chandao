@@ -1,5 +1,5 @@
-<template src="./action-history-list-view.html"/>
-<script lang='tsx'>
+<template src="./action-history-list-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ActionHistoryListViewBase } from './action-history-list-view-base';
@@ -20,5 +20,5 @@ import view_list from '@widgets/action/classify-by-type-list/classify-by-type-li
     }
 })
 @VueLifeCycleProcessing()
-export default class ActionHistoryListView extends ActionHistoryListViewBase { }
+export default class ActionHistoryListView extends ActionHistoryListViewBase {}
 </script>

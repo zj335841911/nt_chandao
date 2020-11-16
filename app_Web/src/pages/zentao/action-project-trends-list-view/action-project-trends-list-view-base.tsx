@@ -6,7 +6,7 @@ import ActionService from '@/service/action/action-service';
 import ActionAuthService from '@/authservice/action/action-auth-service';
 import ListViewEngine from '@engine/view/list-view-engine';
 import ActionUIService from '@/uiservice/action/action-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionProjectTrendsListViewBase
      */ 
-    protected dataControl:string = "list";
+    protected dataControl: string = "list";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
         srfCaption: 'entities.action.views.projecttrendslistview.caption',
         srfTitle: 'entities.action.views.projecttrendslistview.title',
         srfSubTitle: 'entities.action.views.projecttrendslistview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,7 +91,10 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
      * @memberof ActionProjectTrendsListViewBase
      */
     protected containerModel: any = {
-        view_list: { name: 'list', type: 'LIST' },
+        view_list: {
+            name: 'list',
+            type: 'LIST',
+        },
     };
 
 
@@ -111,7 +114,7 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionProjectTrendsListViewBase
      */ 
-    protected viewName:string = "ActionProjectTrendsListView";
+    protected viewName: string = "ActionProjectTrendsListView";
 
 
     /**
@@ -130,7 +133,9 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
      * @type {Array<*>}
      * @memberof ActionProjectTrendsListViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -142,11 +147,11 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
         this.engine.init({
             view: this,
             list: this.$refs.list,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'action',
             majorPSDEField: 'comment',
@@ -315,14 +320,14 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'ProductActionQuickpacket', codelistType: 'STATIC' };
-        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
+        if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {
                 this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
             } else {
                 console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
             }
-        } else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
+        } else if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
             this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
                 this.quickGroupModel = res;
             }).catch((error:any) => {

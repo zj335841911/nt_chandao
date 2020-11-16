@@ -62,7 +62,7 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
      *
      * @memberof IbzMyTerritoryDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.ibzmyterritory.views.dashboardview.caption',
         srfTitle: 'entities.ibzmyterritory.views.dashboardview.title',
         srfSubTitle: 'entities.ibzmyterritory.views.dashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
      * @memberof IbzMyTerritoryDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryDashboardViewBase
      */ 
-    protected viewName:string = "IbzMyTerritoryDashboardView";
+    protected viewName: string = "IbzMyTerritoryDashboardView";
 
 
     /**
@@ -125,7 +128,9 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof IbzMyTerritoryDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

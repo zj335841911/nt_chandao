@@ -6,7 +6,7 @@ import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import TaskUIService from '@/uiservice/task/task-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TaskMainGridView9_ChildBase extends GridView9Base {
      * @type {string}
      * @memberof TaskMainGridView9_ChildBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class TaskMainGridView9_ChildBase extends GridView9Base {
 	 * @memberof TaskMainGridView9_ChildBase
 	 */
     protected customViewParams: any = {
-        'n_parent_eq': { isRawValue: false, value: 'srfparentkey' }
+        'n_parent_eq': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class TaskMainGridView9_ChildBase extends GridView9Base {
         srfCaption: 'entities.task.views.maingridview9_child.caption',
         srfTitle: 'entities.task.views.maingridview9_child.title',
         srfSubTitle: 'entities.task.views.maingridview9_child.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,7 +105,10 @@ export class TaskMainGridView9_ChildBase extends GridView9Base {
      * @memberof TaskMainGridView9_ChildBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -122,7 +128,7 @@ export class TaskMainGridView9_ChildBase extends GridView9Base {
      * @type {string}
      * @memberof TaskMainGridView9_ChildBase
      */ 
-    protected viewName:string = "TaskMainGridView9_Child";
+    protected viewName: string = "TaskMainGridView9_Child";
 
 
     /**
@@ -141,7 +147,9 @@ export class TaskMainGridView9_ChildBase extends GridView9Base {
      * @type {Array<*>}
      * @memberof TaskMainGridView9_ChildBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -152,11 +160,11 @@ export class TaskMainGridView9_ChildBase extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'task',

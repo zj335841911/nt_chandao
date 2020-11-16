@@ -65,8 +65,14 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
 	 * @memberof IbzLibOpenLibViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'caselib' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'ibzlib' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'caselib',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'ibzlib',
+        }
     };
 
     /**
@@ -74,7 +80,7 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
      *
      * @memberof IbzLibOpenLibViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -87,8 +93,8 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
         srfCaption: 'entities.ibzlib.views.openlibview.caption',
         srfTitle: 'entities.ibzlib.views.openlibview.title',
         srfSubTitle: 'entities.ibzlib.views.openlibview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -98,7 +104,10 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
      * @memberof IbzLibOpenLibViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -118,7 +127,7 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof IbzLibOpenLibViewBase
      */ 
-    protected viewName:string = "IbzLibOpenLibView";
+    protected viewName: string = "IbzLibOpenLibView";
 
 
     /**
@@ -137,7 +146,9 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof IbzLibOpenLibViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

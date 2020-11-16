@@ -1,5 +1,5 @@
-<template src="./ibz-case-dashboard-view.html"/>
-<script lang='tsx'>
+<template src="./ibz-case-dashboard-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzCaseDashboardViewBase } from './ibz-case-dashboard-view-base';
@@ -18,5 +18,5 @@ import view_dashboard from '@widgets/ibz-case/main-dashboard/main-dashboard.vue'
     }
 })
 @VueLifeCycleProcessing()
-export default class IbzCaseDashboardView extends IbzCaseDashboardViewBase { }
+export default class IbzCaseDashboardView extends IbzCaseDashboardViewBase {}
 </script>

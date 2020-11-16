@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import DashboardQuickActionService from './dashboard-quick-action-portlet-service';
 import CaseUIService from '@/uiservice/case/case-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-
 
 /**
  * dashboard_sysportlet4部件基类
@@ -17,7 +16,6 @@ import UIService from '@/uiservice/ui-service';
  * @extends {DashboardQuickActionPortletBase}
  */
 export class DashboardQuickActionPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @type {CaseUIService}
      * @memberof DashboardQuickActionBase
      */  
-    public appUIService:CaseUIService = new CaseUIService(this.$store);
+    public appUIService: CaseUIService = new CaseUIService(this.$store);
 
     /**
      * 逻辑事件

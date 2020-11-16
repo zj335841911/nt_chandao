@@ -6,7 +6,7 @@ import DocService from '@/service/doc/doc-service';
 import DocAuthService from '@/authservice/doc/doc-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import DocUIService from '@/uiservice/doc/doc-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class DocRecentMoreGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocRecentMoreGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,9 +77,18 @@ export class DocRecentMoreGridViewBase extends GridViewBase {
 	 * @memberof DocRecentMoreGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_lib_eq': { isRawValue: false, value: 'srfparentkey' },
-        'n_project_eq': { isRawValue: false, value: 'project' },
-        'parent': { isRawValue: true, value: '0' }
+        'n_lib_eq': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        },
+        'n_project_eq': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'parent': {
+            isRawValue: true,
+            value: '0',
+        }
     };
 
     /**
@@ -93,8 +102,8 @@ export class DocRecentMoreGridViewBase extends GridViewBase {
         srfCaption: 'entities.doc.views.recentmoregridview.caption',
         srfTitle: 'entities.doc.views.recentmoregridview.title',
         srfSubTitle: 'entities.doc.views.recentmoregridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -104,8 +113,14 @@ export class DocRecentMoreGridViewBase extends GridViewBase {
      * @memberof DocRecentMoreGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
 
@@ -125,7 +140,7 @@ export class DocRecentMoreGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocRecentMoreGridViewBase
      */ 
-    protected viewName:string = "DocRecentMoreGridView";
+    protected viewName: string = "DocRecentMoreGridView";
 
 
     /**
@@ -144,7 +159,9 @@ export class DocRecentMoreGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof DocRecentMoreGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -155,11 +172,11 @@ export class DocRecentMoreGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

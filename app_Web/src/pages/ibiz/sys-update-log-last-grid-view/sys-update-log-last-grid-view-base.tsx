@@ -6,7 +6,7 @@ import SysUpdateLogService from '@/service/sys-update-log/sys-update-log-service
 import SysUpdateLogAuthService from '@/authservice/sys-update-log/sys-update-log-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import SysUpdateLogUIService from '@/uiservice/sys-update-log/sys-update-log-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class SysUpdateLogLastGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateLogLastGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,14 @@ export class SysUpdateLogLastGridViewBase extends GridViewBase {
 	 * @memberof SysUpdateLogLastGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_updatebranch_eq': { isRawValue: true, value: 'PC' },
-        'size': { isRawValue: true, value: '5' }
+        'n_updatebranch_eq': {
+            isRawValue: true,
+            value: 'PC',
+        },
+        'size': {
+            isRawValue: true,
+            value: '5',
+        }
     };
 
     /**
@@ -92,8 +98,8 @@ export class SysUpdateLogLastGridViewBase extends GridViewBase {
         srfCaption: 'entities.sysupdatelog.views.lastgridview.caption',
         srfTitle: 'entities.sysupdatelog.views.lastgridview.title',
         srfSubTitle: 'entities.sysupdatelog.views.lastgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -103,7 +109,10 @@ export class SysUpdateLogLastGridViewBase extends GridViewBase {
      * @memberof SysUpdateLogLastGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -123,7 +132,7 @@ export class SysUpdateLogLastGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateLogLastGridViewBase
      */ 
-    protected viewName:string = "SysUpdateLogLastGridView";
+    protected viewName: string = "SysUpdateLogLastGridView";
 
 
     /**
@@ -142,7 +151,9 @@ export class SysUpdateLogLastGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof SysUpdateLogLastGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -153,11 +164,11 @@ export class SysUpdateLogLastGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'sysupdatelog',

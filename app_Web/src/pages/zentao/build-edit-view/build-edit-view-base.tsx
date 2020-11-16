@@ -48,7 +48,7 @@ export class BuildEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BuildEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class BuildEditViewBase extends EditViewBase {
 	 * @memberof BuildEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' }
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -82,7 +85,7 @@ export class BuildEditViewBase extends EditViewBase {
      *
      * @memberof BuildEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -95,8 +98,8 @@ export class BuildEditViewBase extends EditViewBase {
         srfCaption: 'entities.build.views.editview.caption',
         srfTitle: 'entities.build.views.editview.title',
         srfSubTitle: 'entities.build.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -106,8 +109,14 @@ export class BuildEditViewBase extends EditViewBase {
      * @memberof BuildEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -139,7 +148,7 @@ export class BuildEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BuildEditViewBase
      */ 
-    protected viewName:string = "BuildEditView";
+    protected viewName: string = "BuildEditView";
 
 
     /**
@@ -158,7 +167,9 @@ export class BuildEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BuildEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

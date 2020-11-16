@@ -1,7 +1,7 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import UserYearWorkStatsService from '@/service/user-year-work-stats/user-year-work-stats-service';
 import MonthOpenedBugAndCaseService from './month-opened-bug-and-case-chart-service';
@@ -11,7 +11,6 @@ import moment from "moment";
 import CodeListService from "@service/app/codelist-service";
 import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries,ChartRadarSeries} from '@/model/chart-detail';
 
-
 /**
  * dashboard_sysportlet3_chart部件基类
  *
@@ -20,7 +19,6 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
  * @extends {MonthOpenedBugAndCaseChartBase}
  */
 export class MonthOpenedBugAndCaseChartBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -70,7 +68,7 @@ export class MonthOpenedBugAndCaseChartBase extends MainControlBase {
      * @type {UserYearWorkStatsUIService}
      * @memberof MonthOpenedBugAndCaseBase
      */  
-    public appUIService:UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
+    public appUIService: UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
 
 
     /**

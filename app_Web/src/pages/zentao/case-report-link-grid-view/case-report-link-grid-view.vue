@@ -1,5 +1,5 @@
-<template src="./case-report-link-grid-view.html"/>
-<script lang='tsx'>
+<template src="./case-report-link-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseReportLinkGridViewBase } from './case-report-link-grid-view-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/case/re-port-main-grid-grid/re-port-main-grid-gr
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseReportLinkGridView extends CaseReportLinkGridViewBase { }
+export default class CaseReportLinkGridView extends CaseReportLinkGridViewBase {}
 </script>

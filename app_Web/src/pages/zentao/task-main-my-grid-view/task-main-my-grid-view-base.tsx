@@ -6,7 +6,7 @@ import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import TaskUIService from '@/uiservice/task/task-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TaskMainMyGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskMainMyGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class TaskMainMyGridViewBase extends GridViewBase {
         srfCaption: 'entities.task.views.mainmygridview.caption',
         srfTitle: 'entities.task.views.mainmygridview.title',
         srfSubTitle: 'entities.task.views.mainmygridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,7 +91,10 @@ export class TaskMainMyGridViewBase extends GridViewBase {
      * @memberof TaskMainMyGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -111,7 +114,7 @@ export class TaskMainMyGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskMainMyGridViewBase
      */ 
-    protected viewName:string = "TaskMainMyGridView";
+    protected viewName: string = "TaskMainMyGridView";
 
 
     /**
@@ -130,7 +133,9 @@ export class TaskMainMyGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof TaskMainMyGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -141,11 +146,11 @@ export class TaskMainMyGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'task',
@@ -335,14 +340,14 @@ export class TaskMainMyGridViewBase extends GridViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'TASK_QuickacketMy', codelistType: 'STATIC' };
-        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
+        if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {
                 this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
             } else {
                 console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
             }
-        } else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
+        } else if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
             this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
                 this.quickGroupModel = res;
             }).catch((error:any) => {

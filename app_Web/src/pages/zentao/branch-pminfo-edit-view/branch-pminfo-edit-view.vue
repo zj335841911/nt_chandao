@@ -1,5 +1,5 @@
-<template src="./branch-pminfo-edit-view.html"/>
-<script lang='tsx'>
+<template src="./branch-pminfo-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BranchPMInfoEditViewBase } from './branch-pminfo-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/branch/platform-management-form/platform-managem
     }
 })
 @VueLifeCycleProcessing()
-export default class BranchPMInfoEditView extends BranchPMInfoEditViewBase { }
+export default class BranchPMInfoEditView extends BranchPMInfoEditViewBase {}
 </script>

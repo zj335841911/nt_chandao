@@ -48,7 +48,7 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
      * @type {string}
      * @memberof BugPickupGridView4Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
 	 * @memberof BugPickupGridView4Base
 	 */
     protected customViewParams: any = {
-        'release': { isRawValue: false, value: 'release' }
+        'release': {
+            isRawValue: false,
+            value: 'release',
+        }
     };
 
     /**
@@ -88,8 +91,8 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
         srfCaption: 'entities.bug.views.pickupgridview4.caption',
         srfTitle: 'entities.bug.views.pickupgridview4.title',
         srfSubTitle: 'entities.bug.views.pickupgridview4.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -99,7 +102,10 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
      * @memberof BugPickupGridView4Base
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -119,7 +125,7 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
      * @type {string}
      * @memberof BugPickupGridView4Base
      */ 
-    protected viewName:string = "BugPickupGridView4";
+    protected viewName: string = "BugPickupGridView4";
 
 
     /**
@@ -138,7 +144,9 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
      * @type {Array<*>}
      * @memberof BugPickupGridView4Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

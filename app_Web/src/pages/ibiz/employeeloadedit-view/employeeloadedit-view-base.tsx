@@ -48,7 +48,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof EMPLOYEELOADEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
      *
      * @memberof EMPLOYEELOADEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
         srfCaption: 'entities.employeeload.views.editview.caption',
         srfTitle: 'entities.employeeload.views.editview.title',
         srfSubTitle: 'entities.employeeload.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
      * @memberof EMPLOYEELOADEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -134,7 +140,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof EMPLOYEELOADEditViewBase
      */ 
-    protected viewName:string = "EMPLOYEELOADEditView";
+    protected viewName: string = "EMPLOYEELOADEditView";
 
 
     /**
@@ -153,7 +159,9 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof EMPLOYEELOADEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

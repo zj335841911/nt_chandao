@@ -1,5 +1,5 @@
-<template src="./branch-pmgrid-view.html"/>
-<script lang='tsx'>
+<template src="./branch-pmgrid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BranchPMGridViewBase } from './branch-pmgrid-view-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/branch/platform-management-grid/platform-managem
     }
 })
 @VueLifeCycleProcessing()
-export default class BranchPMGridView extends BranchPMGridViewBase { }
+export default class BranchPMGridView extends BranchPMGridViewBase {}
 </script>

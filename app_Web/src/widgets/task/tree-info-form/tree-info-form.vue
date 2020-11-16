@@ -1,5 +1,5 @@
-<template src="./tree-info-form.html"/>
-<script lang='tsx'>
+<template src="./tree-info-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TreeInfoEditFormBase } from './tree-info-form-base';
@@ -15,11 +15,11 @@ import { TreeInfoEditFormBase } from './tree-info-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class TreeInfoEditForm extends TreeInfoEditFormBase { }
+export default class TreeInfoEditForm extends TreeInfoEditFormBase {}
 </script>
-<style lang='less'>
+<style lang="less">
 @import './tree-info-form.less';
 </style>

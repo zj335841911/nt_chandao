@@ -1,5 +1,5 @@
-<template src="./sys-update-log-grid-view.html"/>
-<script lang='tsx'>
+<template src="./sys-update-log-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { SysUpdateLogGridViewBase } from './sys-update-log-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/sys-update-log/default-searchform/default-
     }
 })
 @VueLifeCycleProcessing()
-export default class SysUpdateLogGridView extends SysUpdateLogGridViewBase { }
+export default class SysUpdateLogGridView extends SysUpdateLogGridViewBase {}
 </script>

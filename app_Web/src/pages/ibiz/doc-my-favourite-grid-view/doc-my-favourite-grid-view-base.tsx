@@ -6,7 +6,7 @@ import DocService from '@/service/doc/doc-service';
 import DocAuthService from '@/authservice/doc/doc-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import DocUIService from '@/uiservice/doc/doc-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class DocMyFavouriteGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocMyFavouriteGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class DocMyFavouriteGridViewBase extends GridViewBase {
         srfCaption: 'entities.doc.views.myfavouritegridview.caption',
         srfTitle: 'entities.doc.views.myfavouritegridview.title',
         srfSubTitle: 'entities.doc.views.myfavouritegridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class DocMyFavouriteGridViewBase extends GridViewBase {
      * @memberof DocMyFavouriteGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
 
@@ -112,7 +118,7 @@ export class DocMyFavouriteGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocMyFavouriteGridViewBase
      */ 
-    protected viewName:string = "DocMyFavouriteGridView";
+    protected viewName: string = "DocMyFavouriteGridView";
 
 
     /**
@@ -131,7 +137,9 @@ export class DocMyFavouriteGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof DocMyFavouriteGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -142,11 +150,11 @@ export class DocMyFavouriteGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

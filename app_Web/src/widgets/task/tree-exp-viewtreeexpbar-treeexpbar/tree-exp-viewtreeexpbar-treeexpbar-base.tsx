@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TreeExpBarControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TreeExpViewtreeexpbarService from './tree-exp-viewtreeexpbar-treeexpbar-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
-
 
 /**
  * treeexpbar部件基类
@@ -15,7 +14,6 @@ import TaskUIService from '@/uiservice/task/task-ui-service';
  * @extends {TreeExpViewtreeexpbarTreeExpBarBase}
  */
 export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
      * @type {TaskUIService}
      * @memberof TreeExpViewtreeexpbarBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * treeexpbar_tree 部件 selectionchange 事件

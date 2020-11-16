@@ -1,5 +1,5 @@
-<template src="./project-main-my-grid-view.html"/>
-<script lang='tsx'>
+<template src="./project-main-my-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectMainMyGridViewBase } from './project-main-my-grid-view-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/project/main-my-grid/main-my-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectMainMyGridView extends ProjectMainMyGridViewBase { }
+export default class ProjectMainMyGridView extends ProjectMainMyGridViewBase {}
 </script>

@@ -48,7 +48,7 @@ export class DocEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof DocEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class DocEditViewBase extends EditViewBase {
      *
      * @memberof DocEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class DocEditViewBase extends EditViewBase {
         srfCaption: 'entities.doc.views.editview.caption',
         srfTitle: 'entities.doc.views.editview.title',
         srfSubTitle: 'entities.doc.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class DocEditViewBase extends EditViewBase {
      * @memberof DocEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class DocEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof DocEditViewBase
      */ 
-    protected viewName:string = "DocEditView";
+    protected viewName: string = "DocEditView";
 
 
     /**
@@ -147,7 +153,9 @@ export class DocEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof DocEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

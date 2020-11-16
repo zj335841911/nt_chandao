@@ -1,5 +1,5 @@
-<template src="./severity-chart.html"/>
-<script lang='tsx'>
+<template src="./severity-chart.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { SeverityChartBase } from './severity-chart-base';
@@ -15,8 +15,8 @@ import { SeverityChartBase } from './severity-chart-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class SeverityChart extends SeverityChartBase { }
+export default class SeverityChart extends SeverityChartBase {}
 </script>

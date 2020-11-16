@@ -1,5 +1,5 @@
-<template src="./todo-calendar-edit-view.html"/>
-<script lang='tsx'>
+<template src="./todo-calendar-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TodoCalendarEditViewBase } from './todo-calendar-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/todo/calendar-main-form/calendar-main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TodoCalendarEditView extends TodoCalendarEditViewBase { }
+export default class TodoCalendarEditView extends TodoCalendarEditViewBase {}
 </script>

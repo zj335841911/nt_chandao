@@ -1,5 +1,5 @@
-<template src="./my-work-pc-calendar.html"/>
-<script lang='tsx'>
+<template src="./my-work-pc-calendar.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MyWorkPCCalendarBase } from './my-work-pc-calendar-base';
@@ -25,8 +25,8 @@ import FullCalendar from '@fullcalendar/vue'
         layout_buglayoutpanel,
             FullCalendar,
  
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MyWorkPCCalendar extends MyWorkPCCalendarBase { }
+export default class MyWorkPCCalendar extends MyWorkPCCalendarBase {}
 </script>

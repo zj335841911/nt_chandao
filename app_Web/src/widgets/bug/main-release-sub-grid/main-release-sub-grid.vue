@@ -1,5 +1,5 @@
-<template src="./main-release-sub-grid.html"/>
-<script lang='tsx'>
+<template src="./main-release-sub-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { Main_ReleaseSubGridBase } from './main-release-sub-grid-base';
@@ -15,8 +15,8 @@ import { Main_ReleaseSubGridBase } from './main-release-sub-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class Main_ReleaseSubGrid extends Main_ReleaseSubGridBase { }
+export default class Main_ReleaseSubGrid extends Main_ReleaseSubGridBase {}
 </script>

@@ -1,5 +1,5 @@
-<template src="./task-estimate-look-grid-view9.html"/>
-<script lang='tsx'>
+<template src="./task-estimate-look-grid-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskEstimateLookGridView9Base } from './task-estimate-look-grid-view9-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/task-estimate/main-look-grid/main-look-grid.vue'
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskEstimateLookGridView9 extends TaskEstimateLookGridView9Base { }
+export default class TaskEstimateLookGridView9 extends TaskEstimateLookGridView9Base {}
 </script>

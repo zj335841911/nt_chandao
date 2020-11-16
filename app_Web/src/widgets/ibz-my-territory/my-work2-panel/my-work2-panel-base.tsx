@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, PanelControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import MyWork2Service from './my-work2-panel-service';
@@ -8,7 +8,6 @@ import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territo
 import { PanelDetailModel,PanelRawitemModel,PanelTabPanelModel,PanelTabPageModel,PanelFieldModel,PanelContainerModel,PanelControlModel,PanelUserControlModel,PanelButtonModel } from '@/model/panel-detail';
 import MyWork2Model from './my-work2-panel-model';
 import CodeListService from "@service/app/codelist-service";
-
 
 /**
  * list_itempanel部件基类
@@ -18,7 +17,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {MyWork2PanelBase}
  */
 export class MyWork2PanelBase extends PanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -68,7 +66,7 @@ export class MyWork2PanelBase extends PanelControlBase {
      * @type {IbzMyTerritoryUIService}
      * @memberof MyWork2Base
      */  
-    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+    public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
 
     /**

@@ -6,7 +6,7 @@ import ProductService from '@/service/product/product-service';
 import ProductAuthService from '@/authservice/product/product-auth-service';
 import ListViewEngine from '@engine/view/list-view-engine';
 import ProductUIService from '@/uiservice/product/product-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProductTestLeftSidebarListViewBase
      */ 
-    protected dataControl:string = "list";
+    protected dataControl: string = "list";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
         srfCaption: 'entities.product.views.testleftsidebarlistview.caption',
         srfTitle: 'entities.product.views.testleftsidebarlistview.title',
         srfSubTitle: 'entities.product.views.testleftsidebarlistview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProductTestLeftSidebarListViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_list: { name: 'list', type: 'LIST' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_list: {
+            name: 'list',
+            type: 'LIST',
+        },
     };
 
     /**
@@ -140,7 +146,7 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProductTestLeftSidebarListViewBase
      */ 
-    protected viewName:string = "ProductTestLeftSidebarListView";
+    protected viewName: string = "ProductTestLeftSidebarListView";
 
 
     /**
@@ -159,7 +165,9 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @type {Array<*>}
      * @memberof ProductTestLeftSidebarListViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -171,11 +179,11 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
         this.engine.init({
             view: this,
             list: this.$refs.list,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'product',
             majorPSDEField: 'name',

@@ -1,5 +1,5 @@
-<template src="./recent-update-grid.html"/>
-<script lang='tsx'>
+<template src="./recent-update-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { RecentUpdateGridBase } from './recent-update-grid-base';
@@ -15,8 +15,8 @@ import { RecentUpdateGridBase } from './recent-update-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class RecentUpdateGrid extends RecentUpdateGridBase { }
+export default class RecentUpdateGrid extends RecentUpdateGridBase {}
 </script>

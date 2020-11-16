@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import ProjectStatsService from '@/service/project-stats/project-stats-service';
 import NotCloseProjectService from './not-close-project-grid-service';
 import ProjectStatsUIService from '@/uiservice/project-stats/project-stats-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {NotCloseProjectGridBase}
  */
 export class NotCloseProjectGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class NotCloseProjectGridBase extends GridControlBase {
      * @type {ProjectStatsUIService}
      * @memberof NotCloseProjectBase
      */  
-    public appUIService:ProjectStatsUIService = new ProjectStatsUIService(this.$store);
+    public appUIService: ProjectStatsUIService = new ProjectStatsUIService(this.$store);
 
 
     /**

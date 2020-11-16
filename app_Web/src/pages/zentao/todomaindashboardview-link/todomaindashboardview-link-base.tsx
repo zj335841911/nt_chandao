@@ -65,11 +65,26 @@ export class Todomaindashboardview_linkBase extends DashboardViewBase {
 	 * @memberof Todomaindashboardview_linkBase
 	 */
     protected customViewNavContexts: any = {
-        'NAME': { isRawValue: false, value: 'name' },
-        'ASSIGNEDTO': { isRawValue: false, value: 'assignedto' },
-        'DESC': { isRawValue: false, value: 'desc' },
-        'OBJECTTYPE': { isRawValue: true, value: 'todo' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'todo' }
+        'NAME': {
+            isRawValue: false,
+            value: 'name',
+        },
+        'ASSIGNEDTO': {
+            isRawValue: false,
+            value: 'assignedto',
+        },
+        'DESC': {
+            isRawValue: false,
+            value: 'desc',
+        },
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'todo',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'todo',
+        }
     };
 
 	/**
@@ -80,9 +95,18 @@ export class Todomaindashboardview_linkBase extends DashboardViewBase {
 	 * @memberof Todomaindashboardview_linkBase
 	 */
     protected customViewParams: any = {
-        'assignedto': { isRawValue: false, value: 'assignedto' },
-        'desc': { isRawValue: false, value: 'desc' },
-        'name': { isRawValue: false, value: 'name' }
+        'assignedto': {
+            isRawValue: false,
+            value: 'assignedto',
+        },
+        'desc': {
+            isRawValue: false,
+            value: 'desc',
+        },
+        'name': {
+            isRawValue: false,
+            value: 'name',
+        }
     };
 
     /**
@@ -90,7 +114,7 @@ export class Todomaindashboardview_linkBase extends DashboardViewBase {
      *
      * @memberof Todomaindashboardview_linkBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -103,8 +127,8 @@ export class Todomaindashboardview_linkBase extends DashboardViewBase {
         srfCaption: 'entities.todo.views.maindashboardview_link.caption',
         srfTitle: 'entities.todo.views.maindashboardview_link.title',
         srfSubTitle: 'entities.todo.views.maindashboardview_link.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -114,7 +138,10 @@ export class Todomaindashboardview_linkBase extends DashboardViewBase {
      * @memberof Todomaindashboardview_linkBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -134,7 +161,7 @@ export class Todomaindashboardview_linkBase extends DashboardViewBase {
      * @type {string}
      * @memberof Todomaindashboardview_linkBase
      */ 
-    protected viewName:string = "Todomaindashboardview_link";
+    protected viewName: string = "Todomaindashboardview_link";
 
 
     /**
@@ -153,7 +180,9 @@ export class Todomaindashboardview_linkBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof Todomaindashboardview_linkBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,5 +1,5 @@
-<template src="./test-grid.html"/>
-<script lang='tsx'>
+<template src="./test-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestGridBase } from './test-grid-base';
@@ -15,8 +15,8 @@ import { TestGridBase } from './test-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class TestGrid extends TestGridBase { }
+export default class TestGrid extends TestGridBase {}
 </script>

@@ -1,5 +1,5 @@
-<template src="./story-cur-project-grid-view.html"/>
-<script lang='tsx'>
+<template src="./story-cur-project-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryCurProjectGridViewBase } from './story-cur-project-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchbar from '@widgets/story/custom-searchbar/custom-searchbar.vue
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryCurProjectGridView extends StoryCurProjectGridViewBase { }
+export default class StoryCurProjectGridView extends StoryCurProjectGridViewBase {}
 </script>

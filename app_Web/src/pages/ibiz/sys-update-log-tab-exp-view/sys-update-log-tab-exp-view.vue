@@ -1,5 +1,5 @@
-<template src="./sys-update-log-tab-exp-view.html"/>
-<script lang='tsx'>
+<template src="./sys-update-log-tab-exp-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { SysUpdateLogTabExpViewBase } from './sys-update-log-tab-exp-view-base';
@@ -18,5 +18,5 @@ import view_tabexppanel from '@widgets/sys-update-log/tab-exp-viewtabexppanel-ta
     }
 })
 @VueLifeCycleProcessing()
-export default class SysUpdateLogTabExpView extends SysUpdateLogTabExpViewBase { }
+export default class SysUpdateLogTabExpView extends SysUpdateLogTabExpViewBase {}
 </script>

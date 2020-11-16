@@ -48,7 +48,7 @@ export class ProductPlanSubPlanCreateViewBase extends EditViewBase {
      * @type {string}
      * @memberof ProductPlanSubPlanCreateViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class ProductPlanSubPlanCreateViewBase extends EditViewBase {
      *
      * @memberof ProductPlanSubPlanCreateViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class ProductPlanSubPlanCreateViewBase extends EditViewBase {
         srfCaption: 'entities.subproductplan.views.subplancreateview.caption',
         srfTitle: 'entities.subproductplan.views.subplancreateview.title',
         srfSubTitle: 'entities.subproductplan.views.subplancreateview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class ProductPlanSubPlanCreateViewBase extends EditViewBase {
      * @memberof ProductPlanSubPlanCreateViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class ProductPlanSubPlanCreateViewBase extends EditViewBase {
      * @type {string}
      * @memberof ProductPlanSubPlanCreateViewBase
      */ 
-    protected viewName:string = "ProductPlanSubPlanCreateView";
+    protected viewName: string = "ProductPlanSubPlanCreateView";
 
 
     /**
@@ -147,7 +153,9 @@ export class ProductPlanSubPlanCreateViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ProductPlanSubPlanCreateViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

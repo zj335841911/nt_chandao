@@ -1,5 +1,5 @@
-<template src="./main-copy-grid.html"/>
-<script lang='tsx'>
+<template src="./main-copy-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { Main_CopyGridBase } from './main-copy-grid-base';
@@ -15,8 +15,8 @@ import { Main_CopyGridBase } from './main-copy-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class Main_CopyGrid extends Main_CopyGridBase { }
+export default class Main_CopyGrid extends Main_CopyGridBase {}
 </script>

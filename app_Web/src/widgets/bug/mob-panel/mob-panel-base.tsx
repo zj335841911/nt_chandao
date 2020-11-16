@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, PanelControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import MobService from './mob-panel-service';
@@ -8,7 +8,6 @@ import BugUIService from '@/uiservice/bug/bug-ui-service';
 import { PanelDetailModel,PanelRawitemModel,PanelTabPanelModel,PanelTabPageModel,PanelFieldModel,PanelContainerModel,PanelControlModel,PanelUserControlModel,PanelButtonModel } from '@/model/panel-detail';
 import MobModel from './mob-panel-model';
 import CodeListService from "@service/app/codelist-service";
-
 
 /**
  * buglayoutpanel部件基类
@@ -18,7 +17,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {MobPanelBase}
  */
 export class MobPanelBase extends PanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -68,7 +66,7 @@ export class MobPanelBase extends PanelControlBase {
      * @type {BugUIService}
      * @memberof MobBase
      */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**

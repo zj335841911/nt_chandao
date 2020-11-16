@@ -48,7 +48,7 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectEditView_SuspendBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      *
      * @memberof ProjectEditView_SuspendBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
         srfCaption: 'entities.project.views.editview_suspend.caption',
         srfTitle: 'entities.project.views.editview_suspend.title',
         srfSubTitle: 'entities.project.views.editview_suspend.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      * @memberof ProjectEditView_SuspendBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectEditView_SuspendBase
      */ 
-    protected viewName:string = "ProjectEditView_Suspend";
+    protected viewName: string = "ProjectEditView_Suspend";
 
 
     /**
@@ -147,7 +153,9 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ProjectEditView_SuspendBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

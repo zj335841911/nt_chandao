@@ -48,7 +48,7 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ProductPlanMainDataEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,8 +74,14 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
 	 * @memberof ProductPlanMainDataEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'productplan' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'productplan' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'productplan',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'productplan',
+        }
     };
 
     /**
@@ -83,7 +89,7 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      *
      * @memberof ProductPlanMainDataEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -96,8 +102,8 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
         srfCaption: 'entities.productplan.views.maindataeditview.caption',
         srfTitle: 'entities.productplan.views.maindataeditview.title',
         srfSubTitle: 'entities.productplan.views.maindataeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -107,8 +113,14 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @memberof ProductPlanMainDataEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -144,7 +156,7 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ProductPlanMainDataEditViewBase
      */ 
-    protected viewName:string = "ProductPlanMainDataEditView";
+    protected viewName: string = "ProductPlanMainDataEditView";
 
 
     /**
@@ -163,7 +175,9 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ProductPlanMainDataEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

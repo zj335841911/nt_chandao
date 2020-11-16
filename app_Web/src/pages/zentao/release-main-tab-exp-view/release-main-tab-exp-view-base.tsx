@@ -62,7 +62,7 @@ export class ReleaseMainTabExpViewBase extends TabExpViewBase {
      *
      * @memberof ReleaseMainTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class ReleaseMainTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.release.views.maintabexpview.caption',
         srfTitle: 'entities.release.views.maintabexpview.title',
         srfSubTitle: 'entities.release.views.maintabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class ReleaseMainTabExpViewBase extends TabExpViewBase {
      * @memberof ReleaseMainTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class ReleaseMainTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof ReleaseMainTabExpViewBase
      */ 
-    protected viewName:string = "ReleaseMainTabExpView";
+    protected viewName: string = "ReleaseMainTabExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class ReleaseMainTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof ReleaseMainTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

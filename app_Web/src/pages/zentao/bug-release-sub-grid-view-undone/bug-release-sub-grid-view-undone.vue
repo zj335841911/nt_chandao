@@ -1,5 +1,5 @@
-<template src="./bug-release-sub-grid-view-undone.html"/>
-<script lang='tsx'>
+<template src="./bug-release-sub-grid-view-undone.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugReleaseSubGridView_UndoneBase } from './bug-release-sub-grid-view-undone-base';
@@ -20,5 +20,5 @@ import view_searchbar from '@widgets/bug/custom-searchbar/custom-searchbar.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BugReleaseSubGridView_Undone extends BugReleaseSubGridView_UndoneBase { }
+export default class BugReleaseSubGridView_Undone extends BugReleaseSubGridView_UndoneBase {}
 </script>

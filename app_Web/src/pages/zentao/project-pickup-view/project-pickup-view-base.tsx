@@ -68,8 +68,8 @@ export class ProjectPickupViewBase extends PickupViewBase {
         srfCaption: 'entities.project.views.pickupview.caption',
         srfTitle: 'entities.project.views.pickupview.title',
         srfSubTitle: 'entities.project.views.pickupview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -79,13 +79,45 @@ export class ProjectPickupViewBase extends PickupViewBase {
      * @memberof ProjectPickupViewBase
      */
     protected containerModel: any = {
-        view_pickupviewpanel: { name: 'pickupviewpanel', type: 'PICKUPVIEWPANEL' },
-        view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
-        view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
-        view_leftbtn: { name: 'leftbtn', type: 'button', text: '左移', disabled: true },
-        view_rightbtn: { name: 'rightbtn', type: 'button', text: '右移', disabled: true },
-        view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
-        view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
+        view_pickupviewpanel: {
+            name: 'pickupviewpanel',
+            type: 'PICKUPVIEWPANEL',
+        },
+        view_okbtn: {
+            name: 'okbtn',
+            type: 'button',
+            text: '确定',
+            disabled: true,
+        },
+        view_cancelbtn: {
+            name: 'cancelbtn',
+            type: 'button',
+            text: '取消',
+            disabled: false,
+        },
+        view_leftbtn: {
+            name: 'leftbtn',
+            type: 'button',
+            text: '左移',
+            disabled: true,
+        },
+        view_rightbtn: {
+            name: 'rightbtn',
+            type: 'button',
+            text: '右移',
+            disabled: true,},
+        view_allleftbtn: {
+            name: 'allleftbtn',
+            type: 'button',
+            text: '全部左移',
+            disabled: true,
+        },
+        view_allrightbtn: {
+            name: 'allrightbtn',
+            type: 'button',
+            text: '全部右移',
+            disabled: true,
+        },
     };
 
 
@@ -105,7 +137,7 @@ export class ProjectPickupViewBase extends PickupViewBase {
      * @type {string}
      * @memberof ProjectPickupViewBase
      */ 
-    protected viewName:string = "ProjectPickupView";
+    protected viewName: string = "ProjectPickupView";
 
 
     /**
@@ -124,7 +156,9 @@ export class ProjectPickupViewBase extends PickupViewBase {
      * @type {Array<*>}
      * @memberof ProjectPickupViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

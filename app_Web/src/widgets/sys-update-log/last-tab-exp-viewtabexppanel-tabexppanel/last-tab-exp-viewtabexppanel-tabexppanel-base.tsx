@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TabExpPanelControlBase } from '@/studio-core';
 import SysUpdateLogService from '@/service/sys-update-log/sys-update-log-service';
 import LastTabExpViewtabexppanelService from './last-tab-exp-viewtabexppanel-tabexppanel-service';
 import SysUpdateLogUIService from '@/uiservice/sys-update-log/sys-update-log-ui-service';
 import SysUpdateLogAuthService from '@/authservice/sys-update-log/sys-update-log-auth-service';
 import { Environment } from '@/environments/environment';
-
 
 /**
  * tabexppanel部件基类
@@ -17,7 +16,6 @@ import { Environment } from '@/environments/environment';
  * @extends {LastTabExpViewtabexppanelTabexppanelBase}
  */
 export class LastTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class LastTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @type {SysUpdateLogUIService}
      * @memberof LastTabExpViewtabexppanelBase
      */  
-    public appUIService:SysUpdateLogUIService = new SysUpdateLogUIService(this.$store);
+    public appUIService: SysUpdateLogUIService = new SysUpdateLogUIService(this.$store);
 
     /**
      * 是否初始化

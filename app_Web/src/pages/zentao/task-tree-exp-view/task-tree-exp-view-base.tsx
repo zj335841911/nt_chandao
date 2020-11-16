@@ -62,7 +62,7 @@ export class TaskTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof TaskTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class TaskTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.task.views.treeexpview.caption',
         srfTitle: 'entities.task.views.treeexpview.title',
         srfSubTitle: 'entities.task.views.treeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class TaskTreeExpViewBase extends TreeExpViewBase {
      * @memberof TaskTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class TaskTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof TaskTreeExpViewBase
      */ 
-    protected viewName:string = "TaskTreeExpView";
+    protected viewName: string = "TaskTreeExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class TaskTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof TaskTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

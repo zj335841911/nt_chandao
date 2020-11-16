@@ -6,7 +6,7 @@ import ProductModuleService from '@/service/product-module/product-module-servic
 import ProductModuleAuthService from '@/authservice/product-module/product-module-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProductModuleGridViewBranchBase extends GridViewBase {
      * @type {string}
      * @memberof ProductModuleGridViewBranchBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class ProductModuleGridViewBranchBase extends GridViewBase {
 	 * @memberof ProductModuleGridViewBranchBase
 	 */
     protected customViewNavContexts: any = {
-        'SRFPARENTKEY': { isRawValue: true, value: '0' }
+        'SRFPARENTKEY': {
+            isRawValue: true,
+            value: '0',
+        }
     };
 
 	/**
@@ -88,11 +91,26 @@ export class ProductModuleGridViewBranchBase extends GridViewBase {
 	 * @memberof ProductModuleGridViewBranchBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'srfparentkey': { isRawValue: true, value: '0' },
-        'moduletype': { isRawValue: false, value: 'moduletype' },
-        'root': { isRawValue: false, value: 'product' },
-        'branch': { isRawValue: false, value: 'branch' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'srfparentkey': {
+            isRawValue: true,
+            value: '0',
+        },
+        'moduletype': {
+            isRawValue: false,
+            value: 'moduletype',
+        },
+        'root': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'branch': {
+            isRawValue: false,
+            value: 'branch',
+        }
     };
 
     /**
@@ -106,8 +124,8 @@ export class ProductModuleGridViewBranchBase extends GridViewBase {
         srfCaption: 'entities.productmodule.views.gridviewbranch.caption',
         srfTitle: 'entities.productmodule.views.gridviewbranch.title',
         srfSubTitle: 'entities.productmodule.views.gridviewbranch.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,8 +135,14 @@ export class ProductModuleGridViewBranchBase extends GridViewBase {
      * @memberof ProductModuleGridViewBranchBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -152,7 +176,7 @@ export class ProductModuleGridViewBranchBase extends GridViewBase {
      * @type {string}
      * @memberof ProductModuleGridViewBranchBase
      */ 
-    protected viewName:string = "ProductModuleGridViewBranch";
+    protected viewName: string = "ProductModuleGridViewBranch";
 
 
     /**
@@ -171,7 +195,9 @@ export class ProductModuleGridViewBranchBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof ProductModuleGridViewBranchBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -48,7 +48,7 @@ export class BugEditView_4791Base extends EditViewBase {
      * @type {string}
      * @memberof BugEditView_4791Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class BugEditView_4791Base extends EditViewBase {
      *
      * @memberof BugEditView_4791Base
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class BugEditView_4791Base extends EditViewBase {
         srfCaption: 'entities.bug.views.editview_4791.caption',
         srfTitle: 'entities.bug.views.editview_4791.title',
         srfSubTitle: 'entities.bug.views.editview_4791.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class BugEditView_4791Base extends EditViewBase {
      * @memberof BugEditView_4791Base
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class BugEditView_4791Base extends EditViewBase {
      * @type {string}
      * @memberof BugEditView_4791Base
      */ 
-    protected viewName:string = "BugEditView_4791";
+    protected viewName: string = "BugEditView_4791";
 
 
     /**
@@ -147,7 +153,9 @@ export class BugEditView_4791Base extends EditViewBase {
      * @type {Array<*>}
      * @memberof BugEditView_4791Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

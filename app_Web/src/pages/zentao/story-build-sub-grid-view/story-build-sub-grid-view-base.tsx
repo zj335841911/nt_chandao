@@ -6,7 +6,7 @@ import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import StoryUIService from '@/uiservice/story/story-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryBuildSubGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,14 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
 	 * @memberof StoryBuildSubGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' },
-        'PRODUCT': { isRawValue: false, value: 'product' }
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
 	/**
@@ -89,8 +95,14 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
 	 * @memberof StoryBuildSubGridViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'project': { isRawValue: false, value: 'project' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -104,8 +116,8 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
         srfCaption: 'entities.story.views.buildsubgridview.caption',
         srfTitle: 'entities.story.views.buildsubgridview.title',
         srfSubTitle: 'entities.story.views.buildsubgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -115,9 +127,18 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
      * @memberof StoryBuildSubGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
+        },
     };
 
     /**
@@ -151,7 +172,7 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryBuildSubGridViewBase
      */ 
-    protected viewName:string = "StoryBuildSubGridView";
+    protected viewName: string = "StoryBuildSubGridView";
 
 
     /**
@@ -170,7 +191,9 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof StoryBuildSubGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -181,11 +204,11 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'story',

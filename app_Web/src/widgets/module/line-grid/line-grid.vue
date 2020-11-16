@@ -1,5 +1,5 @@
-<template src="./line-grid.html"/>
-<script lang='tsx'>
+<template src="./line-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { LineGridBase } from './line-grid-base';
@@ -15,8 +15,8 @@ import { LineGridBase } from './line-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class LineGrid extends LineGridBase { }
+export default class LineGrid extends LineGridBase {}
 </script>

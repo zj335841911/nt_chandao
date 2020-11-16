@@ -65,8 +65,14 @@ export class DocLibModuleTreeExpViewBase extends TreeExpViewBase {
 	 * @memberof DocLibModuleTreeExpViewBase
 	 */
     protected customViewNavContexts: any = {
-        'MODULETYPE': { isRawValue: true, value: 'doc' },
-        'SRFROOT': { isRawValue: false, value: 'srfroot' }
+        'MODULETYPE': {
+            isRawValue: true,
+            value: 'doc',
+        },
+        'SRFROOT': {
+            isRawValue: false,
+            value: 'srfroot',
+        }
     };
 
     /**
@@ -74,7 +80,7 @@ export class DocLibModuleTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof DocLibModuleTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -87,8 +93,8 @@ export class DocLibModuleTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.doclibmodule.views.treeexpview.caption',
         srfTitle: 'entities.doclibmodule.views.treeexpview.title',
         srfSubTitle: 'entities.doclibmodule.views.treeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -98,7 +104,10 @@ export class DocLibModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof DocLibModuleTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
 
@@ -118,7 +127,7 @@ export class DocLibModuleTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof DocLibModuleTreeExpViewBase
      */ 
-    protected viewName:string = "DocLibModuleTreeExpView";
+    protected viewName: string = "DocLibModuleTreeExpView";
 
 
     /**
@@ -137,7 +146,9 @@ export class DocLibModuleTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof DocLibModuleTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,5 +1,5 @@
-<template src="./doc-kedit-view9.html"/>
-<script lang='tsx'>
+<template src="./doc-kedit-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocKEditView9Base } from './doc-kedit-view9-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/doc/keywords-form/keywords-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class DocKEditView9 extends DocKEditView9Base { }
+export default class DocKEditView9 extends DocKEditView9Base {}
 </script>

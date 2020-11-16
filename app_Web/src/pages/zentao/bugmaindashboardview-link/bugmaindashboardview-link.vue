@@ -1,5 +1,5 @@
-<template src="./bugmaindashboardview-link.html"/>
-<script lang='tsx'>
+<template src="./bugmaindashboardview-link.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { Bugmaindashboardview_linkBase } from './bugmaindashboardview-link-base';
@@ -18,5 +18,5 @@ import view_dashboard from '@widgets/bug/main-dashboard/main-dashboard.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class Bugmaindashboardview_link extends Bugmaindashboardview_linkBase { }
+export default class Bugmaindashboardview_link extends Bugmaindashboardview_linkBase {}
 </script>

@@ -1,5 +1,5 @@
-<template src="./test-portal-view-db-dashboard.html"/>
-<script lang='tsx'>
+<template src="./test-portal-view-db-dashboard.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestPortalView_dbDashboardBase } from './test-portal-view-db-dashboard-base';
@@ -18,13 +18,13 @@ import view_db_assigntomecaseportlet1 from '@widgets/case/me-create-case-portlet
  */
 @Component({
     components: {
-        view_db_assigntomebugportlet1, 
-        view_db_sysportlet2, 
-        view_db_sysportlet1, 
-        view_db_assigntomecaseportlet1, 
+        view_db_assigntomebugportlet1,
+        view_db_sysportlet2,
+        view_db_sysportlet1,
+        view_db_assigntomecaseportlet1,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class TestPortalView_dbDashboard extends TestPortalView_dbDashboardBase { }
+export default class TestPortalView_dbDashboard extends TestPortalView_dbDashboardBase {}
 </script>

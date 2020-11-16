@@ -48,7 +48,7 @@ export class StoryPlanEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryPlanEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class StoryPlanEditViewBase extends EditViewBase {
 	 * @memberof StoryPlanEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PLAN': { isRawValue: false, value: 'plan' }
+        'PLAN': {
+            isRawValue: false,
+            value: 'plan',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class StoryPlanEditViewBase extends EditViewBase {
 	 * @memberof StoryPlanEditViewBase
 	 */
     protected customViewParams: any = {
-        'plan': { isRawValue: false, value: 'plan' }
+        'plan': {
+            isRawValue: false,
+            value: 'plan',
+        }
     };
 
     /**
@@ -93,7 +99,7 @@ export class StoryPlanEditViewBase extends EditViewBase {
      *
      * @memberof StoryPlanEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -106,8 +112,8 @@ export class StoryPlanEditViewBase extends EditViewBase {
         srfCaption: 'entities.story.views.planeditview.caption',
         srfTitle: 'entities.story.views.planeditview.title',
         srfSubTitle: 'entities.story.views.planeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,8 +123,14 @@ export class StoryPlanEditViewBase extends EditViewBase {
      * @memberof StoryPlanEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -150,7 +162,7 @@ export class StoryPlanEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryPlanEditViewBase
      */ 
-    protected viewName:string = "StoryPlanEditView";
+    protected viewName: string = "StoryPlanEditView";
 
 
     /**
@@ -169,7 +181,9 @@ export class StoryPlanEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof StoryPlanEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

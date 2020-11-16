@@ -1,5 +1,5 @@
-<template src="./product-stats-allgrid-view.html"/>
-<script lang='tsx'>
+<template src="./product-stats-allgrid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductStatsALLGridViewBase } from './product-stats-allgrid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/product-stats/default-searchform/default-s
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductStatsALLGridView extends ProductStatsALLGridViewBase { }
+export default class ProductStatsALLGridView extends ProductStatsALLGridViewBase {}
 </script>

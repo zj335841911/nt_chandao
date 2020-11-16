@@ -65,8 +65,14 @@ export class TestSuiteMainDashboardViewBase extends DashboardViewBase {
 	 * @memberof TestSuiteMainDashboardViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'testsuite' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'testsuite' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'testsuite',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'testsuite',
+        }
     };
 
     /**
@@ -74,7 +80,7 @@ export class TestSuiteMainDashboardViewBase extends DashboardViewBase {
      *
      * @memberof TestSuiteMainDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -87,8 +93,8 @@ export class TestSuiteMainDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.testsuite.views.maindashboardview.caption',
         srfTitle: 'entities.testsuite.views.maindashboardview.title',
         srfSubTitle: 'entities.testsuite.views.maindashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -98,7 +104,10 @@ export class TestSuiteMainDashboardViewBase extends DashboardViewBase {
      * @memberof TestSuiteMainDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -118,7 +127,7 @@ export class TestSuiteMainDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof TestSuiteMainDashboardViewBase
      */ 
-    protected viewName:string = "TestSuiteMainDashboardView";
+    protected viewName: string = "TestSuiteMainDashboardView";
 
 
     /**
@@ -137,7 +146,9 @@ export class TestSuiteMainDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof TestSuiteMainDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

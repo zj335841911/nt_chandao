@@ -48,7 +48,7 @@ export class ProjectEditView_PutoffBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectEditView_PutoffBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class ProjectEditView_PutoffBase extends EditViewBase {
      *
      * @memberof ProjectEditView_PutoffBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class ProjectEditView_PutoffBase extends EditViewBase {
         srfCaption: 'entities.project.views.editview_putoff.caption',
         srfTitle: 'entities.project.views.editview_putoff.title',
         srfSubTitle: 'entities.project.views.editview_putoff.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class ProjectEditView_PutoffBase extends EditViewBase {
      * @memberof ProjectEditView_PutoffBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class ProjectEditView_PutoffBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectEditView_PutoffBase
      */ 
-    protected viewName:string = "ProjectEditView_Putoff";
+    protected viewName: string = "ProjectEditView_Putoff";
 
 
     /**
@@ -147,7 +153,9 @@ export class ProjectEditView_PutoffBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ProjectEditView_PutoffBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

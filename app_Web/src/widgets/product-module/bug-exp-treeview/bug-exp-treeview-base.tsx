@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProductModuleService from '@/service/product-module/product-module-service';
 import BugExpService from './bug-exp-treeview-service';
 import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
-
 
 /**
  * treeexpbar_tree部件基类
@@ -15,7 +14,6 @@ import ProductModuleUIService from '@/uiservice/product-module/product-module-ui
  * @extends {BugExpTreeBase}
  */
 export class BugExpTreeBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class BugExpTreeBase extends MainControlBase {
      * @type {ProductModuleUIService}
      * @memberof BugExpBase
      */  
-    public appUIService:ProductModuleUIService = new ProductModuleUIService(this.$store);
+    public appUIService: ProductModuleUIService = new ProductModuleUIService(this.$store);
 
 
     /**

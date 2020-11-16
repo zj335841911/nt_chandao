@@ -1,5 +1,5 @@
-<template src="./home-dashboard.html"/>
-<script lang='tsx'>
+<template src="./home-dashboard.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { HomeDashboardBase } from './home-dashboard-base';
@@ -24,19 +24,19 @@ import view_dashboard_sysportlet8 from '@widgets/project/project-exp-view-portle
  */
 @Component({
     components: {
-        view_dashboard_sysportlet10, 
-        view_dashboard_sysportlet6, 
-        view_dashboard_sysportlet7, 
-        view_dashboard_sysportlet11, 
-        view_dashboard_sysportlet4, 
-        view_dashboard_sysportlet5, 
-        view_dashboard_sysportlet2, 
-        view_dashboard_sysportlet3, 
-        view_dashboard_sysportlet9, 
-        view_dashboard_sysportlet8, 
+        view_dashboard_sysportlet10,
+        view_dashboard_sysportlet6,
+        view_dashboard_sysportlet7,
+        view_dashboard_sysportlet11,
+        view_dashboard_sysportlet4,
+        view_dashboard_sysportlet5,
+        view_dashboard_sysportlet2,
+        view_dashboard_sysportlet3,
+        view_dashboard_sysportlet9,
+        view_dashboard_sysportlet8,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class HomeDashboard extends HomeDashboardBase { }
+export default class HomeDashboard extends HomeDashboardBase {}
 </script>

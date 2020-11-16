@@ -1,5 +1,5 @@
-<template src="./month-opened-story-portlet.html"/>
-<script lang='tsx'>
+<template src="./month-opened-story-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MonthOpenedStoryPortletBase } from './month-opened-story-portlet-base';
@@ -15,10 +15,10 @@ import view_dashboard_sysportlet5_chart from '@widgets/user-year-work-stats/mont
  */
 @Component({
     components: {
-        view_dashboard_sysportlet5_chart, 
+        view_dashboard_sysportlet5_chart,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MonthOpenedStoryPortlet extends MonthOpenedStoryPortletBase { }
+export default class MonthOpenedStoryPortlet extends MonthOpenedStoryPortletBase {}
 </script>

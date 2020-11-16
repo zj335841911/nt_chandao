@@ -1,5 +1,5 @@
-<template src="./story-project-mpickup-view3.html"/>
-<script lang='tsx'>
+<template src="./story-project-mpickup-view3.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryProjectMPickupView3Base } from './story-project-mpickup-view3-base';
@@ -18,5 +18,5 @@ import view_pickupviewpanel from '@widgets/story/project-mpickup-view3pickupview
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryProjectMPickupView3 extends StoryProjectMPickupView3Base { }
+export default class StoryProjectMPickupView3 extends StoryProjectMPickupView3Base {}
 </script>

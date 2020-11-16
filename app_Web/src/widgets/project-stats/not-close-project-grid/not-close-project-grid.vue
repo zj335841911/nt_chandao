@@ -1,5 +1,5 @@
-<template src="./not-close-project-grid.html"/>
-<script lang='tsx'>
+<template src="./not-close-project-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { NotCloseProjectGridBase } from './not-close-project-grid-base';
@@ -15,8 +15,8 @@ import { NotCloseProjectGridBase } from './not-close-project-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class NotCloseProjectGrid extends NotCloseProjectGridBase { }
+export default class NotCloseProjectGrid extends NotCloseProjectGridBase {}
 </script>

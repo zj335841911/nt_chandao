@@ -48,7 +48,7 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
      * @type {string}
      * @memberof ProjectDashboardInfoViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
         srfCaption: 'entities.project.views.dashboardinfoview.caption',
         srfTitle: 'entities.project.views.dashboardinfoview.title',
         srfSubTitle: 'entities.project.views.dashboardinfoview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
      * @memberof ProjectDashboardInfoViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -108,7 +111,7 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
      * @type {string}
      * @memberof ProjectDashboardInfoViewBase
      */ 
-    protected viewName:string = "ProjectDashboardInfoView";
+    protected viewName: string = "ProjectDashboardInfoView";
 
 
     /**
@@ -127,7 +130,9 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
      * @type {Array<*>}
      * @memberof ProjectDashboardInfoViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

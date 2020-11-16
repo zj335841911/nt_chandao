@@ -65,8 +65,14 @@ export class Taskmaindashboardview_linkBase extends DashboardViewBase {
 	 * @memberof Taskmaindashboardview_linkBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'task' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'task' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'task',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
     /**
@@ -74,7 +80,7 @@ export class Taskmaindashboardview_linkBase extends DashboardViewBase {
      *
      * @memberof Taskmaindashboardview_linkBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -87,8 +93,8 @@ export class Taskmaindashboardview_linkBase extends DashboardViewBase {
         srfCaption: 'entities.task.views.maindashboardview_link.caption',
         srfTitle: 'entities.task.views.maindashboardview_link.title',
         srfSubTitle: 'entities.task.views.maindashboardview_link.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -98,7 +104,10 @@ export class Taskmaindashboardview_linkBase extends DashboardViewBase {
      * @memberof Taskmaindashboardview_linkBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -118,7 +127,7 @@ export class Taskmaindashboardview_linkBase extends DashboardViewBase {
      * @type {string}
      * @memberof Taskmaindashboardview_linkBase
      */ 
-    protected viewName:string = "Taskmaindashboardview_link";
+    protected viewName: string = "Taskmaindashboardview_link";
 
 
     /**
@@ -137,7 +146,9 @@ export class Taskmaindashboardview_linkBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof Taskmaindashboardview_linkBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

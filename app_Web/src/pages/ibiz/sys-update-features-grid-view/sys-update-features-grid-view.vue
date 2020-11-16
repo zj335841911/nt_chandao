@@ -1,5 +1,5 @@
-<template src="./sys-update-features-grid-view.html"/>
-<script lang='tsx'>
+<template src="./sys-update-features-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { SysUpdateFeaturesGridViewBase } from './sys-update-features-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/sys-update-features/default-searchform/def
     }
 })
 @VueLifeCycleProcessing()
-export default class SysUpdateFeaturesGridView extends SysUpdateFeaturesGridViewBase { }
+export default class SysUpdateFeaturesGridView extends SysUpdateFeaturesGridViewBase {}
 </script>

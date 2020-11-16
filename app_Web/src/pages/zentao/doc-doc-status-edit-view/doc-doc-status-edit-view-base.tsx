@@ -48,7 +48,7 @@ export class DocDocStatusEditViewBase extends EditView9Base {
      * @type {string}
      * @memberof DocDocStatusEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class DocDocStatusEditViewBase extends EditView9Base {
 	 * @memberof DocDocStatusEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'DOC': { isRawValue: true, value: '0' }
+        'DOC': {
+            isRawValue: true,
+            value: '0',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class DocDocStatusEditViewBase extends EditView9Base {
 	 * @memberof DocDocStatusEditViewBase
 	 */
     protected customViewParams: any = {
-        'doc': { isRawValue: true, value: '0' }
+        'doc': {
+            isRawValue: true,
+            value: '0',
+        }
     };
 
     /**
@@ -99,8 +105,8 @@ export class DocDocStatusEditViewBase extends EditView9Base {
         srfCaption: 'entities.doc.views.docstatuseditview.caption',
         srfTitle: 'entities.doc.views.docstatuseditview.title',
         srfSubTitle: 'entities.doc.views.docstatuseditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -110,7 +116,10 @@ export class DocDocStatusEditViewBase extends EditView9Base {
      * @memberof DocDocStatusEditViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -130,7 +139,7 @@ export class DocDocStatusEditViewBase extends EditView9Base {
      * @type {string}
      * @memberof DocDocStatusEditViewBase
      */ 
-    protected viewName:string = "DocDocStatusEditView";
+    protected viewName: string = "DocDocStatusEditView";
 
 
     /**
@@ -149,7 +158,9 @@ export class DocDocStatusEditViewBase extends EditView9Base {
      * @type {Array<*>}
      * @memberof DocDocStatusEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

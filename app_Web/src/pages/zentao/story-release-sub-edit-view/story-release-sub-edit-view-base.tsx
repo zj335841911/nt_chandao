@@ -48,7 +48,7 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryReleaseSubEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
 	 * @memberof StoryReleaseSubEditViewBase
 	 */
     protected customViewParams: any = {
-        'plan': { isRawValue: false, value: 'plan' }
+        'plan': {
+            isRawValue: false,
+            value: 'plan',
+        }
     };
 
     /**
@@ -82,7 +85,7 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
      *
      * @memberof StoryReleaseSubEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -95,8 +98,8 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
         srfCaption: 'entities.story.views.releasesubeditview.caption',
         srfTitle: 'entities.story.views.releasesubeditview.title',
         srfSubTitle: 'entities.story.views.releasesubeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -106,8 +109,14 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
      * @memberof StoryReleaseSubEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -139,7 +148,7 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryReleaseSubEditViewBase
      */ 
-    protected viewName:string = "StoryReleaseSubEditView";
+    protected viewName: string = "StoryReleaseSubEditView";
 
 
     /**
@@ -158,7 +167,9 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof StoryReleaseSubEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectExpViewService from './project-exp-view-portlet-service';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-
 
 /**
  * dashboard_sysportlet8部件基类
@@ -17,7 +16,6 @@ import UIService from '@/uiservice/ui-service';
  * @extends {ProjectExpViewPortletBase}
  */
 export class ProjectExpViewPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class ProjectExpViewPortletBase extends MainControlBase {
      * @type {ProjectUIService}
      * @memberof ProjectExpViewBase
      */  
-    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
 
     /**

@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import SysUpdateLogService from '@/service/sys-update-log/sys-update-log-service';
 import MainService from './main-grid-service';
 import SysUpdateLogUIService from '@/uiservice/sys-update-log/sys-update-log-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {MainGridBase}
  */
 export class MainGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class MainGridBase extends GridControlBase {
      * @type {SysUpdateLogUIService}
      * @memberof MainBase
      */  
-    public appUIService:SysUpdateLogUIService = new SysUpdateLogUIService(this.$store);
+    public appUIService: SysUpdateLogUIService = new SysUpdateLogUIService(this.$store);
 
 
     /**

@@ -1,5 +1,5 @@
-<template src="./project-team-main-grid-view.html"/>
-<script lang='tsx'>
+<template src="./project-team-main-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectTeamMainGridViewBase } from './project-team-main-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/project-team/main2-searchform/main2-search
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectTeamMainGridView extends ProjectTeamMainGridViewBase { }
+export default class ProjectTeamMainGridView extends ProjectTeamMainGridViewBase {}
 </script>

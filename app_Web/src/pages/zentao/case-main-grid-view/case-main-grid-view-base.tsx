@@ -6,7 +6,7 @@ import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import CaseUIService from '@/uiservice/case/case-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class CaseMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseMainGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class CaseMainGridViewBase extends GridViewBase {
         srfCaption: 'entities.case.views.maingridview.caption',
         srfTitle: 'entities.case.views.maingridview.title',
         srfSubTitle: 'entities.case.views.maingridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class CaseMainGridViewBase extends GridViewBase {
      * @memberof CaseMainGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -130,7 +136,7 @@ export class CaseMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseMainGridViewBase
      */ 
-    protected viewName:string = "CaseMainGridView";
+    protected viewName: string = "CaseMainGridView";
 
 
     /**
@@ -149,7 +155,9 @@ export class CaseMainGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof CaseMainGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -160,11 +168,11 @@ export class CaseMainGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'case',
@@ -575,14 +583,14 @@ export class CaseMainGridViewBase extends GridViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'CaseQuickpachet', codelistType: 'STATIC' };
-        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
+        if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {
                 this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
             } else {
                 console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
             }
-        } else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
+        } else if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
             this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
                 this.quickGroupModel = res;
             }).catch((error:any) => {

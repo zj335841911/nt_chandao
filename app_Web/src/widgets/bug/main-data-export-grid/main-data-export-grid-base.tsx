@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import Main_DataExportService from './main-data-export-grid-service';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {Main_DataExportGridBase}
  */
 export class Main_DataExportGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class Main_DataExportGridBase extends GridControlBase {
      * @type {BugUIService}
      * @memberof Main_DataExportBase
      */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**

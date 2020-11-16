@@ -1,5 +1,5 @@
-<template src="./task-open-task-view.html"/>
-<script lang='tsx'>
+<template src="./task-open-task-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskOpenTaskViewBase } from './task-open-task-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/task/start-form-form/start-form-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskOpenTaskView extends TaskOpenTaskViewBase { }
+export default class TaskOpenTaskView extends TaskOpenTaskViewBase {}
 </script>

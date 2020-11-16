@@ -1,5 +1,5 @@
-<template src="./doc-recent-more-grid-view.html"/>
-<script lang='tsx'>
+<template src="./doc-recent-more-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocRecentMoreGridViewBase } from './doc-recent-more-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/doc/default-searchform/default-searchform.
     }
 })
 @VueLifeCycleProcessing()
-export default class DocRecentMoreGridView extends DocRecentMoreGridViewBase { }
+export default class DocRecentMoreGridView extends DocRecentMoreGridViewBase {}
 </script>

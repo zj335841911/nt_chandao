@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ReleaseService from '@/service/release/release-service';
 import MainTabExpViewtabviewpanel4Service from './main-tab-exp-viewtabviewpanel4-tabviewpanel-service';
 import ReleaseUIService from '@/uiservice/release/release-ui-service';
-
 
 /**
  * tabviewpanel4部件基类
@@ -15,7 +14,6 @@ import ReleaseUIService from '@/uiservice/release/release-ui-service';
  * @extends {MainTabExpViewtabviewpanel4TabviewpanelBase}
  */
 export class MainTabExpViewtabviewpanel4TabviewpanelBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class MainTabExpViewtabviewpanel4TabviewpanelBase extends MainControlBase
      * @type {ReleaseUIService}
      * @memberof MainTabExpViewtabviewpanel4Base
      */  
-    public appUIService:ReleaseUIService = new ReleaseUIService(this.$store);
+    public appUIService: ReleaseUIService = new ReleaseUIService(this.$store);
 
 
     /**

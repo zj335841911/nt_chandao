@@ -1,5 +1,5 @@
-<template src="./project-main-view-edit.html"/>
-<script lang='tsx'>
+<template src="./project-main-view-edit.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectMainView_EditBase } from './project-main-view-edit-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/project/main-edit-form/main-edit-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectMainView_Edit extends ProjectMainView_EditBase { }
+export default class ProjectMainView_Edit extends ProjectMainView_EditBase {}
 </script>

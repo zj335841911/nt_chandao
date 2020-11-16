@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import FileService from '@/service/file/file-service';
 import DocLibLService from './doc-lib-l-grid-service';
 import FileUIService from '@/uiservice/file/file-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {DocLibLGridBase}
  */
 export class DocLibLGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class DocLibLGridBase extends GridControlBase {
      * @type {FileUIService}
      * @memberof DocLibLBase
      */  
-    public appUIService:FileUIService = new FileUIService(this.$store);
+    public appUIService: FileUIService = new FileUIService(this.$store);
 
     /**
      * 逻辑事件

@@ -48,7 +48,7 @@ export class CaseMainNewViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseMainNewViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,8 +74,14 @@ export class CaseMainNewViewBase extends EditViewBase {
 	 * @memberof CaseMainNewViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PRODUCTMODULE': { isRawValue: false, value: 'productmodule' },
-        'PRODUCT': { isRawValue: false, value: 'product' }
+        'PRODUCTMODULE': {
+            isRawValue: false,
+            value: 'productmodule',
+        },
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
 	/**
@@ -86,8 +92,14 @@ export class CaseMainNewViewBase extends EditViewBase {
 	 * @memberof CaseMainNewViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'productmodule': { isRawValue: false, value: 'productmodule' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'productmodule': {
+            isRawValue: false,
+            value: 'productmodule',
+        }
     };
 
     /**
@@ -95,7 +107,7 @@ export class CaseMainNewViewBase extends EditViewBase {
      *
      * @memberof CaseMainNewViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -108,8 +120,8 @@ export class CaseMainNewViewBase extends EditViewBase {
         srfCaption: 'entities.case.views.mainnewview.caption',
         srfTitle: 'entities.case.views.mainnewview.title',
         srfSubTitle: 'entities.case.views.mainnewview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -119,8 +131,14 @@ export class CaseMainNewViewBase extends EditViewBase {
      * @memberof CaseMainNewViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -152,7 +170,7 @@ export class CaseMainNewViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseMainNewViewBase
      */ 
-    protected viewName:string = "CaseMainNewView";
+    protected viewName: string = "CaseMainNewView";
 
 
     /**
@@ -171,7 +189,9 @@ export class CaseMainNewViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof CaseMainNewViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

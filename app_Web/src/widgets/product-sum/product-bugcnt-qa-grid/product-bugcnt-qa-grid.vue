@@ -1,5 +1,5 @@
-<template src="./product-bugcnt-qa-grid.html"/>
-<script lang='tsx'>
+<template src="./product-bugcnt-qa-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductBugcnt_QAGridBase } from './product-bugcnt-qa-grid-base';
@@ -15,8 +15,8 @@ import { ProductBugcnt_QAGridBase } from './product-bugcnt-qa-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ProductBugcnt_QAGrid extends ProductBugcnt_QAGridBase { }
+export default class ProductBugcnt_QAGrid extends ProductBugcnt_QAGridBase {}
 </script>

@@ -1,5 +1,5 @@
-<template src="./test-suite-main-dashboard-view.html"/>
-<script lang='tsx'>
+<template src="./test-suite-main-dashboard-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestSuiteMainDashboardViewBase } from './test-suite-main-dashboard-view-base';
@@ -18,5 +18,5 @@ import view_dashboard from '@widgets/test-suite/main-dashboard/main-dashboard.vu
     }
 })
 @VueLifeCycleProcessing()
-export default class TestSuiteMainDashboardView extends TestSuiteMainDashboardViewBase { }
+export default class TestSuiteMainDashboardView extends TestSuiteMainDashboardViewBase {}
 </script>

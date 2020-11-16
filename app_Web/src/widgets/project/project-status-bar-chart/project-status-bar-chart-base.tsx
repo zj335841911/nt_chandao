@@ -1,7 +1,7 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectStatusBarService from './project-status-bar-chart-service';
@@ -11,7 +11,6 @@ import moment from "moment";
 import CodeListService from "@service/app/codelist-service";
 import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries,ChartRadarSeries} from '@/model/chart-detail';
 
-
 /**
  * db_projectstatusportlet_chart部件基类
  *
@@ -20,7 +19,6 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
  * @extends {ProjectStatusBarChartBase}
  */
 export class ProjectStatusBarChartBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -70,7 +68,7 @@ export class ProjectStatusBarChartBase extends MainControlBase {
      * @type {ProjectUIService}
      * @memberof ProjectStatusBarBase
      */  
-    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
 
     /**

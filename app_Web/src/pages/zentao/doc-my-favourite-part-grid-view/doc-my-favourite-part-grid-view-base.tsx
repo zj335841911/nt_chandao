@@ -6,7 +6,7 @@ import DocService from '@/service/doc/doc-service';
 import DocAuthService from '@/authservice/doc/doc-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import DocUIService from '@/uiservice/doc/doc-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class DocMyFavouritePartGridViewBase extends GridView9Base {
      * @type {string}
      * @memberof DocMyFavouritePartGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class DocMyFavouritePartGridViewBase extends GridView9Base {
 	 * @memberof DocMyFavouritePartGridViewBase
 	 */
     protected customViewParams: any = {
-        'size': { isRawValue: true, value: '5' }
+        'size': {
+            isRawValue: true,
+            value: '5',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class DocMyFavouritePartGridViewBase extends GridView9Base {
         srfCaption: 'entities.doc.views.myfavouritepartgridview.caption',
         srfTitle: 'entities.doc.views.myfavouritepartgridview.title',
         srfSubTitle: 'entities.doc.views.myfavouritepartgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,7 +105,10 @@ export class DocMyFavouritePartGridViewBase extends GridView9Base {
      * @memberof DocMyFavouritePartGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -122,7 +128,7 @@ export class DocMyFavouritePartGridViewBase extends GridView9Base {
      * @type {string}
      * @memberof DocMyFavouritePartGridViewBase
      */ 
-    protected viewName:string = "DocMyFavouritePartGridView";
+    protected viewName: string = "DocMyFavouritePartGridView";
 
 
     /**
@@ -141,7 +147,9 @@ export class DocMyFavouritePartGridViewBase extends GridView9Base {
      * @type {Array<*>}
      * @memberof DocMyFavouritePartGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -152,11 +160,11 @@ export class DocMyFavouritePartGridViewBase extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'doc',

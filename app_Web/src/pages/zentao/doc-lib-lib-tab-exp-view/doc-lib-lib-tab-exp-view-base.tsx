@@ -62,7 +62,7 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
      *
      * @memberof DocLibLibTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.doclib.views.libtabexpview.caption',
         srfTitle: 'entities.doclib.views.libtabexpview.title',
         srfSubTitle: 'entities.doclib.views.libtabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,8 +86,14 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
      * @memberof DocLibLibTabExpViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
     /**
@@ -131,7 +137,7 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof DocLibLibTabExpViewBase
      */ 
-    protected viewName:string = "DocLibLibTabExpView";
+    protected viewName: string = "DocLibLibTabExpView";
 
 
     /**
@@ -150,7 +156,9 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof DocLibLibTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

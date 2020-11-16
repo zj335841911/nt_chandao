@@ -1,5 +1,5 @@
-<template src="./story-kanban-view.html"/>
-<script lang='tsx'>
+<template src="./story-kanban-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryKanbanViewBase } from './story-kanban-view-base';
@@ -18,5 +18,5 @@ import view_kanban from '@widgets/story/story-kan-ban-kanban/story-kan-ban-kanba
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryKanbanView extends StoryKanbanViewBase { }
+export default class StoryKanbanView extends StoryKanbanViewBase {}
 </script>

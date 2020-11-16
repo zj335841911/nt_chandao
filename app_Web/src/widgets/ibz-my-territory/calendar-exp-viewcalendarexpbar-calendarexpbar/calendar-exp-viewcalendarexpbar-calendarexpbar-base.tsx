@@ -1,13 +1,12 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, CalendarViewExpBarControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import CalendarExpViewcalendarexpbarService from './calendar-exp-viewcalendarexpbar-calendarexpbar-service';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
 import CodeListService from "@service/app/codelist-service";
-
 
 /**
  * calendarexpbar部件基类
@@ -17,7 +16,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {CalendarExpViewcalendarexpbarCalendarexpbarBase}
  */
 export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarViewExpBarControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
      * @type {IbzMyTerritoryUIService}
      * @memberof CalendarExpViewcalendarexpbarBase
      */  
-    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+    public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
     /**
      * calendarexpbar_calendar 部件 selectionchange 事件

@@ -1,5 +1,5 @@
-<template src="./todo-desc-portlet.html"/>
-<script lang='tsx'>
+<template src="./todo-desc-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TodoDescPortletBase } from './todo-desc-portlet-base';
@@ -15,8 +15,8 @@ import { TodoDescPortletBase } from './todo-desc-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class TodoDescPortlet extends TodoDescPortletBase { }
+export default class TodoDescPortlet extends TodoDescPortletBase {}
 </script>

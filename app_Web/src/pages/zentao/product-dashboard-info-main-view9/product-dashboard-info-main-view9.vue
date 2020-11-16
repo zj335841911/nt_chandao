@@ -1,5 +1,5 @@
-<template src="./product-dashboard-info-main-view9.html"/>
-<script lang='tsx'>
+<template src="./product-dashboard-info-main-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductDashboardInfoMainView9Base } from './product-dashboard-info-main-view9-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/product/dashboard-info-form/dashboard-info-form.
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductDashboardInfoMainView9 extends ProductDashboardInfoMainView9Base { }
+export default class ProductDashboardInfoMainView9 extends ProductDashboardInfoMainView9Base {}
 </script>

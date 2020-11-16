@@ -48,7 +48,7 @@ export class CaseToBugTestEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseToBugTestEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class CaseToBugTestEditViewBase extends EditViewBase {
 	 * @memberof CaseToBugTestEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'TASK': { isRawValue: false, value: 'task' }
+        'TASK': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class CaseToBugTestEditViewBase extends EditViewBase {
 	 * @memberof CaseToBugTestEditViewBase
 	 */
     protected customViewParams: any = {
-        'task': { isRawValue: false, value: 'task' }
+        'task': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
     /**
@@ -93,7 +99,7 @@ export class CaseToBugTestEditViewBase extends EditViewBase {
      *
      * @memberof CaseToBugTestEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -106,8 +112,8 @@ export class CaseToBugTestEditViewBase extends EditViewBase {
         srfCaption: 'entities.case.views.tobugtesteditview.caption',
         srfTitle: 'entities.case.views.tobugtesteditview.title',
         srfSubTitle: 'entities.case.views.tobugtesteditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,7 +123,10 @@ export class CaseToBugTestEditViewBase extends EditViewBase {
      * @memberof CaseToBugTestEditViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -137,7 +146,7 @@ export class CaseToBugTestEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseToBugTestEditViewBase
      */ 
-    protected viewName:string = "CaseToBugTestEditView";
+    protected viewName: string = "CaseToBugTestEditView";
 
 
     /**
@@ -156,7 +165,9 @@ export class CaseToBugTestEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof CaseToBugTestEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

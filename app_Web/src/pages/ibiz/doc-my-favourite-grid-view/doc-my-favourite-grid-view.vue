@@ -1,5 +1,5 @@
-<template src="./doc-my-favourite-grid-view.html"/>
-<script lang='tsx'>
+<template src="./doc-my-favourite-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocMyFavouriteGridViewBase } from './doc-my-favourite-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/doc/default-searchform/default-searchform.
     }
 })
 @VueLifeCycleProcessing()
-export default class DocMyFavouriteGridView extends DocMyFavouriteGridViewBase { }
+export default class DocMyFavouriteGridView extends DocMyFavouriteGridViewBase {}
 </script>

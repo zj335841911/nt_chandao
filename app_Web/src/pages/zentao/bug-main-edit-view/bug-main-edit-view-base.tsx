@@ -48,7 +48,7 @@ export class BugMainEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugMainEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,9 +74,18 @@ export class BugMainEditViewBase extends EditViewBase {
 	 * @memberof BugMainEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PRODUCT': { isRawValue: false, value: 'product' },
-        'OBJECTTYPE': { isRawValue: true, value: 'bug' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'bug' }
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'bug',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'bug',
+        }
     };
 
     /**
@@ -84,7 +93,7 @@ export class BugMainEditViewBase extends EditViewBase {
      *
      * @memberof BugMainEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -97,8 +106,8 @@ export class BugMainEditViewBase extends EditViewBase {
         srfCaption: 'entities.bug.views.maineditview.caption',
         srfTitle: 'entities.bug.views.maineditview.title',
         srfSubTitle: 'entities.bug.views.maineditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -108,8 +117,14 @@ export class BugMainEditViewBase extends EditViewBase {
      * @memberof BugMainEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -141,7 +156,7 @@ export class BugMainEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugMainEditViewBase
      */ 
-    protected viewName:string = "BugMainEditView";
+    protected viewName: string = "BugMainEditView";
 
 
     /**
@@ -160,7 +175,9 @@ export class BugMainEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BugMainEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

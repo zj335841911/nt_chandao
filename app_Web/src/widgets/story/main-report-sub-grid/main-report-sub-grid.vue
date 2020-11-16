@@ -1,5 +1,5 @@
-<template src="./main-report-sub-grid.html"/>
-<script lang='tsx'>
+<template src="./main-report-sub-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { Main_ReportSubGridBase } from './main-report-sub-grid-base';
@@ -15,8 +15,8 @@ import { Main_ReportSubGridBase } from './main-report-sub-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class Main_ReportSubGrid extends Main_ReportSubGridBase { }
+export default class Main_ReportSubGrid extends Main_ReportSubGridBase {}
 </script>

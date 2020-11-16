@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import CaseStepService from '@/service/case-step/case-step-service';
 import MainService from './main-grid-service';
 import CaseStepUIService from '@/uiservice/case-step/case-step-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {MainGridBase}
  */
 export class MainGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class MainGridBase extends GridControlBase {
      * @type {CaseStepUIService}
      * @memberof MainBase
      */  
-    public appUIService:CaseStepUIService = new CaseStepUIService(this.$store);
+    public appUIService: CaseStepUIService = new CaseStepUIService(this.$store);
 
 
     /**

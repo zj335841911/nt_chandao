@@ -1,5 +1,5 @@
-<template src="./ibz-lib-module-grid-view.html"/>
-<script lang='tsx'>
+<template src="./ibz-lib-module-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzLibModuleGridViewBase } from './ibz-lib-module-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/ibz-lib-module/default-searchform/default-
     }
 })
 @VueLifeCycleProcessing()
-export default class IbzLibModuleGridView extends IbzLibModuleGridViewBase { }
+export default class IbzLibModuleGridView extends IbzLibModuleGridViewBase {}
 </script>

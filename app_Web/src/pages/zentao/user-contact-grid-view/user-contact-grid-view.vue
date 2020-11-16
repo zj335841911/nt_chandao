@@ -1,5 +1,5 @@
-<template src="./user-contact-grid-view.html"/>
-<script lang='tsx'>
+<template src="./user-contact-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { UserContactGridViewBase } from './user-contact-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/user-contact/default-searchform/default-se
     }
 })
 @VueLifeCycleProcessing()
-export default class UserContactGridView extends UserContactGridViewBase { }
+export default class UserContactGridView extends UserContactGridViewBase {}
 </script>

@@ -6,7 +6,7 @@ import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
 import ListViewEngine from '@engine/view/list-view-engine';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProjectLeftSidebarListViewBase
      */ 
-    protected dataControl:string = "list";
+    protected dataControl: string = "list";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
         srfCaption: 'entities.project.views.leftsidebarlistview.caption',
         srfTitle: 'entities.project.views.leftsidebarlistview.title',
         srfSubTitle: 'entities.project.views.leftsidebarlistview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProjectLeftSidebarListViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_list: { name: 'list', type: 'LIST' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_list: {
+            name: 'list',
+            type: 'LIST',
+        },
     };
 
     /**
@@ -142,7 +148,7 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProjectLeftSidebarListViewBase
      */ 
-    protected viewName:string = "ProjectLeftSidebarListView";
+    protected viewName: string = "ProjectLeftSidebarListView";
 
 
     /**
@@ -161,7 +167,9 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
      * @type {Array<*>}
      * @memberof ProjectLeftSidebarListViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -173,11 +181,11 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
         this.engine.init({
             view: this,
             list: this.$refs.list,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'project',
             majorPSDEField: 'name',

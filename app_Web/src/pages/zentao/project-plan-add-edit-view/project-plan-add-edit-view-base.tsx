@@ -48,7 +48,7 @@ export class ProjectPlanAddEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectPlanAddEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,11 +74,26 @@ export class ProjectPlanAddEditViewBase extends EditViewBase {
 	 * @memberof ProjectPlanAddEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PLAN': { isRawValue: false, value: 'planid' },
-        'END': { isRawValue: false, value: 'end' },
-        'PRODUCT': { isRawValue: false, value: 'product' },
-        'BEGIN': { isRawValue: false, value: 'begin' },
-        'BRANCH': { isRawValue: false, value: 'branch' }
+        'PLAN': {
+            isRawValue: false,
+            value: 'planid',
+        },
+        'END': {
+            isRawValue: false,
+            value: 'end',
+        },
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'BEGIN': {
+            isRawValue: false,
+            value: 'begin',
+        },
+        'BRANCH': {
+            isRawValue: false,
+            value: 'branch',
+        }
     };
 
 	/**
@@ -89,11 +104,26 @@ export class ProjectPlanAddEditViewBase extends EditViewBase {
 	 * @memberof ProjectPlanAddEditViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'plan': { isRawValue: false, value: 'planid' },
-        'branch': { isRawValue: false, value: 'branch' },
-        'end': { isRawValue: false, value: 'end' },
-        'begin': { isRawValue: false, value: 'begin' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'plan': {
+            isRawValue: false,
+            value: 'planid',
+        },
+        'branch': {
+            isRawValue: false,
+            value: 'branch',
+        },
+        'end': {
+            isRawValue: false,
+            value: 'end',
+        },
+        'begin': {
+            isRawValue: false,
+            value: 'begin',
+        }
     };
 
     /**
@@ -101,7 +131,7 @@ export class ProjectPlanAddEditViewBase extends EditViewBase {
      *
      * @memberof ProjectPlanAddEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -114,8 +144,8 @@ export class ProjectPlanAddEditViewBase extends EditViewBase {
         srfCaption: 'entities.project.views.planaddeditview.caption',
         srfTitle: 'entities.project.views.planaddeditview.title',
         srfSubTitle: 'entities.project.views.planaddeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -125,8 +155,14 @@ export class ProjectPlanAddEditViewBase extends EditViewBase {
      * @memberof ProjectPlanAddEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -158,7 +194,7 @@ export class ProjectPlanAddEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectPlanAddEditViewBase
      */ 
-    protected viewName:string = "ProjectPlanAddEditView";
+    protected viewName: string = "ProjectPlanAddEditView";
 
 
     /**
@@ -177,7 +213,9 @@ export class ProjectPlanAddEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ProjectPlanAddEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

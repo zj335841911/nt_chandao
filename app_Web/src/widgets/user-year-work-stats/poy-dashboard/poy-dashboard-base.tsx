@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import UserYearWorkStatsService from '@/service/user-year-work-stats/user-year-work-stats-service';
 import POYService from './poy-dashboard-service';
 import UserYearWorkStatsUIService from '@/uiservice/user-year-work-stats/user-year-work-stats-ui-service';
 import UtilService from '@/utilservice/util-service';
-
 
 /**
  * dashboard部件基类
@@ -16,7 +15,6 @@ import UtilService from '@/utilservice/util-service';
  * @extends {POYDashboardBase}
  */
 export class POYDashboardBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class POYDashboardBase extends MainControlBase {
      * @type {UserYearWorkStatsUIService}
      * @memberof POYBase
      */  
-    public appUIService:UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
+    public appUIService: UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
 
     /**
      * 是否支持看板定制

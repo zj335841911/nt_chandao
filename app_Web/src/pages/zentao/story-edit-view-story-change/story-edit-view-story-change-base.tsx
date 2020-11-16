@@ -48,7 +48,7 @@ export class StoryEditView_StoryChangeBase extends EditViewBase {
      * @type {string}
      * @memberof StoryEditView_StoryChangeBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class StoryEditView_StoryChangeBase extends EditViewBase {
      *
      * @memberof StoryEditView_StoryChangeBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class StoryEditView_StoryChangeBase extends EditViewBase {
         srfCaption: 'entities.story.views.editview_storychange.caption',
         srfTitle: 'entities.story.views.editview_storychange.title',
         srfSubTitle: 'entities.story.views.editview_storychange.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class StoryEditView_StoryChangeBase extends EditViewBase {
      * @memberof StoryEditView_StoryChangeBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class StoryEditView_StoryChangeBase extends EditViewBase {
      * @type {string}
      * @memberof StoryEditView_StoryChangeBase
      */ 
-    protected viewName:string = "StoryEditView_StoryChange";
+    protected viewName: string = "StoryEditView_StoryChange";
 
 
     /**
@@ -147,7 +153,9 @@ export class StoryEditView_StoryChangeBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof StoryEditView_StoryChangeBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

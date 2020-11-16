@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import TaskTeamService from '@/service/task-team/task-team-service';
 import MainService from './main-grid-service';
 import TaskTeamUIService from '@/uiservice/task-team/task-team-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {MainGridBase}
  */
 export class MainGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class MainGridBase extends GridControlBase {
      * @type {TaskTeamUIService}
      * @memberof MainBase
      */  
-    public appUIService:TaskTeamUIService = new TaskTeamUIService(this.$store);
+    public appUIService: TaskTeamUIService = new TaskTeamUIService(this.$store);
 
 
     /**

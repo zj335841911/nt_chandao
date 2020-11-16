@@ -62,7 +62,7 @@ export class IbzMyTerritoryEmployTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof IbzMyTerritoryEmployTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class IbzMyTerritoryEmployTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.ibzmyterritory.views.employtreeexpview.caption',
         srfTitle: 'entities.ibzmyterritory.views.employtreeexpview.title',
         srfSubTitle: 'entities.ibzmyterritory.views.employtreeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class IbzMyTerritoryEmployTreeExpViewBase extends TreeExpViewBase {
      * @memberof IbzMyTerritoryEmployTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class IbzMyTerritoryEmployTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryEmployTreeExpViewBase
      */ 
-    protected viewName:string = "IbzMyTerritoryEmployTreeExpView";
+    protected viewName: string = "IbzMyTerritoryEmployTreeExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class IbzMyTerritoryEmployTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof IbzMyTerritoryEmployTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import BranchService from '@/service/branch/branch-service';
 import PlatformManagementService from './platform-management-grid-service';
 import BranchUIService from '@/uiservice/branch/branch-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {PlatformManagementGridBase}
  */
 export class PlatformManagementGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class PlatformManagementGridBase extends GridControlBase {
      * @type {BranchUIService}
      * @memberof PlatformManagementBase
      */  
-    public appUIService:BranchUIService = new BranchUIService(this.$store);
+    public appUIService: BranchUIService = new BranchUIService(this.$store);
 
     /**
      * 逻辑事件

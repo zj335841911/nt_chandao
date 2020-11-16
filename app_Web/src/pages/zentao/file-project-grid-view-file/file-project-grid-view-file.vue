@@ -1,5 +1,5 @@
-<template src="./file-project-grid-view-file.html"/>
-<script lang='tsx'>
+<template src="./file-project-grid-view-file.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { FileProjectGridViewFileBase } from './file-project-grid-view-file-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/file/default-searchform/default-searchform
     }
 })
 @VueLifeCycleProcessing()
-export default class FileProjectGridViewFile extends FileProjectGridViewFileBase { }
+export default class FileProjectGridViewFile extends FileProjectGridViewFileBase {}
 </script>

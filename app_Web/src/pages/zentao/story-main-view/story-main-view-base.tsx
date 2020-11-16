@@ -65,8 +65,14 @@ export class StoryMainViewBase extends DashboardViewBase {
 	 * @memberof StoryMainViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'story' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'story' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'story',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'story',
+        }
     };
 
     /**
@@ -74,7 +80,7 @@ export class StoryMainViewBase extends DashboardViewBase {
      *
      * @memberof StoryMainViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -87,8 +93,8 @@ export class StoryMainViewBase extends DashboardViewBase {
         srfCaption: 'entities.story.views.mainview.caption',
         srfTitle: 'entities.story.views.mainview.title',
         srfSubTitle: 'entities.story.views.mainview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -98,7 +104,10 @@ export class StoryMainViewBase extends DashboardViewBase {
      * @memberof StoryMainViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -118,7 +127,7 @@ export class StoryMainViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof StoryMainViewBase
      */ 
-    protected viewName:string = "StoryMainView";
+    protected viewName: string = "StoryMainView";
 
 
     /**
@@ -137,7 +146,9 @@ export class StoryMainViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof StoryMainViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

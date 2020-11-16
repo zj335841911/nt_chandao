@@ -6,7 +6,7 @@ import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import CaseUIService from '@/uiservice/case/case-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class CaseMainMyGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseMainMyGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class CaseMainMyGridViewBase extends GridViewBase {
 	 * @memberof CaseMainMyGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_lastrunner_eq': { isRawValue: false, value: 'srfloginname' }
+        'n_lastrunner_eq': {
+            isRawValue: false,
+            value: 'srfloginname',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class CaseMainMyGridViewBase extends GridViewBase {
         srfCaption: 'entities.case.views.mainmygridview.caption',
         srfTitle: 'entities.case.views.mainmygridview.title',
         srfSubTitle: 'entities.case.views.mainmygridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,7 +105,10 @@ export class CaseMainMyGridViewBase extends GridViewBase {
      * @memberof CaseMainMyGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -122,7 +128,7 @@ export class CaseMainMyGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseMainMyGridViewBase
      */ 
-    protected viewName:string = "CaseMainMyGridView";
+    protected viewName: string = "CaseMainMyGridView";
 
 
     /**
@@ -141,7 +147,9 @@ export class CaseMainMyGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof CaseMainMyGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -152,11 +160,11 @@ export class CaseMainMyGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'case',

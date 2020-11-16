@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugResolvedBy_ProjectService from './bug-resolved-by-project-portlet-service';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-
 
 /**
  * dashboard_sysportlet15部件基类
@@ -17,7 +16,6 @@ import UIService from '@/uiservice/ui-service';
  * @extends {BugResolvedBy_ProjectPortletBase}
  */
 export class BugResolvedBy_ProjectPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class BugResolvedBy_ProjectPortletBase extends MainControlBase {
      * @type {BugUIService}
      * @memberof BugResolvedBy_ProjectBase
      */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
     /**

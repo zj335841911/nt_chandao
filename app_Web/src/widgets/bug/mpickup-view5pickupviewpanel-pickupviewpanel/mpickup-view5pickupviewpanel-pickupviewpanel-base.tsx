@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import MPickupView5pickupviewpanelService from './mpickup-view5pickupviewpanel-pickupviewpanel-service';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
 import MPickupView5pickupviewpanelModel from './mpickup-view5pickupviewpanel-pickupviewpanel-model';
-
 
 /**
  * pickupviewpanel部件基类
@@ -16,7 +15,6 @@ import MPickupView5pickupviewpanelModel from './mpickup-view5pickupviewpanel-pic
  * @extends {MPickupView5pickupviewpanelPickupviewpanelBase}
  */
 export class MPickupView5pickupviewpanelPickupviewpanelBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class MPickupView5pickupviewpanelPickupviewpanelBase extends MainControlB
      * @type {BugUIService}
      * @memberof MPickupView5pickupviewpanelBase
      */  
-    public appUIService:BugUIService = new BugUIService(this.$store);
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
 
 

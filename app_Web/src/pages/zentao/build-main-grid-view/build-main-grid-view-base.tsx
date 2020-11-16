@@ -6,7 +6,7 @@ import BuildService from '@/service/build/build-service';
 import BuildAuthService from '@/authservice/build/build-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import BuildUIService from '@/uiservice/build/build-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class BuildMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BuildMainGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,14 @@ export class BuildMainGridViewBase extends GridViewBase {
 	 * @memberof BuildMainGridViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'project': { isRawValue: false, value: 'project' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -92,8 +98,8 @@ export class BuildMainGridViewBase extends GridViewBase {
         srfCaption: 'entities.build.views.maingridview.caption',
         srfTitle: 'entities.build.views.maingridview.title',
         srfSubTitle: 'entities.build.views.maingridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -103,9 +109,18 @@ export class BuildMainGridViewBase extends GridViewBase {
      * @memberof BuildMainGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -143,7 +158,7 @@ export class BuildMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BuildMainGridViewBase
      */ 
-    protected viewName:string = "BuildMainGridView";
+    protected viewName: string = "BuildMainGridView";
 
 
     /**
@@ -162,7 +177,9 @@ export class BuildMainGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof BuildMainGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -173,11 +190,11 @@ export class BuildMainGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

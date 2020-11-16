@@ -6,7 +6,7 @@ import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-s
 import IbzMyTerritoryAuthService from '@/authservice/ibz-my-territory/ibz-my-territory-auth-service';
 import ListView9Engine from '@engine/view/list-view9-engine';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
      * @type {string}
      * @memberof IbzMyTerritoryListView9Base
      */ 
-    protected dataControl:string = "list";
+    protected dataControl: string = "list";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
 	 * @memberof IbzMyTerritoryListView9Base
 	 */
     protected customViewParams: any = {
-        'n_account_eq': { isRawValue: false, value: 'srfloginname' }
+        'n_account_eq': {
+            isRawValue: false,
+            value: 'srfloginname',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
         srfCaption: 'entities.ibzmyterritory.views.listview9.caption',
         srfTitle: 'entities.ibzmyterritory.views.listview9.title',
         srfSubTitle: 'entities.ibzmyterritory.views.listview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,7 +105,10 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
      * @memberof IbzMyTerritoryListView9Base
      */
     protected containerModel: any = {
-        view_list: { name: 'list', type: 'LIST' },
+        view_list: {
+            name: 'list',
+            type: 'LIST',
+        },
     };
 
 
@@ -122,7 +128,7 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
      * @type {string}
      * @memberof IbzMyTerritoryListView9Base
      */ 
-    protected viewName:string = "IbzMyTerritoryListView9";
+    protected viewName: string = "IbzMyTerritoryListView9";
 
 
     /**
@@ -141,7 +147,9 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
      * @type {Array<*>}
      * @memberof IbzMyTerritoryListView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

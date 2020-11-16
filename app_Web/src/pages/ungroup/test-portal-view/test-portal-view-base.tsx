@@ -22,8 +22,8 @@ export class TestPortalViewBase extends PortalViewBase {
         srfCaption: 'app.views.testportalview.caption',
         srfTitle: 'app.views.testportalview.title',
         srfSubTitle: 'app.views.testportalview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -33,7 +33,10 @@ export class TestPortalViewBase extends PortalViewBase {
      * @memberof TestPortalViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -53,7 +56,7 @@ export class TestPortalViewBase extends PortalViewBase {
      * @type {string}
      * @memberof TestPortalViewBase
      */ 
-    protected viewName:string = "TestPortalView";
+    protected viewName: string = "TestPortalView";
 
 
 
@@ -63,7 +66,9 @@ export class TestPortalViewBase extends PortalViewBase {
      * @type {Array<*>}
      * @memberof TestPortalViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

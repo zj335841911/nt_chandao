@@ -1,5 +1,5 @@
-<template src="./product-sum-edit-view.html"/>
-<script lang='tsx'>
+<template src="./product-sum-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductSumEditViewBase } from './product-sum-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/product-sum/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductSumEditView extends ProductSumEditViewBase { }
+export default class ProductSumEditView extends ProductSumEditViewBase {}
 </script>

@@ -1,5 +1,5 @@
-<template src="./doc-grid-view10.html"/>
-<script lang='tsx'>
+<template src="./doc-grid-view10.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocGridView10Base } from './doc-grid-view10-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/doc/my-doc-grid/my-doc-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class DocGridView10 extends DocGridView10Base { }
+export default class DocGridView10 extends DocGridView10Base {}
 </script>

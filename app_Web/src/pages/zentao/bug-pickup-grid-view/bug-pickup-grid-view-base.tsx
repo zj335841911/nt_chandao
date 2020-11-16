@@ -48,7 +48,7 @@ export class BugPickupGridViewBase extends PickupGridViewBase {
      * @type {string}
      * @memberof BugPickupGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class BugPickupGridViewBase extends PickupGridViewBase {
         srfCaption: 'entities.bug.views.pickupgridview.caption',
         srfTitle: 'entities.bug.views.pickupgridview.title',
         srfSubTitle: 'entities.bug.views.pickupgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class BugPickupGridViewBase extends PickupGridViewBase {
      * @memberof BugPickupGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -108,7 +111,7 @@ export class BugPickupGridViewBase extends PickupGridViewBase {
      * @type {string}
      * @memberof BugPickupGridViewBase
      */ 
-    protected viewName:string = "BugPickupGridView";
+    protected viewName: string = "BugPickupGridView";
 
 
     /**
@@ -127,7 +130,9 @@ export class BugPickupGridViewBase extends PickupGridViewBase {
      * @type {Array<*>}
      * @memberof BugPickupGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

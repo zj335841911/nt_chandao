@@ -1,5 +1,5 @@
-<template src="./project-edit-view-putoff.html"/>
-<script lang='tsx'>
+<template src="./project-edit-view-putoff.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectEditView_PutoffBase } from './project-edit-view-putoff-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/project/putoff-form/putoff-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectEditView_Putoff extends ProjectEditView_PutoffBase { }
+export default class ProjectEditView_Putoff extends ProjectEditView_PutoffBase {}
 </script>

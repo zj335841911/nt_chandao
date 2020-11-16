@@ -62,7 +62,7 @@ export class IbzMyTerritoryStatsTabExpViewBase extends TabExpViewBase {
      *
      * @memberof IbzMyTerritoryStatsTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class IbzMyTerritoryStatsTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.ibzmyterritory.views.statstabexpview.caption',
         srfTitle: 'entities.ibzmyterritory.views.statstabexpview.title',
         srfSubTitle: 'entities.ibzmyterritory.views.statstabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class IbzMyTerritoryStatsTabExpViewBase extends TabExpViewBase {
      * @memberof IbzMyTerritoryStatsTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class IbzMyTerritoryStatsTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryStatsTabExpViewBase
      */ 
-    protected viewName:string = "IbzMyTerritoryStatsTabExpView";
+    protected viewName: string = "IbzMyTerritoryStatsTabExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class IbzMyTerritoryStatsTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof IbzMyTerritoryStatsTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

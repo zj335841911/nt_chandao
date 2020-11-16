@@ -1,5 +1,5 @@
-<template src="./my-doc-portlet.html"/>
-<script lang='tsx'>
+<template src="./my-doc-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MyDocPortletBase } from './my-doc-portlet-base';
@@ -15,8 +15,8 @@ import { MyDocPortletBase } from './my-doc-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MyDocPortlet extends MyDocPortletBase { }
+export default class MyDocPortlet extends MyDocPortletBase {}
 </script>

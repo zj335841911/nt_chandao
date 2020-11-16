@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import AssignedToMeStoryService from './assigned-to-me-story-portlet-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-
 
 /**
  * dashboard_sysportlet5部件基类
@@ -17,7 +16,6 @@ import UIService from '@/uiservice/ui-service';
  * @extends {AssignedToMeStoryPortletBase}
  */
 export class AssignedToMeStoryPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class AssignedToMeStoryPortletBase extends MainControlBase {
      * @type {StoryUIService}
      * @memberof AssignedToMeStoryBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 逻辑事件

@@ -65,7 +65,10 @@ export class TestModuleTreeExpViewBase extends TreeExpViewBase {
 	 * @memberof TestModuleTreeExpViewBase
 	 */
     protected customViewNavContexts: any = {
-        'MODULETYPE': { isRawValue: true, value: 'story' }
+        'MODULETYPE': {
+            isRawValue: true,
+            value: 'story',
+        }
     };
 
     /**
@@ -73,7 +76,7 @@ export class TestModuleTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof TestModuleTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -86,8 +89,8 @@ export class TestModuleTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.testmodule.views.treeexpview.caption',
         srfTitle: 'entities.testmodule.views.treeexpview.title',
         srfSubTitle: 'entities.testmodule.views.treeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -97,7 +100,10 @@ export class TestModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof TestModuleTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
 
@@ -117,7 +123,7 @@ export class TestModuleTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof TestModuleTreeExpViewBase
      */ 
-    protected viewName:string = "TestModuleTreeExpView";
+    protected viewName: string = "TestModuleTreeExpView";
 
 
     /**
@@ -136,7 +142,9 @@ export class TestModuleTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof TestModuleTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,5 +1,5 @@
-<template src="./case-step-main-grid-view9.html"/>
-<script lang='tsx'>
+<template src="./case-step-main-grid-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseStepMainGridView9Base } from './case-step-main-grid-view9-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/case-step/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseStepMainGridView9 extends CaseStepMainGridView9Base { }
+export default class CaseStepMainGridView9 extends CaseStepMainGridView9Base {}
 </script>

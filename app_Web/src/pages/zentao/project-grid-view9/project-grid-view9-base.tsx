@@ -6,7 +6,7 @@ import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProjectGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof ProjectGridView9Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class ProjectGridView9Base extends GridView9Base {
 	 * @memberof ProjectGridView9Base
 	 */
     protected customViewNavContexts: any = {
-        'CURYEAR': { isRawValue: false, value: 'curyear' }
+        'CURYEAR': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
 	/**
@@ -88,7 +91,10 @@ export class ProjectGridView9Base extends GridView9Base {
 	 * @memberof ProjectGridView9Base
 	 */
     protected customViewParams: any = {
-        'curyear': { isRawValue: false, value: 'curyear' }
+        'curyear': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
     /**
@@ -102,8 +108,8 @@ export class ProjectGridView9Base extends GridView9Base {
         srfCaption: 'entities.project.views.gridview9.caption',
         srfTitle: 'entities.project.views.gridview9.title',
         srfSubTitle: 'entities.project.views.gridview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -113,7 +119,10 @@ export class ProjectGridView9Base extends GridView9Base {
      * @memberof ProjectGridView9Base
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -133,7 +142,7 @@ export class ProjectGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof ProjectGridView9Base
      */ 
-    protected viewName:string = "ProjectGridView9";
+    protected viewName: string = "ProjectGridView9";
 
 
     /**
@@ -152,7 +161,9 @@ export class ProjectGridView9Base extends GridView9Base {
      * @type {Array<*>}
      * @memberof ProjectGridView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -163,11 +174,11 @@ export class ProjectGridView9Base extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'project',

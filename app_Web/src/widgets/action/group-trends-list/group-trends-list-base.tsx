@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, ListControlBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import GroupTrendsService from './group-trends-list-service';
 import ActionUIService from '@/uiservice/action/action-ui-service';
-
 
 /**
  * list部件基类
@@ -15,7 +14,6 @@ import ActionUIService from '@/uiservice/action/action-ui-service';
  * @extends {GroupTrendsListBase}
  */
 export class GroupTrendsListBase extends ListControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class GroupTrendsListBase extends ListControlBase {
      * @type {ActionUIService}
      * @memberof GroupTrendsBase
      */  
-    public appUIService:ActionUIService = new ActionUIService(this.$store);
+    public appUIService: ActionUIService = new ActionUIService(this.$store);
 
     
 

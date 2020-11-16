@@ -6,7 +6,7 @@ import DocLibService from '@/service/doc-lib/doc-lib-service';
 import DocLibAuthService from '@/authservice/doc-lib/doc-lib-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class DocLibProductGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocLibProductGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class DocLibProductGridViewBase extends GridViewBase {
 	 * @memberof DocLibProductGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PRODUCT': { isRawValue: false, value: 'srfparentkey' }
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
 	/**
@@ -88,7 +91,10 @@ export class DocLibProductGridViewBase extends GridViewBase {
 	 * @memberof DocLibProductGridViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'srfparentkey' }
+        'product': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
     /**
@@ -102,8 +108,8 @@ export class DocLibProductGridViewBase extends GridViewBase {
         srfCaption: 'entities.doclib.views.productgridview.caption',
         srfTitle: 'entities.doclib.views.productgridview.title',
         srfSubTitle: 'entities.doclib.views.productgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -113,9 +119,18 @@ export class DocLibProductGridViewBase extends GridViewBase {
      * @memberof DocLibProductGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -145,7 +160,7 @@ export class DocLibProductGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocLibProductGridViewBase
      */ 
-    protected viewName:string = "DocLibProductGridView";
+    protected viewName: string = "DocLibProductGridView";
 
 
     /**
@@ -164,7 +179,9 @@ export class DocLibProductGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof DocLibProductGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

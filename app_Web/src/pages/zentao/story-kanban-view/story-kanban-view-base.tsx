@@ -7,7 +7,7 @@ import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
 import KanBanViewEngine from '@engine/view/kan-ban-view-engine';
 import StoryUIService from '@/uiservice/story/story-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -52,7 +52,7 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      * @type {string}
      * @memberof StoryKanbanViewBase
      */ 
-    protected dataControl:string = "kanban";
+    protected dataControl: string = "kanban";
 
     /**
      * 实体服务对象
@@ -81,8 +81,8 @@ export class StoryKanbanViewBase extends KanBanViewBase {
         srfCaption: 'entities.story.views.kanbanview.caption',
         srfTitle: 'entities.story.views.kanbanview.title',
         srfSubTitle: 'entities.story.views.kanbanview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -92,8 +92,14 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      * @memberof StoryKanbanViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_kanban: { name: 'kanban', type: 'KANBAN' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_kanban: {
+            name: 'kanban',
+            type: 'KANBAN',
+        },
     };
 
     /**
@@ -131,7 +137,7 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      * @type {string}
      * @memberof StoryKanbanViewBase
      */ 
-    protected viewName:string = "StoryKanbanView";
+    protected viewName: string = "StoryKanbanView";
 
 
     /**
@@ -150,7 +156,9 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      * @type {Array<*>}
      * @memberof StoryKanbanViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -162,11 +170,11 @@ export class StoryKanbanViewBase extends KanBanViewBase {
         this.engine.init({
             view: this,
             kanban: this.$refs.kanban,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'story',
             majorPSDEField: 'title',

@@ -1,5 +1,5 @@
-<template src="./get-roadmaps-portlet.html"/>
-<script lang='tsx'>
+<template src="./get-roadmaps-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { GetRoadmapsPortletBase } from './get-roadmaps-portlet-base';
@@ -15,8 +15,8 @@ import { GetRoadmapsPortletBase } from './get-roadmaps-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class GetRoadmapsPortlet extends GetRoadmapsPortletBase { }
+export default class GetRoadmapsPortlet extends GetRoadmapsPortletBase {}
 </script>

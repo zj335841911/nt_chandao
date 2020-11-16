@@ -48,7 +48,7 @@ export class BugBugLifeEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof BugBugLifeEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class BugBugLifeEditView9Base extends EditView9Base {
 	 * @memberof BugBugLifeEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'BUGPRODUCT': { isRawValue: false, value: 'product' }
+        'BUGPRODUCT': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class BugBugLifeEditView9Base extends EditView9Base {
 	 * @memberof BugBugLifeEditView9Base
 	 */
     protected customViewParams: any = {
-        'bugproduct': { isRawValue: false, value: 'product' }
+        'bugproduct': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
     /**
@@ -99,8 +105,8 @@ export class BugBugLifeEditView9Base extends EditView9Base {
         srfCaption: 'entities.bug.views.buglifeeditview9.caption',
         srfTitle: 'entities.bug.views.buglifeeditview9.title',
         srfSubTitle: 'entities.bug.views.buglifeeditview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -110,7 +116,10 @@ export class BugBugLifeEditView9Base extends EditView9Base {
      * @memberof BugBugLifeEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -130,7 +139,7 @@ export class BugBugLifeEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof BugBugLifeEditView9Base
      */ 
-    protected viewName:string = "BugBugLifeEditView9";
+    protected viewName: string = "BugBugLifeEditView9";
 
 
     /**
@@ -149,7 +158,9 @@ export class BugBugLifeEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof BugBugLifeEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

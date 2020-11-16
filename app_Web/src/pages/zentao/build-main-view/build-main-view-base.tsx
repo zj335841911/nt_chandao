@@ -48,7 +48,7 @@ export class BuildMainViewBase extends EditViewBase {
      * @type {string}
      * @memberof BuildMainViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class BuildMainViewBase extends EditViewBase {
 	 * @memberof BuildMainViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'build' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'build',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class BuildMainViewBase extends EditViewBase {
 	 * @memberof BuildMainViewBase
 	 */
     protected customViewParams: any = {
-        'objecttype': { isRawValue: true, value: 'build' }
+        'objecttype': {
+            isRawValue: true,
+            value: 'build',
+        }
     };
 
     /**
@@ -93,7 +99,7 @@ export class BuildMainViewBase extends EditViewBase {
      *
      * @memberof BuildMainViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -106,8 +112,8 @@ export class BuildMainViewBase extends EditViewBase {
         srfCaption: 'entities.build.views.mainview.caption',
         srfTitle: 'entities.build.views.mainview.title',
         srfSubTitle: 'entities.build.views.mainview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,7 +123,10 @@ export class BuildMainViewBase extends EditViewBase {
      * @memberof BuildMainViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -137,7 +146,7 @@ export class BuildMainViewBase extends EditViewBase {
      * @type {string}
      * @memberof BuildMainViewBase
      */ 
-    protected viewName:string = "BuildMainView";
+    protected viewName: string = "BuildMainView";
 
 
     /**
@@ -156,7 +165,9 @@ export class BuildMainViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BuildMainViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

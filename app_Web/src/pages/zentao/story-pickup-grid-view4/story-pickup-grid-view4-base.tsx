@@ -48,7 +48,7 @@ export class StoryPickupGridView4Base extends PickupGridViewBase {
      * @type {string}
      * @memberof StoryPickupGridView4Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -74,10 +74,22 @@ export class StoryPickupGridView4Base extends PickupGridViewBase {
 	 * @memberof StoryPickupGridView4Base
 	 */
     protected customViewParams: any = {
-        'srfparentkey': { isRawValue: false, value: 'srfparentkey' },
-        'project': { isRawValue: false, value: 'project' },
-        'n_parent_gtandeq': { isRawValue: true, value: '0' },
-        'build': { isRawValue: false, value: 'build' }
+        'srfparentkey': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        },
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'n_parent_gtandeq': {
+            isRawValue: true,
+            value: '0',
+        },
+        'build': {
+            isRawValue: false,
+            value: 'build',
+        }
     };
 
     /**
@@ -91,8 +103,8 @@ export class StoryPickupGridView4Base extends PickupGridViewBase {
         srfCaption: 'entities.story.views.pickupgridview4.caption',
         srfTitle: 'entities.story.views.pickupgridview4.title',
         srfSubTitle: 'entities.story.views.pickupgridview4.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,7 +114,10 @@ export class StoryPickupGridView4Base extends PickupGridViewBase {
      * @memberof StoryPickupGridView4Base
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -122,7 +137,7 @@ export class StoryPickupGridView4Base extends PickupGridViewBase {
      * @type {string}
      * @memberof StoryPickupGridView4Base
      */ 
-    protected viewName:string = "StoryPickupGridView4";
+    protected viewName: string = "StoryPickupGridView4";
 
 
     /**
@@ -141,7 +156,9 @@ export class StoryPickupGridView4Base extends PickupGridViewBase {
      * @type {Array<*>}
      * @memberof StoryPickupGridView4Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

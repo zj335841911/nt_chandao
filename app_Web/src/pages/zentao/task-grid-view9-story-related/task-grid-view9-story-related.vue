@@ -1,5 +1,5 @@
-<template src="./task-grid-view9-story-related.html"/>
-<script lang='tsx'>
+<template src="./task-grid-view9-story-related.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskGridView9_StoryRelatedBase } from './task-grid-view9-story-related-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/task/story-related-grid/story-related-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskGridView9_StoryRelated extends TaskGridView9_StoryRelatedBase { }
+export default class TaskGridView9_StoryRelated extends TaskGridView9_StoryRelatedBase {}
 </script>

@@ -1,5 +1,5 @@
-<template src="./ibz-lib-tab-exp-view.html"/>
-<script lang='tsx'>
+<template src="./ibz-lib-tab-exp-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzLibTabExpViewBase } from './ibz-lib-tab-exp-view-base';
@@ -18,5 +18,5 @@ import view_tabexppanel from '@widgets/ibz-lib/tab-exp-viewtabexppanel-tabexppan
     }
 })
 @VueLifeCycleProcessing()
-export default class IbzLibTabExpView extends IbzLibTabExpViewBase { }
+export default class IbzLibTabExpView extends IbzLibTabExpViewBase {}
 </script>

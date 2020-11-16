@@ -62,7 +62,7 @@ export class ProductListExpViewBase extends ListExpViewBase {
      *
      * @memberof ProductListExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class ProductListExpViewBase extends ListExpViewBase {
         srfCaption: 'entities.product.views.listexpview.caption',
         srfTitle: 'entities.product.views.listexpview.title',
         srfSubTitle: 'entities.product.views.listexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class ProductListExpViewBase extends ListExpViewBase {
      * @memberof ProductListExpViewBase
      */
     protected containerModel: any = {
-        view_listexpbar: { name: 'listexpbar', type: 'LISTEXPBAR' },
+        view_listexpbar: {
+            name: 'listexpbar',
+            type: 'LISTEXPBAR',
+        },
     };
 
     /**
@@ -118,7 +121,7 @@ export class ProductListExpViewBase extends ListExpViewBase {
      * @type {string}
      * @memberof ProductListExpViewBase
      */ 
-    protected viewName:string = "ProductListExpView";
+    protected viewName: string = "ProductListExpView";
 
 
     /**
@@ -137,7 +140,9 @@ export class ProductListExpViewBase extends ListExpViewBase {
      * @type {Array<*>}
      * @memberof ProductListExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

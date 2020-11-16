@@ -48,7 +48,7 @@ export class BugTodoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugTodoEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class BugTodoEditViewBase extends EditViewBase {
      *
      * @memberof BugTodoEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class BugTodoEditViewBase extends EditViewBase {
         srfCaption: 'entities.bug.views.todoeditview.caption',
         srfTitle: 'entities.bug.views.todoeditview.title',
         srfSubTitle: 'entities.bug.views.todoeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class BugTodoEditViewBase extends EditViewBase {
      * @memberof BugTodoEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -126,7 +132,7 @@ export class BugTodoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugTodoEditViewBase
      */ 
-    protected viewName:string = "BugTodoEditView";
+    protected viewName: string = "BugTodoEditView";
 
 
     /**
@@ -145,7 +151,9 @@ export class BugTodoEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BugTodoEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

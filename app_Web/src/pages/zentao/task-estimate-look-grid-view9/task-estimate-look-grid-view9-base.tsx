@@ -6,7 +6,7 @@ import TaskEstimateService from '@/service/task-estimate/task-estimate-service';
 import TaskEstimateAuthService from '@/authservice/task-estimate/task-estimate-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import TaskEstimateUIService from '@/uiservice/task-estimate/task-estimate-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TaskEstimateLookGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof TaskEstimateLookGridView9Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class TaskEstimateLookGridView9Base extends GridView9Base {
         srfCaption: 'entities.taskestimate.views.lookgridview9.caption',
         srfTitle: 'entities.taskestimate.views.lookgridview9.title',
         srfSubTitle: 'entities.taskestimate.views.lookgridview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,7 +91,10 @@ export class TaskEstimateLookGridView9Base extends GridView9Base {
      * @memberof TaskEstimateLookGridView9Base
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -111,7 +114,7 @@ export class TaskEstimateLookGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof TaskEstimateLookGridView9Base
      */ 
-    protected viewName:string = "TaskEstimateLookGridView9";
+    protected viewName: string = "TaskEstimateLookGridView9";
 
 
     /**
@@ -130,7 +133,9 @@ export class TaskEstimateLookGridView9Base extends GridView9Base {
      * @type {Array<*>}
      * @memberof TaskEstimateLookGridView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -141,11 +146,11 @@ export class TaskEstimateLookGridView9Base extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'taskestimate',

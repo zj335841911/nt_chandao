@@ -1,5 +1,5 @@
-<template src="./product-sum-po-chart-view9.html"/>
-<script lang='tsx'>
+<template src="./product-sum-po-chart-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductSumPoChartView9Base } from './product-sum-po-chart-view9-base';
@@ -18,5 +18,5 @@ import view_chart from '@widgets/product-sum/product-create-story-po-chart/produ
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductSumPoChartView9 extends ProductSumPoChartView9Base { }
+export default class ProductSumPoChartView9 extends ProductSumPoChartView9Base {}
 </script>

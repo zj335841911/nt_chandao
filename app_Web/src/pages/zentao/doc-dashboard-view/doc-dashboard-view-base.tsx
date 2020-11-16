@@ -65,8 +65,14 @@ export class DocDashboardViewBase extends DashboardViewBase {
 	 * @memberof DocDashboardViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'doc' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'doc' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'doc',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'doc',
+        }
     };
 
     /**
@@ -74,7 +80,7 @@ export class DocDashboardViewBase extends DashboardViewBase {
      *
      * @memberof DocDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -87,8 +93,8 @@ export class DocDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.doc.views.dashboardview.caption',
         srfTitle: 'entities.doc.views.dashboardview.title',
         srfSubTitle: 'entities.doc.views.dashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -98,7 +104,10 @@ export class DocDashboardViewBase extends DashboardViewBase {
      * @memberof DocDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -118,7 +127,7 @@ export class DocDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof DocDashboardViewBase
      */ 
-    protected viewName:string = "DocDashboardView";
+    protected viewName: string = "DocDashboardView";
 
 
     /**
@@ -137,7 +146,9 @@ export class DocDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof DocDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

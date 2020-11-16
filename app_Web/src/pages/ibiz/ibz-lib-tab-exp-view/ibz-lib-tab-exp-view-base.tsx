@@ -62,7 +62,7 @@ export class IbzLibTabExpViewBase extends TabExpViewBase {
      *
      * @memberof IbzLibTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class IbzLibTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.ibzlib.views.tabexpview.caption',
         srfTitle: 'entities.ibzlib.views.tabexpview.title',
         srfSubTitle: 'entities.ibzlib.views.tabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class IbzLibTabExpViewBase extends TabExpViewBase {
      * @memberof IbzLibTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class IbzLibTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof IbzLibTabExpViewBase
      */ 
-    protected viewName:string = "IbzLibTabExpView";
+    protected viewName: string = "IbzLibTabExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class IbzLibTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof IbzLibTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

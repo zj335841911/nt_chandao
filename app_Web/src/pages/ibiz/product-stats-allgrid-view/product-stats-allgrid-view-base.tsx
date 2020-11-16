@@ -6,7 +6,7 @@ import ProductStatsService from '@/service/product-stats/product-stats-service';
 import ProductStatsAuthService from '@/authservice/product-stats/product-stats-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import ProductStatsUIService from '@/uiservice/product-stats/product-stats-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProductStatsALLGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductStatsALLGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ProductStatsALLGridViewBase extends GridViewBase {
         srfCaption: 'entities.productstats.views.allgridview.caption',
         srfTitle: 'entities.productstats.views.allgridview.title',
         srfSubTitle: 'entities.productstats.views.allgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,9 +91,18 @@ export class ProductStatsALLGridViewBase extends GridViewBase {
      * @memberof ProductStatsALLGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -131,7 +140,7 @@ export class ProductStatsALLGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductStatsALLGridViewBase
      */ 
-    protected viewName:string = "ProductStatsALLGridView";
+    protected viewName: string = "ProductStatsALLGridView";
 
 
     /**
@@ -150,7 +159,9 @@ export class ProductStatsALLGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof ProductStatsALLGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -161,11 +172,11 @@ export class ProductStatsALLGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,
@@ -518,14 +529,14 @@ export class ProductStatsALLGridViewBase extends GridViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'ProductQuickpacket', codelistType: 'STATIC' };
-        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
+        if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {
                 this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
             } else {
                 console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
             }
-        } else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
+        } else if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
             this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
                 this.quickGroupModel = res;
             }).catch((error:any) => {

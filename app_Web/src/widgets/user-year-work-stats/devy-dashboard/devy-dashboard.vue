@@ -1,5 +1,5 @@
-<template src="./devy-dashboard.html"/>
-<script lang='tsx'>
+<template src="./devy-dashboard.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DEVYDashboardBase } from './devy-dashboard-base';
@@ -17,12 +17,12 @@ import view_dashboard_sysportlet3 from '@widgets/task/cur-finishedby-task-portle
  */
 @Component({
     components: {
-        view_dashboard_sysportlet4, 
-        view_dashboard_sysportlet5, 
-        view_dashboard_sysportlet3, 
+        view_dashboard_sysportlet4,
+        view_dashboard_sysportlet5,
+        view_dashboard_sysportlet3,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class DEVYDashboard extends DEVYDashboardBase { }
+export default class DEVYDashboard extends DEVYDashboardBase {}
 </script>

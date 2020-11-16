@@ -6,7 +6,7 @@ import SysUpdateFeaturesService from '@/service/sys-update-features/sys-update-f
 import SysUpdateFeaturesAuthService from '@/authservice/sys-update-features/sys-update-features-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import SysUpdateFeaturesUIService from '@/uiservice/sys-update-features/sys-update-features-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class SysUpdateFeaturesGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateFeaturesGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class SysUpdateFeaturesGridViewBase extends GridViewBase {
         srfCaption: 'entities.sysupdatefeatures.views.gridview.caption',
         srfTitle: 'entities.sysupdatefeatures.views.gridview.title',
         srfSubTitle: 'entities.sysupdatefeatures.views.gridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,9 +91,18 @@ export class SysUpdateFeaturesGridViewBase extends GridViewBase {
      * @memberof SysUpdateFeaturesGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -133,7 +142,7 @@ export class SysUpdateFeaturesGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateFeaturesGridViewBase
      */ 
-    protected viewName:string = "SysUpdateFeaturesGridView";
+    protected viewName: string = "SysUpdateFeaturesGridView";
 
 
     /**
@@ -152,7 +161,9 @@ export class SysUpdateFeaturesGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof SysUpdateFeaturesGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -163,11 +174,11 @@ export class SysUpdateFeaturesGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

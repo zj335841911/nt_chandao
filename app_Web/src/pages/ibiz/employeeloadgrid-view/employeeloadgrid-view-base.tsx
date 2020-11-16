@@ -6,7 +6,7 @@ import EmpLoyeeloadService from '@/service/emp-loyeeload/emp-loyeeload-service';
 import EmpLoyeeloadAuthService from '@/authservice/emp-loyeeload/emp-loyeeload-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import EmpLoyeeloadUIService from '@/uiservice/emp-loyeeload/emp-loyeeload-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class EMPLOYEELOADGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof EMPLOYEELOADGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class EMPLOYEELOADGridViewBase extends GridViewBase {
         srfCaption: 'entities.employeeload.views.gridview.caption',
         srfTitle: 'entities.employeeload.views.gridview.title',
         srfSubTitle: 'entities.employeeload.views.gridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class EMPLOYEELOADGridViewBase extends GridViewBase {
      * @memberof EMPLOYEELOADGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
 
@@ -112,7 +118,7 @@ export class EMPLOYEELOADGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof EMPLOYEELOADGridViewBase
      */ 
-    protected viewName:string = "EMPLOYEELOADGridView";
+    protected viewName: string = "EMPLOYEELOADGridView";
 
 
     /**
@@ -131,7 +137,9 @@ export class EMPLOYEELOADGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof EMPLOYEELOADGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -142,11 +150,11 @@ export class EMPLOYEELOADGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

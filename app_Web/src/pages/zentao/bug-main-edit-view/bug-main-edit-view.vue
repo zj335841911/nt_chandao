@@ -1,5 +1,5 @@
-<template src="./bug-main-edit-view.html"/>
-<script lang='tsx'>
+<template src="./bug-main-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugMainEditViewBase } from './bug-main-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/bug/dashboard-main-edit-form/dashboard-main-edit
     }
 })
 @VueLifeCycleProcessing()
-export default class BugMainEditView extends BugMainEditViewBase { }
+export default class BugMainEditView extends BugMainEditViewBase {}
 </script>

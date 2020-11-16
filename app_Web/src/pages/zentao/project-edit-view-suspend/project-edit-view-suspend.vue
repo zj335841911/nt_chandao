@@ -1,5 +1,5 @@
-<template src="./project-edit-view-suspend.html"/>
-<script lang='tsx'>
+<template src="./project-edit-view-suspend.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectEditView_SuspendBase } from './project-edit-view-suspend-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/project/suspend-nclose-form/suspend-nclose-form.
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectEditView_Suspend extends ProjectEditView_SuspendBase { }
+export default class ProjectEditView_Suspend extends ProjectEditView_SuspendBase {}
 </script>

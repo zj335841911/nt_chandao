@@ -1,5 +1,5 @@
-<template src="./total-cur-opened-case-portlet.html"/>
-<script lang='tsx'>
+<template src="./total-cur-opened-case-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TotalCurOpenedCasePortletBase } from './total-cur-opened-case-portlet-base';
@@ -15,10 +15,10 @@ import view_dashboard_sysportlet5_chart from '@widgets/case/cur-opened-case-char
  */
 @Component({
     components: {
-        view_dashboard_sysportlet5_chart, 
+        view_dashboard_sysportlet5_chart,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class TotalCurOpenedCasePortlet extends TotalCurOpenedCasePortletBase { }
+export default class TotalCurOpenedCasePortlet extends TotalCurOpenedCasePortletBase {}
 </script>

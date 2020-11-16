@@ -48,7 +48,7 @@ export class BugStatsEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugStatsEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class BugStatsEditViewBase extends EditViewBase {
      *
      * @memberof BugStatsEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class BugStatsEditViewBase extends EditViewBase {
         srfCaption: 'entities.bugstats.views.editview.caption',
         srfTitle: 'entities.bugstats.views.editview.title',
         srfSubTitle: 'entities.bugstats.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class BugStatsEditViewBase extends EditViewBase {
      * @memberof BugStatsEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -134,7 +140,7 @@ export class BugStatsEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugStatsEditViewBase
      */ 
-    protected viewName:string = "BugStatsEditView";
+    protected viewName: string = "BugStatsEditView";
 
 
     /**
@@ -153,7 +159,9 @@ export class BugStatsEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BugStatsEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

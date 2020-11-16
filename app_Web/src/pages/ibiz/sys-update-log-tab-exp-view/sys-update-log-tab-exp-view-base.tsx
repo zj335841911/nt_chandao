@@ -62,7 +62,7 @@ export class SysUpdateLogTabExpViewBase extends TabExpViewBase {
      *
      * @memberof SysUpdateLogTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class SysUpdateLogTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.sysupdatelog.views.tabexpview.caption',
         srfTitle: 'entities.sysupdatelog.views.tabexpview.title',
         srfSubTitle: 'entities.sysupdatelog.views.tabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class SysUpdateLogTabExpViewBase extends TabExpViewBase {
      * @memberof SysUpdateLogTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class SysUpdateLogTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof SysUpdateLogTabExpViewBase
      */ 
-    protected viewName:string = "SysUpdateLogTabExpView";
+    protected viewName: string = "SysUpdateLogTabExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class SysUpdateLogTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof SysUpdateLogTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

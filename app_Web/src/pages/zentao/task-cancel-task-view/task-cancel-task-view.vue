@@ -1,5 +1,5 @@
-<template src="./task-cancel-task-view.html"/>
-<script lang='tsx'>
+<template src="./task-cancel-task-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskCancelTaskViewBase } from './task-cancel-task-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/task/close-pause-cancel-form-form/close-pause-ca
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskCancelTaskView extends TaskCancelTaskViewBase { }
+export default class TaskCancelTaskView extends TaskCancelTaskViewBase {}
 </script>

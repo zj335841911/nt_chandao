@@ -1,5 +1,5 @@
-<template src="./keywords-portlet.html"/>
-<script lang='tsx'>
+<template src="./keywords-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { KeywordsPortletBase } from './keywords-portlet-base';
@@ -15,8 +15,8 @@ import { KeywordsPortletBase } from './keywords-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class KeywordsPortlet extends KeywordsPortletBase { }
+export default class KeywordsPortlet extends KeywordsPortletBase {}
 </script>

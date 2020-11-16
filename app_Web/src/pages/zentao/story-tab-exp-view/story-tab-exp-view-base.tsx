@@ -62,7 +62,7 @@ export class StoryTabExpViewBase extends TabExpViewBase {
      *
      * @memberof StoryTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class StoryTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.story.views.tabexpview.caption',
         srfTitle: 'entities.story.views.tabexpview.title',
         srfSubTitle: 'entities.story.views.tabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class StoryTabExpViewBase extends TabExpViewBase {
      * @memberof StoryTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class StoryTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof StoryTabExpViewBase
      */ 
-    protected viewName:string = "StoryTabExpView";
+    protected viewName: string = "StoryTabExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class StoryTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof StoryTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

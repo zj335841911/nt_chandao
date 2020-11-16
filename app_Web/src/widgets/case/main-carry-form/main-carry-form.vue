@@ -1,5 +1,5 @@
-<template src="./main-carry-form.html"/>
-<script lang='tsx'>
+<template src="./main-carry-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainCarryEditFormBase } from './main-carry-form-base';
@@ -15,11 +15,11 @@ import { MainCarryEditFormBase } from './main-carry-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MainCarryEditForm extends MainCarryEditFormBase { }
+export default class MainCarryEditForm extends MainCarryEditFormBase {}
 </script>
-<style lang='less'>
+<style lang="less">
 @import './main-carry-form.less';
 </style>

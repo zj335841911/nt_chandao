@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, ListControlBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import ClassifyByTypeService from './classify-by-type-list-service';
 import ActionUIService from '@/uiservice/action/action-ui-service';
 import DEFAULTService from '@/widgets/history/default-list/default-list-service';
-
 
 /**
  * list部件基类
@@ -16,7 +15,6 @@ import DEFAULTService from '@/widgets/history/default-list/default-list-service'
  * @extends {ClassifyByTypeListBase}
  */
 export class ClassifyByTypeListBase extends ListControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class ClassifyByTypeListBase extends ListControlBase {
      * @type {ActionUIService}
      * @memberof ClassifyByTypeBase
      */  
-    public appUIService:ActionUIService = new ActionUIService(this.$store);
+    public appUIService: ActionUIService = new ActionUIService(this.$store);
 
 
     /**

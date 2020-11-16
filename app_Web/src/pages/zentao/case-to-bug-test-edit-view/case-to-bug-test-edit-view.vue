@@ -1,5 +1,5 @@
-<template src="./case-to-bug-test-edit-view.html"/>
-<script lang='tsx'>
+<template src="./case-to-bug-test-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseToBugTestEditViewBase } from './case-to-bug-test-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/case/to-bug-test-task-form/to-bug-test-task-form
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseToBugTestEditView extends CaseToBugTestEditViewBase { }
+export default class CaseToBugTestEditView extends CaseToBugTestEditViewBase {}
 </script>

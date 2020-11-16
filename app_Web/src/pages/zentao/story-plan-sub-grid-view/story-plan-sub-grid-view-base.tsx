@@ -6,7 +6,7 @@ import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import StoryUIService from '@/uiservice/story/story-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryPlanSubGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
 	 * @memberof StoryPlanSubGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PLAN': { isRawValue: false, value: 'srfparentkey' }
+        'PLAN': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
 	/**
@@ -88,8 +91,14 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
 	 * @memberof StoryPlanSubGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_plan_eq': { isRawValue: false, value: 'srfparentkey' },
-        'plan': { isRawValue: false, value: 'srfparentkey' }
+        'n_plan_eq': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        },
+        'plan': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
     /**
@@ -103,8 +112,8 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
         srfCaption: 'entities.story.views.plansubgridview.caption',
         srfTitle: 'entities.story.views.plansubgridview.title',
         srfSubTitle: 'entities.story.views.plansubgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -114,9 +123,18 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
      * @memberof StoryPlanSubGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
+        },
     };
 
     /**
@@ -156,7 +174,7 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryPlanSubGridViewBase
      */ 
-    protected viewName:string = "StoryPlanSubGridView";
+    protected viewName: string = "StoryPlanSubGridView";
 
 
     /**
@@ -175,7 +193,9 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof StoryPlanSubGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -186,11 +206,11 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'story',

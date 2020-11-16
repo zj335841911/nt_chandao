@@ -48,7 +48,7 @@ export class ProductStatsTestEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof ProductStatsTestEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class ProductStatsTestEditView9Base extends EditView9Base {
 	 * @memberof ProductStatsTestEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'PRODUCTSTATS': { isRawValue: false, value: 'product' }
+        'PRODUCTSTATS': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class ProductStatsTestEditView9Base extends EditView9Base {
 	 * @memberof ProductStatsTestEditView9Base
 	 */
     protected customViewParams: any = {
-        'account': { isRawValue: false, value: 'srfloginname' }
+        'account': {
+            isRawValue: false,
+            value: 'srfloginname',
+        }
     };
 
     /**
@@ -99,8 +105,8 @@ export class ProductStatsTestEditView9Base extends EditView9Base {
         srfCaption: 'entities.productstats.views.testeditview9.caption',
         srfTitle: 'entities.productstats.views.testeditview9.title',
         srfSubTitle: 'entities.productstats.views.testeditview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -110,7 +116,10 @@ export class ProductStatsTestEditView9Base extends EditView9Base {
      * @memberof ProductStatsTestEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -130,7 +139,7 @@ export class ProductStatsTestEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof ProductStatsTestEditView9Base
      */ 
-    protected viewName:string = "ProductStatsTestEditView9";
+    protected viewName: string = "ProductStatsTestEditView9";
 
 
     /**
@@ -149,7 +158,9 @@ export class ProductStatsTestEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof ProductStatsTestEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

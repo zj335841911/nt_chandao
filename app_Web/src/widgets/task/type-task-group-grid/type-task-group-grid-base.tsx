@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TypeTaskGroupService from './type-task-group-grid-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {TypeTaskGroupGridBase}
  */
 export class TypeTaskGroupGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class TypeTaskGroupGridBase extends GridControlBase {
      * @type {TaskUIService}
      * @memberof TypeTaskGroupBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 逻辑事件

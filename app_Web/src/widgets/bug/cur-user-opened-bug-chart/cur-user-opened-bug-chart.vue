@@ -1,5 +1,5 @@
-<template src="./cur-user-opened-bug-chart.html"/>
-<script lang='tsx'>
+<template src="./cur-user-opened-bug-chart.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CurUserOpenedBugChartBase } from './cur-user-opened-bug-chart-base';
@@ -15,8 +15,8 @@ import { CurUserOpenedBugChartBase } from './cur-user-opened-bug-chart-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class CurUserOpenedBugChart extends CurUserOpenedBugChartBase { }
+export default class CurUserOpenedBugChart extends CurUserOpenedBugChartBase {}
 </script>

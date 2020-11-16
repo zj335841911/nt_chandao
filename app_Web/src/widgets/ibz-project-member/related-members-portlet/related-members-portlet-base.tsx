@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import IbzProjectMemberService from '@/service/ibz-project-member/ibz-project-member-service';
 import RelatedMembersService from './related-members-portlet-service';
 import IbzProjectMemberUIService from '@/uiservice/ibz-project-member/ibz-project-member-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-
 
 /**
  * dashboard_sysportlet6部件基类
@@ -17,7 +16,6 @@ import UIService from '@/uiservice/ui-service';
  * @extends {RelatedMembersPortletBase}
  */
 export class RelatedMembersPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class RelatedMembersPortletBase extends MainControlBase {
      * @type {IbzProjectMemberUIService}
      * @memberof RelatedMembersBase
      */  
-    public appUIService:IbzProjectMemberUIService = new IbzProjectMemberUIService(this.$store);
+    public appUIService: IbzProjectMemberUIService = new IbzProjectMemberUIService(this.$store);
 
 
     /**

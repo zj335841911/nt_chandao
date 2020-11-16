@@ -62,7 +62,7 @@ export class DocLibDashboardViewBase extends DashboardViewBase {
      *
      * @memberof DocLibDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class DocLibDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.doclib.views.dashboardview.caption',
         srfTitle: 'entities.doclib.views.dashboardview.title',
         srfSubTitle: 'entities.doclib.views.dashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class DocLibDashboardViewBase extends DashboardViewBase {
      * @memberof DocLibDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class DocLibDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof DocLibDashboardViewBase
      */ 
-    protected viewName:string = "DocLibDashboardView";
+    protected viewName: string = "DocLibDashboardView";
 
 
     /**
@@ -125,7 +128,9 @@ export class DocLibDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof DocLibDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

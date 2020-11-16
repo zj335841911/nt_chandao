@@ -1,5 +1,5 @@
-<template src="./task-sub-task-new-view.html"/>
-<script lang='tsx'>
+<template src="./task-sub-task-new-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskSubTaskNewViewBase } from './task-sub-task-new-view-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/sub-task/sub-task-new-grid/sub-task-new-grid.vue
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskSubTaskNewView extends TaskSubTaskNewViewBase { }
+export default class TaskSubTaskNewView extends TaskSubTaskNewViewBase {}
 </script>

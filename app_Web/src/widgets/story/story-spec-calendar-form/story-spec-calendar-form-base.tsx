@@ -1,12 +1,23 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StorySpecCalendarService from './story-spec-calendar-form-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
-import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
-
+import {
+    FormButtonModel,
+    FormPageModel,
+    FormItemModel,
+    FormDRUIPartModel,
+    FormPartModel,
+    FormGroupPanelModel,
+    FormIFrameModel,
+    FormRowItemModel,
+    FormTabPageModel,
+    FormTabPanelModel,
+    FormUserControlModel,
+} from '@/model/form-detail';
 
 /**
  * form部件基类
@@ -16,7 +27,6 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  * @extends {StorySpecCalendarEditFormBase}
  */
 export class StorySpecCalendarEditFormBase extends EditFormControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +76,7 @@ export class StorySpecCalendarEditFormBase extends EditFormControlBase {
      * @type {StoryUIService}
      * @memberof StorySpecCalendarBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 逻辑事件
@@ -310,7 +320,7 @@ export class StorySpecCalendarEditFormBase extends EditFormControlBase {
         formitem: null,
         spec: null,
         verify: null,
-        story:null,
+        story: null,
     };
 
     /**
@@ -319,7 +329,7 @@ export class StorySpecCalendarEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof StorySpecCalendarEditFormBase
      */
-    public majorMessageField: string = "title";
+    public majorMessageField: string = 'title';
 
     /**
      * 属性值规则
@@ -327,7 +337,7 @@ export class StorySpecCalendarEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof StorySpecCalendarEditFormBase
      */
-    public rules():any{
+    public rules(): any{
         return {
         }
     }
@@ -348,26 +358,103 @@ export class StorySpecCalendarEditFormBase extends EditFormControlBase {
      * @memberof StorySpecCalendarEditFormBase
      */
     public detailsModel: any = {
-        button1: new FormButtonModel({ caption: '指派', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'AssignToDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__STORY_ASS_BUT',visible: true,disabled: false} }),
+        button1: new FormButtonModel({
+    caption: '指派', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    disabled: false,
+    uiaction: {
+        type: 'DEUIACTION',
+        tag: 'AssignToDash',
+        actiontarget: 'SINGLEKEY',
+        noprivdisplaymode: 2,
+        dataaccaction: 'SRFUR__STORY_ASS_BUT',
+        visible: true,
+        disabled: false,
+        }
+}),
 
-        button2: new FormButtonModel({ caption: '评审', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'ReviewStoryDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__STORY_REVIEW_BUT',visible: true,disabled: false} }),
+        button2: new FormButtonModel({
+    caption: '评审', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    disabled: false,
+    uiaction: {
+        type: 'DEUIACTION',
+        tag: 'ReviewStoryDash',
+        actiontarget: 'SINGLEKEY',
+        noprivdisplaymode: 2,
+        dataaccaction: 'SRFUR__STORY_REVIEW_BUT',
+        visible: true,
+        disabled: false,
+        }
+}),
 
-        button3: new FormButtonModel({ caption: '激活', detailType: 'BUTTON', name: 'button3', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'ActiviteDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__STORY_ACTIVE_BUT',visible: true,disabled: false} }),
+        button3: new FormButtonModel({
+    caption: '激活', detailType: 'BUTTON', name: 'button3', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    disabled: false,
+    uiaction: {
+        type: 'DEUIACTION',
+        tag: 'ActiviteDash',
+        actiontarget: 'SINGLEKEY',
+        noprivdisplaymode: 2,
+        dataaccaction: 'SRFUR__STORY_ACTIVE_BUT',
+        visible: true,
+        disabled: false,
+        }
+}),
 
-        button4: new FormButtonModel({ caption: '关闭', detailType: 'BUTTON', name: 'button4', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'CloseStoryDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__STORY_CLOSED_BUT',visible: true,disabled: false} }),
+        button4: new FormButtonModel({
+    caption: '关闭', detailType: 'BUTTON', name: 'button4', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    disabled: false,
+    uiaction: {
+        type: 'DEUIACTION',
+        tag: 'CloseStoryDash',
+        actiontarget: 'SINGLEKEY',
+        noprivdisplaymode: 2,
+        dataaccaction: 'SRFUR__STORY_CLOSED_BUT',
+        visible: true,
+        disabled: false,
+        }
+}),
 
-        button5: new FormButtonModel({ caption: '变更', detailType: 'BUTTON', name: 'button5', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'ChangeStoryDetailDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__STORY_CHANGED_BUT',visible: true,disabled: false} }),
+        button5: new FormButtonModel({
+    caption: '变更', detailType: 'BUTTON', name: 'button5', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    disabled: false,
+    uiaction: {
+        type: 'DEUIACTION',
+        tag: 'ChangeStoryDetailDash',
+        actiontarget: 'SINGLEKEY',
+        noprivdisplaymode: 2,
+        dataaccaction: 'SRFUR__STORY_CHANGED_BUT',
+        visible: true,
+        disabled: false,
+        }
+}),
 
-        button6: new FormButtonModel({ caption: '细分', detailType: 'BUTTON', name: 'button6', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'SubStoryCz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__STORY_XQXF_BUT',visible: true,disabled: false} }),
+        button6: new FormButtonModel({
+    caption: '细分', detailType: 'BUTTON', name: 'button6', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    disabled: false,
+    uiaction: {
+        type: 'DEUIACTION',
+        tag: 'SubStoryCz',
+        actiontarget: 'SINGLEKEY',
+        noprivdisplaymode: 2,
+        dataaccaction: 'SRFUR__STORY_XQXF_BUT',
+        visible: true,
+        disabled: false,
+        }
+}),
 
-        button7: new FormButtonModel({ caption: '编辑', detailType: 'BUTTON', name: 'button7', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'OpenBaseInfoC',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__STORY_EDIT_BUT',visible: true,disabled: false} }),
+        button7: new FormButtonModel({
+    caption: '编辑', detailType: 'BUTTON', name: 'button7', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    disabled: false,
+    uiaction: {
+        type: 'DEUIACTION',
+        tag: 'OpenBaseInfoC',
+        actiontarget: 'SINGLEKEY',
+        noprivdisplaymode: 2,
+        dataaccaction: 'SRFUR__STORY_EDIT_BUT',
+        visible: true,
+        disabled: false,
+        }
+}),
 
         grouppanel1: new FormGroupPanelModel({ caption: '操作', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.storyspeccalendar_form', extractMode: 'ITEM', details: [] } }),
 
@@ -385,47 +472,152 @@ export class StorySpecCalendarEditFormBase extends EditFormControlBase {
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+        srfupdatedate: new FormItemModel({
+    caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
-        srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srforikey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+        srfkey: new FormItemModel({
+    caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
-        srfmajortext: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfmajortext: new FormItemModel({
+    caption: '需求名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srftempmode: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfuf: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfuf: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfdeid: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfdeid: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfsourcekey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        parent: new FormItemModel({ caption: '父需求', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        parent: new FormItemModel({
+    caption: '父需求', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        id: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+        id: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
-        status: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        status: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        title: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        title: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        version: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'version', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        version: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'version', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        pri: new FormItemModel({
+    caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        stage: new FormItemModel({ caption: '所处阶段', detailType: 'FORMITEM', name: 'stage', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        stage: new FormItemModel({
+    caption: '所处阶段', detailType: 'FORMITEM', name: 'stage', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        estimate: new FormItemModel({ caption: '预计工时', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        estimate: new FormItemModel({
+    caption: '预计工时', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        isfavorites: new FormItemModel({ caption: '是否收藏', detailType: 'FORMITEM', name: 'isfavorites', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        isfavorites: new FormItemModel({
+    caption: '是否收藏', detailType: 'FORMITEM', name: 'isfavorites', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        ischild: new FormItemModel({ caption: '是否可以细分', detailType: 'FORMITEM', name: 'ischild', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        ischild: new FormItemModel({
+    caption: '是否可以细分', detailType: 'FORMITEM', name: 'ischild', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        formitem: new FormItemModel({ caption: '版本号', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        formitem: new FormItemModel({
+    caption: '版本号', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        spec: new FormItemModel({
+    caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        verify: new FormItemModel({
+    caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
     };
 
@@ -436,7 +628,7 @@ export class StorySpecCalendarEditFormBase extends EditFormControlBase {
      * @returns {Promise<void>}
      * @memberof StorySpecCalendarEditFormBase
      */
-    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+    public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
 
 

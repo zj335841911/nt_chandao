@@ -1,5 +1,5 @@
-<template src="./story-calendar-edit-view.html"/>
-<script lang='tsx'>
+<template src="./story-calendar-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryCalendarEditViewBase } from './story-calendar-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/story/story-spec-calendar-form/story-spec-calend
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryCalendarEditView extends StoryCalendarEditViewBase { }
+export default class StoryCalendarEditView extends StoryCalendarEditViewBase {}
 </script>

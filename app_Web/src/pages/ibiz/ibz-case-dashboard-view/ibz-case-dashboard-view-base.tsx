@@ -65,8 +65,14 @@ export class IbzCaseDashboardViewBase extends DashboardViewBase {
 	 * @memberof IbzCaseDashboardViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'case' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'ibzcase' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'case',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'ibzcase',
+        }
     };
 
     /**
@@ -74,7 +80,7 @@ export class IbzCaseDashboardViewBase extends DashboardViewBase {
      *
      * @memberof IbzCaseDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -87,8 +93,8 @@ export class IbzCaseDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.ibzcase.views.dashboardview.caption',
         srfTitle: 'entities.ibzcase.views.dashboardview.title',
         srfSubTitle: 'entities.ibzcase.views.dashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -98,7 +104,10 @@ export class IbzCaseDashboardViewBase extends DashboardViewBase {
      * @memberof IbzCaseDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -118,7 +127,7 @@ export class IbzCaseDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof IbzCaseDashboardViewBase
      */ 
-    protected viewName:string = "IbzCaseDashboardView";
+    protected viewName: string = "IbzCaseDashboardView";
 
 
     /**
@@ -137,7 +146,9 @@ export class IbzCaseDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof IbzCaseDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

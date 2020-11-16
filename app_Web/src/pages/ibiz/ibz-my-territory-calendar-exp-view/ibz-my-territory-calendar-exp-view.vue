@@ -1,5 +1,5 @@
-<template src="./ibz-my-territory-calendar-exp-view.html"/>
-<script lang='tsx'>
+<template src="./ibz-my-territory-calendar-exp-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzMyTerritoryCalendarExpViewBase } from './ibz-my-territory-calendar-exp-view-base';
@@ -18,5 +18,5 @@ import view_calendarexpbar from '@widgets/ibz-my-territory/calendar-exp-viewcale
     }
 })
 @VueLifeCycleProcessing()
-export default class IbzMyTerritoryCalendarExpView extends IbzMyTerritoryCalendarExpViewBase { }
+export default class IbzMyTerritoryCalendarExpView extends IbzMyTerritoryCalendarExpViewBase {}
 </script>

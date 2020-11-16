@@ -1,7 +1,7 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import CaseLASTRUNNERProjectService from './case-lastrunnerproject-chart-service';
@@ -11,7 +11,6 @@ import moment from "moment";
 import CodeListService from "@service/app/codelist-service";
 import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries,ChartRadarSeries} from '@/model/chart-detail';
 
-
 /**
  * dashboard_sysportlet4_chart部件基类
  *
@@ -20,7 +19,6 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
  * @extends {CaseLASTRUNNERProjectChartBase}
  */
 export class CaseLASTRUNNERProjectChartBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -70,7 +68,7 @@ export class CaseLASTRUNNERProjectChartBase extends MainControlBase {
      * @type {CaseUIService}
      * @memberof CaseLASTRUNNERProjectBase
      */  
-    public appUIService:CaseUIService = new CaseUIService(this.$store);
+    public appUIService: CaseUIService = new CaseUIService(this.$store);
 
     
 

@@ -1,5 +1,5 @@
-<template src="./qay-dashboard.html"/>
-<script lang='tsx'>
+<template src="./qay-dashboard.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { QAYDashboardBase } from './qay-dashboard-base';
@@ -17,12 +17,12 @@ import view_dashboard_sysportlet3 from '@widgets/user-year-work-stats/month-open
  */
 @Component({
     components: {
-        view_dashboard_sysportlet4, 
-        view_dashboard_sysportlet5, 
-        view_dashboard_sysportlet3, 
+        view_dashboard_sysportlet4,
+        view_dashboard_sysportlet5,
+        view_dashboard_sysportlet3,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class QAYDashboard extends QAYDashboardBase { }
+export default class QAYDashboard extends QAYDashboardBase {}
 </script>

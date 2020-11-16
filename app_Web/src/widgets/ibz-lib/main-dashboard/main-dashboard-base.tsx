@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import IbzLibService from '@/service/ibz-lib/ibz-lib-service';
 import MainService from './main-dashboard-service';
 import IbzLibUIService from '@/uiservice/ibz-lib/ibz-lib-ui-service';
 import UtilService from '@/utilservice/util-service';
-
 
 /**
  * dashboard部件基类
@@ -16,7 +15,6 @@ import UtilService from '@/utilservice/util-service';
  * @extends {MainDashboardBase}
  */
 export class MainDashboardBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class MainDashboardBase extends MainControlBase {
      * @type {IbzLibUIService}
      * @memberof MainBase
      */  
-    public appUIService:IbzLibUIService = new IbzLibUIService(this.$store);
+    public appUIService: IbzLibUIService = new IbzLibUIService(this.$store);
 
     /**
      * 是否支持看板定制

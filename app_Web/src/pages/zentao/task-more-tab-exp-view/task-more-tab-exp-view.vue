@@ -1,5 +1,5 @@
-<template src="./task-more-tab-exp-view.html"/>
-<script lang='tsx'>
+<template src="./task-more-tab-exp-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskMoreTabExpViewBase } from './task-more-tab-exp-view-base';
@@ -18,5 +18,5 @@ import view_tabexppanel from '@widgets/task/more-tab-exp-viewtabexppanel-tabexpp
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskMoreTabExpView extends TaskMoreTabExpViewBase { }
+export default class TaskMoreTabExpView extends TaskMoreTabExpViewBase {}
 </script>

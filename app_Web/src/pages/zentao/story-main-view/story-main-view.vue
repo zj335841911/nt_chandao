@@ -1,5 +1,5 @@
-<template src="./story-main-view.html"/>
-<script lang='tsx'>
+<template src="./story-main-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryMainViewBase } from './story-main-view-base';
@@ -18,5 +18,5 @@ import view_dashboard from '@widgets/story/main-panel-dashboard/main-panel-dashb
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryMainView extends StoryMainViewBase { }
+export default class StoryMainView extends StoryMainViewBase {}
 </script>

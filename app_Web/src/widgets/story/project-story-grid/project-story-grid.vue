@@ -1,5 +1,5 @@
-<template src="./project-story-grid.html"/>
-<script lang='tsx'>
+<template src="./project-story-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectStoryGridBase } from './project-story-grid-base';
@@ -15,8 +15,8 @@ import { ProjectStoryGridBase } from './project-story-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ProjectStoryGrid extends ProjectStoryGridBase { }
+export default class ProjectStoryGrid extends ProjectStoryGridBase {}
 </script>

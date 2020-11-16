@@ -48,7 +48,7 @@ export class TestTaskCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestTaskCalendarEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,8 +74,14 @@ export class TestTaskCalendarEditViewBase extends EditViewBase {
 	 * @memberof TestTaskCalendarEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'testtask' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'testtask' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'testtask',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'testtask',
+        }
     };
 
     /**
@@ -83,7 +89,7 @@ export class TestTaskCalendarEditViewBase extends EditViewBase {
      *
      * @memberof TestTaskCalendarEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -96,8 +102,8 @@ export class TestTaskCalendarEditViewBase extends EditViewBase {
         srfCaption: 'entities.testtask.views.calendareditview.caption',
         srfTitle: 'entities.testtask.views.calendareditview.title',
         srfSubTitle: 'entities.testtask.views.calendareditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -107,7 +113,10 @@ export class TestTaskCalendarEditViewBase extends EditViewBase {
      * @memberof TestTaskCalendarEditViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -127,7 +136,7 @@ export class TestTaskCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestTaskCalendarEditViewBase
      */ 
-    protected viewName:string = "TestTaskCalendarEditView";
+    protected viewName: string = "TestTaskCalendarEditView";
 
 
     /**
@@ -146,7 +155,9 @@ export class TestTaskCalendarEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TestTaskCalendarEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

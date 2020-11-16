@@ -48,7 +48,7 @@ export class DocLibModuleEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof DocLibModuleEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class DocLibModuleEditViewBase extends EditViewBase {
      *
      * @memberof DocLibModuleEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class DocLibModuleEditViewBase extends EditViewBase {
         srfCaption: 'entities.doclibmodule.views.editview.caption',
         srfTitle: 'entities.doclibmodule.views.editview.title',
         srfSubTitle: 'entities.doclibmodule.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class DocLibModuleEditViewBase extends EditViewBase {
      * @memberof DocLibModuleEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -134,7 +140,7 @@ export class DocLibModuleEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof DocLibModuleEditViewBase
      */ 
-    protected viewName:string = "DocLibModuleEditView";
+    protected viewName: string = "DocLibModuleEditView";
 
 
     /**
@@ -153,7 +159,9 @@ export class DocLibModuleEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof DocLibModuleEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

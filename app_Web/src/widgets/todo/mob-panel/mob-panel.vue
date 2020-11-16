@@ -1,5 +1,5 @@
-<template src="./mob-panel.html"/>
-<script lang='tsx'>
+<template src="./mob-panel.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MobPanelBase } from './mob-panel-base';
@@ -15,11 +15,11 @@ import { MobPanelBase } from './mob-panel-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MobPanel extends MobPanelBase { }
+export default class MobPanel extends MobPanelBase {}
 </script>
-<style lang='less'>
+<style lang="less">
 @import './mob-panel.less';
 </style>

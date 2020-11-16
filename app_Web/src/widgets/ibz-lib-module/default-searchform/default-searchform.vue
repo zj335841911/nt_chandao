@@ -1,5 +1,5 @@
-<template src="./default-searchform.html"/>
-<script lang='tsx'>
+<template src="./default-searchform.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DefaultSearchFormBase } from './default-searchform-base';
@@ -15,8 +15,8 @@ import { DefaultSearchFormBase } from './default-searchform-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class DefaultSearchForm extends DefaultSearchFormBase { }
+export default class DefaultSearchForm extends DefaultSearchFormBase {}
 </script>

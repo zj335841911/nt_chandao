@@ -1,4 +1,11 @@
-<i-form :model="this.data" class='app-form' ref='form'  id='todo_activitefrom' style="" @on-validate="formItemValidate.apply(_self, arguments)">
+<i-form
+    :model="this.data"
+    class='app-form'
+    ref='form'
+    id='todo_activitefrom'
+    style=""
+    @on-validate="formItemValidate.apply(_self, arguments)"
+>
     <input style="display:none;" />
     <row >
             <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 20, offset: 4 }" :xl="{ span: 20, offset: 4 }">

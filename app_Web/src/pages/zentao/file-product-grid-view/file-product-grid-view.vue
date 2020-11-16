@@ -1,5 +1,5 @@
-<template src="./file-product-grid-view.html"/>
-<script lang='tsx'>
+<template src="./file-product-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { FileProductGridViewBase } from './file-product-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/file/default-searchform/default-searchform
     }
 })
 @VueLifeCycleProcessing()
-export default class FileProductGridView extends FileProductGridViewBase { }
+export default class FileProductGridView extends FileProductGridViewBase {}
 </script>

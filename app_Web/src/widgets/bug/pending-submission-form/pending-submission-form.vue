@@ -1,5 +1,5 @@
-<template src="./pending-submission-form.html"/>
-<script lang='tsx'>
+<template src="./pending-submission-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { PendingSubmissionEditFormBase } from './pending-submission-form-base';
@@ -15,8 +15,8 @@ import { PendingSubmissionEditFormBase } from './pending-submission-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class PendingSubmissionEditForm extends PendingSubmissionEditFormBase { }
+export default class PendingSubmissionEditForm extends PendingSubmissionEditFormBase {}
 </script>

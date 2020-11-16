@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import IBZTaskEstimateService from '@/service/ibztask-estimate/ibztask-estimate-service';
 import MainService from './main-grid-service';
 import IBZTaskEstimateUIService from '@/uiservice/ibztask-estimate/ibztask-estimate-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {MainGridBase}
  */
 export class MainGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class MainGridBase extends GridControlBase {
      * @type {IBZTaskEstimateUIService}
      * @memberof MainBase
      */  
-    public appUIService:IBZTaskEstimateUIService = new IBZTaskEstimateUIService(this.$store);
+    public appUIService: IBZTaskEstimateUIService = new IBZTaskEstimateUIService(this.$store);
 
 
     /**

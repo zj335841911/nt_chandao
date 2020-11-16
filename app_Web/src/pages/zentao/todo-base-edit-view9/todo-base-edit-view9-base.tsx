@@ -48,7 +48,7 @@ export class TodoBaseEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof TodoBaseEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class TodoBaseEditView9Base extends EditView9Base {
         srfCaption: 'entities.todo.views.baseeditview9.caption',
         srfTitle: 'entities.todo.views.baseeditview9.title',
         srfSubTitle: 'entities.todo.views.baseeditview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class TodoBaseEditView9Base extends EditView9Base {
      * @memberof TodoBaseEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -108,7 +111,7 @@ export class TodoBaseEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof TodoBaseEditView9Base
      */ 
-    protected viewName:string = "TodoBaseEditView9";
+    protected viewName: string = "TodoBaseEditView9";
 
 
     /**
@@ -127,7 +130,9 @@ export class TodoBaseEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof TodoBaseEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

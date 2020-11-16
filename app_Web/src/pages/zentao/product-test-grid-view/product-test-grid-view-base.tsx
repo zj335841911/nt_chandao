@@ -6,7 +6,7 @@ import ProductService from '@/service/product/product-service';
 import ProductAuthService from '@/authservice/product/product-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import ProductUIService from '@/uiservice/product/product-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProductTestGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductTestGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ProductTestGridViewBase extends GridViewBase {
         srfCaption: 'entities.product.views.testgridview.caption',
         srfTitle: 'entities.product.views.testgridview.title',
         srfSubTitle: 'entities.product.views.testgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,10 +91,22 @@ export class ProductTestGridViewBase extends GridViewBase {
      * @memberof ProductTestGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -124,7 +136,7 @@ export class ProductTestGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductTestGridViewBase
      */ 
-    protected viewName:string = "ProductTestGridView";
+    protected viewName: string = "ProductTestGridView";
 
 
     /**
@@ -143,7 +155,9 @@ export class ProductTestGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof ProductTestGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -154,8 +168,8 @@ export class ProductTestGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

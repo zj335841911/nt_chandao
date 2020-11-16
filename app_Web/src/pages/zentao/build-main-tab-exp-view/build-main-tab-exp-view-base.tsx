@@ -65,10 +65,22 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
 	 * @memberof BuildMainTabExpViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'srfparentkey': { isRawValue: false, value: 'build' },
-        'project': { isRawValue: false, value: 'project' },
-        'objecttype': { isRawValue: true, value: 'build' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'srfparentkey': {
+            isRawValue: false,
+            value: 'build',
+        },
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'objecttype': {
+            isRawValue: true,
+            value: 'build',
+        }
     };
 
     /**
@@ -76,7 +88,7 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
      *
      * @memberof BuildMainTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -89,8 +101,8 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.build.views.maintabexpview.caption',
         srfTitle: 'entities.build.views.maintabexpview.title',
         srfSubTitle: 'entities.build.views.maintabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -100,7 +112,10 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
      * @memberof BuildMainTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -120,7 +135,7 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof BuildMainTabExpViewBase
      */ 
-    protected viewName:string = "BuildMainTabExpView";
+    protected viewName: string = "BuildMainTabExpView";
 
 
     /**
@@ -139,7 +154,9 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof BuildMainTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

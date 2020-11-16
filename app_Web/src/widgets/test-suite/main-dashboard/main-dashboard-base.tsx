@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TestSuiteService from '@/service/test-suite/test-suite-service';
 import MainService from './main-dashboard-service';
 import TestSuiteUIService from '@/uiservice/test-suite/test-suite-ui-service';
 import UtilService from '@/utilservice/util-service';
-
 
 /**
  * dashboard部件基类
@@ -16,7 +15,6 @@ import UtilService from '@/utilservice/util-service';
  * @extends {MainDashboardBase}
  */
 export class MainDashboardBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class MainDashboardBase extends MainControlBase {
      * @type {TestSuiteUIService}
      * @memberof MainBase
      */  
-    public appUIService:TestSuiteUIService = new TestSuiteUIService(this.$store);
+    public appUIService: TestSuiteUIService = new TestSuiteUIService(this.$store);
 
     /**
      * 是否支持看板定制

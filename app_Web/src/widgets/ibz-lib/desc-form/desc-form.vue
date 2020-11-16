@@ -1,5 +1,5 @@
-<template src="./desc-form.html"/>
-<script lang='tsx'>
+<template src="./desc-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DescEditFormBase } from './desc-form-base';
@@ -15,11 +15,11 @@ import { DescEditFormBase } from './desc-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class DescEditForm extends DescEditFormBase { }
+export default class DescEditForm extends DescEditFormBase {}
 </script>
-<style lang='less'>
+<style lang="less">
 @import './desc-form.less';
 </style>

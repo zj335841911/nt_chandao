@@ -1,5 +1,5 @@
-<template src="./sys-update-features-info-edit-view.html"/>
-<script lang='tsx'>
+<template src="./sys-update-features-info-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { SysUpdateFeaturesInfoEditViewBase } from './sys-update-features-info-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/sys-update-features/info-main-form/info-main-for
     }
 })
 @VueLifeCycleProcessing()
-export default class SysUpdateFeaturesInfoEditView extends SysUpdateFeaturesInfoEditViewBase { }
+export default class SysUpdateFeaturesInfoEditView extends SysUpdateFeaturesInfoEditViewBase {}
 </script>

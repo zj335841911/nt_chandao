@@ -65,7 +65,10 @@ export class UserYearWorkStatsPODashboardViewBase extends DashboardViewBase {
 	 * @memberof UserYearWorkStatsPODashboardViewBase
 	 */
     protected customViewNavContexts: any = {
-        'CURYEAR': { isRawValue: false, value: 'curyear' }
+        'CURYEAR': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
 	/**
@@ -76,7 +79,10 @@ export class UserYearWorkStatsPODashboardViewBase extends DashboardViewBase {
 	 * @memberof UserYearWorkStatsPODashboardViewBase
 	 */
     protected customViewParams: any = {
-        'curyear': { isRawValue: false, value: 'curyear' }
+        'curyear': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
     /**
@@ -84,7 +90,7 @@ export class UserYearWorkStatsPODashboardViewBase extends DashboardViewBase {
      *
      * @memberof UserYearWorkStatsPODashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -97,8 +103,8 @@ export class UserYearWorkStatsPODashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.useryearworkstats.views.podashboardview.caption',
         srfTitle: 'entities.useryearworkstats.views.podashboardview.title',
         srfSubTitle: 'entities.useryearworkstats.views.podashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -108,7 +114,10 @@ export class UserYearWorkStatsPODashboardViewBase extends DashboardViewBase {
      * @memberof UserYearWorkStatsPODashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -128,7 +137,7 @@ export class UserYearWorkStatsPODashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof UserYearWorkStatsPODashboardViewBase
      */ 
-    protected viewName:string = "UserYearWorkStatsPODashboardView";
+    protected viewName: string = "UserYearWorkStatsPODashboardView";
 
 
     /**
@@ -147,7 +156,9 @@ export class UserYearWorkStatsPODashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof UserYearWorkStatsPODashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

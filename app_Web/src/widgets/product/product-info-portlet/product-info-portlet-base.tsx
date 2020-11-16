@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductInfoService from './product-info-portlet-service';
 import ProductUIService from '@/uiservice/product/product-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-
 
 /**
  * dashboard_sysportlet3部件基类
@@ -17,7 +16,6 @@ import UIService from '@/uiservice/ui-service';
  * @extends {ProductInfoPortletBase}
  */
 export class ProductInfoPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class ProductInfoPortletBase extends MainControlBase {
      * @type {ProductUIService}
      * @memberof ProductInfoBase
      */  
-    public appUIService:ProductUIService = new ProductUIService(this.$store);
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
 
     /**

@@ -48,7 +48,7 @@ export class StoryPlanSubEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryPlanSubEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class StoryPlanSubEditViewBase extends EditViewBase {
 	 * @memberof StoryPlanSubEditViewBase
 	 */
     protected customViewParams: any = {
-        'plan': { isRawValue: false, value: 'plan' }
+        'plan': {
+            isRawValue: false,
+            value: 'plan',
+        }
     };
 
     /**
@@ -82,7 +85,7 @@ export class StoryPlanSubEditViewBase extends EditViewBase {
      *
      * @memberof StoryPlanSubEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -95,8 +98,8 @@ export class StoryPlanSubEditViewBase extends EditViewBase {
         srfCaption: 'entities.story.views.plansubeditview.caption',
         srfTitle: 'entities.story.views.plansubeditview.title',
         srfSubTitle: 'entities.story.views.plansubeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -106,8 +109,14 @@ export class StoryPlanSubEditViewBase extends EditViewBase {
      * @memberof StoryPlanSubEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -139,7 +148,7 @@ export class StoryPlanSubEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryPlanSubEditViewBase
      */ 
-    protected viewName:string = "StoryPlanSubEditView";
+    protected viewName: string = "StoryPlanSubEditView";
 
 
     /**
@@ -158,7 +167,9 @@ export class StoryPlanSubEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof StoryPlanSubEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

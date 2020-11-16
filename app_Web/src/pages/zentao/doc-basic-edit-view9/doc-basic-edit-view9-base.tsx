@@ -48,7 +48,7 @@ export class DocBasicEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof DocBasicEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class DocBasicEditView9Base extends EditView9Base {
         srfCaption: 'entities.doc.views.basiceditview9.caption',
         srfTitle: 'entities.doc.views.basiceditview9.title',
         srfSubTitle: 'entities.doc.views.basiceditview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class DocBasicEditView9Base extends EditView9Base {
      * @memberof DocBasicEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -108,7 +111,7 @@ export class DocBasicEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof DocBasicEditView9Base
      */ 
-    protected viewName:string = "DocBasicEditView9";
+    protected viewName: string = "DocBasicEditView9";
 
 
     /**
@@ -127,7 +130,9 @@ export class DocBasicEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof DocBasicEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

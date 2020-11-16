@@ -1,5 +1,5 @@
-<template src="./bug-build-sub-grid-view-new-9212.html"/>
-<script lang='tsx'>
+<template src="./bug-build-sub-grid-view-new-9212.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugBuildSubGridView_New_9212Base } from './bug-build-sub-grid-view-new-9212-base';
@@ -20,5 +20,5 @@ import view_searchbar from '@widgets/bug/custom-searchbar/custom-searchbar.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BugBuildSubGridView_New_9212 extends BugBuildSubGridView_New_9212Base { }
+export default class BugBuildSubGridView_New_9212 extends BugBuildSubGridView_New_9212Base {}
 </script>

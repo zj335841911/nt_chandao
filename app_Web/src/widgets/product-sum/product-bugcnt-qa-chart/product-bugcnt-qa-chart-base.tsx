@@ -1,7 +1,7 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProductSumService from '@/service/product-sum/product-sum-service';
 import ProductBugcnt_QAService from './product-bugcnt-qa-chart-service';
@@ -11,7 +11,6 @@ import moment from "moment";
 import CodeListService from "@service/app/codelist-service";
 import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries,ChartRadarSeries} from '@/model/chart-detail';
 
-
 /**
  * chart部件基类
  *
@@ -20,7 +19,6 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
  * @extends {ProductBugcnt_QAChartBase}
  */
 export class ProductBugcnt_QAChartBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -70,7 +68,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * @type {ProductSumUIService}
      * @memberof ProductBugcnt_QABase
      */  
-    public appUIService:ProductSumUIService = new ProductSumUIService(this.$store);
+    public appUIService: ProductSumUIService = new ProductSumUIService(this.$store);
 
     
 

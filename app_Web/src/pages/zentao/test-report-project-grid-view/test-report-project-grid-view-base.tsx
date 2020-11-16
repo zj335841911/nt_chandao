@@ -6,7 +6,7 @@ import TestReportService from '@/service/test-report/test-report-service';
 import TestReportAuthService from '@/authservice/test-report/test-report-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import TestReportUIService from '@/uiservice/test-report/test-report-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TestReportProjectGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestReportProjectGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,9 +77,18 @@ export class TestReportProjectGridViewBase extends GridViewBase {
 	 * @memberof TestReportProjectGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'N_PROJECT_EQ': { isRawValue: false, value: 'project' },
-        'PROJECT': { isRawValue: false, value: 'project' },
-        'N_OBJECTTYPE_EQ': { isRawValue: true, value: 'project' }
+        'N_PROJECT_EQ': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'N_OBJECTTYPE_EQ': {
+            isRawValue: true,
+            value: 'project',
+        }
     };
 
 	/**
@@ -90,9 +99,18 @@ export class TestReportProjectGridViewBase extends GridViewBase {
 	 * @memberof TestReportProjectGridViewBase
 	 */
     protected customViewParams: any = {
-        'project': { isRawValue: false, value: 'project' },
-        'n_project_eq': { isRawValue: false, value: 'project' },
-        'n_objecttype_eq': { isRawValue: true, value: 'project' }
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'n_project_eq': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'n_objecttype_eq': {
+            isRawValue: true,
+            value: 'project',
+        }
     };
 
     /**
@@ -106,8 +124,8 @@ export class TestReportProjectGridViewBase extends GridViewBase {
         srfCaption: 'entities.testreport.views.projectgridview.caption',
         srfTitle: 'entities.testreport.views.projectgridview.title',
         srfSubTitle: 'entities.testreport.views.projectgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,8 +135,14 @@ export class TestReportProjectGridViewBase extends GridViewBase {
      * @memberof TestReportProjectGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -154,7 +178,7 @@ export class TestReportProjectGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestReportProjectGridViewBase
      */ 
-    protected viewName:string = "TestReportProjectGridView";
+    protected viewName: string = "TestReportProjectGridView";
 
 
     /**
@@ -173,7 +197,9 @@ export class TestReportProjectGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof TestReportProjectGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -184,11 +210,11 @@ export class TestReportProjectGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'testreport',

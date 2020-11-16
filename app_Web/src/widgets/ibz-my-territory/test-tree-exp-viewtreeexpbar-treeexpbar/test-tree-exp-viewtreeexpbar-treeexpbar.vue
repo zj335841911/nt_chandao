@@ -1,5 +1,5 @@
-<template src="./test-tree-exp-viewtreeexpbar-treeexpbar.html"/>
-<script lang='tsx'>
+<template src="./test-tree-exp-viewtreeexpbar-treeexpbar.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestTreeExpViewtreeexpbarTreeExpBarBase } from './test-tree-exp-viewtreeexpbar-treeexpbar-base';
@@ -15,10 +15,10 @@ import view_treeexpbar_tree from '@widgets/ibz-my-territory/test-treeview/test-t
  */
 @Component({
     components: {
-        view_treeexpbar_tree, 
+        view_treeexpbar_tree,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class TestTreeExpViewtreeexpbarTreeExpBar extends TestTreeExpViewtreeexpbarTreeExpBarBase { }
+export default class TestTreeExpViewtreeexpbarTreeExpBar extends TestTreeExpViewtreeexpbarTreeExpBarBase {}
 </script>

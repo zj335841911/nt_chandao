@@ -1,5 +1,5 @@
-<template src="./test-report-main-edit-edit-view.html"/>
-<script lang='tsx'>
+<template src="./test-report-main-edit-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestReportMainEditEditViewBase } from './test-report-main-edit-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/test-report/main-edit-form/main-edit-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestReportMainEditEditView extends TestReportMainEditEditViewBase { }
+export default class TestReportMainEditEditView extends TestReportMainEditEditViewBase {}
 </script>

@@ -1,12 +1,49 @@
-<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='task_maindetail' style="" @on-validate="formItemValidate.apply(_self, arguments)">
+<i-form
+    :model="this.data"
+    class='app-form info-form-mode'
+    ref='form'
+    id='task_maindetail'
+    style=""
+    @on-validate="formItemValidate.apply(_self, arguments)"
+>
     <input style="display:none;" />
     <row >
             <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maindetail_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group
+    :model="detailsModel.group1"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=''
+    :uiActionGroup="detailsModel.group1.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.task.maindetail_form.details.group1')"
+    :isShowCaption="false"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.group1"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    />
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{'width':'70px !important'}"  :lg="{ span: 2, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-    <app-form-item name='id' :itemRules="this.rules().id" class='panelitem-borad' :caption="$t('entities.task.maindetail_form.details.id')" uiStyle="DEFAULT" :labelWidth="2" :isShowCaption="true" :error="detailsModel.id.error" :isEmptyCaption="true" labelPos="LEFT">
+    <app-form-item
+    name='id'
+    :itemRules="this.rules().id"
+    class='panelitem-borad'
+
+    :caption="$t('entities.task.maindetail_form.details.id')"
+    uiStyle="DEFAULT"
+    :labelWidth="2"
+    :isShowCaption="true"
+    :error="detailsModel.id.error"
+    :isEmptyCaption="true"
+    labelPos="LEFT">
     
 <app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -16,7 +53,18 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 22, offset: 0 }" :xl="{ span: 22, offset: 0 }">
-    <app-form-item name='name' :itemRules="this.rules().name" class='panelitem-20px' :caption="$t('entities.task.maindetail_form.details.name')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="true" labelPos="LEFT">
+    <app-form-item
+    name='name'
+    :itemRules="this.rules().name"
+    class='panelitem-20px'
+
+    :caption="$t('entities.task.maindetail_form.details.name')"
+    uiStyle="DEFAULT"
+    :labelWidth="1"
+    :isShowCaption="true"
+    :error="detailsModel.name.error"
+    :isEmptyCaption="true"
+    labelPos="LEFT">
     
 <app-span name='name' :value="data.name" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -26,11 +74,41 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maindetail_form.details.grouppanel3')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group
+    :model="detailsModel.grouppanel3"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=''
+    :uiActionGroup="detailsModel.grouppanel3.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.task.maindetail_form.details.grouppanel3')"
+    :isShowCaption="true"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel3"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    />
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='desc' :itemRules="this.rules().desc" class='' :caption="$t('entities.task.maindetail_form.details.desc')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="NONE">
+    <app-form-item
+    name='desc'
+    :itemRules="this.rules().desc"
+    class=''
+
+    :caption="$t('entities.task.maindetail_form.details.desc')"
+    uiStyle="DEFAULT"
+    :labelWidth="0"
+    :isShowCaption="false"
+    :error="detailsModel.desc.error"
+    :isEmptyCaption="false"
+    labelPos="NONE">
     <html-container :content="data.desc"></html-container>
 </app-form-item>
 
@@ -41,8 +119,27 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maindetail_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group
+    :model="detailsModel.grouppanel2"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=''
+    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.task.maindetail_form.details.grouppanel2')"
+    :isShowCaption="false"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel2"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    />
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.druipart3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
@@ -52,7 +149,10 @@
     paramItem='task' 
     :parentdata='{"srfparentdename":"ZT_TASK","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
-        { pathName: 'products', parameterName: 'product' },
+        {
+            pathName: 'products',
+            parameterName: 'product',
+        },
     ]"
     :context="context"
     :viewparams="viewparams"
@@ -76,8 +176,27 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel4" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maindetail_form.details.grouppanel4')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel4" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group
+    :model="detailsModel.grouppanel4"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=''
+    :uiActionGroup="detailsModel.grouppanel4.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.task.maindetail_form.details.grouppanel4')"
+    :isShowCaption="true"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel4"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    />
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.druipart2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
@@ -110,8 +229,27 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maindetail_form.details.grouppanel1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group
+    :model="detailsModel.grouppanel1"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=''
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.task.maindetail_form.details.grouppanel1')"
+    :isShowCaption="true"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel1"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    />
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{'height': '200px !important',}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
@@ -121,7 +259,10 @@
     paramItem='task' 
     :parentdata='{"srfparentdefname":"PARENT","srfparentdename":"ZT_TASK","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N__ZT_TASK__ZT_TASK__PARENT","SRFDER1NID":"DER1N__ZT_TASK__ZT_TASK__PARENT"}'
     :parameters="[
-        { pathName: 'stories', parameterName: 'story' },
+        {
+            pathName: 'stories',
+            parameterName: 'story',
+        },
     ]"
     :context="context"
     :viewparams="viewparams"

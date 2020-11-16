@@ -1,5 +1,5 @@
-<template src="./module-pickup-view.html"/>
-<script lang='tsx'>
+<template src="./module-pickup-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ModulePickupViewBase } from './module-pickup-view-base';
@@ -18,5 +18,5 @@ import view_pickupviewpanel from '@widgets/module/pickup-viewpickupviewpanel-pic
     }
 })
 @VueLifeCycleProcessing()
-export default class ModulePickupView extends ModulePickupViewBase { }
+export default class ModulePickupView extends ModulePickupViewBase {}
 </script>

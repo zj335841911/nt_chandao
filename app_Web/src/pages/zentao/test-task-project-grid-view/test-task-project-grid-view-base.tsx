@@ -6,7 +6,7 @@ import TestTaskService from '@/service/test-task/test-task-service';
 import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestTaskProjectGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
 	 * @memberof TestTaskProjectGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' }
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
 	/**
@@ -88,7 +91,10 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
 	 * @memberof TestTaskProjectGridViewBase
 	 */
     protected customViewParams: any = {
-        'project': { isRawValue: false, value: 'project' }
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -102,8 +108,8 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
         srfCaption: 'entities.testtask.views.projectgridview.caption',
         srfTitle: 'entities.testtask.views.projectgridview.title',
         srfSubTitle: 'entities.testtask.views.projectgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -113,8 +119,14 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      * @memberof TestTaskProjectGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -154,7 +166,7 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestTaskProjectGridViewBase
      */ 
-    protected viewName:string = "TestTaskProjectGridView";
+    protected viewName: string = "TestTaskProjectGridView";
 
 
     /**
@@ -173,7 +185,9 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof TestTaskProjectGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -184,11 +198,11 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'testtask',

@@ -1,5 +1,5 @@
-<template src="./taskmaindashboardview-link.html"/>
-<script lang='tsx'>
+<template src="./taskmaindashboardview-link.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { Taskmaindashboardview_linkBase } from './taskmaindashboardview-link-base';
@@ -18,5 +18,5 @@ import view_dashboard from '@widgets/task/main-dashboard/main-dashboard.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class Taskmaindashboardview_link extends Taskmaindashboardview_linkBase { }
+export default class Taskmaindashboardview_link extends Taskmaindashboardview_linkBase {}
 </script>

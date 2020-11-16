@@ -1,12 +1,23 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import ReviewService from './review-form-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
-import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
-
+import {
+    FormButtonModel,
+    FormPageModel,
+    FormItemModel,
+    FormDRUIPartModel,
+    FormPartModel,
+    FormGroupPanelModel,
+    FormIFrameModel,
+    FormRowItemModel,
+    FormTabPageModel,
+    FormTabPanelModel,
+    FormUserControlModel,
+} from '@/model/form-detail';
 
 /**
  * form部件基类
@@ -16,7 +27,6 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  * @extends {ReviewEditFormBase}
  */
 export class ReviewEditFormBase extends EditFormControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +76,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
      * @type {StoryUIService}
      * @memberof ReviewBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
 
     /**
@@ -104,7 +114,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
         reviewedby: null,
         comment: null,
         id: null,
-        story:null,
+        story: null,
     };
 
     /**
@@ -113,7 +123,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof ReviewEditFormBase
      */
-    public majorMessageField: string = "title";
+    public majorMessageField: string = 'title';
 
     /**
      * 属性值规则
@@ -121,27 +131,77 @@ export class ReviewEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof ReviewEditFormBase
      */
-    public rules():any{
+    public rules(): any{
         return {
-        result: [
-            { required: this.detailsModel.result.required, type: 'string', message: '评审结果 值不能为空', trigger: 'change' },
-            { required: this.detailsModel.result.required, type: 'string', message: '评审结果 值不能为空', trigger: 'blur' },
+            result: [
+                {
+                    required: this.detailsModel.result.required,
+                    type: 'string',
+                    message: '评审结果 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.result.required,
+                    type: 'string',
+                    message: '评审结果 值不能为空',
+                    trigger: 'blur',
+                },
         ],
-        preversion: [
-            { required: this.detailsModel.preversion.required, type: 'number', message: '之前版本 值不能为空', trigger: 'change' },
-            { required: this.detailsModel.preversion.required, type: 'number', message: '之前版本 值不能为空', trigger: 'blur' },
+            preversion: [
+                {
+                    required: this.detailsModel.preversion.required,
+                    type: 'number',
+                    message: '之前版本 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.preversion.required,
+                    type: 'number',
+                    message: '之前版本 值不能为空',
+                    trigger: 'blur',
+                },
         ],
-        closedreason: [
-            { required: this.detailsModel.closedreason.required, type: 'string', message: '拒绝原因 值不能为空', trigger: 'change' },
-            { required: this.detailsModel.closedreason.required, type: 'string', message: '拒绝原因 值不能为空', trigger: 'blur' },
+            closedreason: [
+                {
+                    required: this.detailsModel.closedreason.required,
+                    type: 'string',
+                    message: '拒绝原因 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.closedreason.required,
+                    type: 'string',
+                    message: '拒绝原因 值不能为空',
+                    trigger: 'blur',
+                },
         ],
-        assignedto: [
-            { required: this.detailsModel.assignedto.required, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
-            { required: this.detailsModel.assignedto.required, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+            assignedto: [
+                {
+                    required: this.detailsModel.assignedto.required,
+                    type: 'string',
+                    message: '指派给 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.assignedto.required,
+                    type: 'string',
+                    message: '指派给 值不能为空',
+                    trigger: 'blur',
+                },
         ],
-        reviewedby: [
-            { required: this.detailsModel.reviewedby.required, type: 'string', message: '由谁评审 值不能为空', trigger: 'change' },
-            { required: this.detailsModel.reviewedby.required, type: 'string', message: '由谁评审 值不能为空', trigger: 'blur' },
+            reviewedby: [
+                {
+                    required: this.detailsModel.reviewedby.required,
+                    type: 'string',
+                    message: '由谁评审 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.reviewedby.required,
+                    type: 'string',
+                    message: '由谁评审 值不能为空',
+                    trigger: 'blur',
+                },
         ],
         }
     }
@@ -178,7 +238,26 @@ export class ReviewEditFormBase extends EditFormControlBase {
 
         tabpage3: new FormTabPageModel({ caption: '影响用例', detailType: 'TABPAGE', name: 'tabpage3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        tabpanel1: new FormTabPanelModel({ caption: '', detailType: 'TABPANEL', name: 'tabpanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, tabPages: [{ name: 'tabpage1', index: 0, visible: true }, { name: 'tabpage2', index: 1, visible: true }, { name: 'tabpage3', index: 2, visible: true }] }),
+        tabpanel1: new FormTabPanelModel({
+    caption: '', detailType: 'TABPANEL', name: 'tabpanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    tabPages: [
+        {
+            name: 'tabpage1',
+            index: 0,
+            visible: true,
+        },
+        {
+            name: 'tabpage2',
+            index: 1,
+            visible: true,
+        },
+        {
+            name: 'tabpage3',
+            index: 2,
+            visible: true,
+        },
+    ]
+}),
 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -186,45 +265,145 @@ export class ReviewEditFormBase extends EditFormControlBase {
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+        srfupdatedate: new FormItemModel({
+    caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
-        srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srforikey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+        srfkey: new FormItemModel({
+    caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
-        srfmajortext: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfmajortext: new FormItemModel({
+    caption: '需求名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srftempmode: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfuf: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfuf: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfdeid: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfdeid: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfsourcekey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        title: new FormItemModel({
+    caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        revieweddate: new FormItemModel({ caption: '评审时间', detailType: 'FORMITEM', name: 'revieweddate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        revieweddate: new FormItemModel({
+    caption: '评审时间', detailType: 'FORMITEM', name: 'revieweddate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        result: new FormItemModel({ caption: '评审结果', detailType: 'FORMITEM', name: 'result', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
+        result: new FormItemModel({
+    caption: '评审结果', detailType: 'FORMITEM', name: 'result', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        pri: new FormItemModel({
+    caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        estimate: new FormItemModel({ caption: '预计工时', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        estimate: new FormItemModel({
+    caption: '预计工时', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        preversion: new FormItemModel({ caption: '之前版本', detailType: 'FORMITEM', name: 'preversion', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
+        preversion: new FormItemModel({
+    caption: '之前版本', detailType: 'FORMITEM', name: 'preversion', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        closedreason: new FormItemModel({ caption: '拒绝原因', detailType: 'FORMITEM', name: 'closedreason', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
+        closedreason: new FormItemModel({
+    caption: '拒绝原因', detailType: 'FORMITEM', name: 'closedreason', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
+        assignedto: new FormItemModel({
+    caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        version: new FormItemModel({ caption: '版本号', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        version: new FormItemModel({
+    caption: '版本号', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
+        reviewedby: new FormItemModel({
+    caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        comment: new FormItemModel({
+    caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+        id: new FormItemModel({
+    caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
     };
 
@@ -235,7 +414,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
      * @returns {Promise<void>}
      * @memberof ReviewEditFormBase
      */
-    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+    public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
         if (Object.is(name, '') || Object.is(name, 'result')) {
             let ret = false;

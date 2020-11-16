@@ -47,7 +47,7 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      * @type {string}
      * @memberof TaskTaskTypeGanttViewBase
      */ 
-    protected dataControl:string = "gantt";
+    protected dataControl: string = "gantt";
 
     /**
      * 实体服务对象
@@ -76,8 +76,8 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
         srfCaption: 'entities.task.views.tasktypeganttview.caption',
         srfTitle: 'entities.task.views.tasktypeganttview.title',
         srfSubTitle: 'entities.task.views.tasktypeganttview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -87,7 +87,10 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      * @memberof TaskTaskTypeGanttViewBase
      */
     protected containerModel: any = {
-        view_gantt: { name: 'gantt', type: 'GANTT' },
+        view_gantt: {
+            name: 'gantt',
+            type: 'GANTT',
+        },
     };
 
 
@@ -107,7 +110,7 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      * @type {string}
      * @memberof TaskTaskTypeGanttViewBase
      */ 
-    protected viewName:string = "TaskTaskTypeGanttView";
+    protected viewName: string = "TaskTaskTypeGanttView";
 
 
 
@@ -117,7 +120,9 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      * @type {Array<*>}
      * @memberof TaskTaskTypeGanttViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -67,8 +67,8 @@ export class TestResultMEditView9Base extends MEditView9Base {
         srfCaption: 'entities.testresult.views.meditview9.caption',
         srfTitle: 'entities.testresult.views.meditview9.title',
         srfSubTitle: 'entities.testresult.views.meditview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -78,7 +78,10 @@ export class TestResultMEditView9Base extends MEditView9Base {
      * @memberof TestResultMEditView9Base
      */
     protected containerModel: any = {
-        view_meditviewpanel: { name: 'meditviewpanel', type: 'MULTIEDITVIEWPANEL' },
+        view_meditviewpanel: {
+            name: 'meditviewpanel',
+            type: 'MULTIEDITVIEWPANEL',
+        },
     };
 
 
@@ -98,7 +101,7 @@ export class TestResultMEditView9Base extends MEditView9Base {
      * @type {string}
      * @memberof TestResultMEditView9Base
      */ 
-    protected viewName:string = "TestResultMEditView9";
+    protected viewName: string = "TestResultMEditView9";
 
 
 
@@ -108,7 +111,9 @@ export class TestResultMEditView9Base extends MEditView9Base {
      * @type {Array<*>}
      * @memberof TestResultMEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

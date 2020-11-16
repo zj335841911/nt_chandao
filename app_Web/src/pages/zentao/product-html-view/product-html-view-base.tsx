@@ -68,8 +68,8 @@ export class ProductHtmlViewBase extends ViewBase {
         srfCaption: 'entities.product.views.htmlview.caption',
         srfTitle: 'entities.product.views.htmlview.title',
         srfSubTitle: 'entities.product.views.htmlview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -98,7 +98,7 @@ export class ProductHtmlViewBase extends ViewBase {
      * @type {string}
      * @memberof ProductHtmlViewBase
      */ 
-    protected viewName:string = "ProductHtmlView";
+    protected viewName: string = "ProductHtmlView";
 
 
     /**
@@ -117,7 +117,9 @@ export class ProductHtmlViewBase extends ViewBase {
      * @type {Array<*>}
      * @memberof ProductHtmlViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

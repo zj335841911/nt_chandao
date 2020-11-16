@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import SubStoryService from '@/service/sub-story/sub-story-service';
 import SubStoryNewService from './sub-story-new-grid-service';
 import SubStoryUIService from '@/uiservice/sub-story/sub-story-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {SubStoryNewGridBase}
  */
 export class SubStoryNewGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class SubStoryNewGridBase extends GridControlBase {
      * @type {SubStoryUIService}
      * @memberof SubStoryNewBase
      */  
-    public appUIService:SubStoryUIService = new SubStoryUIService(this.$store);
+    public appUIService: SubStoryUIService = new SubStoryUIService(this.$store);
 
 
     /**

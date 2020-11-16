@@ -1,5 +1,5 @@
-<template src="./product-html-view.html"/>
-<script lang='tsx'>
+<template src="./product-html-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductHtmlViewBase } from './product-html-view-base';
@@ -16,5 +16,5 @@ import { ProductHtmlViewBase } from './product-html-view-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductHtmlView extends ProductHtmlViewBase { }
+export default class ProductHtmlView extends ProductHtmlViewBase {}
 </script>

@@ -48,7 +48,7 @@ export class TestReportEditView_TestRangeBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportEditView_TestRangeBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class TestReportEditView_TestRangeBase extends EditViewBase {
      *
      * @memberof TestReportEditView_TestRangeBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class TestReportEditView_TestRangeBase extends EditViewBase {
         srfCaption: 'entities.testreport.views.editview_testrange.caption',
         srfTitle: 'entities.testreport.views.editview_testrange.title',
         srfSubTitle: 'entities.testreport.views.editview_testrange.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,7 +95,10 @@ export class TestReportEditView_TestRangeBase extends EditViewBase {
      * @memberof TestReportEditView_TestRangeBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -115,7 +118,7 @@ export class TestReportEditView_TestRangeBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportEditView_TestRangeBase
      */ 
-    protected viewName:string = "TestReportEditView_TestRange";
+    protected viewName: string = "TestReportEditView_TestRange";
 
 
     /**
@@ -134,7 +137,9 @@ export class TestReportEditView_TestRangeBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TestReportEditView_TestRangeBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

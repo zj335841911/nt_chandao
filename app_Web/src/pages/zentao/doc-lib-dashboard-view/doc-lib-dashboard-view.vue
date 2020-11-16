@@ -1,5 +1,5 @@
-<template src="./doc-lib-dashboard-view.html"/>
-<script lang='tsx'>
+<template src="./doc-lib-dashboard-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocLibDashboardViewBase } from './doc-lib-dashboard-view-base';
@@ -18,5 +18,5 @@ import view_dashboard from '@widgets/doc-lib/main-dashboard/main-dashboard.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class DocLibDashboardView extends DocLibDashboardViewBase { }
+export default class DocLibDashboardView extends DocLibDashboardViewBase {}
 </script>

@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductStatusChartService from './product-status-chart-portlet-service';
 import ProductUIService from '@/uiservice/product/product-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-
 
 /**
  * db_productstatusportlet部件基类
@@ -17,7 +16,6 @@ import UIService from '@/uiservice/ui-service';
  * @extends {ProductStatusChartPortletBase}
  */
 export class ProductStatusChartPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class ProductStatusChartPortletBase extends MainControlBase {
      * @type {ProductUIService}
      * @memberof ProductStatusChartBase
      */  
-    public appUIService:ProductUIService = new ProductUIService(this.$store);
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
 
     /**

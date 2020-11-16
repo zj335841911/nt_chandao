@@ -64,7 +64,10 @@ export class TestResultTestTaskMEditView9Base extends MEditView9Base {
 	 * @memberof TestResultTestTaskMEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'TASK': { isRawValue: false, value: 'task' }
+        'TASK': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
 	/**
@@ -75,7 +78,10 @@ export class TestResultTestTaskMEditView9Base extends MEditView9Base {
 	 * @memberof TestResultTestTaskMEditView9Base
 	 */
     protected customViewParams: any = {
-        'task': { isRawValue: false, value: 'task' }
+        'task': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
     /**
@@ -89,8 +95,8 @@ export class TestResultTestTaskMEditView9Base extends MEditView9Base {
         srfCaption: 'entities.testresult.views.testtaskmeditview9.caption',
         srfTitle: 'entities.testresult.views.testtaskmeditview9.title',
         srfSubTitle: 'entities.testresult.views.testtaskmeditview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -100,7 +106,10 @@ export class TestResultTestTaskMEditView9Base extends MEditView9Base {
      * @memberof TestResultTestTaskMEditView9Base
      */
     protected containerModel: any = {
-        view_meditviewpanel: { name: 'meditviewpanel', type: 'MULTIEDITVIEWPANEL' },
+        view_meditviewpanel: {
+            name: 'meditviewpanel',
+            type: 'MULTIEDITVIEWPANEL',
+        },
     };
 
 
@@ -120,7 +129,7 @@ export class TestResultTestTaskMEditView9Base extends MEditView9Base {
      * @type {string}
      * @memberof TestResultTestTaskMEditView9Base
      */ 
-    protected viewName:string = "TestResultTestTaskMEditView9";
+    protected viewName: string = "TestResultTestTaskMEditView9";
 
 
 
@@ -130,7 +139,9 @@ export class TestResultTestTaskMEditView9Base extends MEditView9Base {
      * @type {Array<*>}
      * @memberof TestResultTestTaskMEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

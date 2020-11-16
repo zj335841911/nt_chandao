@@ -48,7 +48,7 @@ export class CaseMainDetailEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof CaseMainDetailEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class CaseMainDetailEditView9Base extends EditView9Base {
         srfCaption: 'entities.case.views.maindetaileditview9.caption',
         srfTitle: 'entities.case.views.maindetaileditview9.title',
         srfSubTitle: 'entities.case.views.maindetaileditview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,7 +88,10 @@ export class CaseMainDetailEditView9Base extends EditView9Base {
      * @memberof CaseMainDetailEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -108,7 +111,7 @@ export class CaseMainDetailEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof CaseMainDetailEditView9Base
      */ 
-    protected viewName:string = "CaseMainDetailEditView9";
+    protected viewName: string = "CaseMainDetailEditView9";
 
 
     /**
@@ -127,7 +130,9 @@ export class CaseMainDetailEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof CaseMainDetailEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

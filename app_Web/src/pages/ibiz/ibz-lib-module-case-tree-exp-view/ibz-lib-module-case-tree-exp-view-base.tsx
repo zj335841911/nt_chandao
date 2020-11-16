@@ -62,7 +62,7 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof IbzLibModuleCaseTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.ibzlibmodule.views.casetreeexpview.caption',
         srfTitle: 'entities.ibzlibmodule.views.casetreeexpview.title',
         srfSubTitle: 'entities.ibzlibmodule.views.casetreeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
      * @memberof IbzLibModuleCaseTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof IbzLibModuleCaseTreeExpViewBase
      */ 
-    protected viewName:string = "IbzLibModuleCaseTreeExpView";
+    protected viewName: string = "IbzLibModuleCaseTreeExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof IbzLibModuleCaseTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

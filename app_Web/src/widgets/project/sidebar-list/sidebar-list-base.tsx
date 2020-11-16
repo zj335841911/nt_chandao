@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, ListControlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import SidebarService from './sidebar-list-service';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
-
 
 /**
  * list部件基类
@@ -15,7 +14,6 @@ import ProjectUIService from '@/uiservice/project/project-ui-service';
  * @extends {SidebarListBase}
  */
 export class SidebarListBase extends ListControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class SidebarListBase extends ListControlBase {
      * @type {ProjectUIService}
      * @memberof SidebarBase
      */  
-    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
     /**
      * list_quicktoolbar 部件 click 事件

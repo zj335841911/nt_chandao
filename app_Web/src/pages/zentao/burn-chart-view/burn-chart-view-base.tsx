@@ -68,8 +68,8 @@ export class BurnChartViewBase extends ChartViewBase {
         srfCaption: 'entities.burn.views.chartview.caption',
         srfTitle: 'entities.burn.views.chartview.title',
         srfSubTitle: 'entities.burn.views.chartview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -79,9 +79,18 @@ export class BurnChartViewBase extends ChartViewBase {
      * @memberof BurnChartViewBase
      */
     protected containerModel: any = {
-        view_quicksearchform: { name: 'quicksearchform', type: 'SEARCHFORM' },
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_chart: { name: 'chart', type: 'CHART' },
+        view_quicksearchform: {
+            name: 'quicksearchform',
+            type: 'SEARCHFORM',
+        },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_chart: {
+            name: 'chart',
+            type: 'CHART',
+        },
     };
 
     /**
@@ -113,7 +122,7 @@ export class BurnChartViewBase extends ChartViewBase {
      * @type {string}
      * @memberof BurnChartViewBase
      */ 
-    protected viewName:string = "BurnChartView";
+    protected viewName: string = "BurnChartView";
 
 
     /**
@@ -132,7 +141,9 @@ export class BurnChartViewBase extends ChartViewBase {
      * @type {Array<*>}
      * @memberof BurnChartViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

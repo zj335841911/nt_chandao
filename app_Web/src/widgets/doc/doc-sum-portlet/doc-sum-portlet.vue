@@ -1,5 +1,5 @@
-<template src="./doc-sum-portlet.html"/>
-<script lang='tsx'>
+<template src="./doc-sum-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocSumPortletBase } from './doc-sum-portlet-base';
@@ -15,8 +15,8 @@ import { DocSumPortletBase } from './doc-sum-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class DocSumPortlet extends DocSumPortletBase { }
+export default class DocSumPortlet extends DocSumPortletBase {}
 </script>

@@ -6,7 +6,7 @@ import ActionService from '@/service/action/action-service';
 import ActionAuthService from '@/authservice/action/action-auth-service';
 import ListViewEngine from '@engine/view/list-view-engine';
 import ActionUIService from '@/uiservice/action/action-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionHistoryListViewBase
      */ 
-    protected dataControl:string = "list";
+    protected dataControl: string = "list";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class ActionHistoryListViewBase extends ListViewBase {
 	 * @memberof ActionHistoryListViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTID': { isRawValue: false, value: 'srfparentkey' }
+        'OBJECTID': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
 	/**
@@ -88,8 +91,14 @@ export class ActionHistoryListViewBase extends ListViewBase {
 	 * @memberof ActionHistoryListViewBase
 	 */
     protected customViewParams: any = {
-        'objecttype': { isRawValue: false, value: 'OBJECTTYPE' },
-        'objectid': { isRawValue: false, value: 'srfparentkey' }
+        'objecttype': {
+            isRawValue: false,
+            value: 'OBJECTTYPE',
+        },
+        'objectid': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
     /**
@@ -103,8 +112,8 @@ export class ActionHistoryListViewBase extends ListViewBase {
         srfCaption: 'entities.action.views.historylistview.caption',
         srfTitle: 'entities.action.views.historylistview.title',
         srfSubTitle: 'entities.action.views.historylistview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -114,8 +123,14 @@ export class ActionHistoryListViewBase extends ListViewBase {
      * @memberof ActionHistoryListViewBase
      */
     protected containerModel: any = {
-        view_history: { name: 'history', type: 'LIST' },
-        view_list: { name: 'list', type: 'LIST' },
+        view_history: {
+            name: 'history',
+            type: 'LIST',
+        },
+        view_list: {
+            name: 'list',
+            type: 'LIST',
+        },
     };
 
 
@@ -135,7 +150,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionHistoryListViewBase
      */ 
-    protected viewName:string = "ActionHistoryListView";
+    protected viewName: string = "ActionHistoryListView";
 
 
     /**
@@ -154,7 +169,9 @@ export class ActionHistoryListViewBase extends ListViewBase {
      * @type {Array<*>}
      * @memberof ActionHistoryListViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -166,11 +183,11 @@ export class ActionHistoryListViewBase extends ListViewBase {
         this.engine.init({
             view: this,
             list: this.$refs.list,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'action',
             majorPSDEField: 'comment',

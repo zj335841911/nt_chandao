@@ -1,5 +1,5 @@
-<template src="./custom-doc-lib-tree-treeview.html"/>
-<script lang='tsx'>
+<template src="./custom-doc-lib-tree-treeview.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CustomDocLibTreeTreeBase } from './custom-doc-lib-tree-treeview-base';
@@ -15,8 +15,8 @@ import { CustomDocLibTreeTreeBase } from './custom-doc-lib-tree-treeview-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class CustomDocLibTreeTree extends CustomDocLibTreeTreeBase { }
+export default class CustomDocLibTreeTree extends CustomDocLibTreeTreeBase {}
 </script>

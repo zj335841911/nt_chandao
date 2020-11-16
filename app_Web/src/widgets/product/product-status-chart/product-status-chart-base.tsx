@@ -1,7 +1,7 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductStatusService from './product-status-chart-service';
@@ -11,7 +11,6 @@ import moment from "moment";
 import CodeListService from "@service/app/codelist-service";
 import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries,ChartRadarSeries} from '@/model/chart-detail';
 
-
 /**
  * db_productstatusportlet_chart部件基类
  *
@@ -20,7 +19,6 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
  * @extends {ProductStatusChartBase}
  */
 export class ProductStatusChartBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -70,7 +68,7 @@ export class ProductStatusChartBase extends MainControlBase {
      * @type {ProductUIService}
      * @memberof ProductStatusBase
      */  
-    public appUIService:ProductUIService = new ProductUIService(this.$store);
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
 
     /**

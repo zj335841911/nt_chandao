@@ -48,7 +48,7 @@ export class IbzCaseNewEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzCaseNewEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class IbzCaseNewEditViewBase extends EditViewBase {
      *
      * @memberof IbzCaseNewEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class IbzCaseNewEditViewBase extends EditViewBase {
         srfCaption: 'entities.ibzcase.views.neweditview.caption',
         srfTitle: 'entities.ibzcase.views.neweditview.title',
         srfSubTitle: 'entities.ibzcase.views.neweditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class IbzCaseNewEditViewBase extends EditViewBase {
      * @memberof IbzCaseNewEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class IbzCaseNewEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzCaseNewEditViewBase
      */ 
-    protected viewName:string = "IbzCaseNewEditView";
+    protected viewName: string = "IbzCaseNewEditView";
 
 
     /**
@@ -147,7 +153,9 @@ export class IbzCaseNewEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof IbzCaseNewEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

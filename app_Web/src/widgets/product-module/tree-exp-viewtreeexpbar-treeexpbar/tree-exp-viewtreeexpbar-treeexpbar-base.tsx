@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TreeExpBarControlBase } from '@/studio-core';
 import ProductModuleService from '@/service/product-module/product-module-service';
 import TreeExpViewtreeexpbarService from './tree-exp-viewtreeexpbar-treeexpbar-service';
 import ProductModuleUIService from '@/uiservice/product-module/product-module-ui-service';
-
 
 /**
  * treeexpbar部件基类
@@ -15,7 +14,6 @@ import ProductModuleUIService from '@/uiservice/product-module/product-module-ui
  * @extends {TreeExpViewtreeexpbarTreeExpBarBase}
  */
 export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
      * @type {ProductModuleUIService}
      * @memberof TreeExpViewtreeexpbarBase
      */  
-    public appUIService:ProductModuleUIService = new ProductModuleUIService(this.$store);
+    public appUIService: ProductModuleUIService = new ProductModuleUIService(this.$store);
 
     /**
      * treeexpbar_toolbar 部件 click 事件

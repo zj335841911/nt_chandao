@@ -1,5 +1,5 @@
-<template src="./module-line-grid-view.html"/>
-<script lang='tsx'>
+<template src="./module-line-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ModuleLineGridViewBase } from './module-line-grid-view-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/module/line-grid/line-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ModuleLineGridView extends ModuleLineGridViewBase { }
+export default class ModuleLineGridView extends ModuleLineGridViewBase {}
 </script>

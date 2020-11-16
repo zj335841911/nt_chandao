@@ -1,5 +1,5 @@
-<template src="./product-sum-qa-chart-view9.html"/>
-<script lang='tsx'>
+<template src="./product-sum-qa-chart-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductSumQaChartView9Base } from './product-sum-qa-chart-view9-base';
@@ -18,5 +18,5 @@ import view_chart from '@widgets/product-sum/product-bugcnt-qa-chart/product-bug
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductSumQaChartView9 extends ProductSumQaChartView9Base { }
+export default class ProductSumQaChartView9 extends ProductSumQaChartView9Base {}
 </script>

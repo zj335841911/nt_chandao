@@ -1,13 +1,12 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, ListViewExpBarControlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ListExpViewlistexpbarService from './list-exp-viewlistexpbar-listexpbar-service';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
 import CodeListService from "@service/app/codelist-service";
-
 
 /**
  * listexpbar部件基类
@@ -17,7 +16,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {ListExpViewlistexpbarListexpbarBase}
  */
 export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBa
      * @type {ProjectUIService}
      * @memberof ListExpViewlistexpbarBase
      */  
-    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+    public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
     /**
      * listexpbar_list 部件 selectionchange 事件

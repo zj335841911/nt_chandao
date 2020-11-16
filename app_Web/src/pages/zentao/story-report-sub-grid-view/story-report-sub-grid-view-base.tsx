@@ -6,7 +6,7 @@ import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import StoryUIService from '@/uiservice/story/story-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class StoryReportSubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryReportSubGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class StoryReportSubGridViewBase extends GridViewBase {
         srfCaption: 'entities.story.views.reportsubgridview.caption',
         srfTitle: 'entities.story.views.reportsubgridview.title',
         srfSubTitle: 'entities.story.views.reportsubgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,9 +91,18 @@ export class StoryReportSubGridViewBase extends GridViewBase {
      * @memberof StoryReportSubGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
+        },
     };
 
     /**
@@ -129,7 +138,7 @@ export class StoryReportSubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryReportSubGridViewBase
      */ 
-    protected viewName:string = "StoryReportSubGridView";
+    protected viewName: string = "StoryReportSubGridView";
 
 
     /**
@@ -148,7 +157,9 @@ export class StoryReportSubGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof StoryReportSubGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -159,11 +170,11 @@ export class StoryReportSubGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'story',

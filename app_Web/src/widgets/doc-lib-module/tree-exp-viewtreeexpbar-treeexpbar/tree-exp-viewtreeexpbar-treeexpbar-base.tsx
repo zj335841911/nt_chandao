@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TreeExpBarControlBase } from '@/studio-core';
 import DocLibModuleService from '@/service/doc-lib-module/doc-lib-module-service';
 import TreeExpViewtreeexpbarService from './tree-exp-viewtreeexpbar-treeexpbar-service';
 import DocLibModuleUIService from '@/uiservice/doc-lib-module/doc-lib-module-ui-service';
-
 
 /**
  * treeexpbar部件基类
@@ -15,7 +14,6 @@ import DocLibModuleUIService from '@/uiservice/doc-lib-module/doc-lib-module-ui-
  * @extends {TreeExpViewtreeexpbarTreeExpBarBase}
  */
 export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
      * @type {DocLibModuleUIService}
      * @memberof TreeExpViewtreeexpbarBase
      */  
-    public appUIService:DocLibModuleUIService = new DocLibModuleUIService(this.$store);
+    public appUIService: DocLibModuleUIService = new DocLibModuleUIService(this.$store);
 
     /**
      * treeexpbar_tree 部件 selectionchange 事件

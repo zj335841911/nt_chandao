@@ -1,5 +1,5 @@
-<template src="./project-tab-exp-viewtabviewpanel7-tabviewpanel.html"/>
-<script lang='tsx'>
+<template src="./project-tab-exp-viewtabviewpanel7-tabviewpanel.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectTabExpViewtabviewpanel7TabviewpanelBase } from './project-tab-exp-viewtabviewpanel7-tabviewpanel-base';
@@ -15,8 +15,8 @@ import { ProjectTabExpViewtabviewpanel7TabviewpanelBase } from './project-tab-ex
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ProjectTabExpViewtabviewpanel7Tabviewpanel extends ProjectTabExpViewtabviewpanel7TabviewpanelBase { }
+export default class ProjectTabExpViewtabviewpanel7Tabviewpanel extends ProjectTabExpViewtabviewpanel7TabviewpanelBase {}
 </script>

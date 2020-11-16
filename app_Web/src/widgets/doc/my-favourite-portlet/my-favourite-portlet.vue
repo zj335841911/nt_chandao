@@ -1,5 +1,5 @@
-<template src="./my-favourite-portlet.html"/>
-<script lang='tsx'>
+<template src="./my-favourite-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MyFavouritePortletBase } from './my-favourite-portlet-base';
@@ -15,8 +15,8 @@ import { MyFavouritePortletBase } from './my-favourite-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MyFavouritePortlet extends MyFavouritePortletBase { }
+export default class MyFavouritePortlet extends MyFavouritePortletBase {}
 </script>

@@ -1,5 +1,5 @@
-<template src="./my-favourite-grid.html"/>
-<script lang='tsx'>
+<template src="./my-favourite-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MyFavouriteGridBase } from './my-favourite-grid-base';
@@ -15,8 +15,8 @@ import { MyFavouriteGridBase } from './my-favourite-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MyFavouriteGrid extends MyFavouriteGridBase { }
+export default class MyFavouriteGrid extends MyFavouriteGridBase {}
 </script>

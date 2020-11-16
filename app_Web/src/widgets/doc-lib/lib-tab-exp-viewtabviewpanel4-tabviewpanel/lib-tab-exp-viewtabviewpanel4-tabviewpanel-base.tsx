@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import DocLibService from '@/service/doc-lib/doc-lib-service';
 import LibTabExpViewtabviewpanel4Service from './lib-tab-exp-viewtabviewpanel4-tabviewpanel-service';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
-
 
 /**
  * tabviewpanel4部件基类
@@ -15,7 +14,6 @@ import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
  * @extends {LibTabExpViewtabviewpanel4TabviewpanelBase}
  */
 export class LibTabExpViewtabviewpanel4TabviewpanelBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class LibTabExpViewtabviewpanel4TabviewpanelBase extends MainControlBase 
      * @type {DocLibUIService}
      * @memberof LibTabExpViewtabviewpanel4Base
      */  
-    public appUIService:DocLibUIService = new DocLibUIService(this.$store);
+    public appUIService: DocLibUIService = new DocLibUIService(this.$store);
 
 
     /**

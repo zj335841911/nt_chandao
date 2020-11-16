@@ -1,5 +1,5 @@
-<template src="./ibz-case-info-edit-view9.html"/>
-<script lang='tsx'>
+<template src="./ibz-case-info-edit-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzCaseInfoEditView9Base } from './ibz-case-info-edit-view9-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/ibz-case/jbinfo-form/jbinfo-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class IbzCaseInfoEditView9 extends IbzCaseInfoEditView9Base { }
+export default class IbzCaseInfoEditView9 extends IbzCaseInfoEditView9Base {}
 </script>

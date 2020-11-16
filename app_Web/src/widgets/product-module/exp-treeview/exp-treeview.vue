@@ -1,5 +1,5 @@
-<template src="./exp-treeview.html"/>
-<script lang='tsx'>
+<template src="./exp-treeview.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ExpTreeBase } from './exp-treeview-base';
@@ -15,8 +15,8 @@ import { ExpTreeBase } from './exp-treeview-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ExpTree extends ExpTreeBase { }
+export default class ExpTree extends ExpTreeBase {}
 </script>

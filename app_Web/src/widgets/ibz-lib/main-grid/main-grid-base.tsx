@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import IbzLibService from '@/service/ibz-lib/ibz-lib-service';
 import MainService from './main-grid-service';
 import IbzLibUIService from '@/uiservice/ibz-lib/ibz-lib-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {MainGridBase}
  */
 export class MainGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class MainGridBase extends GridControlBase {
      * @type {IbzLibUIService}
      * @memberof MainBase
      */  
-    public appUIService:IbzLibUIService = new IbzLibUIService(this.$store);
+    public appUIService: IbzLibUIService = new IbzLibUIService(this.$store);
 
     /**
      * 逻辑事件

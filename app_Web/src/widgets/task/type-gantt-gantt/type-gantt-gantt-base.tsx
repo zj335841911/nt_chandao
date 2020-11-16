@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TypeGanttService from './type-gantt-gantt-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
-
 
 /**
  * gantt部件基类
@@ -15,7 +14,6 @@ import TaskUIService from '@/uiservice/task/task-ui-service';
  * @extends {TypeGanttGanttBase}
  */
 export class TypeGanttGanttBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class TypeGanttGanttBase extends MainControlBase {
      * @type {TaskUIService}
      * @memberof TypeGanttBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 打开编辑数据视图

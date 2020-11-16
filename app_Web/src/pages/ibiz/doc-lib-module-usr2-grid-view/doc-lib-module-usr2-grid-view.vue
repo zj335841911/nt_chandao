@@ -1,5 +1,5 @@
-<template src="./doc-lib-module-usr2-grid-view.html"/>
-<script lang='tsx'>
+<template src="./doc-lib-module-usr2-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocLibModuleUsr2GridViewBase } from './doc-lib-module-usr2-grid-view-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/doc-lib-module/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class DocLibModuleUsr2GridView extends DocLibModuleUsr2GridViewBase { }
+export default class DocLibModuleUsr2GridView extends DocLibModuleUsr2GridViewBase {}
 </script>

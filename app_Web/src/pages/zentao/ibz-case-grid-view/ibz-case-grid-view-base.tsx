@@ -6,7 +6,7 @@ import IbzCaseService from '@/service/ibz-case/ibz-case-service';
 import IbzCaseAuthService from '@/authservice/ibz-case/ibz-case-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import IbzCaseUIService from '@/uiservice/ibz-case/ibz-case-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class IbzCaseGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzCaseGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class IbzCaseGridViewBase extends GridViewBase {
         srfCaption: 'entities.ibzcase.views.gridview.caption',
         srfTitle: 'entities.ibzcase.views.gridview.title',
         srfSubTitle: 'entities.ibzcase.views.gridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,9 +91,18 @@ export class IbzCaseGridViewBase extends GridViewBase {
      * @memberof IbzCaseGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -131,7 +140,7 @@ export class IbzCaseGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzCaseGridViewBase
      */ 
-    protected viewName:string = "IbzCaseGridView";
+    protected viewName: string = "IbzCaseGridView";
 
 
     /**
@@ -150,7 +159,9 @@ export class IbzCaseGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof IbzCaseGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -161,11 +172,11 @@ export class IbzCaseGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

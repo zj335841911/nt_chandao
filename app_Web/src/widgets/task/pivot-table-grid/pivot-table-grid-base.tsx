@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import PivotTableService from './pivot-table-grid-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import CodeListService from "@service/app/codelist-service";
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -17,7 +16,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {PivotTableGridBase}
  */
 export class PivotTableGridBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class PivotTableGridBase extends MainControlBase {
      * @type {TaskUIService}
      * @memberof PivotTableBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
 
     /**

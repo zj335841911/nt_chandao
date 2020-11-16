@@ -65,7 +65,10 @@ export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
 	 * @memberof ProjectModuleTreeExpViewBase
 	 */
     protected customViewNavContexts: any = {
-        'MODULETYPE': { isRawValue: true, value: 'task' }
+        'MODULETYPE': {
+            isRawValue: true,
+            value: 'task',
+        }
     };
 
     /**
@@ -73,7 +76,7 @@ export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof ProjectModuleTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -86,8 +89,8 @@ export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.projectmodule.views.treeexpview.caption',
         srfTitle: 'entities.projectmodule.views.treeexpview.title',
         srfSubTitle: 'entities.projectmodule.views.treeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -97,7 +100,10 @@ export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProjectModuleTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
     /**
@@ -131,7 +137,7 @@ export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof ProjectModuleTreeExpViewBase
      */ 
-    protected viewName:string = "ProjectModuleTreeExpView";
+    protected viewName: string = "ProjectModuleTreeExpView";
 
 
     /**
@@ -150,7 +156,9 @@ export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof ProjectModuleTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

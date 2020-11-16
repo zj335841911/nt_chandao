@@ -6,7 +6,7 @@ import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProjectGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ProjectGridViewBase extends GridViewBase {
         srfCaption: 'entities.project.views.gridview.caption',
         srfTitle: 'entities.project.views.gridview.title',
         srfSubTitle: 'entities.project.views.gridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class ProjectGridViewBase extends GridViewBase {
      * @memberof ProjectGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class ProjectGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectGridViewBase
      */ 
-    protected viewName:string = "ProjectGridView";
+    protected viewName: string = "ProjectGridView";
 
 
     /**
@@ -147,7 +153,9 @@ export class ProjectGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof ProjectGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -158,11 +166,11 @@ export class ProjectGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'project',

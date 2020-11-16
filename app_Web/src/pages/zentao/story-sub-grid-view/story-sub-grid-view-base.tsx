@@ -6,7 +6,7 @@ import SubStoryService from '@/service/sub-story/sub-story-service';
 import SubStoryAuthService from '@/authservice/sub-story/sub-story-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import SubStoryUIService from '@/uiservice/sub-story/sub-story-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class StorySubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StorySubGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,14 @@ export class StorySubGridViewBase extends GridViewBase {
 	 * @memberof StorySubGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PARENT': { isRawValue: false, value: 'id' },
-        'PRODUCT': { isRawValue: false, value: 'product' }
+        'PARENT': {
+            isRawValue: false,
+            value: 'id',
+        },
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
 	/**
@@ -89,7 +95,10 @@ export class StorySubGridViewBase extends GridViewBase {
 	 * @memberof StorySubGridViewBase
 	 */
     protected customViewParams: any = {
-        'parent': { isRawValue: false, value: 'id' }
+        'parent': {
+            isRawValue: false,
+            value: 'id',
+        }
     };
 
     /**
@@ -103,8 +112,8 @@ export class StorySubGridViewBase extends GridViewBase {
         srfCaption: 'entities.substory.views.subgridview.caption',
         srfTitle: 'entities.substory.views.subgridview.title',
         srfSubTitle: 'entities.substory.views.subgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -114,8 +123,14 @@ export class StorySubGridViewBase extends GridViewBase {
      * @memberof StorySubGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -149,7 +164,7 @@ export class StorySubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StorySubGridViewBase
      */ 
-    protected viewName:string = "StorySubGridView";
+    protected viewName: string = "StorySubGridView";
 
 
     /**
@@ -168,7 +183,9 @@ export class StorySubGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof StorySubGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -179,11 +196,11 @@ export class StorySubGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'substory',

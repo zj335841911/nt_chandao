@@ -1,5 +1,5 @@
-<template src="./main-test-task-form.html"/>
-<script lang='tsx'>
+<template src="./main-test-task-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainTestTaskEditFormBase } from './main-test-task-form-base';
@@ -15,11 +15,11 @@ import { MainTestTaskEditFormBase } from './main-test-task-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MainTestTaskEditForm extends MainTestTaskEditFormBase { }
+export default class MainTestTaskEditForm extends MainTestTaskEditFormBase {}
 </script>
-<style lang='less'>
+<style lang="less">
 @import './main-test-task-form.less';
 </style>

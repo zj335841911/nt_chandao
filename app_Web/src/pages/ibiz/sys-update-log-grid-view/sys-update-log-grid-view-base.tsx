@@ -6,7 +6,7 @@ import SysUpdateLogService from '@/service/sys-update-log/sys-update-log-service
 import SysUpdateLogAuthService from '@/authservice/sys-update-log/sys-update-log-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import SysUpdateLogUIService from '@/uiservice/sys-update-log/sys-update-log-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class SysUpdateLogGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateLogGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class SysUpdateLogGridViewBase extends GridViewBase {
         srfCaption: 'entities.sysupdatelog.views.gridview.caption',
         srfTitle: 'entities.sysupdatelog.views.gridview.title',
         srfSubTitle: 'entities.sysupdatelog.views.gridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,9 +91,18 @@ export class SysUpdateLogGridViewBase extends GridViewBase {
      * @memberof SysUpdateLogGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -133,7 +142,7 @@ export class SysUpdateLogGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateLogGridViewBase
      */ 
-    protected viewName:string = "SysUpdateLogGridView";
+    protected viewName: string = "SysUpdateLogGridView";
 
 
     /**
@@ -152,7 +161,9 @@ export class SysUpdateLogGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof SysUpdateLogGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -163,11 +174,11 @@ export class SysUpdateLogGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

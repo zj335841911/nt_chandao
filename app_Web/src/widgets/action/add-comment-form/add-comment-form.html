@@ -1,12 +1,49 @@
-<i-form :model="this.data" class='app-form' ref='form'  id='action_addcomment' style="" @on-validate="formItemValidate.apply(_self, arguments)">
+<i-form
+    :model="this.data"
+    class='app-form'
+    ref='form'
+    id='action_addcomment'
+    style=""
+    @on-validate="formItemValidate.apply(_self, arguments)"
+>
     <input style="display:none;" />
     <row >
             <i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class=' form-padding' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.action.addcomment_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group
+    :model="detailsModel.grouppanel2"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=' form-padding'
+    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.action.addcomment_form.details.grouppanel2')"
+    :isShowCaption="false"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="false"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel2"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    />
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='comment' :itemRules="this.rules().comment" class='' :caption="$t('entities.action.addcomment_form.details.comment')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="NONE">
+    <app-form-item
+    name='comment'
+    :itemRules="this.rules().comment"
+    class=''
+
+    :caption="$t('entities.action.addcomment_form.details.comment')"
+    uiStyle="DEFAULT"
+    :labelWidth="0"
+    :isShowCaption="false"
+    :error="detailsModel.comment.error"
+    :isEmptyCaption="false"
+    labelPos="NONE">
     <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"%objecttype%",objectid: "%objectid%",version:"editor"}' :exportparams='{objecttype:"%objecttype%",objectid: "%objectid%",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>

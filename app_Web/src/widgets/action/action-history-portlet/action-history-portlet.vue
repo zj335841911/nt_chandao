@@ -1,5 +1,5 @@
-<template src="./action-history-portlet.html"/>
-<script lang='tsx'>
+<template src="./action-history-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ActionHistoryPortletBase } from './action-history-portlet-base';
@@ -15,8 +15,8 @@ import { ActionHistoryPortletBase } from './action-history-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ActionHistoryPortlet extends ActionHistoryPortletBase { }
+export default class ActionHistoryPortlet extends ActionHistoryPortletBase {}
 </script>

@@ -1,5 +1,5 @@
-<template src="./release-edit-view.html"/>
-<script lang='tsx'>
+<template src="./release-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ReleaseEditViewBase } from './release-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/release/edit-form-form/edit-form-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ReleaseEditView extends ReleaseEditViewBase { }
+export default class ReleaseEditView extends ReleaseEditViewBase {}
 </script>

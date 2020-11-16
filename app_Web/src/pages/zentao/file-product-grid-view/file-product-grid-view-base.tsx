@@ -6,7 +6,7 @@ import FileService from '@/service/file/file-service';
 import FileAuthService from '@/authservice/file/file-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import FileUIService from '@/uiservice/file/file-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class FileProductGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof FileProductGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class FileProductGridViewBase extends GridViewBase {
 	 * @memberof FileProductGridViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class FileProductGridViewBase extends GridViewBase {
         srfCaption: 'entities.file.views.productgridview.caption',
         srfTitle: 'entities.file.views.productgridview.title',
         srfSubTitle: 'entities.file.views.productgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,9 +105,18 @@ export class FileProductGridViewBase extends GridViewBase {
      * @memberof FileProductGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -134,7 +146,7 @@ export class FileProductGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof FileProductGridViewBase
      */ 
-    protected viewName:string = "FileProductGridView";
+    protected viewName: string = "FileProductGridView";
 
 
     /**
@@ -153,7 +165,9 @@ export class FileProductGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof FileProductGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -48,7 +48,7 @@ export class TestReportEditView_TestTasksBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportEditView_TestTasksBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class TestReportEditView_TestTasksBase extends EditViewBase {
 	 * @memberof TestReportEditView_TestTasksBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' }
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class TestReportEditView_TestTasksBase extends EditViewBase {
 	 * @memberof TestReportEditView_TestTasksBase
 	 */
     protected customViewParams: any = {
-        'project': { isRawValue: false, value: 'project' }
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -93,7 +99,7 @@ export class TestReportEditView_TestTasksBase extends EditViewBase {
      *
      * @memberof TestReportEditView_TestTasksBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -106,8 +112,8 @@ export class TestReportEditView_TestTasksBase extends EditViewBase {
         srfCaption: 'entities.testreport.views.editview_testtasks.caption',
         srfTitle: 'entities.testreport.views.editview_testtasks.title',
         srfSubTitle: 'entities.testreport.views.editview_testtasks.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,8 +123,14 @@ export class TestReportEditView_TestTasksBase extends EditViewBase {
      * @memberof TestReportEditView_TestTasksBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -150,7 +162,7 @@ export class TestReportEditView_TestTasksBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportEditView_TestTasksBase
      */ 
-    protected viewName:string = "TestReportEditView_TestTasks";
+    protected viewName: string = "TestReportEditView_TestTasks";
 
 
     /**
@@ -169,7 +181,9 @@ export class TestReportEditView_TestTasksBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TestReportEditView_TestTasksBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

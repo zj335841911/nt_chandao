@@ -1,5 +1,5 @@
-<template src="./case-case-favorite.html"/>
-<script lang='tsx'>
+<template src="./case-case-favorite.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseCaseFavoriteBase } from './case-case-favorite-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/case/default-searchform/default-searchform
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseCaseFavorite extends CaseCaseFavoriteBase { }
+export default class CaseCaseFavorite extends CaseCaseFavoriteBase {}
 </script>

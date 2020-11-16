@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, SearchFormControlBase } from '@/studio-core';
 import IbzLibService from '@/service/ibz-lib/ibz-lib-service';
 import DefaultService from './default-searchform-service';
 import IbzLibUIService from '@/uiservice/ibz-lib/ibz-lib-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-
 
 /**
  * searchform部件基类
@@ -17,7 +16,6 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
  * @extends {DefaultSearchFormBase}
  */
 export class DefaultSearchFormBase extends SearchFormControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
      * @type {IbzLibUIService}
      * @memberof DefaultBase
      */  
-    public appUIService:IbzLibUIService = new IbzLibUIService(this.$store);
+    public appUIService: IbzLibUIService = new IbzLibUIService(this.$store);
 
 
     /**

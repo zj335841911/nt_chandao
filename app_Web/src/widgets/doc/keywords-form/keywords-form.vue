@@ -1,5 +1,5 @@
-<template src="./keywords-form.html"/>
-<script lang='tsx'>
+<template src="./keywords-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { KeywordsEditFormBase } from './keywords-form-base';
@@ -15,8 +15,8 @@ import { KeywordsEditFormBase } from './keywords-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class KeywordsEditForm extends KeywordsEditFormBase { }
+export default class KeywordsEditForm extends KeywordsEditFormBase {}
 </script>

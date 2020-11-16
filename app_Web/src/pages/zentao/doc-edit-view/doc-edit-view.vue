@@ -1,5 +1,5 @@
-<template src="./doc-edit-view.html"/>
-<script lang='tsx'>
+<template src="./doc-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocEditViewBase } from './doc-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/doc/create-edit-form-form/create-edit-form-form.
     }
 })
 @VueLifeCycleProcessing()
-export default class DocEditView extends DocEditViewBase { }
+export default class DocEditView extends DocEditViewBase {}
 </script>

@@ -48,7 +48,7 @@ export class IbzProjectMemberEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof IbzProjectMemberEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,8 +74,14 @@ export class IbzProjectMemberEditView9Base extends EditView9Base {
 	 * @memberof IbzProjectMemberEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'ID': { isRawValue: false, value: 'srfparentkey' },
-        'IBZPROJECTMEMBER': { isRawValue: false, value: 'srfparentkey' }
+        'ID': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        },
+        'IBZPROJECTMEMBER': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
 	/**
@@ -86,8 +92,14 @@ export class IbzProjectMemberEditView9Base extends EditView9Base {
 	 * @memberof IbzProjectMemberEditView9Base
 	 */
     protected customViewParams: any = {
-        'id': { isRawValue: false, value: 'srfparentkey' },
-        'ibzprojectmember': { isRawValue: false, value: 'srfparentkey' }
+        'id': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        },
+        'ibzprojectmember': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
     /**
@@ -101,8 +113,8 @@ export class IbzProjectMemberEditView9Base extends EditView9Base {
         srfCaption: 'entities.ibzprojectmember.views.editview9.caption',
         srfTitle: 'entities.ibzprojectmember.views.editview9.title',
         srfSubTitle: 'entities.ibzprojectmember.views.editview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -112,7 +124,10 @@ export class IbzProjectMemberEditView9Base extends EditView9Base {
      * @memberof IbzProjectMemberEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -132,7 +147,7 @@ export class IbzProjectMemberEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof IbzProjectMemberEditView9Base
      */ 
-    protected viewName:string = "IbzProjectMemberEditView9";
+    protected viewName: string = "IbzProjectMemberEditView9";
 
 
     /**
@@ -151,7 +166,9 @@ export class IbzProjectMemberEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof IbzProjectMemberEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

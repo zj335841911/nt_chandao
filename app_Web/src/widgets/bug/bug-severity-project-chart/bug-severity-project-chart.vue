@@ -1,5 +1,5 @@
-<template src="./bug-severity-project-chart.html"/>
-<script lang='tsx'>
+<template src="./bug-severity-project-chart.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugSeverity_ProjectChartBase } from './bug-severity-project-chart-base';
@@ -15,8 +15,8 @@ import { BugSeverity_ProjectChartBase } from './bug-severity-project-chart-base'
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class BugSeverity_ProjectChart extends BugSeverity_ProjectChartBase { }
+export default class BugSeverity_ProjectChart extends BugSeverity_ProjectChartBase {}
 </script>

@@ -1,5 +1,5 @@
-<template src="./test-module-tree-exp-view.html"/>
-<script lang='tsx'>
+<template src="./test-module-tree-exp-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestModuleTreeExpViewBase } from './test-module-tree-exp-view-base';
@@ -18,5 +18,5 @@ import view_treeexpbar from '@widgets/test-module/tree-exp-viewtreeexpbar-treeex
     }
 })
 @VueLifeCycleProcessing()
-export default class TestModuleTreeExpView extends TestModuleTreeExpViewBase { }
+export default class TestModuleTreeExpView extends TestModuleTreeExpViewBase {}
 </script>

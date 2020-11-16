@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import DocLibService from '@/service/doc-lib/doc-lib-service';
 import CustomDocLibTreeService from './custom-doc-lib-tree-treeview-service';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
-
 
 /**
  * treeexpbar_tree部件基类
@@ -15,7 +14,6 @@ import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
  * @extends {CustomDocLibTreeTreeBase}
  */
 export class CustomDocLibTreeTreeBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class CustomDocLibTreeTreeBase extends MainControlBase {
      * @type {DocLibUIService}
      * @memberof CustomDocLibTreeBase
      */  
-    public appUIService:DocLibUIService = new DocLibUIService(this.$store);
+    public appUIService: DocLibUIService = new DocLibUIService(this.$store);
 
     /**
      * doclib_cm 部件 click 事件

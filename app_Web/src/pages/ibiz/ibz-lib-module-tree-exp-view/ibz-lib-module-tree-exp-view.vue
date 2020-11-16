@@ -1,5 +1,5 @@
-<template src="./ibz-lib-module-tree-exp-view.html"/>
-<script lang='tsx'>
+<template src="./ibz-lib-module-tree-exp-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzLibModuleTreeExpViewBase } from './ibz-lib-module-tree-exp-view-base';
@@ -18,5 +18,5 @@ import view_treeexpbar from '@widgets/ibz-lib-module/tree-exp-viewtreeexpbar-tre
     }
 })
 @VueLifeCycleProcessing()
-export default class IbzLibModuleTreeExpView extends IbzLibModuleTreeExpViewBase { }
+export default class IbzLibModuleTreeExpView extends IbzLibModuleTreeExpViewBase {}
 </script>

@@ -1,5 +1,5 @@
-<template src="./story-activite-view.html"/>
-<script lang='tsx'>
+<template src="./story-activite-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryActiviteViewBase } from './story-activite-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/story/activation-form/activation-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class StoryActiviteView extends StoryActiviteViewBase { }
+export default class StoryActiviteView extends StoryActiviteViewBase {}
 </script>

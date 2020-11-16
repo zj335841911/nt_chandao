@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, PanelControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import MobService from './mob-panel-service';
@@ -8,7 +8,6 @@ import TaskUIService from '@/uiservice/task/task-ui-service';
 import { PanelDetailModel,PanelRawitemModel,PanelTabPanelModel,PanelTabPageModel,PanelFieldModel,PanelContainerModel,PanelControlModel,PanelUserControlModel,PanelButtonModel } from '@/model/panel-detail';
 import MobModel from './mob-panel-model';
 import CodeListService from "@service/app/codelist-service";
-
 
 /**
  * tasklayoutpanel部件基类
@@ -18,7 +17,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {MobPanelBase}
  */
 export class MobPanelBase extends PanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -68,7 +66,7 @@ export class MobPanelBase extends PanelControlBase {
      * @type {TaskUIService}
      * @memberof MobBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
 
     /**

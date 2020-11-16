@@ -1,5 +1,5 @@
-<template src="./case-type-portlet.html"/>
-<script lang='tsx'>
+<template src="./case-type-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseTypePortletBase } from './case-type-portlet-base';
@@ -15,10 +15,10 @@ import view_dashboard_sysportlet2_chart from '@widgets/case/case-type-chart/case
  */
 @Component({
     components: {
-        view_dashboard_sysportlet2_chart, 
+        view_dashboard_sysportlet2_chart,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class CaseTypePortlet extends CaseTypePortletBase { }
+export default class CaseTypePortlet extends CaseTypePortletBase {}
 </script>

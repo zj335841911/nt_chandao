@@ -1,5 +1,5 @@
-<template src="./ibz-my-territory-product-sum-tree-exp-view.html"/>
-<script lang='tsx'>
+<template src="./ibz-my-territory-product-sum-tree-exp-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzMyTerritoryProductSumTreeExpViewBase } from './ibz-my-territory-product-sum-tree-exp-view-base';
@@ -18,5 +18,5 @@ import view_treeexpbar from '@widgets/ibz-my-territory/product-sum-tree-exp-view
     }
 })
 @VueLifeCycleProcessing()
-export default class IbzMyTerritoryProductSumTreeExpView extends IbzMyTerritoryProductSumTreeExpViewBase { }
+export default class IbzMyTerritoryProductSumTreeExpView extends IbzMyTerritoryProductSumTreeExpViewBase {}
 </script>

@@ -1,5 +1,5 @@
-<template src="./task-assignedto-task-group-grid-view.html"/>
-<script lang='tsx'>
+<template src="./task-assignedto-task-group-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskAssignedtoTaskGroupGridViewBase } from './task-assignedto-task-group-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/task/default-searchform/default-searchform
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskAssignedtoTaskGroupGridView extends TaskAssignedtoTaskGroupGridViewBase { }
+export default class TaskAssignedtoTaskGroupGridView extends TaskAssignedtoTaskGroupGridViewBase {}
 </script>

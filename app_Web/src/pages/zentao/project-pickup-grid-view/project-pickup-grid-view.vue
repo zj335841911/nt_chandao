@@ -1,5 +1,5 @@
-<template src="./project-pickup-grid-view.html"/>
-<script lang='tsx'>
+<template src="./project-pickup-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectPickupGridViewBase } from './project-pickup-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/project/default-searchform/default-searchf
     }
 })
 @VueLifeCycleProcessing()
-export default class ProjectPickupGridView extends ProjectPickupGridViewBase { }
+export default class ProjectPickupGridView extends ProjectPickupGridViewBase {}
 </script>

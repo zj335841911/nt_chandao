@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProductLifeService from '@/service/product-life/product-life-service';
 import GetRoadmapYearService from './get-roadmap-year-list-service';
 import ProductLifeUIService from '@/uiservice/product-life/product-life-ui-service';
 import GetRoadmapService from '@/widgets/product-life/get-roadmap-list/get-roadmap-list-service';
-
 
 /**
  * list部件基类
@@ -16,7 +15,6 @@ import GetRoadmapService from '@/widgets/product-life/get-roadmap-list/get-roadm
  * @extends {GetRoadmapYearListBase}
  */
 export class GetRoadmapYearListBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class GetRoadmapYearListBase extends MainControlBase {
      * @type {ProductLifeUIService}
      * @memberof GetRoadmapYearBase
      */  
-    public appUIService:ProductLifeUIService = new ProductLifeUIService(this.$store);
+    public appUIService: ProductLifeUIService = new ProductLifeUIService(this.$store);
 
 
     /**

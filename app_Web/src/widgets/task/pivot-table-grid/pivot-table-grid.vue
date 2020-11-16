@@ -1,5 +1,5 @@
-<template src="./pivot-table-grid.html"/>
-<script lang='tsx'>
+<template src="./pivot-table-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { PivotTableGridBase } from './pivot-table-grid-base';
@@ -15,8 +15,8 @@ import { PivotTableGridBase } from './pivot-table-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class PivotTableGrid extends PivotTableGridBase { }
+export default class PivotTableGrid extends PivotTableGridBase {}
 </script>

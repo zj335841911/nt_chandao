@@ -1,5 +1,5 @@
-<template src="./cur-suit-case-grid-view-portlet.html"/>
-<script lang='tsx'>
+<template src="./cur-suit-case-grid-view-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CurSuitCaseGridViewPortletBase } from './cur-suit-case-grid-view-portlet-base';
@@ -15,8 +15,8 @@ import { CurSuitCaseGridViewPortletBase } from './cur-suit-case-grid-view-portle
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class CurSuitCaseGridViewPortlet extends CurSuitCaseGridViewPortletBase { }
+export default class CurSuitCaseGridViewPortlet extends CurSuitCaseGridViewPortletBase {}
 </script>

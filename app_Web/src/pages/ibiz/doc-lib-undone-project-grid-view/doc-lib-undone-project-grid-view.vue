@@ -1,5 +1,5 @@
-<template src="./doc-lib-undone-project-grid-view.html"/>
-<script lang='tsx'>
+<template src="./doc-lib-undone-project-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocLibUndoneProjectGridViewBase } from './doc-lib-undone-project-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/doc-lib/default-searchform/default-searchf
     }
 })
 @VueLifeCycleProcessing()
-export default class DocLibUndoneProjectGridView extends DocLibUndoneProjectGridViewBase { }
+export default class DocLibUndoneProjectGridView extends DocLibUndoneProjectGridViewBase {}
 </script>

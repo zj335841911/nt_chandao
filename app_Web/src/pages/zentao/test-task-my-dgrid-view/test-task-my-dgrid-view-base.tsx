@@ -6,7 +6,7 @@ import TestTaskService from '@/service/test-task/test-task-service';
 import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TestTaskMyDGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestTaskMyDGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,14 @@ export class TestTaskMyDGridViewBase extends GridViewBase {
 	 * @memberof TestTaskMyDGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_status_noteq': { isRawValue: true, value: 'done' },
-        'n_owner_eq': { isRawValue: false, value: 'srfloginname' }
+        'n_status_noteq': {
+            isRawValue: true,
+            value: 'done',
+        },
+        'n_owner_eq': {
+            isRawValue: false,
+            value: 'srfloginname',
+        }
     };
 
     /**
@@ -92,8 +98,8 @@ export class TestTaskMyDGridViewBase extends GridViewBase {
         srfCaption: 'entities.testtask.views.mydgridview.caption',
         srfTitle: 'entities.testtask.views.mydgridview.title',
         srfSubTitle: 'entities.testtask.views.mydgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -103,7 +109,10 @@ export class TestTaskMyDGridViewBase extends GridViewBase {
      * @memberof TestTaskMyDGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -123,7 +132,7 @@ export class TestTaskMyDGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestTaskMyDGridViewBase
      */ 
-    protected viewName:string = "TestTaskMyDGridView";
+    protected viewName: string = "TestTaskMyDGridView";
 
 
     /**
@@ -142,7 +151,9 @@ export class TestTaskMyDGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof TestTaskMyDGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -153,11 +164,11 @@ export class TestTaskMyDGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'testtask',

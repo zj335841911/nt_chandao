@@ -62,7 +62,7 @@ export class DocLibProjectTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof DocLibProjectTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class DocLibProjectTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.doclib.views.projecttreeexpview.caption',
         srfTitle: 'entities.doclib.views.projecttreeexpview.title',
         srfSubTitle: 'entities.doclib.views.projecttreeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class DocLibProjectTreeExpViewBase extends TreeExpViewBase {
      * @memberof DocLibProjectTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class DocLibProjectTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof DocLibProjectTreeExpViewBase
      */ 
-    protected viewName:string = "DocLibProjectTreeExpView";
+    protected viewName: string = "DocLibProjectTreeExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class DocLibProjectTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof DocLibProjectTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

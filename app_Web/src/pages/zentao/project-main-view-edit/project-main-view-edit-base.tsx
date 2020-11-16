@@ -48,7 +48,7 @@ export class ProjectMainView_EditBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectMainView_EditBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class ProjectMainView_EditBase extends EditViewBase {
      *
      * @memberof ProjectMainView_EditBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class ProjectMainView_EditBase extends EditViewBase {
         srfCaption: 'entities.project.views.mainview_edit.caption',
         srfTitle: 'entities.project.views.mainview_edit.title',
         srfSubTitle: 'entities.project.views.mainview_edit.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class ProjectMainView_EditBase extends EditViewBase {
      * @memberof ProjectMainView_EditBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class ProjectMainView_EditBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectMainView_EditBase
      */ 
-    protected viewName:string = "ProjectMainView_Edit";
+    protected viewName: string = "ProjectMainView_Edit";
 
 
     /**
@@ -147,7 +153,9 @@ export class ProjectMainView_EditBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ProjectMainView_EditBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

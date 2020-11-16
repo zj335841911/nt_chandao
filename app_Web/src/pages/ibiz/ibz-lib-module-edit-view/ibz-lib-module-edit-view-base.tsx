@@ -48,7 +48,7 @@ export class IbzLibModuleEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzLibModuleEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class IbzLibModuleEditViewBase extends EditViewBase {
      *
      * @memberof IbzLibModuleEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class IbzLibModuleEditViewBase extends EditViewBase {
         srfCaption: 'entities.ibzlibmodule.views.editview.caption',
         srfTitle: 'entities.ibzlibmodule.views.editview.title',
         srfSubTitle: 'entities.ibzlibmodule.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class IbzLibModuleEditViewBase extends EditViewBase {
      * @memberof IbzLibModuleEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class IbzLibModuleEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzLibModuleEditViewBase
      */ 
-    protected viewName:string = "IbzLibModuleEditView";
+    protected viewName: string = "IbzLibModuleEditView";
 
 
     /**
@@ -147,7 +153,9 @@ export class IbzLibModuleEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof IbzLibModuleEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

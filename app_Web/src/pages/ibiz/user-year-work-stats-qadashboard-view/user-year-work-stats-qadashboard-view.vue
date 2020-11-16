@@ -1,5 +1,5 @@
-<template src="./user-year-work-stats-qadashboard-view.html"/>
-<script lang='tsx'>
+<template src="./user-year-work-stats-qadashboard-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { UserYearWorkStatsQADashboardViewBase } from './user-year-work-stats-qadashboard-view-base';
@@ -18,5 +18,5 @@ import view_dashboard from '@widgets/user-year-work-stats/qay-dashboard/qay-dash
     }
 })
 @VueLifeCycleProcessing()
-export default class UserYearWorkStatsQADashboardView extends UserYearWorkStatsQADashboardViewBase { }
+export default class UserYearWorkStatsQADashboardView extends UserYearWorkStatsQADashboardViewBase {}
 </script>

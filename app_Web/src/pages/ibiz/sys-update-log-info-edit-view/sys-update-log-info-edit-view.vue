@@ -1,5 +1,5 @@
-<template src="./sys-update-log-info-edit-view.html"/>
-<script lang='tsx'>
+<template src="./sys-update-log-info-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { SysUpdateLogInfoEditViewBase } from './sys-update-log-info-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/sys-update-log/main-l-form/main-l-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class SysUpdateLogInfoEditView extends SysUpdateLogInfoEditViewBase { }
+export default class SysUpdateLogInfoEditView extends SysUpdateLogInfoEditViewBase {}
 </script>

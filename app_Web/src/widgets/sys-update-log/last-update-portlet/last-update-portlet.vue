@@ -1,5 +1,5 @@
-<template src="./last-update-portlet.html"/>
-<script lang='tsx'>
+<template src="./last-update-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { LastUpdatePortletBase } from './last-update-portlet-base';
@@ -15,8 +15,8 @@ import { LastUpdatePortletBase } from './last-update-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class LastUpdatePortlet extends LastUpdatePortletBase { }
+export default class LastUpdatePortlet extends LastUpdatePortletBase {}
 </script>

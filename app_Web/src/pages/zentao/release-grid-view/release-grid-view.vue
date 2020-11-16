@@ -1,5 +1,5 @@
-<template src="./release-grid-view.html"/>
-<script lang='tsx'>
+<template src="./release-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ReleaseGridViewBase } from './release-grid-view-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/release/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ReleaseGridView extends ReleaseGridViewBase { }
+export default class ReleaseGridView extends ReleaseGridViewBase {}
 </script>

@@ -1,5 +1,5 @@
-<template src="./action-my-all-trends-list-view.html"/>
-<script lang='tsx'>
+<template src="./action-my-all-trends-list-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ActionMyAllTrendsListViewBase } from './action-my-all-trends-list-view-base';
@@ -18,5 +18,5 @@ import view_list from '@widgets/action/trends-list/trends-list.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ActionMyAllTrendsListView extends ActionMyAllTrendsListViewBase { }
+export default class ActionMyAllTrendsListView extends ActionMyAllTrendsListViewBase {}
 </script>

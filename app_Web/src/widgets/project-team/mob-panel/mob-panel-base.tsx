@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, PanelControlBase } from '@/studio-core';
 import ProjectTeamService from '@/service/project-team/project-team-service';
 import MobService from './mob-panel-service';
@@ -8,7 +8,6 @@ import ProjectTeamUIService from '@/uiservice/project-team/project-team-ui-servi
 import { PanelDetailModel,PanelRawitemModel,PanelTabPanelModel,PanelTabPageModel,PanelFieldModel,PanelContainerModel,PanelControlModel,PanelUserControlModel,PanelButtonModel } from '@/model/panel-detail';
 import MobModel from './mob-panel-model';
 import CodeListService from "@service/app/codelist-service";
-
 
 /**
  * testtasklayoutpanel部件基类
@@ -18,7 +17,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {MobPanelBase}
  */
 export class MobPanelBase extends PanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -68,7 +66,7 @@ export class MobPanelBase extends PanelControlBase {
      * @type {ProjectTeamUIService}
      * @memberof MobBase
      */  
-    public appUIService:ProjectTeamUIService = new ProjectTeamUIService(this.$store);
+    public appUIService: ProjectTeamUIService = new ProjectTeamUIService(this.$store);
 
 
     /**

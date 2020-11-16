@@ -6,7 +6,7 @@ import TestModuleService from '@/service/test-module/test-module-service';
 import TestModuleAuthService from '@/authservice/test-module/test-module-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import TestModuleUIService from '@/uiservice/test-module/test-module-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TestModuleGridViewMainBase extends GridViewBase {
      * @type {string}
      * @memberof TestModuleGridViewMainBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,9 +77,18 @@ export class TestModuleGridViewMainBase extends GridViewBase {
 	 * @memberof TestModuleGridViewMainBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'moduletype': { isRawValue: false, value: 'moduletype' },
-        'root': { isRawValue: false, value: 'product' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'moduletype': {
+            isRawValue: false,
+            value: 'moduletype',
+        },
+        'root': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
     /**
@@ -93,8 +102,8 @@ export class TestModuleGridViewMainBase extends GridViewBase {
         srfCaption: 'entities.testmodule.views.gridviewmain.caption',
         srfTitle: 'entities.testmodule.views.gridviewmain.title',
         srfSubTitle: 'entities.testmodule.views.gridviewmain.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -104,8 +113,14 @@ export class TestModuleGridViewMainBase extends GridViewBase {
      * @memberof TestModuleGridViewMainBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -139,7 +154,7 @@ export class TestModuleGridViewMainBase extends GridViewBase {
      * @type {string}
      * @memberof TestModuleGridViewMainBase
      */ 
-    protected viewName:string = "TestModuleGridViewMain";
+    protected viewName: string = "TestModuleGridViewMain";
 
 
     /**
@@ -158,7 +173,9 @@ export class TestModuleGridViewMainBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof TestModuleGridViewMainBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

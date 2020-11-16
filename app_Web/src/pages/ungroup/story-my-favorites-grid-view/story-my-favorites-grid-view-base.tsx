@@ -6,7 +6,7 @@ import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import StoryUIService from '@/uiservice/story/story-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class StoryMyFavoritesGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryMyFavoritesGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class StoryMyFavoritesGridViewBase extends GridViewBase {
 	 * @memberof StoryMyFavoritesGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'story' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'story',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class StoryMyFavoritesGridViewBase extends GridViewBase {
         srfCaption: 'entities.story.views.myfavoritesgridview.caption',
         srfTitle: 'entities.story.views.myfavoritesgridview.title',
         srfSubTitle: 'entities.story.views.myfavoritesgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,9 +105,18 @@ export class StoryMyFavoritesGridViewBase extends GridViewBase {
      * @memberof StoryMyFavoritesGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
+        },
     };
 
     /**
@@ -140,7 +152,7 @@ export class StoryMyFavoritesGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryMyFavoritesGridViewBase
      */ 
-    protected viewName:string = "StoryMyFavoritesGridView";
+    protected viewName: string = "StoryMyFavoritesGridView";
 
 
     /**
@@ -159,7 +171,9 @@ export class StoryMyFavoritesGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof StoryMyFavoritesGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -170,11 +184,11 @@ export class StoryMyFavoritesGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'story',
@@ -521,14 +535,14 @@ export class StoryMyFavoritesGridViewBase extends GridViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'Story__quickpacket', codelistType: 'STATIC' };
-        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
+        if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {
                 this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
             } else {
                 console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
             }
-        } else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
+        } else if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
             this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
                 this.quickGroupModel = res;
             }).catch((error:any) => {

@@ -48,7 +48,7 @@ export class BugAssingToViewBase extends OptionViewBase {
      * @type {string}
      * @memberof BugAssingToViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,8 +74,14 @@ export class BugAssingToViewBase extends OptionViewBase {
 	 * @memberof BugAssingToViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'bug' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'bug' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'bug',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'bug',
+        }
     };
 
     /**
@@ -83,7 +89,7 @@ export class BugAssingToViewBase extends OptionViewBase {
      *
      * @memberof BugAssingToViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -96,8 +102,8 @@ export class BugAssingToViewBase extends OptionViewBase {
         srfCaption: 'entities.bug.views.assingtoview.caption',
         srfTitle: 'entities.bug.views.assingtoview.title',
         srfSubTitle: 'entities.bug.views.assingtoview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -107,13 +113,45 @@ export class BugAssingToViewBase extends OptionViewBase {
      * @memberof BugAssingToViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
-        view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
-        view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
-        view_leftbtn: { name: 'leftbtn', type: 'button', text: '左移', disabled: true },
-        view_rightbtn: { name: 'rightbtn', type: 'button', text: '右移', disabled: true },
-        view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
-        view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
+        view_okbtn: {
+            name: 'okbtn',
+            type: 'button',
+            text: '确定',
+            disabled: true,
+        },
+        view_cancelbtn: {
+            name: 'cancelbtn',
+            type: 'button',
+            text: '取消',
+            disabled: false,
+        },
+        view_leftbtn: {
+            name: 'leftbtn',
+            type: 'button',
+            text: '左移',
+            disabled: true,
+        },
+        view_rightbtn: {
+            name: 'rightbtn',
+            type: 'button',
+            text: '右移',
+            disabled: true,},
+        view_allleftbtn: {
+            name: 'allleftbtn',
+            type: 'button',
+            text: '全部左移',
+            disabled: true,
+        },
+        view_allrightbtn: {
+            name: 'allrightbtn',
+            type: 'button',
+            text: '全部右移',
+            disabled: true,
+        },
     };
 
 
@@ -133,7 +171,7 @@ export class BugAssingToViewBase extends OptionViewBase {
      * @type {string}
      * @memberof BugAssingToViewBase
      */ 
-    protected viewName:string = "BugAssingToView";
+    protected viewName: string = "BugAssingToView";
 
 
     /**
@@ -152,7 +190,9 @@ export class BugAssingToViewBase extends OptionViewBase {
      * @type {Array<*>}
      * @memberof BugAssingToViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

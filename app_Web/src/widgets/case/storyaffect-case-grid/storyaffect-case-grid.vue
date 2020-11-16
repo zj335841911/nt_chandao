@@ -1,5 +1,5 @@
-<template src="./storyaffect-case-grid.html"/>
-<script lang='tsx'>
+<template src="./storyaffect-case-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryaffectCaseGridBase } from './storyaffect-case-grid-base';
@@ -15,8 +15,8 @@ import { StoryaffectCaseGridBase } from './storyaffect-case-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class StoryaffectCaseGrid extends StoryaffectCaseGridBase { }
+export default class StoryaffectCaseGrid extends StoryaffectCaseGridBase {}
 </script>

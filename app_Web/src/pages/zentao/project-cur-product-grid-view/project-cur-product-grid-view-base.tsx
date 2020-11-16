@@ -6,7 +6,7 @@ import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectCurProductGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
 	 * @memberof ProjectCurProductGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'N_STATUS_EQ': { isRawValue: true, value: 'null' }
+        'N_STATUS_EQ': {
+            isRawValue: true,
+            value: 'null',
+        }
     };
 
 	/**
@@ -88,8 +91,14 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
 	 * @memberof ProjectCurProductGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_product_eq': { isRawValue: false, value: 'product' },
-        'n_status_eq': { isRawValue: true, value: 'null' }
+        'n_product_eq': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'n_status_eq': {
+            isRawValue: true,
+            value: 'null',
+        }
     };
 
     /**
@@ -103,8 +112,8 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
         srfCaption: 'entities.project.views.curproductgridview.caption',
         srfTitle: 'entities.project.views.curproductgridview.title',
         srfSubTitle: 'entities.project.views.curproductgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -114,8 +123,14 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
      * @memberof ProjectCurProductGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -149,7 +164,7 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectCurProductGridViewBase
      */ 
-    protected viewName:string = "ProjectCurProductGridView";
+    protected viewName: string = "ProjectCurProductGridView";
 
 
     /**
@@ -168,7 +183,9 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof ProjectCurProductGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -179,11 +196,11 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'project',

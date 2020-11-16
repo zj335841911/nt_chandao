@@ -1,5 +1,5 @@
-<template src="./build-main-grid-view.html"/>
-<script lang='tsx'>
+<template src="./build-main-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BuildMainGridViewBase } from './build-main-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/build/default-searchform/default-searchfor
     }
 })
 @VueLifeCycleProcessing()
-export default class BuildMainGridView extends BuildMainGridViewBase { }
+export default class BuildMainGridView extends BuildMainGridViewBase {}
 </script>

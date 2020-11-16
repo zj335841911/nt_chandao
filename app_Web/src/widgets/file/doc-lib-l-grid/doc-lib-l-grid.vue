@@ -1,5 +1,5 @@
-<template src="./doc-lib-l-grid.html"/>
-<script lang='tsx'>
+<template src="./doc-lib-l-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocLibLGridBase } from './doc-lib-l-grid-base';
@@ -15,8 +15,8 @@ import { DocLibLGridBase } from './doc-lib-l-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class DocLibLGrid extends DocLibLGridBase { }
+export default class DocLibLGrid extends DocLibLGridBase {}
 </script>

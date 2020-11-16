@@ -62,7 +62,7 @@ export class ProjectMainDashboardViewBase extends DashboardViewBase {
      *
      * @memberof ProjectMainDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class ProjectMainDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.project.views.maindashboardview.caption',
         srfTitle: 'entities.project.views.maindashboardview.title',
         srfSubTitle: 'entities.project.views.maindashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class ProjectMainDashboardViewBase extends DashboardViewBase {
      * @memberof ProjectMainDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class ProjectMainDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof ProjectMainDashboardViewBase
      */ 
-    protected viewName:string = "ProjectMainDashboardView";
+    protected viewName: string = "ProjectMainDashboardView";
 
 
     /**
@@ -125,7 +128,9 @@ export class ProjectMainDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof ProjectMainDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

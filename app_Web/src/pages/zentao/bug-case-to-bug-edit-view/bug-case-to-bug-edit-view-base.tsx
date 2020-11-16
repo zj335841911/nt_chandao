@@ -48,7 +48,7 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugCaseToBugEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,13 +74,34 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
 	 * @memberof BugCaseToBugEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'STORY': { isRawValue: false, value: 'story' },
-        'PROJECT': { isRawValue: false, value: 'project' },
-        'MODULE': { isRawValue: false, value: 'module' },
-        'PRECONDITION': { isRawValue: false, value: 'precondition' },
-        'PRODUCT': { isRawValue: false, value: 'product' },
-        'TITLE': { isRawValue: false, value: 'title' },
-        'CASE': { isRawValue: false, value: 'case' }
+        'STORY': {
+            isRawValue: false,
+            value: 'story',
+        },
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'MODULE': {
+            isRawValue: false,
+            value: 'module',
+        },
+        'PRECONDITION': {
+            isRawValue: false,
+            value: 'precondition',
+        },
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'TITLE': {
+            isRawValue: false,
+            value: 'title',
+        },
+        'CASE': {
+            isRawValue: false,
+            value: 'case',
+        }
     };
 
 	/**
@@ -91,14 +112,38 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
 	 * @memberof BugCaseToBugEditViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'project': { isRawValue: false, value: 'project' },
-        'story': { isRawValue: false, value: 'story' },
-        'module': { isRawValue: false, value: 'module' },
-        'precondition': { isRawValue: false, value: 'precondition' },
-        'title': { isRawValue: false, value: 'title' },
-        'srfloginname': { isRawValue: false, value: 'srfloginname' },
-        'case': { isRawValue: false, value: 'case' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'story': {
+            isRawValue: false,
+            value: 'story',
+        },
+        'module': {
+            isRawValue: false,
+            value: 'module',
+        },
+        'precondition': {
+            isRawValue: false,
+            value: 'precondition',
+        },
+        'title': {
+            isRawValue: false,
+            value: 'title',
+        },
+        'srfloginname': {
+            isRawValue: false,
+            value: 'srfloginname',
+        },
+        'case': {
+            isRawValue: false,
+            value: 'case',
+        }
     };
 
     /**
@@ -106,7 +151,7 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
      *
      * @memberof BugCaseToBugEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -119,8 +164,8 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
         srfCaption: 'entities.bug.views.casetobugeditview.caption',
         srfTitle: 'entities.bug.views.casetobugeditview.title',
         srfSubTitle: 'entities.bug.views.casetobugeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -130,8 +175,14 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
      * @memberof BugCaseToBugEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -163,7 +214,7 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugCaseToBugEditViewBase
      */ 
-    protected viewName:string = "BugCaseToBugEditView";
+    protected viewName: string = "BugCaseToBugEditView";
 
 
     /**
@@ -182,7 +233,9 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BugCaseToBugEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

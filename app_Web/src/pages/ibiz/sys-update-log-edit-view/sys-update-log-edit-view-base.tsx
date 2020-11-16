@@ -48,7 +48,7 @@ export class SysUpdateLogEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof SysUpdateLogEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class SysUpdateLogEditViewBase extends EditViewBase {
      *
      * @memberof SysUpdateLogEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class SysUpdateLogEditViewBase extends EditViewBase {
         srfCaption: 'entities.sysupdatelog.views.editview.caption',
         srfTitle: 'entities.sysupdatelog.views.editview.title',
         srfSubTitle: 'entities.sysupdatelog.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class SysUpdateLogEditViewBase extends EditViewBase {
      * @memberof SysUpdateLogEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class SysUpdateLogEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof SysUpdateLogEditViewBase
      */ 
-    protected viewName:string = "SysUpdateLogEditView";
+    protected viewName: string = "SysUpdateLogEditView";
 
 
     /**
@@ -147,7 +153,9 @@ export class SysUpdateLogEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof SysUpdateLogEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

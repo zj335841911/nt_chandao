@@ -7,7 +7,7 @@ import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
 import KanBanViewEngine from '@engine/view/kan-ban-view-engine';
 import TaskUIService from '@/uiservice/task/task-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -52,7 +52,7 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      * @type {string}
      * @memberof TaskKanbanViewBase
      */ 
-    protected dataControl:string = "kanban";
+    protected dataControl: string = "kanban";
 
     /**
      * 实体服务对象
@@ -78,7 +78,10 @@ export class TaskKanbanViewBase extends KanBanViewBase {
 	 * @memberof TaskKanbanViewBase
 	 */
     protected customViewParams: any = {
-        'n_parent_gtandeq': { isRawValue: true, value: '0' }
+        'n_parent_gtandeq': {
+            isRawValue: true,
+            value: '0',
+        }
     };
 
     /**
@@ -92,8 +95,8 @@ export class TaskKanbanViewBase extends KanBanViewBase {
         srfCaption: 'entities.task.views.kanbanview.caption',
         srfTitle: 'entities.task.views.kanbanview.title',
         srfSubTitle: 'entities.task.views.kanbanview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -103,8 +106,14 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      * @memberof TaskKanbanViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_kanban: { name: 'kanban', type: 'KANBAN' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_kanban: {
+            name: 'kanban',
+            type: 'KANBAN',
+        },
     };
 
     /**
@@ -138,7 +147,7 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      * @type {string}
      * @memberof TaskKanbanViewBase
      */ 
-    protected viewName:string = "TaskKanbanView";
+    protected viewName: string = "TaskKanbanView";
 
 
     /**
@@ -157,7 +166,9 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      * @type {Array<*>}
      * @memberof TaskKanbanViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -169,11 +180,11 @@ export class TaskKanbanViewBase extends KanBanViewBase {
         this.engine.init({
             view: this,
             kanban: this.$refs.kanban,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'task',
             majorPSDEField: 'name',

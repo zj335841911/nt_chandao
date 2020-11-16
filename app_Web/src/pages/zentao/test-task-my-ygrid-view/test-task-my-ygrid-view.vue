@@ -1,5 +1,5 @@
-<template src="./test-task-my-ygrid-view.html"/>
-<script lang='tsx'>
+<template src="./test-task-my-ygrid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestTaskMyYGridViewBase } from './test-task-my-ygrid-view-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/test-task/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestTaskMyYGridView extends TestTaskMyYGridViewBase { }
+export default class TestTaskMyYGridView extends TestTaskMyYGridViewBase {}
 </script>

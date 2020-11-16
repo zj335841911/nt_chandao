@@ -6,7 +6,7 @@ import BuildService from '@/service/build/build-service';
 import BuildAuthService from '@/authservice/build/build-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import BuildUIService from '@/uiservice/build/build-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class BuildTestRoundsGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BuildTestRoundsGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class BuildTestRoundsGridViewBase extends GridViewBase {
         srfCaption: 'entities.build.views.testroundsgridview.caption',
         srfTitle: 'entities.build.views.testroundsgridview.title',
         srfSubTitle: 'entities.build.views.testroundsgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,7 +91,10 @@ export class BuildTestRoundsGridViewBase extends GridViewBase {
      * @memberof BuildTestRoundsGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -111,7 +114,7 @@ export class BuildTestRoundsGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BuildTestRoundsGridViewBase
      */ 
-    protected viewName:string = "BuildTestRoundsGridView";
+    protected viewName: string = "BuildTestRoundsGridView";
 
 
     /**
@@ -130,7 +133,9 @@ export class BuildTestRoundsGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof BuildTestRoundsGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -141,11 +146,11 @@ export class BuildTestRoundsGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'build',

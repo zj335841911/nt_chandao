@@ -6,7 +6,7 @@ import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import CaseUIService from '@/uiservice/case/case-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class CaseCurSuitGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseCurSuitGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class CaseCurSuitGridViewBase extends GridViewBase {
 	 * @memberof CaseCurSuitGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'SUITE': { isRawValue: false, value: 'srfparentkey' }
+        'SUITE': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
 	/**
@@ -88,7 +91,10 @@ export class CaseCurSuitGridViewBase extends GridViewBase {
 	 * @memberof CaseCurSuitGridViewBase
 	 */
     protected customViewParams: any = {
-        'suite': { isRawValue: false, value: 'srfparentkey' }
+        'suite': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
     /**
@@ -102,8 +108,8 @@ export class CaseCurSuitGridViewBase extends GridViewBase {
         srfCaption: 'entities.case.views.cursuitgridview.caption',
         srfTitle: 'entities.case.views.cursuitgridview.title',
         srfSubTitle: 'entities.case.views.cursuitgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -113,7 +119,10 @@ export class CaseCurSuitGridViewBase extends GridViewBase {
      * @memberof CaseCurSuitGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -133,7 +142,7 @@ export class CaseCurSuitGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseCurSuitGridViewBase
      */ 
-    protected viewName:string = "CaseCurSuitGridView";
+    protected viewName: string = "CaseCurSuitGridView";
 
 
     /**
@@ -152,7 +161,9 @@ export class CaseCurSuitGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof CaseCurSuitGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -163,11 +174,11 @@ export class CaseCurSuitGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'case',

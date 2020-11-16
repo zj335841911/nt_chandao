@@ -48,7 +48,7 @@ export class ProductEditView_CloseBase extends EditViewBase {
      * @type {string}
      * @memberof ProductEditView_CloseBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class ProductEditView_CloseBase extends EditViewBase {
      *
      * @memberof ProductEditView_CloseBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class ProductEditView_CloseBase extends EditViewBase {
         srfCaption: 'entities.product.views.editview_close.caption',
         srfTitle: 'entities.product.views.editview_close.title',
         srfSubTitle: 'entities.product.views.editview_close.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class ProductEditView_CloseBase extends EditViewBase {
      * @memberof ProductEditView_CloseBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class ProductEditView_CloseBase extends EditViewBase {
      * @type {string}
      * @memberof ProductEditView_CloseBase
      */ 
-    protected viewName:string = "ProductEditView_Close";
+    protected viewName: string = "ProductEditView_Close";
 
 
     /**
@@ -147,7 +153,9 @@ export class ProductEditView_CloseBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ProductEditView_CloseBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

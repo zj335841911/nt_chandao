@@ -1,5 +1,5 @@
-<template src="./bug-confirm-view.html"/>
-<script lang='tsx'>
+<template src="./bug-confirm-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugConfirmViewBase } from './bug-confirm-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/bug/confirm-form/confirm-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BugConfirmView extends BugConfirmViewBase { }
+export default class BugConfirmView extends BugConfirmViewBase {}
 </script>

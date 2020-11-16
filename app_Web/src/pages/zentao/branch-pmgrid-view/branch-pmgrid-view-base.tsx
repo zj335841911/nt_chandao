@@ -6,7 +6,7 @@ import BranchService from '@/service/branch/branch-service';
 import BranchAuthService from '@/authservice/branch/branch-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import BranchUIService from '@/uiservice/branch/branch-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class BranchPMGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BranchPMGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class BranchPMGridViewBase extends GridViewBase {
         srfCaption: 'entities.branch.views.pmgridview.caption',
         srfTitle: 'entities.branch.views.pmgridview.title',
         srfSubTitle: 'entities.branch.views.pmgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class BranchPMGridViewBase extends GridViewBase {
      * @memberof BranchPMGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class BranchPMGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BranchPMGridViewBase
      */ 
-    protected viewName:string = "BranchPMGridView";
+    protected viewName: string = "BranchPMGridView";
 
 
     /**
@@ -147,7 +153,9 @@ export class BranchPMGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof BranchPMGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -158,11 +166,11 @@ export class BranchPMGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'branch',

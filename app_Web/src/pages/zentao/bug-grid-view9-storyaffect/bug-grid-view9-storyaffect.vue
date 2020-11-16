@@ -1,5 +1,5 @@
-<template src="./bug-grid-view9-storyaffect.html"/>
-<script lang='tsx'>
+<template src="./bug-grid-view9-storyaffect.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugGridView9_StoryaffectBase } from './bug-grid-view9-storyaffect-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/bug/story-affect-bug-grid/story-affect-bug-grid.
     }
 })
 @VueLifeCycleProcessing()
-export default class BugGridView9_Storyaffect extends BugGridView9_StoryaffectBase { }
+export default class BugGridView9_Storyaffect extends BugGridView9_StoryaffectBase {}
 </script>

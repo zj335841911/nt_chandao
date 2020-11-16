@@ -48,7 +48,7 @@ export class TaskMainEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskMainEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class TaskMainEditViewBase extends EditViewBase {
 	 * @memberof TaskMainEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: true, value: 'null' }
+        'PROJECT': {
+            isRawValue: true,
+            value: 'null',
+        }
     };
 
     /**
@@ -82,7 +85,7 @@ export class TaskMainEditViewBase extends EditViewBase {
      *
      * @memberof TaskMainEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -95,8 +98,8 @@ export class TaskMainEditViewBase extends EditViewBase {
         srfCaption: 'entities.task.views.maineditview.caption',
         srfTitle: 'entities.task.views.maineditview.title',
         srfSubTitle: 'entities.task.views.maineditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -106,8 +109,14 @@ export class TaskMainEditViewBase extends EditViewBase {
      * @memberof TaskMainEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -139,7 +148,7 @@ export class TaskMainEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskMainEditViewBase
      */ 
-    protected viewName:string = "TaskMainEditView";
+    protected viewName: string = "TaskMainEditView";
 
 
     /**
@@ -158,7 +167,9 @@ export class TaskMainEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TaskMainEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

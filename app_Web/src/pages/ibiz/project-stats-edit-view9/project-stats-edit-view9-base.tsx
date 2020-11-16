@@ -48,7 +48,7 @@ export class ProjectStatsEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof ProjectStatsEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class ProjectStatsEditView9Base extends EditView9Base {
 	 * @memberof ProjectStatsEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'PROJECTSTATS': { isRawValue: false, value: 'project' }
+        'PROJECTSTATS': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -88,8 +91,8 @@ export class ProjectStatsEditView9Base extends EditView9Base {
         srfCaption: 'entities.projectstats.views.editview9.caption',
         srfTitle: 'entities.projectstats.views.editview9.title',
         srfSubTitle: 'entities.projectstats.views.editview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -99,7 +102,10 @@ export class ProjectStatsEditView9Base extends EditView9Base {
      * @memberof ProjectStatsEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -119,7 +125,7 @@ export class ProjectStatsEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof ProjectStatsEditView9Base
      */ 
-    protected viewName:string = "ProjectStatsEditView9";
+    protected viewName: string = "ProjectStatsEditView9";
 
 
     /**
@@ -138,7 +144,9 @@ export class ProjectStatsEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof ProjectStatsEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

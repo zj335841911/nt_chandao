@@ -1,5 +1,5 @@
-<template src="./poy-dashboard.html"/>
-<script lang='tsx'>
+<template src="./poy-dashboard.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { POYDashboardBase } from './poy-dashboard-base';
@@ -17,12 +17,12 @@ import view_dashboard_sysportlet5 from '@widgets/user-year-work-stats/month-open
  */
 @Component({
     components: {
-        view_dashboard_sysportlet6, 
-        view_dashboard_sysportlet7, 
-        view_dashboard_sysportlet5, 
+        view_dashboard_sysportlet6,
+        view_dashboard_sysportlet7,
+        view_dashboard_sysportlet5,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class POYDashboard extends POYDashboardBase { }
+export default class POYDashboard extends POYDashboardBase {}
 </script>

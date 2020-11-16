@@ -48,7 +48,7 @@ export class TodoCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TodoCalendarEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,8 +74,14 @@ export class TodoCalendarEditViewBase extends EditViewBase {
 	 * @memberof TodoCalendarEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'todo' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'todo' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'todo',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'todo',
+        }
     };
 
     /**
@@ -83,7 +89,7 @@ export class TodoCalendarEditViewBase extends EditViewBase {
      *
      * @memberof TodoCalendarEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -96,8 +102,8 @@ export class TodoCalendarEditViewBase extends EditViewBase {
         srfCaption: 'entities.todo.views.calendareditview.caption',
         srfTitle: 'entities.todo.views.calendareditview.title',
         srfSubTitle: 'entities.todo.views.calendareditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -107,7 +113,10 @@ export class TodoCalendarEditViewBase extends EditViewBase {
      * @memberof TodoCalendarEditViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -127,7 +136,7 @@ export class TodoCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TodoCalendarEditViewBase
      */ 
-    protected viewName:string = "TodoCalendarEditView";
+    protected viewName: string = "TodoCalendarEditView";
 
 
     /**
@@ -146,7 +155,9 @@ export class TodoCalendarEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TodoCalendarEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

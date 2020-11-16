@@ -1,5 +1,5 @@
-<template src="./todo-edit-view.html"/>
-<script lang='tsx'>
+<template src="./todo-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TodoEditViewBase } from './todo-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/todo/edit-form-form/edit-form-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TodoEditView extends TodoEditViewBase { }
+export default class TodoEditView extends TodoEditViewBase {}
 </script>

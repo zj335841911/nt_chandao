@@ -1,5 +1,5 @@
-<template src="./test-task-edit-view9-info.html"/>
-<script lang='tsx'>
+<template src="./test-task-edit-view9-info.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestTaskEditView9_InfoBase } from './test-task-edit-view9-info-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/test-task/main-info-form/main-info-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TestTaskEditView9_Info extends TestTaskEditView9_InfoBase { }
+export default class TestTaskEditView9_Info extends TestTaskEditView9_InfoBase {}
 </script>

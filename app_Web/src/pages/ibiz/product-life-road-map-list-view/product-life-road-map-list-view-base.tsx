@@ -6,7 +6,7 @@ import ProductLifeService from '@/service/product-life/product-life-service';
 import ProductLifeAuthService from '@/authservice/product-life/product-life-auth-service';
 import ListViewEngine from '@engine/view/list-view-engine';
 import ProductLifeUIService from '@/uiservice/product-life/product-life-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProductLifeRoadMapListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProductLifeRoadMapListViewBase
      */ 
-    protected dataControl:string = "list";
+    protected dataControl: string = "list";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class ProductLifeRoadMapListViewBase extends ListViewBase {
 	 * @memberof ProductLifeRoadMapListViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'srfparentkey' }
+        'product': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class ProductLifeRoadMapListViewBase extends ListViewBase {
         srfCaption: 'entities.productlife.views.roadmaplistview.caption',
         srfTitle: 'entities.productlife.views.roadmaplistview.title',
         srfSubTitle: 'entities.productlife.views.roadmaplistview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,8 +105,14 @@ export class ProductLifeRoadMapListViewBase extends ListViewBase {
      * @memberof ProductLifeRoadMapListViewBase
      */
     protected containerModel: any = {
-        view_list2: { name: 'list2', type: 'LIST' },
-        view_list: { name: 'list', type: 'LIST' },
+        view_list2: {
+            name: 'list2',
+            type: 'LIST',
+        },
+        view_list: {
+            name: 'list',
+            type: 'LIST',
+        },
     };
 
 
@@ -123,7 +132,7 @@ export class ProductLifeRoadMapListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProductLifeRoadMapListViewBase
      */ 
-    protected viewName:string = "ProductLifeRoadMapListView";
+    protected viewName: string = "ProductLifeRoadMapListView";
 
 
     /**
@@ -142,7 +151,9 @@ export class ProductLifeRoadMapListViewBase extends ListViewBase {
      * @type {Array<*>}
      * @memberof ProductLifeRoadMapListViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -154,11 +165,11 @@ export class ProductLifeRoadMapListViewBase extends ListViewBase {
         this.engine.init({
             view: this,
             list: this.$refs.list,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'productlife',
             majorPSDEField: 'productlifename',

@@ -6,7 +6,7 @@ import FileService from '@/service/file/file-service';
 import FileAuthService from '@/authservice/file/file-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import FileUIService from '@/uiservice/file/file-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class FileProjectGridViewFileBase extends GridViewBase {
      * @type {string}
      * @memberof FileProjectGridViewFileBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class FileProjectGridViewFileBase extends GridViewBase {
 	 * @memberof FileProjectGridViewFileBase
 	 */
     protected customViewParams: any = {
-        'project': { isRawValue: false, value: 'project' }
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class FileProjectGridViewFileBase extends GridViewBase {
         srfCaption: 'entities.file.views.projectgridviewfile.caption',
         srfTitle: 'entities.file.views.projectgridviewfile.title',
         srfSubTitle: 'entities.file.views.projectgridviewfile.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,9 +105,18 @@ export class FileProjectGridViewFileBase extends GridViewBase {
      * @memberof FileProjectGridViewFileBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -134,7 +146,7 @@ export class FileProjectGridViewFileBase extends GridViewBase {
      * @type {string}
      * @memberof FileProjectGridViewFileBase
      */ 
-    protected viewName:string = "FileProjectGridViewFile";
+    protected viewName: string = "FileProjectGridViewFile";
 
 
     /**
@@ -153,7 +165,9 @@ export class FileProjectGridViewFileBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof FileProjectGridViewFileBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

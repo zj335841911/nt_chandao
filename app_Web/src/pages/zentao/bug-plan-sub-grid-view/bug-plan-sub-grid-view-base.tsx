@@ -6,7 +6,7 @@ import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class BugPlanSubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BugPlanSubGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class BugPlanSubGridViewBase extends GridViewBase {
 	 * @memberof BugPlanSubGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PLAN': { isRawValue: false, value: 'srfparentkey' }
+        'PLAN': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
 	/**
@@ -88,7 +91,10 @@ export class BugPlanSubGridViewBase extends GridViewBase {
 	 * @memberof BugPlanSubGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_plan_eq': { isRawValue: false, value: 'srfparentkey' }
+        'n_plan_eq': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
     /**
@@ -102,8 +108,8 @@ export class BugPlanSubGridViewBase extends GridViewBase {
         srfCaption: 'entities.bug.views.plansubgridview.caption',
         srfTitle: 'entities.bug.views.plansubgridview.title',
         srfSubTitle: 'entities.bug.views.plansubgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -113,9 +119,18 @@ export class BugPlanSubGridViewBase extends GridViewBase {
      * @memberof BugPlanSubGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
+        },
     };
 
     /**
@@ -153,7 +168,7 @@ export class BugPlanSubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BugPlanSubGridViewBase
      */ 
-    protected viewName:string = "BugPlanSubGridView";
+    protected viewName: string = "BugPlanSubGridView";
 
 
     /**
@@ -172,7 +187,9 @@ export class BugPlanSubGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof BugPlanSubGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -183,11 +200,11 @@ export class BugPlanSubGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'bug',

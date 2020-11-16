@@ -6,7 +6,7 @@ import ModuleService from '@/service/module/module-service';
 import ModuleAuthService from '@/authservice/module/module-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import ModuleUIService from '@/uiservice/module/module-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ModuleLineGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ModuleLineGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ModuleLineGridViewBase extends GridViewBase {
         srfCaption: 'entities.module.views.linegridview.caption',
         srfTitle: 'entities.module.views.linegridview.title',
         srfSubTitle: 'entities.module.views.linegridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class ModuleLineGridViewBase extends GridViewBase {
      * @memberof ModuleLineGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class ModuleLineGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ModuleLineGridViewBase
      */ 
-    protected viewName:string = "ModuleLineGridView";
+    protected viewName: string = "ModuleLineGridView";
 
 
     /**
@@ -147,7 +153,9 @@ export class ModuleLineGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof ModuleLineGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -158,11 +166,11 @@ export class ModuleLineGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'module',

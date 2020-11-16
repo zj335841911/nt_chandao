@@ -6,7 +6,7 @@ import IBZTaskTeamService from '@/service/ibztask-team/ibztask-team-service';
 import IBZTaskTeamAuthService from '@/authservice/ibztask-team/ibztask-team-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import IBZTaskTeamUIService from '@/uiservice/ibztask-team/ibztask-team-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
      * @type {string}
      * @memberof TaskTeamGridView9_EditBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
 	 * @memberof TaskTeamGridView9_EditBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: true, value: 'null' }
+        'PROJECT': {
+            isRawValue: true,
+            value: 'null',
+        }
     };
 
 	/**
@@ -88,7 +91,10 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
 	 * @memberof TaskTeamGridView9_EditBase
 	 */
     protected customViewParams: any = {
-        'project': { isRawValue: true, value: 'null' }
+        'project': {
+            isRawValue: true,
+            value: 'null',
+        }
     };
 
     /**
@@ -102,8 +108,8 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
         srfCaption: 'entities.ibztaskteam.views.gridview9_edit.caption',
         srfTitle: 'entities.ibztaskteam.views.gridview9_edit.title',
         srfSubTitle: 'entities.ibztaskteam.views.gridview9_edit.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -113,8 +119,14 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
      * @memberof TaskTeamGridView9_EditBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -146,7 +158,7 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
      * @type {string}
      * @memberof TaskTeamGridView9_EditBase
      */ 
-    protected viewName:string = "TaskTeamGridView9_Edit";
+    protected viewName: string = "TaskTeamGridView9_Edit";
 
 
     /**
@@ -165,7 +177,9 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
      * @type {Array<*>}
      * @memberof TaskTeamGridView9_EditBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -176,11 +190,11 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'ibztaskteam',

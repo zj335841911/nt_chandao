@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TabExpPanelControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import MoreTabExpViewtabexppanelService from './more-tab-exp-viewtabexppanel-tabexppanel-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
 import { Environment } from '@/environments/environment';
-
 
 /**
  * tabexppanel部件基类
@@ -17,7 +16,6 @@ import { Environment } from '@/environments/environment';
  * @extends {MoreTabExpViewtabexppanelTabexppanelBase}
  */
 export class MoreTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class MoreTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @type {TaskUIService}
      * @memberof MoreTabExpViewtabexppanelBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 是否初始化

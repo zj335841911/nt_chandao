@@ -1,9 +1,35 @@
-<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='testreport_testrange' style="" @on-validate="formItemValidate.apply(_self, arguments)">
+<i-form
+    :model="this.data"
+    class='app-form info-form-mode'
+    ref='form'
+    id='testreport_testrange'
+    style=""
+    @on-validate="formItemValidate.apply(_self, arguments)"
+>
     <input style="display:none;" />
     <row >
             <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.testreport.testrange_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
-    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
+    <app-form-group
+    :model="detailsModel.group1"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=''
+    :uiActionGroup="detailsModel.group1.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.testreport.testrange_form.details.group1')"
+    :isShowCaption="false"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.group1"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    />
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
@@ -13,7 +39,10 @@
     paramItem='testreport' 
     :parentdata='{"srfparentdename":"ZT_TESTREPORT","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
-        { pathName: 'products', parameterName: 'product' },
+        {
+            pathName: 'products',
+            parameterName: 'product',
+        },
     ]"
     :context="context"
     :viewparams="viewparams"
@@ -39,7 +68,10 @@
     paramItem='testreport' 
     :parentdata='{"srfparentdename":"ZT_TESTREPORT","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
-        { pathName: 'products', parameterName: 'product' },
+        {
+            pathName: 'products',
+            parameterName: 'product',
+        },
     ]"
     :context="context"
     :viewparams="viewparams"

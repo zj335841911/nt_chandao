@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TabExpPanelControlBase } from '@/studio-core';
 import IbzLibService from '@/service/ibz-lib/ibz-lib-service';
 import TabExpViewtabexppanelService from './tab-exp-viewtabexppanel-tabexppanel-service';
 import IbzLibUIService from '@/uiservice/ibz-lib/ibz-lib-ui-service';
 import IbzLibAuthService from '@/authservice/ibz-lib/ibz-lib-auth-service';
 import { Environment } from '@/environments/environment';
-
 
 /**
  * tabexppanel部件基类
@@ -17,7 +16,6 @@ import { Environment } from '@/environments/environment';
  * @extends {TabExpViewtabexppanelTabexppanelBase}
  */
 export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @type {IbzLibUIService}
      * @memberof TabExpViewtabexppanelBase
      */  
-    public appUIService:IbzLibUIService = new IbzLibUIService(this.$store);
+    public appUIService: IbzLibUIService = new IbzLibUIService(this.$store);
 
     /**
      * 是否初始化

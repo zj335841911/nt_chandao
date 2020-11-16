@@ -1,5 +1,5 @@
-<template src="./todo-finish-view.html"/>
-<script lang='tsx'>
+<template src="./todo-finish-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TodoFinishViewBase } from './todo-finish-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/todo/finish-from-form/finish-from-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TodoFinishView extends TodoFinishViewBase { }
+export default class TodoFinishView extends TodoFinishViewBase {}
 </script>

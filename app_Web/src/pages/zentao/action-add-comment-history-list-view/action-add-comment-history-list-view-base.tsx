@@ -6,7 +6,7 @@ import ActionService from '@/service/action/action-service';
 import ActionAuthService from '@/authservice/action/action-auth-service';
 import ListViewEngine from '@engine/view/list-view-engine';
 import ActionUIService from '@/uiservice/action/action-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionAddCommentHistoryListViewBase
      */ 
-    protected dataControl:string = "list";
+    protected dataControl: string = "list";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
 	 * @memberof ActionAddCommentHistoryListViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTID': { isRawValue: false, value: 'srfparentkey' }
+        'OBJECTID': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
 	/**
@@ -88,8 +91,14 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
 	 * @memberof ActionAddCommentHistoryListViewBase
 	 */
     protected customViewParams: any = {
-        'objecttype': { isRawValue: false, value: 'OBJECTTYPE' },
-        'objectid': { isRawValue: false, value: 'srfparentkey' }
+        'objecttype': {
+            isRawValue: false,
+            value: 'OBJECTTYPE',
+        },
+        'objectid': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
     /**
@@ -103,8 +112,8 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
         srfCaption: 'entities.action.views.addcommenthistorylistview.caption',
         srfTitle: 'entities.action.views.addcommenthistorylistview.title',
         srfSubTitle: 'entities.action.views.addcommenthistorylistview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -114,9 +123,18 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
      * @memberof ActionAddCommentHistoryListViewBase
      */
     protected containerModel: any = {
-        view_history: { name: 'history', type: 'LIST' },
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_list: { name: 'list', type: 'LIST' },
+        view_history: {
+            name: 'history',
+            type: 'LIST',
+        },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_list: {
+            name: 'list',
+            type: 'LIST',
+        },
     };
 
     /**
@@ -148,7 +166,7 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionAddCommentHistoryListViewBase
      */ 
-    protected viewName:string = "ActionAddCommentHistoryListView";
+    protected viewName: string = "ActionAddCommentHistoryListView";
 
 
     /**
@@ -167,7 +185,9 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
      * @type {Array<*>}
      * @memberof ActionAddCommentHistoryListViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -179,11 +199,11 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
         this.engine.init({
             view: this,
             list: this.$refs.list,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             keyPSDEField: 'action',
             majorPSDEField: 'comment',

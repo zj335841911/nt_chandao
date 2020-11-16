@@ -1,5 +1,5 @@
-<template src="./more-undone-project-grid.html"/>
-<script lang='tsx'>
+<template src="./more-undone-project-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MoreUndoneProjectGridBase } from './more-undone-project-grid-base';
@@ -15,8 +15,8 @@ import { MoreUndoneProjectGridBase } from './more-undone-project-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MoreUndoneProjectGrid extends MoreUndoneProjectGridBase { }
+export default class MoreUndoneProjectGrid extends MoreUndoneProjectGridBase {}
 </script>

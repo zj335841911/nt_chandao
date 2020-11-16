@@ -1,5 +1,5 @@
-<template src="./test-rounds-grid.html"/>
-<script lang='tsx'>
+<template src="./test-rounds-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestRoundsGridBase } from './test-rounds-grid-base';
@@ -15,8 +15,8 @@ import { TestRoundsGridBase } from './test-rounds-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class TestRoundsGrid extends TestRoundsGridBase { }
+export default class TestRoundsGrid extends TestRoundsGridBase {}
 </script>

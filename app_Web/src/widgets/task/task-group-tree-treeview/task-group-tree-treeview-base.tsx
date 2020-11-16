@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskGroupTreeService from './task-group-tree-treeview-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
-
 
 /**
  * treeexpbar_tree部件基类
@@ -15,7 +14,6 @@ import TaskUIService from '@/uiservice/task/task-ui-service';
  * @extends {TaskGroupTreeTreeBase}
  */
 export class TaskGroupTreeTreeBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class TaskGroupTreeTreeBase extends MainControlBase {
      * @type {TaskUIService}
      * @memberof TaskGroupTreeBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
 
     /**

@@ -1,5 +1,5 @@
-<template src="./total-cur-opened-story-pri-portlet.html"/>
-<script lang='tsx'>
+<template src="./total-cur-opened-story-pri-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TotalCurOpenedStoryPriPortletBase } from './total-cur-opened-story-pri-portlet-base';
@@ -15,10 +15,10 @@ import view_dashboard_sysportlet6_chart from '@widgets/story/my-opened-story-cha
  */
 @Component({
     components: {
-        view_dashboard_sysportlet6_chart, 
+        view_dashboard_sysportlet6_chart,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class TotalCurOpenedStoryPriPortlet extends TotalCurOpenedStoryPriPortletBase { }
+export default class TotalCurOpenedStoryPriPortlet extends TotalCurOpenedStoryPriPortletBase {}
 </script>

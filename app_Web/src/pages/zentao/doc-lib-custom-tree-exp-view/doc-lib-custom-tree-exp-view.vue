@@ -1,5 +1,5 @@
-<template src="./doc-lib-custom-tree-exp-view.html"/>
-<script lang='tsx'>
+<template src="./doc-lib-custom-tree-exp-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocLibCustomTreeExpViewBase } from './doc-lib-custom-tree-exp-view-base';
@@ -18,5 +18,5 @@ import view_treeexpbar from '@widgets/doc-lib/custom-tree-exp-viewtreeexpbar-tre
     }
 })
 @VueLifeCycleProcessing()
-export default class DocLibCustomTreeExpView extends DocLibCustomTreeExpViewBase { }
+export default class DocLibCustomTreeExpView extends DocLibCustomTreeExpViewBase {}
 </script>

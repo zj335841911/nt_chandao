@@ -1,12 +1,23 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import TaskEstimateService from '@/service/task-estimate/task-estimate-service';
 import MainService from './main-form-service';
 import TaskEstimateUIService from '@/uiservice/task-estimate/task-estimate-ui-service';
-import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
-
+import {
+    FormButtonModel,
+    FormPageModel,
+    FormItemModel,
+    FormDRUIPartModel,
+    FormPartModel,
+    FormGroupPanelModel,
+    FormIFrameModel,
+    FormRowItemModel,
+    FormTabPageModel,
+    FormTabPanelModel,
+    FormUserControlModel,
+} from '@/model/form-detail';
 
 /**
  * form部件基类
@@ -16,7 +27,6 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  * @extends {MainEditFormBase}
  */
 export class MainEditFormBase extends EditFormControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +76,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {TaskEstimateUIService}
      * @memberof MainBase
      */  
-    public appUIService:TaskEstimateUIService = new TaskEstimateUIService(this.$store);
+    public appUIService: TaskEstimateUIService = new TaskEstimateUIService(this.$store);
 
     /**
      * 表单数据对象
@@ -87,7 +97,7 @@ export class MainEditFormBase extends EditFormControlBase {
         left: null,
         work: null,
         id: null,
-        taskestimate:null,
+        taskestimate: null,
     };
 
     /**
@@ -96,7 +106,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainEditFormBase
      */
-    public majorMessageField: string = "";
+    public majorMessageField: string = '';
 
     /**
      * 属性值规则
@@ -104,23 +114,77 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainEditFormBase
      */
-    public rules():any{
+    public rules(): any{
         return {
-        date: [
-            { required: this.detailsModel.date.required, type: 'string', message: '日期 值不能为空', trigger: 'change' },
-            { required: this.detailsModel.date.required, type: 'string', message: '日期 值不能为空', trigger: 'blur' },
+            date: [
+                {
+                    required: this.detailsModel.date.required,
+                    type: 'string',
+                    message: '日期 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.date.required,
+                    type: 'string',
+                    message: '日期 值不能为空',
+                    trigger: 'blur',
+                },
         ],
-        consumed: [
-            { required: this.detailsModel.consumed.required, type: 'number', message: '工时 值不能为空', trigger: 'change' },
-            { required: this.detailsModel.consumed.required, type: 'number', message: '工时 值不能为空', trigger: 'blur' },
-            {validator:(rule:any, value:any)=>{return this.verifyDeRules("consumed").isPast},message: this.verifyDeRules("consumed").infoMessage, trigger: 'change' },
-            {validator:(rule:any, value:any)=>{return this.verifyDeRules("consumed").isPast},message: this.verifyDeRules("consumed").infoMessage, trigger: 'blur' },
+            consumed: [
+                {
+                    required: this.detailsModel.consumed.required,
+                    type: 'number',
+                    message: '工时 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.consumed.required,
+                    type: 'number',
+                    message: '工时 值不能为空',
+                    trigger: 'blur',
+                },
+                {
+                    validator: (rule: any, value: any) => {
+                        return this.verifyDeRules("consumed").isPast;
+                    },
+                    message: this.verifyDeRules("consumed").infoMessage,
+                    trigger: 'change',
+                },
+                {
+                    validator: (rule: any, value: any) => {
+                        return this.verifyDeRules("consumed").isPast;
+                    },
+                    message: this.verifyDeRules("consumed").infoMessage,
+                    trigger: 'blur',
+                },
         ],
-        left: [
-            { required: this.detailsModel.left.required, type: 'number', message: '剩余 值不能为空', trigger: 'change' },
-            { required: this.detailsModel.left.required, type: 'number', message: '剩余 值不能为空', trigger: 'blur' },
-            {validator:(rule:any, value:any)=>{return this.verifyDeRules("left").isPast},message: this.verifyDeRules("left").infoMessage, trigger: 'change' },
-            {validator:(rule:any, value:any)=>{return this.verifyDeRules("left").isPast},message: this.verifyDeRules("left").infoMessage, trigger: 'blur' },
+            left: [
+                {
+                    required: this.detailsModel.left.required,
+                    type: 'number',
+                    message: '剩余 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.left.required,
+                    type: 'number',
+                    message: '剩余 值不能为空',
+                    trigger: 'blur',
+                },
+                {
+                    validator: (rule: any, value: any) => {
+                        return this.verifyDeRules("left").isPast;
+                    },
+                    message: this.verifyDeRules("left").infoMessage,
+                    trigger: 'change',
+                },
+                {
+                    validator: (rule: any, value: any) => {
+                        return this.verifyDeRules("left").isPast;
+                    },
+                    message: this.verifyDeRules("left").infoMessage,
+                    trigger: 'blur',
+                },
         ],
         }
     }
@@ -132,7 +196,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainBase
      */
     public deRules:any = {
-                consumed:[
+        consumed:[
                   {
                       type:"VALUERANGE2",
                       condOP:"",
@@ -145,7 +209,7 @@ export class MainEditFormBase extends EditFormControlBase {
                       isIncludeMinValue:true,
                   },
                 ],
-                left:[
+        left:[
                   {
                       type:"VALUERANGE2",
                       condOP:"",
@@ -171,29 +235,89 @@ export class MainEditFormBase extends EditFormControlBase {
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srforikey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+        srfkey: new FormItemModel({
+    caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
-        srfmajortext: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+        srfmajortext: new FormItemModel({
+    caption: '编号', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
-        srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srftempmode: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfuf: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfuf: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfuf', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfdeid: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfdeid: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        srfsourcekey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
+        date: new FormItemModel({
+    caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        consumed: new FormItemModel({ caption: '工时', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
+        consumed: new FormItemModel({
+    caption: '工时', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        left: new FormItemModel({ caption: '剩余', detailType: 'FORMITEM', name: 'left', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
+        left: new FormItemModel({
+    caption: '剩余', detailType: 'FORMITEM', name: 'left', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        work: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'work', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        work: new FormItemModel({
+    caption: '备注', detailType: 'FORMITEM', name: 'work', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
 
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+        id: new FormItemModel({
+    caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
 
     };
 }

@@ -1,5 +1,5 @@
-<template src="./finish-task-and-bug-portlet.html"/>
-<script lang='tsx'>
+<template src="./finish-task-and-bug-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { FinishTaskAndBugPortletBase } from './finish-task-and-bug-portlet-base';
@@ -15,10 +15,10 @@ import view_dashboard_sysportlet5_chart from '@widgets/user-year-work-stats/mont
  */
 @Component({
     components: {
-        view_dashboard_sysportlet5_chart, 
+        view_dashboard_sysportlet5_chart,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class FinishTaskAndBugPortlet extends FinishTaskAndBugPortletBase { }
+export default class FinishTaskAndBugPortlet extends FinishTaskAndBugPortletBase {}
 </script>

@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import MyWorkService from './my-work-portlet-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-
 
 /**
  * portlet_MyWork部件基类
@@ -15,7 +14,6 @@ import UIService from '@/uiservice/ui-service';
  * @extends {MyWorkPortletBase}
  */
 export class MyWorkPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *

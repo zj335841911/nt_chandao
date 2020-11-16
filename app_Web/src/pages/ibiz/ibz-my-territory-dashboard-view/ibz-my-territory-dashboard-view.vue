@@ -1,5 +1,5 @@
-<template src="./ibz-my-territory-dashboard-view.html"/>
-<script lang='tsx'>
+<template src="./ibz-my-territory-dashboard-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzMyTerritoryDashboardViewBase } from './ibz-my-territory-dashboard-view-base';
@@ -18,5 +18,5 @@ import view_dashboard from '@widgets/ibz-my-territory/home-dashboard/home-dashbo
     }
 })
 @VueLifeCycleProcessing()
-export default class IbzMyTerritoryDashboardView extends IbzMyTerritoryDashboardViewBase { }
+export default class IbzMyTerritoryDashboardView extends IbzMyTerritoryDashboardViewBase {}
 </script>

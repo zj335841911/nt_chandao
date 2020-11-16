@@ -1,5 +1,5 @@
-<template src="./user-year-work-stats-dashboard-view.html"/>
-<script lang='tsx'>
+<template src="./user-year-work-stats-dashboard-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { UserYearWorkStatsDashboardViewBase } from './user-year-work-stats-dashboard-view-base';
@@ -18,5 +18,5 @@ import view_dashboard from '@widgets/user-year-work-stats/devy-dashboard/devy-da
     }
 })
 @VueLifeCycleProcessing()
-export default class UserYearWorkStatsDashboardView extends UserYearWorkStatsDashboardViewBase { }
+export default class UserYearWorkStatsDashboardView extends UserYearWorkStatsDashboardViewBase {}
 </script>

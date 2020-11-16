@@ -6,7 +6,7 @@ import DocLibModuleService from '@/service/doc-lib-module/doc-lib-module-service
 import DocLibModuleAuthService from '@/authservice/doc-lib-module/doc-lib-module-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import DocLibModuleUIService from '@/uiservice/doc-lib-module/doc-lib-module-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class DocLibModuleUsr2GridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocLibModuleUsr2GridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class DocLibModuleUsr2GridViewBase extends GridViewBase {
 	 * @memberof DocLibModuleUsr2GridViewBase
 	 */
     protected customViewParams: any = {
-        'root': { isRawValue: false, value: 'srfroot' }
+        'root': {
+            isRawValue: false,
+            value: 'srfroot',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class DocLibModuleUsr2GridViewBase extends GridViewBase {
         srfCaption: 'entities.doclibmodule.views.usr2gridview.caption',
         srfTitle: 'entities.doclibmodule.views.usr2gridview.title',
         srfSubTitle: 'entities.doclibmodule.views.usr2gridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,8 +105,14 @@ export class DocLibModuleUsr2GridViewBase extends GridViewBase {
      * @memberof DocLibModuleUsr2GridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -137,7 +146,7 @@ export class DocLibModuleUsr2GridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocLibModuleUsr2GridViewBase
      */ 
-    protected viewName:string = "DocLibModuleUsr2GridView";
+    protected viewName: string = "DocLibModuleUsr2GridView";
 
 
     /**
@@ -156,7 +165,9 @@ export class DocLibModuleUsr2GridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof DocLibModuleUsr2GridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

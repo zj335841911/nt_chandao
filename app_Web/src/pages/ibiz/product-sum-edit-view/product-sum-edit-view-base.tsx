@@ -48,7 +48,7 @@ export class ProductSumEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ProductSumEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class ProductSumEditViewBase extends EditViewBase {
      *
      * @memberof ProductSumEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class ProductSumEditViewBase extends EditViewBase {
         srfCaption: 'entities.productsum.views.editview.caption',
         srfTitle: 'entities.productsum.views.editview.title',
         srfSubTitle: 'entities.productsum.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class ProductSumEditViewBase extends EditViewBase {
      * @memberof ProductSumEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -134,7 +140,7 @@ export class ProductSumEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ProductSumEditViewBase
      */ 
-    protected viewName:string = "ProductSumEditView";
+    protected viewName: string = "ProductSumEditView";
 
 
     /**
@@ -153,7 +159,9 @@ export class ProductSumEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ProductSumEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

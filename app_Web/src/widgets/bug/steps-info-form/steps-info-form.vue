@@ -1,5 +1,5 @@
-<template src="./steps-info-form.html"/>
-<script lang='tsx'>
+<template src="./steps-info-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StepsInfoEditFormBase } from './steps-info-form-base';
@@ -15,11 +15,11 @@ import { StepsInfoEditFormBase } from './steps-info-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class StepsInfoEditForm extends StepsInfoEditFormBase { }
+export default class StepsInfoEditForm extends StepsInfoEditFormBase {}
 </script>
-<style lang='less'>
+<style lang="less">
 @import './steps-info-form.less';
 </style>

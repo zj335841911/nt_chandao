@@ -1,5 +1,5 @@
-<template src="./main-info-grid.html"/>
-<script lang='tsx'>
+<template src="./main-info-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainInfoGridBase } from './main-info-grid-base';
@@ -15,8 +15,8 @@ import { MainInfoGridBase } from './main-info-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MainInfoGrid extends MainInfoGridBase { }
+export default class MainInfoGrid extends MainInfoGridBase {}
 </script>

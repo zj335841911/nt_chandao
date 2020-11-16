@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
 import ProjectTabExpViewtabviewpanel5Service from './project-tab-exp-viewtabviewpanel5-tabviewpanel-service';
 import TestReportUIService from '@/uiservice/test-report/test-report-ui-service';
-
 
 /**
  * tabviewpanel5部件基类
@@ -15,7 +14,6 @@ import TestReportUIService from '@/uiservice/test-report/test-report-ui-service'
  * @extends {ProjectTabExpViewtabviewpanel5TabviewpanelBase}
  */
 export class ProjectTabExpViewtabviewpanel5TabviewpanelBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class ProjectTabExpViewtabviewpanel5TabviewpanelBase extends MainControlB
      * @type {TestReportUIService}
      * @memberof ProjectTabExpViewtabviewpanel5Base
      */  
-    public appUIService:TestReportUIService = new TestReportUIService(this.$store);
+    public appUIService: TestReportUIService = new TestReportUIService(this.$store);
 
 
     /**

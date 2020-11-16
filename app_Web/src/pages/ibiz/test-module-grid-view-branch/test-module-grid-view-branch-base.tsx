@@ -6,7 +6,7 @@ import TestModuleService from '@/service/test-module/test-module-service';
 import TestModuleAuthService from '@/authservice/test-module/test-module-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import TestModuleUIService from '@/uiservice/test-module/test-module-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
      * @type {string}
      * @memberof TestModuleGridViewBranchBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
 	 * @memberof TestModuleGridViewBranchBase
 	 */
     protected customViewNavContexts: any = {
-        'SRFPARENTKEY': { isRawValue: true, value: '0' }
+        'SRFPARENTKEY': {
+            isRawValue: true,
+            value: '0',
+        }
     };
 
 	/**
@@ -88,10 +91,22 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
 	 * @memberof TestModuleGridViewBranchBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'srfparentkey': { isRawValue: true, value: '0' },
-        'moduletype': { isRawValue: false, value: 'moduletype' },
-        'root': { isRawValue: false, value: 'product' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        },
+        'srfparentkey': {
+            isRawValue: true,
+            value: '0',
+        },
+        'moduletype': {
+            isRawValue: false,
+            value: 'moduletype',
+        },
+        'root': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
     /**
@@ -105,8 +120,8 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
         srfCaption: 'entities.testmodule.views.gridviewbranch.caption',
         srfTitle: 'entities.testmodule.views.gridviewbranch.title',
         srfSubTitle: 'entities.testmodule.views.gridviewbranch.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -116,8 +131,14 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
      * @memberof TestModuleGridViewBranchBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -151,7 +172,7 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
      * @type {string}
      * @memberof TestModuleGridViewBranchBase
      */ 
-    protected viewName:string = "TestModuleGridViewBranch";
+    protected viewName: string = "TestModuleGridViewBranch";
 
 
     /**
@@ -170,7 +191,9 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof TestModuleGridViewBranchBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

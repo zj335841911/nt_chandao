@@ -1,5 +1,5 @@
-<template src="./product-stats-edit-view9.html"/>
-<script lang='tsx'>
+<template src="./product-stats-edit-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductStatsEditView9Base } from './product-stats-edit-view9-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/product-stats/main2-form/main2-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductStatsEditView9 extends ProductStatsEditView9Base { }
+export default class ProductStatsEditView9 extends ProductStatsEditView9Base {}
 </script>

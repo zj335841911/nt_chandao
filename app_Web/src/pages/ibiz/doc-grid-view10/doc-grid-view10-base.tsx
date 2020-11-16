@@ -6,7 +6,7 @@ import DocService from '@/service/doc/doc-service';
 import DocAuthService from '@/authservice/doc/doc-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import DocUIService from '@/uiservice/doc/doc-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class DocGridView10Base extends GridView9Base {
      * @type {string}
      * @memberof DocGridView10Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,14 @@ export class DocGridView10Base extends GridView9Base {
 	 * @memberof DocGridView10Base
 	 */
     protected customViewParams: any = {
-        'n_addedby_eq': { isRawValue: false, value: 'srfloginname' },
-        'size': { isRawValue: true, value: '5' }
+        'n_addedby_eq': {
+            isRawValue: false,
+            value: 'srfloginname',
+        },
+        'size': {
+            isRawValue: true,
+            value: '5',
+        }
     };
 
     /**
@@ -92,8 +98,8 @@ export class DocGridView10Base extends GridView9Base {
         srfCaption: 'entities.doc.views.gridview10.caption',
         srfTitle: 'entities.doc.views.gridview10.title',
         srfSubTitle: 'entities.doc.views.gridview10.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -103,7 +109,10 @@ export class DocGridView10Base extends GridView9Base {
      * @memberof DocGridView10Base
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -123,7 +132,7 @@ export class DocGridView10Base extends GridView9Base {
      * @type {string}
      * @memberof DocGridView10Base
      */ 
-    protected viewName:string = "DocGridView10";
+    protected viewName: string = "DocGridView10";
 
 
     /**
@@ -142,7 +151,9 @@ export class DocGridView10Base extends GridView9Base {
      * @type {Array<*>}
      * @memberof DocGridView10Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -153,11 +164,11 @@ export class DocGridView10Base extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'doc',

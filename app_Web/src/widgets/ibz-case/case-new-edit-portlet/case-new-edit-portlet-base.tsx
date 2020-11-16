@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import IbzCaseService from '@/service/ibz-case/ibz-case-service';
 import CaseNewEditService from './case-new-edit-portlet-service';
 import IbzCaseUIService from '@/uiservice/ibz-case/ibz-case-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-
 
 /**
  * dashboard_sysportlet4部件基类
@@ -17,7 +16,6 @@ import UIService from '@/uiservice/ui-service';
  * @extends {CaseNewEditPortletBase}
  */
 export class CaseNewEditPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class CaseNewEditPortletBase extends MainControlBase {
      * @type {IbzCaseUIService}
      * @memberof CaseNewEditBase
      */  
-    public appUIService:IbzCaseUIService = new IbzCaseUIService(this.$store);
+    public appUIService: IbzCaseUIService = new IbzCaseUIService(this.$store);
 
 
     /**

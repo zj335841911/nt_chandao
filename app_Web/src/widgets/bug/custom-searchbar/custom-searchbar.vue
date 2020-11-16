@@ -1,5 +1,5 @@
-<template src="./custom-searchbar.html"/>
-<script lang='tsx'>
+<template src="./custom-searchbar.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CustomSearchbarBase } from './custom-searchbar-base';
@@ -15,8 +15,8 @@ import { CustomSearchbarBase } from './custom-searchbar-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class CustomSearchbar extends CustomSearchbarBase { }
+export default class CustomSearchbar extends CustomSearchbarBase {}
 </script>

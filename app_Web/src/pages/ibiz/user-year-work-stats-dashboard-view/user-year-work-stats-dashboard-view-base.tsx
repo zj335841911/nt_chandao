@@ -65,7 +65,10 @@ export class UserYearWorkStatsDashboardViewBase extends DashboardViewBase {
 	 * @memberof UserYearWorkStatsDashboardViewBase
 	 */
     protected customViewNavContexts: any = {
-        'CURYEAR': { isRawValue: false, value: 'curyear' }
+        'CURYEAR': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
 	/**
@@ -76,7 +79,10 @@ export class UserYearWorkStatsDashboardViewBase extends DashboardViewBase {
 	 * @memberof UserYearWorkStatsDashboardViewBase
 	 */
     protected customViewParams: any = {
-        'curyear': { isRawValue: false, value: 'curyear' }
+        'curyear': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
     /**
@@ -84,7 +90,7 @@ export class UserYearWorkStatsDashboardViewBase extends DashboardViewBase {
      *
      * @memberof UserYearWorkStatsDashboardViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -97,8 +103,8 @@ export class UserYearWorkStatsDashboardViewBase extends DashboardViewBase {
         srfCaption: 'entities.useryearworkstats.views.dashboardview.caption',
         srfTitle: 'entities.useryearworkstats.views.dashboardview.title',
         srfSubTitle: 'entities.useryearworkstats.views.dashboardview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -108,7 +114,10 @@ export class UserYearWorkStatsDashboardViewBase extends DashboardViewBase {
      * @memberof UserYearWorkStatsDashboardViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_dashboard: {
+            name: 'dashboard',
+            type: 'DASHBOARD',
+        },
     };
 
 
@@ -128,7 +137,7 @@ export class UserYearWorkStatsDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof UserYearWorkStatsDashboardViewBase
      */ 
-    protected viewName:string = "UserYearWorkStatsDashboardView";
+    protected viewName: string = "UserYearWorkStatsDashboardView";
 
 
     /**
@@ -147,7 +156,9 @@ export class UserYearWorkStatsDashboardViewBase extends DashboardViewBase {
      * @type {Array<*>}
      * @memberof UserYearWorkStatsDashboardViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

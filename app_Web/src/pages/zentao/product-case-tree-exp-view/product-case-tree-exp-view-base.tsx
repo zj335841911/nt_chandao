@@ -62,7 +62,7 @@ export class ProductCaseTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof ProductCaseTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class ProductCaseTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.product.views.casetreeexpview.caption',
         srfTitle: 'entities.product.views.casetreeexpview.title',
         srfSubTitle: 'entities.product.views.casetreeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class ProductCaseTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProductCaseTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class ProductCaseTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof ProductCaseTreeExpViewBase
      */ 
-    protected viewName:string = "ProductCaseTreeExpView";
+    protected viewName: string = "ProductCaseTreeExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class ProductCaseTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof ProductCaseTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,5 +1,5 @@
-<template src="./project-main-toolbar-portlet.html"/>
-<script lang='tsx'>
+<template src="./project-main-toolbar-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectMainToolbarPortletBase } from './project-main-toolbar-portlet-base';
@@ -15,8 +15,8 @@ import { ProjectMainToolbarPortletBase } from './project-main-toolbar-portlet-ba
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ProjectMainToolbarPortlet extends ProjectMainToolbarPortletBase { }
+export default class ProjectMainToolbarPortlet extends ProjectMainToolbarPortletBase {}
 </script>

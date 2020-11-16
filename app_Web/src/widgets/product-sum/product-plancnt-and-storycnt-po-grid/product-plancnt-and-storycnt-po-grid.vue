@@ -1,5 +1,5 @@
-<template src="./product-plancnt-and-storycnt-po-grid.html"/>
-<script lang='tsx'>
+<template src="./product-plancnt-and-storycnt-po-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductPlancntAndStorycnt_POGridBase } from './product-plancnt-and-storycnt-po-grid-base';
@@ -15,8 +15,8 @@ import { ProductPlancntAndStorycnt_POGridBase } from './product-plancnt-and-stor
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ProductPlancntAndStorycnt_POGrid extends ProductPlancntAndStorycnt_POGridBase { }
+export default class ProductPlancntAndStorycnt_POGrid extends ProductPlancntAndStorycnt_POGridBase {}
 </script>

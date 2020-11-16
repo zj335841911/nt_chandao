@@ -62,7 +62,7 @@ export class DocLibCustomTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof DocLibCustomTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class DocLibCustomTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.doclib.views.customtreeexpview.caption',
         srfTitle: 'entities.doclib.views.customtreeexpview.title',
         srfSubTitle: 'entities.doclib.views.customtreeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class DocLibCustomTreeExpViewBase extends TreeExpViewBase {
      * @memberof DocLibCustomTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class DocLibCustomTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof DocLibCustomTreeExpViewBase
      */ 
-    protected viewName:string = "DocLibCustomTreeExpView";
+    protected viewName: string = "DocLibCustomTreeExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class DocLibCustomTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof DocLibCustomTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,5 +1,5 @@
-<template src="./task-tree-edit-view.html"/>
-<script lang='tsx'>
+<template src="./task-tree-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskTreeEditViewBase } from './task-tree-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/task/tree-info-form/tree-info-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskTreeEditView extends TaskTreeEditViewBase { }
+export default class TaskTreeEditView extends TaskTreeEditViewBase {}
 </script>

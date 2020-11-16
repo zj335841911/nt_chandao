@@ -48,7 +48,7 @@ export class ProductPickupGridViewBase extends PickupGridViewBase {
      * @type {string}
      * @memberof ProductPickupGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,8 @@ export class ProductPickupGridViewBase extends PickupGridViewBase {
         srfCaption: 'entities.product.views.pickupgridview.caption',
         srfTitle: 'entities.product.views.pickupgridview.title',
         srfSubTitle: 'entities.product.views.pickupgridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -88,8 +88,14 @@ export class ProductPickupGridViewBase extends PickupGridViewBase {
      * @memberof ProductPickupGridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
 
@@ -109,7 +115,7 @@ export class ProductPickupGridViewBase extends PickupGridViewBase {
      * @type {string}
      * @memberof ProductPickupGridViewBase
      */ 
-    protected viewName:string = "ProductPickupGridView";
+    protected viewName: string = "ProductPickupGridView";
 
 
     /**
@@ -128,7 +134,9 @@ export class ProductPickupGridViewBase extends PickupGridViewBase {
      * @type {Array<*>}
      * @memberof ProductPickupGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,5 +1,5 @@
-<template src="./case-edit-view.html"/>
-<script lang='tsx'>
+<template src="./case-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseEditViewBase } from './case-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/case/main-form/main-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseEditView extends CaseEditViewBase { }
+export default class CaseEditView extends CaseEditViewBase {}
 </script>

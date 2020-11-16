@@ -6,7 +6,7 @@ import SubTaskService from '@/service/sub-task/sub-task-service';
 import SubTaskAuthService from '@/authservice/sub-task/sub-task-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import SubTaskUIService from '@/uiservice/sub-task/sub-task-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskSubTaskNewViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
 	 * @memberof TaskSubTaskNewViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' }
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -91,8 +94,8 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
         srfCaption: 'entities.subtask.views.subtasknewview.caption',
         srfTitle: 'entities.subtask.views.subtasknewview.title',
         srfSubTitle: 'entities.subtask.views.subtasknewview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -102,8 +105,14 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
      * @memberof TaskSubTaskNewViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -137,7 +146,7 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskSubTaskNewViewBase
      */ 
-    protected viewName:string = "TaskSubTaskNewView";
+    protected viewName: string = "TaskSubTaskNewView";
 
 
     /**
@@ -156,7 +165,9 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof TaskSubTaskNewViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -167,11 +178,11 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'subtask',

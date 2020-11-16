@@ -1,5 +1,5 @@
-<template src="./bug-test-report-sub-grid-view.html"/>
-<script lang='tsx'>
+<template src="./bug-test-report-sub-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugTestReportSubGridViewBase } from './bug-test-report-sub-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchbar from '@widgets/bug/custom-searchbar/custom-searchbar.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BugTestReportSubGridView extends BugTestReportSubGridViewBase { }
+export default class BugTestReportSubGridView extends BugTestReportSubGridViewBase {}
 </script>

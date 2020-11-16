@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import TabExpViewtabviewpanelService from './tab-exp-viewtabviewpanel-tabviewpanel-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
-
 
 /**
  * tabviewpanel部件基类
@@ -15,7 +14,6 @@ import StoryUIService from '@/uiservice/story/story-ui-service';
  * @extends {TabExpViewtabviewpanelTabviewpanelBase}
  */
 export class TabExpViewtabviewpanelTabviewpanelBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class TabExpViewtabviewpanelTabviewpanelBase extends MainControlBase {
      * @type {StoryUIService}
      * @memberof TabExpViewtabviewpanelBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
 
     /**

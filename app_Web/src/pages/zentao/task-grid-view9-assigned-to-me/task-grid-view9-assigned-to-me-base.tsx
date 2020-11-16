@@ -6,7 +6,7 @@ import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import TaskUIService from '@/uiservice/task/task-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
      * @type {string}
      * @memberof TaskGridView9_AssignedToMeBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,14 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
 	 * @memberof TaskGridView9_AssignedToMeBase
 	 */
     protected customViewParams: any = {
-        'n_assignedto_eq': { isRawValue: false, value: 'srfloginname' },
-        'size': { isRawValue: true, value: '5' }
+        'n_assignedto_eq': {
+            isRawValue: false,
+            value: 'srfloginname',
+        },
+        'size': {
+            isRawValue: true,
+            value: '5',
+        }
     };
 
     /**
@@ -92,8 +98,8 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
         srfCaption: 'entities.task.views.gridview9_assignedtome.caption',
         srfTitle: 'entities.task.views.gridview9_assignedtome.title',
         srfSubTitle: 'entities.task.views.gridview9_assignedtome.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -103,7 +109,10 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
      * @memberof TaskGridView9_AssignedToMeBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -123,7 +132,7 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
      * @type {string}
      * @memberof TaskGridView9_AssignedToMeBase
      */ 
-    protected viewName:string = "TaskGridView9_AssignedToMe";
+    protected viewName: string = "TaskGridView9_AssignedToMe";
 
 
     /**
@@ -142,7 +151,9 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
      * @type {Array<*>}
      * @memberof TaskGridView9_AssignedToMeBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -153,11 +164,11 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'task',

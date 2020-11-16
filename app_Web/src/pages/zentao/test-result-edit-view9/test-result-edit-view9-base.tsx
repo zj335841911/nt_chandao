@@ -48,7 +48,7 @@ export class TestResultEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof TestResultEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class TestResultEditView9Base extends EditView9Base {
 	 * @memberof TestResultEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'VERSION': { isRawValue: false, value: 'version' }
+        'VERSION': {
+            isRawValue: false,
+            value: 'version',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class TestResultEditView9Base extends EditView9Base {
 	 * @memberof TestResultEditView9Base
 	 */
     protected customViewParams: any = {
-        'version': { isRawValue: false, value: 'version' }
+        'version': {
+            isRawValue: false,
+            value: 'version',
+        }
     };
 
     /**
@@ -99,8 +105,8 @@ export class TestResultEditView9Base extends EditView9Base {
         srfCaption: 'entities.testresult.views.editview9.caption',
         srfTitle: 'entities.testresult.views.editview9.title',
         srfSubTitle: 'entities.testresult.views.editview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -110,7 +116,10 @@ export class TestResultEditView9Base extends EditView9Base {
      * @memberof TestResultEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -130,7 +139,7 @@ export class TestResultEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof TestResultEditView9Base
      */ 
-    protected viewName:string = "TestResultEditView9";
+    protected viewName: string = "TestResultEditView9";
 
 
     /**
@@ -149,7 +158,9 @@ export class TestResultEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof TestResultEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

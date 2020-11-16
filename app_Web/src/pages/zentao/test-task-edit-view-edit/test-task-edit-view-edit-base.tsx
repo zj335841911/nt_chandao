@@ -48,7 +48,7 @@ export class TestTaskEditView_EditBase extends EditViewBase {
      * @type {string}
      * @memberof TestTaskEditView_EditBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class TestTaskEditView_EditBase extends EditViewBase {
      *
      * @memberof TestTaskEditView_EditBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class TestTaskEditView_EditBase extends EditViewBase {
         srfCaption: 'entities.testtask.views.editview_edit.caption',
         srfTitle: 'entities.testtask.views.editview_edit.title',
         srfSubTitle: 'entities.testtask.views.editview_edit.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class TestTaskEditView_EditBase extends EditViewBase {
      * @memberof TestTaskEditView_EditBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class TestTaskEditView_EditBase extends EditViewBase {
      * @type {string}
      * @memberof TestTaskEditView_EditBase
      */ 
-    protected viewName:string = "TestTaskEditView_Edit";
+    protected viewName: string = "TestTaskEditView_Edit";
 
 
     /**
@@ -147,7 +153,9 @@ export class TestTaskEditView_EditBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TestTaskEditView_EditBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

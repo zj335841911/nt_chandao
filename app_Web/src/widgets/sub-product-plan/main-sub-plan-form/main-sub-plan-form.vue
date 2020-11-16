@@ -1,5 +1,5 @@
-<template src="./main-sub-plan-form.html"/>
-<script lang='tsx'>
+<template src="./main-sub-plan-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainSubPlanEditFormBase } from './main-sub-plan-form-base';
@@ -15,8 +15,8 @@ import { MainSubPlanEditFormBase } from './main-sub-plan-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MainSubPlanEditForm extends MainSubPlanEditFormBase { }
+export default class MainSubPlanEditForm extends MainSubPlanEditFormBase {}
 </script>

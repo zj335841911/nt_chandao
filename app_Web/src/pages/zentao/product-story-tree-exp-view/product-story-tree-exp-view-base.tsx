@@ -62,7 +62,7 @@ export class ProductStoryTreeExpViewBase extends TreeExpViewBase {
      *
      * @memberof ProductStoryTreeExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class ProductStoryTreeExpViewBase extends TreeExpViewBase {
         srfCaption: 'entities.product.views.storytreeexpview.caption',
         srfTitle: 'entities.product.views.storytreeexpview.title',
         srfSubTitle: 'entities.product.views.storytreeexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class ProductStoryTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProductStoryTreeExpViewBase
      */
     protected containerModel: any = {
-        view_treeexpbar: { name: 'treeexpbar', type: 'TREEEXPBAR' },
+        view_treeexpbar: {
+            name: 'treeexpbar',
+            type: 'TREEEXPBAR',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class ProductStoryTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof ProductStoryTreeExpViewBase
      */ 
-    protected viewName:string = "ProductStoryTreeExpView";
+    protected viewName: string = "ProductStoryTreeExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class ProductStoryTreeExpViewBase extends TreeExpViewBase {
      * @type {Array<*>}
      * @memberof ProductStoryTreeExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -1,5 +1,5 @@
-<template src="./case-test-option-view.html"/>
-<script lang='tsx'>
+<template src="./case-test-option-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseTestOptionViewBase } from './case-test-option-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/case/main-test-task-form/main-test-task-form.vue
     }
 })
 @VueLifeCycleProcessing()
-export default class CaseTestOptionView extends CaseTestOptionViewBase { }
+export default class CaseTestOptionView extends CaseTestOptionViewBase {}
 </script>

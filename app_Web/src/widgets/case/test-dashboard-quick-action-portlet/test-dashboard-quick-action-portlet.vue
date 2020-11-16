@@ -1,5 +1,5 @@
-<template src="./test-dashboard-quick-action-portlet.html"/>
-<script lang='tsx'>
+<template src="./test-dashboard-quick-action-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestDashboardQuickActionPortletBase } from './test-dashboard-quick-action-portlet-base';
@@ -15,8 +15,8 @@ import { TestDashboardQuickActionPortletBase } from './test-dashboard-quick-acti
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class TestDashboardQuickActionPortlet extends TestDashboardQuickActionPortletBase { }
+export default class TestDashboardQuickActionPortlet extends TestDashboardQuickActionPortletBase {}
 </script>

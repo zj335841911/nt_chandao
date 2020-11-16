@@ -6,7 +6,7 @@ import ProjectTeamService from '@/service/project-team/project-team-service';
 import ProjectTeamAuthService from '@/authservice/project-team/project-team-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import ProjectTeamUIService from '@/uiservice/project-team/project-team-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectTeamMainGridView_EditRowBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
 	 * @memberof ProjectTeamMainGridView_EditRowBase
 	 */
     protected customViewNavContexts: any = {
-        'ROOT': { isRawValue: false, value: 'project' }
+        'ROOT': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
 	/**
@@ -88,7 +91,10 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
 	 * @memberof ProjectTeamMainGridView_EditRowBase
 	 */
     protected customViewParams: any = {
-        'root': { isRawValue: false, value: 'project' }
+        'root': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -102,8 +108,8 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
         srfCaption: 'entities.projectteam.views.maingridview_editrow.caption',
         srfTitle: 'entities.projectteam.views.maingridview_editrow.title',
         srfSubTitle: 'entities.projectteam.views.maingridview_editrow.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -113,9 +119,18 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
      * @memberof ProjectTeamMainGridView_EditRowBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -149,7 +164,7 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectTeamMainGridView_EditRowBase
      */ 
-    protected viewName:string = "ProjectTeamMainGridView_EditRow";
+    protected viewName: string = "ProjectTeamMainGridView_EditRow";
 
 
     /**
@@ -168,7 +183,9 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof ProjectTeamMainGridView_EditRowBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -179,11 +196,11 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

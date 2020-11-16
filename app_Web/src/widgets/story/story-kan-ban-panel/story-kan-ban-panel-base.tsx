@@ -1,6 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, PanelControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryKanBanService from './story-kan-ban-panel-service';
@@ -8,7 +8,6 @@ import StoryUIService from '@/uiservice/story/story-ui-service';
 import { PanelDetailModel,PanelRawitemModel,PanelTabPanelModel,PanelTabPageModel,PanelFieldModel,PanelContainerModel,PanelControlModel,PanelUserControlModel,PanelButtonModel } from '@/model/panel-detail';
 import StoryKanBanModel from './story-kan-ban-panel-model';
 import CodeListService from "@service/app/codelist-service";
-
 
 /**
  * itemlayoutpanel部件基类
@@ -18,7 +17,6 @@ import CodeListService from "@service/app/codelist-service";
  * @extends {StoryKanBanPanelBase}
  */
 export class StoryKanBanPanelBase extends PanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -68,7 +66,7 @@ export class StoryKanBanPanelBase extends PanelControlBase {
      * @type {StoryUIService}
      * @memberof StoryKanBanBase
      */  
-    public appUIService:StoryUIService = new StoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 逻辑事件

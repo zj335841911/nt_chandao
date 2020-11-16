@@ -1,5 +1,5 @@
-<template src="./doc-summary-form.html"/>
-<script lang='tsx'>
+<template src="./doc-summary-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocSummaryEditFormBase } from './doc-summary-form-base';
@@ -15,8 +15,8 @@ import { DocSummaryEditFormBase } from './doc-summary-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class DocSummaryEditForm extends DocSummaryEditFormBase { }
+export default class DocSummaryEditForm extends DocSummaryEditFormBase {}
 </script>

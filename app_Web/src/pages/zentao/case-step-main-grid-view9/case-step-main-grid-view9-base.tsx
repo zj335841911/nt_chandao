@@ -6,7 +6,7 @@ import CaseStepService from '@/service/case-step/case-step-service';
 import CaseStepAuthService from '@/authservice/case-step/case-step-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import CaseStepUIService from '@/uiservice/case-step/case-step-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof CaseStepMainGridView9Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class CaseStepMainGridView9Base extends GridView9Base {
         srfCaption: 'entities.casestep.views.maingridview9.caption',
         srfTitle: 'entities.casestep.views.maingridview9.title',
         srfSubTitle: 'entities.casestep.views.maingridview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,8 +91,14 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      * @memberof CaseStepMainGridView9Base
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -126,7 +132,7 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof CaseStepMainGridView9Base
      */ 
-    protected viewName:string = "CaseStepMainGridView9";
+    protected viewName: string = "CaseStepMainGridView9";
 
 
     /**
@@ -145,7 +151,9 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      * @type {Array<*>}
      * @memberof CaseStepMainGridView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -156,11 +164,11 @@ export class CaseStepMainGridView9Base extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'casestep',

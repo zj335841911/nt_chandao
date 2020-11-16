@@ -1,5 +1,5 @@
-<template src="./month-finish-task-and-bug-chart.html"/>
-<script lang='tsx'>
+<template src="./month-finish-task-and-bug-chart.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MonthFinishTaskAndBugChartBase } from './month-finish-task-and-bug-chart-base';
@@ -15,8 +15,8 @@ import { MonthFinishTaskAndBugChartBase } from './month-finish-task-and-bug-char
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class MonthFinishTaskAndBugChart extends MonthFinishTaskAndBugChartBase { }
+export default class MonthFinishTaskAndBugChart extends MonthFinishTaskAndBugChartBase {}
 </script>

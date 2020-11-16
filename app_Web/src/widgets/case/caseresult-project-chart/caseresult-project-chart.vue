@@ -1,5 +1,5 @@
-<template src="./caseresult-project-chart.html"/>
-<script lang='tsx'>
+<template src="./caseresult-project-chart.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseresultProjectChartBase } from './caseresult-project-chart-base';
@@ -15,8 +15,8 @@ import { CaseresultProjectChartBase } from './caseresult-project-chart-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class CaseresultProjectChart extends CaseresultProjectChartBase { }
+export default class CaseresultProjectChart extends CaseresultProjectChartBase {}
 </script>

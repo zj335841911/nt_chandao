@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import TodoService from '@/service/todo/todo-service';
 import MyUpcomingService from './my-upcoming-grid-service';
 import TodoUIService from '@/uiservice/todo/todo-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {MyUpcomingGridBase}
  */
 export class MyUpcomingGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class MyUpcomingGridBase extends GridControlBase {
      * @type {TodoUIService}
      * @memberof MyUpcomingBase
      */  
-    public appUIService:TodoUIService = new TodoUIService(this.$store);
+    public appUIService: TodoUIService = new TodoUIService(this.$store);
 
 
     /**

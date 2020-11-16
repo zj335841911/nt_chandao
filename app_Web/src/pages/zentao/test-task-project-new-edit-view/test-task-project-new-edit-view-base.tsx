@@ -48,7 +48,7 @@ export class TestTaskProjectNewEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestTaskProjectNewEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class TestTaskProjectNewEditViewBase extends EditViewBase {
 	 * @memberof TestTaskProjectNewEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PRODUCT': { isRawValue: false, value: 'product' }
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class TestTaskProjectNewEditViewBase extends EditViewBase {
 	 * @memberof TestTaskProjectNewEditViewBase
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
     /**
@@ -93,7 +99,7 @@ export class TestTaskProjectNewEditViewBase extends EditViewBase {
      *
      * @memberof TestTaskProjectNewEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -106,8 +112,8 @@ export class TestTaskProjectNewEditViewBase extends EditViewBase {
         srfCaption: 'entities.testtask.views.projectneweditview.caption',
         srfTitle: 'entities.testtask.views.projectneweditview.title',
         srfSubTitle: 'entities.testtask.views.projectneweditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,8 +123,14 @@ export class TestTaskProjectNewEditViewBase extends EditViewBase {
      * @memberof TestTaskProjectNewEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -150,7 +162,7 @@ export class TestTaskProjectNewEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestTaskProjectNewEditViewBase
      */ 
-    protected viewName:string = "TestTaskProjectNewEditView";
+    protected viewName: string = "TestTaskProjectNewEditView";
 
 
     /**
@@ -169,7 +181,9 @@ export class TestTaskProjectNewEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TestTaskProjectNewEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

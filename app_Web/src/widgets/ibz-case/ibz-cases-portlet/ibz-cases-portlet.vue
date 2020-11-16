@@ -1,5 +1,5 @@
-<template src="./ibz-cases-portlet.html"/>
-<script lang='tsx'>
+<template src="./ibz-cases-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzCasesPortletBase } from './ibz-cases-portlet-base';
@@ -15,8 +15,8 @@ import { IbzCasesPortletBase } from './ibz-cases-portlet-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class IbzCasesPortlet extends IbzCasesPortletBase { }
+export default class IbzCasesPortlet extends IbzCasesPortletBase {}
 </script>

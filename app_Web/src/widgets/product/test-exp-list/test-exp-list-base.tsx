@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, ListControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import TestExpService from './test-exp-list-service';
 import ProductUIService from '@/uiservice/product/product-ui-service';
-
 
 /**
  * listexpbar_list部件基类
@@ -15,7 +14,6 @@ import ProductUIService from '@/uiservice/product/product-ui-service';
  * @extends {TestExpListBase}
  */
 export class TestExpListBase extends ListControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class TestExpListBase extends ListControlBase {
      * @type {ProductUIService}
      * @memberof TestExpBase
      */  
-    public appUIService:ProductUIService = new ProductUIService(this.$store);
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
 
     /**
      * listexpbar_list_quicktoolbar 部件 click 事件

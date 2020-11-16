@@ -48,7 +48,7 @@ export class UserContactEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof UserContactEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class UserContactEditViewBase extends EditViewBase {
      *
      * @memberof UserContactEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class UserContactEditViewBase extends EditViewBase {
         srfCaption: 'entities.usercontact.views.editview.caption',
         srfTitle: 'entities.usercontact.views.editview.title',
         srfSubTitle: 'entities.usercontact.views.editview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class UserContactEditViewBase extends EditViewBase {
      * @memberof UserContactEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -130,7 +136,7 @@ export class UserContactEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof UserContactEditViewBase
      */ 
-    protected viewName:string = "UserContactEditView";
+    protected viewName: string = "UserContactEditView";
 
 
     /**
@@ -149,7 +155,9 @@ export class UserContactEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof UserContactEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

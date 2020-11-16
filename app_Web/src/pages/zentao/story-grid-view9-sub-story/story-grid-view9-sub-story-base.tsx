@@ -6,7 +6,7 @@ import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
 import GridView9Engine from '@engine/view/grid-view9-engine';
 import StoryUIService from '@/uiservice/story/story-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class StoryGridView9_SubStoryBase extends GridView9Base {
      * @type {string}
      * @memberof StoryGridView9_SubStoryBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,14 @@ export class StoryGridView9_SubStoryBase extends GridView9Base {
 	 * @memberof StoryGridView9_SubStoryBase
 	 */
     protected customViewParams: any = {
-        'story': { isRawValue: false, value: 'story' },
-        'n_parent_eq': { isRawValue: false, value: 'srfparentkey' }
+        'story': {
+            isRawValue: false,
+            value: 'story',
+        },
+        'n_parent_eq': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
     /**
@@ -92,8 +98,8 @@ export class StoryGridView9_SubStoryBase extends GridView9Base {
         srfCaption: 'entities.story.views.gridview9_substory.caption',
         srfTitle: 'entities.story.views.gridview9_substory.title',
         srfSubTitle: 'entities.story.views.gridview9_substory.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -103,7 +109,10 @@ export class StoryGridView9_SubStoryBase extends GridView9Base {
      * @memberof StoryGridView9_SubStoryBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -123,7 +132,7 @@ export class StoryGridView9_SubStoryBase extends GridView9Base {
      * @type {string}
      * @memberof StoryGridView9_SubStoryBase
      */ 
-    protected viewName:string = "StoryGridView9_SubStory";
+    protected viewName: string = "StoryGridView9_SubStory";
 
 
     /**
@@ -142,7 +151,9 @@ export class StoryGridView9_SubStoryBase extends GridView9Base {
      * @type {Array<*>}
      * @memberof StoryGridView9_SubStoryBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -153,11 +164,11 @@ export class StoryGridView9_SubStoryBase extends GridView9Base {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'story',

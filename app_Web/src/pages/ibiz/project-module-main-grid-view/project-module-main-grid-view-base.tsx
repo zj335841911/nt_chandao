@@ -6,7 +6,7 @@ import ProjectModuleService from '@/service/project-module/project-module-servic
 import ProjectModuleAuthService from '@/authservice/project-module/project-module-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import ProjectModuleUIService from '@/uiservice/project-module/project-module-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProjectModuleMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectModuleMainGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,14 @@ export class ProjectModuleMainGridViewBase extends GridViewBase {
 	 * @memberof ProjectModuleMainGridViewBase
 	 */
     protected customViewParams: any = {
-        'moduletype': { isRawValue: false, value: 'moduletype' },
-        'root': { isRawValue: false, value: 'project' }
+        'moduletype': {
+            isRawValue: false,
+            value: 'moduletype',
+        },
+        'root': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -92,8 +98,8 @@ export class ProjectModuleMainGridViewBase extends GridViewBase {
         srfCaption: 'entities.projectmodule.views.maingridview.caption',
         srfTitle: 'entities.projectmodule.views.maingridview.title',
         srfSubTitle: 'entities.projectmodule.views.maingridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -103,8 +109,14 @@ export class ProjectModuleMainGridViewBase extends GridViewBase {
      * @memberof ProjectModuleMainGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
     /**
@@ -138,7 +150,7 @@ export class ProjectModuleMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectModuleMainGridViewBase
      */ 
-    protected viewName:string = "ProjectModuleMainGridView";
+    protected viewName: string = "ProjectModuleMainGridView";
 
 
     /**
@@ -157,7 +169,9 @@ export class ProjectModuleMainGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof ProjectModuleMainGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -168,11 +182,11 @@ export class ProjectModuleMainGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'projectmodule',

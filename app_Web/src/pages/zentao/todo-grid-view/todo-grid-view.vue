@@ -1,5 +1,5 @@
-<template src="./todo-grid-view.html"/>
-<script lang='tsx'>
+<template src="./todo-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TodoGridViewBase } from './todo-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/todo/default-searchform/default-searchform
     }
 })
 @VueLifeCycleProcessing()
-export default class TodoGridView extends TodoGridViewBase { }
+export default class TodoGridView extends TodoGridViewBase {}
 </script>

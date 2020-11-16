@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TreeExpBarControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import EmployTreeExpViewtreeexpbarService from './employ-tree-exp-viewtreeexpbar-treeexpbar-service';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
-
 
 /**
  * treeexpbar部件基类
@@ -15,7 +14,6 @@ import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territo
  * @extends {EmployTreeExpViewtreeexpbarTreeExpBarBase}
  */
 export class EmployTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class EmployTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControl
      * @type {IbzMyTerritoryUIService}
      * @memberof EmployTreeExpViewtreeexpbarBase
      */  
-    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+    public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
     /**
      * treeexpbar_tree 部件 selectionchange 事件

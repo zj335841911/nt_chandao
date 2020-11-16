@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import SubTaskService from '@/service/sub-task/sub-task-service';
 import SubTaskNewService from './sub-task-new-grid-service';
 import SubTaskUIService from '@/uiservice/sub-task/sub-task-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {SubTaskNewGridBase}
  */
 export class SubTaskNewGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class SubTaskNewGridBase extends GridControlBase {
      * @type {SubTaskUIService}
      * @memberof SubTaskNewBase
      */  
-    public appUIService:SubTaskUIService = new SubTaskUIService(this.$store);
+    public appUIService: SubTaskUIService = new SubTaskUIService(this.$store);
 
 
     /**

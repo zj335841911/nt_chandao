@@ -48,7 +48,7 @@ export class ProductStatsEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof ProductStatsEditView9Base
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class ProductStatsEditView9Base extends EditView9Base {
 	 * @memberof ProductStatsEditView9Base
 	 */
     protected customViewNavContexts: any = {
-        'PRODUCTSTATS': { isRawValue: false, value: 'product' }
+        'PRODUCTSTATS': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
 	/**
@@ -85,7 +88,10 @@ export class ProductStatsEditView9Base extends EditView9Base {
 	 * @memberof ProductStatsEditView9Base
 	 */
     protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' }
+        'product': {
+            isRawValue: false,
+            value: 'product',
+        }
     };
 
     /**
@@ -99,8 +105,8 @@ export class ProductStatsEditView9Base extends EditView9Base {
         srfCaption: 'entities.productstats.views.editview9.caption',
         srfTitle: 'entities.productstats.views.editview9.title',
         srfSubTitle: 'entities.productstats.views.editview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -110,7 +116,10 @@ export class ProductStatsEditView9Base extends EditView9Base {
      * @memberof ProductStatsEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -130,7 +139,7 @@ export class ProductStatsEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof ProductStatsEditView9Base
      */ 
-    protected viewName:string = "ProductStatsEditView9";
+    protected viewName: string = "ProductStatsEditView9";
 
 
     /**
@@ -149,7 +158,9 @@ export class ProductStatsEditView9Base extends EditView9Base {
      * @type {Array<*>}
      * @memberof ProductStatsEditView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -48,7 +48,7 @@ export class TestReportProjectMainInfoViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportProjectMainInfoViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class TestReportProjectMainInfoViewBase extends EditViewBase {
      *
      * @memberof TestReportProjectMainInfoViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class TestReportProjectMainInfoViewBase extends EditViewBase {
         srfCaption: 'entities.testreport.views.projectmaininfoview.caption',
         srfTitle: 'entities.testreport.views.projectmaininfoview.title',
         srfSubTitle: 'entities.testreport.views.projectmaininfoview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,7 +95,10 @@ export class TestReportProjectMainInfoViewBase extends EditViewBase {
      * @memberof TestReportProjectMainInfoViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -115,7 +118,7 @@ export class TestReportProjectMainInfoViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportProjectMainInfoViewBase
      */ 
-    protected viewName:string = "TestReportProjectMainInfoView";
+    protected viewName: string = "TestReportProjectMainInfoView";
 
 
     /**
@@ -134,7 +137,9 @@ export class TestReportProjectMainInfoViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TestReportProjectMainInfoViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

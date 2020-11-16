@@ -1,5 +1,5 @@
-<template src="./type-task-group-grid.html"/>
-<script lang='tsx'>
+<template src="./type-task-group-grid.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TypeTaskGroupGridBase } from './type-task-group-grid-base';
@@ -15,8 +15,8 @@ import { TypeTaskGroupGridBase } from './type-task-group-grid-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class TypeTaskGroupGrid extends TypeTaskGroupGridBase { }
+export default class TypeTaskGroupGrid extends TypeTaskGroupGridBase {}
 </script>

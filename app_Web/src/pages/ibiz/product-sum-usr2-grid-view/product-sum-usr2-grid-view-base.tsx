@@ -6,7 +6,7 @@ import ProductSumService from '@/service/product-sum/product-sum-service';
 import ProductSumAuthService from '@/authservice/product-sum/product-sum-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import ProductSumUIService from '@/uiservice/product-sum/product-sum-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProductSumUsr2GridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductSumUsr2GridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class ProductSumUsr2GridViewBase extends GridViewBase {
 	 * @memberof ProductSumUsr2GridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'CURYEAR': { isRawValue: false, value: 'curyear' }
+        'CURYEAR': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
 	/**
@@ -88,7 +91,10 @@ export class ProductSumUsr2GridViewBase extends GridViewBase {
 	 * @memberof ProductSumUsr2GridViewBase
 	 */
     protected customViewParams: any = {
-        'curyear': { isRawValue: false, value: 'curyear' }
+        'curyear': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
     /**
@@ -102,8 +108,8 @@ export class ProductSumUsr2GridViewBase extends GridViewBase {
         srfCaption: 'entities.productsum.views.usr2gridview.caption',
         srfTitle: 'entities.productsum.views.usr2gridview.title',
         srfSubTitle: 'entities.productsum.views.usr2gridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -113,7 +119,10 @@ export class ProductSumUsr2GridViewBase extends GridViewBase {
      * @memberof ProductSumUsr2GridViewBase
      */
     protected containerModel: any = {
-        view_grid: { name: 'grid', type: 'GRID' },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
     };
 
 
@@ -133,7 +142,7 @@ export class ProductSumUsr2GridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductSumUsr2GridViewBase
      */ 
-    protected viewName:string = "ProductSumUsr2GridView";
+    protected viewName: string = "ProductSumUsr2GridView";
 
 
     /**
@@ -152,7 +161,9 @@ export class ProductSumUsr2GridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof ProductSumUsr2GridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -163,11 +174,11 @@ export class ProductSumUsr2GridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'productsum',

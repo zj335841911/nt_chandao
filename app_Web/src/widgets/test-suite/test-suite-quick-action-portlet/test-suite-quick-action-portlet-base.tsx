@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TestSuiteService from '@/service/test-suite/test-suite-service';
 import TestSuiteQuickActionService from './test-suite-quick-action-portlet-service';
 import TestSuiteUIService from '@/uiservice/test-suite/test-suite-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-
 
 /**
  * dashboard_sysportlet4部件基类
@@ -17,7 +16,6 @@ import UIService from '@/uiservice/ui-service';
  * @extends {TestSuiteQuickActionPortletBase}
  */
 export class TestSuiteQuickActionPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
      * @type {TestSuiteUIService}
      * @memberof TestSuiteQuickActionBase
      */  
-    public appUIService:TestSuiteUIService = new TestSuiteUIService(this.$store);
+    public appUIService: TestSuiteUIService = new TestSuiteUIService(this.$store);
 
     /**
      * 逻辑事件

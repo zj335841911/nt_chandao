@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TodoService from '@/service/todo/todo-service';
 import MainService from './main-dashboard-service';
 import TodoUIService from '@/uiservice/todo/todo-ui-service';
 import UtilService from '@/utilservice/util-service';
-
 
 /**
  * dashboard部件基类
@@ -16,7 +15,6 @@ import UtilService from '@/utilservice/util-service';
  * @extends {MainDashboardBase}
  */
 export class MainDashboardBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class MainDashboardBase extends MainControlBase {
      * @type {TodoUIService}
      * @memberof MainBase
      */  
-    public appUIService:TodoUIService = new TodoUIService(this.$store);
+    public appUIService: TodoUIService = new TodoUIService(this.$store);
 
     /**
      * 是否支持看板定制

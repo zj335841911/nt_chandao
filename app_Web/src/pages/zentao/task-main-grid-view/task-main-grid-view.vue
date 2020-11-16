@@ -1,5 +1,5 @@
-<template src="./task-main-grid-view.html"/>
-<script lang='tsx'>
+<template src="./task-main-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskMainGridViewBase } from './task-main-grid-view-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/task/main-grid/main-grid.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TaskMainGridView extends TaskMainGridViewBase { }
+export default class TaskMainGridView extends TaskMainGridViewBase {}
 </script>

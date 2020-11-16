@@ -1,5 +1,5 @@
-<template src="./doc-grid-view.html"/>
-<script lang='tsx'>
+<template src="./doc-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocGridViewBase } from './doc-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/doc/default-searchform/default-searchform.
     }
 })
 @VueLifeCycleProcessing()
-export default class DocGridView extends DocGridViewBase { }
+export default class DocGridView extends DocGridViewBase {}
 </script>

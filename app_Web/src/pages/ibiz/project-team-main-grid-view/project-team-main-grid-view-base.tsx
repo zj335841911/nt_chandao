@@ -6,7 +6,7 @@ import ProjectTeamService from '@/service/project-team/project-team-service';
 import ProjectTeamAuthService from '@/authservice/project-team/project-team-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import ProjectTeamUIService from '@/uiservice/project-team/project-team-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class ProjectTeamMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectTeamMainGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class ProjectTeamMainGridViewBase extends GridViewBase {
         srfCaption: 'entities.projectteam.views.maingridview.caption',
         srfTitle: 'entities.projectteam.views.maingridview.title',
         srfSubTitle: 'entities.projectteam.views.maingridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,9 +91,18 @@ export class ProjectTeamMainGridViewBase extends GridViewBase {
      * @memberof ProjectTeamMainGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -131,7 +140,7 @@ export class ProjectTeamMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectTeamMainGridViewBase
      */ 
-    protected viewName:string = "ProjectTeamMainGridView";
+    protected viewName: string = "ProjectTeamMainGridView";
 
 
     /**
@@ -150,7 +159,9 @@ export class ProjectTeamMainGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof ProjectTeamMainGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -161,11 +172,11 @@ export class ProjectTeamMainGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

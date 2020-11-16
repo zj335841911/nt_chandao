@@ -1,5 +1,5 @@
-<template src="./dashboard-bug-life-form.html"/>
-<script lang='tsx'>
+<template src="./dashboard-bug-life-form.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DashboardBugLifeEditFormBase } from './dashboard-bug-life-form-base';
@@ -15,8 +15,8 @@ import { DashboardBugLifeEditFormBase } from './dashboard-bug-life-form-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class DashboardBugLifeEditForm extends DashboardBugLifeEditFormBase { }
+export default class DashboardBugLifeEditForm extends DashboardBugLifeEditFormBase {}
 </script>

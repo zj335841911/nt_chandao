@@ -1,5 +1,5 @@
-<template src="./product-life-road-map-list-view.html"/>
-<script lang='tsx'>
+<template src="./product-life-road-map-list-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductLifeRoadMapListViewBase } from './product-life-road-map-list-view-base';
@@ -20,5 +20,5 @@ import view_list from '@widgets/product-life/get-roadmap-year-list/get-roadmap-y
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductLifeRoadMapListView extends ProductLifeRoadMapListViewBase { }
+export default class ProductLifeRoadMapListView extends ProductLifeRoadMapListViewBase {}
 </script>

@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import ProductSumService from '@/service/product-sum/product-sum-service';
 import ProductBugcnt_QAService from './product-bugcnt-qa-grid-service';
 import ProductSumUIService from '@/uiservice/product-sum/product-sum-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {ProductBugcnt_QAGridBase}
  */
 export class ProductBugcnt_QAGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class ProductBugcnt_QAGridBase extends GridControlBase {
      * @type {ProductSumUIService}
      * @memberof ProductBugcnt_QABase
      */  
-    public appUIService:ProductSumUIService = new ProductSumUIService(this.$store);
+    public appUIService: ProductSumUIService = new ProductSumUIService(this.$store);
 
 
     /**

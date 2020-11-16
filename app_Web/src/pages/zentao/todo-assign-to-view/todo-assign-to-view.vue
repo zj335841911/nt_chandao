@@ -1,5 +1,5 @@
-<template src="./todo-assign-to-view.html"/>
-<script lang='tsx'>
+<template src="./todo-assign-to-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TodoAssignToViewBase } from './todo-assign-to-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/todo/assignto-form-form/assignto-form-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TodoAssignToView extends TodoAssignToViewBase { }
+export default class TodoAssignToView extends TodoAssignToViewBase {}
 </script>

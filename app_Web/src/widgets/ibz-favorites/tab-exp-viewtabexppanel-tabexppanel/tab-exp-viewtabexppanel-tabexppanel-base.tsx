@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, TabExpPanelControlBase } from '@/studio-core';
 import IbzFavoritesService from '@/service/ibz-favorites/ibz-favorites-service';
 import TabExpViewtabexppanelService from './tab-exp-viewtabexppanel-tabexppanel-service';
 import IbzFavoritesUIService from '@/uiservice/ibz-favorites/ibz-favorites-ui-service';
 import IbzFavoritesAuthService from '@/authservice/ibz-favorites/ibz-favorites-auth-service';
 import { Environment } from '@/environments/environment';
-
 
 /**
  * tabexppanel部件基类
@@ -17,7 +16,6 @@ import { Environment } from '@/environments/environment';
  * @extends {TabExpViewtabexppanelTabexppanelBase}
  */
 export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @type {IbzFavoritesUIService}
      * @memberof TabExpViewtabexppanelBase
      */  
-    public appUIService:IbzFavoritesUIService = new IbzFavoritesUIService(this.$store);
+    public appUIService: IbzFavoritesUIService = new IbzFavoritesUIService(this.$store);
 
     /**
      * 是否初始化

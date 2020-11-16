@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskKanBanService from './task-kan-ban-kanban-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import draggable from "vuedraggable";
-
 
 /**
  * kanban部件基类
@@ -16,7 +15,6 @@ import draggable from "vuedraggable";
  * @extends {TaskKanBanKanbanBase}
  */
 export class TaskKanBanKanbanBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * @type {TaskUIService}
      * @memberof TaskKanBanBase
      */  
-    public appUIService:TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 获取多项数据

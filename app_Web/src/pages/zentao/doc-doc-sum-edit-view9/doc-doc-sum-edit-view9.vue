@@ -1,5 +1,5 @@
-<template src="./doc-doc-sum-edit-view9.html"/>
-<script lang='tsx'>
+<template src="./doc-doc-sum-edit-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocDocSumEditView9Base } from './doc-doc-sum-edit-view9-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/doc/doc-summary-form/doc-summary-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class DocDocSumEditView9 extends DocDocSumEditView9Base { }
+export default class DocDocSumEditView9 extends DocDocSumEditView9Base {}
 </script>

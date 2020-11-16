@@ -65,7 +65,10 @@ export class StoryMPickupView2Base extends MPickupViewBase {
 	 * @memberof StoryMPickupView2Base
 	 */
     protected customViewParams: any = {
-        'project': { isRawValue: false, value: 'project' }
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -79,8 +82,8 @@ export class StoryMPickupView2Base extends MPickupViewBase {
         srfCaption: 'entities.story.views.mpickupview2.caption',
         srfTitle: 'entities.story.views.mpickupview2.title',
         srfSubTitle: 'entities.story.views.mpickupview2.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -90,13 +93,45 @@ export class StoryMPickupView2Base extends MPickupViewBase {
      * @memberof StoryMPickupView2Base
      */
     protected containerModel: any = {
-        view_pickupviewpanel: { name: 'pickupviewpanel', type: 'PICKUPVIEWPANEL' },
-        view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
-        view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
-        view_leftbtn: { name: 'leftbtn', type: 'button', text: '左移', disabled: true },
-        view_rightbtn: { name: 'rightbtn', type: 'button', text: '右移', disabled: true },
-        view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
-        view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
+        view_pickupviewpanel: {
+            name: 'pickupviewpanel',
+            type: 'PICKUPVIEWPANEL',
+        },
+        view_okbtn: {
+            name: 'okbtn',
+            type: 'button',
+            text: '确定',
+            disabled: true,
+        },
+        view_cancelbtn: {
+            name: 'cancelbtn',
+            type: 'button',
+            text: '取消',
+            disabled: false,
+        },
+        view_leftbtn: {
+            name: 'leftbtn',
+            type: 'button',
+            text: '左移',
+            disabled: true,
+        },
+        view_rightbtn: {
+            name: 'rightbtn',
+            type: 'button',
+            text: '右移',
+            disabled: true,},
+        view_allleftbtn: {
+            name: 'allleftbtn',
+            type: 'button',
+            text: '全部左移',
+            disabled: true,
+        },
+        view_allrightbtn: {
+            name: 'allrightbtn',
+            type: 'button',
+            text: '全部右移',
+            disabled: true,
+        },
     };
 
 
@@ -116,7 +151,7 @@ export class StoryMPickupView2Base extends MPickupViewBase {
      * @type {string}
      * @memberof StoryMPickupView2Base
      */ 
-    protected viewName:string = "StoryMPickupView2";
+    protected viewName: string = "StoryMPickupView2";
 
 
     /**
@@ -135,7 +170,9 @@ export class StoryMPickupView2Base extends MPickupViewBase {
      * @type {Array<*>}
      * @memberof StoryMPickupView2Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

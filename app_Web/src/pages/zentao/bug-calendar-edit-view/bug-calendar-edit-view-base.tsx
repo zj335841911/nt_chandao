@@ -48,7 +48,7 @@ export class BugCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugCalendarEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,8 +74,14 @@ export class BugCalendarEditViewBase extends EditViewBase {
 	 * @memberof BugCalendarEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'bug' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'bug' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'bug',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'bug',
+        }
     };
 
     /**
@@ -83,7 +89,7 @@ export class BugCalendarEditViewBase extends EditViewBase {
      *
      * @memberof BugCalendarEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -96,8 +102,8 @@ export class BugCalendarEditViewBase extends EditViewBase {
         srfCaption: 'entities.bug.views.calendareditview.caption',
         srfTitle: 'entities.bug.views.calendareditview.title',
         srfSubTitle: 'entities.bug.views.calendareditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -107,7 +113,10 @@ export class BugCalendarEditViewBase extends EditViewBase {
      * @memberof BugCalendarEditViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -127,7 +136,7 @@ export class BugCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugCalendarEditViewBase
      */ 
-    protected viewName:string = "BugCalendarEditView";
+    protected viewName: string = "BugCalendarEditView";
 
 
     /**
@@ -146,7 +155,9 @@ export class BugCalendarEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BugCalendarEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

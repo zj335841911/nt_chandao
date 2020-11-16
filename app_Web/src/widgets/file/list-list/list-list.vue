@@ -1,5 +1,5 @@
-<template src="./list-list.html"/>
-<script lang='tsx'>
+<template src="./list-list.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ListListBase } from './list-list-base';
@@ -15,8 +15,8 @@ import { ListListBase } from './list-list-base';
 @Component({
     components: {
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ListList extends ListListBase { }
+export default class ListList extends ListListBase {}
 </script>

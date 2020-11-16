@@ -62,7 +62,7 @@ export class SysUpdateLogLastTabExpViewBase extends TabExpViewBase {
      *
      * @memberof SysUpdateLogLastTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class SysUpdateLogLastTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.sysupdatelog.views.lasttabexpview.caption',
         srfTitle: 'entities.sysupdatelog.views.lasttabexpview.title',
         srfSubTitle: 'entities.sysupdatelog.views.lasttabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class SysUpdateLogLastTabExpViewBase extends TabExpViewBase {
      * @memberof SysUpdateLogLastTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class SysUpdateLogLastTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof SysUpdateLogLastTabExpViewBase
      */ 
-    protected viewName:string = "SysUpdateLogLastTabExpView";
+    protected viewName: string = "SysUpdateLogLastTabExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class SysUpdateLogLastTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof SysUpdateLogLastTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

@@ -2,7 +2,7 @@
 
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import MyWorkPCService from './my-work-pc-calendar-service';
@@ -17,7 +17,6 @@ import ContextMenu from '@components/context-menu/context-menu'
 import UIService from '@/uiservice/ui-service';
 import AppCenterService from "@service/app/app-center-service";
 
-
 /**
  * calendarexpbar_calendar部件基类
  *
@@ -26,7 +25,6 @@ import AppCenterService from "@service/app/app-center-service";
  * @extends {MyWorkPCCalendarBase}
  */
 export class MyWorkPCCalendarBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -76,7 +74,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * @type {IbzMyTerritoryUIService}
      * @memberof MyWorkPCBase
      */  
-    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+    public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
 
     /**

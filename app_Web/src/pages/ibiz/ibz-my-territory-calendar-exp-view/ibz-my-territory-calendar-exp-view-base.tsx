@@ -62,7 +62,7 @@ export class IbzMyTerritoryCalendarExpViewBase extends CalendarExpViewBase {
      *
      * @memberof IbzMyTerritoryCalendarExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class IbzMyTerritoryCalendarExpViewBase extends CalendarExpViewBase {
         srfCaption: 'entities.ibzmyterritory.views.calendarexpview.caption',
         srfTitle: 'entities.ibzmyterritory.views.calendarexpview.title',
         srfSubTitle: 'entities.ibzmyterritory.views.calendarexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class IbzMyTerritoryCalendarExpViewBase extends CalendarExpViewBase {
      * @memberof IbzMyTerritoryCalendarExpViewBase
      */
     protected containerModel: any = {
-        view_calendarexpbar: { name: 'calendarexpbar', type: 'CALENDAREXPBAR' },
+        view_calendarexpbar: {
+            name: 'calendarexpbar',
+            type: 'CALENDAREXPBAR',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class IbzMyTerritoryCalendarExpViewBase extends CalendarExpViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryCalendarExpViewBase
      */ 
-    protected viewName:string = "IbzMyTerritoryCalendarExpView";
+    protected viewName: string = "IbzMyTerritoryCalendarExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class IbzMyTerritoryCalendarExpViewBase extends CalendarExpViewBase {
      * @type {Array<*>}
      * @memberof IbzMyTerritoryCalendarExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

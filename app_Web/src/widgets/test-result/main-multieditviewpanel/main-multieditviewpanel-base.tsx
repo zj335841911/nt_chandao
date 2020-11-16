@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TestResultService from '@/service/test-result/test-result-service';
 import MainService from './main-multieditviewpanel-service';
 import TestResultUIService from '@/uiservice/test-result/test-result-ui-service';
-
 
 /**
  * meditviewpanel部件基类
@@ -15,7 +14,6 @@ import TestResultUIService from '@/uiservice/test-result/test-result-ui-service'
  * @extends {MainMultieditviewpanelBase}
  */
 export class MainMultieditviewpanelBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class MainMultieditviewpanelBase extends MainControlBase {
      * @type {TestResultUIService}
      * @memberof MainBase
      */  
-    public appUIService:TestResultUIService = new TestResultUIService(this.$store);
+    public appUIService: TestResultUIService = new TestResultUIService(this.$store);
 
     /**
      * 获取多项数据

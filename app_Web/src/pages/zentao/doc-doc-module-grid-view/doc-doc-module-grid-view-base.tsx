@@ -6,7 +6,7 @@ import DocService from '@/service/doc/doc-service';
 import DocAuthService from '@/authservice/doc/doc-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import DocUIService from '@/uiservice/doc/doc-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class DocDocModuleGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocDocModuleGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,8 +77,14 @@ export class DocDocModuleGridViewBase extends GridViewBase {
 	 * @memberof DocDocModuleGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PARENT': { isRawValue: false, value: 'doclibmodule' },
-        'SRFROOT': { isRawValue: false, value: 'doclib' }
+        'PARENT': {
+            isRawValue: false,
+            value: 'doclibmodule',
+        },
+        'SRFROOT': {
+            isRawValue: false,
+            value: 'doclib',
+        }
     };
 
 	/**
@@ -89,10 +95,22 @@ export class DocDocModuleGridViewBase extends GridViewBase {
 	 * @memberof DocDocModuleGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_lib_eq': { isRawValue: false, value: 'srfroot' },
-        'n_project_eq': { isRawValue: false, value: 'project' },
-        'parent': { isRawValue: false, value: 'doclibmodule' },
-        'srfroot': { isRawValue: false, value: 'doclib' }
+        'n_lib_eq': {
+            isRawValue: false,
+            value: 'srfroot',
+        },
+        'n_project_eq': {
+            isRawValue: false,
+            value: 'project',
+        },
+        'parent': {
+            isRawValue: false,
+            value: 'doclibmodule',
+        },
+        'srfroot': {
+            isRawValue: false,
+            value: 'doclib',
+        }
     };
 
     /**
@@ -106,8 +124,8 @@ export class DocDocModuleGridViewBase extends GridViewBase {
         srfCaption: 'entities.doc.views.docmodulegridview.caption',
         srfTitle: 'entities.doc.views.docmodulegridview.title',
         srfSubTitle: 'entities.doc.views.docmodulegridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -117,9 +135,18 @@ export class DocDocModuleGridViewBase extends GridViewBase {
      * @memberof DocDocModuleGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -151,7 +178,7 @@ export class DocDocModuleGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocDocModuleGridViewBase
      */ 
-    protected viewName:string = "DocDocModuleGridView";
+    protected viewName: string = "DocDocModuleGridView";
 
 
     /**
@@ -170,7 +197,9 @@ export class DocDocModuleGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof DocDocModuleGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -181,11 +210,11 @@ export class DocDocModuleGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

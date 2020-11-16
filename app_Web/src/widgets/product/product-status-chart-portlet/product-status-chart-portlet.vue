@@ -1,5 +1,5 @@
-<template src="./product-status-chart-portlet.html"/>
-<script lang='tsx'>
+<template src="./product-status-chart-portlet.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductStatusChartPortletBase } from './product-status-chart-portlet-base';
@@ -15,10 +15,10 @@ import view_db_productstatusportlet_chart from '@widgets/product/product-status-
  */
 @Component({
     components: {
-        view_db_productstatusportlet_chart, 
+        view_db_productstatusportlet_chart,
          
-    }
+    },
 })
 @VueLifeCycleProcessing()
-export default class ProductStatusChartPortlet extends ProductStatusChartPortletBase { }
+export default class ProductStatusChartPortlet extends ProductStatusChartPortletBase {}
 </script>

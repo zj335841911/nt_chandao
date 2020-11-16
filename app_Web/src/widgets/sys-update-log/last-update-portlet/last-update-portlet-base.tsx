@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import SysUpdateLogService from '@/service/sys-update-log/sys-update-log-service';
 import LastUpdateService from './last-update-portlet-service';
 import SysUpdateLogUIService from '@/uiservice/sys-update-log/sys-update-log-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-
 
 /**
  * dashboard_sysportlet11部件基类
@@ -17,7 +16,6 @@ import UIService from '@/uiservice/ui-service';
  * @extends {LastUpdatePortletBase}
  */
 export class LastUpdatePortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class LastUpdatePortletBase extends MainControlBase {
      * @type {SysUpdateLogUIService}
      * @memberof LastUpdateBase
      */  
-    public appUIService:SysUpdateLogUIService = new SysUpdateLogUIService(this.$store);
+    public appUIService: SysUpdateLogUIService = new SysUpdateLogUIService(this.$store);
 
 
     /**

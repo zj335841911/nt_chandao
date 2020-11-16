@@ -1,12 +1,11 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import TaskEstimateService from '@/service/task-estimate/task-estimate-service';
 import MainLookService from './main-look-grid-service';
 import TaskEstimateUIService from '@/uiservice/task-estimate/task-estimate-ui-service';
 import { FormItemModel } from '@/model/form-detail';
-
 
 /**
  * grid部件基类
@@ -16,7 +15,6 @@ import { FormItemModel } from '@/model/form-detail';
  * @extends {MainLookGridBase}
  */
 export class MainLookGridBase extends GridControlBase {
-
     /**
      * 获取部件类型
      *
@@ -66,7 +64,7 @@ export class MainLookGridBase extends GridControlBase {
      * @type {TaskEstimateUIService}
      * @memberof MainLookBase
      */  
-    public appUIService:TaskEstimateUIService = new TaskEstimateUIService(this.$store);
+    public appUIService: TaskEstimateUIService = new TaskEstimateUIService(this.$store);
 
 
     /**

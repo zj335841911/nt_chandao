@@ -6,7 +6,7 @@ import DocLibService from '@/service/doc-lib/doc-lib-service';
 import DocLibAuthService from '@/authservice/doc-lib/doc-lib-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class DocLibGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocLibGridViewBase
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -77,7 +77,10 @@ export class DocLibGridViewBase extends GridViewBase {
 	 * @memberof DocLibGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'srfparentkey' }
+        'PROJECT': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
 	/**
@@ -88,7 +91,10 @@ export class DocLibGridViewBase extends GridViewBase {
 	 * @memberof DocLibGridViewBase
 	 */
     protected customViewParams: any = {
-        'project': { isRawValue: false, value: 'srfparentkey' }
+        'project': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
     };
 
     /**
@@ -102,8 +108,8 @@ export class DocLibGridViewBase extends GridViewBase {
         srfCaption: 'entities.doclib.views.gridview.caption',
         srfTitle: 'entities.doclib.views.gridview.title',
         srfSubTitle: 'entities.doclib.views.gridview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -113,9 +119,18 @@ export class DocLibGridViewBase extends GridViewBase {
      * @memberof DocLibGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -145,7 +160,7 @@ export class DocLibGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocLibGridViewBase
      */ 
-    protected viewName:string = "DocLibGridView";
+    protected viewName: string = "DocLibGridView";
 
 
     /**
@@ -164,7 +179,9 @@ export class DocLibGridViewBase extends GridViewBase {
      * @type {Array<*>}
      * @memberof DocLibGridViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -175,11 +192,11 @@ export class DocLibGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,

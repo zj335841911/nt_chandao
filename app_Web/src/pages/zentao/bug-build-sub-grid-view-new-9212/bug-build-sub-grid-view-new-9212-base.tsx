@@ -6,7 +6,7 @@ import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 
 /**
@@ -51,7 +51,7 @@ export class BugBuildSubGridView_New_9212Base extends GridViewBase {
      * @type {string}
      * @memberof BugBuildSubGridView_New_9212Base
      */ 
-    protected dataControl:string = "grid";
+    protected dataControl: string = "grid";
 
     /**
      * 实体服务对象
@@ -80,8 +80,8 @@ export class BugBuildSubGridView_New_9212Base extends GridViewBase {
         srfCaption: 'entities.bug.views.buildsubgridview_new_9212.caption',
         srfTitle: 'entities.bug.views.buildsubgridview_new_9212.title',
         srfSubTitle: 'entities.bug.views.buildsubgridview_new_9212.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -91,9 +91,18 @@ export class BugBuildSubGridView_New_9212Base extends GridViewBase {
      * @memberof BugBuildSubGridView_New_9212Base
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_grid: { name: 'grid', type: 'GRID' },
-        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_grid: {
+            name: 'grid',
+            type: 'GRID',
+        },
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
+        },
     };
 
     /**
@@ -127,7 +136,7 @@ export class BugBuildSubGridView_New_9212Base extends GridViewBase {
      * @type {string}
      * @memberof BugBuildSubGridView_New_9212Base
      */ 
-    protected viewName:string = "BugBuildSubGridView_New_9212";
+    protected viewName: string = "BugBuildSubGridView_New_9212";
 
 
     /**
@@ -146,7 +155,9 @@ export class BugBuildSubGridView_New_9212Base extends GridViewBase {
      * @type {Array<*>}
      * @memberof BugBuildSubGridView_New_9212Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
@@ -157,11 +168,11 @@ export class BugBuildSubGridView_New_9212Base extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
+            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.opendata(args, fullargs, params, $event, xData);
             },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
+            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
+                this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
             keyPSDEField: 'bug',
@@ -441,14 +452,14 @@ export class BugBuildSubGridView_New_9212Base extends GridViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'BugCodeList2', codelistType: 'STATIC' };
-        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
+        if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {
                 this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
             } else {
                 console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
             }
-        } else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
+        } else if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
             this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
                 this.quickGroupModel = res;
             }).catch((error:any) => {

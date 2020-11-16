@@ -1,5 +1,5 @@
-<template src="./todo-close-view.html"/>
-<script lang='tsx'>
+<template src="./todo-close-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TodoCloseViewBase } from './todo-close-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/todo/close-form-form/close-form-form.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class TodoCloseView extends TodoCloseViewBase { }
+export default class TodoCloseView extends TodoCloseViewBase {}
 </script>

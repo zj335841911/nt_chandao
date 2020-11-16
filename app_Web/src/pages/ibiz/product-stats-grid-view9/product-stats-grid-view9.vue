@@ -1,5 +1,5 @@
-<template src="./product-stats-grid-view9.html"/>
-<script lang='tsx'>
+<template src="./product-stats-grid-view9.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductStatsGridView9Base } from './product-stats-grid-view9-base';
@@ -18,5 +18,5 @@ import view_grid from '@widgets/product-stats/open-items-grid/open-items-grid.vu
     }
 })
 @VueLifeCycleProcessing()
-export default class ProductStatsGridView9 extends ProductStatsGridView9Base { }
+export default class ProductStatsGridView9 extends ProductStatsGridView9Base {}
 </script>

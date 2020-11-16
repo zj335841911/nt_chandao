@@ -1,5 +1,5 @@
-<template src="./bug-my-favorite-grid-view.html"/>
-<script lang='tsx'>
+<template src="./bug-my-favorite-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugMyFavoriteGridViewBase } from './bug-my-favorite-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchbar from '@widgets/bug/custom-searchbar/custom-searchbar.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BugMyFavoriteGridView extends BugMyFavoriteGridViewBase { }
+export default class BugMyFavoriteGridView extends BugMyFavoriteGridViewBase {}
 </script>

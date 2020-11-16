@@ -48,7 +48,7 @@ export class BranchPMInfoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BranchPMInfoEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class BranchPMInfoEditViewBase extends EditViewBase {
      *
      * @memberof BranchPMInfoEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class BranchPMInfoEditViewBase extends EditViewBase {
         srfCaption: 'entities.branch.views.pminfoeditview.caption',
         srfTitle: 'entities.branch.views.pminfoeditview.title',
         srfSubTitle: 'entities.branch.views.pminfoeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class BranchPMInfoEditViewBase extends EditViewBase {
      * @memberof BranchPMInfoEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -126,7 +132,7 @@ export class BranchPMInfoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BranchPMInfoEditViewBase
      */ 
-    protected viewName:string = "BranchPMInfoEditView";
+    protected viewName: string = "BranchPMInfoEditView";
 
 
     /**
@@ -145,7 +151,9 @@ export class BranchPMInfoEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BranchPMInfoEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

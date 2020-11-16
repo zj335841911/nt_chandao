@@ -1,11 +1,10 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, ListControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import MyWorkService from './my-work-list-service';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
-
 
 /**
  * list部件基类
@@ -15,7 +14,6 @@ import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territo
  * @extends {MyWorkListBase}
  */
 export class MyWorkListBase extends ListControlBase {
-
     /**
      * 获取部件类型
      *
@@ -65,7 +63,7 @@ export class MyWorkListBase extends ListControlBase {
      * @type {IbzMyTerritoryUIService}
      * @memberof MyWorkBase
      */  
-    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+    public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
 
     /**

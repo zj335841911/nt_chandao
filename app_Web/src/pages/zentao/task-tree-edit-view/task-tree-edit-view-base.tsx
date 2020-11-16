@@ -48,7 +48,7 @@ export class TaskTreeEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskTreeEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,8 +74,14 @@ export class TaskTreeEditViewBase extends EditViewBase {
 	 * @memberof TaskTreeEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'task' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'task' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'task',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'task',
+        }
     };
 
     /**
@@ -83,7 +89,7 @@ export class TaskTreeEditViewBase extends EditViewBase {
      *
      * @memberof TaskTreeEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -96,8 +102,8 @@ export class TaskTreeEditViewBase extends EditViewBase {
         srfCaption: 'entities.task.views.treeeditview.caption',
         srfTitle: 'entities.task.views.treeeditview.title',
         srfSubTitle: 'entities.task.views.treeeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -107,7 +113,10 @@ export class TaskTreeEditViewBase extends EditViewBase {
      * @memberof TaskTreeEditViewBase
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
 
@@ -127,7 +136,7 @@ export class TaskTreeEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskTreeEditViewBase
      */ 
-    protected viewName:string = "TaskTreeEditView";
+    protected viewName: string = "TaskTreeEditView";
 
 
     /**
@@ -146,7 +155,9 @@ export class TaskTreeEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof TaskTreeEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

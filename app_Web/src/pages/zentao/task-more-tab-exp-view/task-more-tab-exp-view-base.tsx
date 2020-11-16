@@ -62,7 +62,7 @@ export class TaskMoreTabExpViewBase extends TabExpViewBase {
      *
      * @memberof TaskMoreTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -75,8 +75,8 @@ export class TaskMoreTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.task.views.moretabexpview.caption',
         srfTitle: 'entities.task.views.moretabexpview.title',
         srfSubTitle: 'entities.task.views.moretabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -86,7 +86,10 @@ export class TaskMoreTabExpViewBase extends TabExpViewBase {
      * @memberof TaskMoreTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -106,7 +109,7 @@ export class TaskMoreTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof TaskMoreTabExpViewBase
      */ 
-    protected viewName:string = "TaskMoreTabExpView";
+    protected viewName: string = "TaskMoreTabExpView";
 
 
     /**
@@ -125,7 +128,9 @@ export class TaskMoreTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof TaskMoreTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

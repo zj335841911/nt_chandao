@@ -1,5 +1,5 @@
-<template src="./test-task-calendar-edit-view.html"/>
-<script lang='tsx'>
+<template src="./test-task-calendar-edit-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestTaskCalendarEditViewBase } from './test-task-calendar-edit-view-base';
@@ -18,5 +18,5 @@ import view_form from '@widgets/test-task/calendar-main-form/calendar-main-form.
     }
 })
 @VueLifeCycleProcessing()
-export default class TestTaskCalendarEditView extends TestTaskCalendarEditViewBase { }
+export default class TestTaskCalendarEditView extends TestTaskCalendarEditViewBase {}
 </script>

@@ -48,7 +48,7 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      * @type {string}
      * @memberof ReleaseQuickCreateViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -71,7 +71,7 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      *
      * @memberof ReleaseQuickCreateViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -84,8 +84,8 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
         srfCaption: 'entities.release.views.quickcreateview.caption',
         srfTitle: 'entities.release.views.quickcreateview.title',
         srfSubTitle: 'entities.release.views.quickcreateview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -95,8 +95,14 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      * @memberof ReleaseQuickCreateViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -128,7 +134,7 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      * @type {string}
      * @memberof ReleaseQuickCreateViewBase
      */ 
-    protected viewName:string = "ReleaseQuickCreateView";
+    protected viewName: string = "ReleaseQuickCreateView";
 
 
     /**
@@ -147,7 +153,9 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof ReleaseQuickCreateViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

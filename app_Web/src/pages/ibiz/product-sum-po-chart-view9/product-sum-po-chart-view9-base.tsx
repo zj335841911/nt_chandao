@@ -65,7 +65,10 @@ export class ProductSumPoChartView9Base extends ChartView9Base {
 	 * @memberof ProductSumPoChartView9Base
 	 */
     protected customViewNavContexts: any = {
-        'CURYEAR': { isRawValue: false, value: 'curyear' }
+        'CURYEAR': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
 	/**
@@ -76,7 +79,10 @@ export class ProductSumPoChartView9Base extends ChartView9Base {
 	 * @memberof ProductSumPoChartView9Base
 	 */
     protected customViewParams: any = {
-        'curyear': { isRawValue: false, value: 'curyear' }
+        'curyear': {
+            isRawValue: false,
+            value: 'curyear',
+        }
     };
 
     /**
@@ -90,8 +96,8 @@ export class ProductSumPoChartView9Base extends ChartView9Base {
         srfCaption: 'entities.productsum.views.pochartview9.caption',
         srfTitle: 'entities.productsum.views.pochartview9.title',
         srfSubTitle: 'entities.productsum.views.pochartview9.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -101,7 +107,10 @@ export class ProductSumPoChartView9Base extends ChartView9Base {
      * @memberof ProductSumPoChartView9Base
      */
     protected containerModel: any = {
-        view_chart: { name: 'chart', type: 'CHART' },
+        view_chart: {
+            name: 'chart',
+            type: 'CHART',
+        },
     };
 
 
@@ -121,7 +130,7 @@ export class ProductSumPoChartView9Base extends ChartView9Base {
      * @type {string}
      * @memberof ProductSumPoChartView9Base
      */ 
-    protected viewName:string = "ProductSumPoChartView9";
+    protected viewName: string = "ProductSumPoChartView9";
 
 
     /**
@@ -140,7 +149,9 @@ export class ProductSumPoChartView9Base extends ChartView9Base {
      * @type {Array<*>}
      * @memberof ProductSumPoChartView9Base
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

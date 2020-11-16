@@ -65,8 +65,14 @@ export class TestReportProjectTabExpViewBase extends TabExpViewBase {
 	 * @memberof TestReportProjectTabExpViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'testreport' },
-        'BUILDS': { isRawValue: false, value: 'builds' }
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'testreport',
+        },
+        'BUILDS': {
+            isRawValue: false,
+            value: 'builds',
+        }
     };
 
 	/**
@@ -77,7 +83,10 @@ export class TestReportProjectTabExpViewBase extends TabExpViewBase {
 	 * @memberof TestReportProjectTabExpViewBase
 	 */
     protected customViewParams: any = {
-        'builds': { isRawValue: false, value: 'builds' }
+        'builds': {
+            isRawValue: false,
+            value: 'builds',
+        }
     };
 
     /**
@@ -85,7 +94,7 @@ export class TestReportProjectTabExpViewBase extends TabExpViewBase {
      *
      * @memberof TestReportProjectTabExpViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -98,8 +107,8 @@ export class TestReportProjectTabExpViewBase extends TabExpViewBase {
         srfCaption: 'entities.testreport.views.projecttabexpview.caption',
         srfTitle: 'entities.testreport.views.projecttabexpview.title',
         srfSubTitle: 'entities.testreport.views.projecttabexpview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -109,7 +118,10 @@ export class TestReportProjectTabExpViewBase extends TabExpViewBase {
      * @memberof TestReportProjectTabExpViewBase
      */
     protected containerModel: any = {
-        view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
+        view_tabexppanel: {
+            name: 'tabexppanel',
+            type: 'TABEXPPANEL',
+        },
     };
 
 
@@ -129,7 +141,7 @@ export class TestReportProjectTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof TestReportProjectTabExpViewBase
      */ 
-    protected viewName:string = "TestReportProjectTabExpView";
+    protected viewName: string = "TestReportProjectTabExpView";
 
 
     /**
@@ -148,7 +160,9 @@ export class TestReportProjectTabExpViewBase extends TabExpViewBase {
      * @type {Array<*>}
      * @memberof TestReportProjectTabExpViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化

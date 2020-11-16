@@ -1,13 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { UIActionTool,Util,ViewTool } from '@/utils';
+import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import UserYearWorkStatsService from '@/service/user-year-work-stats/user-year-work-stats-service';
 import FinishTaskAndBugService from './finish-task-and-bug-portlet-service';
 import UserYearWorkStatsUIService from '@/uiservice/user-year-work-stats/user-year-work-stats-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-
 
 /**
  * dashboard_sysportlet5部件基类
@@ -17,7 +16,6 @@ import UIService from '@/uiservice/ui-service';
  * @extends {FinishTaskAndBugPortletBase}
  */
 export class FinishTaskAndBugPortletBase extends MainControlBase {
-
     /**
      * 获取部件类型
      *
@@ -67,7 +65,7 @@ export class FinishTaskAndBugPortletBase extends MainControlBase {
      * @type {UserYearWorkStatsUIService}
      * @memberof FinishTaskAndBugBase
      */  
-    public appUIService:UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
+    public appUIService: UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
 
 
     /**

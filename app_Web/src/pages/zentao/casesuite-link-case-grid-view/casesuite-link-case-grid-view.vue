@@ -1,5 +1,5 @@
-<template src="./casesuite-link-case-grid-view.html"/>
-<script lang='tsx'>
+<template src="./casesuite-link-case-grid-view.html" />
+<script lang="tsx">
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CasesuiteLinkCaseGridViewBase } from './casesuite-link-case-grid-view-base';
@@ -20,5 +20,5 @@ import view_searchform from '@widgets/case/default-searchform/default-searchform
     }
 })
 @VueLifeCycleProcessing()
-export default class CasesuiteLinkCaseGridView extends CasesuiteLinkCaseGridViewBase { }
+export default class CasesuiteLinkCaseGridView extends CasesuiteLinkCaseGridViewBase {}
 </script>

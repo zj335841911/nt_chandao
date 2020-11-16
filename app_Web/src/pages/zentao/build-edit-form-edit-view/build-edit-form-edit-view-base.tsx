@@ -48,7 +48,7 @@ export class BuildEditFormEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BuildEditFormEditViewBase
      */ 
-    protected dataControl:string = "form";
+    protected dataControl: string = "form";
 
     /**
      * 实体服务对象
@@ -74,7 +74,10 @@ export class BuildEditFormEditViewBase extends EditViewBase {
 	 * @memberof BuildEditFormEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: false, value: 'project' }
+        'PROJECT': {
+            isRawValue: false,
+            value: 'project',
+        }
     };
 
     /**
@@ -82,7 +85,7 @@ export class BuildEditFormEditViewBase extends EditViewBase {
      *
      * @memberof BuildEditFormEditViewBase
      */
-    isShowDataInfoBar = true;
+    isShowDataInfoBar: boolean = true;
 
     /**
      * 视图模型数据
@@ -95,8 +98,8 @@ export class BuildEditFormEditViewBase extends EditViewBase {
         srfCaption: 'entities.build.views.editformeditview.caption',
         srfTitle: 'entities.build.views.editformeditview.title',
         srfSubTitle: 'entities.build.views.editformeditview.subtitle',
-        dataInfo: ''
-    }
+        dataInfo: '',
+    };
 
     /**
      * 容器模型
@@ -106,8 +109,14 @@ export class BuildEditFormEditViewBase extends EditViewBase {
      * @memberof BuildEditFormEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
-        view_form: { name: 'form', type: 'FORM' },
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
+        view_form: {
+            name: 'form',
+            type: 'FORM',
+        },
     };
 
     /**
@@ -139,7 +148,7 @@ export class BuildEditFormEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BuildEditFormEditViewBase
      */ 
-    protected viewName:string = "BuildEditFormEditView";
+    protected viewName: string = "BuildEditFormEditView";
 
 
     /**
@@ -158,7 +167,9 @@ export class BuildEditFormEditViewBase extends EditViewBase {
      * @type {Array<*>}
      * @memberof BuildEditFormEditViewBase
      */    
-    public counterServiceArray:Array<any> = [];
+    public counterServiceArray: Array<any> = [
+        
+    ];
 
     /**
      * 引擎初始化
