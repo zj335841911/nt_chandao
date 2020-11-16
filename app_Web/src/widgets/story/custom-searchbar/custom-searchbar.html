@@ -192,24 +192,6 @@
     
 />
                 </template>
-                <template v-if="Object.is(data.editor, 'brancheq')">
-                    
-<dropdown-list 
-    v-model="data.brancheq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.brancheq.disabled"
-    valueType="number"
-    tag='ProductBranch'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
-                </template>
                 <template v-if="Object.is(data.editor, 'branchnameeq')">
                     
 <app-picker  

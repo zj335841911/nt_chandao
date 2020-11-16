@@ -97,22 +97,6 @@
     style="width:100px;"
 />
                 </template>
-                <template v-if="Object.is(data.editor, 'lineeq')">
-                    
-<dropdown-list 
-    v-model="data.lineeq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.lineeq.disabled"
-    valueType="number"
-    placeholder='请选择...'
-    
-/>
-                </template>
                 <template v-if="Object.is(data.editor, 'linenameeq')">
                     
 <app-picker  

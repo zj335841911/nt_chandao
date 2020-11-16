@@ -170,13 +170,6 @@ export class CustomSearchbarBase extends MainControlBase {
             mode: 'EQ',
             disabled: false
         },
-        'brancheq': {
-            label: '平台/分支',
-            name: 'brancheq',
-            prop: 'branch',
-            mode: 'EQ',
-            disabled: false
-        },
         'branchnameeq': {
             label: '平台/分支',
             name: 'branchnameeq',

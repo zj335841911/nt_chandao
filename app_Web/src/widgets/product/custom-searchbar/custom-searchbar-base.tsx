@@ -128,13 +128,6 @@ export class CustomSearchbarBase extends MainControlBase {
             mode: 'ISNOTNULL',
             disabled: false
         },
-        'lineeq': {
-            label: '产品线',
-            name: 'lineeq',
-            prop: 'line',
-            mode: 'EQ',
-            disabled: false
-        },
         'linenameeq': {
             label: '产品线',
             name: 'linenameeq',
