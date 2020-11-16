@@ -373,6 +373,6 @@ POST
 | 17 | isdone | Integer | 允许 | 是否完成 |
 | 18 | isread | Integer | 允许 | 是否已读 |
 | 19 | sendproxyid | String | 允许 | 发送代理标识 |
-| 20 | lastsenddatetime | Timestamp | 允许 | 最新发送时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 20 | sendtime | Timestamp | 允许 | 发送时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 21 | <动态属性> | Object | 允许 | 支持动态属性 |
 

@@ -7897,9 +7897,9 @@
     "major_field":0
     },
     {
-    "fieldname":"LASTSENDDATETIME" ,
-    "codename":"Lastsenddatetime",
-    "field_logic_name":"最新发送时间",
+    "fieldname":"SENDTIME" ,
+    "codename":"SendTime",
+    "field_logic_name":"发送时间",
     "entity_name":"IBIZProMessage",
     "field_type":"DATETIME",
     "nullable":1,

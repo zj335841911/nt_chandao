@@ -35,7 +35,7 @@
 | 17 | [是否完成](#属性-是否完成（ISDONE）) | ISDONE | 是否逻辑 | 否 | 否 | 是 |
 | 18 | [是否已读](#属性-是否已读（ISREAD）) | ISREAD | 是否逻辑 | 否 | 否 | 是 |
 | 19 | [发送代理标识](#属性-发送代理标识（SENDPROXYID）) | SENDPROXYID | 文本，可指定长度 | 否 | 否 | 是 |
-| 20 | [最新发送时间](#属性-最新发送时间（LASTSENDDATETIME）) | LASTSENDDATETIME | 日期时间型 | 否 | 否 | 是 |
+| 20 | [发送时间](#属性-发送时间（SENDTIME）) | SENDTIME | 日期时间型 | 否 | 否 | 是 |
 
 ### 属性-重发次数（RETRYTIMES）
 #### 属性说明
@@ -754,9 +754,9 @@ String
 #### 关系属性
 无
 
-### 属性-最新发送时间（LASTSENDDATETIME）
+### 属性-发送时间（SENDTIME）
 #### 属性说明
-最新发送时间
+发送时间
 
 - 是否是主键
 否

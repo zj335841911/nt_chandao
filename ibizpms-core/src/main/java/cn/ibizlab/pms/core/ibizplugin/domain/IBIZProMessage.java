@@ -169,12 +169,12 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     private String sendproxyid;
 
     /**
-     * 最新发送时间
+     * 发送时间
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "lastsenddatetime" , format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("lastsenddatetime")
-    private Timestamp lastsenddatetime;
+    @JSONField(name = "sendtime" , format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("sendtime")
+    private Timestamp sendtime;
 
 
 
