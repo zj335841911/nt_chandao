@@ -46,7 +46,7 @@ public class UserHelper extends ZTBaseHelper<UserMapper, User> {
 
     public String toUser(String assignedto) {
         SysEmployeeSearchContext sysEmployeeSearchContext = new SysEmployeeSearchContext();
-        sysEmployeeSearchContext.setN_username_eq(assignedto);
+        sysEmployeeSearchContext.setN_username_in(assignedto);
         sysEmployeeSearchContext.setN_username_notin(AuthenticationUser.getAuthenticationUser().getUsername());
         Page<SysEmployee> pages = sysEmployeeService.searchDefault(sysEmployeeSearchContext);
         if(pages.getContent().size() > 0) {
