@@ -506,7 +506,14 @@
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'pathlike')">
-                    
+                    <input-box 
+    v-model="data.pathlike"  
+    @enter="onEnter($event)"  
+      
+    :disabled="detailsModel.pathlike.disabled" 
+    type='text' 
+    style="">
+</input-box>
 
                 </template>
                 <template v-if="Object.is(data.editor, 'planeq')">
