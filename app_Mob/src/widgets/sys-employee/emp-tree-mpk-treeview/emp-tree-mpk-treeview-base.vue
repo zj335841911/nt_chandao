@@ -29,7 +29,13 @@
         <template v-for="item in valueNodes">
             <ion-item :key="item.srfkey">
                 <ion-checkbox color="secondary" v-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect" :ref="item.srfkey+'checkbox'"  :checked="item.selected" :value="item.srfkey" slot="end" @ionChange="onChecked"></ion-checkbox>
-                <ion-label>{{item.text}}</ion-label>
+                <ion-label class="tree_item_label">
+                    <template v-if="item.strIcon != 'default_text'">
+                        <img class="tree_item_img" v-if="item.strIcon" :src="item.strIcon" />
+                        <div v-else class="tree_item_index_text">{{item.text.substring(0,1)}}</div>
+                    </template>
+                    {{item.text}}
+                </ion-label>
             </ion-item>
         </template>
        </ion-list>
@@ -37,7 +43,13 @@
         <ion-radio-group v-else-if="viewType == 'DEMOBPICKUPTREEVIEW' && isSingleSelect" :value="selectedValue" >
             <template v-for="item in valueNodes">
                 <ion-item  :key="item.srfkey"   @click="onSimpleSelChange(item)">
-                    <ion-label>{{item.text}}</ion-label>
+                    <ion-label class="tree_item_label">
+                        <template v-if="item.strIcon != 'default_text'">
+                            <img class="tree_item_img" v-if="item.strIcon" :src="item.strIcon" />
+                            <div v-else class="tree_item_index_text">{{item.text.substring(0,1)}}</div>
+                        </template>
+                        {{item.text}}
+                    </ion-label>
                     <ion-radio slot="end" :checked="item.selected" :value="item.srfkey"></ion-radio>
                 </ion-item>
             </template>
