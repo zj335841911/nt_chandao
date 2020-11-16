@@ -1,65 +1,100 @@
 <template>
-    <div v-if="Object.is(editortype, 'linkonly')" class='app-picker'>
-        <a @click="openLinkView">{{curvalue}}</a>
+    <div v-if="Object.is(editortype, 'linkonly')" class="app-picker">
+        <a @click="openLinkView">{{ curvalue }}</a>
     </div>
-    <div v-else-if="!Object.is(editortype, 'pickup-no-ac') && !Object.is(editortype, 'dropdown')" class='app-picker'>
-        <div class='app-picker'>
-            <el-autocomplete class='text-value' :value-key="deMajorField" :disabled="disabled" v-model="curvalue" size='small'
-                :trigger-on-focus="true" :fetch-suggestions="(query, callback) => { this.onSearch(query, callback, true) }" @select="onACSelect"
-                @input="onInput" @blur="onBlur" style='width:100%;'>
-                <template v-slot:default="{item}">
+    <div v-else-if="!Object.is(editortype, 'pickup-no-ac') && !Object.is(editortype, 'dropdown')" class="app-picker">
+        <div class="app-picker">
+            <el-autocomplete
+                class="text-value"
+                :value-key="deMajorField"
+                :disabled="disabled"
+                v-model="curvalue"
+                size="small"
+                :trigger-on-focus="true"
+                :fetch-suggestions="
+                    (query, callback) => {
+                        this.onSearch(query, callback, true);
+                    }
+                "
+                @select="onACSelect"
+                @input="onInput"
+                @blur="onBlur"
+                style="width: 100%"
+            >
+                <template v-slot:default="{ item }">
                     <!-- <template v-if="item.isNew">
                         <div v-if="linkview" @click="newAndEdit">{{$t('components.appPicker.newAndEdit')}}</div>
                     </template> -->
                     <template v-if="item.tag">
-                        <div @click="clickAction(item.tag)">{{item.caption}}</div>
+                        <div @click="clickAction(item.tag)">{{ item.caption }}</div>
                     </template>
                     <slot v-else name="default" :item="item"></slot>
                 </template>
                 <template v-slot:suffix>
-                    <i v-if="curvalue && !disabled" class='el-icon-circle-close' @click="onClear"></i>
-                    <i v-if="!Object.is(editortype, 'ac') && showButton" class='el-icon-search' @click="openView"></i>
-                    <icon v-if="linkview" type="ios-open-outline" @click="openLinkView"/>
+                    <i v-if="curvalue && !disabled" class="el-icon-circle-close" @click="onClear"></i>
+                    <i v-if="!Object.is(editortype, 'ac') && showButton" class="el-icon-search" @click="openView"></i>
+                    <icon v-if="linkview" type="ios-open-outline" @click="openLinkView" />
                 </template>
             </el-autocomplete>
         </div>
     </div>
-    <div v-else-if="Object.is(editortype, 'pickup-no-ac')" class='app-picker'>
-        <div class='app-picker'>
-            <el-input class='text-value' :value="curvalue" readonly size='small' :disabled="disabled">
-                <template slot='suffix'>
-                    <i v-if="curvalue && !disabled" class='el-icon-circle-close' @click="onClear"></i>
-                    <i class='el-icon-search' @click="openView"></i>
-                    <icon v-if="linkview" type="ios-open-outline" @click="openLinkView"/>
+    <div v-else-if="Object.is(editortype, 'pickup-no-ac')" class="app-picker">
+        <div class="app-picker">
+            <el-input class="text-value" :value="curvalue" readonly size="small" :disabled="disabled">
+                <template slot="suffix">
+                    <i v-if="curvalue && !disabled" class="el-icon-circle-close" @click="onClear"></i>
+                    <i class="el-icon-search" @click="openView"></i>
+                    <icon v-if="linkview" type="ios-open-outline" @click="openLinkView" />
                 </template>
             </el-input>
         </div>
     </div>
-    <div v-else-if="Object.is(editortype, 'dropdown')" class='app-picker'>
-        <el-select ref="appPicker" remote :remote-method="(query) => this.onSearch(query, null, true)" :value="refvalue" size='small' filterable
-            @change="onSelect" :disabled="disabled" style='width:100%;' clearable popper-class="app-picker-dropdown"
-            @clear="onClear" @visible-change="onSelectOpen">
+    <div v-else-if="Object.is(editortype, 'dropdown')" class="app-picker">
+        <el-select
+            ref="appPicker"
+            remote
+            :remote-method="(query) => this.onSearch(query, null, true)"
+            :value="refvalue"
+            size="small"
+            filterable
+            @change="onSelect"
+            :disabled="disabled"
+            style="width: 100%"
+            clearable
+            popper-class="app-picker-dropdown"
+            @clear="onClear"
+            @visible-change="onSelectOpen"
+        >
             <template v-if="items">
                 <template v-for="_item in items">
-                    <el-option  v-if="!_item.tag" :key="_item[deKeyField]" :value="_item[deKeyField]" :label="_item[deMajorField]" :disabled="_item.disabled"></el-option>
-                    <el-option  v-else :key="_item[deKeyField]" value="action"><span  @click="clickAction(_item.tag)" style="float: left; width: 100%;">{{ _item.caption }}</span></el-option>
+                    <el-option
+                        v-if="!_item.tag"
+                        :key="_item[deKeyField]"
+                        :value="_item[deKeyField]"
+                        :label="_item[deMajorField]"
+                        :disabled="_item.disabled"
+                    ></el-option>
+                    <el-option v-else :key="_item[deKeyField]" value="action"
+                        ><span @click="clickAction(_item.tag)" style="float: left; width: 100%">{{
+                            _item.caption
+                        }}</span></el-option
+                    >
                 </template>
             </template>
         </el-select>
-        <span style='position: absolute;right: 5px;color: #c0c4cc;top:0;font-size: 13px;'>
-            <i v-show="open" class='el-icon-arrow-up' @click="closeDropdown"></i> 
-            <i v-show="!open" class='el-icon-arrow-down' @click="openDropdown"></i>
+        <span style="position: absolute; right: 5px; color: #c0c4cc; top: 0; font-size: 13px">
+            <i v-show="open" class="el-icon-arrow-up" @click="closeDropdown"></i>
+            <i v-show="!open" class="el-icon-arrow-down" @click="openDropdown"></i>
         </span>
     </div>
 </template>
 
-<script lang = 'ts'>
+<script lang="ts">
 import { Component, Vue, Prop, Model, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import { AppModal } from '@/utils';
 
-@Component({
-})
+@Component({})
 export default class AppPicker extends Vue {
     /**
      * 视图上下文
@@ -83,7 +118,7 @@ export default class AppPicker extends Vue {
      * @type {*}
      * @memberof AppFormDRUIPart
      */
-    @Prop({default: () => {}}) public acParams?: any;
+    @Prop({ default: () => {} }) public acParams?: any;
 
     /**
      * 表单服务
@@ -99,7 +134,7 @@ export default class AppPicker extends Vue {
      * @type {string}
      * @memberof AppAutocomplete
      */
-    @Prop({default: 'srfmajortext'}) public deMajorField!: string;
+    @Prop({ default: 'srfmajortext' }) public deMajorField!: string;
 
     /**
      * 应用实体主键属性名称
@@ -107,7 +142,7 @@ export default class AppPicker extends Vue {
      * @type {string}
      * @memberof AppAutocomplete
      */
-    @Prop({default: 'srfkey'}) public deKeyField!: string;
+    @Prop({ default: 'srfkey' }) public deKeyField!: string;
 
     /**
      * 表单数据
@@ -139,7 +174,7 @@ export default class AppPicker extends Vue {
      * @type {boolean}
      * @memberof AppPicker
      */
-    @Prop({default:true}) public showButton?: boolean;
+    @Prop({ default: true }) public showButton?: boolean;
 
     /**
      * 类型
@@ -167,19 +202,19 @@ export default class AppPicker extends Vue {
 
     /**
      * 局部上下文导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppPicker
      */
-    @Prop() public localContext!:any;
+    @Prop() public localContext!: any;
 
     /**
      * 局部导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppPicker
      */
-    @Prop() public localParam!:any;
+    @Prop() public localParam!: any;
 
     /**
      * 值项名称
@@ -203,8 +238,7 @@ export default class AppPicker extends Vue {
      * @type {Array<any>}
      * @memberof AppPicker
      */
-    @Prop() public actionDetails?:Array<any>;
-
+    @Prop() public actionDetails?: Array<any>;
 
     /**
      * 值
@@ -229,10 +263,10 @@ export default class AppPicker extends Vue {
      */
     public items: any[] = [];
 
-    /** 
+    /**
      * 下拉图标指向状态管理
      * @type {boolean}
-     * @memberof AppPicker 
+     * @memberof AppPicker
      */
     public open: boolean = false;
 
@@ -244,7 +278,7 @@ export default class AppPicker extends Vue {
      */
     public inputState: boolean = false;
 
-   /**
+    /**
      * 当前选择的值
      *
      * @type {string}
@@ -258,7 +292,7 @@ export default class AppPicker extends Vue {
      * @type {*}
      * @memberof AppPicker
      */
-    public dropdownDom:any = {};
+    public dropdownDom: any = {};
 
     /**
      * 值格式
@@ -276,7 +310,7 @@ export default class AppPicker extends Vue {
      */
     get refvalue() {
         if (this.valueitem && this.data) {
-            if(this.valFormat && this.valFormat.hasOwnProperty(this.data[this.valueitem])) {
+            if (this.valFormat && this.valFormat.hasOwnProperty(this.data[this.valueitem])) {
                 return this.valFormat[this.data[this.valueitem]];
             }
             return this.data[this.valueitem];
@@ -291,7 +325,7 @@ export default class AppPicker extends Vue {
      * @param {*} oldVal
      * @memberof AppPicker
      */
-    @Watch('value',{immediate:true})
+    @Watch('value', { immediate: true })
     public onValueChange(newVal: any, oldVal: any) {
         this.curvalue = newVal;
         if (Object.is(this.editortype, 'dropdown') && this.valueitem) {
@@ -302,7 +336,7 @@ export default class AppPicker extends Vue {
             }
             this.items = [];
             if (value) {
-                this.items.push({text: newVal, value: value});
+                this.items.push({ text: newVal, value: value });
             }
             this.onSearch(newVal, null, false);
         }
@@ -314,7 +348,7 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     public created() {
-        if(!Object.is(this.editortype, 'pickup-no-ac') && !Object.is(this.editortype, 'dropdown')){
+        if (!Object.is(this.editortype, 'pickup-no-ac') && !Object.is(this.editortype, 'dropdown')) {
             this.curvalue = this.value;
         }
     }
@@ -325,7 +359,7 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     public mounted() {
-        const dropdownDom:any = this.$el.getElementsByClassName('app-picker-dropdown')[0];
+        const dropdownDom: any = this.$el.getElementsByClassName('app-picker-dropdown')[0];
         this.dropdownDom = dropdownDom;
     }
 
@@ -334,12 +368,11 @@ export default class AppPicker extends Vue {
      *
      * @memberof AppPicker
      */
-    public destroyed(): void {
-    }
+    public destroyed(): void {}
 
     /**
      * 下拉切换回调
-     * @param flag 
+     * @param flag
      */
     public onSelectOpen(flag: boolean): void {
         this.open = flag;
@@ -357,15 +390,15 @@ export default class AppPicker extends Vue {
      *
      * @memberof AppPicker
      */
-    public setDropdownWidth(){
-        const elInput:any = this.$el.getElementsByClassName('el-input__inner')[0];
-        this.dropdownDom.style.maxWidth = elInput.offsetWidth+'px';
+    public setDropdownWidth() {
+        const elInput: any = this.$el.getElementsByClassName('el-input__inner')[0];
+        this.dropdownDom.style.maxWidth = elInput.offsetWidth + 'px';
     }
 
     /**
      * 执行搜索数据
-     * @param query 
-     * @param callback 
+     * @param query
+     * @param callback
      */
     public onSearch(query: any, callback: any, other: boolean): void {
         // 公共参数处理
@@ -382,47 +415,50 @@ export default class AppPicker extends Vue {
             query = '';
         }
         this.inputState = false;
-        if(this.sort && !Object.is(this.sort, "")) {
+        if (this.sort && !Object.is(this.sort, '')) {
             Object.assign(_param, { sort: this.sort });
         }
         Object.assign(_param, { query: query, size: 1000 });
         // 错误信息国际化
-        let error: string = (this.$t('components.appPicker.error') as any);
-        let miss: string = (this.$t('components.appPicker.miss') as any);
-        let requestException: string = (this.$t('components.appPicker.requestException') as any);
-        if(!this.service){
-            this.$Notice.error({ title: error, desc: miss+'service' });
-        } else if(!this.acParams.serviceName) {
-            this.$Notice.error({ title: error, desc: miss+'serviceName' });
-        } else if(!this.acParams.interfaceName) {
-            this.$Notice.error({ title: error, desc: miss+'interfaceName' });
+        let error: string = this.$t('components.appPicker.error') as any;
+        let miss: string = this.$t('components.appPicker.miss') as any;
+        let requestException: string = this.$t('components.appPicker.requestException') as any;
+        if (!this.service) {
+            this.$Notice.error({ title: error, desc: miss + 'service' });
+        } else if (!this.acParams.serviceName) {
+            this.$Notice.error({ title: error, desc: miss + 'serviceName' });
+        } else if (!this.acParams.interfaceName) {
+            this.$Notice.error({ title: error, desc: miss + 'interfaceName' });
         } else {
-          this.service.getItems(this.acParams.serviceName,this.acParams.interfaceName, _context, _param).then((response: any) => {
-              if (!response) {
-                  this.$Notice.error({ title: error, desc: requestException });
-              } else {
-                  this.items = [...response];
-              }
-            //   if(this.acParams && this.linkview){
-            //       this.items.push({ isNew :true });
-            //   }
-             if(this.acParams && this.actionDetails && this.actionDetails.length >0){
-                  this.items = [...this.items,...this.actionDetails];
-              }
-              if (callback) {
-                  callback(this.items);
-              }
-          }).catch((error: any) => {
-              if (callback) {
-                  callback([]);
-              }
-          });
-        } 
+            this.service
+                .getItems(this.acParams.serviceName, this.acParams.interfaceName, _context, _param)
+                .then((response: any) => {
+                    if (!response) {
+                        this.$Notice.error({ title: error, desc: requestException });
+                    } else {
+                        this.items = [...response];
+                    }
+                    //   if(this.acParams && this.linkview){
+                    //       this.items.push({ isNew :true });
+                    //   }
+                    if (this.acParams && this.actionDetails && this.actionDetails.length > 0) {
+                        this.items = [...this.items, ...this.actionDetails];
+                    }
+                    if (callback) {
+                        callback(this.items);
+                    }
+                })
+                .catch((error: any) => {
+                    if (callback) {
+                        callback([]);
+                    }
+                });
+        }
     }
 
     /**
      * 选中数据回调
-     * @param item 
+     * @param item
      */
     public onACSelect(item: any): void {
         this.selectValue = item[this.deMajorField];
@@ -449,7 +485,7 @@ export default class AppPicker extends Vue {
 
     /**
      * 失去焦点事件
-     * @param e 
+     * @param e
      */
     public onBlur(e: any): void {
         this.curvalue = this.value;
@@ -485,7 +521,7 @@ export default class AppPicker extends Vue {
         const view = { ...this.pickupView };
         let _context = data.context;
         let _param = data.param;
-        _param.selectedData = [{srfkey: this.data[this.valueitem], srfmajortext: this.curvalue }];
+        _param.selectedData = [{ srfkey: this.data[this.valueitem], srfmajortext: this.curvalue }];
         // 判断打开方式
         if (view.placement && !Object.is(view.placement, '')) {
             if (Object.is(view.placement, 'POPOVER')) {
@@ -496,7 +532,6 @@ export default class AppPicker extends Vue {
         } else {
             this.openPopupModal(view, _context, _param);
         }
-        
     }
 
     /**
@@ -508,7 +543,14 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     private openIndexViewTab(view: any, context: any, param: any): void {
-        const routePath = this.$viewTool.buildUpRoutePath(this.$route, this.context, view.deResParameters, view.parameters, [context] , param);
+        const routePath = this.$viewTool.buildUpRoutePath(
+            this.$route,
+            this.context,
+            view.deResParameters,
+            view.parameters,
+            [context],
+            param
+        );
         this.$router.push(routePath);
     }
 
@@ -588,67 +630,76 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     private openRedirectView($event: any, view: any, data: any): void {
-        this.$http.get(view.url, data).then((response: any) => {
-            if (!response || response.status !== 200) {
-                this.$Notice.error({ title: (this.$t('components.appPicker.error') as any), desc: (this.$t('components.appPicker.requestException') as any) });
-            }
-            if (response.status === 401) {
-                return;
-            }
-            const { data: result } = response;
+        this.$http
+            .get(view.url, data)
+            .then((response: any) => {
+                if (!response || response.status !== 200) {
+                    this.$Notice.error({
+                        title: this.$t('components.appPicker.error') as any,
+                        desc: this.$t('components.appPicker.requestException') as any,
+                    });
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                const { data: result } = response;
 
-            if (result.viewparams && !Object.is(result.viewparams.srfkey, '')) {
-                Object.assign(data, { srfkey: result.viewparams.srfkey });
-            }
+                if (result.viewparams && !Object.is(result.viewparams.srfkey, '')) {
+                    Object.assign(data, { srfkey: result.viewparams.srfkey });
+                }
 
-            if (Object.is(result.openmode, 'POPUPAPP') && result.url && !Object.is(result.url, '')) {
-                this.openPopupApp(result.url);
-            } else if (Object.is(result.openmode, 'INDEXVIEWTAB') || Object.is(result.openmode, '')) {
-                // 所有数据保持在同一级
-                if (data.srfparentdata) {
-                    Object.assign(data, data.srfparentdata);
-                    delete data.srfparentdata;
+                if (Object.is(result.openmode, 'POPUPAPP') && result.url && !Object.is(result.url, '')) {
+                    this.openPopupApp(result.url);
+                } else if (Object.is(result.openmode, 'INDEXVIEWTAB') || Object.is(result.openmode, '')) {
+                    // 所有数据保持在同一级
+                    if (data.srfparentdata) {
+                        Object.assign(data, data.srfparentdata);
+                        delete data.srfparentdata;
+                    }
+                    this.openIndexViewTab(view, null, data);
+                } else if (Object.is(result.openmode, 'POPUPMODAL')) {
+                    const viewname = this.$util.srfFilePath2(result.viewname);
+                    const view: any = {
+                        viewname: viewname,
+                        title: result.title,
+                        width: result.width,
+                        height: result.height,
+                    };
+                    this.openPopupModal(view, null, data);
+                } else if (result.openmode.startsWith('DRAWER')) {
+                    const viewname = this.$util.srfFilePath2(result.viewname);
+                    const view: any = {
+                        viewname: viewname,
+                        title: result.title,
+                        width: result.width,
+                        height: result.height,
+                        placement: result.openmode,
+                    };
+                    this.openDrawer(view, null, data);
+                } else if (Object.is(result.openmode, 'POPOVER')) {
+                    const viewname = this.$util.srfFilePath2(result.viewname);
+                    const view: any = {
+                        viewname: viewname,
+                        title: result.title,
+                        width: result.width,
+                        height: result.height,
+                        placement: result.openmode,
+                    };
+                    this.openPopOver($event, view, null, data);
                 }
-                this.openIndexViewTab(view, null, data);
-            } else if (Object.is(result.openmode, 'POPUPMODAL')) {
-                const viewname = this.$util.srfFilePath2(result.viewname);
-                const view: any = {
-                    viewname: viewname,
-                    title: result.title,
-                    width: result.width,
-                    height: result.height,
+            })
+            .catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    this.$Notice.error({
+                        title: this.$t('components.appPicker.error') as any,
+                        desc: this.$t('components.appPicker.systemException') as any,
+                    });
+                    return;
                 }
-                this.openPopupModal(view, null,data);
-            } else if (result.openmode.startsWith('DRAWER')) {
-                const viewname = this.$util.srfFilePath2(result.viewname);
-                const view: any = {
-                    viewname: viewname,
-                    title: result.title,
-                    width: result.width,
-                    height: result.height,
-                    placement: result.openmode,
+                if (response.status === 401) {
+                    return;
                 }
-                this.openDrawer(view, null, data);
-            } else if (Object.is(result.openmode, 'POPOVER')) {
-                const viewname = this.$util.srfFilePath2(result.viewname);
-                const view: any = {
-                    viewname: viewname,
-                    title: result.title,
-                    width: result.width,
-                    height: result.height,
-                    placement: result.openmode,
-                }
-                this.openPopOver($event, view, null, data);
-            }
-        }).catch((response: any) => {
-            if (!response || !response.status || !response.data) {
-                this.$Notice.error({ title: (this.$t('components.appPicker.error') as any), desc: (this.$t('components.appPicker.systemException') as any) });
-                return;
-            }
-            if (response.status === 401) {
-                return;
-            }
-        });
+            });
     }
 
     /**
@@ -658,7 +709,10 @@ export default class AppPicker extends Vue {
      */
     public openLinkView($event: any): void {
         if (!this.data || !this.valueitem || !this.data[this.valueitem]) {
-            console.error({ title: (this.$t('components.appPicker.error') as any), desc: (this.$t('components.appPicker.valueitemException') as any) });
+            console.error({
+                title: this.$t('components.appPicker.error') as any,
+                desc: this.$t('components.appPicker.valueitemException') as any,
+            });
             return;
         }
         // 公共参数处理
@@ -702,10 +756,16 @@ export default class AppPicker extends Vue {
 
         if (this.data) {
             if (this.valueitem) {
-                this.$emit('formitemvaluechange', { name: this.valueitem, value: item[this.deKeyField]?item[this.deKeyField]:item["srfkey"] });
+                this.$emit('formitemvaluechange', {
+                    name: this.valueitem,
+                    value: item[this.deKeyField] ? item[this.deKeyField] : item['srfkey'],
+                });
             }
             if (this.name) {
-                this.$emit('formitemvaluechange', { name: this.name, value: item[this.deMajorField]?item[this.deMajorField]:item["srfmajortext"] });
+                this.$emit('formitemvaluechange', {
+                    name: this.name,
+                    value: item[this.deMajorField] ? item[this.deMajorField] : item['srfmajortext'],
+                });
             }
         }
     }
@@ -719,20 +779,23 @@ export default class AppPicker extends Vue {
      */
     public handlePublicParams(arg: any): boolean {
         if (!this.data) {
-            this.$Notice.error({ title: (this.$t('components.appPicker.error') as any), desc: (this.$t('components.appPicker.formdataException') as any) });
+            this.$Notice.error({
+                title: this.$t('components.appPicker.error') as any,
+                desc: this.$t('components.appPicker.formdataException') as any,
+            });
             return false;
         }
         // 合并表单参数
         arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
         arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
         // 附加参数处理
-        if (this.localContext && Object.keys(this.localContext).length >0) {
-            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
-            Object.assign(arg.context,_context);
+        if (this.localContext && Object.keys(this.localContext).length > 0) {
+            let _context = this.$util.computedNavData(this.data, arg.context, arg.param, this.localContext);
+            Object.assign(arg.context, _context);
         }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
-            Object.assign(arg.param,_param);
+        if (this.localParam && Object.keys(this.localParam).length > 0) {
+            let _param = this.$util.computedNavData(this.data, arg.param, arg.param, this.localParam);
+            Object.assign(arg.param, _param);
         }
         return true;
     }
@@ -744,8 +807,8 @@ export default class AppPicker extends Vue {
      * @returns
      * @memberof AppPicker
      */
-    public clickAction(arg:any){
-        this.$emit('editoractionclick',arg);
+    public clickAction(arg: any) {
+        this.$emit('editoractionclick', arg);
     }
 
     /**
@@ -755,7 +818,7 @@ export default class AppPicker extends Vue {
      * @returns
      * @memberof AppPicker
      */
-    public newAndEdit($event:any){
+    public newAndEdit($event: any) {
         if (this.disabled) {
             return;
         }
@@ -781,7 +844,6 @@ export default class AppPicker extends Vue {
         } else {
             this.openPopupModal(view, _context, _param);
         }
-        
     }
 
     /**
@@ -802,7 +864,7 @@ export default class AppPicker extends Vue {
      */
     public openDropdown() {
         const appPicker: any = this.$refs.appPicker;
-        if(appPicker) {
+        if (appPicker) {
             appPicker.focus();
         }
     }
@@ -814,12 +876,10 @@ export default class AppPicker extends Vue {
      */
     public closeDropdown() {
         const appPicker: any = this.$refs.appPicker;
-        if(appPicker) {
+        if (appPicker) {
             appPicker.blur();
         }
     }
-    
-
 }
 </script>
 <style lang="less">

@@ -8,7 +8,6 @@ import { MDViewBase } from './MDViewBase';
  * @extends {MDViewBase}
  */
 export class IndexPickupDataViewBase extends MDViewBase {
-
     /**
      * 是否单选
      *

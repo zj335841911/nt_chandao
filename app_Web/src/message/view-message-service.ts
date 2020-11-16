@@ -8,7 +8,6 @@ import EntityService from '@/service/entity-service';
  * @class ViewMessage
  */
 export default class ViewMessageService {
-
     /**
      * 单例变量声明
      *
@@ -26,7 +25,7 @@ export default class ViewMessageService {
      * @type {EntityService}
      * @memberof ViewMessageService
      */
-    protected entityService:EntityService = new EntityService();
+    protected entityService: EntityService = new EntityService();
 
     /**
      * 视图消息标识
@@ -34,7 +33,7 @@ export default class ViewMessageService {
      * @type {string}
      * @memberof ViewMessageService
      */
-    public id:string ="";
+    public id: string = '';
 
     /**
      * 视图消息名称
@@ -42,7 +41,7 @@ export default class ViewMessageService {
      * @type {string}
      * @memberof ViewMessageService
      */
-    public name:string ="";
+    public name: string = '';
 
     /**
      * 视图消息代码名称
@@ -50,7 +49,7 @@ export default class ViewMessageService {
      * @type {string}
      * @memberof ViewMessageService
      */
-    public codename:string ="";
+    public codename: string = '';
 
     /**
      * 视图消息标题
@@ -58,7 +57,7 @@ export default class ViewMessageService {
      * @type {string}
      * @memberof ViewMessageService
      */
-    public title:string ="";
+    public title: string = '';
 
     /**
      * 视图消息内容
@@ -66,7 +65,7 @@ export default class ViewMessageService {
      * @type {string}
      * @memberof ViewMessageService
      */
-    public content:string ="";
+    public content: string = '';
 
     /**
      * 视图消息关闭模式(0:无关闭，1:默认关闭，2：本次关闭)
@@ -74,7 +73,7 @@ export default class ViewMessageService {
      * @type {number}
      * @memberof ViewMessageService
      */
-    public closeMode:number = 0;
+    public closeMode: number = 0;
 
     /**
      * 视图消息位置
@@ -82,7 +81,7 @@ export default class ViewMessageService {
      * @type {string}
      * @memberof ViewMessageService
      */
-    public position:string ="";
+    public position: string = '';
 
     /**
      * 视图消息类型
@@ -90,7 +89,7 @@ export default class ViewMessageService {
      * @type {string}
      * @memberof ViewMessageService
      */
-    public type:string = "info";
+    public type: string = 'info';
 
     /**
      * 视图消息是否支持删除
@@ -98,7 +97,7 @@ export default class ViewMessageService {
      * @type {boolean}
      * @memberof ViewMessageService
      */
-    public isEnableRemove:boolean = true;
+    public isEnableRemove: boolean = true;
 
     /**
      * 视图消息排序值
@@ -106,7 +105,7 @@ export default class ViewMessageService {
      * @type {boolean}
      * @memberof ViewMessageService
      */
-    public order:number = 1;
+    public order: number = 1;
 
     /**
      * 动态模式
@@ -114,7 +113,7 @@ export default class ViewMessageService {
      * @type {string}
      * @memberof ViewMessageService
      */
-    public dynamicMode:string = "STATIC";
+    public dynamicMode: string = 'STATIC';
 
     /**
      * 消息类型(可选值：TEXT/HTML)
@@ -122,7 +121,7 @@ export default class ViewMessageService {
      * @type {string}
      * @memberof ViewMessageService
      */
-    public messageType:string = "TEXT";
+    public messageType: string = 'TEXT';
 
     /**
      * 是否含有消息模板
@@ -130,7 +129,7 @@ export default class ViewMessageService {
      * @type {boolean}
      * @memberof ViewMessageService
      */
-    public hasMessageTemp:boolean = false;
+    public hasMessageTemp: boolean = false;
 
     /**
      * 视图消息缓存(加载中)
@@ -138,7 +137,7 @@ export default class ViewMessageService {
      * @type {Map<string,any>}
      * @memberof ViewMessageService
      */
-    public static messageCache:Map<string,any> = new Map();
+    public static messageCache: Map<string, any> = new Map();
 
     /**
      * 视图消息缓存(已完成)
@@ -146,11 +145,11 @@ export default class ViewMessageService {
      * @type {Map<string,any>}
      * @memberof ViewMessageService
      */
-    public static messageCached:Map<string,any> = new Map();
+    public static messageCached: Map<string, any> = new Map();
 
     /**
      * 初始化实例
-     * 
+     *
      * @memberof ViewMessageService
      */
     constructor(opts: any = {}) {
@@ -173,10 +172,10 @@ export default class ViewMessageService {
 
     /**
      * 初始化基础参数
-     * 
+     *
      * @memberof ViewMessageService
      */
-    public initBasicParam(){}
+    public initBasicParam() {}
 
     /**
      * 获取视图消息服务
@@ -192,51 +191,49 @@ export default class ViewMessageService {
 
     /**
      * 通过tag获取视图消息
-     * 
+     *
      * @param {tag:string} 视图消息标识
      * @param {context:any} 导航上下文
      * @param {viewparam:any} 导航参数
      * @memberof ViewMessageService
      */
-    public async getViewMessageByTag(tag:string,context:any = {},viewparam:any = {}){
-        let messageService:any = await this.getService(tag);
-        if(messageService.dynamicMode && Object.is(messageService.dynamicMode,"STATIC")){
-            return messageService.getStaticViewMessage(context,viewparam);
-        }else{
-            return messageService.getDynamicViewMessage(tag,messageService,context,viewparam);
+    public async getViewMessageByTag(tag: string, context: any = {}, viewparam: any = {}) {
+        let messageService: any = await this.getService(tag);
+        if (messageService.dynamicMode && Object.is(messageService.dynamicMode, 'STATIC')) {
+            return messageService.getStaticViewMessage(context, viewparam);
+        } else {
+            return messageService.getDynamicViewMessage(tag, messageService, context, viewparam);
         }
     }
 
     /**
      * 转化消息模板标题和内容
-     * 
+     *
      * @memberof ViewMessageService
      */
-    public translateMessageTemp(target:any,context:any,viewparam:any,item?:any){
-        
-    }
+    public translateMessageTemp(target: any, context: any, viewparam: any, item?: any) {}
 
     /**
      * 获取动态模式（静态）类型视图消息
-     * 
+     *
      * @memberof ViewMessageService
      */
-    public getStaticViewMessage(context:any,viewparam:any):Array<ViewMessage>{
-        let returnViewMessage:ViewMessage ={
-            id:this.id,
-            name:this.name,
-            codename:this.codename,
-            title:this.title,
-            content:this.content,
-            closeMode:this.closeMode,
-            position:this.position,
-            type:this.type,
-            isEnableRemove:this.isEnableRemove,
-            order:this.order,
-            dynamicMode:this.dynamicMode,
-            messageType:this.messageType
+    public getStaticViewMessage(context: any, viewparam: any): Array<ViewMessage> {
+        let returnViewMessage: ViewMessage = {
+            id: this.id,
+            name: this.name,
+            codename: this.codename,
+            title: this.title,
+            content: this.content,
+            closeMode: this.closeMode,
+            position: this.position,
+            type: this.type,
+            isEnableRemove: this.isEnableRemove,
+            order: this.order,
+            dynamicMode: this.dynamicMode,
+            messageType: this.messageType,
         };
-        this.translateMessageTemp(returnViewMessage,context,viewparam);
+        this.translateMessageTemp(returnViewMessage, context, viewparam);
         return [returnViewMessage];
     }
 
@@ -249,62 +246,72 @@ export default class ViewMessageService {
      * @returns {Promise<any[]>}
      * @memberof ViewMessageService
      */
-    public getDynamicViewMessage(tag:string,messageService: any,context:any = {}, data: any = {}, isloading?: boolean): Promise<any[]> {
-        if(context && context.srfsessionid){
+    public getDynamicViewMessage(
+        tag: string,
+        messageService: any,
+        context: any = {},
+        data: any = {},
+        isloading?: boolean
+    ): Promise<any[]> {
+        if (context && context.srfsessionid) {
             delete context.srfsessionid;
         }
-        return new Promise((resolve:any,reject:any) =>{
-            let isEnableCache:boolean = messageService.isEnableCache;
-            let cacheTimeout:any = messageService.cacheTimeout;
+        return new Promise((resolve: any, reject: any) => {
+            let isEnableCache: boolean = messageService.isEnableCache;
+            let cacheTimeout: any = messageService.cacheTimeout;
             // 启用缓存
-            if(isEnableCache){
-                const callback:Function = (context:any ={},data:any ={},tag:string,promise:Promise<any>) =>{
-                    const callbackKey:string = `${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`;
-                    promise.then((result:any) =>{
-                        if(result.length > 0){
-                            ViewMessageService.messageCached.set(callbackKey,{items:result});
-                            ViewMessageService.messageCache.delete(callbackKey);
-                            return resolve(result);
-                        }else{
-                            return resolve([]);
-                        }
-                    }).catch((result:any) =>{
-                        return reject(result);
-                    })
-                }
-                const key:string = `${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`;
+            if (isEnableCache) {
+                const callback: Function = (context: any = {}, data: any = {}, tag: string, promise: Promise<any>) => {
+                    const callbackKey: string = `${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`;
+                    promise
+                        .then((result: any) => {
+                            if (result.length > 0) {
+                                ViewMessageService.messageCached.set(callbackKey, { items: result });
+                                ViewMessageService.messageCache.delete(callbackKey);
+                                return resolve(result);
+                            } else {
+                                return resolve([]);
+                            }
+                        })
+                        .catch((result: any) => {
+                            return reject(result);
+                        });
+                };
+                const key: string = `${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`;
                 // 加载完成,从本地缓存获取
-                if(ViewMessageService.messageCached.get(key)){
-                    let items:any = ViewMessageService.messageCached.get(key).items;
-                    if(items.length >0){
-                        if(new Date().getTime() <= messageService.getExpirationTime()){
-                            return resolve(items); 
+                if (ViewMessageService.messageCached.get(key)) {
+                    let items: any = ViewMessageService.messageCached.get(key).items;
+                    if (items.length > 0) {
+                        if (new Date().getTime() <= messageService.getExpirationTime()) {
+                            return resolve(items);
                         }
                     }
                 }
                 if (messageService) {
                     // 加载中，UI又需要数据，解决连续加载同一代码表问题
-                    if(ViewMessageService.messageCache.get(key)){
-                        callback(context,data,tag,ViewMessageService.messageCache.get(key));
-                    }else{
-                        let result:Promise<any> = messageService.getItems(context,data,isloading);
-                        ViewMessageService.messageCache.set(key,result);
+                    if (ViewMessageService.messageCache.get(key)) {
+                        callback(context, data, tag, ViewMessageService.messageCache.get(key));
+                    } else {
+                        let result: Promise<any> = messageService.getItems(context, data, isloading);
+                        ViewMessageService.messageCache.set(key, result);
                         messageService.setExpirationTime(new Date().getTime() + cacheTimeout);
-                        callback(context,data,tag,result);
+                        callback(context, data, tag, result);
                     }
                 }
-            }else{
+            } else {
                 if (messageService) {
-                    messageService.getItems(context,data,isloading).then((result:any) =>{
-                        resolve(result);
-                    }).catch((error:any) =>{
-                        Promise.reject([]);
-                    })
-                }else{
+                    messageService
+                        .getItems(context, data, isloading)
+                        .then((result: any) => {
+                            resolve(result);
+                        })
+                        .catch((error: any) => {
+                            Promise.reject([]);
+                        });
+                } else {
                     return Promise.reject([]);
-                } 
+                }
             }
-        })
-    } 
-
+        });
+    }
 }

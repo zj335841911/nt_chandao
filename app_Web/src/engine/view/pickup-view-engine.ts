@@ -8,7 +8,6 @@ import ViewEngine from './view-engine';
  * @extends {ViewEngine}
  */
 export default class PickupViewEngine extends ViewEngine {
-
     /**
      * 选择视图面板
      *
@@ -19,7 +18,7 @@ export default class PickupViewEngine extends ViewEngine {
 
     /**
      * Creates an instance of PickupViewEngine.
-     * 
+     *
      * @memberof PickupViewEngine
      */
     constructor() {
@@ -37,7 +36,6 @@ export default class PickupViewEngine extends ViewEngine {
         super.init(options);
     }
 
-
     /**
      * 引擎加载
      *
@@ -53,7 +51,7 @@ export default class PickupViewEngine extends ViewEngine {
     }
 
     /**
-     * 
+     *
      *
      * @param {string} ctrlName
      * @param {string} eventName
@@ -79,10 +77,10 @@ export default class PickupViewEngine extends ViewEngine {
      */
     public onSelectionChange(args: any[]): void {
         this.view.viewSelections = [];
-        this.view.viewSelections = [...args]
+        this.view.viewSelections = [...args];
         const _disabled: boolean = this.view.viewSelections.length > 0 ? false : true;
         this.view.containerModel.view_okbtn.disabled = _disabled;
-        if(!this.view.isShowButton){
+        if (!this.view.isShowButton) {
             this.view.$emit('viewdataschange', [...args]);
         }
     }

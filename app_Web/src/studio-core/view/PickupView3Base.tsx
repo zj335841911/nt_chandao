@@ -7,6 +7,4 @@ import { MDViewBase } from './MDViewBase';
  * @class PickupView3Base
  * @extends {MDViewBase}
  */
-export class PickupView3Base extends MDViewBase {
-
-}
+export class PickupView3Base extends MDViewBase {}

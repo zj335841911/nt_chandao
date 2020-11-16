@@ -9,6 +9,4 @@ import { AppNavHistoryBase } from './AppNavHistoryBase';
  * @extends {AppNavHistoryBase}
  */
 @SingletonMode()
-export class AppNavHistory extends AppNavHistoryBase {
-
-}
+export class AppNavHistory extends AppNavHistoryBase {}

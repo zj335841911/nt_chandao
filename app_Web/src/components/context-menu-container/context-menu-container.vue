@@ -1,5 +1,5 @@
 <template>
-    <div class='context-menu-container' ref='container'>
+    <div class="context-menu-container" ref="container">
         <slot></slot>
     </div>
 </template>
@@ -45,10 +45,7 @@ export default class ContextMenuContainer extends Vue {
             service.notEnableShielding();
         };
     }
-
 }
 </script>
 
-<style lang='less'>
-
-</style>
+<style lang="less"></style>

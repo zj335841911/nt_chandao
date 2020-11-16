@@ -4,7 +4,6 @@
  * @interface ViewState
  */
 interface ViewState {
-
     /**
      * 部件标识
      *

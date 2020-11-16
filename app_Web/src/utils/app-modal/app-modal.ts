@@ -3,11 +3,10 @@ import { Subject } from 'rxjs';
 import store from '@/store';
 import i18n from '@/locale';
 import { ViewTool } from '../view-tool/view-tool';
-import AppModalCompponent from "./app-modal.vue";
+import AppModalCompponent from './app-modal.vue';
 import './app-modal.less';
 
 export class AppModal {
-
     /**
      * 实例对象
      *
@@ -28,7 +27,7 @@ export class AppModal {
 
     /**
      * Creates an instance of AppModal.
-     * 
+     *
      * @memberof AppModal
      */
     private constructor() {
@@ -62,16 +61,21 @@ export class AppModal {
      * @returns {Subject<any>}
      * @memberof AppModal
      */
-    private createVueExample(view: { viewname: string, title: string, width?: number, height?: number,isfullscreen?:boolean }, context: any = {},viewparams:any ={}, uuid: string): Subject<any> {
+    private createVueExample(
+        view: { viewname: string; title: string; width?: number; height?: number; isfullscreen?: boolean },
+        context: any = {},
+        viewparams: any = {},
+        uuid: string
+    ): Subject<any> {
         try {
-            let props = { view: view, viewdata: context,viewparams:viewparams,uuid: uuid };
+            let props = { view: view, viewdata: context, viewparams: viewparams, uuid: uuid };
             let component = AppModalCompponent;
             const vm = new Vue({
                 store: store,
                 i18n: i18n,
                 render(h) {
                     return h(component, { props });
-                }
+                },
             }).$mount();
             this.vueExample = vm;
             document.body.appendChild(vm.$el);
@@ -95,12 +99,16 @@ export class AppModal {
      * @returns {Subject<any>}
      * @memberof AppModal
      */
-    public openModal(view: { viewname: string, title: string, width?: number, height?: number }, context: any = {}, data: any = {}): Subject<any> {
+    public openModal(
+        view: { viewname: string; title: string; width?: number; height?: number },
+        context: any = {},
+        data: any = {}
+    ): Subject<any> {
         try {
             let viewdata: any = {};
             Object.assign(viewdata, JSON.parse(JSON.stringify(context)));
             const uuid = this.getUUID();
-            const subject = this.createVueExample(view, viewdata,data,uuid);
+            const subject = this.createVueExample(view, viewdata, data, uuid);
             return subject;
         } catch (error) {
             console.log(error);
@@ -117,9 +125,10 @@ export class AppModal {
      */
     private getUUID(): string {
         function s4() {
-            return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
         }
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
     }
-
 }

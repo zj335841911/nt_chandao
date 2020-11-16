@@ -3,7 +3,7 @@
         <div>
             <slot></slot>
         </div>
-        <div :style=style>
+        <div :style="style">
             <slot name="propertypanel"></slot>
         </div>
     </div>
@@ -14,7 +14,6 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 
 @Component({})
 export default class PropertyLayout extends Vue {
-
     @Prop()
     public propertyType?: string;
     @Prop()
@@ -26,23 +25,22 @@ export default class PropertyLayout extends Vue {
 
     public style: any;
 
-    mounted(){
+    mounted() {
         let _className = 'top-and-bottom';
         let _style: any = {};
         _style.minWidth = this.width ? this.width + 'px' : '';
         _style.maxWidth = this.width ? this.width + 'px' : '';
         _style.minHeight = this.height ? this.height + 'px' : '';
         _style.maxHeight = this.height ? this.height + 'px' : '';
-        if(Object.is(this.propertyType, 'RIGHT')) {
+        if (Object.is(this.propertyType, 'RIGHT')) {
             _className = 'left-and-right';
         }
         this.style = _style;
         this.className = _className;
     }
-
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import './property-layout.less';
 </style>

@@ -4,7 +4,7 @@
  * @export
  * @class TextCopy
  */
-export class TextCopy  {
+export class TextCopy {
     /**
      * 唯一实例
      *
@@ -82,8 +82,8 @@ export class TextCopy  {
         document.body.appendChild(div);
 
         setTimeout(() => {
-            div.style.top = (e.pageY - 100) + 'px';
-            div.style.left = (((e.pageX <= 200) ? e.pageX + 200 : e.pageX) - div.offsetWidth) + 'px';
+            div.style.top = e.pageY - 100 + 'px';
+            div.style.left = (e.pageX <= 200 ? e.pageX + 200 : e.pageX) - div.offsetWidth + 'px';
             div.style.opacity = '0';
 
             setTimeout(() => {
@@ -102,7 +102,6 @@ export class TextCopy  {
     public static getInstance(): TextCopy {
         return TextCopy.instance;
     }
-
 }
 
 export const textCopy = TextCopy.getInstance();

@@ -12,6 +12,4 @@ import './studio-view-style2.less';
  */
 @Component({})
 @VueLifeCycleProcessing()
-export class StudioViewStyle2 extends StudioViewStyle2Base {
-
-}
+export class StudioViewStyle2 extends StudioViewStyle2Base {}

@@ -2,15 +2,29 @@
     <div class="ibiz-group-picker">
         <div class="ibiz-group-container">
             <div v-if="showTree" class="ibiz-group-tree">
-                <ibiz-select-tree :NodesData="treeItems" v-model="treeSelectVal" :treeOnly="true" :defaultChecked="true" @select="treeSelect"></ibiz-select-tree>
+                <ibiz-select-tree
+                    :NodesData="treeItems"
+                    v-model="treeSelectVal"
+                    :treeOnly="true"
+                    :defaultChecked="true"
+                    @select="treeSelect"
+                ></ibiz-select-tree>
             </div>
             <div class="ibiz-group-content">
-                <ibiz-group-card :data="cardItems" text="label" value="id" groupName="group" :multiple="multiple" :defaultSelect="cardSelctVal" @select="groupSelect"></ibiz-group-card>
+                <ibiz-group-card
+                    :data="cardItems"
+                    text="label"
+                    value="id"
+                    groupName="group"
+                    :multiple="multiple"
+                    :defaultSelect="cardSelctVal"
+                    @select="groupSelect"
+                ></ibiz-group-card>
             </div>
         </div>
         <div class="ibiz-group-footer">
-            <el-button size="small" type="primary" @click="onOK">{{$t('app.commonWords.ok')}}</el-button>
-            <el-button size="small" @click="onCancel">{{$t('app.commonWords.cancel')}}</el-button>
+            <el-button size="small" type="primary" @click="onOK">{{ $t('app.commonWords.ok') }}</el-button>
+            <el-button size="small" @click="onCancel">{{ $t('app.commonWords.cancel') }}</el-button>
         </div>
     </div>
 </template>
@@ -21,13 +35,12 @@ import { Subject } from 'rxjs';
 import { Http } from '../../utils';
 @Component({})
 export default class AppGroupPicker extends Vue {
-
     /**
      * 视图上下文参数
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     @Prop() viewdata: any;
 
     /**
@@ -35,7 +48,7 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     @Prop() viewparam: any;
 
     /**
@@ -43,7 +56,7 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     protected multiple: boolean = false;
 
     /**
@@ -51,23 +64,23 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
-    protected treeurl:any;
+     */
+    protected treeurl: any;
 
     /**
      * 加载人员url
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
-    protected url:any;
+     */
+    protected url: any;
 
     /**
      * 树数据集
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     protected treeItems: any[] = [];
 
     /**
@@ -75,7 +88,7 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     protected cardItems: any[] = [];
 
     /**
@@ -83,7 +96,7 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     protected viewData: any;
 
     /**
@@ -91,7 +104,7 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     protected viewParam: any;
 
     /**
@@ -99,7 +112,7 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     protected treeSelectVal: string = '';
 
     /**
@@ -107,7 +120,7 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     protected cardSelctVal: any = [];
 
     /**
@@ -115,7 +128,7 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     protected selects: any[] = [];
 
     /**
@@ -123,9 +136,9 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     get showTree() {
-        if(this.viewParam) {
+        if (this.viewParam) {
             return this.viewParam.showtree;
         }
     }
@@ -135,9 +148,9 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     public created() {
-        if(!this.viewdata || !this.viewparam) {
+        if (!this.viewdata || !this.viewparam) {
             return;
         }
         this.viewData = JSON.parse(this.viewdata);
@@ -148,8 +161,8 @@ export default class AppGroupPicker extends Vue {
         if (this.viewParam.selects) {
             this.viewParam.selects.forEach((select: any) => {
                 this.selects.push(select);
-                this.cardSelctVal.push(select.id)
-            })
+                this.cardSelctVal.push(select.id);
+            });
         }
         this.load();
     }
@@ -159,9 +172,9 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     public load() {
-        if(this.showTree) {
+        if (this.showTree) {
             this.loadTree();
         } else {
             this.loadGroupData(this.viewParam.filtervalue);
@@ -173,18 +186,18 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     public loadTree() {
         let orgid = this.viewParam.filtervalue;
-        let tempTreeUrl:string = this.treeurl.replace('${orgid}',orgid);
+        let tempTreeUrl: string = this.treeurl.replace('${orgid}', orgid);
         let get = Http.getInstance().get(tempTreeUrl, true);
         get.then((response: any) => {
-            if(response.status === 200) {
+            if (response.status === 200) {
                 this.treeItems = response.data;
             }
         }).catch((error: any) => {
-            console.log(error)
-        })
+            console.log(error);
+        });
     }
 
     /**
@@ -192,17 +205,17 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     public loadGroupData(key: string) {
-        let tempUrl = this.url.replace('${selected-orgid}',key);
+        let tempUrl = this.url.replace('${selected-orgid}', key);
         let get = Http.getInstance().get(tempUrl, true);
         get.then((response: any) => {
-            if(response.status === 200) {
+            if (response.status === 200) {
                 this.cardItems = response.data;
             }
         }).catch((error: any) => {
-            console.log(error)
-        })
+            console.log(error);
+        });
     }
 
     /**
@@ -210,9 +223,9 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     public treeSelect(event: any) {
-        if(!event || JSON.parse(event).length == 0) {
+        if (!event || JSON.parse(event).length == 0) {
             return;
         }
         const items: any = JSON.parse(event);
@@ -224,23 +237,23 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     public groupSelect(event: any) {
         if (!event || !event.select) {
             return;
         }
-        if(!this.multiple) {
+        if (!this.multiple) {
             this.selects = [];
         }
-        if(event.rselect) {
+        if (event.rselect) {
             let index: number = this.selects.findIndex((item: any) => Object.is(event.rselect, item.id));
-            if(index >= 0) {
+            if (index >= 0) {
                 this.selects.splice(index, 1);
             }
         } else {
             event.select.forEach((key: string) => {
                 let index: number = this.selects.findIndex((item: any) => Object.is(key, item.id));
-                if(index >= 0) {
+                if (index >= 0) {
                     return;
                 }
                 let item: any = this.cardItems.find((item: any) => Object.is(key, item.id));
@@ -256,17 +269,17 @@ export default class AppGroupPicker extends Vue {
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     public onOK() {
         this.$emit('close', this.selects);
     }
-    
+
     /**
      * 取消
      *
      * @type {*}
      * @memberof AppGroupPicker
-     */  
+     */
     public onCancel() {
         this.$emit('close');
     }
@@ -274,31 +287,31 @@ export default class AppGroupPicker extends Vue {
 </script>
 
 <style lang="less">
-.ibiz-group-picker{
-  width: 100%;
-  height: 100%;
-  .ibiz-group-container {
-      min-height: 700px;
-      display: flex;
-      height: calc(100% - 65px);
-      .ibiz-group-tree {
-          min-width: 200px;
-          border-right: 1px solid #ddd;
-          padding: 0 34px 0 10px;
-          overflow: auto;
-          height: 100%;
-      }
-      .ibiz-group-content {
-          flex-grow: 1;
-          padding: 0 10px;
-          overflow: auto;
-          height: 100%;
-      }
-  }
-  .ibiz-group-footer {
-      padding: 16px;
-      text-align: right;
-      border-top: 1px solid #ddd;
-  }
+.ibiz-group-picker {
+    width: 100%;
+    height: 100%;
+    .ibiz-group-container {
+        min-height: 700px;
+        display: flex;
+        height: calc(100% - 65px);
+        .ibiz-group-tree {
+            min-width: 200px;
+            border-right: 1px solid #ddd;
+            padding: 0 34px 0 10px;
+            overflow: auto;
+            height: 100%;
+        }
+        .ibiz-group-content {
+            flex-grow: 1;
+            padding: 0 10px;
+            overflow: auto;
+            height: 100%;
+        }
+    }
+    .ibiz-group-footer {
+        padding: 16px;
+        text-align: right;
+        border-top: 1px solid #ddd;
+    }
 }
 </style>

@@ -2,15 +2,15 @@ import Vue from 'vue';
 const isServer = Vue.prototype.$isServer;
 
 /* istanbul ignore next */
-export const on = (function() {
+export const on = (function () {
     if (!isServer && document.addEventListener) {
-        return function(element: any, event: any, handler: any) {
+        return function (element: any, event: any, handler: any) {
             if (element && event && handler) {
                 element.addEventListener(event, handler, false);
             }
         };
     } else {
-        return function(element: any, event: any, handler: any) {
+        return function (element: any, event: any, handler: any) {
             if (element && event && handler) {
                 element.attachEvent('on' + event, handler);
             }
@@ -19,15 +19,15 @@ export const on = (function() {
 })();
 
 /* istanbul ignore next */
-export const off = (function() {
+export const off = (function () {
     if (!isServer && document.removeEventListener) {
-        return function(element: any, event: any, handler: any) {
+        return function (element: any, event: any, handler: any) {
             if (element && event) {
                 element.removeEventListener(event, handler, false);
             }
         };
     } else {
-        return function(element: any, event: any, handler: any) {
+        return function (element: any, event: any, handler: any) {
             if (element && event) {
                 element.detachEvent('on' + event, handler);
             }
@@ -93,6 +93,6 @@ export function removeClass(el: Element | HTMLElement, cls: string) {
 }
 
 /* istanbul ignore next */
-const trim = function(str: string) {
+const trim = function (str: string) {
     return (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 };

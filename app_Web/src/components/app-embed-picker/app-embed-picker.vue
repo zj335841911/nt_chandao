@@ -2,24 +2,25 @@
     <div v-if="refviewname" class="app-embed-picker">
         <div :style="{ height: placeholder ? 'calc(100% - 32px)' : '100%' }">
             <component
-              :is="refviewname"
-              :viewdata="viewdata"
-              :viewparam="viewparam"
-              :viewDefaultUsage="false"
-              @viewdataschange="setValue($event)"
-              style="height:100%;">
+                :is="refviewname"
+                :viewdata="viewdata"
+                :viewparam="viewparam"
+                :viewDefaultUsage="false"
+                @viewdataschange="setValue($event)"
+                style="height: 100%"
+            >
             </component>
         </div>
         <template v-if="placeholder">
             <div v-if="value" class="app-embed-value">
-                <span v-for="(item,index) in value.split(',')" :key="index">
-                    {{item}}
+                <span v-for="(item, index) in value.split(',')" :key="index">
+                    {{ item }}
                 </span>
             </div>
-            <div v-else class="app-embed-placeholder">{{placeholder}}</div>
+            <div v-else class="app-embed-placeholder">{{ placeholder }}</div>
         </template>
     </div>
-    <div v-else>{{emptyText}}</div>
+    <div v-else>{{ emptyText }}</div>
 </template>
 
 <script lang="ts">
@@ -29,7 +30,6 @@ import { Subject, Subscription } from 'rxjs';
 
 @Component({})
 export default class AppEmbedPicker extends Vue {
-
     /**
      * 视图上下文
      *
@@ -52,8 +52,8 @@ export default class AppEmbedPicker extends Vue {
      * @type {string}
      * @memberof AppTreePicker
      */
-    public viewparam: any = JSON.stringify(this.viewparams);;
-    
+    public viewparam: any = JSON.stringify(this.viewparams);
+
     /**
      * 视图参数
      *
@@ -84,7 +84,7 @@ export default class AppEmbedPicker extends Vue {
      * @type {Subject<any>}
      * @memberof AppEmbedPicker
      */
-    @Prop() public formState!: Subject<any>
+    @Prop() public formState!: Subject<any>;
 
     /**
      * 视图状态事件
@@ -137,19 +137,19 @@ export default class AppEmbedPicker extends Vue {
 
     /**
      * 局部上下文导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppEmbedPicker
      */
-    @Prop() public localContext!:any;
+    @Prop() public localContext!: any;
 
     /**
      * 局部导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppEmbedPicker
      */
-    @Prop() public localParam!:any;
+    @Prop() public localParam!: any;
 
     /**
      * 是否忽略之变化
@@ -176,29 +176,29 @@ export default class AppEmbedPicker extends Vue {
         if (!this.data) {
             return;
         }
-        let formData:any = JSON.parse(this.data);
+        let formData: any = JSON.parse(this.data);
         let arg: any = {};
         // 合并视图上下文参数和视图参数
         arg.param = JSON.parse(JSON.stringify(this.viewparams));
         arg.context = JSON.parse(JSON.stringify(this.context));
-        if(formData[this.name] && formData[this.valueItem]){
-            let selectItems:Array<any> = [];
+        if (formData[this.name] && formData[this.valueItem]) {
+            let selectItems: Array<any> = [];
             let tempvalue: Array<any> = formData[this.valueItem].split(',');
             let temptext: Array<any> = formData[this.name].split(',');
-            tempvalue.forEach((srfkey: any, index: number)=>{
-                selectItems.push({ srfmajortext : temptext[index], srfkey: srfkey });
+            tempvalue.forEach((srfkey: any, index: number) => {
+                selectItems.push({ srfmajortext: temptext[index], srfkey: srfkey });
             });
             arg.param.selectedData = selectItems;
             this.$forceUpdate();
         }
         // 附加参数处理
-         if (this.localContext && Object.keys(this.localContext).length >0) {
-            let _context = this.$util.computedNavData(formData,arg.context,arg.param,this.localContext);
-            Object.assign(arg.context,_context);
+        if (this.localContext && Object.keys(this.localContext).length > 0) {
+            let _context = this.$util.computedNavData(formData, arg.context, arg.param, this.localContext);
+            Object.assign(arg.context, _context);
         }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-            let _param = this.$util.computedNavData(formData,arg.context,arg.param,this.localParam);
-            Object.assign(arg.param,_param);
+        if (this.localParam && Object.keys(this.localParam).length > 0) {
+            let _param = this.$util.computedNavData(formData, arg.context, arg.param, this.localParam);
+            Object.assign(arg.param, _param);
         }
         this.viewdata = JSON.stringify(arg.context);
         this.viewparam = JSON.stringify(arg.param);
@@ -219,7 +219,7 @@ export default class AppEmbedPicker extends Vue {
         if (!this.refreshitems || this.ignorefieldvaluechange) {
             return;
         }
-        if(Object.is(newFormData[this.refreshitems], oldDormData[this.refreshitems])) {
+        if (Object.is(newFormData[this.refreshitems], oldDormData[this.refreshitems])) {
             return;
         }
         if (this.valueItem) {
@@ -237,7 +237,7 @@ export default class AppEmbedPicker extends Vue {
      */
     public created() {
         this.setViewParam();
-        if(this.formState) {
+        if (this.formState) {
             this.formStateEvent = this.formState.subscribe(({ tag, action, data }) => {
                 if (Object.is('load', action)) {
                     this.setViewParam();
@@ -266,13 +266,13 @@ export default class AppEmbedPicker extends Vue {
     public setValue(item: any) {
         let srfkey: string = '';
         let srfmajortext: string = '';
-        if(item && Array.isArray(item)){
-            item.forEach((select: any)=>{
-                srfkey += select.srfkey+",";
-                srfmajortext += select.srfmajortext+',';
-            })
-            srfkey = srfkey.substring(0,srfkey.length-1);
-            srfmajortext = srfmajortext.substring(0,srfmajortext.length-1);
+        if (item && Array.isArray(item)) {
+            item.forEach((select: any) => {
+                srfkey += select.srfkey + ',';
+                srfmajortext += select.srfmajortext + ',';
+            });
+            srfkey = srfkey.substring(0, srfkey.length - 1);
+            srfmajortext = srfmajortext.substring(0, srfmajortext.length - 1);
             if (this.valueItem) {
                 this.$emit('formitemvaluechange', { name: this.valueItem, value: srfkey });
             }
@@ -281,10 +281,9 @@ export default class AppEmbedPicker extends Vue {
             }
         }
     }
-
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import './app-embed-picker.less';
 </style>

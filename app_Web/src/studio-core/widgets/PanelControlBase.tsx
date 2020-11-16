@@ -12,7 +12,6 @@ import { ViewTool } from '@/utils';
  * @extends {ControlBase}
  */
 export class PanelControlBase extends ControlBase {
-
     /**
      * 代码表服务对象
      *
@@ -62,7 +61,7 @@ export class PanelControlBase extends ControlBase {
     public appUIService: any;
 
     /**
-     * 
+     *
      *
      * @returns {any[]}
      * @memberof PanelControlBase
@@ -109,7 +108,7 @@ export class PanelControlBase extends ControlBase {
      * @param {*} oldVal
      * @memberof PanelControlBase
      */
-    @Watch('inputData', { immediate: true,deep: true })
+    @Watch('inputData', { immediate: true, deep: true })
     async onInputDataChange(newVal: any, oldVal: any) {
         if (newVal) {
             await this.computedUIData(newVal);
@@ -127,7 +126,7 @@ export class PanelControlBase extends ControlBase {
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @memberof PanelControlBase
      */
-    public panelLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void { }
+    public panelLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): void {}
 
     /**
      * 计算UI展示数据
@@ -136,10 +135,10 @@ export class PanelControlBase extends ControlBase {
      * @memberof PanelControlBase
      */
     public async computedUIData(newVal: any) {
-        if ((this.dataModel.getDataItems instanceof Function) && this.dataModel.getDataItems().length > 0) {
+        if (this.dataModel.getDataItems instanceof Function && this.dataModel.getDataItems().length > 0) {
             this.dataModel.getDataItems().forEach((item: any) => {
                 this.data[item.name] = newVal[item.prop];
-            })
+            });
         }
     }
 
@@ -151,12 +150,12 @@ export class PanelControlBase extends ControlBase {
     public async computePanelData() {
         let codelistArray: Array<any> = [];
         let panelData: any = {};
-        if ((this.dataModel.getDataItems instanceof Function) && this.dataModel.getDataItems().length > 0) {
+        if (this.dataModel.getDataItems instanceof Function && this.dataModel.getDataItems().length > 0) {
             this.dataModel.getDataItems().forEach((item: any) => {
                 if (item.codelist) {
                     codelistArray.push(item.codelist);
                 }
-            })
+            });
             if (codelistArray.length > 0) {
                 let res: any = await this.getAllCodeList(codelistArray, true);
                 this.dataModel.getDataItems().forEach((item: any) => {
@@ -165,11 +164,11 @@ export class PanelControlBase extends ControlBase {
                     } else {
                         panelData[item.prop] = this.data[item.name];
                     }
-                })
+                });
             } else {
                 this.dataModel.getDataItems().forEach((item: any) => {
                     panelData[item.prop] = this.data[item.name];
-                })
+                });
             }
         }
         this.panelData = Object.assign(JSON.parse(JSON.stringify(this.inputData)), panelData);
@@ -201,41 +200,44 @@ export class PanelControlBase extends ControlBase {
                                         } else {
                                             tempCodeListMap.set(codeListItem.value, codeListItem.text);
                                         }
-                                    })
+                                    });
                                 }
                                 codeListMap.set(item.tag, tempCodeListMap);
-                            })
+                            });
                             resolve(codeListMap);
                         }
-                    })
+                    });
                 }
-            })
-        })
+            });
+        });
     }
 
     /**
      * 获取代码表
-     * 
+     *
      * @param codeListObject 传入代码表对象
      * @memberof PanelControlBase
      */
     public getCodeList(codeListObject: any): Promise<any> {
         return new Promise((resolve: any, reject: any) => {
-            if (codeListObject.tag && Object.is(codeListObject.codelistType, "STATIC")) {
+            if (codeListObject.tag && Object.is(codeListObject.codelistType, 'STATIC')) {
                 const codelist = this.$store.getters.getCodeList(codeListObject.tag);
                 if (codelist) {
                     resolve([...JSON.parse(JSON.stringify(codelist.items))]);
                 } else {
                     resolve([]);
                 }
-            } else if (codeListObject.tag && Object.is(codeListObject.codelistType, "DYNAMIC")) {
-                this.codeListService.getItems(codeListObject.tag).then((res: any) => {
-                    resolve(res);
-                }).catch((error: any) => {
-                    resolve([]);
-                });
+            } else if (codeListObject.tag && Object.is(codeListObject.codelistType, 'DYNAMIC')) {
+                this.codeListService
+                    .getItems(codeListObject.tag)
+                    .then((res: any) => {
+                        resolve(res);
+                    })
+                    .catch((error: any) => {
+                        resolve([]);
+                    });
             }
-        })
+        });
     }
 
     /**
@@ -281,22 +283,21 @@ export class PanelControlBase extends ControlBase {
      * @param {*} [args]
      * @memberof PanelControlBase
      */
-    public refresh(args?:any) {
+    public refresh(args?: any) {
         if (this.parentRef.refresh && this.parentRef.refresh instanceof Function) {
             this.parentRef.refresh(args);
         }
     }
 
-
     /**
      * 设置面板编辑项值变更
-     *  
+     *
      * @param data 面板数据
      * @param {{ name: string, value: any }} $event
      * @returns {void}
      * @memberof PanelControlBase
      */
-    public onPanelItemValueChange(data: any, $event: { name: string, value: any }): void {
+    public onPanelItemValueChange(data: any, $event: { name: string; value: any }): void {
         if (!$event) {
             return;
         }
@@ -319,10 +320,10 @@ export class PanelControlBase extends ControlBase {
      */
     public panelEditItemChange(data: any, property: string, value: any) {
         // 面板数据变化事件
-        if ((this.dataModel.getDataItems instanceof Function) && this.dataModel.getDataItems().length > 0) {
+        if (this.dataModel.getDataItems instanceof Function && this.dataModel.getDataItems().length > 0) {
             let modelitem = this.dataModel.getDataItems().find((item: any) => {
                 return item.name === property;
-            })
+            });
             if (modelitem) {
                 this.$emit('panelDataChange', { [modelitem.prop]: value });
             }
@@ -342,15 +343,24 @@ export class PanelControlBase extends ControlBase {
             if (this.detailsModel && Object.keys(this.detailsModel).length > 0) {
                 Object.keys(this.detailsModel).forEach((name: any) => {
                     const model = this.detailsModel[name];
-                    if (model && model.uiaction && model.uiaction.dataaccaction && Object.is(model.itemType, "BUTTON")) {
+                    if (
+                        model &&
+                        model.uiaction &&
+                        model.uiaction.dataaccaction &&
+                        Object.is(model.itemType, 'BUTTON')
+                    ) {
                         model.isPower = true;
                         const tempUIAction: any = JSON.parse(JSON.stringify(model.uiaction));
-                        const result: any[] = ViewTool.calcActionItemAuthState(targetData, [tempUIAction], this.appUIService ? this.appUIService : null);
+                        const result: any[] = ViewTool.calcActionItemAuthState(
+                            targetData,
+                            [tempUIAction],
+                            this.appUIService ? this.appUIService : null
+                        );
                         model.visible = tempUIAction.visible;
                         model.disabled = tempUIAction.disabled;
                         model.isPower = result[0] === 1 ? true : false;
                     }
-                })
+                });
             }
         }
     }

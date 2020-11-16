@@ -4,25 +4,22 @@
         @on-open-change="transferRefresh"
         @on-change="dataChange"
         v-model="dataRight"
-        :style="{width:width}"
+        :style="{ width: width }"
         :disabled="disabled"
         :placeholder="placeholder"
-        multiple>
-        <Option class="hidden" :value="item" v-for="(item,i) in dataRight" :key="i">
-            {{findLabel(item)}}
+        multiple
+    >
+        <Option class="hidden" :value="item" v-for="(item, i) in dataRight" :key="i">
+            {{ findLabel(item) }}
         </Option>
-        <el-transfer
-            v-model="dataRight"
-            :data="dataLeft"
-            @change="dataChange"
-            :titles="titles"/>
+        <el-transfer v-model="dataRight" :data="dataLeft" @change="dataChange" :titles="titles" />
     </Select>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Watch, Prop, Model } from "vue-property-decorator";
-import CodeListService from "@service/app/codelist-service";
-import { ElSelect } from "element-ui/types/select";
+import { Vue, Component, Watch, Prop, Model } from 'vue-property-decorator';
+import CodeListService from '@service/app/codelist-service';
+import { ElSelect } from 'element-ui/types/select';
 
 @Component({})
 export default class AppTransfer extends Vue {
@@ -32,11 +29,11 @@ export default class AppTransfer extends Vue {
      * @type {*}
      * @memberof AppTransfer
      */
-    @Prop() public data:any;
+    @Prop() public data: any;
 
     /**
      * 穿梭框宽度
-     * 
+     *
      * @type {string}
      * @memberof AppTransfer
      */
@@ -44,7 +41,7 @@ export default class AppTransfer extends Vue {
 
     /**
      * 表单传入字符串值分隔符
-     * 
+     *
      * @type {string}
      * @memberof AppTransfer
      */
@@ -100,7 +97,7 @@ export default class AppTransfer extends Vue {
 
     /**
      * 是否禁用
-     * 
+     *
      * @type {any}
      * @memberof AppTransfer
      *
@@ -109,7 +106,7 @@ export default class AppTransfer extends Vue {
 
     /**
      * 穿梭框提示内容
-     * 
+     *
      * @type {string}
      * @memberof AppTransfer
      */
@@ -117,11 +114,11 @@ export default class AppTransfer extends Vue {
 
     /**
      * 当前选中值
-     * 
+     *
      * @type {any}
      * @memberof AppTransfer
      */
-    @Model("change") public itemValue!: any;
+    @Model('change') public itemValue!: any;
 
     /**
      * 左右侧标题
@@ -132,14 +129,14 @@ export default class AppTransfer extends Vue {
 
     /**
      * 左侧框数据
-     * 
+     *
      * @memberof AppTransfer
      */
     public dataLeft: any[] = [];
 
     /**
      * 右侧框数据
-     * 
+     *
      * @memberof AppTransfer
      */
     public dataRight: any[] = [];
@@ -151,7 +148,7 @@ export default class AppTransfer extends Vue {
      * @memberof AppTransfer
      */
     public codeListService: CodeListService = new CodeListService({
-        $store: this.$store
+        $store: this.$store,
     });
 
     /**
@@ -160,24 +157,27 @@ export default class AppTransfer extends Vue {
      */
     public created() {
         this.dataHandle();
-        this.titles= [(this.$t('components.appTransfer.title1') as string),(this.$t('components.appTransfer.title2') as string)];
+        this.titles = [
+            this.$t('components.appTransfer.title1') as string,
+            this.$t('components.appTransfer.title2') as string,
+        ];
     }
 
     /**
      * 数据处理
-     * 
+     *
      * @memberof AppTransfer
      */
     public dataHandle() {
-        if (this.tag && Object.is(this.codelistType, "STATIC")) {
-        const codelist = this.$store.getters.getCodeList(this.tag);
-        if (codelist) {
-            this.dataLeft = [...JSON.parse(JSON.stringify(codelist.items))];
-            this.initData()
-        } else {
-            console.log(`----${this.tag}----${(this.$t('app.commonWords.codeNotExist') as string)}`);
-        }
-        } else if (this.tag && Object.is(this.codelistType, "DYNAMIC")) {
+        if (this.tag && Object.is(this.codelistType, 'STATIC')) {
+            const codelist = this.$store.getters.getCodeList(this.tag);
+            if (codelist) {
+                this.dataLeft = [...JSON.parse(JSON.stringify(codelist.items))];
+                this.initData();
+            } else {
+                console.log(`----${this.tag}----${this.$t('app.commonWords.codeNotExist') as string}`);
+            }
+        } else if (this.tag && Object.is(this.codelistType, 'DYNAMIC')) {
             // 处理公共参数
             let data: any = {};
             this.handlePublicParams(data);
@@ -188,10 +188,10 @@ export default class AppTransfer extends Vue {
                 .getItems(this.tag, _context, _param)
                 .then((res: any) => {
                     this.dataLeft = res;
-                    this.initData()
+                    this.initData();
                 })
                 .catch((error: any) => {
-                    console.log(`----${this.tag}----${(this.$t('app.commonWords.codeNotExist') as string)}`);
+                    console.log(`----${this.tag}----${this.$t('app.commonWords.codeNotExist') as string}`);
                 });
         }
     }
@@ -205,25 +205,25 @@ export default class AppTransfer extends Vue {
      */
     public handlePublicParams(arg: any) {
         // 合并表单参数
-        arg.param = this.viewparams? JSON.parse(JSON.stringify(this.viewparams)): {};
+        arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
         arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
         // 附加参数处理
         if (this.localContext && Object.keys(this.localContext).length > 0) {
-            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
+            let _context = this.$util.computedNavData(this.data, arg.context, arg.param, this.localContext);
             Object.assign(arg.context, _context);
         }
         if (this.localParam && Object.keys(this.localParam).length > 0) {
-            let _param = this.$util.computedNavData(this.data,arg.context,arg.param,this.localParam);
+            let _param = this.$util.computedNavData(this.data, arg.context, arg.param, this.localParam);
             Object.assign(arg.param, _param);
         }
     }
 
     /**
      * 初始化获取到的选项数据
-     * 
+     *
      * @memberof AppTransfer
      */
-    public initData(){
+    public initData() {
         // 初始化左侧框数据
         let left: any[] = [];
         Object.assign(left, this.dataLeft);
@@ -233,7 +233,7 @@ export default class AppTransfer extends Vue {
                 key: elem.id,
                 value: elem.value,
                 label: elem.text,
-                disabled: elem.disabled
+                disabled: elem.disabled,
             });
         });
 
@@ -242,16 +242,16 @@ export default class AppTransfer extends Vue {
         _valueSeparator = this.initValueSeparator();
         let _data: any = this.itemValue;
         if (_data) {
-        let _dataRight: any = [];
-        let newData: any[] = _data.split(`${_valueSeparator}`);
-        this.dataLeft.forEach((elem: any) => {
-            newData.forEach((item: any) => {
-                if (item === elem.value) {
-                    _dataRight.push(elem.key);
-                }
+            let _dataRight: any = [];
+            let newData: any[] = _data.split(`${_valueSeparator}`);
+            this.dataLeft.forEach((elem: any) => {
+                newData.forEach((item: any) => {
+                    if (item === elem.value) {
+                        _dataRight.push(elem.key);
+                    }
+                });
             });
-        });
-        this.dataRight = _dataRight;
+            this.dataRight = _dataRight;
         }
     }
 
@@ -264,9 +264,9 @@ export default class AppTransfer extends Vue {
         _valueSeparator = this.initValueSeparator();
         let newVal: string = e.join(`${_valueSeparator}`);
         if (newVal) {
-            this.$emit("change", newVal);
+            this.$emit('change', newVal);
         } else {
-            this.$emit("change", null);
+            this.$emit('change', null);
         }
     }
 
@@ -275,7 +275,7 @@ export default class AppTransfer extends Vue {
      * @memberof AppTransfer
      */
     public initValueSeparator() {
-        return this.valueSeparator ? this.valueSeparator : ",";
+        return this.valueSeparator ? this.valueSeparator : ',';
     }
 
     /**
@@ -283,7 +283,7 @@ export default class AppTransfer extends Vue {
      * @memberof AppTransfer
      */
     public transferRefresh(e: boolean) {
-        if (e && this.codelistType === "DYNAMIC") {
+        if (e && this.codelistType === 'DYNAMIC') {
             this.dataLeft = [];
             this.dataHandle();
         }
@@ -301,6 +301,6 @@ export default class AppTransfer extends Vue {
 }
 </script>
 
-<style lang='less'>
-@import "./app-transfer.less";
+<style lang="less">
+@import './app-transfer.less';
 </style>

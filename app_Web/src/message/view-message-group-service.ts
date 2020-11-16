@@ -7,7 +7,6 @@ import { Http } from '@/utils/http/http';
  * @class ViewMessageGroupService
  */
 export default class ViewMessageGroupService {
-
     /**
      * 单例变量声明
      *
@@ -26,14 +25,14 @@ export default class ViewMessageGroupService {
      * @type {ViewMessageGroupService}
      * @memberof ViewMessageGroupService
      */
-    private static allViewMessageGroup:any;
+    private static allViewMessageGroup: any;
 
     /**
      * 初始化实例
-     * 
+     *
      * @memberof ViewMessageGroupService
      */
-    constructor(opts:any = {}){}
+    constructor(opts: any = {}) {}
 
     /**
      * 获取 ViewMessageGroupService 单例对象
@@ -55,14 +54,15 @@ export default class ViewMessageGroupService {
      * @returns {Promise<any></any>}
      * @memberof ViewMessageGroupService
      */
-    public async getViewMessageDetailsByTag(tag:string):Promise<any>{
-        if(ViewMessageGroupService.allViewMessageGroup){
-            return ViewMessageGroupService.allViewMessageGroup[tag]?ViewMessageGroupService.allViewMessageGroup[tag]:[];
-        }else{
-            let result:any = await this.loadAllViewMessageGroup();
-            return result[tag]?result[tag]:[];
+    public async getViewMessageDetailsByTag(tag: string): Promise<any> {
+        if (ViewMessageGroupService.allViewMessageGroup) {
+            return ViewMessageGroupService.allViewMessageGroup[tag]
+                ? ViewMessageGroupService.allViewMessageGroup[tag]
+                : [];
+        } else {
+            let result: any = await this.loadAllViewMessageGroup();
+            return result[tag] ? result[tag] : [];
         }
-        
     }
 
     /**
@@ -71,17 +71,19 @@ export default class ViewMessageGroupService {
      * @returns {Promise<any></any>}
      * @memberof ViewMessageGroupService
      */
-    public loadAllViewMessageGroup():Promise<any>{
-        return new Promise((resolve:any,reject:any) =>{
-            Http.getInstance().get('./assets/json/view-message-group.json').then((response: any) => {
-                if (response && response.status === 200 && response.data) {
-                    ViewMessageGroupService.allViewMessageGroup = response.data;
-                    resolve(response.data);
-                }
-            }).catch((error: any) => {
-                console.log(error);
-            });
-        })
+    public loadAllViewMessageGroup(): Promise<any> {
+        return new Promise((resolve: any, reject: any) => {
+            Http.getInstance()
+                .get('./assets/json/view-message-group.json')
+                .then((response: any) => {
+                    if (response && response.status === 200 && response.data) {
+                        ViewMessageGroupService.allViewMessageGroup = response.data;
+                        resolve(response.data);
+                    }
+                })
+                .catch((error: any) => {
+                    console.log(error);
+                });
+        });
     }
-
 }

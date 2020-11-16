@@ -7,6 +7,4 @@ import { GridViewBase } from './GridViewBase';
  * @class TreeGridExViewBase
  * @extends {GridViewBase}
  */
-export class TreeGridExViewBase extends GridViewBase {
-
-}
+export class TreeGridExViewBase extends GridViewBase {}

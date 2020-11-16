@@ -1,16 +1,15 @@
 <template>
-  <i-form form="form">
-    <row >
-      <slot></slot>
-    </row>
-  </i-form>
+    <i-form form="form">
+        <row>
+            <slot></slot>
+        </row>
+    </i-form>
 </template>
-<script lang = 'ts'>
+<script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component({})
 export default class AppForm extends Vue {
-
     /**
      * 表单数据对象
      *
@@ -28,6 +27,6 @@ export default class AppForm extends Vue {
     @Prop() public name?: string;
 }
 </script>
-<style lang = "less">
+<style lang="less">
 @import './app-form.less';
 </style>

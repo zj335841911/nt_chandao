@@ -8,7 +8,6 @@ import { PanelDetailModel } from './panel-detail';
  * @extends {PanelDetailModel}
  */
 export class PanelTabPanelModel extends PanelDetailModel {
-
     /**
      * 被激活分页
      *
@@ -36,7 +35,7 @@ export class PanelTabPanelModel extends PanelDetailModel {
     /**
      * Creates an instance of PanelTabPanelModel.
      * PanelTabPanelModel 实例
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof PanelTabPanelModel
      */
@@ -59,8 +58,13 @@ export class PanelTabPanelModel extends PanelDetailModel {
         }
         const detailsModel: any = this.panel.detailsModel;
 
-        const index = this.tabPages.findIndex((tabpage: any) => Object.is(tabpage.name, this.clickActiviePage) && Object.is(tabpage.name, this.activiedPage) && detailsModel[tabpage.name].visible);
-        if (index !== - 1) {
+        const index = this.tabPages.findIndex(
+            (tabpage: any) =>
+                Object.is(tabpage.name, this.clickActiviePage) &&
+                Object.is(tabpage.name, this.activiedPage) &&
+                detailsModel[tabpage.name].visible
+        );
+        if (index !== -1) {
             return;
         }
 

@@ -4,7 +4,6 @@
  * @interface Control
  */
 export interface ControlInterface {
-
     /**
      * 获取多项数据
      *

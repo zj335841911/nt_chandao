@@ -12,7 +12,6 @@ import './app-footer.less';
  */
 @Component({})
 export class AppFooter extends Vue {
-
     /**
      * 底部项绘制服务
      *
@@ -39,23 +38,24 @@ export class AppFooter extends Vue {
      * @memberof AppFooter
      */
     public render(h: CreateElement): VNode {
-        return <div class="app-footer">
-            <div class="app-footer-left">
-                {this.footerItemsService.leftItemsRenders.map((item) => {
-                    return <div class="item">{item(h)}</div>;
-                })}
+        return (
+            <div class="app-footer">
+                <div class="app-footer-left">
+                    {this.footerItemsService.leftItemsRenders.map((item) => {
+                        return <div class="item">{item(h)}</div>;
+                    })}
+                </div>
+                <div class="app-footer-center">
+                    {this.footerItemsService.centerItemsRenders.map((item) => {
+                        return <div class="item">{item(h)}</div>;
+                    })}
+                </div>
+                <div class="app-footer-right">
+                    {this.footerItemsService.rightItemsRenders.map((item) => {
+                        return <div class="item">{item(h)}</div>;
+                    })}
+                </div>
             </div>
-            <div class="app-footer-center">
-                {this.footerItemsService.centerItemsRenders.map((item) => {
-                    return <div class="item">{item(h)}</div>;
-                })}
-            </div>
-            <div class="app-footer-right">
-                {this.footerItemsService.rightItemsRenders.map((item) => {
-                    return <div class="item">{item(h)}</div>;
-                })}
-            </div>
-        </div>;
+        );
     }
-
 }

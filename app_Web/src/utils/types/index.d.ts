@@ -1,6 +1,6 @@
-import { AppPopover } from "../app-popover/app-popover";
+import { AppPopover } from '../app-popover/app-popover';
 
-declare module "vue/types/vue" {
+declare module 'vue/types/vue' {
     interface Vue {
         /**
          * 工具类

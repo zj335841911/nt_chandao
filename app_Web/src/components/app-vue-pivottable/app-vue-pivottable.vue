@@ -13,21 +13,20 @@
         :colTotal="colTotal"
         :onChange="onChange"
         :hiddenFromDragDrop="hiddenFromDragDrop"
-    >           
+    >
     </vue-pivottable-ui>
 </template>
-<script lang = 'ts'>
+<script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import { VuePivottableUi } from 'ibiz-vue-pivottable';
 import 'ibiz-vue-pivottable/dist/vue-pivottable.css';
 
 @Component({
     components: {
-        VuePivottableUi
-    }
+        VuePivottableUi,
+    },
 })
 export default class AppVuePivotTable extends Vue {
-
     /**
      * 数据集
      *
@@ -98,7 +97,7 @@ export default class AppVuePivotTable extends Vue {
      * @type {*}
      * @memberof AppVuePivotTable
      */
-    protected vals: any[] =  [];
+    protected vals: any[] = [];
 
     /**
      * 隐藏列集合
@@ -124,29 +123,29 @@ export default class AppVuePivotTable extends Vue {
      */
     protected locales: any = {
         aggregators: {
-            'Count': 'Count',
+            Count: 'Count',
             'Count Unique Values': 'Count Unique Values',
             'List Unique Values': 'List Unique Values',
-            'Sum': 'Sum',
+            Sum: 'Sum',
             'Integer Sum': 'Integer Sum',
-            'Average': 'Average',
-            'Median': 'Median',
+            Average: 'Average',
+            Median: 'Median',
             'Sample Variance': 'Sample Variance',
             'Sample Standard Deviation': 'Sample Standard Deviation',
-            'Minimum': 'Minimum',
-            'Maximum': 'Maximum',
-            'First': 'First',
-            'Last': 'Last',
+            Minimum: 'Minimum',
+            Maximum: 'Maximum',
+            First: 'First',
+            Last: 'Last',
             'Sum over Sum': 'Sum over Sum',
             'Sum as Fraction of Total': 'Sum as Fraction of Total',
             'Sum as Fraction of Rows': 'Sum as Fraction of Rows',
             'Sum as Fraction of Columns': 'Sum as Fraction of Columns',
             'Count as Fraction of Total': 'Count as Fraction of Total',
             'Count as Fraction of Rows': 'Count as Fraction of Rows',
-            'Count as Fraction of Columns': 'Count as Fraction of Columns'
+            'Count as Fraction of Columns': 'Count as Fraction of Columns',
         },
         renderer: {
-            'Table': 'Table',
+            Table: 'Table',
             'Table Heatmap': 'Table Heatmap',
             'Table Col Heatmap': 'Table Col Heatmap',
             'Table Row Heatmap': 'Table Row Heatmap',
@@ -159,12 +158,12 @@ export default class AppVuePivotTable extends Vue {
             'Dot Chart': 'Dot Chart',
             'Area Chart': 'Area Chart',
             'Scatter Chart': 'Scatter Chart',
-            'Multiple Pie Chart': 'Multiple Pie Chart'
+            'Multiple Pie Chart': 'Multiple Pie Chart',
         },
         'Filter Values': 'Filter Values',
         'Select All': 'Select All',
         'Deselect All': 'Deselect All',
-        'Totals': 'Totals'
+        Totals: 'Totals',
     };
 
     /**
@@ -174,9 +173,9 @@ export default class AppVuePivotTable extends Vue {
      * @memberof AppVuePivotTable
      */
     public created() {
-        if(this.allColumns) {
+        if (this.allColumns) {
             this.allColumns.forEach((item: any) => {
-                if(!item.show) {
+                if (!item.show) {
                     this.hiddenFromDragDrop.push(item.name);
                 }
                 let col: any = { ...item };

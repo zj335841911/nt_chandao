@@ -8,7 +8,6 @@ import { EditViewBase } from './EditViewBase';
  * @extends {EditViewBase}
  */
 export class EditView2Base extends EditViewBase {
-
     /**
      * 选中数据
      *

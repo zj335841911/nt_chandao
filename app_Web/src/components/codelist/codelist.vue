@@ -1,19 +1,21 @@
 <template>
     <div class="codelist">
-        <span v-if="ifEmpty">{{$t('codelist.'+tag+'.empty')}}</span>
+        <span v-if="ifEmpty">{{ $t('codelist.' + tag + '.empty') }}</span>
         <template v-if="!ifEmpty">
-          <template v-for="(item, index) in items">
-              <span v-if="index != 0">{{textSeparator}}</span>
-              <i v-if="item.iconCls" :class="item.iconCls"></i>
-              <span :class="item.class" :style="{color:item.color}">{{isUseLangres ? $t(item.text) : item.text}}</span>
-          </template>
+            <template v-for="(item, index) in items">
+                <span v-if="index != 0">{{ textSeparator }}</span>
+                <i v-if="item.iconCls" :class="item.iconCls"></i>
+                <span :class="item.class" :style="{ color: item.color }">
+                    {{ isUseLangres ? $t(item.text) : item.text }}
+                </span>
+            </template>
         </template>
     </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop, Model, Watch } from 'vue-property-decorator';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
 @Component({})
 export default class CodeList extends Vue {
@@ -22,8 +24,8 @@ export default class CodeList extends Vue {
      *
      * @type {CodeListService}
      * @memberof CodeList
-     */  
-    public codeListService:CodeListService = new CodeListService({ $store: this.$store });
+     */
+    public codeListService: CodeListService = new CodeListService({ $store: this.$store });
 
     /**
      * 代码表标识
@@ -45,7 +47,7 @@ export default class CodeList extends Vue {
      * 当前值
      * @type {any}
      * @memberof CodeList
-     * 
+     *
      */
     @Prop() public value?: string;
 
@@ -54,21 +56,21 @@ export default class CodeList extends Vue {
      * @type {boolean}
      * @memberof CodeList
      */
-    @Prop({default:"STR"}) public renderMode?: string;
+    @Prop({ default: 'STR' }) public renderMode?: string;
 
     /**
      * 文本分隔符
      * @type {boolean}
      * @memberof CodeList
      */
-    @Prop({default:'、'}) public textSeparator?: string;
+    @Prop({ default: '、' }) public textSeparator?: string;
 
     /**
      * 值分隔符
      * @type {boolean}
      * @memberof CodeList
      */
-    @Prop({default:','}) public valueSeparator?: string;
+    @Prop({ default: ',' }) public valueSeparator?: string;
 
     /**
      * 传入表单数据
@@ -80,19 +82,19 @@ export default class CodeList extends Vue {
 
     /**
      * 局部上下文导航参数
-     * 
+     *
      * @type {any}
      * @memberof CodeList
      */
-    @Prop() public localContext!:any;
+    @Prop() public localContext!: any;
 
     /**
      * 局部导航参数
-     * 
+     *
      * @type {any}
      * @memberof CodeList
      */
-    @Prop() public localParam!:any;
+    @Prop() public localParam!: any;
 
     /**
      * 视图上下文
@@ -115,7 +117,7 @@ export default class CodeList extends Vue {
      *
      * @memberof CodeList
      */
-    public ifEmpty:boolean = false;
+    public ifEmpty: boolean = false;
 
     /**
      * 显示数据集合
@@ -139,7 +141,7 @@ export default class CodeList extends Vue {
      * @type {boolean}
      * @memberof CodeList
      */
-    public isUseLangres:boolean = false;
+    public isUseLangres: boolean = false;
 
     /**
      * 数据值变化
@@ -156,12 +158,12 @@ export default class CodeList extends Vue {
 
     /**
      * 监听表单数据变化
-     * 
+     *
      * @memberof CodeList
      */
-    @Watch('data',{immediate:true,deep:true})
+    @Watch('data', { immediate: true, deep: true })
     onDataChange(newVal: any, oldVal: any) {
-        if(newVal){
+        if (newVal) {
             this.dataHandle();
         }
     }
@@ -171,35 +173,42 @@ export default class CodeList extends Vue {
      *
      * @memberof CodeList
      */
-    private dataHandle(){
-      this.isUseLangres = false;
-      let _this = this;
-      // 空值判断
-      if(Object.is(this.$util.typeOf(this.value), 'undefined') || Object.is(this.$util.typeOf(this.value), 'null') || Object.is(this.value, '')) {
-          this.ifEmpty = true;
-          return;
-      }
-      this.ifEmpty = false;
-      // 动态代码表处理
-      if (Object.is(this.codelistType, "DYNAMIC")) {
-          // 公共参数处理
-          let data: any = {};
-          this.handlePublicParams(data);
-          // 参数处理
-          let _context = data.context;
-          let _param = data.param;
-          this.codeListService.getItems(this.tag,_context,_param).then((res:any) => {
-              let items = res;
-              _this.setItems(items, _this);
-          }).catch((error: any) => {
-              console.log(`----${_this.tag}----${(this.$t('app.commonWords.codeNotExist') as string)}`);
-          });
-      // 静态处理
-      } else if(Object.is(this.codelistType, "STATIC")){
-          this.isUseLangres = true;
-          let items = this.$store.getters.getCodeListItems(this.tag);
-          _this.setItems(items, _this);
-      }
+    private dataHandle() {
+        this.isUseLangres = false;
+        let _this = this;
+        // 空值判断
+        if (
+            Object.is(this.$util.typeOf(this.value), 'undefined') ||
+            Object.is(this.$util.typeOf(this.value), 'null') ||
+            Object.is(this.value, '')
+        ) {
+            this.ifEmpty = true;
+            return;
+        }
+        this.ifEmpty = false;
+        // 动态代码表处理
+        if (Object.is(this.codelistType, 'DYNAMIC')) {
+            // 公共参数处理
+            let data: any = {};
+            this.handlePublicParams(data);
+            // 参数处理
+            let _context = data.context;
+            let _param = data.param;
+            this.codeListService
+                .getItems(this.tag, _context, _param)
+                .then((res: any) => {
+                    let items = res;
+                    _this.setItems(items, _this);
+                })
+                .catch((error: any) => {
+                    console.log(`----${_this.tag}----${this.$t('app.commonWords.codeNotExist') as string}`);
+                });
+            // 静态处理
+        } else if (Object.is(this.codelistType, 'STATIC')) {
+            this.isUseLangres = true;
+            let items = this.$store.getters.getCodeListItems(this.tag);
+            _this.setItems(items, _this);
+        }
     }
 
     /**
@@ -211,32 +220,34 @@ export default class CodeList extends Vue {
      * @returns {*}
      * @memberof CodeList
      */
-    private setItems(items: any[], _this: any){
+    private setItems(items: any[], _this: any) {
         if (items) {
-            let result:any = [];
-            if(Object.is(_this.renderMode,"NUM")){
+            let result: any = [];
+            if (Object.is(_this.renderMode, 'NUM')) {
                 _this.isUseLangres = false;
-                items.map((_item: any, index: number)=>{
-                    const nValue = parseInt((_this.value as any), 10);
+                items.map((_item: any, index: number) => {
+                    const nValue = parseInt(_this.value as any, 10);
                     const codevalue = _item.value;
-                    if((parseInt(codevalue, 10) & nValue) > 0){
+                    if ((parseInt(codevalue, 10) & nValue) > 0) {
                         result.push(_item);
-                    } 
+                    }
                 });
             } else {
-                let values: any[] = Object.is(_this.$util.typeOf(_this.value), 'number') ? [_this.value] : [...(_this.value as any).split(_this.valueSeparator)];
-                values.map((value:any ,index: number)=>{
-                    const item = _this.getItem(items, value); 
-                    if(item){
-                      result.push(item);
-                    } 
+                let values: any[] = Object.is(_this.$util.typeOf(_this.value), 'number')
+                    ? [_this.value]
+                    : [...(_this.value as any).split(_this.valueSeparator)];
+                values.map((value: any, index: number) => {
+                    const item = _this.getItem(items, value);
+                    if (item) {
+                        result.push(item);
+                    }
                 });
             }
             // 设置items
-            if(result.length != 0){
+            if (result.length != 0) {
                 _this.items = result;
-            }else{
-                _this.items = [{text:_this.value}];
+            } else {
+                _this.items = [{ text: _this.value }];
             }
         }
     }
@@ -252,16 +263,18 @@ export default class CodeList extends Vue {
      */
     private getItem(items: any[], value: any): any {
         let result: any = {};
-        const arr: Array<any> = items.filter(item => {return item.value == value});
+        const arr: Array<any> = items.filter((item) => {
+            return item.value == value;
+        });
         if (arr.length !== 1) {
             return undefined;
         }
         result = { ...arr[0] };
-        if(Object.is(this.codelistType,'STATIC')){
+        if (Object.is(this.codelistType, 'STATIC')) {
             let value = JSON.parse(JSON.stringify(result));
-            value.text = 'codelist.'+this.tag+'.'+value.value;
+            value.text = 'codelist.' + this.tag + '.' + value.value;
             return value;
-        }else{
+        } else {
             return result;
         }
     }
@@ -278,24 +291,23 @@ export default class CodeList extends Vue {
         arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
         arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
         // 附加参数处理
-        if (this.localContext && Object.keys(this.localContext).length >0) {
-            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
-            Object.assign(arg.context,_context);
+        if (this.localContext && Object.keys(this.localContext).length > 0) {
+            let _context = this.$util.computedNavData(this.data, arg.context, arg.param, this.localContext);
+            Object.assign(arg.context, _context);
         }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
-            Object.assign(arg.param,_param);
+        if (this.localParam && Object.keys(this.localParam).length > 0) {
+            let _param = this.$util.computedNavData(this.data, arg.param, arg.param, this.localParam);
+            Object.assign(arg.param, _param);
         }
     }
-
 }
 </script>
 
-<style lang='less'>
-  .codelist {
+<style lang="less">
+.codelist {
     white-space: nowrap;
     text-overflow: ellipsis;
     word-break: break-all;
     overflow: hidden;
-  }
+}
 </style>

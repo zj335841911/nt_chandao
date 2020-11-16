@@ -2,13 +2,13 @@
     height: 100%;
     display: flex;
 
-    >.exp-actions {
+    > .exp-actions {
         height: 100%;
         width: 48px;
         color: var(--app-left-sidebar-font-color);
         background: var(--app-left-sidebar-background-color);
 
-        >.action-item {
+        > .action-item {
             position: relative;
             height: 48px;
             width: 48px;
@@ -18,7 +18,7 @@
             justify-content: center;
             cursor: pointer;
 
-            >.active-item-indicator {
+            > .active-item-indicator {
                 position: absolute;
                 z-index: 1;
                 top: 0;
@@ -32,11 +32,11 @@
             }
         }
 
-        >.action-item.active {
+        > .action-item.active {
             color: var(--app-left-sidebar-font-color-active);
 
-            >.active-item-indicator::before {
-                content: "";
+            > .active-item-indicator::before {
+                content: '';
                 position: absolute;
                 z-index: 1;
                 top: 0;
@@ -48,25 +48,24 @@
             }
         }
 
-        >.action-item:hover {
+        > .action-item:hover {
             color: var(--app-left-sidebar-font-color-active);
         }
     }
 
-    >.exp-content {
+    > .exp-content {
         width: 100%;
         height: 100%;
         overflow: hidden;
 
-        >.exp-item {
+        > .exp-item {
             width: 100%;
             height: 100%;
             overflow-x: hidden;
             overflow-y: auto;
 
             .view-header {
-
-                >.quick-search {
+                > .quick-search {
                     width: 150px;
                 }
             }

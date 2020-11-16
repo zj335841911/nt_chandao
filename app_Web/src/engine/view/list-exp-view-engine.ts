@@ -8,7 +8,6 @@ import ViewEngine from './view-engine';
  * @extends {ViewEngine}
  */
 export default class ListExpViewEngine extends ViewEngine {
-
     /**
      * 列表导航栏部件
      *
@@ -19,7 +18,7 @@ export default class ListExpViewEngine extends ViewEngine {
 
     /**
      * Creates an instance of ListExpViewEngine.
-     * 
+     *
      * @memberof ListExpViewEngine
      */
     constructor() {
@@ -36,7 +35,6 @@ export default class ListExpViewEngine extends ViewEngine {
         this.listExpBar = options.listexpbar;
         super.init(options);
     }
-
 
     /**
      * 引擎加载
@@ -65,7 +63,6 @@ export default class ListExpViewEngine extends ViewEngine {
         super.onCtrlEvent(ctrlName, eventName, args);
         if (Object.is(ctrlName, 'listexpbar')) {
             this.listExpBarEvent(eventName, args);
-
         }
     }
 
@@ -97,6 +94,4 @@ export default class ListExpViewEngine extends ViewEngine {
     public getListExpBar(): any {
         return this.listExpBar;
     }
-
-
 }

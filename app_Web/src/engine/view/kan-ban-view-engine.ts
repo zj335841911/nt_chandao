@@ -1,6 +1,5 @@
 import DataViewEngine from './data-view-engine';
 
-
 /**
  * 视图引擎基础
  *
@@ -9,7 +8,6 @@ import DataViewEngine from './data-view-engine';
  * @extends {MDViewEngine}
  */
 export default class KanBanViewEngine extends DataViewEngine {
-
     /**
      * 表格部件
      *
@@ -17,7 +15,6 @@ export default class KanBanViewEngine extends DataViewEngine {
      * @memberof DataViewEngine
      */
     protected kanban: any;
-
 
     /**
      * 引擎初始化
@@ -44,7 +41,6 @@ export default class KanBanViewEngine extends DataViewEngine {
         }
         super.onCtrlEvent(ctrlName, eventName, args);
     }
-
 
     /**
      * 获取多数据部件

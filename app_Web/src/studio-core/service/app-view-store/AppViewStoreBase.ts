@@ -5,7 +5,6 @@
  * @class AppViewStoreBase
  */
 export class AppViewStoreBase {
-
     /**
      * 已实例化非嵌入级视图，根据实例化顺序排序
      *

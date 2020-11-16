@@ -8,7 +8,6 @@ import { ExpControlBase } from './ExpControlBase';
  * @extends {ExpControlBase}
  */
 export class CalendarViewExpBarControlBase extends ExpControlBase {
-
     /**
      * 分割宽度
      *
@@ -24,15 +23,15 @@ export class CalendarViewExpBarControlBase extends ExpControlBase {
      */
     public onSplitChange() {
         if (this.split) {
-            this.$store.commit("setViewSplit", { viewUID: this.viewUID, viewSplit: this.split });
+            this.$store.commit('setViewSplit', { viewUID: this.viewUID, viewSplit: this.split });
         }
     }
 
     /**
-    * 执行created后的逻辑
-    *
-    * @memberof CalendarViewExpBarControlBase
-    */
+     * 执行created后的逻辑
+     *
+     * @memberof CalendarViewExpBarControlBase
+     */
     public ctrlCreated() {
         this.loadQuickGroupModel();
         if (this.viewState) {

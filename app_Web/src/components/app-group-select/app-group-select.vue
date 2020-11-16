@@ -12,7 +12,11 @@
             </template>
         </div>
         <div v-if="!disabled" class="ibiz-group-open">
-            <i v-if="!disabled && !multiple && selects.length > 0" class="el-icon-close" @click="remove(selects[0])"></i>
+            <i
+                v-if="!disabled && !multiple && selects.length > 0"
+                class="el-icon-close"
+                @click="remove(selects[0])"
+            ></i>
             <i class="el-icon-search" @click="openView"></i>
         </div>
     </div>
@@ -29,7 +33,7 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     @Prop() name!: string;
 
     /**
@@ -37,15 +41,15 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
-    @Prop() treeurl?:boolean;
+     */
+    @Prop() treeurl?: boolean;
 
     /**
      * 数据接口地址
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     @Prop() url!: string;
 
     /**
@@ -53,15 +57,15 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
-    @Prop({default: false}) multiple?: boolean;
+     */
+    @Prop({ default: false }) multiple?: boolean;
 
     /**
      * 数据对象
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     @Prop() data: any;
 
     /**
@@ -69,7 +73,7 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     @Prop() filter?: string;
 
     /**
@@ -77,7 +81,7 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     @Prop() disabled?: boolean;
 
     /**
@@ -85,7 +89,7 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     @Prop() value: any;
 
     /**
@@ -93,7 +97,7 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     @Prop() context: any;
 
     /**
@@ -101,7 +105,7 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     @Prop() valueitem: any;
 
     /**
@@ -109,7 +113,7 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     @Prop() fillmap: any;
 
     /**
@@ -117,7 +121,7 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     protected selects: any[] = [];
 
     /**
@@ -125,28 +129,28 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     @Watch('value')
     onValueChange(newVal: any) {
         this.selects = [];
         if (newVal) {
             let item: any = {};
             item.label = newVal.split(',');
-            if(this.valueitem) {
+            if (this.valueitem) {
                 item.id = this.data[this.valueitem] ? this.data[this.valueitem].split(',') : [];
             }
-            if(this.fillmap) {
-                for(let key in this.fillmap) {
+            if (this.fillmap) {
+                for (let key in this.fillmap) {
                     item[this.fillmap[key]] = this.data[key] ? this.data[key].split(',') : [];
                 }
             }
             item.label.forEach((val: string, index: number) => {
                 let _item: any = {};
-                for(let key in item) {
+                for (let key in item) {
                     _item[key] = item[key][index] ? item[key][index] : null;
                 }
-                this.selects.push(_item)
-            })
+                this.selects.push(_item);
+            });
         }
     }
 
@@ -155,9 +159,9 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     get selectName() {
-        if(this.selects.length > 0) {
+        if (this.selects.length > 0) {
             return this.selects[0].label;
         }
     }
@@ -167,33 +171,33 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     public openView() {
         const view: any = {
             viewname: 'app-group-picker',
-            title: (this.$t('components.appGroupSelect.groupSelect') as string)
+            title: this.$t('components.appGroupSelect.groupSelect') as string,
         };
         const context: any = JSON.parse(JSON.stringify(this.context));
-        let filtervalue:string = "";
-        if(this.filter){
-            if(this.data[this.filter]){
+        let filtervalue: string = '';
+        if (this.filter) {
+            if (this.data[this.filter]) {
                 filtervalue = this.data[this.filter];
-            }else if(context[this.filter]){
+            } else if (context[this.filter]) {
                 filtervalue = context[this.filter];
-            }else{
+            } else {
                 filtervalue = context.srforgid;
             }
-        }else{
+        } else {
             filtervalue = context.srforgid;
         }
         const param: any = {};
         Object.assign(param, {
-            showtree: this.treeurl?true:false,
-            url:this.url,
-            treeurl:this.treeurl,
+            showtree: this.treeurl ? true : false,
+            url: this.url,
+            treeurl: this.treeurl,
             filtervalue: filtervalue,
             multiple: this.multiple,
-            selects: this.selects
+            selects: this.selects,
         });
         let container: Subject<any> = this.$appmodal.openModal(view, context, param);
         container.subscribe((result: any) => {
@@ -209,13 +213,13 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     public openViewClose(result: any) {
         this.selects = [];
         if (result.datas && result.datas.length > 0) {
-            this.selects = result.datas
+            this.selects = result.datas;
         }
-        this.setValue()
+        this.setValue();
     }
 
     /**
@@ -223,10 +227,10 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     public remove(item: any) {
         this.selects.splice(this.selects.indexOf(item), 1);
-        this.setValue()
+        this.setValue();
     }
 
     /**
@@ -234,26 +238,26 @@ export default class AppGroupSelect extends Vue {
      *
      * @type {*}
      * @memberof AppGroupSelect
-     */  
+     */
     public setValue() {
         let item: any = {};
         item[this.name] = null;
-        if(this.valueitem) {
+        if (this.valueitem) {
             item[this.valueitem] = null;
         }
-        if(this.fillmap) {
-            for(let key in this.fillmap) {
+        if (this.fillmap) {
+            for (let key in this.fillmap) {
                 item[key] = null;
             }
         }
-        if(this.multiple) {
+        if (this.multiple) {
             this.selects.forEach((select: any) => {
                 item[this.name] = item[this.name] ? `${item[this.name]},${select.label}` : select.label;
-                if(this.valueitem) {
+                if (this.valueitem) {
                     item[this.valueitem] = item[this.valueitem] ? `${item[this.valueitem]},${select.id}` : select.id;
                 }
-                if(this.fillmap) {
-                    for(let key in this.fillmap) {
+                if (this.fillmap) {
+                    for (let key in this.fillmap) {
                         item[key] = item[key] ? `${item[key]},${select[this.fillmap[key]]}` : select[this.fillmap[key]];
                     }
                 }
@@ -261,19 +265,19 @@ export default class AppGroupSelect extends Vue {
         } else {
             item = this.selects.length > 0 ? this.selects[0] : {};
             item[this.name] = this.selects.length > 0 ? this.selects[0].label : null;
-            if(this.valueitem) {
+            if (this.valueitem) {
                 item[this.valueitem] = this.selects.length > 0 ? this.selects[0].id : null;
             }
-            if(this.fillmap) {
-                for(let key in this.fillmap) {
+            if (this.fillmap) {
+                for (let key in this.fillmap) {
                     item[key] = this.selects.length > 0 ? this.selects[0][this.fillmap[key]] : null;
                 }
             }
         }
-        for(let key in item) {
+        for (let key in item) {
             this.$emit('formitemvaluechange', { name: key, value: item[key] });
         }
-    } 
+    }
 }
 </script>
 
@@ -281,7 +285,7 @@ export default class AppGroupSelect extends Vue {
 .ibiz-group-select {
     width: 100%;
     display: flex;
-    border: 1px solid #DCDFE6;
+    border: 1px solid #dcdfe6;
     min-height: 32px;
     border-radius: 4px;
     .ibiz-group-content {

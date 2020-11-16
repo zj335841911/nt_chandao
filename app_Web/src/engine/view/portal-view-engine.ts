@@ -8,7 +8,6 @@ import ViewEngine from './view-engine';
  * @extends {ViewEngine}
  */
 export default class PortalViewEngine extends ViewEngine {
-
     /**
      * 数据面板部件
      *
@@ -19,7 +18,7 @@ export default class PortalViewEngine extends ViewEngine {
 
     /**
      * Creates an instance of PortalViewEngine.
-     * 
+     *
      * @memberof PortalViewEngine
      */
     constructor() {
@@ -36,7 +35,6 @@ export default class PortalViewEngine extends ViewEngine {
         this.dashboard = options.dashboard;
         super.init(options);
     }
-
 
     /**
      * 引擎加载
@@ -65,7 +63,6 @@ export default class PortalViewEngine extends ViewEngine {
         super.onCtrlEvent(ctrlName, eventName, args);
         if (Object.is(ctrlName, 'dashboard')) {
             this.DashboardEvent(eventName, args);
-
         }
     }
 
@@ -91,5 +88,4 @@ export default class PortalViewEngine extends ViewEngine {
     public getDashboard(): any {
         return this.dashboard;
     }
-
 }

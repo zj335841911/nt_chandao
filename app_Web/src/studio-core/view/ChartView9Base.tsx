@@ -7,6 +7,4 @@ import { ChartViewBase } from './ChartViewBase';
  * @class ChartView9Base
  * @extends {ChartViewBase}
  */
-export class ChartView9Base extends ChartViewBase {
-
-}
+export class ChartView9Base extends ChartViewBase {}

@@ -13,7 +13,6 @@ import './studio-embed-view.less';
 @Component({})
 @VueLifeCycleProcessing()
 export class StudioEmbedView extends StudioViewBase {
-
     /**
      * 计算容器样式
      *
@@ -24,8 +23,7 @@ export class StudioEmbedView extends StudioViewBase {
      */
     protected getContainerClass(classNames?: { [str: string]: boolean }): { [str: string]: boolean } {
         return super.getContainerClass({
-            'embed-view': true
+            'embed-view': true,
         });
     }
-
 }

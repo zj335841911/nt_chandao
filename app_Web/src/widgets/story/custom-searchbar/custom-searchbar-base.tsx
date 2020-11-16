@@ -93,6 +93,13 @@ export class CustomSearchbarBase extends MainControlBase {
             mode: 'EQ',
             disabled: false
         },
+        'idnoteq': {
+            label: '编号',
+            name: 'idnoteq',
+            prop: 'id',
+            mode: 'NOTEQ',
+            disabled: false
+        },
         'pri': {
             label: '优先级',
             name: 'pri',
@@ -142,11 +149,220 @@ export class CustomSearchbarBase extends MainControlBase {
             mode: 'EQ',
             disabled: false
         },
+        'statusnoteq': {
+            label: '当前状态',
+            name: 'statusnoteq',
+            prop: 'status',
+            mode: 'NOTEQ',
+            disabled: false
+        },
         'keywords': {
             label: '关键词',
             name: 'keywords',
             prop: 'keywords',
             mode: 'LIKE',
+            disabled: false
+        },
+        'assignedtoeq': {
+            label: '指派给',
+            name: 'assignedtoeq',
+            prop: 'assignedto',
+            mode: 'EQ',
+            disabled: false
+        },
+        'brancheq': {
+            label: '平台/分支',
+            name: 'brancheq',
+            prop: 'branch',
+            mode: 'EQ',
+            disabled: false
+        },
+        'branchnameeq': {
+            label: '平台/分支',
+            name: 'branchnameeq',
+            prop: 'branchname',
+            disabled: false
+        },
+        'branchnamelike': {
+            label: '平台/分支',
+            name: 'branchnamelike',
+            prop: 'branchname',
+            mode: 'LIKE',
+            disabled: false
+        },
+        'closedbyeq': {
+            label: '由谁关闭',
+            name: 'closedbyeq',
+            prop: 'closedby',
+            mode: 'EQ',
+            disabled: false
+        },
+        'closedreasoneq': {
+            label: '关闭原因',
+            name: 'closedreasoneq',
+            prop: 'closedreason',
+            mode: 'EQ',
+            disabled: false
+        },
+        'coloreq': {
+            label: '标题颜色',
+            name: 'coloreq',
+            prop: 'color',
+            mode: 'EQ',
+            disabled: false
+        },
+        'duplicatestoryeq': {
+            label: '重复需求ID',
+            name: 'duplicatestoryeq',
+            prop: 'duplicatestory',
+            mode: 'EQ',
+            disabled: false
+        },
+        'frombugeq': {
+            label: '来源Bug',
+            name: 'frombugeq',
+            prop: 'frombug',
+            mode: 'EQ',
+            disabled: false
+        },
+        'lasteditedbyeq': {
+            label: '最后修改',
+            name: 'lasteditedbyeq',
+            prop: 'lasteditedby',
+            mode: 'EQ',
+            disabled: false
+        },
+        'moduleeq': {
+            label: '所属模块',
+            name: 'moduleeq',
+            prop: 'module',
+            mode: 'EQ',
+            disabled: false
+        },
+        'modulenameeq': {
+            label: '所属模块名称',
+            name: 'modulenameeq',
+            prop: 'modulename',
+            mode: 'EQ',
+            disabled: false
+        },
+        'modulenamelike': {
+            label: '所属模块名称',
+            name: 'modulenamelike',
+            prop: 'modulename',
+            mode: 'LIKE',
+            disabled: false
+        },
+        'openedbyeq': {
+            label: '由谁创建',
+            name: 'openedbyeq',
+            prop: 'openedby',
+            mode: 'EQ',
+            disabled: false
+        },
+        'parenteq': {
+            label: '父需求',
+            name: 'parenteq',
+            prop: 'parent',
+            mode: 'EQ',
+            disabled: false
+        },
+        'parentgteq': {
+            label: '父需求',
+            name: 'parentgteq',
+            prop: 'parent',
+            mode: 'GTANDEQ',
+            disabled: false
+        },
+        'parentnameeq': {
+            label: '父需求名称',
+            name: 'parentnameeq',
+            prop: 'parentname',
+            mode: 'EQ',
+            disabled: false
+        },
+        'parentnamelike': {
+            label: '父需求名称',
+            name: 'parentnamelike',
+            prop: 'parentname',
+            mode: 'LIKE',
+            disabled: false
+        },
+        'pathlike': {
+            label: '模块路径',
+            name: 'pathlike',
+            prop: 'path',
+            mode: 'LIKE',
+            disabled: false
+        },
+        'planeq': {
+            label: '所属计划',
+            name: 'planeq',
+            prop: 'plan',
+            mode: 'EQ',
+            disabled: false
+        },
+        'preversioneq': {
+            label: '之前的版本',
+            name: 'preversioneq',
+            prop: 'preversion',
+            mode: 'EQ',
+            disabled: false
+        },
+        'producteq': {
+            label: '所属产品',
+            name: 'producteq',
+            prop: 'product',
+            mode: 'EQ',
+            disabled: false
+        },
+        'productnameeq': {
+            label: '产品名称',
+            name: 'productnameeq',
+            prop: 'productname',
+            mode: 'EQ',
+            disabled: false
+        },
+        'productnamelike': {
+            label: '产品名称',
+            name: 'productnamelike',
+            prop: 'productname',
+            mode: 'LIKE',
+            disabled: false
+        },
+        'resulteq': {
+            label: '评审结果',
+            name: 'resulteq',
+            prop: 'result',
+            mode: 'EQ',
+            disabled: false
+        },
+        'reviewedbyeq': {
+            label: '由谁评审',
+            name: 'reviewedbyeq',
+            prop: 'reviewedby',
+            mode: 'EQ',
+            disabled: false
+        },
+        'sourceeq': {
+            label: '需求来源',
+            name: 'sourceeq',
+            prop: 'source',
+            mode: 'EQ',
+            disabled: false
+        },
+        'stagedbyeq': {
+            label: '设置阶段者',
+            name: 'stagedbyeq',
+            prop: 'stagedby',
+            mode: 'EQ',
+            disabled: false
+        },
+        'tobugeq': {
+            label: '转Bug',
+            name: 'tobugeq',
+            prop: 'tobug',
+            mode: 'EQ',
             disabled: false
         },
     };

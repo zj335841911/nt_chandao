@@ -8,7 +8,6 @@ import { ViewBase } from './ViewBase';
  * @extends {ViewBase}
  */
 export class PortalViewBase extends ViewBase {
-
     /**
      * 应用起始页面
      *
@@ -26,5 +25,4 @@ export class PortalViewBase extends ViewBase {
         super.mounted();
         this.viewState.next({ tag: 'dashboard', action: 'load', data: {} });
     }
-
 }

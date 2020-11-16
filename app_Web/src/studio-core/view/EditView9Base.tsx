@@ -10,7 +10,6 @@ import { Subject } from 'rxjs';
  * @extends {EditViewBase}
  */
 export class EditView9Base extends EditViewBase {
-
     /**
      * meditview9状态下发变量
      *

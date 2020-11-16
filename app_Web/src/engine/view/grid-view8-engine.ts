@@ -8,7 +8,6 @@ import GridViewEngine from './grid-view-engine';
  * @extends {GridViewEngine}
  */
 export default class GridView8Engine extends GridViewEngine {
-
     /**
      * 表格部件
      *
@@ -101,7 +100,6 @@ export default class GridView8Engine extends GridViewEngine {
         super.onCtrlEvent(ctrlName, eventName, args);
     }
 
-
     /**
      * 获取多数据部件
      *
@@ -182,7 +180,7 @@ export default class GridView8Engine extends GridViewEngine {
     }
 
     /**
-     * 
+     *
      *
      * @param {string} eventName
      * @param {*} [args={}]
@@ -205,7 +203,7 @@ export default class GridView8Engine extends GridViewEngine {
     }
 
     /**
-     * 
+     *
      *
      * @param {string} eventName
      * @param {*} [args={}]

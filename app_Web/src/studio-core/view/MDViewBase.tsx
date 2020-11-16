@@ -10,7 +10,6 @@ import CodeListService from '@/service/app/codelist-service';
  * @extends {ViewBase}
  */
 export class MDViewBase extends ViewBase {
-
     /**
      * 代码表服务对象
      *
@@ -80,7 +79,7 @@ export class MDViewBase extends ViewBase {
         this.quickFormData.clearAll();
         Object.assign(this.quickFormData, data);
         this.onSearch();
-    }
+    };
 
     /**
      * 视图挂载完毕
@@ -98,7 +97,7 @@ export class MDViewBase extends ViewBase {
      * @protected
      * @memberof MDViewBase
      */
-    protected loadQuickGroupModel(): void { }
+    protected loadQuickGroupModel(): void {}
 
     /**
      * 快速搜索
@@ -106,7 +105,7 @@ export class MDViewBase extends ViewBase {
      * @protected
      * @memberof MDViewBase
      */
-    protected onSearch(): void { }
+    protected onSearch(): void {}
 
     /**
      * 视图创建完毕
@@ -143,7 +142,7 @@ export class MDViewBase extends ViewBase {
             this.onSearch();
         }
         this.isEmitQuickGroupValue = true;
-    }
+    };
 
     /**
      * 处理快速分组模型动态数据部分(%xxx%)
@@ -159,8 +158,8 @@ export class MDViewBase extends ViewBase {
                 if (item.data && Object.keys(item.data).length > 0) {
                     Object.keys(item.data).forEach((name: any) => {
                         let value: any = item.data[name];
-                        if (value && typeof (value) == 'string' && value.startsWith('%') && value.endsWith('%')) {
-                            const key = (value.substring(1, value.length - 1)).toLowerCase();
+                        if (value && typeof value == 'string' && value.startsWith('%') && value.endsWith('%')) {
+                            const key = value.substring(1, value.length - 1).toLowerCase();
                             if (this.context[key]) {
                                 value = this.context[key];
                             } else if (this.viewparams[key]) {
@@ -168,11 +167,10 @@ export class MDViewBase extends ViewBase {
                             }
                         }
                         item.data[name] = value;
-                    })
+                    });
                 }
-            })
+            });
         }
         return inputArray;
     }
-
 }

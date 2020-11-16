@@ -8,7 +8,6 @@ import { EditViewBase } from './EditViewBase';
  * @extends {EditViewBase}
  */
 export class EditView4Base extends EditViewBase {
-
     /**
      * 表单数据
      *
@@ -16,5 +15,4 @@ export class EditView4Base extends EditViewBase {
      * @memberof EditView4Base
      */
     public formData: any = {};
-
 }

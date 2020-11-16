@@ -12,6 +12,4 @@ import './studio-view.less';
  */
 @Component({})
 @VueLifeCycleProcessing()
-export class StudioView extends StudioViewBase {
-
-}
+export class StudioView extends StudioViewBase {}

@@ -1,4 +1,4 @@
-import { Vue, Component, Prop, } from 'vue-property-decorator';
+import { Vue, Component, Prop } from 'vue-property-decorator';
 import './app-form-group4.less';
 
 /**
@@ -10,7 +10,6 @@ import './app-form-group4.less';
  */
 @Component({})
 export default class AppFormGroup4 extends Vue {
-
     /**
      * 标题
      *
@@ -21,7 +20,7 @@ export default class AppFormGroup4 extends Vue {
 
     /**
      * 内置界面样式
-     * 
+     *
      * @type {string}
      * @memberof AppFormGroup4
      */
@@ -65,7 +64,7 @@ export default class AppFormGroup4 extends Vue {
      * 1: 默认打开
      * 2： 默认关闭
      *
-     * @type {(number | 0 | 1 | 2)} 
+     * @type {(number | 0 | 1 | 2)}
      * @memberof AppFormGroup4
      */
     @Prop({ default: 0 }) public titleBarCloseMode!: number | 0 | 1 | 2;
@@ -106,13 +105,19 @@ export default class AppFormGroup4 extends Vue {
      * @memberof AppFormGroup4
      */
     public render(): any {
-        return <div class="form-group-container-style4">
-            {!this.isFirstShow ? <div v-show={this.isShowMore} class="form-group-content">
-                {this.$slots.default}
-            </div> : null}
-            <div class="form-group-button show-more">
-                <i-button size="small" on-click={() => this.changeShow()}>{this.isShowMore ? '隐藏' : '显示'}更多信息</i-button>
+        return (
+            <div class="form-group-container-style4">
+                {!this.isFirstShow ? (
+                    <div v-show={this.isShowMore} class="form-group-content">
+                        {this.$slots.default}
+                    </div>
+                ) : null}
+                <div class="form-group-button show-more">
+                    <i-button size="small" on-click={() => this.changeShow()}>
+                        {this.isShowMore ? '隐藏' : '显示'}更多信息
+                    </i-button>
+                </div>
             </div>
-        </div>;
+        );
     }
 }

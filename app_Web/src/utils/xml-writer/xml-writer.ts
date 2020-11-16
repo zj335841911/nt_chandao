@@ -1,6 +1,6 @@
 /**
  * xml工具类
- * 
+ *
  * @export
  * @class XMLWriter
  */
@@ -10,24 +10,29 @@ export class XMLWriter {
     public State = '';
 
     /**
-     * 
-     * 
-     * @param {any} Str 
-     * @returns 
+     *
+     *
+     * @param {any} Str
+     * @returns
      * @memberof XMLWriter
      */
     public formatXML(Str: any) {
         if (Str) {
-            return Str.replace(/&/g, '&amp;').replace(/\"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '&#xA;').replace(/\r/g, '&#xD;');
+            return Str.replace(/&/g, '&amp;')
+                .replace(/\"/g, '&quot;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/\n/g, '&#xA;')
+                .replace(/\r/g, '&#xD;');
         }
         return '';
     }
 
     /**
-     * 
-     * 
-     * @param {any} Name 
-     * @returns 
+     *
+     *
+     * @param {any} Name
+     * @returns
      * @memberof XMLWriter
      */
     public beginNode(Name: any) {
@@ -43,8 +48,8 @@ export class XMLWriter {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @memberof XMLWriter
      */
     public endNode() {
@@ -58,11 +63,11 @@ export class XMLWriter {
     }
 
     /**
-     * 
-     * 
-     * @param {any} Name 
-     * @param {any} Value 
-     * @returns 
+     *
+     *
+     * @param {any} Name
+     * @param {any} Value
+     * @returns
      * @memberof XMLWriter
      */
     public attrib(Name: any, Value: any) {
@@ -73,9 +78,9 @@ export class XMLWriter {
     }
 
     /**
-     * 
-     * 
-     * @param {any} Value 
+     *
+     *
+     * @param {any} Value
      * @memberof XMLWriter
      */
     public writeString(Value: any) {
@@ -87,11 +92,11 @@ export class XMLWriter {
     }
 
     /**
-     * 
-     * 
-     * @param {any} Name 
-     * @param {any} Value 
-     * @returns 
+     *
+     *
+     * @param {any} Name
+     * @param {any} Value
+     * @returns
      * @memberof XMLWriter
      */
     public node(Name: any, Value: any) {
@@ -101,13 +106,15 @@ export class XMLWriter {
         if (this.State === 'beg') {
             this.XML.push('>');
         }
-        this.XML.push((Value === '' || !Value) ? '<' + Name + '/>' : '<' + Name + '>' + this.formatXML(Value) + '</' + Name + '>');
+        this.XML.push(
+            Value === '' || !Value ? '<' + Name + '/>' : '<' + Name + '>' + this.formatXML(Value) + '</' + Name + '>'
+        );
         this.State = '';
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @memberof XMLWriter
      */
     public close() {
@@ -118,10 +125,12 @@ export class XMLWriter {
     }
 
     /**
-     * 
-     * 
-     * @returns 
+     *
+     *
+     * @returns
      * @memberof XMLWriter
      */
-    public toString() { return this.XML.join(''); }
+    public toString() {
+        return this.XML.join('');
+    }
 }

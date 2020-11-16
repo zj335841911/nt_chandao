@@ -1017,6 +1017,15 @@ export default {
         "blocked": "被阻塞",
         "empty": "",
     },
+    Story__color: {
+        "#3da7f5": "#3da7f5",
+        "#75c941": "#75c941",
+        "#2dbdb2": "#2dbdb2",
+        "#797ec9": "#797ec9",
+        "#ffaf38": "#ffaf38",
+        "#ff4e3e": "#ff4e3e",
+        "empty": "",
+    },
     Private_choose: {
         "1": "是",
         "empty": "",

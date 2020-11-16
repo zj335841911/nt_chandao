@@ -9,12 +9,10 @@ import { FormTabPanelModel } from './form-tab-panel';
  * @extends {FormDetailModel}
  */
 export class FormTabPageModel extends FormDetailModel {
-
-
     /**
      * Creates an instance of FormTabPageModel.
      * FormTabPageModel 实例
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof FormTabPageModel
      */
@@ -46,7 +44,9 @@ export class FormTabPageModel extends FormDetailModel {
         if (!this.form) {
             return null;
         }
-        const tabPanels: any[] = Object.values(this.form.detailsModel).filter((model: any) => Object.is(model.detailType, 'TABPANEL'));
+        const tabPanels: any[] = Object.values(this.form.detailsModel).filter((model: any) =>
+            Object.is(model.detailType, 'TABPANEL')
+        );
         let index = tabPanels.findIndex((tabPanel: any) => {
             return tabPanel.tabPages.some((tabPag: any) => Object.is(tabPag.name, this.name));
         });

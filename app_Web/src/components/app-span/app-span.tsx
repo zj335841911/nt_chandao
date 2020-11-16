@@ -9,10 +9,9 @@ import { Vue, Component, Prop, Watch, Model } from 'vue-property-decorator';
  */
 @Component({})
 export default class AppSpan extends Vue {
-
     /**
      * 当前值
-     * 
+     *
      * @type {*}
      * @memberof AppSpan
      */
@@ -20,7 +19,7 @@ export default class AppSpan extends Vue {
 
     /**
      * 当前表单项名称
-     * 
+     *
      * @type {*}
      * @memberof AppSpan
      */
@@ -47,7 +46,7 @@ export default class AppSpan extends Vue {
      * @type {boolean}
      * @memberof AppSpan
      */
-    @Prop({ default: "STR" }) public renderMode?: string;
+    @Prop({ default: 'STR' }) public renderMode?: string;
 
     /**
      * 文本分隔符
@@ -73,7 +72,7 @@ export default class AppSpan extends Vue {
 
     /**
      * 局部上下文导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppSpan
      */
@@ -81,7 +80,7 @@ export default class AppSpan extends Vue {
 
     /**
      * 局部导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppSpan
      */
@@ -149,15 +148,15 @@ export default class AppSpan extends Vue {
 
     /**
      * 处理数据
-     * 
+     *
      * @memberof AppSpan
      */
     public load() {
         if (this.tag) {
-            return;  //代码表走codelist组件
-        } else if (this.editorType === "ADDRESSPICKUP") {
+            return; //代码表走codelist组件
+        } else if (this.editorType === 'ADDRESSPICKUP') {
             JSON.parse(this.value).forEach((item: any, index: number) => {
-                this.text += index === 0 ? item.srfmajortext : "," + item.srfmajortext;
+                this.text += index === 0 ? item.srfmajortext : ',' + item.srfmajortext;
             });
         } else {
             this.text = this.value;
@@ -175,19 +174,40 @@ export default class AppSpan extends Vue {
             return <span class="app-span">---</span>;
         }
         if (this.tag) {
-            return <codelist tag={this.tag} value={this.value} codelistType={this.codelistType} renderMode={this.renderMode} valueSeparator={this.valueSeparator} textSeparator={this.textSeparator} data={this.data} localContext={this.localContext} localParam={this.localParam} context={this.context} viewparams={this.viewparams}></codelist>
-        } else if (Object.is(this.editorType, 'PICTURE') || Object.is(this.editorType, 'PICTURE_ONE') || Object.is(this.editorType, 'FILEUPLOADER')) {
+            return (
+                <codelist
+                    tag={this.tag}
+                    value={this.value}
+                    codelistType={this.codelistType}
+                    renderMode={this.renderMode}
+                    valueSeparator={this.valueSeparator}
+                    textSeparator={this.textSeparator}
+                    data={this.data}
+                    localContext={this.localContext}
+                    localParam={this.localParam}
+                    context={this.context}
+                    viewparams={this.viewparams}
+                ></codelist>
+            );
+        } else if (
+            Object.is(this.editorType, 'PICTURE') ||
+            Object.is(this.editorType, 'PICTURE_ONE') ||
+            Object.is(this.editorType, 'FILEUPLOADER')
+        ) {
             return <app-upload-file-info value={this.value} name={this.name} />;
         }
 
-        if(this.unitName != null && !Object.is(this.unitName, '')) {
+        if (this.unitName != null && !Object.is(this.unitName, '')) {
             let _text: any = this.text.toString();
-            if(_text.indexOf(this.unitName) == -1) {
-                return <span class="app-span">{this.text}&nbsp;{this.unitName}</span>;
+            if (_text.indexOf(this.unitName) == -1) {
+                return (
+                    <span class="app-span">
+                        {this.text}&nbsp;{this.unitName}
+                    </span>
+                );
             }
         }
 
         return <span class="app-span">{this.text}</span>;
     }
-
 }

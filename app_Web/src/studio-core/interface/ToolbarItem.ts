@@ -89,7 +89,7 @@ export interface ToolbarItem {
      * @type {{ tag: string, target: string }}
      * @memberof ToolbarItem
      */
-    uiaction?: { tag: string, target: string };
+    uiaction?: { tag: string; target: string };
     /**
      * 子数据
      *

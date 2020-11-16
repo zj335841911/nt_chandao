@@ -1,18 +1,19 @@
 <template>
-    <dropdown v-if="itemLevel === 0" :transfer="true" trigger='click'>
+    <dropdown v-if="itemLevel === 0" :transfer="true" trigger="click">
         <i-button :disabled="item.disabled">
-            <i class='fa fa-file-excel-o'></i>
-            <span class='caption'>{{caption}}</span>
+            <i class="fa fa-file-excel-o"></i>
+            <span class="caption">{{ caption }}</span>
         </i-button>
-        <dropdown-menu slot='list'>
+        <dropdown-menu slot="list">
             <dropdown-item>
                 <p @click="exportExcel($event, 'maxRowCount')">
-                    {{caption}}{{$t('components.appExportExcel.total')}}({{$t('components.appExportExcel.max')}}{{caption}}{{item.MaxRowCount}}{{$t('components.appExportExcel.row')}})
+                    {{ caption }}{{ $t('components.appExportExcel.total') }}({{ $t('components.appExportExcel.max')
+                    }}{{ caption }}{{ item.MaxRowCount }}{{ $t('components.appExportExcel.row') }})
                 </p>
             </dropdown-item>
             <dropdown-item>
                 <p @click="exportExcel($event, 'activatedPage')">
-                    {{caption}}{{$t('components.appExportExcel.currentPage')}}
+                    {{ caption }}{{ $t('components.appExportExcel.currentPage') }}
                 </p>
             </dropdown-item>
         </dropdown-menu>
@@ -29,10 +30,8 @@ import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
  * @class AppExportExcel
  * @extends {Vue}
  */
-@Component({
-})
+@Component({})
 export default class AppExportExcel extends Vue {
-
     /**
      * 工具栏项
      *
@@ -87,7 +86,7 @@ export default class AppExportExcel extends Vue {
      * @memberof AppExportExcel
      */
     public clickVisible(): void {
-        this.visible = !this.visible
+        this.visible = !this.visible;
     }
 
     /**
@@ -101,24 +100,33 @@ export default class AppExportExcel extends Vue {
     public exportExcel($event: any, type: string): void {
         const exportparms: any = { type: type };
         if (Object.is(type, 'maxRowCount')) {
-            Object.assign(exportparms, { maxRowCount: this.item.MaxRowCount })
+            Object.assign(exportparms, { maxRowCount: this.item.MaxRowCount });
             this.visible = false;
         } else if (Object.is(type, 'activatedPage')) {
             this.visible = false;
         } else if (Object.is(type, 'custom')) {
             if (!this.startPage || !this.endPage) {
-                this.$Notice.warning({ title: (this.$t('app.commonWords.warning') as string), desc: (this.$t('components.appExportExcel.desc') as string) });
+                this.$Notice.warning({
+                    title: this.$t('app.commonWords.warning') as string,
+                    desc: this.$t('components.appExportExcel.desc') as string,
+                });
                 return;
             }
             const startPage: any = Number.parseInt(this.startPage, 10);
             const endPage: any = Number.parseInt(this.endPage, 10);
             if (Number.isNaN(startPage) || Number.isNaN(endPage)) {
-                this.$Notice.warning({ title: (this.$t('app.commonWords.warning') as string), desc: (this.$t('components.appExportExcel.desc1') as string) });
+                this.$Notice.warning({
+                    title: this.$t('app.commonWords.warning') as string,
+                    desc: this.$t('components.appExportExcel.desc1') as string,
+                });
                 return;
             }
 
             if (startPage < 1 || endPage < 1 || startPage > endPage) {
-                this.$Notice.warning({ title: (this.$t('app.commonWords.warning') as string), desc: (this.$t('components.appExportExcel.desc1') as string) });
+                this.$Notice.warning({
+                    title: this.$t('app.commonWords.warning') as string,
+                    desc: this.$t('components.appExportExcel.desc1') as string,
+                });
                 return;
             }
             this.startPage = null;
@@ -131,10 +139,9 @@ export default class AppExportExcel extends Vue {
             this.$emit('exportexcel', $event);
         }
     }
-
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import './app-export-excel.less';
 </style>

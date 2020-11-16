@@ -8,7 +8,6 @@ import { FormDetailModel } from './form-detail';
  * @extends {FormDetailModel}
  */
 export class FormDRUIPartModel extends FormDetailModel {
-
     /**
      * 关系视图类型
      *
@@ -51,7 +50,7 @@ export class FormDRUIPartModel extends FormDetailModel {
 
     /**
      * Creates an instance of FormDRUIPartModel.
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof FormDRUIPartModel
      */

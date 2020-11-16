@@ -15,7 +15,6 @@ import { Environment } from '@/environments/environment';
  * @extends {MainControlBase}
  */
 export class FormControlBase extends MainControlBase {
-
     /**
      * 表单状态
      *
@@ -96,7 +95,7 @@ export class FormControlBase extends MainControlBase {
      * @type {string}
      * @memberof FormControlBase
      */
-    public srfwfmemo: string = "";
+    public srfwfmemo: string = '';
 
     /**
      * 部件行为--loaddraft
@@ -113,7 +112,7 @@ export class FormControlBase extends MainControlBase {
      * @type {string}
      * @memberof FormControlBase
      */
-    public currentAction: string = "";
+    public currentAction: string = '';
 
     /**
      * 关系界面计数器
@@ -145,7 +144,7 @@ export class FormControlBase extends MainControlBase {
      * @type {*}
      * @memberof FormControlBase
      */
-    public rules():any{};
+    public rules(): any {}
 
     /**
      * 界面服务
@@ -161,7 +160,7 @@ export class FormControlBase extends MainControlBase {
      * @param {*} $event
      * @memberof FormControlBase
      */
-    public onEnter($event: any): void { }
+    public onEnter($event: any): void {}
 
     /**
      * 值填充
@@ -179,7 +178,7 @@ export class FormControlBase extends MainControlBase {
         });
         this.$nextTick(() => {
             this.ignorefieldvaluechange = false;
-        })
+        });
     }
 
     /**
@@ -255,7 +254,7 @@ export class FormControlBase extends MainControlBase {
         form.validate((valid: boolean) => {
             validatestate = valid ? true : false;
         });
-        return validatestate
+        return validatestate;
     }
 
     /**
@@ -275,7 +274,7 @@ export class FormControlBase extends MainControlBase {
      * @returns {void}
      * @memberof FormControlBase
      */
-    public onFormItemValueChange($event: { name: string, value: any }): void {
+    public onFormItemValueChange($event: { name: string; value: any }): void {
         if (!$event) {
             return;
         }
@@ -340,14 +339,14 @@ export class FormControlBase extends MainControlBase {
      *
      * @memberof FormControlBase
      */
-    public createDefault(): void { }
+    public createDefault(): void {}
 
     /**
      * 更新默认值
      *
      * @memberof FormControlBase
      */
-    public updateDefault(): void { }
+    public updateDefault(): void {}
 
     /**
      * 部件创建完毕
@@ -406,7 +405,7 @@ export class FormControlBase extends MainControlBase {
      * @returns {void}
      * @memberof FormControlBase
      */
-    public formDataChange({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void { }
+    public formDataChange({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): void {}
 
     /**
      * 拷贝内容
@@ -434,7 +433,7 @@ export class FormControlBase extends MainControlBase {
      * @param {string} action
      * @memberof FormControlBase
      */
-    public onFormLoad(data: any = {}, action: string): void { }
+    public onFormLoad(data: any = {}, action: string): void {}
 
     /**
      * 部件刷新
@@ -490,12 +489,20 @@ export class FormControlBase extends MainControlBase {
      */
     public load(opt: any = {}): void {
         if (!this.loadAction) {
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.formpage.notconfig.loadaction') as string) });
+            this.$Notice.error({
+                title: this.$t('app.commonWords.wrong') as string,
+                desc: this.$t('app.formpage.notconfig.loadaction') as string,
+            });
             return;
         }
         const arg: any = { ...opt };
         const viewparamResult: any = Object.assign(arg, this.viewparams);
-        const get: Promise<any> = this.service.get(this.loadAction, JSON.parse(JSON.stringify(this.context)), { viewparams: viewparamResult }, this.showBusyIndicator);
+        const get: Promise<any> = this.service.get(
+            this.loadAction,
+            JSON.parse(JSON.stringify(this.context)),
+            { viewparams: viewparamResult },
+            this.showBusyIndicator
+        );
         get.then((response: any) => {
             if (response && response.status === 200) {
                 const data = response.data;
@@ -507,11 +514,14 @@ export class FormControlBase extends MainControlBase {
             }
         }).catch((response: any) => {
             if (response && response.status && response.data) {
-                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+                this.$Notice.error({ title: this.$t('app.commonWords.wrong') as string, desc: response.data.message });
                 return;
             }
             if (!response || !response.status || !response.data) {
-                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
+                this.$Notice.error({
+                    title: this.$t('app.commonWords.wrong') as string,
+                    desc: this.$t('app.commonWords.sysException') as string,
+                });
                 return;
             }
         });
@@ -531,7 +541,12 @@ export class FormControlBase extends MainControlBase {
         }
         const arg: any = { ...opt };
         let viewparamResult: any = Object.assign(arg, this.viewparams);
-        let post: Promise<any> = this.service.loadDraft(this.loaddraftAction, JSON.parse(JSON.stringify(this.context)), { viewparams: viewparamResult }, this.showBusyIndicator);
+        let post: Promise<any> = this.service.loadDraft(
+            this.loaddraftAction,
+            JSON.parse(JSON.stringify(this.context)),
+            { viewparams: viewparamResult },
+            this.showBusyIndicator
+        );
         post.then((response: any) => {
             if (!response.status || response.status !== 200) {
                 if (response.data) {
@@ -543,7 +558,7 @@ export class FormControlBase extends MainControlBase {
             const data = response.data;
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');
-            if(this.formKeyItemName){
+            if (this.formKeyItemName) {
                 this.data[this.formKeyItemName] = null;
             }
             this.$emit('load', data);
@@ -554,8 +569,8 @@ export class FormControlBase extends MainControlBase {
                 const form: any = this.$refs.form;
                 if (form) {
                     form.fields.forEach((field: any) => {
-                        field.validateMessage = "";
-                        field.validateState = "";
+                        field.validateMessage = '';
+                        field.validateState = '';
                         field.validateStatus = false;
                     });
                 }
@@ -581,77 +596,118 @@ export class FormControlBase extends MainControlBase {
      * @returns {{isPast:boolean,infoMessage:string}}
      * @memberof FormControlBase
      */
-    public verifyDeRules(name:string,rule:any = this.deRules,op:string = "AND") :{isPast:boolean,infoMessage:string}{
-        let falg:any = {infoMessage:""};
-        if(!rule[name]){
+    public verifyDeRules(
+        name: string,
+        rule: any = this.deRules,
+        op: string = 'AND'
+    ): { isPast: boolean; infoMessage: string } {
+        let falg: any = { infoMessage: '' };
+        if (!rule[name]) {
             return falg;
         }
-        let opValue = op == 'AND'? true :false;
-        let startOp = (val:boolean)=>{
-            if(falg.isPast){
-                if(opValue){
+        let opValue = op == 'AND' ? true : false;
+        let startOp = (val: boolean) => {
+            if (falg.isPast) {
+                if (opValue) {
                     falg.isPast = falg.isPast && val;
-                }else{
+                } else {
                     falg.isPast = falg.isPast || val;
                 }
-            }else{
+            } else {
                 falg.isPast = val;
             }
-        }
-        for(let i=0;i<rule[name].length;i++){
-            let item:any = rule[name][i];
-            let dataValue = item.deName?this.data[this.service.getItemNameByDeName(item.deName)]:"";
+        };
+        for (let i = 0; i < rule[name].length; i++) {
+            let item: any = rule[name][i];
+            let dataValue = item.deName ? this.data[this.service.getItemNameByDeName(item.deName)] : '';
             // 提供表单值规则默认提示信息(未配置值规则提示信息时)
             item.ruleInfo = item.ruleInfo ? item.ruleInfo : this.$t('app.formpage.valuecheckex');
             // 为空值时，属性值规则不做校验
-            if((dataValue === null || dataValue === undefined || dataValue === "") && (item.type != 'GROUP')){
+            if ((dataValue === null || dataValue === undefined || dataValue === '') && item.type != 'GROUP') {
                 startOp(true);
                 return falg;
             }
             // 常规规则
-            if(item.type == 'SIMPLE'){
-                startOp(!this.$verify.checkFieldSimpleRule(dataValue,item.condOP,item.paramValue,item.ruleInfo,item.paramType,this.data,item.isKeyCond));
+            if (item.type == 'SIMPLE') {
+                startOp(
+                    !this.$verify.checkFieldSimpleRule(
+                        dataValue,
+                        item.condOP,
+                        item.paramValue,
+                        item.ruleInfo,
+                        item.paramType,
+                        this.data,
+                        item.isKeyCond
+                    )
+                );
                 falg.infoMessage = item.ruleInfo;
-                if(!falg.isPast) return falg;
+                if (!falg.isPast) return falg;
             }
             // 数值范围
-            if(item.type == 'VALUERANGE2'){
-                startOp( !this.$verify.checkFieldValueRangeRule(dataValue,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond));
+            if (item.type == 'VALUERANGE2') {
+                startOp(
+                    !this.$verify.checkFieldValueRangeRule(
+                        dataValue,
+                        item.minValue,
+                        item.isIncludeMinValue,
+                        item.maxValue,
+                        item.isIncludeMaxValue,
+                        item.ruleInfo,
+                        item.isKeyCond
+                    )
+                );
                 falg.infoMessage = item.ruleInfo;
-                if(!falg.isPast) return falg;
+                if (!falg.isPast) return falg;
             }
             // 正则式
-            if (item.type == "REGEX") {
-                startOp(!this.$verify.checkFieldRegExRule(dataValue,item.regExCode,item.ruleInfo,item.isKeyCond));
+            if (item.type == 'REGEX') {
+                startOp(!this.$verify.checkFieldRegExRule(dataValue, item.regExCode, item.ruleInfo, item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
-                if(!falg.isPast) return falg;
+                if (!falg.isPast) return falg;
             }
             // 长度
-            if (item.type == "STRINGLENGTH") {
-                startOp(!this.$verify.checkFieldStringLengthRule(dataValue,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond)); 
+            if (item.type == 'STRINGLENGTH') {
+                startOp(
+                    !this.$verify.checkFieldStringLengthRule(
+                        dataValue,
+                        item.minValue,
+                        item.isIncludeMinValue,
+                        item.maxValue,
+                        item.isIncludeMaxValue,
+                        item.ruleInfo,
+                        item.isKeyCond
+                    )
+                );
                 falg.infoMessage = item.ruleInfo;
-                if(!falg.isPast) return falg;
+                if (!falg.isPast) return falg;
             }
             // 系统值规则
-            if(item.type == "SYSVALUERULE") {
-                startOp(!this.$verify.checkFieldSysValueRule(dataValue,item.sysRule.regExCode,item.ruleInfo,item.isKeyCond));
+            if (item.type == 'SYSVALUERULE') {
+                startOp(
+                    !this.$verify.checkFieldSysValueRule(
+                        dataValue,
+                        item.sysRule.regExCode,
+                        item.ruleInfo,
+                        item.isKeyCond
+                    )
+                );
                 falg.infoMessage = item.ruleInfo;
-                if(!falg.isPast) return falg;
+                if (!falg.isPast) return falg;
             }
             // 分组
-            if(item.type == 'GROUP'){
-                falg = this.verifyDeRules('group',item,item.condOP?item.condOP:"AND")
-                if(item.isNotMode){
-                   falg.isPast = !falg.isPast;
+            if (item.type == 'GROUP') {
+                falg = this.verifyDeRules('group', item, item.condOP ? item.condOP : 'AND');
+                if (item.isNotMode) {
+                    falg.isPast = !falg.isPast;
                 }
-                if(!falg.isPast) return falg;
-            }   
+                if (!falg.isPast) return falg;
+            }
         }
-        if(!falg.hasOwnProperty("isPast")){
+        if (!falg.hasOwnProperty('isPast')) {
             falg.isPast = true;
         }
-        if(!this.data[name]){
-           falg.isPast = true;
+        if (!this.data[name]) {
+            falg.isPast = true;
         }
         return falg;
     }
@@ -666,7 +722,12 @@ export class FormControlBase extends MainControlBase {
         let targetData: any = this.transformData(data);
         if (this.detailsModel && Object.keys(this.detailsModel).length > 0) {
             Object.keys(this.detailsModel).forEach((name: any) => {
-                if (this.detailsModel[name] && this.detailsModel[name].uiaction && this.detailsModel[name].uiaction.dataaccaction && Object.is(this.detailsModel[name].detailType, "BUTTON")) {
+                if (
+                    this.detailsModel[name] &&
+                    this.detailsModel[name].uiaction &&
+                    this.detailsModel[name].uiaction.dataaccaction &&
+                    Object.is(this.detailsModel[name].detailType, 'BUTTON')
+                ) {
                     this.detailsModel[name].isPower = true;
                     let tempUIAction: any = JSON.parse(JSON.stringify(this.detailsModel[name].uiaction));
                     let result: any[] = ViewTool.calcActionItemAuthState(targetData, [tempUIAction], this.appUIService);
@@ -674,7 +735,7 @@ export class FormControlBase extends MainControlBase {
                     this.detailsModel[name].disabled = tempUIAction.disabled;
                     this.detailsModel[name].isPower = result[0] === 1 ? true : false;
                 }
-            })
+            });
         }
     }
 }

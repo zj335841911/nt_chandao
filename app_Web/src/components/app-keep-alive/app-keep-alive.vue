@@ -17,17 +17,18 @@ export default {
                 (include && (!name || !this.matches(include, name))) ||
                 // excluded
                 (exclude && name && this.matches(exclude, name)) ||
-                (routerList && (!route.fullPath && !this.matches(routerList, route.fullPath)))
+                (routerList && !route.fullPath && !this.matches(routerList, route.fullPath))
             ) {
                 return vnode;
             }
             const cache = this.cache;
             const keys = this.keys;
-            const key = vnode.key == null
-                // same constructor may get registered as different local components
-                // so cid alone is not enough (#3269)
-                ? componentOptions.Ctor.cid + (componentOptions.tag ? ("::" + (componentOptions.tag)) : '')
-                : vnode.key;
+            const key =
+                vnode.key == null
+                    ? // same constructor may get registered as different local components
+                      // so cid alone is not enough (#3269)
+                      componentOptions.Ctor.cid + (componentOptions.tag ? '::' + componentOptions.tag : '')
+                    : vnode.key;
             if (cache[key]) {
                 vnode.componentInstance = cache[key].componentInstance;
                 // make current key freshest
@@ -44,18 +45,18 @@ export default {
             vnode.data.keepAlive = true;
             vnode.data.curPath = route.fullPath;
         }
-        return vnode || (slot && slot[0])
+        return vnode || (slot && slot[0]);
     },
     props: {
         include: [String, RegExp, Array],
         exclude: [String, RegExp, Array],
         max: [String, Number],
-        routerList: [Array]
+        routerList: [Array],
     },
     data() {
         return {
-            _toString: Object.prototype.toString
-        }
+            _toString: Object.prototype.toString,
+        };
     },
     created() {
         this.cache = {};
@@ -81,7 +82,7 @@ export default {
             this.pruneCache2((name) => {
                 return !this.matches(val, name);
             });
-        }
+        },
     },
     methods: {
         pruneCacheEntry(cache, key, keys, current) {
@@ -116,7 +117,7 @@ export default {
         },
         matches(pattern, name) {
             if (Array.isArray(pattern)) {
-                return pattern.findIndex(item => item.to.fullPath === name) !== -1;
+                return pattern.findIndex((item) => item.to.fullPath === name) !== -1;
             } else if (typeof pattern === 'string') {
                 return pattern.split(',').indexOf(name) > -1;
             } else if (this.isRegExp(pattern)) {
@@ -126,7 +127,7 @@ export default {
             return false;
         },
         getComponentName(opts) {
-            return opts && (opts.Ctor.options.name || opts.tag)
+            return opts && (opts.Ctor.options.name || opts.tag);
         },
         getFirstComponentChild(children) {
             if (Array.isArray(children)) {
@@ -154,7 +155,7 @@ export default {
                     return arr.splice(index, 1);
                 }
             }
-        }
-    }
-}
+        },
+    },
+};
 </script>

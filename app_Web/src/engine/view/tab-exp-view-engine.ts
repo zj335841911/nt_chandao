@@ -8,11 +8,9 @@ import ViewEngine from './view-engine';
  * @extends {ViewEngine}
  */
 export default class TabExpViewEngine extends ViewEngine {
-
-
     /**
      * Creates an instance of TabExpViewEngine.
-     * 
+     *
      * @memberof TabExpViewEngine
      */
     constructor() {
@@ -28,7 +26,6 @@ export default class TabExpViewEngine extends ViewEngine {
     public init(options: any): void {
         super.init(options);
     }
-
 
     /**
      * 引擎加载
@@ -50,7 +47,7 @@ export default class TabExpViewEngine extends ViewEngine {
      *
      * @memberof TabExpViewEngine
      */
-    public computeToolbarState(state:boolean,data:any){
+    public computeToolbarState(state: boolean, data: any) {
         this.calcToolbarItemState(state);
         this.calcToolbarItemAuthState(data);
     }

@@ -9,7 +9,6 @@ import { MDViewBase } from './MDViewBase';
  * @extends {MDViewBase}
  */
 export class GridViewBase extends MDViewBase {
-
     /**
      * 表格行数据默认激活模式
      * 0 不激活
@@ -44,7 +43,7 @@ export class GridViewBase extends MDViewBase {
     }
 
     /**
-     * 监控数据变化 
+     * 监控数据变化
      *
      * @param {*} newVal
      * @param {*} oldVal
@@ -85,5 +84,4 @@ export class GridViewBase extends MDViewBase {
     protected onSave($event: any) {
         this.$emit('drdatasaved', $event);
     }
-
 }

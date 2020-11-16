@@ -8,7 +8,6 @@ import { ViewBase } from './ViewBase';
  * @extends {MDViewBase}
  */
 export class OptionViewBase extends ViewBase {
-
     /**
      * 确定
      *
@@ -22,7 +21,7 @@ export class OptionViewBase extends ViewBase {
                     this.$emit('close', [res.data]);
                 }
             });
-        };
+        }
     }
 
     /**

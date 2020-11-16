@@ -8,8 +8,6 @@ import { FormDetailModel } from './form-detail';
  * @extends {FormDetailModel}
  */
 export class FormRowItemModel extends FormDetailModel {
-
-
     constructor(opts: any = {}) {
         super(opts);
     }

@@ -8,7 +8,6 @@ import GridViewEngine from './grid-view-engine';
  * @extends {GridViewEngine}
  */
 export default class GridView9Engine extends GridViewEngine {
-
     /**
      * Creates an instance of GridView9Engine.
      * @memberof GridView9Engine

@@ -12,7 +12,6 @@ import './app-content-left-exp.less';
  */
 @Component({})
 export class AppContentLeftExp extends Vue {
-
     /**
      * UI状态服务
      *
@@ -28,7 +27,7 @@ export class AppContentLeftExp extends Vue {
      * @type {string}
      * @memberof AppContentLeftExp
      */
-    @Prop() 
+    @Prop()
     public ctrlName!: string;
 
     /**
@@ -67,7 +66,7 @@ export class AppContentLeftExp extends Vue {
      */
     protected created(): void {
         const i: number = this.uiState.layoutState.leftExpActiveIndex;
-        if (this.menus.length >= (i + 1)) {
+        if (this.menus.length >= i + 1) {
             this.changeActiveItem(this.menus[i], i);
         }
     }
@@ -114,29 +113,40 @@ export class AppContentLeftExp extends Vue {
      * @memberof AppContentLeftExp
      */
     public render(): VNode {
-        return <div class="app-content-left-exp">
-            <div class="exp-actions">
-                {this.menus.map((item: any, index: number) => {
-                    if(item.hidden) {
-                        return;
-                    }
-                    return <div title={item.tooltip} on-click={() => this.itemClick(item, index)} class={{ 'action-item': true, 'active': this.activeIndex === index }}>
-                        <div class="active-item-indicator" />
-                        <menu-icon item={item} />
-                    </div>
-                })}
+        return (
+            <div class="app-content-left-exp">
+                <div class="exp-actions">
+                    {this.menus.map((item: any, index: number) => {
+                        if (item.hidden) {
+                            return;
+                        }
+                        return (
+                            <div
+                                title={item.tooltip}
+                                on-click={() => this.itemClick(item, index)}
+                                class={{ 'action-item': true, active: this.activeIndex === index }}
+                            >
+                                <div class="active-item-indicator" />
+                                <menu-icon item={item} />
+                            </div>
+                        );
+                    })}
+                </div>
+                <div class="exp-content">
+                    {this.menus.map((item: any, index: number) => {
+                        if (!Object.is(item.appfuncyype, 'APPVIEW') || !item.isActivated || item.hidden) {
+                            return;
+                        }
+                        return (
+                            <div v-show={this.activeIndex === index} key={index} class="exp-item">
+                                {this.$createElement(item.viewname, {
+                                    props: { openMode: 'MODAL', viewDefaultUsage: false, viewdata: '{}' },
+                                })}
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
-            <div class="exp-content">
-                {this.menus.map((item: any, index: number) => {
-                    if (!Object.is(item.appfuncyype, 'APPVIEW') || !item.isActivated || item.hidden) {
-                        return;
-                    }
-                    return <div v-show={this.activeIndex === index} key={index} class="exp-item">
-                        {this.$createElement(item.viewname, { props: { openMode: 'MODAL', viewDefaultUsage: false, viewdata: '{}' } })}
-                    </div>;
-                })}
-            </div>
-        </div>;
+        );
     }
-
 }

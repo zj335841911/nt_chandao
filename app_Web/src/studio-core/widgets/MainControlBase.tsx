@@ -8,7 +8,6 @@ import { ControlBase } from './ControlBase';
  * @extends {ControlBase}
  */
 export class MainControlBase extends ControlBase {
-
     /**
      * 转化数据
      *

@@ -8,7 +8,6 @@ import { ExpControlBase } from './ExpControlBase';
  * @extends {ExpControlBase}
  */
 export class TreeExpBarControlBase extends ExpControlBase {
-
     /**
      * 过滤值
      *
@@ -50,7 +49,7 @@ export class TreeExpBarControlBase extends ExpControlBase {
      */
     public onSplitChange() {
         if (this.split) {
-            this.$store.commit("setViewSplit", { viewUID: this.viewUID, viewSplit: this.split });
+            this.$store.commit('setViewSplit', { viewUID: this.viewUID, viewSplit: this.split });
         }
     }
 
@@ -64,15 +63,15 @@ export class TreeExpBarControlBase extends ExpControlBase {
      * @memberof TreeExpBarControlBase
      */
     public treeexpbar_load(args: any[], tag?: string, $event2?: any): void {
-        this.$emit('load',args);
+        this.$emit('load', args);
     }
 
     /**
      * 执行created后的逻辑
      *
      *  @memberof TreeExpBarControlBase
-     */    
-    public ctrlCreated(){
+     */
+    public ctrlCreated() {
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -148,11 +147,11 @@ export class TreeExpBarControlBase extends ExpControlBase {
      * @returns {void}
      * @memberof TreeExpBarControlBase
      */
-    public treeexpbar_selectionchange(args: any [], tag?: string, $event2?: any): void {
+    public treeexpbar_selectionchange(args: any[], tag?: string, $event2?: any): void {
         if (args.length === 0) {
-            return ;
+            return;
         }
-        const arg:any = args[0];
+        const arg: any = args[0];
         if (!arg.id) {
             return;
         }
@@ -161,47 +160,47 @@ export class TreeExpBarControlBase extends ExpControlBase {
         if (!refview) {
             return;
         }
-        let tempViewparam:any = {};
-        let tempContext:any ={};
-        if(arg && arg.navfilter){
+        let tempViewparam: any = {};
+        let tempContext: any = {};
+        if (arg && arg.navfilter) {
             this.counter += 1;
             Object.defineProperty(tempViewparam, arg.navfilter, {
-                value : arg.srfkey,
-                writable : true,
-                enumerable : true,
-                configurable : true
-            })
-            Object.assign(tempContext,{srfcounter:this.counter});
+                value: arg.srfkey,
+                writable: true,
+                enumerable: true,
+                configurable: true,
+            });
+            Object.assign(tempContext, { srfcounter: this.counter });
         }
-        Object.assign(tempContext,JSON.parse(JSON.stringify(this.context)));
-        if(arg.srfappctx){
-            Object.assign(tempContext,JSON.parse(JSON.stringify(arg.srfappctx)));
+        Object.assign(tempContext, JSON.parse(JSON.stringify(this.context)));
+        if (arg.srfappctx) {
+            Object.assign(tempContext, JSON.parse(JSON.stringify(arg.srfappctx)));
         }
         // 计算导航上下文
-        if(arg && arg.navigateContext && Object.keys(arg.navigateContext).length >0){
-            let tempData:any = arg.curData?JSON.parse(JSON.stringify(arg.curData)):{};
-            Object.assign(tempData,arg);
-            let _context = this.$util.computedNavData(tempData,tempContext,tempViewparam,arg.navigateContext);
-            Object.assign(tempContext,_context);
+        if (arg && arg.navigateContext && Object.keys(arg.navigateContext).length > 0) {
+            let tempData: any = arg.curData ? JSON.parse(JSON.stringify(arg.curData)) : {};
+            Object.assign(tempData, arg);
+            let _context = this.$util.computedNavData(tempData, tempContext, tempViewparam, arg.navigateContext);
+            Object.assign(tempContext, _context);
         }
-        if(arg.srfparentdename){
-            Object.assign(tempContext,{srfparentdename:arg.srfparentdename});
+        if (arg.srfparentdename) {
+            Object.assign(tempContext, { srfparentdename: arg.srfparentdename });
         }
-        if(arg.srfparentkey){
-            Object.assign(tempContext,{srfparentkey:arg.srfparentkey});
+        if (arg.srfparentkey) {
+            Object.assign(tempContext, { srfparentkey: arg.srfparentkey });
         }
         // 计算导航参数
-        if(arg && arg.navigateParams && Object.keys(arg.navigateParams).length >0){
-            let tempData:any = arg.curData?JSON.parse(JSON.stringify(arg.curData)):{};
-            Object.assign(tempData,arg);
-            let _params = this.$util.computedNavData(tempData,tempContext,tempViewparam,arg.navigateParams);
-            Object.assign(tempViewparam,_params);
+        if (arg && arg.navigateParams && Object.keys(arg.navigateParams).length > 0) {
+            let tempData: any = arg.curData ? JSON.parse(JSON.stringify(arg.curData)) : {};
+            Object.assign(tempData, arg);
+            let _params = this.$util.computedNavData(tempData, tempContext, tempViewparam, arg.navigateParams);
+            Object.assign(tempViewparam, _params);
             this.counter += 1;
-            Object.assign(tempContext,{srfcounter:this.counter});
+            Object.assign(tempContext, { srfcounter: this.counter });
         }
         this.selection = {};
         Object.assign(this.selection, { view: { viewname: refview.viewname } });
-        Object.assign(this.selection,{'viewparam':tempViewparam,'context':tempContext});
+        Object.assign(this.selection, { viewparam: tempViewparam, context: tempContext });
         this.$forceUpdate();
     }
 

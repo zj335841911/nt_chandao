@@ -7,6 +7,4 @@ import { MessageTypeBase } from '../base/message-type-base';
  * @class CommandUpdate
  * @extends {MessageTypeBase}
  */
-export class CommandUpdate extends MessageTypeBase {
-
-}
+export class CommandUpdate extends MessageTypeBase {}

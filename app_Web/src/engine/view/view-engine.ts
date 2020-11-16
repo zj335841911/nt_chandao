@@ -1,7 +1,7 @@
 import { Environment } from '@/environments/environment';
 
 /**
- * 
+ *
  *
  * @export
  * @class ViewEngine
@@ -58,7 +58,7 @@ export default class ViewEngine {
      * Creates an instance of ViewEngine.
      * @memberof ViewEngine
      */
-    constructor() { }
+    constructor() {}
 
     /**
      * 引擎初始化
@@ -82,9 +82,7 @@ export default class ViewEngine {
      * @param {*} [opts={}]
      * @memberof ViewEngine
      */
-    public load(opts: any = {}): void {
-
-    }
+    public load(opts: any = {}): void {}
 
     /**
      * 部件事件机制
@@ -94,9 +92,7 @@ export default class ViewEngine {
      * @param {*} args
      * @memberof ViewEngine
      */
-    public onCtrlEvent(ctrlName: string, eventName: string, args: any): void {
-
-    }
+    public onCtrlEvent(ctrlName: string, eventName: string, args: any): void {}
 
     /**
      * 处理界面行为
@@ -146,7 +142,7 @@ export default class ViewEngine {
      * @param {{ tag: string, action: string, viewdata: any }} { tag, action, viewdata }
      * @memberof ViewEngine
      */
-    public setViewState2({ tag, action, viewdata }: { tag: string, action: string, viewdata: any }): void {
+    public setViewState2({ tag, action, viewdata }: { tag: string; action: string; viewdata: any }): void {
         this.view.viewState.next({ tag: tag, action: action, data: viewdata });
     }
 
@@ -169,10 +165,13 @@ export default class ViewEngine {
                 return;
             }
             const _item = _this.view.toolBarModels[key];
-            if (_item.uiaction && (Object.is(_item.uiaction.target, 'SINGLEKEY') || Object.is(_item.uiaction.target, 'MULTIKEY'))) {
-                if(dataNum && dataNum > 1 && Object.is(_item.uiaction.target, 'SINGLEKEY')){
+            if (
+                _item.uiaction &&
+                (Object.is(_item.uiaction.target, 'SINGLEKEY') || Object.is(_item.uiaction.target, 'MULTIKEY'))
+            ) {
+                if (dataNum && dataNum > 1 && Object.is(_item.uiaction.target, 'SINGLEKEY')) {
                     _item.disabled = true;
-                }else{
+                } else {
                     _item.disabled = state;
                 }
             }
@@ -190,10 +189,9 @@ export default class ViewEngine {
      * @param {*} [dataaccaction]
      * @memberof ViewEngine
      */
-    public calcToolbarItemAuthState(data: any ,dataNum?: number) {
+    public calcToolbarItemAuthState(data: any, dataNum?: number) {
         const _this: any = this;
-        if(!_this.view.appUIService.isEnableDEMainState)
-            return;
+        if (!_this.view.appUIService.isEnableDEMainState) return;
         for (const key in _this.view.toolBarModels) {
             if (!_this.view.toolBarModels.hasOwnProperty(key)) {
                 return;
@@ -201,10 +199,17 @@ export default class ViewEngine {
             const _item = _this.view.toolBarModels[key];
             if (_item && _item['dataaccaction'] && _this.view.appUIService) {
                 let dataActionResult: any;
-                if (_item.uiaction && (Object.is(_item.uiaction.target, 'NONE') || Object.is(_item.uiaction.target, ''))) {
+                if (
+                    _item.uiaction &&
+                    (Object.is(_item.uiaction.target, 'NONE') || Object.is(_item.uiaction.target, ''))
+                ) {
                     dataActionResult = _this.view.appUIService.getResourceOPPrivs(_item['dataaccaction']);
                 } else {
-                    if (data && Object.keys(data).length > 0 && !(dataNum && dataNum > 1 && Object.is(_item.uiaction.target, 'SINGLEKEY')) ) {
+                    if (
+                        data &&
+                        Object.keys(data).length > 0 &&
+                        !(dataNum && dataNum > 1 && Object.is(_item.uiaction.target, 'SINGLEKEY'))
+                    ) {
                         dataActionResult = _this.view.appUIService.getAllOPPrivs(data)[_item['dataaccaction']];
                     }
                 }
@@ -214,7 +219,7 @@ export default class ViewEngine {
                     if (_item.noprivdisplaymode === 1) {
                         _this.view.toolBarModels[key].disabled = true;
                     }
-                    if ((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)) {
+                    if (_item.noprivdisplaymode === 2 || _item.noprivdisplaymode === 6) {
                         _this.view.toolBarModels[key].visible = false;
                     } else {
                         _this.view.toolBarModels[key].visible = true;
@@ -227,5 +232,4 @@ export default class ViewEngine {
             }
         }
     }
-
 }

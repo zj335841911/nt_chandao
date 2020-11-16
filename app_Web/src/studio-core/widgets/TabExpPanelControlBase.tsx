@@ -8,7 +8,6 @@ import { ExpControlBase } from './ExpControlBase';
  * @extends {ControlBase}
  */
 export class TabExpPanelControlBase extends ExpControlBase {
-
     /**
      * 行为参数
      *
@@ -70,7 +69,7 @@ export class TabExpPanelControlBase extends ExpControlBase {
      */
     protected tabViewPanelDatasChange = (): void => {
         this.counterRefresh();
-    }
+    };
 
     /**
      * 组件创建完毕
@@ -142,7 +141,7 @@ export class TabExpPanelControlBase extends ExpControlBase {
      * 计算分页面板权限
      *
      * @param {*} data
-     * @return {*} 
+     * @return {*}
      * @memberof TabExpPanelControlBase
      */
     public computedAuthPanel(data: any) {
@@ -157,7 +156,7 @@ export class TabExpPanelControlBase extends ExpControlBase {
                     this.authResourceObject[key].visible = this.computedPanelWithResource(key, tempUIAction.visible);
                     this.authResourceObject[key].disabled = this.computedPanelWithResource(key, tempUIAction.disabled);
                 }
-            })
+            });
             const keys: any = Object.keys(this.authResourceObject);
             if (!this.authResourceObject[this.activatedTabViewPanel].visible) {
                 for (let i = 0; i < keys.length; i++) {
@@ -175,15 +174,15 @@ export class TabExpPanelControlBase extends ExpControlBase {
      *
      * @param {string} name
      * @param {boolean} mainState
-     * @return {*} 
+     * @return {*}
      * @memberof TabExpPanelControlBase
      */
     public computedPanelWithResource(name: string, mainState: boolean) {
-        if (!this.$store.getters['authresource/getEnablePermissionValid'])
-            return mainState === false ? false : true;
-        if (!this.authResourceObject[name])
-            return mainState === false ? false : true;
-        const resourceAuth: boolean = this.appAuthService?.getResourcePermission(this.authResourceObject[name]['resourcetag']);
+        if (!this.$store.getters['authresource/getEnablePermissionValid']) return mainState === false ? false : true;
+        if (!this.authResourceObject[name]) return mainState === false ? false : true;
+        const resourceAuth: boolean = this.appAuthService?.getResourcePermission(
+            this.authResourceObject[name]['resourcetag']
+        );
         return !resourceAuth ? false : mainState ? true : false;
     }
 }

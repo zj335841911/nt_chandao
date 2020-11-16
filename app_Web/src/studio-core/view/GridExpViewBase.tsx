@@ -7,6 +7,4 @@ import { ViewBase } from './ViewBase';
  * @class GridExpViewBase
  * @extends {ViewBase}
  */
-export class GridExpViewBase extends ViewBase {
-
-}
+export class GridExpViewBase extends ViewBase {}

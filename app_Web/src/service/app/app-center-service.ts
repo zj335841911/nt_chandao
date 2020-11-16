@@ -1,7 +1,6 @@
 import { Subject } from 'rxjs';
 
 export interface Message {
-
     /**
      * 名称(通常是应用实体名称)
      *
@@ -22,7 +21,6 @@ export interface Message {
      * @memberof Message
      */
     data: any;
-
 }
 
 /**
@@ -32,7 +30,6 @@ export interface Message {
  * @class AppCenterService
  */
 export default class AppCenterService {
-
     /**
      * Vue 状态管理器
      *
@@ -49,7 +46,7 @@ export default class AppCenterService {
      * @type {Subject<any>}
      * @memberof AppCenterService
      */
-    private static subject:Subject<any> = new Subject<any>();
+    private static subject: Subject<any> = new Subject<any>();
 
     /**
      * 单例变量声明
@@ -89,7 +86,7 @@ export default class AppCenterService {
      * @static
      * @memberof AppCenterService
      */
-    public static notifyMessage(message:Message){
+    public static notifyMessage(message: Message) {
         this.subject.next(message);
     }
 
@@ -99,7 +96,7 @@ export default class AppCenterService {
      * @static
      * @memberof AppCenterService
      */
-    public static getMessageCenter():Subject<any>{
+    public static getMessageCenter(): Subject<any> {
         return this.subject;
     }
 }

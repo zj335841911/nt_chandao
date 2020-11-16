@@ -7,6 +7,4 @@ import EditViewEngine from './edit-view-engine';
  * @class EditView9Engine
  * @extends {EditViewEngine}
  */
-export default class EditView9Engine extends EditViewEngine {
-
-}
+export default class EditView9Engine extends EditViewEngine {}

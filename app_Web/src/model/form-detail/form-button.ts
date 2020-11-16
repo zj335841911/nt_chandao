@@ -8,7 +8,6 @@ import { FormDetailModel } from './form-detail';
  * @extends {FormDetailModel}
  */
 export class FormButtonModel extends FormDetailModel {
-
     constructor(opts: any = {}) {
         super(opts);
         this.$disabled = opts.disabled;
@@ -21,7 +20,7 @@ export class FormButtonModel extends FormDetailModel {
      * @type {boolean}
      * @memberof FormButtonModel
      */
-    private $disabled:boolean = false;
+    private $disabled: boolean = false;
 
     /**
      * 按钮对应的界面行为
@@ -29,7 +28,7 @@ export class FormButtonModel extends FormDetailModel {
      * @type {*}
      * @memberof FormButtonModel
      */
-    public uiaction:any;
+    public uiaction: any;
 
     /**
      * 是否启用
@@ -47,9 +46,8 @@ export class FormButtonModel extends FormDetailModel {
      * @memberof FormButtonModel
      */
     public set disabled(val: boolean) {
-        if(this.isPower) {
+        if (this.isPower) {
             this.$disabled = val;
         }
     }
-
 }

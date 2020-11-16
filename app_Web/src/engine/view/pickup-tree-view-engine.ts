@@ -8,14 +8,13 @@ import TreeViewEngine from './tree-view-engine';
  * @extends {TreeViewEngine}
  */
 export default class PickupTreeViewEngine extends TreeViewEngine {
-
     /**
      * 部件加载完
      *
      * @param {*} args
      * @memberof PickupTreeViewEngine
      */
-    public onLoad(args: any): void { 
+    public onLoad(args: any): void {
         super.onLoad(args);
         if (this.view) {
             this.view.$emit('viewload', args);
@@ -31,7 +30,7 @@ export default class PickupTreeViewEngine extends TreeViewEngine {
     public onSelectionChange(args: any[]): void {
         super.onSelectionChange(args);
         if (this.view) {
-            this.view.viewSelections =  [...args];
+            this.view.viewSelections = [...args];
             this.view.$emit('viewdataschange', args);
         }
     }
@@ -45,10 +44,10 @@ export default class PickupTreeViewEngine extends TreeViewEngine {
      * @memberof PickupTreeViewEngine
      */
     public onCtrlEvent(ctrlName: string, eventName: string, args: any): void {
-      if (Object.is(ctrlName, 'tree') && Object.is(eventName, 'nodedblclick')) {
-          this.view.$emit('viewdatasactivated', args);
-          return ;
-      }
-      super.onCtrlEvent(ctrlName, eventName, args);
+        if (Object.is(ctrlName, 'tree') && Object.is(eventName, 'nodedblclick')) {
+            this.view.$emit('viewdatasactivated', args);
+            return;
+        }
+        super.onCtrlEvent(ctrlName, eventName, args);
     }
 }

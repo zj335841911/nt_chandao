@@ -8,10 +8,9 @@ import { ExpControlBase } from './ExpControlBase';
  * @extends {ExpControlBase}
  */
 export class GridExpBarControlBase extends ExpControlBase {
-
     /**
      * 是否单选
-     * 
+     *
      * @public
      * @type {(boolean)}
      * @memberof GridExpBarControlBase

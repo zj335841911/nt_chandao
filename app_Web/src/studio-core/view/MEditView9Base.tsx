@@ -9,7 +9,6 @@ import { ViewBase } from './ViewBase';
  * @extends {ViewBase}
  */
 export class MEditView9Base extends ViewBase {
-
     /**
      * 刷新数据参数
      *
@@ -46,23 +45,22 @@ export class MEditView9Base extends ViewBase {
      * @memberof MEditView9Base
      */
     protected viewMounted(): void {
-        if(this.formDruipart){
-            this.formDruipart.subscribe((res: any) =>{
-                if(Object.is(res.action,'save')){
-                    let opt ={data:res.data};
-                    Object.assign(opt,this.context);
-                    this.viewState.next({ tag:'meditviewpanel', action: 'save', data: opt });
+        if (this.formDruipart) {
+            this.formDruipart.subscribe((res: any) => {
+                if (Object.is(res.action, 'save')) {
+                    let opt = { data: res.data };
+                    Object.assign(opt, this.context);
+                    this.viewState.next({ tag: 'meditviewpanel', action: 'save', data: opt });
                 }
-                if(Object.is(res.action,'remove')){
-                    let opt ={data:res.data};
-                    Object.assign(opt,this.context);
-                    this.viewState.next({ tag:'meditviewpanel', action: 'remove', data: opt });
+                if (Object.is(res.action, 'remove')) {
+                    let opt = { data: res.data };
+                    Object.assign(opt, this.context);
+                    this.viewState.next({ tag: 'meditviewpanel', action: 'remove', data: opt });
                 }
-                if(Object.is(res.action,'load')){
+                if (Object.is(res.action, 'load')) {
                     this.viewState.next({ tag: 'meditviewpanel', action: 'load', data: this.context });
                 }
             });
         }
     }
-
 }

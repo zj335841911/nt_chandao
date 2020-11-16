@@ -8,7 +8,6 @@ import EditViewEngine from './edit-view-engine';
  * @extends {EditViewEngine}
  */
 export default class EditView4Engine extends EditViewEngine {
-
     /**
      * 数据关系栏
      *
@@ -20,7 +19,7 @@ export default class EditView4Engine extends EditViewEngine {
 
     /**
      * Creates an instance of EditView4Engine.
-     * 
+     *
      * @memberof EditView4Engine
      */
     constructor() {

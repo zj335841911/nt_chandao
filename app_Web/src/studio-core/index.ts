@@ -91,14 +91,7 @@ import { FooterItemsService } from './service/FooterItemsService';
 import { TopItemsService } from './service/TopItemsService';
 import { UIStateService } from './service/UIStateService';
 import { OpenViewService } from './service/OpenViewService';
-export {
-    acc,
-    AppService,
-    FooterItemsService,
-    TopItemsService,
-    UIStateService,
-    OpenViewService
-}
+export { acc, AppService, FooterItemsService, TopItemsService, UIStateService, OpenViewService };
 // 服务 End
 // 指令 Start
 import { NotificationSignal } from './directives/notification-signal/notification-signal';
@@ -109,10 +102,10 @@ export const StudioCore = {
     install(v: any, opt: any) {
         // 在非开发模式下，禁止console输出内容。
         if (!(process?.env?.NODE_ENV === 'development')) {
-            console.log = function () { };
-            console.error = function () { };
-            console.warn = function () { };
-            console.info = function () { };
+            console.log = function () {};
+            console.error = function () {};
+            console.warn = function () {};
+            console.info = function () {};
         }
         // 注册服务
         v.prototype.$acc = acc;
@@ -144,5 +137,5 @@ export const StudioCore = {
         v.component('view-quick-group-tab', ViewQuickGroupTab);
         // 注册指令
         v.directive('notification-signal', NotificationSignal);
-    }
+    },
 };

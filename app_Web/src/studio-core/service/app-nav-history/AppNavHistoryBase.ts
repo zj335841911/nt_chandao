@@ -1,5 +1,5 @@
 import qs from 'qs';
-import i18n from '@/locale'
+import i18n from '@/locale';
 import { AppContextStore } from '../app-context-store/AppContextStore';
 import { UIStateService } from '../UIStateService';
 import { AppEvent } from '../../events/app-event';
@@ -55,7 +55,6 @@ export interface HistoryItem {
  * @class AppNavHistoryBase
  */
 export class AppNavHistoryBase {
-
     /**
      * 应用事件
      *
@@ -105,7 +104,7 @@ export class AppNavHistoryBase {
 
     /**
      * Creates an instance of AppNavHistoryBase.
-     * 
+     *
      * @memberof AppNavHistoryBase
      */
     constructor() {
@@ -152,7 +151,7 @@ export class AppNavHistoryBase {
      * @memberof AppNavHistoryBase
      */
     public findHistoryByTag(tag: string): any {
-        return this.historyList.find((item) => (isExistAndNotEmpty(item.tag) && item.tag === tag));
+        return this.historyList.find((item) => isExistAndNotEmpty(item.tag) && item.tag === tag);
     }
 
     /**
@@ -169,7 +168,7 @@ export class AppNavHistoryBase {
         }
         return list.findIndex((item: any) => {
             return this.isRouteSame(page, item.to);
-        });;
+        });
     }
 
     /**
@@ -226,10 +225,10 @@ export class AppNavHistoryBase {
                 to,
                 meta: JSON.parse(JSON.stringify(to.meta)),
                 tag: '',
-                context: {}
+                context: {},
             };
             const { caption, info } = item.meta;
-            item.caption = i18n.t(caption) + (info ? (' - ' + info) : '');
+            item.caption = i18n.t(caption) + (info ? ' - ' + info : '');
             this.historyList.push(item);
         }
     }
@@ -264,7 +263,7 @@ export class AppNavHistoryBase {
      * @returns {boolean}
      * @memberof AppNavHistoryBase
      */
-    public setCaption({ tag, caption, info }: { tag: string, caption?: string, info?: string }): boolean {
+    public setCaption({ tag, caption, info }: { tag: string; caption?: string; info?: string }): boolean {
         const item: HistoryItem = this.findHistoryByTag(tag);
         if (item) {
             const meta = item.meta;
@@ -273,7 +272,7 @@ export class AppNavHistoryBase {
             }
             if (isExistAndNotEmpty(info)) {
                 meta.info = info;
-                item.caption = i18n.t(meta.caption) + (info ? (' - ' + info) : '');
+                item.caption = i18n.t(meta.caption) + (info ? ' - ' + info : '');
             }
             this.appEvent.emit('navHistoryItemChange', item);
         }
@@ -341,5 +340,4 @@ export class AppNavHistoryBase {
     public pop(): void {
         this.historyList.pop();
     }
-
 }

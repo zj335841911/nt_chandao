@@ -8,7 +8,6 @@ import ViewEngine from './view-engine';
  * @extends {ViewEngine}
  */
 export default class MDViewEngine extends ViewEngine {
-
     /**
      * 表格部件
      *
@@ -78,14 +77,14 @@ export default class MDViewEngine extends ViewEngine {
      * @param {*} [opts={}]
      * @memberof MDViewEngine
      */
-    public load(opts: any = {}, isnotify: boolean=false): void {
+    public load(opts: any = {}, isnotify: boolean = false): void {
         super.load(opts);
         if (this.getSearchForm() && (this.isLoadDefault || isnotify)) {
             const tag = this.getSearchForm().name;
             this.setViewState2({ tag: tag, action: 'loaddraft', viewdata: this.view.viewparams });
         } else if (this.getMDCtrl() && (this.isLoadDefault || isnotify)) {
             const tag = this.getMDCtrl().name;
-            this.setViewState2({ tag: tag, action: 'load', viewdata: Object.assign(this.view.viewparams,opts) });
+            this.setViewState2({ tag: tag, action: 'load', viewdata: Object.assign(this.view.viewparams, opts) });
         } else {
             this.isLoadDefault = true;
         }
@@ -142,10 +141,10 @@ export default class MDViewEngine extends ViewEngine {
             this.MDCtrlLoad(args);
         }
         if (Object.is(eventName, 'beforeload')) {
-            this.MDCtrlBeforeLoad(args)
+            this.MDCtrlBeforeLoad(args);
         }
         if (Object.is(eventName, 'remove')) {
-            this.MDCtrlRemove(args)
+            this.MDCtrlRemove(args);
         }
     }
 
@@ -289,7 +288,7 @@ export default class MDViewEngine extends ViewEngine {
         }
 
         if (this.openData && this.isFunc(this.openData)) {
-            this.openData([loadParam],[data], null, null, this.getMDCtrl());
+            this.openData([loadParam], [data], null, null, this.getMDCtrl());
         }
     }
 
@@ -310,7 +309,6 @@ export default class MDViewEngine extends ViewEngine {
      * @memberof MDViewEngine
      */
     public onNewData(): void {
-
         let loadParam: any = {};
         Object.assign(loadParam, this.view.context);
         this.doNewDataNormal(loadParam);
@@ -332,14 +330,11 @@ export default class MDViewEngine extends ViewEngine {
      *
      * @memberof MDViewEngine
      */
-    public doRemove(): void {
-    }
-
+    public doRemove(): void {}
 
     public openDataView(view: any = {}): boolean {
-
         if (this.newData && this.isFunc(this.newData)) {
-            this.newData([],[],null, null, this.getMDCtrl());
+            this.newData([], [], null, null, this.getMDCtrl());
         }
 
         return true;
@@ -361,7 +356,7 @@ export default class MDViewEngine extends ViewEngine {
         }
         const state = args.length > 0 && !Object.is(args[0].srfkey, '') ? false : true;
         this.calcToolbarItemState(state, args.length);
-        if(args && args.length > 0){
+        if (args && args.length > 0) {
             this.calcToolbarItemAuthState(this.transformData(args[0]), args.length);
         } else {
             this.calcToolbarItemAuthState(null);
@@ -375,11 +370,11 @@ export default class MDViewEngine extends ViewEngine {
      * @memberof MDViewEngine
      */
     public MDCtrlLoad(args: any[]) {
-        let cacheArray:Array<any> = [];
-        if(args.length >0){
-            args.forEach((item:any) =>{
-                cacheArray.push({srfkey:item.srfkey,srfmajortext:item.srfmajortext});
-            })
+        let cacheArray: Array<any> = [];
+        if (args.length > 0) {
+            args.forEach((item: any) => {
+                cacheArray.push({ srfkey: item.srfkey, srfmajortext: item.srfmajortext });
+            });
         }
         this.view.viewCacheData = cacheArray;
         if (this.view) {
@@ -409,14 +404,14 @@ export default class MDViewEngine extends ViewEngine {
             Object.assign(arg, { query: this.view.query });
         }
         // 快速分组和快速搜索栏
-        let otherQueryParam:any = {};
-        if(this.view && this.view.quickGroupData){
-            Object.assign(otherQueryParam,this.view.quickGroupData);
+        let otherQueryParam: any = {};
+        if (this.view && this.view.quickGroupData) {
+            Object.assign(otherQueryParam, this.view.quickGroupData);
         }
-        if(this.view && this.view.quickFormData){
-            Object.assign(otherQueryParam,this.view.quickFormData);
+        if (this.view && this.view.quickFormData) {
+            Object.assign(otherQueryParam, this.view.quickFormData);
         }
-        Object.assign(arg,{viewparams:otherQueryParam});
+        Object.assign(arg, { viewparams: otherQueryParam });
     }
 
     /**
@@ -425,9 +420,7 @@ export default class MDViewEngine extends ViewEngine {
      * @returns {*}
      * @memberof MDViewEngine
      */
-    public getMDCtrl(): any {
-
-    }
+    public getMDCtrl(): any {}
 
     public getSearchForm(): any {
         return this.searchForm;
@@ -448,8 +441,8 @@ export default class MDViewEngine extends ViewEngine {
      *
      * @memberof EditViewEngine
      */
-    public transformData(arg:any){
-        if(!this.getMDCtrl() || !(this.getMDCtrl().transformData instanceof Function)){
+    public transformData(arg: any) {
+        if (!this.getMDCtrl() || !(this.getMDCtrl().transformData instanceof Function)) {
             return null;
         }
         return this.getMDCtrl().transformData(arg);

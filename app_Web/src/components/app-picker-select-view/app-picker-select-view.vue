@@ -1,27 +1,84 @@
 <template>
     <div class="app-picker-select-view">
-        <Dropdown :visible="visible" trigger="custom" style="left:0px;width: 100%" @on-clickoutside="() => {triggerMenu(false);}" >
-          <Input v-if="isSingleSelect" v-model="queryValue" class="tree-input" type="text" :placeholder="placeholder ? placeholder : $t('components.appPickerSelectView.placeholder')" :disabled="disabled" @on-change="OnInputChange" @on-focus="()=>{triggerMenu(true);}" >
-              <template v-slot:suffix>
-                  <i v-if="queryValue && !disabled" class='el-icon-circle-close' @click="onClear"></i>
-                  <Icon :type="visible ? 'ios-arrow-up' : 'ios-arrow-down'" class="icon-arrow" @click="() => {triggerMenu();}"></Icon>
-                  <icon v-if="linkview" type="ios-open-outline" @click="openLinkView"/>
-              </template>
-          </Input>
-          <el-select v-if="!isSingleSelect" popper-class="select-no-dropdown" :value="keySet" multiple filterable remote :remote-method="($event) => {this.queryValue = $event;}" size="small" style="width:100%;" @change="onSelectChange" @focus="() => {triggerMenu(true);}" :disabled="disabled">
-                <el-option v-for="(item, index) in items" :key="index" :label="item.srfmajortext" :value="item[deKeyField]"></el-option>
-          </el-select>
-          <DropdownMenu slot="list">
-              <component
-                :is="pickupView.viewname"
-                :viewdata="viewdata"
-                :viewparam="viewparam"
-                :isShowButton="false"
-                :viewDefaultUsage="false"
-                @viewdataschange="onViewdatasChange"
-                style="height:100%;">
-              </component>
-          </DropdownMenu>
+        <Dropdown
+            :visible="visible"
+            trigger="custom"
+            style="left: 0px; width: 100%"
+            @on-clickoutside="
+                () => {
+                    triggerMenu(false);
+                }
+            "
+        >
+            <Input
+                v-if="isSingleSelect"
+                v-model="queryValue"
+                class="tree-input"
+                type="text"
+                :placeholder="placeholder ? placeholder : $t('components.appPickerSelectView.placeholder')"
+                :disabled="disabled"
+                @on-change="OnInputChange"
+                @on-focus="
+                    () => {
+                        triggerMenu(true);
+                    }
+                "
+            >
+                <template v-slot:suffix>
+                    <i v-if="queryValue && !disabled" class="el-icon-circle-close" @click="onClear"></i>
+                    <Icon
+                        :type="visible ? 'ios-arrow-up' : 'ios-arrow-down'"
+                        class="icon-arrow"
+                        @click="
+                            () => {
+                                triggerMenu();
+                            }
+                        "
+                    ></Icon>
+                    <icon v-if="linkview" type="ios-open-outline" @click="openLinkView" />
+                </template>
+            </Input>
+            <el-select
+                v-if="!isSingleSelect"
+                popper-class="select-no-dropdown"
+                :value="keySet"
+                multiple
+                filterable
+                remote
+                :remote-method="
+                    ($event) => {
+                        this.queryValue = $event;
+                    }
+                "
+                size="small"
+                style="width: 100%"
+                @change="onSelectChange"
+                @focus="
+                    () => {
+                        triggerMenu(true);
+                    }
+                "
+                :disabled="disabled"
+            >
+                <el-option
+                    v-for="(item, index) in items"
+                    :key="index"
+                    :label="item.srfmajortext"
+                    :value="item[deKeyField]"
+                ></el-option>
+            </el-select>
+            <DropdownMenu slot="list">
+                <component
+                    :is="pickupView.viewname"
+                    :viewdata="viewdata"
+                    :viewparam="viewparam"
+                    :isShowButton="false"
+                    :viewDefaultUsage="false"
+                    @viewdataschange="onViewdatasChange"
+                    style="height: 100%"
+                >
+                </component>
+            </DropdownMenu>
         </Dropdown>
     </div>
 </template>
@@ -32,8 +89,7 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ViewTool } from '@/utils/view-tool/view-tool';
 
-@Component({
-})
+@Component({})
 export default class AppPickerSelectView extends Vue {
     /**
      * 视图上下文
@@ -57,8 +113,8 @@ export default class AppPickerSelectView extends Vue {
      * @type {*}
      * @memberof AppPickerSelectView
      */
-    @Prop({default: 'true'}) public isSingleSelect!: any;
-    
+    @Prop({ default: 'true' }) public isSingleSelect!: any;
+
     /**
      * 当前多选框选中值的key集合
      *
@@ -66,7 +122,7 @@ export default class AppPickerSelectView extends Vue {
      * @memberof AppPickerSelectView
      */
     public keySet: any = [];
-    
+
     /**
      * 当前多选框选中项对象集合
      *
@@ -74,7 +130,7 @@ export default class AppPickerSelectView extends Vue {
      * @memberof AppPickerSelectView
      */
     public selectItems: Array<any> = [];
-    
+
     /**
      * 所有操作过的下拉选项对象集合
      *
@@ -82,7 +138,7 @@ export default class AppPickerSelectView extends Vue {
      * @memberof AppPickerSelectView
      */
     public items: Array<any> = [];
-    
+
     /**
      * 视图参数
      *
@@ -90,7 +146,7 @@ export default class AppPickerSelectView extends Vue {
      * @memberof AppPickerSelectView
      */
     public viewparam: any = JSON.stringify(this.viewparams);
-    
+
     /**
      * 视图上下文
      *
@@ -121,15 +177,15 @@ export default class AppPickerSelectView extends Vue {
      * @type {boolean}
      * @memberof AppPickerSelectView
      */
-    @Prop({default: false}) public disabled!: boolean;
-    
+    @Prop({ default: false }) public disabled!: boolean;
+
     /**
      * 应用实体主信息属性名称
      *
      * @type {string}
      * @memberof AppPickerSelectView
      */
-    @Prop({default: 'srfmajortext'}) public deMajorField!: string;
+    @Prop({ default: 'srfmajortext' }) public deMajorField!: string;
 
     /**
      * 应用实体主键属性名称
@@ -137,7 +193,7 @@ export default class AppPickerSelectView extends Vue {
      * @type {string}
      * @memberof AppPickerSelectView
      */
-    @Prop({default: 'srfkey'}) public deKeyField!: string;
+    @Prop({ default: 'srfkey' }) public deKeyField!: string;
 
     /**
      * 输入框值(搜索值)
@@ -189,19 +245,19 @@ export default class AppPickerSelectView extends Vue {
 
     /**
      * 局部上下文导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppPickerSelectView
      */
-    @Prop() public localContext!:any;
+    @Prop() public localContext!: any;
 
     /**
      * 局部导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppPickerSelectView
      */
-    @Prop() public localParam!:any;
+    @Prop() public localParam!: any;
 
     /**
      * 下拉显示控制变量
@@ -221,24 +277,24 @@ export default class AppPickerSelectView extends Vue {
 
     /**
      * 输入框change事件
-     * 
+     *
      * @param $event 事件对象
      * @memberof AppPickerSelectView
      */
-    public OnInputChange($event: any){
-        let _viewdata =  Object.assign({ query: this.queryValue }, JSON.parse(this.viewdata)) ;
+    public OnInputChange($event: any) {
+        let _viewdata = Object.assign({ query: this.queryValue }, JSON.parse(this.viewdata));
         this.viewdata = JSON.stringify(_viewdata);
     }
 
     /**
      * 输入框change事件
-     * 
+     *
      * @param $event 事件对象
      * @memberof AppPickerSelectView
      */
-    public triggerMenu(visible?: boolean){
-        if(this.disabled){
-          return;
+    public triggerMenu(visible?: boolean) {
+        if (this.disabled) {
+            return;
         }
         if (!visible) {
             this.visible = !this.visible;
@@ -256,20 +312,23 @@ export default class AppPickerSelectView extends Vue {
      */
     public handlePublicParams(arg: any): boolean {
         if (!this.data) {
-            this.$Notice.error({ title: (this.$t('components.appPickerSelectView.error') as any), desc: (this.$t('components.appPickerSelectView.formdataException') as any) });
+            this.$Notice.error({
+                title: this.$t('components.appPickerSelectView.error') as any,
+                desc: this.$t('components.appPickerSelectView.formdataException') as any,
+            });
             return false;
         }
         // 合并表单参数
         arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
         arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
         // 附加参数处理
-        if (this.localContext && Object.keys(this.localContext).length >0) {
-            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
-            Object.assign(arg.context,_context);
+        if (this.localContext && Object.keys(this.localContext).length > 0) {
+            let _context = this.$util.computedNavData(this.data, arg.context, arg.param, this.localContext);
+            Object.assign(arg.context, _context);
         }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
-            Object.assign(arg.param,_param);
+        if (this.localParam && Object.keys(this.localParam).length > 0) {
+            let _param = this.$util.computedNavData(this.data, arg.param, arg.param, this.localParam);
+            Object.assign(arg.param, _param);
         }
         return true;
     }
@@ -281,7 +340,7 @@ export default class AppPickerSelectView extends Vue {
      * @param {*} oldVal
      * @memberof AppPickerSelectView
      */
-    @Watch('data',{deep:true})
+    @Watch('data', { deep: true })
     onActivedataChange(newVal: any, oldVal: any) {
         // 公共参数处理
         let data: any = {};
@@ -303,16 +362,22 @@ export default class AppPickerSelectView extends Vue {
      */
     @Watch('value', { deep: true })
     public onValueChange(newVal: any, oldVal: any) {
-        if(this.isSingleSelect){
+        if (this.isSingleSelect) {
             this.queryValue = newVal;
             if (!this.data || !this.valueitem || !this.data[this.valueitem]) {
-                this.$Notice.error({ title: (this.$t('components.appPickerSelectView.error') as any), desc: (this.$t('components.appPickerSelectView.editor') as any)+this.name+(this.$t('components.appPickerSelectView.valueitemException') as any) });
-            }else{
+                this.$Notice.error({
+                    title: this.$t('components.appPickerSelectView.error') as any,
+                    desc:
+                        (this.$t('components.appPickerSelectView.editor') as any) +
+                        this.name +
+                        (this.$t('components.appPickerSelectView.valueitemException') as any),
+                });
+            } else {
                 let _viewparam = JSON.parse(this.viewparam);
-                _viewparam.selectedData = [{srfkey: this.data[this.valueitem], srfmajortext: this.value }];
+                _viewparam.selectedData = [{ srfkey: this.data[this.valueitem], srfmajortext: this.value }];
                 this.viewparam = JSON.stringify(_viewparam);
             }
-        }else{
+        } else {
             this.keySet = [];
             this.selectItems = [];
             if (newVal) {
@@ -321,7 +386,7 @@ export default class AppPickerSelectView extends Vue {
                     this.keySet.push(item.srfkey);
                     let index = this.items.findIndex((i) => Object.is(i.srfkey, item.srfkey));
                     if (index < 0) {
-                        this.items.push({ srfmajortext : item.srfmajortext, srfkey: item.srfkey });
+                        this.items.push({ srfmajortext: item.srfmajortext, srfkey: item.srfkey });
                     }
                 });
             }
@@ -354,9 +419,7 @@ export default class AppPickerSelectView extends Vue {
      *
      * @memberof AppPickerSelectView
      */
-    public destroyed() {
-
-    }
+    public destroyed() {}
 
     /**
      * 设置值
@@ -365,12 +428,12 @@ export default class AppPickerSelectView extends Vue {
      * @memberof AppPickerSelectView
      */
     public onViewdatasChange($event: any) {
-        if($event.length == 0){
+        if ($event.length == 0) {
             this.onClear(null);
             return;
         }
-        if(this.isSingleSelect){
-             this.visible = false;
+        if (this.isSingleSelect) {
+            this.visible = false;
             if (this.valueitem) {
                 let tempvalue = $event[0][this.deKeyField] ? $event[0][this.deKeyField] : $event[0].srfkey;
                 this.$emit('formitemvaluechange', { name: this.valueitem, value: tempvalue });
@@ -379,14 +442,14 @@ export default class AppPickerSelectView extends Vue {
                 let tempvalue = $event[0][this.deMajorField] ? $event[0][this.deMajorField] : $event[0].srfmajortext;
                 this.$emit('formitemvaluechange', { name: this.name, value: tempvalue });
             }
-        }else{
+        } else {
             let selects: Array<any> = [];
             if ($event && Array.isArray($event)) {
                 $event.forEach((select: any) => {
                     selects.push({ srfkey: select.srfkey, srfmajortext: select.srfmajortext });
                     let index = this.items.findIndex((item) => Object.is(item.srfkey, select.srfkey));
                     if (index < 0) {
-                        this.items.push({ srfmajortext : select.srfmajortext, srfkey: select.srfkey });
+                        this.items.push({ srfmajortext: select.srfmajortext, srfkey: select.srfkey });
                     }
                 });
             }
@@ -410,7 +473,6 @@ export default class AppPickerSelectView extends Vue {
         this.$forceUpdate();
     }
 
-    
     /**
      * 打开链接视图
      *
@@ -418,7 +480,13 @@ export default class AppPickerSelectView extends Vue {
      */
     public openLinkView($event: any): void {
         if (!this.data || !this.valueitem || !this.data[this.valueitem]) {
-            console.error({ title: (this.$t('components.appPickerSelectView.error') as any), desc: (this.$t('components.appPickerSelectView.editor') as any)+this.name+(this.$t('components.appPickerSelectView.valueitemException') as any) });
+            console.error({
+                title: this.$t('components.appPickerSelectView.error') as any,
+                desc:
+                    (this.$t('components.appPickerSelectView.editor') as any) +
+                    this.name +
+                    (this.$t('components.appPickerSelectView.valueitemException') as any),
+            });
             return;
         }
         // 公共参数处理
@@ -455,7 +523,14 @@ export default class AppPickerSelectView extends Vue {
      * @memberof AppPickerSelectView
      */
     private openIndexViewTab(view: any, context: any, param: any): void {
-        const routePath = this.$viewTool.buildUpRoutePath(this.$route, this.context, view.deResParameters, view.parameters, [context] , param);
+        const routePath = this.$viewTool.buildUpRoutePath(
+            this.$route,
+            this.context,
+            view.deResParameters,
+            view.parameters,
+            [context],
+            param
+        );
         this.$router.push(routePath);
     }
 
@@ -477,7 +552,6 @@ export default class AppPickerSelectView extends Vue {
             this.openViewClose(result);
         });
     }
-
 
     /**
      * 模态模式打开视图
@@ -529,14 +603,20 @@ export default class AppPickerSelectView extends Vue {
 
         if (this.data) {
             if (this.valueitem) {
-                this.$emit('formitemvaluechange', { name: this.valueitem, value: item[this.deKeyField]?item[this.deKeyField]:item["srfkey"] });
+                this.$emit('formitemvaluechange', {
+                    name: this.valueitem,
+                    value: item[this.deKeyField] ? item[this.deKeyField] : item['srfkey'],
+                });
             }
             if (this.name) {
-                this.$emit('formitemvaluechange', { name: this.name, value: item[this.deMajorField]?item[this.deMajorField]:item["srfmajortext"] });
+                this.$emit('formitemvaluechange', {
+                    name: this.name,
+                    value: item[this.deMajorField] ? item[this.deMajorField] : item['srfmajortext'],
+                });
             }
         }
     }
-    
+
     /**
      * 下拉选中回调
      *
@@ -556,10 +636,9 @@ export default class AppPickerSelectView extends Vue {
         let value = val.length > 0 ? JSON.stringify(val) : '';
         this.$emit('formitemvaluechange', { name: this.name, value: value });
     }
-
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import './app-picker-select-view.less';
 </style>

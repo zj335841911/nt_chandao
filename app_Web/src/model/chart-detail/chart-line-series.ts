@@ -6,8 +6,7 @@ import { ChartSeries } from './chart-series';
  * @export
  * @class ChartLineSeries
  */
-export class ChartLineSeries extends ChartSeries{
-
+export class ChartLineSeries extends ChartSeries {
     /**
      * 分类属性
      *
@@ -38,7 +37,7 @@ export class ChartLineSeries extends ChartSeries{
      * @type {string}
      * @memberof ChartLineSeries
      */
-    public dimensions:Array<string> = [];
+    public dimensions: Array<string> = [];
 
     /**
      * 维度编码
@@ -46,7 +45,7 @@ export class ChartLineSeries extends ChartSeries{
      * @type {*}
      * @memberof ChartLineSeries
      */
-    public encode:any = null;
+    public encode: any = null;
 
     /**
      * 序列模板
@@ -54,13 +53,12 @@ export class ChartLineSeries extends ChartSeries{
      * @type {*}
      * @memberof ChartLineSeries
      */
-    public seriesTemp:any = null;
-
+    public seriesTemp: any = null;
 
     /**
      * Creates an instance of ChartLineSeries.
      * ChartLineSeries 实例
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof ChartLineSeries
      */
@@ -69,9 +67,9 @@ export class ChartLineSeries extends ChartSeries{
         this.categorField = !Object.is(opts.categorField, '') ? opts.categorField : '';
         this.categorCodeList = opts.categorCodeList ? opts.categorCodeList : null;
         this.valueField = !Object.is(opts.valueField, '') ? opts.valueField : '';
-        this.dimensions = opts.dimensions ? opts.dimensions :'';
+        this.dimensions = opts.dimensions ? opts.dimensions : '';
         this.encode = opts.encode ? opts.encode : null;
-        this.seriesTemp = opts.seriesTemp ? opts.seriesTemp:null;
+        this.seriesTemp = opts.seriesTemp ? opts.seriesTemp : null;
     }
 
     /**
@@ -133,5 +131,4 @@ export class ChartLineSeries extends ChartSeries{
     public setSeriesTemp(state: any): void {
         this.seriesTemp = state;
     }
-
 }

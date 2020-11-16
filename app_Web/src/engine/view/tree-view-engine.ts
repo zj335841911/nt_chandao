@@ -8,7 +8,6 @@ import ViewEngine from './view-engine';
  * @extends {ViewEngine}
  */
 export default class TreeViewEngine extends ViewEngine {
-
     /**
      * 树部件对象
      *
@@ -19,7 +18,7 @@ export default class TreeViewEngine extends ViewEngine {
 
     /**
      * Creates an instance of TreeViewEngine.
-     * 
+     *
      * @memberof TreeViewEngine
      */
     constructor() {
@@ -77,7 +76,7 @@ export default class TreeViewEngine extends ViewEngine {
      * @param {*} args
      * @memberof TreeViewEngine
      */
-    public onLoad(args: any): void { }
+    public onLoad(args: any): void {}
 
     /**
      * 选中处理
@@ -85,11 +84,10 @@ export default class TreeViewEngine extends ViewEngine {
      * @param {any[]} args
      * @memberof TreeViewEngine
      */
-    public onSelectionChange(args: any[]): void { }
-
+    public onSelectionChange(args: any[]): void {}
 
     /**
-     * 
+     *
      *获取树视图部件
      * @returns {*}
      * @memberof TreeViewEngine
@@ -97,6 +95,4 @@ export default class TreeViewEngine extends ViewEngine {
     public getTreeView(): any {
         return this.tree;
     }
-
-
 }

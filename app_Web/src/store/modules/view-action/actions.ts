@@ -1,10 +1,10 @@
 /**
  * 数据保存后处理逻辑
- * 
- * @param param0 
- * @param data 
+ *
+ * @param param0
+ * @param data
  */
-export const datasaved = ({ commit, state }: { commit: any, state: any }, data: any) => {
+export const datasaved = ({ commit, state }: { commit: any; state: any }, data: any) => {
     const createdviews: any[] = state.createdviews;
 
     // 唯一标识获取临时数据参数
@@ -25,10 +25,10 @@ export const datasaved = ({ commit, state }: { commit: any, state: any }, data: 
             refviews: _refviews,
             secondtag: _secondtag,
         }: {
-            refviews: string[],
-            _refviews: string[],
-            secondtag: string,
-            _secondtag: string,
+            refviews: string[];
+            _refviews: string[];
+            secondtag: string;
+            _secondtag: string;
         } = item;
         _refviews.some((viewid: string) => {
             if (Object.is(viewid, _viewtag)) {
@@ -39,4 +39,4 @@ export const datasaved = ({ commit, state }: { commit: any, state: any }, data: 
             return false;
         });
     });
-}
+};

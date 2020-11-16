@@ -4,7 +4,8 @@
         :closable="false"
         v-model="isShow"
         :width="width"
-        @on-visible-change="onVisibleChange($event)">
+        @on-visible-change="onVisibleChange($event)"
+    >
         <component
             :is="viewname"
             class="viewcontainer2"
@@ -15,48 +16,48 @@
             @viewdataschange="dataChange($event)"
             @viewdatasactivated="viewDatasActivated($event)"
             @close="close($event)"
-            :ref="viewname">
+            :ref="viewname"
+        >
         </component>
     </drawer>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Provide, Emit, Watch } from "vue-property-decorator";
-import { Subject } from "rxjs";
+import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Subject } from 'rxjs';
 @Component({
-    components: {}
+    components: {},
 })
 export default class AppDrawerCompponent extends Vue {
-
     /**
      * 视图UI参数
      *
      * @type {any}
      * @memberof AppDrawerCompponent
-     */ 
-    @Prop() public view !:any;
+     */
+    @Prop() public view!: any;
 
     /**
      * 视图逻辑参数
      *
      * @type {any}
      * @memberof AppModal
-     */ 
-    @Prop({default:{}}) public viewdata?:any;
+     */
+    @Prop({ default: {} }) public viewdata?: any;
 
     /**
      * 视图参数
      *
      * @type {any}
      * @memberof AppModal
-     */ 
-    @Prop({default:{}}) public viewparams?:any;
+     */
+    @Prop({ default: {} }) public viewparams?: any;
 
     /**
      * 数据传递对象
      *
      * @type {any}
      * @memberof AppDrawerCompponent
-     */ 
+     */
     public subject: null | Subject<any> = new Subject<any>();
 
     /**
@@ -65,7 +66,7 @@ export default class AppDrawerCompponent extends Vue {
      * @type {string}
      * @memberof AppDrawerCompponent
      */
-    public placement:string = '';
+    public placement: string = '';
 
     /**
      * 是否显示
@@ -73,46 +74,46 @@ export default class AppDrawerCompponent extends Vue {
      * @type {boolean}
      * @memberof AppDrawerCompponent
      */
-    public isShow:boolean = false;
+    public isShow: boolean = false;
 
     /**
      * 零时结果
      *
      * @type {any}
      * @memberof AppDrawerCompponent
-     */  
-    public tempResult:any = { ret: '' };
+     */
+    public tempResult: any = { ret: '' };
 
     /**
      * 视图名称
      *
      * @type {string}
      * @memberof AppDrawerCompponent
-     */ 
-    public viewname:string = '';
+     */
+    public viewname: string = '';
 
     /**
      * 视图宽度
      *
      * @type {number}
      * @memberof AppDrawerCompponent
-     */ 
-    public width:number = 256;
+     */
+    public width: number = 256;
 
     /**
      * 视图层级
      *
      * @type {any}
      * @memberof AppDrawerCompponent
-     */ 
-    public zIndex:any = null;
+     */
+    public zIndex: any = null;
 
     /**
      * 获取数据传递对象
      *
      * @memberof AppModal
-     */ 
-    public getSubject(){
+     */
+    public getSubject() {
         return this.subject;
     }
 
@@ -120,7 +121,7 @@ export default class AppDrawerCompponent extends Vue {
      * Vue生命周期created
      *
      * @memberof AppDrawerCompponent
-     */ 
+     */
     public created() {
         this.viewname = this.view.viewname;
         this.placement = this.view.placement === 'DRAWER_LEFT' ? 'left' : 'right';
@@ -146,14 +147,14 @@ export default class AppDrawerCompponent extends Vue {
             if (keyCode == 27) {
                 this.isShow = false;
             }
-        }
+        };
     }
 
     /**
      * Vue生命周期mounted
      *
      * @memberof AppDrawerCompponent
-     */ 
+     */
     public mounted() {
         this.isShow = true;
         this.handleZIndex('ivu-drawer-mask', 'ivu-drawer-wrap');
@@ -163,7 +164,7 @@ export default class AppDrawerCompponent extends Vue {
      * Vue生命周期beforeDestroy
      *
      * @memberof AppDrawerCompponent
-     */ 
+     */
     public beforeDestroy() {
         if (this.zIndex) {
             const zIndex: any = this.zIndex;
@@ -175,7 +176,7 @@ export default class AppDrawerCompponent extends Vue {
      * 处理 z-index
      *
      * @memberof AppDrawerCompponent
-     */ 
+     */
     public handleZIndex(mask: string, wrap: string) {
         const zIndex = this.$store.getters.getZIndex();
         if (zIndex) {
@@ -193,7 +194,7 @@ export default class AppDrawerCompponent extends Vue {
      * 关闭回调
      *
      * @memberof AppDrawerCompponent
-     */ 
+     */
     public close(result: any) {
         if (result && Array.isArray(result)) {
             Object.assign(this.tempResult, { ret: 'OK' }, { datas: JSON.parse(JSON.stringify(result)) });
@@ -205,7 +206,7 @@ export default class AppDrawerCompponent extends Vue {
      * 数据变化回调
      *
      * @memberof AppDrawerCompponent
-     */ 
+     */
     public dataChange(result: any) {
         this.tempResult = { ret: '' };
         if (result && Array.isArray(result) && result.length > 0) {
@@ -217,7 +218,7 @@ export default class AppDrawerCompponent extends Vue {
      * 激活数据回调
      *
      * @memberof AppDrawerCompponent
-     */ 
+     */
     public viewDatasActivated(result: any) {
         if (result && Array.isArray(result) && result.length > 0) {
             this.close(result);
@@ -228,7 +229,7 @@ export default class AppDrawerCompponent extends Vue {
      * 抽屉显示隐藏回调
      *
      * @memberof AppDrawerCompponent
-     */ 
+     */
     public onVisibleChange($event: any) {
         const component: any = this.$refs[this.viewname];
         if (component) {
@@ -242,12 +243,15 @@ export default class AppDrawerCompponent extends Vue {
                     title: title,
                     content: contant,
                     onOk: () => {
-                        this.$store.commit('viewaction/setViewDataChange', { viewtag: _viewtag, viewdatachange: false });
+                        this.$store.commit('viewaction/setViewDataChange', {
+                            viewtag: _viewtag,
+                            viewdatachange: false,
+                        });
                         this.isShow = false;
                     },
                     onCancel: () => {
                         this.isShow = true;
-                    }
+                    },
                 });
             } else {
                 this.handleShowState($event);
@@ -259,7 +263,7 @@ export default class AppDrawerCompponent extends Vue {
      * 处理显示隐藏状态
      *
      * @memberof AppDrawerCompponent
-     */ 
+     */
     public handleShowState($event: any) {
         if ($event) {
             return;
@@ -273,9 +277,8 @@ export default class AppDrawerCompponent extends Vue {
             document.body.removeChild(this.$el);
             this.$destroy();
             this.subject = null;
-        }, 500)
+        }, 500);
     }
-
 }
 </script>
 <style lang="less" scoped>

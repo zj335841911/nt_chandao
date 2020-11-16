@@ -1,25 +1,29 @@
 <template>
     <checkbox-group class="app-checkbox-list" v-model="selectArray">
-        <checkbox v-for="(item,index) in items" :key="index" :label="item.value" :disabled="isDisabled || item.disabled">
-            <span>{{Object.is(codelistType,'STATIC') ? $t('codelist.'+tag+'.'+item.value) : item.text}}</span>
+        <checkbox
+            v-for="(item, index) in items"
+            :key="index"
+            :label="item.value"
+            :disabled="isDisabled || item.disabled"
+        >
+            <span>{{ Object.is(codelistType, 'STATIC') ? $t('codelist.' + tag + '.' + item.value) : item.text }}</span>
         </checkbox>
-    </checkbox-group >
+    </checkbox-group>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop, Model, Watch } from 'vue-property-decorator';
-import CodeListService from "@service/app/codelist-service";
+import CodeListService from '@service/app/codelist-service';
 
-@Component({
-})
+@Component({})
 export default class AppCheckBox extends Vue {
     /**
      * 代码表服务对象
      *
      * @type {CodeListService}
      * @memberof AppCheckBox
-     */  
-    public codeListService:CodeListService = new CodeListService({ $store: this.$store });
+     */
+    public codeListService: CodeListService = new CodeListService({ $store: this.$store });
 
     /**
      * 代码表标识
@@ -43,7 +47,7 @@ export default class AppCheckBox extends Vue {
      * @type {string}
      * @memberof AppCheckBox
      */
-    @Prop({default:','}) public valueSeparator?: string;
+    @Prop({ default: ',' }) public valueSeparator?: string;
 
     /**
      * 是否禁用
@@ -63,19 +67,19 @@ export default class AppCheckBox extends Vue {
 
     /**
      * 局部上下文导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppCheckBox
      */
-    @Prop() public localContext!:any;
+    @Prop() public localContext!: any;
 
     /**
      * 局部导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppCheckBox
      */
-    @Prop() public localParam!:any;
+    @Prop() public localParam!: any;
 
     /**
      * 视图上下文
@@ -137,7 +141,7 @@ export default class AppCheckBox extends Vue {
         }
     }
 
-    /** 
+    /**
      * 选中值
      *
      * @type {*}
@@ -218,13 +222,13 @@ export default class AppCheckBox extends Vue {
         arg.param = this.viewparams ? JSON.parse(JSON.stringify(this.viewparams)) : {};
         arg.context = this.context ? JSON.parse(JSON.stringify(this.context)) : {};
         // 附加参数处理
-        if (this.localContext && Object.keys(this.localContext).length >0) {
-            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
-            Object.assign(arg.context,_context);
+        if (this.localContext && Object.keys(this.localContext).length > 0) {
+            let _context = this.$util.computedNavData(this.data, arg.context, arg.param, this.localContext);
+            Object.assign(arg.context, _context);
         }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
-            Object.assign(arg.param,_param);
+        if (this.localParam && Object.keys(this.localParam).length > 0) {
+            let _param = this.$util.computedNavData(this.data, arg.param, arg.param, this.localParam);
+            Object.assign(arg.param, _param);
         }
     }
 
@@ -234,56 +238,62 @@ export default class AppCheckBox extends Vue {
      * @memberof AppCheckBox
      */
     public created() {
-        if(this.tag){
-            if (Object.is(this.codelistType,"STATIC")) {
+        if (this.tag) {
+            if (Object.is(this.codelistType, 'STATIC')) {
                 const codelist = this.$store.getters.getCodeList(this.tag);
                 if (codelist) {
                     this.items = [...JSON.parse(JSON.stringify(codelist.items))];
                 } else {
                     console.log(`----${this.tag}----$t('components.appCheckBox.notExist')`);
                 }
-            } else if (Object.is(this.codelistType,"DYNAMIC")) {
+            } else if (Object.is(this.codelistType, 'DYNAMIC')) {
                 // 公共参数处理
                 let data: any = {};
                 this.handlePublicParams(data);
                 // 参数处理
                 let _context = data.context;
                 let _param = data.param;
-                this.codeListService.getItems(this.tag,_context,_param).then((res:any) => {
-                    this.items = res;
-                }).catch((error:any) => {
-                    console.log(`----${this.tag}----$t('components.appCheckBox.notExist')`);
-                });
+                this.codeListService
+                    .getItems(this.tag, _context, _param)
+                    .then((res: any) => {
+                        this.items = res;
+                    })
+                    .catch((error: any) => {
+                        console.log(`----${this.tag}----$t('components.appCheckBox.notExist')`);
+                    });
             }
         }
     }
 
     /**
      * 监听表单数据变化
-     * 
+     *
      * @memberof AppCheckBox
      */
-    @Watch('data',{immediate:true,deep:true})
+    @Watch('data', { immediate: true, deep: true })
     onDataChange(newVal: any, oldVal: any) {
-      if(newVal){
-          if(this.tag && this.codelistType == 'DYNAMIC'){
-              // 公共参数处理
-              let data: any = {};
-              this.handlePublicParams(data);
-              // 参数处理
-              let _context = data.context;
-              let _param = data.param;
-              this.codeListService.getItems(this.tag,_context,_param).then((res:any) => {
-                  this.items = res;
-              }).catch((error:any)=>{
-                  console.log(`----${this.tag}----${(this.$t('app.commonWords.codeNotExist') as string)}`);
-              })
-          }
-      }
+        if (newVal) {
+            if (this.tag && this.codelistType == 'DYNAMIC') {
+                // 公共参数处理
+                let data: any = {};
+                this.handlePublicParams(data);
+                // 参数处理
+                let _context = data.context;
+                let _param = data.param;
+                this.codeListService
+                    .getItems(this.tag, _context, _param)
+                    .then((res: any) => {
+                        this.items = res;
+                    })
+                    .catch((error: any) => {
+                        console.log(`----${this.tag}----${this.$t('app.commonWords.codeNotExist') as string}`);
+                    });
+            }
+        }
     }
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import './app-checkbox-list.less';
 </style>

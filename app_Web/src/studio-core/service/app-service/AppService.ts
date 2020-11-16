@@ -8,6 +8,4 @@ import { AppServiceBase } from './AppServiceBase';
  * @class AppService
  */
 @SingletonMode()
-export class AppService extends AppServiceBase {
-
-}
+export class AppService extends AppServiceBase {}

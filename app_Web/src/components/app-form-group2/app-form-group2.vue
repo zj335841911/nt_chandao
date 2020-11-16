@@ -1,14 +1,11 @@
-
 <template>
-     <span>未实现</span>
+    <span>未实现</span>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, } from 'vue-property-decorator';
-
+import { Vue, Component, Prop } from 'vue-property-decorator';
 
 @Component({})
 export default class AppFormGroup2 extends Vue {
-
     /**
      * 标题
      *
@@ -19,7 +16,7 @@ export default class AppFormGroup2 extends Vue {
 
     /**
      * 内置界面样式
-     * 
+     *
      * @type {string}
      * @memberof AppFormGroup2
      */
@@ -55,11 +52,10 @@ export default class AppFormGroup2 extends Vue {
      * 1: 默认打开
      * 2： 默认关闭
      *
-     * @type {(number | 0 | 1 | 2)} 
+     * @type {(number | 0 | 1 | 2)}
      * @memberof AppFormGroup2
      */
     @Prop({ default: 0 }) public titleBarCloseMode!: number | 0 | 1 | 2;
-
 }
 </script>
 <style lang="less">

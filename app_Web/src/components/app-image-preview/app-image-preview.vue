@@ -1,50 +1,48 @@
 <template>
-  <div class='app-picture-preview'>
-    <ul class="">
-      <li v-for="(file,index) in files" :key="index" class="preview-file-list-item">
-        <div class='preview-file-list-img'>
-          <el-image :src="file.url" class='' style=''>
-              <div slot='error' class='image-slot'>
-                  <img src="/assets/img/picture.png" style='width:100%;height:100%;'>
-              </div>
-          </el-image>
-          <div class='preview-file-list-actions'>
-              <span class='action-preview'>
-                  <i class='el-icon-zoom-in' @click="onPreview(file)"></i>
-              </span>
-              <span class='action-download'>
-                  <i class='el-icon-download' @click="onDownload(file)"></i>
-              </span>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <!-- 预览 -->
-    <modal v-model="dialogVisible" footer-hide width="auto" class-name='app-image-preview-model'>
-      <el-image :src="dialogImageUrl">
-          <div slot='error' class='image-slot'>
-              <img src="/assets/img/picture.png">
-          </div>
-      </el-image>
-    </modal>
-  </div>
+    <div class="app-picture-preview">
+        <ul class="">
+            <li v-for="(file, index) in files" :key="index" class="preview-file-list-item">
+                <div class="preview-file-list-img">
+                    <el-image :src="file.url" class="" style="">
+                        <div slot="error" class="image-slot">
+                            <img src="/assets/img/picture.png" style="width: 100%; height: 100%" />
+                        </div>
+                    </el-image>
+                    <div class="preview-file-list-actions">
+                        <span class="action-preview">
+                            <i class="el-icon-zoom-in" @click="onPreview(file)"></i>
+                        </span>
+                        <span class="action-download">
+                            <i class="el-icon-download" @click="onDownload(file)"></i>
+                        </span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!-- 预览 -->
+        <modal v-model="dialogVisible" footer-hide width="auto" class-name="app-image-preview-model">
+            <el-image :src="dialogImageUrl">
+                <div slot="error" class="image-slot">
+                    <img src="/assets/img/picture.png" />
+                </div>
+            </el-image>
+        </modal>
+    </div>
 </template>
-<script lang = 'ts'>
+<script lang="ts">
 import { Vue, Component, Prop, Watch, Provide } from 'vue-property-decorator';
 import { Environment } from '@/environments/environment';
 import { Subject, Unsubscribable } from 'rxjs';
 
 @Component({})
 export default class AppImagePreview extends Vue {
-
     /**
      * 表单状态
      *
      * @type {Subject<any>}
      * @memberof AppImagePreview
      */
-    @Prop() public formState?: Subject<any>
-
+    @Prop() public formState?: Subject<any>;
 
     /**
      * 表单状态事件
@@ -73,7 +71,7 @@ export default class AppImagePreview extends Vue {
      */
     @Watch('value')
     onValueChange(newval: any, val: any) {
-        this.setFiles(newval)
+        this.setFiles(newval);
     }
 
     /**
@@ -111,14 +109,14 @@ export default class AppImagePreview extends Vue {
      * @private
      * @memberof AppImagePreview
      */
-    private setFiles(value:any): void {
+    private setFiles(value: any): void {
         let _files = JSON.parse(value);
-        if (value && Object.prototype.toString.call(_files)=='[object Array]') {
+        if (value && Object.prototype.toString.call(_files) == '[object Array]') {
             this.files = _files;
             this.files.forEach((file: any) => {
-            let url = `${this.downloadUrl}/${file.id}`;
-            file.url = url;
-        });
+                let url = `${this.downloadUrl}/${file.id}`;
+                file.url = url;
+            });
         } else {
             this.files = [];
         }
@@ -196,9 +194,8 @@ export default class AppImagePreview extends Vue {
         this.dialogImageUrl = file.url;
         this.dialogVisible = true;
     }
-
 }
 </script>
-<style lang = "less">
+<style lang="less">
 @import './app-image-preview.less';
 </style>

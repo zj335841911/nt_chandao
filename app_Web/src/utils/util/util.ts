@@ -1,14 +1,13 @@
 import qs from 'qs';
-import Schema from "async-validator";
+import Schema from 'async-validator';
 
 /**
  * 平台工具类
- * 
+ *
  * @export
  * @class Util
  */
 export class Util {
-
     /**
      * App唯一自增主键记录值
      *
@@ -27,7 +26,9 @@ export class Util {
      */
     public static createUUID(): string {
         function s4() {
-            return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
         }
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
     }
@@ -66,7 +67,7 @@ export class Util {
      * @memberof Util
      */
     public static isFunction(func: any): boolean {
-        return typeof (func) === 'function';
+        return typeof func === 'function';
     }
 
     /**
@@ -93,9 +94,9 @@ export class Util {
 
     /**
      * 下载文件
-     * 
+     *
      * @static
-     * @param {string} url 
+     * @param {string} url
      * @memberof Util
      */
     public static download(url: string): void {
@@ -103,12 +104,12 @@ export class Util {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @static
-     * @param {any} url 
-     * @param {any} params 
-     * @returns {string} 
+     * @param {any} url
+     * @param {any} params
+     * @returns {string}
      * @memberof Util
      */
     public static parseURL2(url: string, params: any): string {
@@ -130,9 +131,9 @@ export class Util {
 
     /**
      * 是否是数字
-     * 
-     * @param {*} num 
-     * @returns {boolean} 
+     *
+     * @param {*} num
+     * @returns {boolean}
      * @memberof Util
      */
     public static isNumberNaN(num: any): boolean {
@@ -141,10 +142,10 @@ export class Util {
 
     /**
      * 是否未定义
-     * 
+     *
      * @static
-     * @param {*} value 
-     * @returns {boolean} 
+     * @param {*} value
+     * @returns {boolean}
      * @memberof Util
      */
     public static isUndefined(value: any): boolean {
@@ -153,10 +154,10 @@ export class Util {
 
     /**
      * 是否为空
-     * 
+     *
      * @static
-     * @param {*} value 
-     * @returns {boolean} 
+     * @param {*} value
+     * @returns {boolean}
      * @memberof Util
      */
     public static isEmpty(value: any): boolean {
@@ -173,7 +174,7 @@ export class Util {
      */
     public static formatMatrixStringify(obj: any): any {
         let str: string = '';
-        if (obj && !(obj instanceof Array) && (obj instanceof Object)) {
+        if (obj && !(obj instanceof Array) && obj instanceof Object) {
             const keys: string[] = Object.keys(obj);
             keys.forEach((key: string) => {
                 if (!obj[key]) {
@@ -196,7 +197,12 @@ export class Util {
      * @returns {*}
      * @memberof Util
      */
-    public static prepareRouteParmas({ route: route, sourceNode: sourceNode, targetNode: targetNode, data: data }: any): any {
+    public static prepareRouteParmas({
+        route: route,
+        sourceNode: sourceNode,
+        targetNode: targetNode,
+        data: data,
+    }: any): any {
         const params: any = {};
         if (!sourceNode || (sourceNode && Object.is(sourceNode, ''))) {
             return params;
@@ -230,7 +236,7 @@ export class Util {
             '[object RegExp]': 'regExp',
             '[object Undefined]': 'undefined',
             '[object Null]': 'null',
-            '[object Object]': 'object'
+            '[object Object]': 'object',
         };
         return map[toString.call(obj)];
     }
@@ -285,7 +291,7 @@ export class Util {
         const uPattern = /^[A-Z]{1}$/;
 
         const str1 = name.substring(0, 1);
-        const str2 = name.substring(1)
+        const str2 = name.substring(1);
         state = uPattern.test(str1) ? 1 : 0;
         _str = `${_str}${str1.toLowerCase()}`;
 
@@ -296,10 +302,10 @@ export class Util {
                 } else {
                     _str = `${_str}-${chr.toLowerCase()}`;
                 }
-                state = 1
+                state = 1;
             } else {
                 _str = `${_str}${chr.toLowerCase()}`;
-                state = 0
+                state = 0;
             }
         }
         _str = _str.replace(/---/g, '-').replace(/--/g, '-');
@@ -346,7 +352,7 @@ export class Util {
     /**
      * 计算导航数据
      * 先从当前数据目标计算，然后再从当前上下文计算，最后从当前视图参数计算，没有则为null
-     * 
+     *
      * @static
      * @param {any} data 表单数据
      * @param {any} parentContext 外层context
@@ -390,30 +396,29 @@ export class Util {
      * @returns {string}
      * @memberof Util
      */
-    public static dateFormat(date: any, fmt: string = "YYYY-mm-dd HH:MM:SS"): string {
+    public static dateFormat(date: any, fmt: string = 'YYYY-mm-dd HH:MM:SS'): string {
         let ret;
         const opt: any = {
-            "Y+": date.getFullYear().toString(),        // 年
-            "m+": (date.getMonth() + 1).toString(),     // 月
-            "d+": date.getDate().toString(),            // 日
-            "H+": date.getHours().toString(),           // 时
-            "M+": date.getMinutes().toString(),         // 分
-            "S+": date.getSeconds().toString()          // 秒
+            'Y+': date.getFullYear().toString(), // 年
+            'm+': (date.getMonth() + 1).toString(), // 月
+            'd+': date.getDate().toString(), // 日
+            'H+': date.getHours().toString(), // 时
+            'M+': date.getMinutes().toString(), // 分
+            'S+': date.getSeconds().toString(), // 秒
             // 有其他格式化字符需求可以继续添加，必须转化成字符串
         };
         for (let k in opt) {
-            ret = new RegExp("(" + k + ")").exec(fmt);
+            ret = new RegExp('(' + k + ')').exec(fmt);
             if (ret) {
-                fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
-            };
-        };
+                fmt = fmt.replace(ret[1], ret[1].length == 1 ? opt[k] : opt[k].padStart(ret[1].length, '0'));
+            }
+        }
         return fmt;
     }
 
-
     /**
      * 深度合并对象
-     * 
+     *
      * @param FirstOBJ 目标对象
      * @param SecondOBJ 原对象
      * @returns {Object}
@@ -421,16 +426,17 @@ export class Util {
      */
     public static deepObjectMerge(FirstOBJ: any, SecondOBJ: any) {
         for (var key in SecondOBJ) {
-            FirstOBJ[key] = FirstOBJ[key] && FirstOBJ[key].toString() === "[object Object]" ?
-                this.deepObjectMerge(FirstOBJ[key], SecondOBJ[key]) : FirstOBJ[key] = SecondOBJ[key];
+            FirstOBJ[key] =
+                FirstOBJ[key] && FirstOBJ[key].toString() === '[object Object]'
+                    ? this.deepObjectMerge(FirstOBJ[key], SecondOBJ[key])
+                    : (FirstOBJ[key] = SecondOBJ[key]);
         }
         return FirstOBJ;
     }
 
-
     /**
      * 表单项校验
-     * 
+     *
      * @param property 表单项属性名
      * @param data 表单数据
      * @param rules 表单值规则
@@ -442,9 +448,9 @@ export class Util {
         const value = data[property];
         const rule = rules[property];
         // 2.创建校验规则
-        const schema = new Schema({ [property]: rule })
+        const schema = new Schema({ [property]: rule });
         // 校验返回Promise
-        return schema.validate({ [property]: value })
+        return schema.validate({ [property]: value });
     }
 
     /**
@@ -457,7 +463,7 @@ export class Util {
      * @memberof Util
      */
     public static handleParams(params: any, sep: string) {
-        return qs.stringify(params, { delimiter: sep })
+        return qs.stringify(params, { delimiter: sep });
     }
 
     /**
@@ -471,7 +477,13 @@ export class Util {
      * @param {string} [path='/'] 默认归属路径
      * @memberof Util
      */
-    public static setCookie(name: string, value: string, day: number = 0, isDomain: boolean = false, path: string = '/'): void {
+    public static setCookie(
+        name: string,
+        value: string,
+        day: number = 0,
+        isDomain: boolean = false,
+        path: string = '/'
+    ): void {
         let domain = '';
         // 设置cookie到主域下
         if (isDomain) {
@@ -485,7 +497,8 @@ export class Util {
                 }
             }
         }
-        if (day !== 0) { //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
+        if (day !== 0) {
+            //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
             const expires = day * 24 * 60 * 60 * 1000;
             const date = new Date(new Date().getTime() + expires);
             document.cookie = `${name}=${escape(value)};path=${path};expires=${date.toUTCString()}${domain}`;
@@ -515,7 +528,7 @@ export class Util {
      * @memberof Util
      */
     public static getCookie(name: string): string {
-        const reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        const reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
         const arr = document.cookie.match(reg);
         if (arr && arr.length > 1) {
             return unescape(arr[2]);
@@ -564,11 +577,13 @@ export class Util {
      */
     public static getQueryVariable(variable: string): any {
         const query = location.search.substring(1);
-        var vars = query.split("&");
+        var vars = query.split('&');
         for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split("=");
-            if (pair[0] == variable) { return pair[1]; }
+            var pair = vars[i].split('=');
+            if (pair[0] == variable) {
+                return pair[1];
+            }
         }
-        return (false);
+        return false;
     }
 }

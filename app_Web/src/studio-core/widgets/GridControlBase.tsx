@@ -12,7 +12,6 @@ import { Environment } from '@/environments/environment';
  * @extends {MDControlBase}
  */
 export class GridControlBase extends MDControlBase {
-
     /**
      * 界面服务
      *
@@ -34,8 +33,8 @@ export class GridControlBase extends MDControlBase {
      *
      * @type {string}
      * @memberof GridControlBase
-     */  
-    public majorInfoColName:string = "";
+     */
+    public majorInfoColName: string = '';
 
     /**
      * 本地缓存标识
@@ -70,7 +69,7 @@ export class GridControlBase extends MDControlBase {
      * @type {boolean}
      * @memberof GridControlBase
      */
-    @Prop({default: false})
+    @Prop({ default: false })
     public isformDruipart?: boolean;
 
     /**
@@ -95,7 +94,7 @@ export class GridControlBase extends MDControlBase {
      * @param {*}
      * @memberof GridControlBase
      */
-    public deRules:any;
+    public deRules: any;
 
     /**
      * 当前编辑行数据
@@ -103,7 +102,7 @@ export class GridControlBase extends MDControlBase {
      * @type {*}
      * @memberof GridControlBase
      */
-    public curEditRowData:any = {};
+    public curEditRowData: any = {};
 
     /**
      * 选中值变化
@@ -230,7 +229,7 @@ export class GridControlBase extends MDControlBase {
      * @type {*}
      * @memberof GridControlBase
      */
-    public rules() {};
+    public rules() {}
 
     /**
      * 是否为实体导出对象
@@ -264,7 +263,7 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     get tableHeight() {
-        return this.isEnablePagingBar ? 'calc(100% - 36px)': '100%';
+        return this.isEnablePagingBar ? 'calc(100% - 36px)' : '100%';
     }
 
     /**
@@ -301,7 +300,7 @@ export class GridControlBase extends MDControlBase {
                 content: '数据已变更，是否刷新数据?',
                 onOk: () => {
                     this.refresh();
-                }
+                },
             });
         } else {
             this.refresh();
@@ -317,16 +316,28 @@ export class GridControlBase extends MDControlBase {
     protected ctrlCreated(): void {
         super.ctrlCreated();
         this.setColState();
-        this.accLocalTags.push(this.$acc.commandLocal(() => {
-            if (this.isActive) {
-                this.load();
-            }
-        }, 'all', this.appDeName.toUpperCase()));
-        this.accLocalTags.push(this.$acc.command(() => {
-            if (this.isActive) {
-                this.load();
-            }
-        }, 'all', this.appDeName.toUpperCase()));
+        this.accLocalTags.push(
+            this.$acc.commandLocal(
+                () => {
+                    if (this.isActive) {
+                        this.load();
+                    }
+                },
+                'all',
+                this.appDeName.toUpperCase()
+            )
+        );
+        this.accLocalTags.push(
+            this.$acc.command(
+                () => {
+                    if (this.isActive) {
+                        this.load();
+                    }
+                },
+                'all',
+                this.appDeName.toUpperCase()
+            )
+        );
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -356,13 +367,16 @@ export class GridControlBase extends MDControlBase {
      */
     public validate(property: string, data: any, rowIndex: number): Promise<any> {
         return new Promise((resolve) => {
-            this.$util.validateItem(property, data, this.rules()).then(() => {
-                this.gridItemsModel[rowIndex][property].setError(null);
-                resolve(true);
-            }).catch((res: any) => {
-                this.gridItemsModel[rowIndex][property].setError(res.errors[0].message);
-                resolve(false);
-            });
+            this.$util
+                .validateItem(property, data, this.rules())
+                .then(() => {
+                    this.gridItemsModel[rowIndex][property].setError(null);
+                    resolve(true);
+                })
+                .catch((res: any) => {
+                    this.gridItemsModel[rowIndex][property].setError(res.errors[0].message);
+                    resolve(false);
+                });
         });
     }
 
@@ -379,9 +393,9 @@ export class GridControlBase extends MDControlBase {
         for (let item of this.items) {
             let tempMessage: string = '';
             index++;
-            if (item.rowDataState === "create" || item.rowDataState === "update") {
+            if (item.rowDataState === 'create' || item.rowDataState === 'update') {
                 for (let property of Object.keys(this.rules() as any)) {
-                    if (!await this.validate(property, item, index)) {
+                    if (!(await this.validate(property, item, index))) {
                         validateState = false;
                         tempMessage = tempMessage + '<p>' + this.gridItemsModel[index][property].error + '<p>';
                     }
@@ -400,9 +414,7 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     public getColumnState(name: string): boolean {
-        let column = this.allColumns.find((col: any) =>
-            Object.is(name, col.name)
-        );
+        let column = this.allColumns.find((col: any) => Object.is(name, col.name));
         return column.show ? true : false;
     }
 
@@ -428,11 +440,14 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any) {
-        if (!await this.validateAll()) {
-            if(this.errorMessages && this.errorMessages.length > 0) {
-                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: this.errorMessages[0] });
+        if (!(await this.validateAll())) {
+            if (this.errorMessages && this.errorMessages.length > 0) {
+                this.$Notice.error({ title: this.$t('app.commonWords.wrong') as string, desc: this.errorMessages[0] });
             } else {
-                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.rulesException') as string) });
+                this.$Notice.error({
+                    title: this.$t('app.commonWords.wrong') as string,
+                    desc: this.$t('app.commonWords.rulesException') as string,
+                });
             }
             return [];
         }
@@ -443,21 +458,37 @@ export class GridControlBase extends MDControlBase {
             try {
                 if (Object.is(item.rowDataState, 'create')) {
                     if (!this.createAction) {
-                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.createAction') as string) });
+                        this.$Notice.error({
+                            title: this.$t('app.commonWords.wrong') as string,
+                            desc: this.$t('app.gridpage.notConfig.createAction') as string,
+                        });
                     } else {
                         Object.assign(item, { viewparams: this.viewparams });
-                        let response = await this.service.add(this.createAction, JSON.parse(JSON.stringify(this.context)), item, this.showBusyIndicator);
+                        let response = await this.service.add(
+                            this.createAction,
+                            JSON.parse(JSON.stringify(this.context)),
+                            item,
+                            this.showBusyIndicator
+                        );
                         successItems.push(JSON.parse(JSON.stringify(response.data)));
                     }
                 } else if (Object.is(item.rowDataState, 'update')) {
                     if (!this.updateAction) {
-                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.updateAction') as string) });
+                        this.$Notice.error({
+                            title: this.$t('app.commonWords.wrong') as string,
+                            desc: this.$t('app.gridpage.notConfig.updateAction') as string,
+                        });
                     } else {
                         Object.assign(item, { viewparams: this.viewparams });
                         if (item[this.appDeName]) {
                             Object.assign(this.context, { [this.appDeName]: item[this.appDeName] });
                         }
-                        let response = await this.service.update(this.updateAction, JSON.parse(JSON.stringify(this.context)), item, this.showBusyIndicator);
+                        let response = await this.service.update(
+                            this.updateAction,
+                            JSON.parse(JSON.stringify(this.context)),
+                            item,
+                            this.showBusyIndicator
+                        );
                         successItems.push(JSON.parse(JSON.stringify(response.data)));
                     }
                 }
@@ -469,46 +500,68 @@ export class GridControlBase extends MDControlBase {
         this.$emit('save', successItems);
         this.refresh([]);
         if (errorItems.length === 0 && !this.isformDruipart) {
-            this.$Notice.success({ title: '', desc: (this.$t('app.commonWords.saveSuccess') as string) });
+            this.$Notice.success({ title: '', desc: this.$t('app.commonWords.saveSuccess') as string });
         } else {
             errorItems.forEach((item: any, index: number) => {
-                if(errorMessage[index] && errorMessage[index].data) {
-                    if(Object.is(errorMessage[index].data.errorKey, 'DupCheck')) {
+                if (errorMessage[index] && errorMessage[index].data) {
+                    if (Object.is(errorMessage[index].data.errorKey, 'DupCheck')) {
                         let errorProp: string = errorMessage[index].data.message.match(/\[[a-zA-Z]*\]/)[0];
-                        let name: string = errorProp ? this.service.getNameByProp(errorProp.substr(1, errorProp.length-2)) : '';
-                        if(name) {
-                            let desc: any = this.allColumns.find((column: any) =>{
+                        let name: string = errorProp
+                            ? this.service.getNameByProp(errorProp.substr(1, errorProp.length - 2))
+                            : '';
+                        if (name) {
+                            let desc: any = this.allColumns.find((column: any) => {
                                 return Object.is(column.name, name);
                             });
                             this.$Notice.error({
-                                title: (this.$t('app.commonWords.createFailed') as string),
-                                desc: (desc ? desc.label : '') + " : " + item[name] + (this.$t('app.commonWords.isExist') as string) + '!',
+                                title: this.$t('app.commonWords.createFailed') as string,
+                                desc:
+                                    (desc ? desc.label : '') +
+                                    ' : ' +
+                                    item[name] +
+                                    (this.$t('app.commonWords.isExist') as string) +
+                                    '!',
                             });
                         } else {
                             this.$Notice.error({
-                                title: (this.$t('app.commonWords.createFailed') as string),
-                                desc: errorMessage[index].data.message?errorMessage[index].data.message:(this.$t('app.commonWords.sysException') as string),
+                                title: this.$t('app.commonWords.createFailed') as string,
+                                desc: errorMessage[index].data.message
+                                    ? errorMessage[index].data.message
+                                    : (this.$t('app.commonWords.sysException') as string),
                             });
                         }
-                    } else if(Object.is(errorMessage[index].data.errorKey, 'DuplicateKeyException')){
+                    } else if (Object.is(errorMessage[index].data.errorKey, 'DuplicateKeyException')) {
                         let name: string = this.service.getNameByProp(this.columnKeyName);
-                        if(name){
-                            let desc: any = this.allColumns.find((column: any) =>{
+                        if (name) {
+                            let desc: any = this.allColumns.find((column: any) => {
                                 return Object.is(column.name, name);
                             });
                             this.$Notice.error({
-                                title: (this.$t('app.commonWords.createFailed') as string),
-                                desc: (desc ? desc.label : '') + " : " + item[name] + (this.$t('app.commonWords.isExist') as string) + '!',
+                                title: this.$t('app.commonWords.createFailed') as string,
+                                desc:
+                                    (desc ? desc.label : '') +
+                                    ' : ' +
+                                    item[name] +
+                                    (this.$t('app.commonWords.isExist') as string) +
+                                    '!',
                             });
                         }
-                    }else {
+                    } else {
                         this.$Notice.error({
-                            title: (this.$t('app.commonWords.saveFailed') as string),
-                            desc: errorMessage[index].data.message?errorMessage[index].data.message:(this.$t('app.commonWords.sysException') as string),
+                            title: this.$t('app.commonWords.saveFailed') as string,
+                            desc: errorMessage[index].data.message
+                                ? errorMessage[index].data.message
+                                : (this.$t('app.commonWords.sysException') as string),
                         });
                     }
                 } else {
-                    this.$Notice.error({ title: (this.$t('app.commonWords.saveFailed') as string), desc: (item[this.majorInfoColName]?item[this.majorInfoColName]:"") + (this.$t('app.commonWords.saveFailed') as string) + '!' });
+                    this.$Notice.error({
+                        title: this.$t('app.commonWords.saveFailed') as string,
+                        desc:
+                            (item[this.majorInfoColName] ? item[this.majorInfoColName] : '') +
+                            (this.$t('app.commonWords.saveFailed') as string) +
+                            '!',
+                    });
                 }
             });
         }
@@ -525,7 +578,10 @@ export class GridControlBase extends MDControlBase {
      */
     public load(opt: any = {}, pageReset: boolean = false): void {
         if (!this.fetchAction) {
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.fetchAction') as string) });
+            this.$Notice.error({
+                title: this.$t('app.commonWords.wrong') as string,
+                desc: this.$t('app.gridpage.notConfig.fetchAction') as string,
+            });
             return;
         }
         if (pageReset) {
@@ -538,7 +594,7 @@ export class GridControlBase extends MDControlBase {
         }
         // 设置排序
         if (!this.isNoSort && !Object.is(this.minorSortDir, '') && !Object.is(this.minorSortPSDEF, '')) {
-            const sort: string = this.minorSortPSDEF + "," + this.minorSortDir;
+            const sort: string = this.minorSortPSDEF + ',' + this.minorSortDir;
             Object.assign(page, { sort: sort });
         }
         Object.assign(arg, page);
@@ -548,16 +604,21 @@ export class GridControlBase extends MDControlBase {
         let tempViewParams: any = parentdata.viewparams ? parentdata.viewparams : {};
         Object.assign(tempViewParams, JSON.parse(JSON.stringify(this.viewparams)));
         Object.assign(arg, { viewparams: tempViewParams });
-        const post: Promise<any> = this.service.search(this.fetchAction, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
+        const post: Promise<any> = this.service.search(
+            this.fetchAction,
+            JSON.parse(JSON.stringify(this.context)),
+            arg,
+            this.showBusyIndicator
+        );
         post.then((response: any) => {
             if (!response.status || response.status !== 200) {
                 if (response.message) {
-                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.message });
+                    this.$Notice.error({ title: this.$t('app.commonWords.wrong') as string, desc: response.message });
                 }
                 return;
             }
             const data: any = response.data;
-            if(data.length === 0 && this.curPage > 1) {
+            if (data.length === 0 && this.curPage > 1) {
                 this.curPage--;
                 this.load(opt, pageReset);
                 return;
@@ -567,7 +628,9 @@ export class GridControlBase extends MDControlBase {
             // 清空selections,gridItemsModel
             this.selections = [];
             this.gridItemsModel = [];
-            this.items.forEach(() => { this.gridItemsModel.push(this.getGridRowModel()) });
+            this.items.forEach(() => {
+                this.gridItemsModel.push(this.getGridRowModel());
+            });
             this.items.forEach((item: any) => {
                 Object.assign(item, this.getActionState(item));
             });
@@ -598,14 +661,14 @@ export class GridControlBase extends MDControlBase {
             // this.getAggData();
             // </#if>
             const _this: any = this;
-            if(_this.isEnableGroup && _this.group && _this.group instanceof Function){
+            if (_this.isEnableGroup && _this.group && _this.group instanceof Function) {
                 _this.group();
             }
         }).catch((response: any) => {
             if (response && response.status === 401) {
                 return;
             }
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+            this.$Notice.error({ title: this.$t('app.commonWords.wrong') as string, desc: response.data.message });
         });
     }
 
@@ -618,12 +681,15 @@ export class GridControlBase extends MDControlBase {
      */
     public async remove(items: any[]): Promise<any> {
         if (!this.removeAction) {
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.removeAction') as string) });
+            this.$Notice.error({
+                title: this.$t('app.commonWords.wrong') as string,
+                desc: this.$t('app.gridpage.notConfig.removeAction') as string,
+            });
             return;
         }
         const arr: any[] = [];
         items.forEach((record: any, index: number) => {
-            if (Object.is(record.srfuf, "0")) {
+            if (Object.is(record.srfuf, '0')) {
                 this.items.some((val: any, num: number) => {
                     if (JSON.stringify(val) == JSON.stringify(record)) {
                         this.items.splice(num, 1);
@@ -652,7 +718,13 @@ export class GridControlBase extends MDControlBase {
         });
 
         if (arr.length < 5) {
-            dataInfo = dataInfo + ' ' + (this.$t('app.gridpage.totle') as string) + arr.length + (this.$t('app.gridpage.records') as string) + (this.$t('app.gridpage.data') as string);
+            dataInfo =
+                dataInfo +
+                ' ' +
+                (this.$t('app.gridpage.totle') as string) +
+                arr.length +
+                (this.$t('app.gridpage.records') as string) +
+                (this.$t('app.gridpage.data') as string);
         } else {
             dataInfo = dataInfo + '... 等' + (this.$t('app.gridpage.totle') as string) + arr.length + '条';
         }
@@ -665,14 +737,22 @@ export class GridControlBase extends MDControlBase {
             const _removeAction = keys.length > 1 ? 'removeBatch' : this.removeAction;
             const _keys = keys.length > 1 ? keys : keys[0];
             const context: any = JSON.parse(JSON.stringify(this.context));
-            const post: Promise<any> = this.service.delete(_removeAction, Object.assign(context, { [this.appDeName]: _keys }), Object.assign({ [this.appDeName]: _keys }, { viewparams: this.viewparams }), this.showBusyIndicator);
+            const post: Promise<any> = this.service.delete(
+                _removeAction,
+                Object.assign(context, { [this.appDeName]: _keys }),
+                Object.assign({ [this.appDeName]: _keys }, { viewparams: this.viewparams }),
+                this.showBusyIndicator
+            );
             return new Promise((resolve: any, reject: any) => {
                 post.then((response: any) => {
                     if (!response || response.status !== 200) {
-                        this.$Notice.error({ title: '', desc: (this.$t('app.gridpage.delDataFail') as string) + ',' + response.info });
+                        this.$Notice.error({
+                            title: '',
+                            desc: (this.$t('app.gridpage.delDataFail') as string) + ',' + response.info,
+                        });
                         return;
                     } else {
-                        this.$Notice.success({ title: '', desc: (this.$t('app.gridpage.delSuccess') as string) });
+                        this.$Notice.success({ title: '', desc: this.$t('app.gridpage.delSuccess') as string });
                     }
                     //删除items中已删除的项
                     arr.forEach((data: any) => {
@@ -694,24 +774,35 @@ export class GridControlBase extends MDControlBase {
                         return;
                     }
                     if (!response || !response.status || !response.data) {
-                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
+                        this.$Notice.error({
+                            title: this.$t('app.commonWords.wrong') as string,
+                            desc: this.$t('app.commonWords.sysException') as string,
+                        });
                         reject(response);
                         return;
                     }
-                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+                    this.$Notice.error({
+                        title: this.$t('app.commonWords.wrong') as string,
+                        desc: response.data.message,
+                    });
                     reject(response);
                 });
             });
-        }
+        };
 
         dataInfo = dataInfo.replace(/[null]/g, '').replace(/[undefined]/g, '');
         this.$Modal.confirm({
-            title: (this.$t('app.commonWords.warning') as string),
-            content: (this.$t('app.gridpage.confirmDel') as string) + ' ' + dataInfo + '，' + (this.$t('app.gridpage.notRecoverable') as string),
+            title: this.$t('app.commonWords.warning') as string,
+            content:
+                (this.$t('app.gridpage.confirmDel') as string) +
+                ' ' +
+                dataInfo +
+                '，' +
+                (this.$t('app.gridpage.notRecoverable') as string),
             onOk: () => {
                 removeData();
             },
-            onCancel: () => { }
+            onCancel: () => {},
         });
         return removeData;
     }
@@ -723,7 +814,7 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     public addBatch(arg: any = {}): void {
-        console.error((this.$t('app.gridpage.notBatch') as string));
+        console.error(this.$t('app.gridpage.notBatch') as string);
     }
 
     /**
@@ -736,15 +827,18 @@ export class GridControlBase extends MDControlBase {
      */
     public importExcel(data: any = {}, importMode: any = {}): void {
         if (Object.keys(importMode).length == 0) {
-            this.$Notice.warning({ 'title': (this.$t("app.utilview.warning") as string), 'desc': (this.$t("app.utilview.info") as string) });
+            this.$Notice.warning({
+                title: this.$t('app.utilview.warning') as string,
+                desc: this.$t('app.utilview.info') as string,
+            });
             return;
         }
         const view: any = {
             viewname: 'app-data-upload',
-            title: this.$t("app.utilview.importview"),
+            title: this.$t('app.utilview.importview'),
             width: 900,
-            height: 700
-        }
+            height: 700,
+        };
         const container = this.$appmodal.openModal(view, JSON.parse(JSON.stringify(this.context)), importMode);
         container.subscribe((result: any) => {
             if (Object.is(result.ret, 'OK')) {
@@ -766,8 +860,8 @@ export class GridControlBase extends MDControlBase {
             const tHeader: Array<any> = [];
             const filterVal: Array<any> = [];
             (this.isDeExport ? this.allExportColumns : this.allColumns).forEach((item: any) => {
-                item.show && item.label ? tHeader.push(this.$t(item.langtag)) : "";
-                item.show && item.name ? filterVal.push(item.name) : "";
+                item.show && item.label ? tHeader.push(this.$t(item.langtag)) : '';
+                item.show && item.name ? filterVal.push(item.name) : '';
             });
             const data = await this.formatExcelData(filterVal, _data);
             this.$export.exportExcel().then((excel: any) => {
@@ -776,7 +870,7 @@ export class GridControlBase extends MDControlBase {
                     data, //具体数据 必填
                     filename: this.appDeLogicName + (this.$t('app.gridpage.grid') as string), //非必填
                     autoWidth: true, //非必填
-                    bookType: "xlsx" //非必填
+                    bookType: 'xlsx', //非必填
                 });
             });
         };
@@ -798,7 +892,7 @@ export class GridControlBase extends MDControlBase {
         }
         // 设置排序
         if (!this.isNoSort && !Object.is(this.minorSortDir, '') && !Object.is(this.minorSortPSDEF, '')) {
-            const sort: string = this.minorSortPSDEF + "," + this.minorSortDir;
+            const sort: string = this.minorSortPSDEF + ',' + this.minorSortDir;
             Object.assign(page, { sort: sort });
         }
         const arg: any = {};
@@ -812,13 +906,26 @@ export class GridControlBase extends MDControlBase {
         Object.assign(arg, { viewparams: tempViewParams });
         let post: any;
         if (this.isDeExport) {
-            post = this.service.searchDEExportData(this.fetchAction, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
+            post = this.service.searchDEExportData(
+                this.fetchAction,
+                JSON.parse(JSON.stringify(this.context)),
+                arg,
+                this.showBusyIndicator
+            );
         } else {
-            post = this.service.search(this.fetchAction, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
+            post = this.service.search(
+                this.fetchAction,
+                JSON.parse(JSON.stringify(this.context)),
+                arg,
+                this.showBusyIndicator
+            );
         }
         post.then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$Notice.error({ title: '', desc: (this.$t('app.gridpage.exportFail') as string) + ',' + response.info });
+                this.$Notice.error({
+                    title: '',
+                    desc: (this.$t('app.gridpage.exportFail') as string) + ',' + response.info,
+                });
                 return;
             }
             try {
@@ -830,7 +937,7 @@ export class GridControlBase extends MDControlBase {
             if (response && response.status === 401) {
                 return;
             }
-            this.$Notice.error({ title: '', desc: (this.$t('app.gridpage.exportFail') as string) });
+            this.$Notice.error({ title: '', desc: this.$t('app.gridpage.exportFail') as string });
         });
     }
 
@@ -846,20 +953,20 @@ export class GridControlBase extends MDControlBase {
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns: any[] = []): Promise<any> {
         for (const codelist of codelistColumns) {
             // 动态代码表处理
-            if (Object.is(codelist.codelistType, "DYNAMIC")) {
+            if (Object.is(codelist.codelistType, 'DYNAMIC')) {
                 let items = await this.codeListService.getItems(codelist.srfkey);
                 jsonData.forEach((row: any) => {
                     row[codelist.name] = this.getCodelistValue(items, row[codelist.name], codelist);
                 });
                 // 静态处理
-            } else if (Object.is(codelist.codelistType, "STATIC")) {
+            } else if (Object.is(codelist.codelistType, 'STATIC')) {
                 let items = await this.$store.getters.getCodeListItems(codelist.srfkey);
                 jsonData.forEach((row: any) => {
                     row[codelist.name] = this.getCodelistValue(items, row[codelist.name], codelist);
                 });
             }
         }
-        return jsonData.map((v: any) => filterVal.map((j: any) => v[j]))
+        return jsonData.map((v: any) => filterVal.map((j: any) => v[j]));
     }
 
     /**
@@ -871,25 +978,27 @@ export class GridControlBase extends MDControlBase {
      * @returns
      * @memberof GridControlBase
      */
-    public getCodelistValue(items: any[], value: any, codelist: any,) {
+    public getCodelistValue(items: any[], value: any, codelist: any) {
         if (!value && value !== 0 && value !== false) {
             return this.$t('codelist.' + codelist.srfkey + '.empty');
         }
         if (items) {
             let result: any = [];
-            if (Object.is(codelist.renderMode, "number")) {
+            if (Object.is(codelist.renderMode, 'number')) {
                 items.map((_item: any, index: number) => {
-                    const nValue = parseInt((value as any), 10);
+                    const nValue = parseInt(value as any, 10);
                     const codevalue = _item.value;
                     if ((parseInt(codevalue, 10) & nValue) > 0) {
                         result.push(_item);
                     }
                 });
-            } else if (Object.is(codelist.renderMode, "string")) {
+            } else if (Object.is(codelist.renderMode, 'string')) {
                 const arrayValue: Array<any> = (value as any).split(codelist.valueSeparator);
                 arrayValue.map((value: any, index: number) => {
                     result.push([]);
-                    let values: any[] = Object.is(this.$util.typeOf(value), 'number') ? [value] : [...(value as any).split(codelist.valueSeparator)];
+                    let values: any[] = Object.is(this.$util.typeOf(value), 'number')
+                        ? [value]
+                        : [...(value as any).split(codelist.valueSeparator)];
                     values.map((val: any, num: number) => {
                         const item = this.getItem(items, val, codelist);
                         if (item) {
@@ -898,7 +1007,9 @@ export class GridControlBase extends MDControlBase {
                     });
                 });
             } else {
-                let values: any[] = Object.is(this.$util.typeOf(value), 'number') ? [value] : [...(value as any).split(codelist.valueSeparator)];
+                let values: any[] = Object.is(this.$util.typeOf(value), 'number')
+                    ? [value]
+                    : [...(value as any).split(codelist.valueSeparator)];
                 values.map((value: any, index: number) => {
                     const item = this.getItem(items, value, codelist);
                     if (item) {
@@ -925,7 +1036,9 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     public getItem(items: any[], value: any, codelist: any): any {
-        const arr: Array<any> = items.filter(item => { return item.value == value });
+        const arr: Array<any> = items.filter((item) => {
+            return item.value == value;
+        });
         if (arr.length !== 1) {
             return undefined;
         }
@@ -955,7 +1068,7 @@ export class GridControlBase extends MDControlBase {
      */
     public rowDBLClick($event: any): void {
         // 分组行跳过
-        if($event && $event.children){
+        if ($event && $event.children) {
             return;
         }
         if (!$event || this.actualIsOpenEdit || Object.is(this.gridRowActiveMode, 0)) {
@@ -982,15 +1095,15 @@ export class GridControlBase extends MDControlBase {
      * @memberof MainBase
      */
     public select(selection: any, row: any): void {
-        let _this:any = this;
-        if(_this.groupAppField) {
-            let isContain:boolean = selection.some((item:any) =>{
-                return  item == row;
-            }) 
+        let _this: any = this;
+        if (_this.groupAppField) {
+            let isContain: boolean = selection.some((item: any) => {
+                return item == row;
+            });
             // 是否选中当前行，选中为true，否则为false
-            if(isContain) {
+            if (isContain) {
                 // 当前行为分组行
-                if(row.children && row.children.length > 0) {
+                if (row.children && row.children.length > 0) {
                     _this.toggleSelection(row.children, true);
                     row.children.forEach((children: any) => {
                         _this.selections.push(children);
@@ -999,23 +1112,23 @@ export class GridControlBase extends MDControlBase {
                     _this.selections.push(row);
                 }
             } else {
-                if(row.children && row.children.length > 0) {
+                if (row.children && row.children.length > 0) {
                     _this.toggleSelection(row.children, false);
                     _this.selections = _this.computeCheckedData(this.selections, row.children);
                 } else {
                     _this.selections = _this.computeCheckedData(this.selections, row);
                 }
             }
-            _this.selections = [...new Set(this.selections)]
+            _this.selections = [...new Set(this.selections)];
         } else {
-            if(!selection) {
+            if (!selection) {
                 return;
             }
             _this.selections = [...JSON.parse(JSON.stringify(selection))];
         }
         this.$emit('selectionchange', _this.selections);
     }
-    
+
     /**
      * 计算当前选中数据
      *
@@ -1026,33 +1139,33 @@ export class GridControlBase extends MDControlBase {
     public computeCheckedData(selectionArray: any[], cancelData: Array<any> | any) {
         let targetArray: Array<any> = [];
         //  分组行
-        if(Array.isArray(cancelData)) {
-            if(selectionArray && selectionArray.length > 0) {
-                selectionArray.forEach((selection:any) =>{
-                    let tempFlag:boolean = true;
-                    cancelData.forEach((child:any) =>{
-                        if(selection.groupById===child.groupById){
+        if (Array.isArray(cancelData)) {
+            if (selectionArray && selectionArray.length > 0) {
+                selectionArray.forEach((selection: any) => {
+                    let tempFlag: boolean = true;
+                    cancelData.forEach((child: any) => {
+                        if (selection.groupById === child.groupById) {
                             tempFlag = false;
                         }
-                    })
-                    if(tempFlag) targetArray.push(selection);
-                })
+                    });
+                    if (tempFlag) targetArray.push(selection);
+                });
             }
         } else {
-        //  非分组行
-            if(selectionArray && selectionArray.length > 0) {
-                selectionArray.forEach((selection:any) =>{
-                    let tempFlag:boolean = true;
-                    if(selection.groupById===cancelData.groupById){
+            //  非分组行
+            if (selectionArray && selectionArray.length > 0) {
+                selectionArray.forEach((selection: any) => {
+                    let tempFlag: boolean = true;
+                    if (selection.groupById === cancelData.groupById) {
                         tempFlag = false;
                     }
-                    if(tempFlag) targetArray.push(selection);
-                })
+                    if (tempFlag) targetArray.push(selection);
+                });
             }
         }
         return targetArray;
     }
-  
+
     /**
      * 设置非分组行checkbox选中状态
      *
@@ -1061,8 +1174,8 @@ export class GridControlBase extends MDControlBase {
      * @memberof MainBase
      */
     public toggleSelection(rows?: any, flag?: boolean) {
-        if(rows) {
-            rows.forEach((row:any) => {
+        if (rows) {
+            rows.forEach((row: any) => {
                 (this.$refs.multipleTable as any).toggleRowSelection(row, flag);
             });
         } else {
@@ -1078,12 +1191,12 @@ export class GridControlBase extends MDControlBase {
      */
     public selectAll(selection: any): void {
         let _this: any = this;
-        _this.selections = []; 
-        if(_this.groupAppField) {
+        _this.selections = [];
+        if (_this.groupAppField) {
             let flag: boolean = true;
-            if(selection && selection.length === _this.items.length) {
+            if (selection && selection.length === _this.items.length) {
                 selection.forEach((element: any) => {
-                    if(element.children) {
+                    if (element.children) {
                         _this.toggleSelection(element.children, flag);
                         element.children.forEach((children: any) => {
                             _this.selections.push(children);
@@ -1095,11 +1208,11 @@ export class GridControlBase extends MDControlBase {
             } else {
                 flag = false;
             }
-            if(!flag) {
+            if (!flag) {
                 _this.toggleSelection();
             }
         } else {
-            if(!selection) {
+            if (!selection) {
                 return;
             }
             _this.selections = [...JSON.parse(JSON.stringify(selection))];
@@ -1117,7 +1230,7 @@ export class GridControlBase extends MDControlBase {
      */
     public rowClick($event: any, ifAlways: boolean = false): void {
         // 分组行跳过
-        if($event && $event.children){
+        if ($event && $event.children) {
             return;
         }
         if (!ifAlways && (!$event || this.actualIsOpenEdit)) {
@@ -1197,7 +1310,7 @@ export class GridControlBase extends MDControlBase {
      * @returns {void}
      * @memberof GridControlBase
      */
-    public onSortChange({ column, prop, order }: { column: any, prop: any, order: any }): void {
+    public onSortChange({ column, prop, order }: { column: any; prop: any; order: any }): void {
         const dir = Object.is(order, 'ascending') ? 'asc' : Object.is(order, 'descending') ? 'desc' : '';
         if (Object.is(dir, this.minorSortDir) && Object.is(this.minorSortPSDEF, prop)) {
             return;
@@ -1214,7 +1327,7 @@ export class GridControlBase extends MDControlBase {
      * @returns {string}
      * @memberof GridControlBase
      */
-    public onRowClassName({ row, rowIndex }: { row: any, rowIndex: any }): string {
+    public onRowClassName({ row, rowIndex }: { row: any; rowIndex: any }): string {
         const index = this.selections.findIndex((select: any) => Object.is(select.srfkey, row.srfkey));
         return index !== -1 ? 'grid-row-select' : '';
     }
@@ -1258,21 +1371,29 @@ export class GridControlBase extends MDControlBase {
      */
     public newRow(args: any[], params?: any, $event?: any, xData?: any): void {
         if (!this.loaddraftAction) {
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.loaddraftAction') as string) });
+            this.$Notice.error({
+                title: this.$t('app.commonWords.wrong') as string,
+                desc: this.$t('app.gridpage.notConfig.loaddraftAction') as string,
+            });
             return;
         }
         Object.assign(args[0], { viewparams: this.viewparams });
-        let post: Promise<any> = this.service.loadDraft(this.loaddraftAction, JSON.parse(JSON.stringify(this.context)), args[0], this.showBusyIndicator);
+        let post: Promise<any> = this.service.loadDraft(
+            this.loaddraftAction,
+            JSON.parse(JSON.stringify(this.context)),
+            args[0],
+            this.showBusyIndicator
+        );
         post.then((response: any) => {
             if (!response.status || response.status !== 200) {
                 if (response.message) {
-                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.message });
+                    this.$Notice.error({ title: this.$t('app.commonWords.wrong') as string, desc: response.message });
                 }
                 return;
             }
             const data = response.data;
             this.createDefault(data);
-            data.rowDataState = "create";
+            data.rowDataState = 'create';
             Object.assign(data, this.getActionState(data));
             let tempItems: any[] = [];
             tempItems.push(data);
@@ -1283,7 +1404,10 @@ export class GridControlBase extends MDControlBase {
                 return;
             }
             if (!response || !response.status || !response.data) {
-                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
+                this.$Notice.error({
+                    title: this.$t('app.commonWords.wrong') as string,
+                    desc: this.$t('app.commonWords.sysException') as string,
+                });
                 return;
             }
         });
@@ -1298,7 +1422,7 @@ export class GridControlBase extends MDControlBase {
      * @returns {void}
      * @memberof GridControlBase
      */
-    public onGridItemValueChange(row: any, $event: { name: string, value: any }, rowIndex: number): void {
+    public onGridItemValueChange(row: any, $event: { name: string; value: any }, rowIndex: number): void {
         if (!$event) {
             return;
         }
@@ -1324,15 +1448,23 @@ export class GridControlBase extends MDControlBase {
             return;
         }
         let tempContext: any = this.$util.deepCopy(this.context);
-        if(this.appDeName && this.columnKeyName) {
+        if (this.appDeName && this.columnKeyName) {
             tempContext[this.appDeName] = data[this.columnKeyName];
         }
         const arg: any = JSON.parse(JSON.stringify(data));
         Object.assign(arg, { viewparams: this.viewparams });
-        const post: Promise<any> = this.service.frontLogic(mode, JSON.parse(JSON.stringify(tempContext)), arg, showloading);
+        const post: Promise<any> = this.service.frontLogic(
+            mode,
+            JSON.parse(JSON.stringify(tempContext)),
+            arg,
+            showloading
+        );
         post.then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.formitemFailed') as string) });
+                this.$Notice.error({
+                    title: this.$t('app.commonWords.wrong') as string,
+                    desc: this.$t('app.gridpage.formitemFailed') as string,
+                });
                 return;
             }
             const _data: any = response.data;
@@ -1350,7 +1482,10 @@ export class GridControlBase extends MDControlBase {
                 return;
             }
             if (!response || !response.status || !response.data) {
-                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
+                this.$Notice.error({
+                    title: this.$t('app.commonWords.wrong') as string,
+                    desc: this.$t('app.commonWords.sysException') as string,
+                });
                 return;
             }
         });
@@ -1381,7 +1516,7 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     public gridEditItemChange(row: any, property: string, value: any, rowIndex: number): void {
-        row.rowDataState = row.rowDataState ? row.rowDataState : "update";
+        row.rowDataState = row.rowDataState ? row.rowDataState : 'update';
         this.curEditRowData = row;
         this.validate(property, row, rowIndex);
     }
@@ -1393,11 +1528,11 @@ export class GridControlBase extends MDControlBase {
      * @returns {string}
      * @memberof GridControlBase
      */
-    public getRowClassName(args: { row: any, rowIndex: number }): string {
+    public getRowClassName(args: { row: any; rowIndex: number }): string {
         let isSelected = this.selections.some((item: any) => {
             return Object.is(item[this.appDeName], args.row[this.appDeName]);
         });
-        return isSelected ? "grid-selected-row" : "";
+        return isSelected ? 'grid-selected-row' : '';
     }
 
     /**
@@ -1405,19 +1540,18 @@ export class GridControlBase extends MDControlBase {
      *
      * @memberof GridControlBase
      */
-    public  getColumnDisabled(data:any,name:string){
-        if(this.allColumns || Array.isArray(this.allColumns)){
-            const curColumn:any = this.allColumns.find((item:any) =>{
+    public getColumnDisabled(data: any, name: string) {
+        if (this.allColumns || Array.isArray(this.allColumns)) {
+            const curColumn: any = this.allColumns.find((item: any) => {
                 return item.name === name;
-            })
-            if(curColumn.hasOwnProperty('enableCond')){
-                return data.srfuf == 1 ? (curColumn.enableCond & 2) !== 2 : (curColumn.enableCond & 1) !== 1
-            }else{
+            });
+            if (curColumn.hasOwnProperty('enableCond')) {
+                return data.srfuf == 1 ? (curColumn.enableCond & 2) !== 2 : (curColumn.enableCond & 1) !== 1;
+            } else {
                 return false;
             }
         }
     }
-
 
     /**
      * 新建默认值
@@ -1425,9 +1559,9 @@ export class GridControlBase extends MDControlBase {
      * @param {*} row 行数据
      * @memberof GridControlBase
      */
-    public createDefault(row: any): void { }
+    public createDefault(row: any): void {}
 
-	/**
+    /**
      * 界面行为
      *
      * @param {*} row
@@ -1435,7 +1569,7 @@ export class GridControlBase extends MDControlBase {
      * @param {*} $event
      * @memberof GridControlBase
      */
-    public uiAction(row: any, tag: any, $event: any) { }
+    public uiAction(row: any, tag: any, $event: any) {}
 
     /**
      * 校验属性值规则
@@ -1444,75 +1578,107 @@ export class GridControlBase extends MDControlBase {
      * @param {{ name: string }} { name }
      * @memberof GridControlBase
      */
-    public verifyDeRules(name:string,rule:any = this.deRules,op:string = "AND",value:any) :{isPast:boolean}{
-        let falg:any = {};
-        if(!rule || !rule[name]){
+    public verifyDeRules(name: string, rule: any = this.deRules, op: string = 'AND', value: any): { isPast: boolean } {
+        let falg: any = {};
+        if (!rule || !rule[name]) {
             return falg;
         }
-        let opValue = op == 'AND'? true :false;
-        let startOp = (val:boolean)=>{
-            if(falg.isPast){
-                if(opValue){
+        let opValue = op == 'AND' ? true : false;
+        let startOp = (val: boolean) => {
+            if (falg.isPast) {
+                if (opValue) {
                     falg.isPast = falg.isPast && val;
-                }else{
+                } else {
                     falg.isPast = falg.isPast || val;
                 }
-            }else{
+            } else {
                 falg.isPast = val;
             }
-        }
-        for(let i=0;i<rule[name].length;i++){
-            let item:any = rule[name][i];
+        };
+        for (let i = 0; i < rule[name].length; i++) {
+            let item: any = rule[name][i];
             // let dataValue = item.deName?this.data[this.service.getItemNameByDeName(item.deName)]:"";
             // 为空值时，属性值规则不做校验
-            if((value === null || value === undefined || value === "") && (item.type != 'GROUP')){
+            if ((value === null || value === undefined || value === '') && item.type != 'GROUP') {
                 startOp(true);
                 return falg;
             }
             // 常规规则
-            if(item.type == 'SIMPLE'){
-                startOp(!this.$verify.checkFieldSimpleRule(value,item.condOP,item.paramValue,item.ruleInfo,item.paramType,this.curEditRowData,item.isKeyCond));
+            if (item.type == 'SIMPLE') {
+                startOp(
+                    !this.$verify.checkFieldSimpleRule(
+                        value,
+                        item.condOP,
+                        item.paramValue,
+                        item.ruleInfo,
+                        item.paramType,
+                        this.curEditRowData,
+                        item.isKeyCond
+                    )
+                );
                 falg.infoMessage = item.ruleInfo;
-                if(!falg.isPast) return falg;
+                if (!falg.isPast) return falg;
             }
             // 数值范围
-            if(item.type == 'VALUERANGE2'){
-                startOp( !this.$verify.checkFieldValueRangeRule(value,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond));
+            if (item.type == 'VALUERANGE2') {
+                startOp(
+                    !this.$verify.checkFieldValueRangeRule(
+                        value,
+                        item.minValue,
+                        item.isIncludeMinValue,
+                        item.maxValue,
+                        item.isIncludeMaxValue,
+                        item.ruleInfo,
+                        item.isKeyCond
+                    )
+                );
                 falg.infoMessage = item.ruleInfo;
-                if(!falg.isPast) return falg;
+                if (!falg.isPast) return falg;
             }
             // 正则式
-            if (item.type == "REGEX") {
-                startOp(!this.$verify.checkFieldRegExRule(value,item.regExCode,item.ruleInfo,item.isKeyCond));
+            if (item.type == 'REGEX') {
+                startOp(!this.$verify.checkFieldRegExRule(value, item.regExCode, item.ruleInfo, item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
-                if(!falg.isPast) return falg;
+                if (!falg.isPast) return falg;
             }
             // 长度
-            if (item.type == "STRINGLENGTH") {
-                startOp(!this.$verify.checkFieldStringLengthRule(value,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond)); 
+            if (item.type == 'STRINGLENGTH') {
+                startOp(
+                    !this.$verify.checkFieldStringLengthRule(
+                        value,
+                        item.minValue,
+                        item.isIncludeMinValue,
+                        item.maxValue,
+                        item.isIncludeMaxValue,
+                        item.ruleInfo,
+                        item.isKeyCond
+                    )
+                );
                 falg.infoMessage = item.ruleInfo;
-                if(!falg.isPast) return falg;
+                if (!falg.isPast) return falg;
             }
             // 系统值规则
-            if(item.type == "SYSVALUERULE") {
-                startOp(!this.$verify.checkFieldSysValueRule(value,item.sysRule.regExCode,item.ruleInfo,item.isKeyCond));
+            if (item.type == 'SYSVALUERULE') {
+                startOp(
+                    !this.$verify.checkFieldSysValueRule(value, item.sysRule.regExCode, item.ruleInfo, item.isKeyCond)
+                );
                 falg.infoMessage = item.ruleInfo;
-                if(!falg.isPast) return falg;
+                if (!falg.isPast) return falg;
             }
             // 分组
-            if(item.type == 'GROUP'){
-                falg = this.verifyDeRules('group',item,item.condOP?item.condOP:"AND",value)
-                if(item.isNotMode){
-                   falg.isPast = !falg.isPast;
+            if (item.type == 'GROUP') {
+                falg = this.verifyDeRules('group', item, item.condOP ? item.condOP : 'AND', value);
+                if (item.isNotMode) {
+                    falg.isPast = !falg.isPast;
                 }
-                if(!falg.isPast) return falg;
-            }   
+                if (!falg.isPast) return falg;
+            }
         }
-        if(!falg.hasOwnProperty("isPast")){
+        if (!falg.hasOwnProperty('isPast')) {
             falg.isPast = true;
         }
-        if(!value){
-           falg.isPast = true;
+        if (!value) {
+            falg.isPast = true;
         }
         return falg;
     }

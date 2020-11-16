@@ -8,7 +8,6 @@ import GridViewEngine from './grid-view-engine';
  * @extends {GridViewEngine}
  */
 export default class WFDynaExpGridViewEngine extends GridViewEngine {
-
     /**
      * Creates an instance of WFDynaExpGridViewEngine.
      * @memberof WFDynaExpGridViewEngine
@@ -16,26 +15,26 @@ export default class WFDynaExpGridViewEngine extends GridViewEngine {
     constructor() {
         super();
     }
-    
+
     /**
      * 引擎加载
      *
      * @param {*} [opts={}]
      * @memberof WFDynaExpGridViewEngine
      */
-    public load(opts: any = {},isnotify:boolean=false): void {
-        this.view.getWFStepModel().then((res:any) =>{
-            if(!res || res.length === 0) {
+    public load(opts: any = {}, isnotify: boolean = false): void {
+        this.view.getWFStepModel().then((res: any) => {
+            if (!res || res.length === 0) {
                 return;
             }
-            if(!this.view.isformDruipart){
+            if (!this.view.isformDruipart) {
                 super.load(opts, isnotify);
-            }else{
-                if(isnotify){
+            } else {
+                if (isnotify) {
                     super.load(opts, isnotify);
                 }
             }
-        })
+        });
     }
 
     /**
@@ -105,7 +104,7 @@ export default class WFDynaExpGridViewEngine extends GridViewEngine {
         if (!_this.view.linkModel || Object.keys(_this.view.linkModel).length === 0) {
             return;
         }
-        _this.view.linkModel.forEach((item:any) => {
+        _this.view.linkModel.forEach((item: any) => {
             item.disabled = state;
         });
         this.view.$forceUpdate();

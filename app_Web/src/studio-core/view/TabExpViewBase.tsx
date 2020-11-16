@@ -9,7 +9,6 @@ import { events } from '../global';
  * @extends {ExpViewBase}
  */
 export class TabExpViewBase extends ExpViewBase {
-
     /**
      * 加载模型
      *
@@ -24,8 +23,8 @@ export class TabExpViewBase extends ExpViewBase {
                 }
                 const { data } = response;
                 if (data && data[this.appDeMajor]) {
-                    this.engine.computeToolbarState(false,data);
-                    this.viewState.next({ tag: 'tabexppanel', action: 'loadmodel', data: data});
+                    this.engine.computeToolbarState(false, data);
+                    this.viewState.next({ tag: 'tabexppanel', action: 'loadmodel', data: data });
                     data[this.appDeName] = data[this.appDeKey];
                     this.$appService.contextStore.setContextData(this.context, this.appDeName, { data });
                     Object.assign(this.model, { dataInfo: data[this.appDeMajor] });
@@ -35,8 +34,7 @@ export class TabExpViewBase extends ExpViewBase {
                     this.$appService.navHistory.setCaption({ tag: this.viewtag, info: this.model.dataInfo });
                     this.$emit(events.view.MODEL_LOADED, data);
                 }
-            })
+            });
         }
     }
-
 }

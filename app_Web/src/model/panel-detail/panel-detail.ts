@@ -5,7 +5,6 @@
  * @class PanelDetailModel
  */
 export class PanelDetailModel {
-
     /**
      * 是否有权限
      *
@@ -69,12 +68,11 @@ export class PanelDetailModel {
      * @memberof PanelDetailModel
      */
     public isShowCaption: boolean = true;
-    
 
     /**
      * Creates an instance of PanelDetailModel.
      * PanelDetailModel 实例
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof PanelDetailModel
      */
@@ -94,7 +92,7 @@ export class PanelDetailModel {
      * @memberof PanelDetailModel
      */
     public set visible(val: boolean) {
-        if(this.isPower) {
+        if (this.isPower) {
             this.$visible = val;
         }
     }
@@ -105,9 +103,8 @@ export class PanelDetailModel {
      * @memberof PanelDetailModel
      */
     public get visible() {
-        return  this.$visible;
+        return this.$visible;
     }
-
 
     /**
      * 设置显示与隐藏
@@ -116,7 +113,7 @@ export class PanelDetailModel {
      * @memberof PanelDetailModel
      */
     public setVisible(state: boolean): void {
-        if(this.isPower) {
+        if (this.isPower) {
             this.visible = state;
         }
     }

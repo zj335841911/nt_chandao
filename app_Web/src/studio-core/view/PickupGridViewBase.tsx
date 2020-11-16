@@ -9,7 +9,6 @@ import { GridView9Base } from './GridView9Base';
  * @extends {ViewBase}
  */
 export class PickupGridViewBase extends GridView9Base {
-
     /**
      * 选中数据字符串
      *
@@ -28,5 +27,4 @@ export class PickupGridViewBase extends GridView9Base {
      */
     @Prop({ default: false })
     protected isSingleSelect!: boolean;
-
 }

@@ -7,6 +7,4 @@ import { MessageTypeBase } from '../base/message-type-base';
  * @class CommandRemove
  * @extends {MessageTypeBase}
  */
-export class CommandRemove extends MessageTypeBase {
-
-}
+export class CommandRemove extends MessageTypeBase {}

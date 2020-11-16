@@ -150,7 +150,7 @@ export class MessageCommand extends MessageTypeBase {
         super.unsubscribe(key);
         this.$create.unsubscribe(key);
         this.$remove.unsubscribe(key);
-        this.$update.unsubscribe(key)
+        this.$update.unsubscribe(key);
     }
 
     /**
@@ -163,7 +163,6 @@ export class MessageCommand extends MessageTypeBase {
         super.unsubscribeLocal(key);
         this.$create.unsubscribeLocal(key);
         this.$remove.unsubscribeLocal(key);
-        this.$update.unsubscribeLocal(key)
+        this.$update.unsubscribeLocal(key);
     }
-
 }

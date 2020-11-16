@@ -120,10 +120,14 @@ export class NotificationSignalController {
     public success(num: number = 1500): void {
         this.active();
         this.el.classList.add('success');
-        TimerUtil.timeout(() => {
-            this.inactive();
-            this.el.classList.remove('success')
-        }, num, 'nsc-success');
+        TimerUtil.timeout(
+            () => {
+                this.inactive();
+                this.el.classList.remove('success');
+            },
+            num,
+            'nsc-success'
+        );
     }
 
     /**
@@ -135,10 +139,14 @@ export class NotificationSignalController {
     public waring(num: number = 1500): void {
         this.active();
         this.el.classList.add('waring');
-        TimerUtil.timeout(() => {
-            this.inactive();
-            this.el.classList.remove('waring')
-        }, num, 'nsc-waring');
+        TimerUtil.timeout(
+            () => {
+                this.inactive();
+                this.el.classList.remove('waring');
+            },
+            num,
+            'nsc-waring'
+        );
     }
 
     /**
@@ -150,10 +158,14 @@ export class NotificationSignalController {
     public error(num: number = 1500): void {
         this.active();
         this.el.classList.add('error');
-        TimerUtil.timeout(() => {
-            this.inactive();
-            this.el.classList.remove('error')
-        }, num, 'nsc-error');
+        TimerUtil.timeout(
+            () => {
+                this.inactive();
+                this.el.classList.remove('error');
+            },
+            num,
+            'nsc-error'
+        );
     }
 
     /**
@@ -300,7 +312,6 @@ export class NotificationSignalController {
     public static getInstance(): NotificationSignalController {
         return NotificationSignalController.instance;
     }
-
 }
 
 // 导出服务

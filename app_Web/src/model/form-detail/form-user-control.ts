@@ -8,9 +8,7 @@ import { FormDetailModel } from './form-detail';
  * @extends {FormDetailModel}
  */
 export class FormUserControlModel extends FormDetailModel {
-
-
-    constructor(otps:any = {}) {
+    constructor(otps: any = {}) {
         super(otps);
     }
 }

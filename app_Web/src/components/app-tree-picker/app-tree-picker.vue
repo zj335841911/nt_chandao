@@ -1,24 +1,54 @@
 <template>
     <div v-if="refviewname" class="app-tree-picker">
-        <Dropdown :visible="visible" trigger="custom" style="left:0px;width: 100%" @on-clickoutside="() => {triggerMenu(false);}" >
-          <Input v-model="inputValue" class="tree-input" type="text" :placeholder="placeholder ? placeholder : $t('components.appTreePicker.placeholder')" :disabled="disabled" @on-change="OnInputChange" @on-focus="()=>{triggerMenu();}" >
-              <template v-slot:suffix>
-                  <i v-if="inputValue && !disabled" class='el-icon-circle-close' @click="onClear"></i>
-                  <Icon :type="visible ? 'ios-arrow-up' : 'ios-arrow-down'" class="icon-arrow" @click="() => {triggerMenu();}"></Icon>
-              </template>
-          </Input>
-          <DropdownMenu slot="list">
-              <component
-                v-if="visible"
-                :is="refviewname"
-                :viewdata="viewdata"
-                :viewparam="viewparam"
-                :isShowButton="false"
-                :viewDefaultUsage="false"
-                @viewdataschange="setValue"
-                style="height:100%;">
-              </component>
-          </DropdownMenu>
+        <Dropdown
+            :visible="visible"
+            trigger="custom"
+            style="left: 0px; width: 100%"
+            @on-clickoutside="
+                () => {
+                    triggerMenu(false);
+                }
+            "
+        >
+            <Input
+                v-model="inputValue"
+                class="tree-input"
+                type="text"
+                :placeholder="placeholder ? placeholder : $t('components.appTreePicker.placeholder')"
+                :disabled="disabled"
+                @on-change="OnInputChange"
+                @on-focus="
+                    () => {
+                        triggerMenu();
+                    }
+                "
+            >
+                <template v-slot:suffix>
+                    <i v-if="inputValue && !disabled" class="el-icon-circle-close" @click="onClear"></i>
+                    <Icon
+                        :type="visible ? 'ios-arrow-up' : 'ios-arrow-down'"
+                        class="icon-arrow"
+                        @click="
+                            () => {
+                                triggerMenu();
+                            }
+                        "
+                    ></Icon>
+                </template>
+            </Input>
+            <DropdownMenu slot="list">
+                <component
+                    v-if="visible"
+                    :is="refviewname"
+                    :viewdata="viewdata"
+                    :viewparam="viewparam"
+                    :isShowButton="false"
+                    :viewDefaultUsage="false"
+                    @viewdataschange="setValue"
+                    style="height: 100%"
+                >
+                </component>
+            </DropdownMenu>
         </Dropdown>
     </div>
 </template>
@@ -28,10 +58,8 @@ import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 
-@Component({
-})
+@Component({})
 export default class AppTreePicker extends Vue {
-
     /**
      * 视图上下文
      *
@@ -70,15 +98,15 @@ export default class AppTreePicker extends Vue {
      * @type {boolean}
      * @memberof AppTreePicker
      */
-    @Prop({default: false}) public disabled!: boolean;
-    
+    @Prop({ default: false }) public disabled!: boolean;
+
     /**
      * 表单状态
      *
      * @type {Subject<any>}
      * @memberof AppTreePicker
      */
-    @Prop() public formState!: Subject<any>
+    @Prop() public formState!: Subject<any>;
 
     /**
      * 输入框值
@@ -131,19 +159,19 @@ export default class AppTreePicker extends Vue {
 
     /**
      * 局部上下文导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppTreePicker
      */
-    @Prop() public localContext!:any;
+    @Prop() public localContext!: any;
 
     /**
      * 局部导航参数
-     * 
+     *
      * @type {any}
      * @memberof AppTreePicker
      */
-    @Prop() public localParam!:any;
+    @Prop() public localParam!: any;
 
     /**
      * 是否忽略之变化
@@ -175,8 +203,8 @@ export default class AppTreePicker extends Vue {
      * @type {string}
      * @memberof AppTreePicker
      */
-    public viewparam: any = JSON.stringify(this.viewparams);;
-    
+    public viewparam: any = JSON.stringify(this.viewparams);
+
     /**
      * 视图上下文
      *
@@ -187,24 +215,24 @@ export default class AppTreePicker extends Vue {
 
     /**
      * 输入框change事件
-     * 
+     *
      * @param $event 事件对象
      * @memberof AppTreePicker
      */
-    public OnInputChange($event: any){
-        let _viewdata =  Object.assign({ srfnodefilter: this.inputValue }, JSON.parse(this.viewdata)) ;
+    public OnInputChange($event: any) {
+        let _viewdata = Object.assign({ srfnodefilter: this.inputValue }, JSON.parse(this.viewdata));
         this.viewdata = JSON.stringify(_viewdata);
     }
 
     /**
      * 输入框change事件
-     * 
+     *
      * @param $event 事件对象
      * @memberof AppTreePicker
      */
-    public triggerMenu(visible?: boolean){
-        if(this.disabled){
-          return;
+    public triggerMenu(visible?: boolean) {
+        if (this.disabled) {
+            return;
         }
         if (!visible) {
             this.visible = !this.visible;
@@ -227,13 +255,13 @@ export default class AppTreePicker extends Vue {
         let param: any = JSON.parse(JSON.stringify(this.viewparams));
         let context: any = JSON.parse(JSON.stringify(this.context));
         // 附加参数处理
-        if (this.localContext && Object.keys(this.localContext).length >0) {
-            let _context = this.$util.computedNavData(this.data,arg.context,arg.param,this.localContext);
-            Object.assign(arg.context,_context);
+        if (this.localContext && Object.keys(this.localContext).length > 0) {
+            let _context = this.$util.computedNavData(this.data, arg.context, arg.param, this.localContext);
+            Object.assign(arg.context, _context);
         }
-        if (this.localParam && Object.keys(this.localParam).length >0) {
-            let _param = this.$util.computedNavData(this.data,arg.param,arg.param,this.localParam);
-            Object.assign(arg.param,_param);
+        if (this.localParam && Object.keys(this.localParam).length > 0) {
+            let _param = this.$util.computedNavData(this.data, arg.param, arg.param, this.localParam);
+            Object.assign(arg.param, _param);
         }
         this.viewdata = JSON.stringify(context);
         this.viewparam = JSON.stringify(param);
@@ -254,10 +282,10 @@ export default class AppTreePicker extends Vue {
         if (!this.refreshitems || this.ignorefieldvaluechange) {
             return;
         }
-        if(Object.is(newFormData[this.refreshitems], oldDormData[this.refreshitems])) {
+        if (Object.is(newFormData[this.refreshitems], oldDormData[this.refreshitems])) {
             return;
         }
-        this.setValue([{srfmajortext: null, srfkey: null}]);
+        this.setValue([{ srfmajortext: null, srfkey: null }]);
     }
 
     /**
@@ -278,7 +306,7 @@ export default class AppTreePicker extends Vue {
      * @memberof AppTreePicker
      */
     public created() {
-        if(this.formState) {
+        if (this.formState) {
             this.formStateEvent = this.formState.subscribe(({ tag, action, data }) => {
                 if (Object.is('load', action)) {
                     this.setViewParam();
@@ -326,10 +354,9 @@ export default class AppTreePicker extends Vue {
         }
         this.$forceUpdate();
     }
-
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import './app-tree-picker.less';
 </style>

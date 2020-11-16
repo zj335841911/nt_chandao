@@ -8,7 +8,6 @@ import ViewEngine from './view-engine';
  * @extends {ViewEngine}
  */
 export default class CalendarExpViewEngine extends ViewEngine {
-
     /**
      * 日历导航栏部件
      *
@@ -19,7 +18,7 @@ export default class CalendarExpViewEngine extends ViewEngine {
 
     /**
      * Creates an instance of CalendarExpViewEngine.
-     * 
+     *
      * @memberof CalendarExpViewEngine
      */
     constructor() {
@@ -36,7 +35,6 @@ export default class CalendarExpViewEngine extends ViewEngine {
         this.calendarExpBar = options.calendarexpbar;
         super.init(options);
     }
-
 
     /**
      * 引擎加载
@@ -65,7 +63,6 @@ export default class CalendarExpViewEngine extends ViewEngine {
         super.onCtrlEvent(ctrlName, eventName, args);
         if (Object.is(ctrlName, 'calendarexpbar')) {
             this.calendarExpBarEvent(eventName, args);
-
         }
     }
 
@@ -97,6 +94,4 @@ export default class CalendarExpViewEngine extends ViewEngine {
     public getCalendarExpBar(): any {
         return this.calendarExpBar;
     }
-
-
 }

@@ -8,7 +8,6 @@ import { PanelDetailModel } from './panel-detail';
  * @extends {PanelDetailModel}
  */
 export class PanelButtonModel extends PanelDetailModel {
-
     constructor(opts: any = {}) {
         super(opts);
         this.$disabled = opts.disabled;
@@ -21,7 +20,7 @@ export class PanelButtonModel extends PanelDetailModel {
      * @type {boolean}
      * @memberof PanelButtonModel
      */
-    private $disabled:boolean = false;
+    private $disabled: boolean = false;
 
     /**
      * 按钮对应的界面行为
@@ -29,7 +28,7 @@ export class PanelButtonModel extends PanelDetailModel {
      * @type {*}
      * @memberof PanelButtonModel
      */
-    public uiaction:any;
+    public uiaction: any;
 
     /**
      * 是否启用
@@ -47,10 +46,8 @@ export class PanelButtonModel extends PanelDetailModel {
      * @memberof PanelButtonModel
      */
     public set disabled(val: boolean) {
-        if(this.isPower) {
+        if (this.isPower) {
             this.$disabled = val;
         }
     }
-
-
 }

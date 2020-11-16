@@ -8,12 +8,12 @@ import { MessageServiceRegister } from '@/message/message-service-register';
 
 declare global {
     interface Window {
-        uiServiceRegister: UIServiceRegister,
-        authServiceRegister: AuthServiceRegister,
-        utilServiceRegister: UtilServiceRegister,
-        entityServiceRegister: EntityServiceRegister,
-        counterServiceRegister: CounterServiceRegister,
-        codeListRegister:CodeListRegister,
-        messageServiceRegister:MessageServiceRegister
+        uiServiceRegister: UIServiceRegister;
+        authServiceRegister: AuthServiceRegister;
+        utilServiceRegister: UtilServiceRegister;
+        entityServiceRegister: EntityServiceRegister;
+        counterServiceRegister: CounterServiceRegister;
+        codeListRegister: CodeListRegister;
+        messageServiceRegister: MessageServiceRegister;
     }
 }

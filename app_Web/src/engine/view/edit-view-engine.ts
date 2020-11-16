@@ -8,7 +8,6 @@ import ViewEngine from './view-engine';
  * @extends {ViewEngine}
  */
 export default class EditViewEngine extends ViewEngine {
-
     /**
      * 表单部件
      *
@@ -50,7 +49,11 @@ export default class EditViewEngine extends ViewEngine {
         if (this.getForm() && this.isLoadDefault) {
             const tag = this.getForm().name;
             let action: string = '';
-            if (this.keyPSDEField && this.view.context[this.keyPSDEField] && !Object.is(this.view.context[this.keyPSDEField], '')) {
+            if (
+                this.keyPSDEField &&
+                this.view.context[this.keyPSDEField] &&
+                !Object.is(this.view.context[this.keyPSDEField], '')
+            ) {
                 action = 'load';
             } else {
                 action = 'loaddraft';
@@ -101,7 +104,11 @@ export default class EditViewEngine extends ViewEngine {
      * @memberof EditViewEngine
      */
     public onFormLoad(arg: any): void {
-        this.view.model.dataInfo = Object.is(arg.srfuf, '1') ? (this.majorPSDEField ? arg[this.majorPSDEField] : arg.srfmajortext) : this.view.$t('app.local.new');
+        this.view.model.dataInfo = Object.is(arg.srfuf, '1')
+            ? this.majorPSDEField
+                ? arg[this.majorPSDEField]
+                : arg.srfmajortext
+            : this.view.$t('app.local.new');
 
         this.setTabCaption(this.view.model.dataInfo, Object.is(arg.srfuf, '0'));
         const newdata: boolean = !Object.is(arg.srfuf, '1');
@@ -116,7 +123,11 @@ export default class EditViewEngine extends ViewEngine {
      * @memberof EditViewEngine
      */
     public onFormSave(arg: any): void {
-        this.view.model.dataInfo = Object.is(arg.srfuf, '1') ? (this.majorPSDEField ? arg[this.majorPSDEField] : arg.srfmajortext) : this.view.$t('app.local.new');
+        this.view.model.dataInfo = Object.is(arg.srfuf, '1')
+            ? this.majorPSDEField
+                ? arg[this.majorPSDEField]
+                : arg.srfmajortext
+            : this.view.$t('app.local.new');
 
         this.setTabCaption(this.view.model.dataInfo, Object.is(arg.srfuf, '0'));
         const newdata: boolean = !Object.is(arg.srfuf, '1');
@@ -155,7 +166,7 @@ export default class EditViewEngine extends ViewEngine {
 
     /**
      * 编辑界面_保存操作
-     * 
+     *
      * @memberof IBizEditViewController
      */
     public doSave(): void {
@@ -217,5 +228,4 @@ export default class EditViewEngine extends ViewEngine {
         }
         return this.getForm().transformData(arg);
     }
-
 }

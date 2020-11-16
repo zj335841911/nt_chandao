@@ -1,52 +1,81 @@
 <template>
-  <div class="app-file-upload">
-    <el-row>
-      <el-col v-if="rowPreview && files.length > 0" :span="12" class="upload-col">
-          <el-button size='small' class="button-preview" icon='el-icon-view' :disabled="disabled" @click="()=>{this.dialogVisible = true;}">{{$t('components.appFileUpload.preview')}}<Badge :count="files.length" type="info"></Badge></el-button>
-      </el-col>
-      <el-col :span="(rowPreview && files.length > 0) ? 12 : 24" class="upload-col">
-        <el-upload
-          :disabled="disabled"
-          :file-list="files"
-          :action="uploadUrl"
-          :headers="{}"
-          :before-upload="beforeUpload"
-          :before-remove="onRemove"
-          :on-success="onSuccess"
-          :on-error="onError"
-          :on-preview="onDownload"
-          :drag="isdrag"
-          :show-file-list="!rowPreview"
-          >
-            <el-button v-if="!isdrag" size='small' icon='el-icon-upload' :disabled="disabled || isUploading">{{this.$t('app.fileUpload.caption')}}</el-button>
-          <i v-if="isdrag" class="el-icon-upload"></i>
-          <div v-if="isdrag" class="el-upload__text" v-html="$t('components.appFileUpload.uploadText')"></div>
-        </el-upload>
-      </el-col>
-    </el-row>
-    <modal width="80%" v-model="dialogVisible" footer-hide class-name='upload-preview-modal'>
-      <ul class="">
-        <li v-for="(file,index) in files" :key="index" class="preview-file-list-item">
-          <div class='preview-file-list-img'>
-            <el-image :src="file.url" class='' style=''>
-                <div slot='error' class='image-slot'>
-                    <img src="/assets/img/picture.png" style='width:100%;height:100%;'>
-                </div>
-            </el-image>
-            <div class='preview-file-list-actions' @mouseenter="()=>{showActions = true;}" @mouseleave="()=>{showActions = false;}">
-                <span v-show="showActions" class='action-download'>
-                    <i class='el-icon-download' @click="onDownload(file)"></i>
-                </span>
-                <span v-show="showActions" :style="{ 'display': disabled? 'none' : 'inline-block' }" class='action-delete'>
-                    <i class='el-icon-delete' @click="onRemove(file, files)"></i>
-                </span>
-            </div>
-          </div>
-          <div class="file-name">{{file.name}}</div>
-        </li>
-      </ul>
-    </modal>
-  </div>
+    <div class="app-file-upload">
+        <el-row>
+            <el-col v-if="rowPreview && files.length > 0" :span="12" class="upload-col">
+                <el-button
+                    size="small"
+                    class="button-preview"
+                    icon="el-icon-view"
+                    :disabled="disabled"
+                    @click="
+                        () => {
+                            this.dialogVisible = true;
+                        }
+                    "
+                    >{{ $t('components.appFileUpload.preview') }}<Badge :count="files.length" type="info"></Badge
+                ></el-button>
+            </el-col>
+            <el-col :span="rowPreview && files.length > 0 ? 12 : 24" class="upload-col">
+                <el-upload
+                    :disabled="disabled"
+                    :file-list="files"
+                    :action="uploadUrl"
+                    :headers="{}"
+                    :before-upload="beforeUpload"
+                    :before-remove="onRemove"
+                    :on-success="onSuccess"
+                    :on-error="onError"
+                    :on-preview="onDownload"
+                    :drag="isdrag"
+                    :show-file-list="!rowPreview"
+                >
+                    <el-button v-if="!isdrag" size="small" icon="el-icon-upload" :disabled="disabled || isUploading">{{
+                        this.$t('app.fileUpload.caption')
+                    }}</el-button>
+                    <i v-if="isdrag" class="el-icon-upload"></i>
+                    <div v-if="isdrag" class="el-upload__text" v-html="$t('components.appFileUpload.uploadText')"></div>
+                </el-upload>
+            </el-col>
+        </el-row>
+        <modal width="80%" v-model="dialogVisible" footer-hide class-name="upload-preview-modal">
+            <ul class="">
+                <li v-for="(file, index) in files" :key="index" class="preview-file-list-item">
+                    <div class="preview-file-list-img">
+                        <el-image :src="file.url" class="" style="">
+                            <div slot="error" class="image-slot">
+                                <img src="/assets/img/picture.png" style="width: 100%; height: 100%" />
+                            </div>
+                        </el-image>
+                        <div
+                            class="preview-file-list-actions"
+                            @mouseenter="
+                                () => {
+                                    showActions = true;
+                                }
+                            "
+                            @mouseleave="
+                                () => {
+                                    showActions = false;
+                                }
+                            "
+                        >
+                            <span v-show="showActions" class="action-download">
+                                <i class="el-icon-download" @click="onDownload(file)"></i>
+                            </span>
+                            <span
+                                v-show="showActions"
+                                :style="{ display: disabled ? 'none' : 'inline-block' }"
+                                class="action-delete"
+                            >
+                                <i class="el-icon-delete" @click="onRemove(file, files)"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="file-name">{{ file.name }}</div>
+                </li>
+            </ul>
+        </modal>
+    </div>
 </template>
 
 <script lang="ts">
@@ -55,17 +84,15 @@ import { Environment } from '@/environments/environment';
 import { CreateElement } from 'vue';
 import { Subject, Unsubscribable } from 'rxjs';
 
-@Component({
-})
+@Component({})
 export default class AppFileUpload extends Vue {
-
     /**
      * 表单状态
      *
      * @type {Subject<any>}
      * @memberof AppFileUpload
      */
-    @Prop() public formState?: Subject<any>
+    @Prop() public formState?: Subject<any>;
 
     /**
      * 是否忽略表单项书香值变化
@@ -240,9 +267,9 @@ export default class AppFileUpload extends Vue {
      * @private
      * @memberof AppFileUpload
      */
-    private setFiles(value:any): void {
+    private setFiles(value: any): void {
         let _files = JSON.parse(value);
-        if (value && Object.prototype.toString.call(_files)=='[object Array]') {
+        if (value && Object.prototype.toString.call(_files) == '[object Array]') {
             this.files = _files;
         } else {
             this.files = [];
@@ -256,36 +283,33 @@ export default class AppFileUpload extends Vue {
      * @memberof AppFileUpload
      */
     private dataProcess(): void {
-
         let _url = `${Environment.BaseUrl}${Environment.UploadFile}`;
-        if (this.upload_params.length > 0 ) {
-            _url +='?';
-            this.upload_params.forEach((item:any,i:any)=>{
+        if (this.upload_params.length > 0) {
+            _url += '?';
+            this.upload_params.forEach((item: any, i: any) => {
                 _url += `${Object.keys(item)[0]}=${Object.values(item)[0]}`;
-                if(i<this.upload_params.length-1){
+                if (i < this.upload_params.length - 1) {
                     _url += '&';
                 }
-            })    
+            });
         }
-        
+
         this.uploadUrl = _url;
-        
+
         this.files.forEach((file: any) => {
             let url = `${this.downloadUrl}/${file.id}`;
             if (this.export_params.length > 0) {
-                url +='?';
-            this.export_params.forEach((item:any,i:any)=>{
-                url += `${Object.keys(item)[0]}=${Object.values(item)[0]}`;
-                if(i<this.export_params.length-1){
-                    url += '&';
-                }
-            })
+                url += '?';
+                this.export_params.forEach((item: any, i: any) => {
+                    url += `${Object.keys(item)[0]}=${Object.values(item)[0]}`;
+                    if (i < this.export_params.length - 1) {
+                        url += '&';
+                    }
+                });
             }
             file.url = url;
         });
     }
-
-    
 
     /**
      * vue 生命周期
@@ -323,36 +347,36 @@ export default class AppFileUpload extends Vue {
      *
      *@memberof AppFileUpload
      */
-    public getParams(){
+    public getParams() {
         let uploadparams: any = JSON.parse(JSON.stringify(this.uploadparams));
         let exportparams: any = JSON.parse(JSON.stringify(this.exportparams));
 
         let upload_params: Array<string> = [];
         let export_params: Array<string> = [];
 
-        let param:any = this.viewparams;
-        let context:any = this.context;
-        let _data:any = JSON.parse(this.data);
+        let param: any = this.viewparams;
+        let context: any = this.context;
+        let _data: any = JSON.parse(this.data);
 
         if (this.uploadparams && !Object.is(this.uploadparams, '')) {
-            upload_params = this.$util.computedNavData(_data,param,context,uploadparams);    
+            upload_params = this.$util.computedNavData(_data, param, context, uploadparams);
         }
         if (this.exportparams && !Object.is(this.exportparams, '')) {
-            export_params = this.$util.computedNavData(_data,param,context,exportparams);
+            export_params = this.$util.computedNavData(_data, param, context, exportparams);
         }
-        
+
         this.upload_params = [];
         this.export_params = [];
 
         for (const item in upload_params) {
             this.upload_params.push({
-                [item]:upload_params[item]
-            })
+                [item]: upload_params[item],
+            });
         }
         for (const item in export_params) {
             this.export_params.push({
-                [item]:export_params[item]
-            })
+                [item]: export_params[item],
+            });
         }
     }
 
@@ -374,11 +398,14 @@ export default class AppFileUpload extends Vue {
      * @memberof AppFileUpload
      */
     public beforeUpload(file: any) {
-        if(this.imageOnly){
-            const imageTypes = ["image/jpeg" , "image/gif" , "image/png" , "image/bmp"];
-            const isImage = imageTypes.some((type: any)=> Object.is(type, file.type));
+        if (this.imageOnly) {
+            const imageTypes = ['image/jpeg', 'image/gif', 'image/png', 'image/bmp'];
+            const isImage = imageTypes.some((type: any) => Object.is(type, file.type));
             if (!isImage) {
-              this.$Notice.error({ title: (this.$t('components.appFileUpload.fileTypeErrorTitle') as any) ,desc: (this.$t('components.appFileUpload.fileTypeErrorInfo') as any)});
+                this.$Notice.error({
+                    title: this.$t('components.appFileUpload.fileTypeErrorTitle') as any,
+                    desc: this.$t('components.appFileUpload.fileTypeErrorInfo') as any,
+                });
             }
             return isImage;
         }
@@ -399,8 +426,8 @@ export default class AppFileUpload extends Vue {
         }
         const data = { name: response.filename, id: response.fileid };
         let arr: Array<any> = [];
-        this.files.forEach((_file:any) => {
-            arr.push({name: _file.name, id: _file.id})
+        this.files.forEach((_file: any) => {
+            arr.push({ name: _file.name, id: _file.id });
         });
         arr.push(data);
 
@@ -418,7 +445,7 @@ export default class AppFileUpload extends Vue {
      * @memberof AppFileUpload
      */
     public onError(error: any, file: any, fileList: any) {
-        this.$Notice.error({ title: (this.$t('components.appFileUpload.uploadError') as any) });
+        this.$Notice.error({ title: this.$t('components.appFileUpload.uploadError') as any });
     }
 
     /**
@@ -436,7 +463,7 @@ export default class AppFileUpload extends Vue {
             }
         });
         let value: any = arr.length > 0 ? JSON.stringify(arr) : null;
-        if(arr.length == 0){
+        if (arr.length == 0) {
             this.dialogVisible = false;
         }
         this.$emit('formitemvaluechange', { name: this.name, value: value });
@@ -458,7 +485,7 @@ export default class AppFileUpload extends Vue {
      * @type {boolean}
      * @memberof AppFileUpload
      */
-    @Prop({default: false}) public imageOnly!: boolean;
+    @Prop({ default: false }) public imageOnly!: boolean;
 
     /**
      * 是否开启行内预览
@@ -466,7 +493,7 @@ export default class AppFileUpload extends Vue {
      * @type {boolean}
      * @memberof AppFileUpload
      */
-    @Prop({default: false}) public rowPreview!: boolean;
+    @Prop({ default: false }) public rowPreview!: boolean;
 
     /**
      * 是否开启行内预览
@@ -482,11 +509,9 @@ export default class AppFileUpload extends Vue {
      * @memberof AppFileUpload
      */
     public showActions: boolean = false;
-
-
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import './app-file-upload.less';
 </style>

@@ -7,6 +7,4 @@ import GridViewEngine from './grid-view-engine';
  * @class WFGridViewEngine
  * @extends {GridViewEngine}
  */
-export default class WFGridViewEngine extends GridViewEngine {
-
-}
+export default class WFGridViewEngine extends GridViewEngine {}

@@ -16,14 +16,25 @@ export function VueLifeCycleProcessing(params?: any): any {
         // 原型
         const p = constructor.prototype;
         // 方法名数组
-        const methodNames: string[] = ['beforeCreate', 'beforeMount', 'mounted', 'beforeUpdate', 'updated', 'activated', 'deactivated', 'beforeDestroy', 'destroyed', 'errorCaptured'];
+        const methodNames: string[] = [
+            'beforeCreate',
+            'beforeMount',
+            'mounted',
+            'beforeUpdate',
+            'updated',
+            'activated',
+            'deactivated',
+            'beforeDestroy',
+            'destroyed',
+            'errorCaptured',
+        ];
         methodNames.forEach((name: string) => {
             if (!p.hasOwnProperty(name) && p[name]) {
                 p[name] = function () {
                     if (this[name]) {
                         this[name].apply(this, arguments);
                     }
-                }
+                };
             }
         });
         if (!p.hasOwnProperty('render') && p.render) {
@@ -31,7 +42,7 @@ export function VueLifeCycleProcessing(params?: any): any {
                 if (this.render) {
                     return this.render(h);
                 }
-            }
+            };
         }
 
         // 替换原生Prop注解
@@ -64,7 +75,7 @@ export function VueLifeCycleProcessing(params?: any): any {
             delete p.___vueWatchArr;
             const fun = p['created'];
             p['created'] = function () {
-                arr.forEach((item: any) => {                    
+                arr.forEach((item: any) => {
                     if (this.$watch && this[item.handler]) {
                         this.$watch(item.key, this[item.handler], item.params);
                     }
@@ -72,15 +83,15 @@ export function VueLifeCycleProcessing(params?: any): any {
                 if (fun) {
                     fun.apply(this, arguments);
                 }
-            }
+            };
         } else if (!p.hasOwnProperty('created') && p['created']) {
             p['created'] = function () {
                 if (this['created']) {
                     this['created'].apply(this, arguments);
                 }
-            }
+            };
         }
-    }
+    };
 }
 
 /**
@@ -91,7 +102,7 @@ export function VueLifeCycleProcessing(params?: any): any {
  * @param {{ deep?: boolean, immediate?: boolean }} [params]
  * @returns {*}
  */
-export function Watch(key: string, params?: { deep?: boolean, immediate?: boolean }): any {
+export function Watch(key: string, params?: { deep?: boolean; immediate?: boolean }): any {
     return function (p: any, handler: string) {
         if (!p.___vueWatchArr) {
             p.___vueWatchArr = [];
@@ -99,7 +110,7 @@ export function Watch(key: string, params?: { deep?: boolean, immediate?: boolea
         p.___vueWatchArr.push({
             key,
             handler,
-            params
+            params,
         });
     };
 }

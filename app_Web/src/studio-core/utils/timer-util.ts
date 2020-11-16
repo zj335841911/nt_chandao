@@ -73,5 +73,4 @@ export class TimerUtil {
             this.timerCache.delete(id);
         }
     }
-
 }

@@ -1,77 +1,78 @@
 <template>
-  <div class='app-picture-upload'>
-    <ul class='el-upload-list el-upload-list--picture-card'>
-<!-- 绘制缩略图 Start -->
-        <li v-for="(file,index) in files" :key="index" class='el-upload-list__item is-success'>
-          <el-image :src="file.url" class='el-upload-list__item-thumbnail' style='min-height:100px;min-width:100px;'>
-              <div slot='error' class='image-slot'>
-                  <i class='el-icon-picture-outline'></i>
-              </div>
-          </el-image>
-          <a class='el-upload-list__item-name'>
-              <i class='el-icon-document'></i> {{file.name}}
-          </a>
-          <i class='el-icon-close'></i>
-          <label class='el-upload-list__item-status-label'>
-              <i class='el-icon-upload-success el-icon-check'></i>
-          </label>
-          <span class='el-upload-list__item-actions'>
-              <span class='el-upload-list__item-preview'>
-                  <i class='el-icon-zoom-in' @click="onPreview(file)"></i>
-              </span>
-              <span class='el-upload-list__item-download'>
-                  <i class='el-icon-download' @click="onDownload(file)"></i>
-              </span>
-              <span :style="{ 'display': disabled? 'none' : 'inline-block' }" class='el-upload-list__item-delete'>
-                  <i class='el-icon-delete' @click="onRemove(file, files)"></i>
-              </span>
-          </span>
-        </li>
+    <div class="app-picture-upload">
+        <ul class="el-upload-list el-upload-list--picture-card">
+            <!-- 绘制缩略图 Start -->
+            <li v-for="(file, index) in files" :key="index" class="el-upload-list__item is-success">
+                <el-image
+                    :src="file.url"
+                    class="el-upload-list__item-thumbnail"
+                    style="min-height: 100px; min-width: 100px"
+                >
+                    <div slot="error" class="image-slot">
+                        <i class="el-icon-picture-outline"></i>
+                    </div>
+                </el-image>
+                <a class="el-upload-list__item-name"> <i class="el-icon-document"></i> {{ file.name }} </a>
+                <i class="el-icon-close"></i>
+                <label class="el-upload-list__item-status-label">
+                    <i class="el-icon-upload-success el-icon-check"></i>
+                </label>
+                <span class="el-upload-list__item-actions">
+                    <span class="el-upload-list__item-preview">
+                        <i class="el-icon-zoom-in" @click="onPreview(file)"></i>
+                    </span>
+                    <span class="el-upload-list__item-download">
+                        <i class="el-icon-download" @click="onDownload(file)"></i>
+                    </span>
+                    <span :style="{ display: disabled ? 'none' : 'inline-block' }" class="el-upload-list__item-delete">
+                        <i class="el-icon-delete" @click="onRemove(file, files)"></i>
+                    </span>
+                </span>
+            </li>
             <!-- 绘制缩略图 end -->
-    </ul>
-    <!-- 文件上传 -->
-    <el-upload 
-      v-if = "multiple || files.length === 0" 
-      :class = "{'el-upload-disabled':disabled}"
-      :disabled = "disabled"
-      :action = "uploadUrl"
-      :headers = "{ 'srfappdata': appData }"
-      :show-file-list = "false"
-      list-type =  "picture-card"
-      :file-list =  "files"
-      :before-upload = "beforeUpload"
-      :on-success = "onSuccess"
-      :before-remove = "onRemove"
-      :on-error = "onError"
-      :on-preview = "onDownload"
-      >
-      <i class="el-icon-plus"></i>
-    </el-upload>
-    <!-- 预览 -->
-    <modal v-model="dialogVisible" footer-hide class-name='app-image-upload-model'>
-      <el-image :src="dialogImageUrl">
-          <div slot='error' class='image-slot'>
-              <i class='el-icon-picture-outline'></i>
-          </div>
-      </el-image>
-    </modal>
-  </div>
+        </ul>
+        <!-- 文件上传 -->
+        <el-upload
+            v-if="multiple || files.length === 0"
+            :class="{ 'el-upload-disabled': disabled }"
+            :disabled="disabled"
+            :action="uploadUrl"
+            :headers="{ srfappdata: appData }"
+            :show-file-list="false"
+            list-type="picture-card"
+            :file-list="files"
+            :before-upload="beforeUpload"
+            :on-success="onSuccess"
+            :before-remove="onRemove"
+            :on-error="onError"
+            :on-preview="onDownload"
+        >
+            <i class="el-icon-plus"></i>
+        </el-upload>
+        <!-- 预览 -->
+        <modal v-model="dialogVisible" footer-hide class-name="app-image-upload-model">
+            <el-image :src="dialogImageUrl">
+                <div slot="error" class="image-slot">
+                    <i class="el-icon-picture-outline"></i>
+                </div>
+            </el-image>
+        </modal>
+    </div>
 </template>
-<script lang = 'ts'>
+<script lang="ts">
 import { Vue, Component, Prop, Watch, Provide } from 'vue-property-decorator';
 import { Environment } from '@/environments/environment';
 import { Subject, Unsubscribable } from 'rxjs';
 
 @Component({})
 export default class AppImageUpload extends Vue {
-
     /**
      * 表单状态
      *
      * @type {Subject<any>}
      * @memberof AppImageUpload
      */
-    @Prop() public formState?: Subject<any>
+    @Prop() public formState?: Subject<any>;
 
     /**
      * 是否忽略表单项书香值变化
@@ -136,7 +137,7 @@ export default class AppImageUpload extends Vue {
             return;
         }
         this.getParams();
-        this.setFiles(newval)
+        this.setFiles(newval);
         this.dataProcess();
     }
 
@@ -231,7 +232,7 @@ export default class AppImageUpload extends Vue {
      * @type {*}
      * @memberof AppImageUpload
      */
-    public appData: any="";
+    public appData: any = '';
 
     /**
      * 设置files
@@ -239,9 +240,9 @@ export default class AppImageUpload extends Vue {
      * @private
      * @memberof AppImageUpload
      */
-    private setFiles(value:any): void {
+    private setFiles(value: any): void {
         let _files = JSON.parse(value);
-        if (value && Object.prototype.toString.call(_files)=='[object Array]') {
+        if (value && Object.prototype.toString.call(_files) == '[object Array]') {
             this.files = _files;
         } else {
             this.files = [];
@@ -255,31 +256,29 @@ export default class AppImageUpload extends Vue {
      * @memberof AppImageUpload
      */
     private dataProcess(): void {
-
         let _url = `${Environment.BaseUrl}${Environment.UploadFile}`;
-        if (this.upload_params.length > 0 ) {
-            _url +='?';
-            this.upload_params.forEach((item:any,i:any)=>{
+        if (this.upload_params.length > 0) {
+            _url += '?';
+            this.upload_params.forEach((item: any, i: any) => {
                 _url += `${Object.keys(item)[0]}=${Object.values(item)[0]}`;
-                if(i<this.upload_params.length-1){
+                if (i < this.upload_params.length - 1) {
                     _url += '&';
                 }
-            })
-            
+            });
         }
-        
+
         this.uploadUrl = _url;
-        
+
         this.files.forEach((file: any) => {
             let url = `${this.downloadUrl}/${file.id}`;
             if (this.export_params.length > 0) {
-                url +='?';
-                this.export_params.forEach((item:any,i:any)=>{
+                url += '?';
+                this.export_params.forEach((item: any, i: any) => {
                     url += `${Object.keys(item)[0]}=${Object.values(item)[0]}`;
-                    if(i<this.export_params.length-1){
+                    if (i < this.export_params.length - 1) {
                         url += '&';
                     }
-                })
+                });
             }
             file.url = url;
         });
@@ -320,36 +319,36 @@ export default class AppImageUpload extends Vue {
      *
      *@memberof AppImageUpload
      */
-    public getParams(){
+    public getParams() {
         let uploadparams: any = JSON.parse(JSON.stringify(this.uploadparams));
         let exportparams: any = JSON.parse(JSON.stringify(this.exportparams));
 
         let upload_params: Array<string> = [];
         let export_params: Array<string> = [];
 
-        let param:any = this.viewparams;
-        let context:any = this.context;
-        let _data:any = JSON.parse(this.data);
+        let param: any = this.viewparams;
+        let context: any = this.context;
+        let _data: any = JSON.parse(this.data);
 
         if (this.uploadparams && !Object.is(this.uploadparams, '')) {
-            upload_params = this.$util.computedNavData(_data,param,context,uploadparams);    
+            upload_params = this.$util.computedNavData(_data, param, context, uploadparams);
         }
         if (this.exportparams && !Object.is(this.exportparams, '')) {
-            export_params = this.$util.computedNavData(_data,param,context,exportparams);
+            export_params = this.$util.computedNavData(_data, param, context, exportparams);
         }
-        
+
         this.upload_params = [];
         this.export_params = [];
 
         for (const item in upload_params) {
             this.upload_params.push({
-                [item]:upload_params[item]
-            })
+                [item]: upload_params[item],
+            });
         }
         for (const item in export_params) {
             this.export_params.push({
-                [item]:export_params[item]
-            })
+                [item]: export_params[item],
+            });
         }
     }
 
@@ -390,7 +389,7 @@ export default class AppImageUpload extends Vue {
         const data = { name: response.filename, id: response.fileid };
         let arr: Array<any> = [];
         this.files.forEach((_file: any) => {
-            arr.push({ name: _file.name, id: _file.id })
+            arr.push({ name: _file.name, id: _file.id });
         });
         arr.push(data);
 
@@ -407,7 +406,7 @@ export default class AppImageUpload extends Vue {
      * @memberof AppImageUpload
      */
     public onError(error: any, file: any, fileList: any) {
-        this.$Notice.error({ title: (this.$t('components.appImageUpload.uploadFail') as string) });
+        this.$Notice.error({ title: this.$t('components.appImageUpload.uploadFail') as string });
     }
 
     /**
@@ -474,6 +473,6 @@ export default class AppImageUpload extends Vue {
     }
 }
 </script>
-<style lang = "less">
+<style lang="less">
 @import './app-image-upload.less';
 </style>

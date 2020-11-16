@@ -1,16 +1,14 @@
 <template>
-  <div class='app-image-preview'>
-      <el-image :src="data[name]" :previewSrcList="previewList" :disabled="disabled">
-      </el-image>
-  </div>
+    <div class="app-image-preview">
+        <el-image :src="data[name]" :previewSrcList="previewList" :disabled="disabled"> </el-image>
+    </div>
 </template>
-<script lang = 'ts'>
+<script lang="ts">
 import { Vue, Component, Prop, Watch, Provide } from 'vue-property-decorator';
 import { Subject, Unsubscribable } from 'rxjs';
 
 @Component({})
 export default class AppImageRomate extends Vue {
-
     /**
      * 表单状态
      *
@@ -49,7 +47,7 @@ export default class AppImageRomate extends Vue {
      * @type {boolean}
      * @memberof AppImageRomate
      */
-    public previewList:Array<any> = [];
+    public previewList: Array<any> = [];
 
     /**
      * 表单状态事件
@@ -70,7 +68,7 @@ export default class AppImageRomate extends Vue {
         if (this.formState) {
             this.formStateEvent = this.formState.subscribe(($event: any) => {
                 // 表单加载完成
-                if(this.data && this.name) {
+                if (this.data && this.name) {
                     this.handleData();
                 }
             });
@@ -85,8 +83,8 @@ export default class AppImageRomate extends Vue {
      */
     public handleData() {
         this.previewList.push(this.data[this.name]);
-    }  
-    
+    }
+
     /**
      * 组件销毁
      *
@@ -98,5 +96,4 @@ export default class AppImageRomate extends Vue {
         }
     }
 }
-
 </script>

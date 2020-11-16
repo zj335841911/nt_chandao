@@ -1,5 +1,5 @@
 import { Vue, Emit, Prop, Watch } from 'vue-property-decorator';
-import { Subject,Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { Util } from '@/utils';
 
 /**
@@ -10,7 +10,6 @@ import { Util } from '@/utils';
  * @extends {Vue}
  */
 export class ViewBase extends Vue {
-
     /**
      * 视图状态通知对象
      *
@@ -73,8 +72,8 @@ export class ViewBase extends Vue {
      * @protected
      * @type {string}
      * @memberof ViewBase
-     */ 
-    protected dataControl:string = "";
+     */
+    protected dataControl: string = '';
 
     /**
      * 视图名称
@@ -82,8 +81,8 @@ export class ViewBase extends Vue {
      * @protected
      * @type {string}
      * @memberof ViewBase
-     */ 
-    protected viewName:string = "";
+     */
+    protected viewName: string = '';
 
     /**
      * 视图模型数据
@@ -96,7 +95,7 @@ export class ViewBase extends Vue {
         srfTitle: null,
         srfCaption: null,
         srfSubTitle: null,
-        dataInfo: null
+        dataInfo: null,
     };
 
     /**
@@ -126,16 +125,16 @@ export class ViewBase extends Vue {
      * @type {*}
      * @memberof ViewBase
      */
-    @Prop() 
+    @Prop()
     public portletState?: any;
 
-   /**
-   * 门户部件状态事件
-   *
-   * @public
-   * @type {(Subscription | undefined)}
-   * @memberof ViewBase
-   */
+    /**
+     * 门户部件状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof ViewBase
+     */
     public portletStateEvent: Subscription | undefined;
 
     /**
@@ -225,7 +224,7 @@ export class ViewBase extends Vue {
      */
     protected viewparams: any = {};
 
-	/**
+    /**
      * 视图标识
      *
      * @protected
@@ -334,7 +333,7 @@ export class ViewBase extends Vue {
      * @param {*} oldVal
      * @memberof ViewBase
      */
-    protected viewParamChange(newVal: any, oldVal: any): void { }
+    protected viewParamChange(newVal: any, oldVal: any): void {}
 
     /**
      * 处理应用上下文变化
@@ -366,7 +365,7 @@ export class ViewBase extends Vue {
      * @param {*} oldVal
      * @memberof ViewBase
      */
-    protected viewDataChange(newVal: any, oldVal: any): void { }
+    protected viewDataChange(newVal: any, oldVal: any): void {}
 
     /**
      * 当前组件是否已激活
@@ -425,15 +424,15 @@ export class ViewBase extends Vue {
                 this.model.srfSubTitle = this.$t(this.model.srfSubTitle);
             }
         }
-        if(this.portletState){
-            this.portletStateEvent = this.portletState.subscribe((res:any) =>{
-                if(!Object.is(res.tag,this.viewName)){
+        if (this.portletState) {
+            this.portletStateEvent = this.portletState.subscribe((res: any) => {
+                if (!Object.is(res.tag, this.viewName)) {
                     return;
                 }
-                if(Object.is(res.action,'refresh') && this.refresh && this.refresh instanceof Function){
+                if (Object.is(res.action, 'refresh') && this.refresh && this.refresh instanceof Function) {
                     this.refresh();
                 }
-            })
+            });
         }
         this.viewCreated();
     }
@@ -444,7 +443,7 @@ export class ViewBase extends Vue {
      * @protected
      * @memberof ViewBase
      */
-    protected viewCreated(): void { }
+    protected viewCreated(): void {}
 
     /**
      * 组件挂载完毕
@@ -464,7 +463,7 @@ export class ViewBase extends Vue {
      * @protected
      * @memberof ViewBase
      */
-    protected viewMounted(): void { }
+    protected viewMounted(): void {}
 
     /**
      * 组件销毁之前
@@ -490,18 +489,18 @@ export class ViewBase extends Vue {
                 }
             }
         }
-        this.accLocalTags.forEach(((str: string) => {
+        this.accLocalTags.forEach((str: string) => {
             this.$acc.unsubscribeLocal(str);
-        }));
+        });
         // 销毁计数器定时器
         if (this.counterServiceArray && this.counterServiceArray.length > 0) {
             this.counterServiceArray.forEach((item: any) => {
                 if (item.destroyCounter && item.destroyCounter instanceof Function) {
                     item.destroyCounter();
                 }
-            })
+            });
         }
-        if(this.portletStateEvent){
+        if (this.portletStateEvent) {
             this.portletStateEvent.unsubscribe();
         }
     }
@@ -512,7 +511,7 @@ export class ViewBase extends Vue {
      * @protected
      * @memberof ViewBase
      */
-    protected engineInit(): void { }
+    protected engineInit(): void {}
 
     /**
      * 加载视图默认模型
@@ -521,7 +520,7 @@ export class ViewBase extends Vue {
      * @returns {Promise<void>}
      * @memberof ViewBase
      */
-    protected async loadModel(): Promise<void> { }
+    protected async loadModel(): Promise<void> {}
 
     /**
      * 计数器刷新
@@ -535,7 +534,7 @@ export class ViewBase extends Vue {
                 if (item.refreshData && item.refreshData instanceof Function) {
                     item.refreshData();
                 }
-            })
+            });
         }
     }
 
@@ -564,7 +563,7 @@ export class ViewBase extends Vue {
             if (this.$store.getters.getAppData() && this.$store.getters.getAppData().context) {
                 Object.assign(this.context, this.$store.getters.getAppData().context);
             }
-            const path = (this.$route.matched[this.$route.matched.length - 1]).path;
+            const path = this.$route.matched[this.$route.matched.length - 1].path;
             const keys: Array<any> = [];
             const curReg = this.$pathToRegExp.pathToRegexp(path, keys);
             const matchArray = curReg.exec(this.$route.path);
@@ -572,7 +571,7 @@ export class ViewBase extends Vue {
             keys.forEach((item: any, index: number) => {
                 Object.defineProperty(tempValue, item.name, {
                     enumerable: true,
-                    value: matchArray[index + 1]
+                    value: matchArray[index + 1],
                 });
             });
             this.$viewTool.formatRouteParams(tempValue, this.$route, this.context, this.viewparams);
@@ -586,7 +585,7 @@ export class ViewBase extends Vue {
         this.handleCustomViewData();
     }
 
-	/**
+    /**
      * 处理自定义视图参数
      *
      * @protected
@@ -622,7 +621,7 @@ export class ViewBase extends Vue {
     protected handleCustomDataLogic(data: any, curNavData: any, key: string): void {
         // 直接值直接赋值
         if (curNavData.isRawValue) {
-            if (Object.is(curNavData.value, "null") || Object.is(curNavData.value, "")) {
+            if (Object.is(curNavData.value, 'null') || Object.is(curNavData.value, '')) {
                 data[key] = null;
             } else {
                 data[key] = curNavData.value;
@@ -646,7 +645,7 @@ export class ViewBase extends Vue {
      * @protected
      * @memberof ViewBase
      */
-    protected handleViewRes(): void { }
+    protected handleViewRes(): void {}
 
     /**
      * 关闭视图

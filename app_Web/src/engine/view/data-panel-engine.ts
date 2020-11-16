@@ -8,7 +8,6 @@ import ViewEngine from './view-engine';
  * @extends {ViewEngine}
  */
 export default class DataPanelEngine extends ViewEngine {
-
     /**
      * 快捷信息栏部件
      *
@@ -68,5 +67,4 @@ export default class DataPanelEngine extends ViewEngine {
             }
         }
     }
-
 }

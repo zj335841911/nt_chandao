@@ -16,7 +16,6 @@ import './studio-drawer.less';
  */
 @Component({})
 export class StudioDrawer extends Vue {
-
     /**
      * 已呈现视图列表
      *
@@ -102,7 +101,7 @@ export class StudioDrawer extends Vue {
     protected created(): void {
         on(document, 'keydown', ($event: KeyboardEvent) => {
             if ($event && $event.keyCode === 27 && this.viewList.length > 0) {
-                const zIndex = this.$store.getters.getZIndex()
+                const zIndex = this.$store.getters.getZIndex();
                 if (zIndex !== this.zIndex) {
                     return;
                 }
@@ -131,9 +130,12 @@ export class StudioDrawer extends Vue {
                     title: title,
                     content: contant,
                     onOk: () => {
-                        this.$store.commit('viewaction/setViewDataChange', { viewtag: ref.viewtag, viewdatachange: false });
+                        this.$store.commit('viewaction/setViewDataChange', {
+                            viewtag: ref.viewtag,
+                            viewdatachange: false,
+                        });
                         ref.closeView();
-                    }
+                    },
                 });
             } else {
                 ref.closeView();
@@ -156,7 +158,7 @@ export class StudioDrawer extends Vue {
                     this.zIndex = zIndex + 1;
                     this.$store.commit('updateZIndex', this.zIndex);
                 }
-                setTimeout(() => this.isShow = true, 50);
+                setTimeout(() => (this.isShow = true), 50);
             }
             this.viewList.push(Object.assign(Util.deepCopy(param), { resolve }));
             this.showViewList.push(this.viewList[this.viewList.length - 1]);
@@ -200,7 +202,7 @@ export class StudioDrawer extends Vue {
         for (let index = i + 1; index < this.viewList.length - 1; index++) {
             this.toBeClosedViews.push({
                 viewname: this.viewList[index].viewname,
-                index: index
+                index: index,
             });
         }
         this.refCloseView(this.viewList[this.viewList.length - 1], this.viewList.length - 1);
@@ -214,35 +216,40 @@ export class StudioDrawer extends Vue {
      * @memberof StudioDrawer
      */
     protected renderHeader(): any {
-        return <div class="studio-drawer-header">
-            <div class="studio-drawer-breadcrumb">
-                <div class="studio-drawer-back" on-click={() => this.closeByIndex(this.viewList.length - 1)}>
-                    <icon type="ios-arrow-back"/>
-                    返回
+        return (
+            <div class="studio-drawer-header">
+                <div class="studio-drawer-breadcrumb">
+                    <div class="studio-drawer-back" on-click={() => this.closeByIndex(this.viewList.length - 1)}>
+                        <icon type="ios-arrow-back" />
+                        返回
+                    </div>
+                    {this.showViewList.map((item, i) => {
+                        const ref: any = this.$refs[item.viewname + i];
+                        if (!ref) {
+                            setTimeout(() => {
+                                this.$forceUpdate();
+                            }, 300);
+                            return;
+                        }
+                        return (
+                            <span key={i}>
+                                {i !== 0 ? <span class="studio-drawer-breadcrumb-item-separator">&gt;</span> : null}
+                                <span
+                                    class={{ text: true, active: i === this.showViewList.length - 1 }}
+                                    on-click={() => {
+                                        if (this.showViewList.length === i + 1) {
+                                            return;
+                                        }
+                                        this.closeByIndex(i);
+                                    }}
+                                >
+                                    {this.$t(ref.viewCaption)}
+                                </span>
+                            </span>
+                        );
+                    })}
                 </div>
-                {this.showViewList.map((item, i) => {
-                    const ref: any = this.$refs[item.viewname + i];
-                    if (!ref) {
-                        setTimeout(() => {
-                            this.$forceUpdate();
-                        }, 300);
-                        return;
-                    }
-                    return <span key={i}>
-                        {i !== 0 ? <span class="studio-drawer-breadcrumb-item-separator">&gt;</span> : null}
-                        <span class={{ 'text': true, 'active': (i === (this.showViewList.length - 1)) }} on-click={() => {
-                            if (this.showViewList.length === (i + 1)) {
-                                return;
-                            }
-                            this.closeByIndex(i);
-                        }}>
-                            {this.$t(ref.viewCaption)}
-                        </span>
-                    </span>;
-                })}
-            </div>
-            {
-                this.viewList.length > 1 ?
+                {this.viewList.length > 1 ? (
                     <poptip
                         class="close"
                         confirm
@@ -252,12 +259,13 @@ export class StudioDrawer extends Vue {
                     >
                         <icon title="关闭所有视图" type="md-close" />
                     </poptip>
-                    :
+                ) : (
                     <div class="close" on-click={() => this.closeByIndex(-1)}>
                         <icon title="关闭所有视图" type="md-close" />
                     </div>
-            }
-        </div>;
+                )}
+            </div>
+        );
     }
 
     /**
@@ -271,35 +279,43 @@ export class StudioDrawer extends Vue {
     protected renderViews(h: CreateElement): any {
         return this.showViewList.map((view: any, i: number) => {
             try {
-                const props: any = { openMode: 'MODAL', viewUsage: 2, viewDefaultUsage: false, viewdata: JSON.stringify(view.viewdata), viewparam: JSON.stringify(view.viewparams) };
+                const props: any = {
+                    openMode: 'MODAL',
+                    viewUsage: 2,
+                    viewDefaultUsage: false,
+                    viewdata: JSON.stringify(view.viewdata),
+                    viewparam: JSON.stringify(view.viewparams),
+                };
                 const style: any = { 'z-index': i + 1 };
-                return <div class={{ 'studio-drawer-item': true, 'active': this.activeIndex === i }}>
-                    {h(view.viewname, {
-                        key: view.viewname + i,
-                        ref: view.viewname + i,
-                        style,
-                        props,
-                        on: {
-                            viewdataschange: (data: any) => {
-                                this.closeModalData = data;
+                return (
+                    <div class={{ 'studio-drawer-item': true, active: this.activeIndex === i }}>
+                        {h(view.viewname, {
+                            key: view.viewname + i,
+                            ref: view.viewname + i,
+                            style,
+                            props,
+                            on: {
+                                viewdataschange: (data: any) => {
+                                    this.closeModalData = data;
+                                },
+                                close: () => {
+                                    if (this.viewList.length - 1 < i) {
+                                        return;
+                                    }
+                                    if (this.viewList.length === 1) {
+                                        this.isShow = false;
+                                        setTimeout(() => this.closeView(view), 500);
+                                    } else {
+                                        this.closeView(view);
+                                    }
+                                },
+                                viewModelChange: () => {
+                                    this.$forceUpdate();
+                                },
                             },
-                            close: () => {
-                                if ((this.viewList.length - 1) < i) {
-                                    return;
-                                }
-                                if (this.viewList.length === 1) {
-                                    this.isShow = false;
-                                    setTimeout(() => this.closeView(view), 500);
-                                } else {
-                                    this.closeView(view);
-                                }
-                            },
-                            viewModelChange: () => {
-                                this.$forceUpdate();
-                            }
-                        }
-                    })}
-                </div>;
+                        })}
+                    </div>
+                );
             } catch (err) {
                 console.warn('上飘窗打开视图参数转换异常', err);
             }
@@ -313,14 +329,24 @@ export class StudioDrawer extends Vue {
      * @memberof StudioDrawer
      */
     public render(h: CreateElement): any {
-        return <div class="studio-drawer" key="studio-drawer" style={{ 'z-index': this.zIndex, 'margin-top': this.isShow ? '0px' : '-100vh' }}>
-            {this.renderHeader()}
-            <div class="studio-drawer-content" style={`transform: translateX(${this.activeIndex > 0 ? this.activeIndex * - 100 : 0}%) translateZ(0px);`}>
-                {this.renderViews(h)}
+        return (
+            <div
+                class="studio-drawer"
+                key="studio-drawer"
+                style={{ 'z-index': this.zIndex, 'margin-top': this.isShow ? '0px' : '-100vh' }}
+            >
+                {this.renderHeader()}
+                <div
+                    class="studio-drawer-content"
+                    style={`transform: translateX(${
+                        this.activeIndex > 0 ? this.activeIndex * -100 : 0
+                    }%) translateZ(0px);`}
+                >
+                    {this.renderViews(h)}
+                </div>
             </div>
-        </div>;
+        );
     }
-
 }
 
 /**
@@ -330,7 +356,6 @@ export class StudioDrawer extends Vue {
  * @class StudioDrawerController
  */
 export class StudioDrawerController {
-
     /**
      * 唯一实例
      *
@@ -378,7 +403,7 @@ export class StudioDrawerController {
         this.vueInstance = new Vue({
             i18n,
             store,
-            render: (h: any) => h(StudioDrawer, { ref: 'StudioDrawer' })
+            render: (h: any) => h(StudioDrawer, { ref: 'StudioDrawer' }),
         }).$mount(this.modalContainer);
     }
 
@@ -394,13 +419,19 @@ export class StudioDrawerController {
      * @returns {Observable<any>}
      * @memberof StudioDrawerController
      */
-    public openDrawer(view: { viewname: string, title: string, width?: number, height?: number, placement?: string }, context: any, data: any = {}): Observable<any> {
+    public openDrawer(
+        view: { viewname: string; title: string; width?: number; height?: number; placement?: string },
+        context: any,
+        data: any = {}
+    ): Observable<any> {
         const subject: Subject<any> = new Subject();
-        this.getVueInstance().$refs.StudioDrawer.openModal({ ...view, viewdata: Util.deepCopy(context), viewparams: data }).then((data: any) => {
-            subject.next(data);
-            subject.complete();
-            subject.unsubscribe();
-        });
+        this.getVueInstance()
+            .$refs.StudioDrawer.openModal({ ...view, viewdata: Util.deepCopy(context), viewparams: data })
+            .then((data: any) => {
+                subject.next(data);
+                subject.complete();
+                subject.unsubscribe();
+            });
         return subject.asObservable();
     }
 
@@ -417,7 +448,6 @@ export class StudioDrawerController {
         }
         return this.vueInstance;
     }
-
 }
 
 // 模态服务控制器实例

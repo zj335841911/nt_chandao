@@ -8,11 +8,10 @@ import EditViewEngine from './edit-view-engine';
  * @extends {EditViewEngine}
  */
 export default class OptionViewEngine extends EditViewEngine {
-
     /**
      * Creates an instance of OptionViewEngine.
      * 创建 OptionViewEngine 实例对象
-     * 
+     *
      * @memberof OptionViewEngine
      */
     constructor() {

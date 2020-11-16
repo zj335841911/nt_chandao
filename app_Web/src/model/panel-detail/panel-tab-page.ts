@@ -9,12 +9,10 @@ import { PanelTabPanelModel } from './panel-tab-panel';
  * @extends {PanelDetailModel}
  */
 export class PanelTabPageModel extends PanelDetailModel {
-
-
     /**
      * Creates an instance of PanelTabPageModel.
      * PanelTabPageModel 实例
-     * 
+     *
      * @param {*} [opts={}]
      * @memberof PanelTabPageModel
      */
@@ -46,7 +44,9 @@ export class PanelTabPageModel extends PanelDetailModel {
         if (!this.panel) {
             return null;
         }
-        const tabPanels: any[] = Object.values(this.panel.detailsModel).filter((model: any) => Object.is(model.itemType, 'TABPANEL'));
+        const tabPanels: any[] = Object.values(this.panel.detailsModel).filter((model: any) =>
+            Object.is(model.itemType, 'TABPANEL')
+        );
         let index = tabPanels.findIndex((tabPanel: any) => {
             return tabPanel.tabPages.some((tabPag: any) => Object.is(tabPag.name, this.name));
         });

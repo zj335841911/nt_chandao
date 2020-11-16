@@ -8,7 +8,6 @@ import { MDViewBase } from './MDViewBase';
  * @extends {MDViewBase}
  */
 export class DataViewBase extends MDViewBase {
-
     /**
      * 快速搜索
      *
@@ -21,5 +20,4 @@ export class DataViewBase extends MDViewBase {
             dataview.refresh({});
         }
     }
-
 }

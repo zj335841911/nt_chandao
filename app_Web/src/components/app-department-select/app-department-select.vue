@@ -1,15 +1,19 @@
 <template>
-  <div class="app-department-select">
-    <ibiz-select-tree  :NodesData="Nodesdata" v-model="selectTreeValue" :disabled="disabled" :multiple="multiple" @select="onSelect"></ibiz-select-tree>
-  </div>
+    <div class="app-department-select">
+        <ibiz-select-tree
+            :NodesData="Nodesdata"
+            v-model="selectTreeValue"
+            :disabled="disabled"
+            :multiple="multiple"
+            @select="onSelect"
+        ></ibiz-select-tree>
+    </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Watch, Prop, Model } from 'vue-property-decorator';
-@Component({
-})
+@Component({})
 export default class AppDepartmentSelect extends Vue {
-
     /**
      * 接口url
      *
@@ -40,7 +44,7 @@ export default class AppDepartmentSelect extends Vue {
      * @type {*}
      * @memberof AppDepartmentSelect
      */
-    @Prop({default:false}) public multiple?: any;
+    @Prop({ default: false }) public multiple?: any;
 
     /**
      * 是否禁用
@@ -48,7 +52,7 @@ export default class AppDepartmentSelect extends Vue {
      * @type {*}
      * @memberof AppDepartmentSelect
      */
-    @Prop({default:false}) public disabled?: boolean;
+    @Prop({ default: false }) public disabled?: boolean;
 
     /**
      * 表单数据
@@ -72,7 +76,7 @@ export default class AppDepartmentSelect extends Vue {
      * @type {*}
      * @memberof AppDepartmentSelect
      */
-    public selectTreeValue:any = "";
+    public selectTreeValue: any = '';
 
     /**
      * 树节点数据
@@ -95,16 +99,16 @@ export default class AppDepartmentSelect extends Vue {
      *
      * @memberof AppDepartmentSelect
      */
-    public handleFilter(){
-      if(this.filter){
-          if(this.data && this.data[this.filter]){
-            return this.data[this.filter];
-          }else if(this.context && this.context[this.filter]){
-            return this.context[this.filter];
-          }
-      }else{
-          return this.context.srforgid;
-      }
+    public handleFilter() {
+        if (this.filter) {
+            if (this.data && this.data[this.filter]) {
+                return this.data[this.filter];
+            } else if (this.context && this.context[this.filter]) {
+                return this.context[this.filter];
+            }
+        } else {
+            return this.context.srforgid;
+        }
     }
 
     /**
@@ -112,29 +116,35 @@ export default class AppDepartmentSelect extends Vue {
      *
      * @memberof AppDepartmentSelect
      */
-    public searchNodesData(){
-      // 处理过滤参数，生成url
-      let param = this.handleFilter();
-      let _url = this.url.replace('${orgid}',param)
-      if(this.oldurl === _url){
-          return;
-      }
-      this.oldurl = _url;
-      // 缓存机制
-      const result:any = this.$store.getters.getCopyData(_url);
-      if(result){
-        this.Nodesdata = result;
-        return;
-      }
-      this.$http.get(_url).then((response: any) => {
-          this.Nodesdata = response.data;
-          this.$store.commit('addDepData', { srfkey: this.filter, orgData: response.data });
-      }).catch((response: any) => {
-          if (!response || !response.status || !response.data) {
-              this.$Notice.error({ title: (this.$t('app.commonWords.error') as string), desc: (this.$t('app.commonWords.sysException') as string) });
-              return;
-          }
-      });
+    public searchNodesData() {
+        // 处理过滤参数，生成url
+        let param = this.handleFilter();
+        let _url = this.url.replace('${orgid}', param);
+        if (this.oldurl === _url) {
+            return;
+        }
+        this.oldurl = _url;
+        // 缓存机制
+        const result: any = this.$store.getters.getCopyData(_url);
+        if (result) {
+            this.Nodesdata = result;
+            return;
+        }
+        this.$http
+            .get(_url)
+            .then((response: any) => {
+                this.Nodesdata = response.data;
+                this.$store.commit('addDepData', { srfkey: this.filter, orgData: response.data });
+            })
+            .catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    this.$Notice.error({
+                        title: this.$t('app.commonWords.error') as string,
+                        desc: this.$t('app.commonWords.sysException') as string,
+                    });
+                    return;
+                }
+            });
     }
 
     /**
@@ -144,77 +154,77 @@ export default class AppDepartmentSelect extends Vue {
      * @param {*} oldVal
      * @memberof AppDepartmentSelect
      */
-    @Watch('data',{immediate:true,deep:true})
+    @Watch('data', { immediate: true, deep: true })
     public onValueChange(newVal: any, oldVal: any) {
-        if(newVal){
-          this.computedSelectedData();
-          this.$nextTick(()=>{
-            this.searchNodesData();
-          });
+        if (newVal) {
+            this.computedSelectedData();
+            this.$nextTick(() => {
+                this.searchNodesData();
+            });
         }
     }
 
     /**
      * 计算选中值
-     * 
+     *
      * @memberof AppOrgSelect
      */
-    public computedSelectedData(){
-      // 单选
-      if(!this.multiple){
-        if(this.fillMap && Object.keys(this.fillMap).length >0){
-        let templateValue = {};
-        Object.keys(this.fillMap).forEach((item:any) =>{
-          if(this.data && this.data[this.fillMap[item]]){
-            Object.assign(templateValue,{[item]:this.data[this.fillMap[item]]});
-          }
-        })
-        this.selectTreeValue = JSON.stringify([templateValue]);
-        }
-      }else{
-      // 多选
-        if(this.fillMap && Object.keys(this.fillMap).length >0){
-          let tempArray:Array<any> = [];
-          Object.keys(this.fillMap).forEach((item:any) =>{
-            if(this.data && this.data[this.fillMap[item]]){
-              let tempDataArray:Array<any> = (this.data[this.fillMap[item]]).split(",");
-              tempDataArray.forEach((tempData:any,index:number) =>{
-                if(tempArray.length < tempDataArray.length){
-                  let singleData:any ={[item]:tempData};
-                  tempArray.push(singleData);
-                }else{
-                  Object.assign(tempArray[index],{[item]:tempData});
-                }
-              })
+    public computedSelectedData() {
+        // 单选
+        if (!this.multiple) {
+            if (this.fillMap && Object.keys(this.fillMap).length > 0) {
+                let templateValue = {};
+                Object.keys(this.fillMap).forEach((item: any) => {
+                    if (this.data && this.data[this.fillMap[item]]) {
+                        Object.assign(templateValue, { [item]: this.data[this.fillMap[item]] });
+                    }
+                });
+                this.selectTreeValue = JSON.stringify([templateValue]);
             }
-          })
-          this.selectTreeValue = JSON.stringify(tempArray);
-          }
-      }
-    } 
+        } else {
+            // 多选
+            if (this.fillMap && Object.keys(this.fillMap).length > 0) {
+                let tempArray: Array<any> = [];
+                Object.keys(this.fillMap).forEach((item: any) => {
+                    if (this.data && this.data[this.fillMap[item]]) {
+                        let tempDataArray: Array<any> = this.data[this.fillMap[item]].split(',');
+                        tempDataArray.forEach((tempData: any, index: number) => {
+                            if (tempArray.length < tempDataArray.length) {
+                                let singleData: any = { [item]: tempData };
+                                tempArray.push(singleData);
+                            } else {
+                                Object.assign(tempArray[index], { [item]: tempData });
+                            }
+                        });
+                    }
+                });
+                this.selectTreeValue = JSON.stringify(tempArray);
+            }
+        }
+    }
 
     /**
      * select事件处理
-     * 
+     *
      * @param {*} $event
      * @memberof AppDepartmentSelect
      */
-    public onSelect($event:any){
+    public onSelect($event: any) {
         // 组件自身抛值事件
         let selectArr = JSON.parse($event);
         // fillMap抛值事件
-        if(this.fillMap && Object.keys(this.fillMap).length > 0){
-            Object.keys(this.fillMap).forEach((attribute:string) => {
+        if (this.fillMap && Object.keys(this.fillMap).length > 0) {
+            Object.keys(this.fillMap).forEach((attribute: string) => {
                 let _name = this.fillMap[attribute];
-                let values = selectArr.map((item:any) => item[attribute]);
-                let _value = $event === "[]" ? null : values.join(",");
-                this.$emit('select-change',{name: this.fillMap[attribute], value: _value})
+                let values = selectArr.map((item: any) => item[attribute]);
+                let _value = $event === '[]' ? null : values.join(',');
+                this.$emit('select-change', { name: this.fillMap[attribute], value: _value });
             });
         }
     }
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import './app-department-select.less';
 </style>

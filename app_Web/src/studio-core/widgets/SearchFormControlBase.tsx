@@ -10,7 +10,6 @@ import { EditFormControlBase } from './EditFormControlBase';
  * @extends {EditFormControlBase}
  */
 export class SearchFormControlBase extends EditFormControlBase {
-
     /**
      * 部件行为--create
      *
@@ -27,13 +26,9 @@ export class SearchFormControlBase extends EditFormControlBase {
      */
     public ctrlCreated(): void {
         super.ctrlCreated();
-        this.dataChang
-            .pipe(
-                debounceTime(300),
-                distinctUntilChanged()
-            ).subscribe((data: any) => {
-                this.$emit('load', this.data);
-            });
+        this.dataChang.pipe(debounceTime(300), distinctUntilChanged()).subscribe((data: any) => {
+            this.$emit('load', this.data);
+        });
     }
 
     /**
@@ -42,7 +37,7 @@ export class SearchFormControlBase extends EditFormControlBase {
      * @param {{ name: string, newVal: any, oldVal: any }} param
      * @memberof SearchFormControlBase
      */
-    public formDataChange(param: { name: string, newVal: any, oldVal: any }): void {
+    public formDataChange(param: { name: string; newVal: any; oldVal: any }): void {
         super.formDataChange(param);
         this.$emit('valuechange', this.data);
     }

@@ -7,6 +7,4 @@ import EditViewEngine from './edit-view-engine';
  * @class WFActionViewEngine
  * @extends {EditViewEngine}
  */
-export default class WFActionViewEngine extends EditViewEngine {
-
-}
+export default class WFActionViewEngine extends EditViewEngine {}

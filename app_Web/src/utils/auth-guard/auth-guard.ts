@@ -8,7 +8,6 @@ import { AppService } from '@/studio-core/service/app-service/AppService';
  * @class Http
  */
 export class AuthGuard {
-
     /**
      * 获取 Auth 单例对象
      *
@@ -36,10 +35,10 @@ export class AuthGuard {
     /**
      * Creates an instance of AuthGuard.
      * 私有构造，拒绝通过 new 创建对象
-     * 
+     *
      * @memberof AuthGuard
      */
-    private constructor() { }
+    private constructor() {}
 
     /**
      * post请求
@@ -99,8 +98,7 @@ export class AuthGuard {
                 return new Date().toLocaleString(undefined, { hour12: false });
             },
             enumerable: true,
-            configurable: true
+            configurable: true,
         });
     }
-
 }

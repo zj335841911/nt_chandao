@@ -7,6 +7,4 @@ import { AccMessageBase } from './base/acc-message-base';
  * @class AccCentralMessage
  * @extends {AccMessageBase}
  */
-export class AccCentralMessage extends AccMessageBase {
-    
-}
+export class AccCentralMessage extends AccMessageBase {}

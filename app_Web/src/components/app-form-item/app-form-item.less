@@ -23,8 +23,8 @@
     .ivu-form-item-content {
         height: 100%;
         min-height: 36px;
-        
-        >.editor-wrapper {
+
+        > .editor-wrapper {
             position: relative;
             height: 100%;
             display: flex;
@@ -39,10 +39,10 @@
                 font-size: 20px;
                 color: var(--app-color-danger);
 
-                .ivu-tooltip-popper[x-placement^=right] .ivu-tooltip-arrow {
+                .ivu-tooltip-popper[x-placement^='right'] .ivu-tooltip-arrow {
                     border-right-color: var(--view-background-color-bright);
                 }
-                
+
                 .ivu-tooltip-inner {
                     background-color: var(--view-background-color-bright);
                 }
@@ -60,22 +60,22 @@
     }
 }
 
-.app-form-item.label-top, .app-form-item.label-bottom {
-
+.app-form-item.label-top,
+.app-form-item.label-bottom {
     .editor-wrapper {
         height: calc(100% - 32px);
     }
 }
 
-.app-form-item.label-left, .app-form-item.label-right {
-
-    .app-form-item-label, .editor-wrapper {
+.app-form-item.label-left,
+.app-form-item.label-right {
+    .app-form-item-label,
+    .editor-wrapper {
         height: 100%;
     }
 }
 
 .app-form-item.label-left {
-
     .app-form-item-label {
         float: left;
         text-align: right;
@@ -84,7 +84,6 @@
 }
 
 .app-form-item.label-right {
-
     .app-form-item-label {
         float: right;
         text-align: left;
@@ -93,7 +92,6 @@
 }
 
 .app-form-item.label-none {
-
     .app-form-item-label {
         display: none !important;
     }

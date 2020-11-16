@@ -115,8 +115,8 @@ export class OpenViewService {
                 title: data.title,
                 width: data.width,
                 height: data.height,
-                placement: data.openmode
-            }
+                placement: data.openmode,
+            };
             switch (data.openmode) {
                 case 'POPUPAPP':
                     return this.openPopupApp(data.url);
@@ -225,7 +225,7 @@ export class OpenViewService {
                 content: msg,
                 onOk: () => {
                     resolve();
-                }
+                },
             });
         });
     }

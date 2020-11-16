@@ -8,7 +8,6 @@ import EditViewEngine from './edit-view-engine';
  * @extends {EditViewEngine}
  */
 export default class WFDynaEditViewEngine extends EditViewEngine {
-
     /**
      * Creates an instance of WFDynaEditViewEngine.
      * @memberof WFDynaEditViewEngine
@@ -16,7 +15,7 @@ export default class WFDynaEditViewEngine extends EditViewEngine {
     constructor() {
         super();
     }
-    
+
     /**
      * 表单加载完成
      *

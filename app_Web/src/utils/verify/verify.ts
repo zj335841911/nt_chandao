@@ -7,10 +7,9 @@ import { Util } from '../util/util';
  * @class Verify
  */
 export class Verify {
-
     /**
      * 错误提示信息
-     * 
+     *
      * @static
      * @type {string}
      * @memberof Verify
@@ -31,10 +30,10 @@ export class Verify {
         if (!Object.is(value, '') && !Object.is(value2, '') && !isNaN(value) && !isNaN(value2)) {
             result = this.compareNumber(parseFloat(value), parseFloat(value2));
         } else if (this.isParseDate(value) && this.isParseDate(value2)) {
-            result = this.compareDate((new Date(value)).getTime(), (new Date(value2)).getTime());
-        } else if (value && (typeof (value) === 'boolean' || value instanceof Boolean)) {
+            result = this.compareDate(new Date(value).getTime(), new Date(value2).getTime());
+        } else if (value && (typeof value === 'boolean' || value instanceof Boolean)) {
             result = this.compareBoolean(value, value2);
-        } else if (value && (typeof (value) === 'string' || value instanceof String)) {
+        } else if (value && (typeof value === 'string' || value instanceof String)) {
             result = this.compareString(value, value2);
         }
         return result;
@@ -69,7 +68,6 @@ export class Verify {
             return -1;
         }
     }
-
 
     /**
      * 时间值比较（毫秒数）
@@ -116,10 +114,10 @@ export class Verify {
      * @memberof Verify
      */
     public static compareNumber(value: number, value2: number): number {
-        if(isNaN(value)){
+        if (isNaN(value)) {
             value = 0;
         }
-        if(isNaN(value2)){
+        if (isNaN(value2)) {
             value2 = 0;
         }
         if (value > value2) {
@@ -148,7 +146,7 @@ export class Verify {
             // 定义正则表达式的连接符
             const S = String.fromCharCode(2);
             const reg = new RegExp(S + value + S);
-            return (reg.test(S + arr.join(S) + S));
+            return reg.test(S + arr.join(S) + S);
         }
         return false;
     }
@@ -193,19 +191,19 @@ export class Verify {
         }
         // 不为空判断操作
         if (Object.is(op, 'ISNOTNULL')) {
-            return (value != null && value !== '');
+            return value != null && value !== '';
         }
         // 为空判断操作
         if (Object.is(op, 'ISNULL')) {
-            return (value == null || value === '');
+            return value == null || value === '';
         }
         // 文本左包含
         if (Object.is(op, 'LEFTLIKE')) {
-            return (value && value2 && (value.toUpperCase().indexOf(value2.toUpperCase()) === 0));
+            return value && value2 && value.toUpperCase().indexOf(value2.toUpperCase()) === 0;
         }
         // 文本包含
         if (Object.is(op, 'LIKE')) {
-            return (value && value2 && (value.toUpperCase().indexOf(value2.toUpperCase()) !== -1));
+            return value && value2 && value.toUpperCase().indexOf(value2.toUpperCase()) !== -1;
         }
         // 小于操作
         if (Object.is(op, 'LT')) {
@@ -247,11 +245,9 @@ export class Verify {
         }
         // 空判断
         if (Object.is(op, 'TESTNULL')) {
-
         }
         // 自定义包含
         if (Object.is(op, 'USERLIKE')) {
-
         }
         return false;
     }
@@ -270,13 +266,21 @@ export class Verify {
      * @returns {boolean}
      * @memberof Verify
      */
-    public static checkFieldSimpleRule(value: any, op: string, value2: any, errorInfo: string, paramType: string, form: any, primaryModel: boolean): boolean {
+    public static checkFieldSimpleRule(
+        value: any,
+        op: string,
+        value2: any,
+        errorInfo: string,
+        paramType: string,
+        form: any,
+        primaryModel: boolean
+    ): boolean {
         if (Object.is(paramType, 'CURTIME')) {
             value2 = `${new Date()}`;
         }
         if (Object.is(paramType, 'ENTITYFIELD')) {
             value2 = value2 ? value2.toLowerCase() : '';
-            const _value2Field = form[value2]?form[value2]:value2;
+            const _value2Field = form[value2] ? form[value2] : value2;
             value2 = _value2Field;
         }
         if (Util.isEmpty(errorInfo)) {
@@ -294,19 +298,27 @@ export class Verify {
 
     /**
      * 检查属性字符长度规则
-     * 
+     *
      * @static
-     * @param {*} viewValue 
-     * @param {number} minLength 
-     * @param {boolean} indexOfMin 
-     * @param {number} maxLength 
-     * @param {boolean} indexOfMax 
-     * @param {string} errorInfo 
-     * @param {boolean} primaryModel 
-     * @returns {boolean} 
+     * @param {*} viewValue
+     * @param {number} minLength
+     * @param {boolean} indexOfMin
+     * @param {number} maxLength
+     * @param {boolean} indexOfMax
+     * @param {string} errorInfo
+     * @param {boolean} primaryModel
+     * @returns {boolean}
      * @memberof Verify
      */
-    public static checkFieldStringLengthRule(viewValue: string, minLength: number, indexOfMin: boolean, maxLength: number, indexOfMax: boolean, errorInfo: string, primaryModel: boolean): boolean {
+    public static checkFieldStringLengthRule(
+        viewValue: string,
+        minLength: number,
+        indexOfMin: boolean,
+        maxLength: number,
+        indexOfMax: boolean,
+        errorInfo: string,
+        primaryModel: boolean
+    ): boolean {
         if (Util.isEmpty(errorInfo)) {
             this.errorInfo = '内容长度必须符合范围规则';
         } else {
@@ -368,16 +380,21 @@ export class Verify {
 
     /**
      * 检查属性值正则式规则
-     * 
+     *
      * @static
      * @param {string} viewValue 属性值
      * @param {*} strReg 验证正则
      * @param {string} errorInfo 错误信息
      * @param {boolean} primaryModel 是否关键条件
-     * @returns {boolean} 
+     * @returns {boolean}
      * @memberof Verify
      */
-    public static checkFieldRegExRule(viewValue: string, strReg: any, errorInfo: string, primaryModel: boolean): boolean {
+    public static checkFieldRegExRule(
+        viewValue: string,
+        strReg: any,
+        errorInfo: string,
+        primaryModel: boolean
+    ): boolean {
         if (Util.isEmpty(errorInfo)) {
             this.errorInfo = '值必须符合正则规则';
         } else {
@@ -405,7 +422,7 @@ export class Verify {
 
     /**
      * 检查属性值范围规则
-     * 
+     *
      * @static
      * @param {string} viewValue 属性值
      * @param {*} minNumber 最小数值
@@ -414,11 +431,18 @@ export class Verify {
      * @param {boolean} indexOfMax 是否包含最大数值
      * @param {string} errorInfo 错误信息
      * @param {boolean} primaryModel 是否关键条件
-     * @returns {boolean} 
+     * @returns {boolean}
      * @memberof Verify
      */
-    public static checkFieldValueRangeRule(viewValue: string, minNumber: any, indexOfMin: boolean, maxNumber: any, indexOfMax: boolean, errorInfo: string, primaryModel: boolean): boolean {
-
+    public static checkFieldValueRangeRule(
+        viewValue: string,
+        minNumber: any,
+        indexOfMin: boolean,
+        maxNumber: any,
+        indexOfMax: boolean,
+        errorInfo: string,
+        primaryModel: boolean
+    ): boolean {
         if (Util.isEmpty(errorInfo)) {
             this.errorInfo = '值必须符合值范围规则';
         } else {
@@ -487,16 +511,21 @@ export class Verify {
 
     /**
      * 检查属性值系统值范围规则  暂时支持正则表达式
-     * 
+     *
      * @static
      * @param {string} viewValue 属性值
      * @param {*} strReg 正则
      * @param {string} errorInfo  错误信息
      * @param {boolean} primaryModel 是否关键条件
-     * @returns {boolean} 
+     * @returns {boolean}
      * @memberof Verify
      */
-    public static checkFieldSysValueRule(viewValue: string, strReg: any, errorInfo: string, primaryModel: boolean): boolean {
+    public static checkFieldSysValueRule(
+        viewValue: string,
+        strReg: any,
+        errorInfo: string,
+        primaryModel: boolean
+    ): boolean {
         return this.checkFieldRegExRule(viewValue, strReg, errorInfo, primaryModel);
     }
 }

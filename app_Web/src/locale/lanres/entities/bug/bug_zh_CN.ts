@@ -1247,6 +1247,10 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	projectgridviewtoolbar_toolbar: {
 		deuiaction3_create: {
@@ -1261,17 +1265,29 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	usr2gridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "保存",
 			tip: "保存",
 		},
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	buildsubgridview_donetoolbar_toolbar: {
 		deuiaction1: {
 			caption: "关联bug",
 			tip: "关联bug",
+		},
+		deuiaction2: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	buildsubgridview_newtoolbar_toolbar: {
@@ -1282,6 +1298,10 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
+		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	editview_4791toolbar_toolbar: {
@@ -1295,6 +1315,10 @@ export default {
 			caption: "提Bug",
 			tip: "提Bug",
 		},
+		deuiaction2: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	testreportsubgridviewtoolbar_toolbar: {
 		deuiaction2: {
@@ -1305,19 +1329,35 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	projectbugsgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	releasesubgridview_donetoolbar_toolbar: {
 		deuiaction1: {
 			caption: "关联bug",
 			tip: "关联bug",
 		},
+		deuiaction2: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	releasesubgridview_undonetoolbar_toolbar: {
 		deuiaction1: {
 			caption: "关联bug",
 			tip: "关联bug",
+		},
+		deuiaction2: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	gridviewtoolbar_toolbar: {
@@ -1332,6 +1372,16 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
+		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
+	testbugsgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	myfavoritegridviewtoolbar_toolbar: {
@@ -1349,6 +1399,12 @@ export default {
 		},
 	},
 	todoeditviewtoolbar_toolbar: {
+	},
+	mainmygridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	editview_1162toolbar_toolbar: {
 		deuiaction1: {
