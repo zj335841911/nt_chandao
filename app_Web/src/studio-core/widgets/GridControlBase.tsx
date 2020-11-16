@@ -65,6 +65,15 @@ export class GridControlBase extends MDControlBase {
     public selectedData?: string;
 
     /**
+     * 是否是关系界面
+     *
+     * @type {boolean}
+     * @memberof GridControlBase
+     */
+    @Prop({default: false})
+    public isformDruipart?: boolean;
+
+    /**
      * 行编辑值校验错误信息
      *
      * @type {Array<any>}
@@ -459,7 +468,7 @@ export class GridControlBase extends MDControlBase {
         }
         this.$emit('save', successItems);
         this.refresh([]);
-        if (errorItems.length === 0) {
+        if (errorItems.length === 0 && !this.isformDruipart) {
             this.$Notice.success({ title: '', desc: (this.$t('app.commonWords.saveSuccess') as string) });
         } else {
             errorItems.forEach((item: any, index: number) => {
