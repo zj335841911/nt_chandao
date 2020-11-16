@@ -8899,6 +8899,35 @@ WHERE t1.DELETED = '0'
 ( ( t1.`STATUS` <> 'closed'  OR  (#{srf.datacontext.products} is not null and t1.id = #{srf.datacontext.products}) )  AND  t1.`ORGID` =  ${srfsessioncontext('SRFORGID','{"defname":"ORGID","dename":"ZT_PRODUCT"}')} ) 
 
 ```
+### 数据查询(AllProduct)<div id="Product_AllProduct"></div>
+```sql
+SELECT
+	id,
+	`name`,
+	`code`,
+	line,
+	type,
+	`status`,
+	subStatus,
+	`desc`,
+	PO,
+	QD,
+	RD,
+	acl,
+	whitelist,
+	createdBy,
+	createdDate,
+	createdVersion,
+	`order`,
+	deleted,
+	IBIZ_ID,
+	ORGID,
+	MDEPTID 
+FROM
+	zt_product 
+WHERE
+	deleted = '0'
+```
 ### 校验产品名称或产品代号是否已经存在(CheckNameOrCode)<div id="Product_CheckNameOrCode"></div>
 ```sql
 SELECT

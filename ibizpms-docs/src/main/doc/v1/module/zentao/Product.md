@@ -2505,13 +2505,14 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [全部产品](#数据查询-全部产品（AllList）) | AllList | 否 |
-| 2 | [校验产品名称或产品代号是否已经存在](#数据查询-校验产品名称或产品代号是否已经存在（CheckNameOrCode）) | CheckNameOrCode | 否 |
-| 3 | [当前项目](#数据查询-当前项目（CurProject）) | CurProject | 否 |
-| 4 | [当前用户](#数据查询-当前用户（CurUer）) | CurUer | 否 |
-| 5 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 6 | [产品总览](#数据查询-产品总览（ProductPM）) | ProductPM | 否 |
-| 7 | [当前项目](#数据查询-当前项目（StoryCurProject）) | StoryCurProject | 否 |
-| 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [数据查询](#数据查询-数据查询（AllProduct）) | AllProduct | 否 |
+| 3 | [校验产品名称或产品代号是否已经存在](#数据查询-校验产品名称或产品代号是否已经存在（CheckNameOrCode）) | CheckNameOrCode | 否 |
+| 4 | [当前项目](#数据查询-当前项目（CurProject）) | CurProject | 否 |
+| 5 | [当前用户](#数据查询-当前用户（CurUer）) | CurUer | 否 |
+| 6 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 7 | [产品总览](#数据查询-产品总览（ProductPM）) | ProductPM | 否 |
+| 8 | [当前项目](#数据查询-当前项目（StoryCurProject）) | StoryCurProject | 否 |
+| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-全部产品（AllList）
 #### 说明
@@ -2568,6 +2569,46 @@ t1.`TYPE`,
 FROM `zt_product` t1 
 LEFT JOIN zt_module t11 ON t1.LINE = t11.ID 
 
+```
+### 数据查询-数据查询（AllProduct）
+#### 说明
+数据查询
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	id,
+	`name`,
+	`code`,
+	line,
+	type,
+	`status`,
+	subStatus,
+	`desc`,
+	PO,
+	QD,
+	RD,
+	acl,
+	whitelist,
+	createdBy,
+	createdDate,
+	createdVersion,
+	`order`,
+	deleted,
+	IBIZ_ID,
+	ORGID,
+	MDEPTID 
+FROM
+	zt_product 
+WHERE
+	deleted = '0'
 ```
 ### 数据查询-校验产品名称或产品代号是否已经存在（CheckNameOrCode）
 #### 说明
