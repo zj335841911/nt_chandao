@@ -181,6 +181,7 @@ export class CustomSearchbarBase extends MainControlBase {
             label: '平台/分支',
             name: 'branchnameeq',
             prop: 'branchname',
+            mode: 'EQ',
             disabled: false
         },
         'branchnamelike': {

@@ -416,15 +416,11 @@ export class Main9GridBase extends GridControlBase {
      * @param {string}  codelistTag 代码表标识
      * @memberof Main9Base
      */
-    public getGroupCodelist(codelistType: string,codelistTag:string){
+    public async getGroupCodelist(codelistType: string,codelistTag:string){
         let codelist: Array<any> = [];
         // 动态代码表
         if (Object.is(codelistType, "DYNAMIC")) {
-            this.codeListService.getItems(codelistTag).then((res: any)=>{
-                codelist = res;
-            }).catch((error: any) => {
-                
-            });
+             codelist = await this.codeListService.getItems(codelistTag);
         // 静态代码表
         } else if(Object.is(codelistType, "STATIC")){
             codelist = this.$store.getters.getCodeListItems(codelistTag);
@@ -437,14 +433,14 @@ export class Main9GridBase extends GridControlBase {
      * 
      * @memberof Main9Base
      */
-    public drawCodelistGroup(){
+    public async drawCodelistGroup(){
         if(!this.isEnableGroup) return;
         // 分组
         let allGroup: Array<any> = [];
         let allGroupField: Array<any> =[];
         let groupTree:Array<any> = [];
-        allGroup = this.getGroupCodelist(this.codelistType,this.codelistTag);
-        allGroupField = this.getGroupCodelist(this.groupAppFieldCodelistType,this.groupAppFieldCodelistTag);
+        allGroup = await this.getGroupCodelist(this.codelistType,this.codelistTag);
+        allGroupField = await this.getGroupCodelist(this.groupAppFieldCodelistType,this.groupAppFieldCodelistTag);
         if(allGroup.length == 0){
             console.warn("分组数据无效");
         }
@@ -453,12 +449,12 @@ export class Main9GridBase extends GridControlBase {
             this.items.forEach((item: any,j: number)=>{
                 if(allGroupField && allGroupField.length > 0){
                     const arr:Array<any> = allGroupField.filter((field:any)=>{return field.value == item[this.groupAppField]});
-                    if(Object.is(group.label,arr[0].label)){
+                    if(Object.is(group.value,arr[0].value)){
                         item.groupById = Number((i+1) * 100 + (j+1) * 1);
                         item.group = '';
                         children.push(item);
                     }
-                }else if(Object.is(group.label,item[this.groupAppField])){
+                }else if(Object.is(group.value,item[this.groupAppField])){
                     item.groupById = Number((i+1) * 100 + (j+1) * 1);
                     item.group = '';
                     children.push(item);
@@ -480,9 +476,9 @@ export class Main9GridBase extends GridControlBase {
             let i: number = 0;
             if(allGroupField && allGroupField.length > 0){
                 const arr:Array<any> = allGroupField.filter((field:any)=>{return field.value == item[this.groupAppField]});
-                i = allGroup.findIndex((group: any)=>Object.is(group.label,arr[0].label));
+                i = allGroup.findIndex((group: any)=>Object.is(group.value,arr[0].value));
             }else{
-                i = allGroup.findIndex((group: any)=>Object.is(group.label,item[this.groupAppField]));
+                i = allGroup.findIndex((group: any)=>Object.is(group.value,item[this.groupAppField]));
             }
             if(i < 0){
                 item.groupById = Number((allGroup.length+1) * 100 + (index+1) * 1);

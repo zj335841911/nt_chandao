@@ -214,8 +214,10 @@
   :localParam ='{ }' 
   :disabled="detailsModel.branchnameeq.disabled"
   name='branchnameeq'
+  deMajorField='name'
+  deKeyField='branch'
   :service="service"
-  :acParams="{ }"
+  :acParams="{ serviceName: 'BranchService', interfaceName: 'FetchDefault'}"
   valueitem=''
   :value="data.branchnameeq"
   editortype="dropdown"
@@ -224,15 +226,26 @@
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'branchnamelike')">
-                    <input-box 
-    v-model="data.branchnamelike"  
-    @enter="onEnter($event)"  
-      
-    :disabled="detailsModel.branchnamelike.disabled" 
-    type='text' 
-    style="width:100px;">
-</input-box>
-
+                    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.branchnamelike.disabled"
+  name='branchnamelike'
+  deMajorField='name'
+  deKeyField='branch'
+  :service="service"
+  :acParams="{ serviceName: 'BranchService', interfaceName: 'FetchDefault'}"
+  valueitem=''
+  :value="data.branchnamelike"
+  editortype="dropdown"
+  style=""
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'closedbyeq')">
                     
