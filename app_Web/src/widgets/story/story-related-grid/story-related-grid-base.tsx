@@ -421,10 +421,12 @@ export class StoryRelatedGridBase extends GridControlBase {
             this.items.forEach((item: any,j: number)=>{
                 if(allGroupField && allGroupField.length > 0){
                     const arr:Array<any> = allGroupField.filter((field:any)=>{return field.value == item[this.groupAppField]});
-                    if(Object.is(group.value,arr[0].value)){
-                        item.groupById = Number((i+1) * 100 + (j+1) * 1);
-                        item.group = '';
-                        children.push(item);
+                    if(arr && arr.length>0) {
+                        if(Object.is(group.value,arr[0].value)){
+                            item.groupById = Number((i+1) * 100 + (j+1) * 1);
+                            item.group = '';
+                            children.push(item);
+                        }
                     }
                 }else if(Object.is(group.value,item[this.groupAppField])){
                     item.groupById = Number((i+1) * 100 + (j+1) * 1);
@@ -446,7 +448,9 @@ export class StoryRelatedGridBase extends GridControlBase {
             let i: number = 0;
             if(allGroupField && allGroupField.length > 0){
                 const arr:Array<any> = allGroupField.filter((field:any)=>{return field.value == item[this.groupAppField]});
-                i = allGroup.findIndex((group: any)=>Object.is(group.value,arr[0].value));
+                if(arr && arr.length>0) {
+                    i = allGroup.findIndex((group: any)=>Object.is(group.value,arr[0].value));
+                }
             }else{
                 i = allGroup.findIndex((group: any)=>Object.is(group.value,item[this.groupAppField]));
             }
@@ -479,12 +483,12 @@ export class StoryRelatedGridBase extends GridControlBase {
      * 
      * @memberof StoryRelatedBase
      */
-    public drawGroup(){
+    public async drawGroup(){
         if(!this.isEnableGroup) return;
         // 分组
         let allGroup: Array<any> = [];
         let allGroupField: Array<any> =[];
-        allGroupField = this.getGroupCodelist(this.groupAppFieldCodelistType,this.groupAppFieldCodelistTag);
+        allGroupField = await this.getGroupCodelist(this.groupAppFieldCodelistType,this.groupAppFieldCodelistTag);
         this.items.forEach((item: any)=>{
             if(item.hasOwnProperty(this.groupAppField)){
                 if(allGroupField && allGroupField.length > 0){
