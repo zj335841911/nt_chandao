@@ -260,6 +260,20 @@
     --color: @theme-color;
     --color-activated: @theme-color;
   }
+
+  .app-select-tree-list {
+    .app-select-tree-list-item {
+      .index_text {
+        background: @theme-color;
+        color: @text-color;
+      }
+    }
+  }
+  .app-mob-treeview .tree_item_label .tree_item_index_text {
+    background: @theme-color;
+    color: @text-color;
+  }
+
   // 用户自定义主题文件
-  .user_theme(@theme-color,@text-color);
+  .user_theme(@theme-color, @text-color);
 }

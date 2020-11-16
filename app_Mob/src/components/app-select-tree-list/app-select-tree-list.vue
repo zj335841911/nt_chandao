@@ -1,7 +1,7 @@
 <template>
   <div class="app-select-tree-list">
     <div v-for="item in items" :key="item.srfkey" class="app-select-tree-list-item" >
-      <div class="header">
+      <div class="app-select-tree-list-item-header">
         <div class="index_text">{{getindexText(item.srfmajortext)}}</div>
         <div class="text">{{item.srfmajortext}}</div>
       </div>
