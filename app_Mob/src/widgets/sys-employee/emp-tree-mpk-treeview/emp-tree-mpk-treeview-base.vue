@@ -2,8 +2,8 @@
     <div class="app-mob-treeview sysemployee-tree ">
         <div class="treeNav">
             <template v-for="(item,index) in treeNav">
-            <ion-label  :key="index" class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated" :class="index+1 < treeNav.length? 'treeNav-active':'' " @click="nav_click(item)">{{item.text}}</ion-label>
-            <span class="tree-span" :key="index+'span'" v-if="index+1 < treeNav.length">></span>
+            <ion-label  :key="item.id" class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated" :class="index+1 < treeNav.length? 'treeNav-active':'' " @click="nav_click(item)">{{item.text}}</ion-label>
+            <span class="tree-span" :key="item.id+'span'" v-if="index+1 < treeNav.length">></span>
             </template>
         </div>
         <div class="tree-partition" v-if="valueNodes.length > 0" ></div>
@@ -28,7 +28,7 @@
         <ion-list v-else-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect">
         <template v-for="item in valueNodes">
             <ion-item :key="item.srfkey">
-                <ion-checkbox color="secondary" v-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect"  :checked="item.selected" :value="item.srfkey" slot="end" @ionChange="onChecked"></ion-checkbox>
+                <ion-checkbox color="secondary" v-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect" :ref="item.srfkey+'checkbox'"  :checked="item.selected" :value="item.srfkey" slot="end" @ionChange="onChecked"></ion-checkbox>
                 <ion-label>{{item.text}}</ion-label>
             </ion-item>
         </template>
@@ -359,18 +359,29 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
     public parseNodes(nodes:any) {
         let rootNodes :any= [];
         let valueNodes :any= [];
-        nodes.forEach((item:any) => {
+        for (let index = 0; index < nodes.length; index++) {
+            const item = nodes[index];
+            let ele :any= this.$refs[item.srfkey+'checkbox'];
             if(!item.leaf){
                 rootNodes.push(item);
             }else{
                 if(this.selectedNodes.findIndex((temp:any)=>{return temp.srfkey == item.srfkey}) > -1){
                     item.selected = true;
+                    if(ele && ele[0]){
+                        ele[0].ariaChecked = true;
+                    }
+                }else{
+                    item.selected = false;
+                    if(ele && ele[0]){
+                        ele[0].ariaChecked = false;
+                    }
                 }
                 valueNodes.push(item);
             }
-        });
+        }
         this.rootNodes = rootNodes;
         this.valueNodes = valueNodes;
+        this.$forceUpdate();
     }
 
     /**
@@ -541,6 +552,11 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
                 }
                 if (Object.is('refresh_parent', action)) {
                     this.refresh_parent();
+                }
+                if (Object.is('refresh', action)) {
+                    this.selectedNodes = data;
+                    this.parseNodes(this.nodes);
+                    this.parseNodes(this.nodes);
                 }
             });
         }
@@ -898,15 +914,19 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
             return;
         }
         let { value } = detail;
-        this.valueNodes.forEach((item: any, index: number) => {
+        for (let index = 0; index < this.valueNodes.length; index++) {
+            const item = this.valueNodes[index];
             if (Object.is(item.srfkey, value)) {
                 if (detail.checked) {
                     this.selectedNodes.push(this.valueNodes[index]);
                 } else {
-                    this.selectedNodes.splice(this.selectedNodes.findIndex((i: any) => i.srfkey === item.srfkey), 1)
+                    let i = this.selectedNodes.findIndex((i: any) => i.srfkey === item.srfkey)
+                    if(i>-1){
+                        this.selectedNodes.splice(i, 1)
+                    }
                 }
             }
-        });
+        }
         this.$emit('selectchange', this.selectedNodes);
     }
 

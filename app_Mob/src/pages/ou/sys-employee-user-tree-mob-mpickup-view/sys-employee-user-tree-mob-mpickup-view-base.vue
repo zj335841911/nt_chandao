@@ -34,7 +34,7 @@
           </div>
           <app-select-tree-list :items="viewSelections" @item_delete="item_delete"></app-select-tree-list>
       </van-action-sheet>
-      <div class="selectedCount">已选择：{{viewSelections.length}}<ion-icon name="chevron-up-outline"></ion-icon></div>
+      <div class="selectedCount"  @click="select_click">已选择：{{viewSelections.length}}<ion-icon name="chevron-up-outline"></ion-icon></div>
       <ion-button class="pick-btn" @click="onClickOk" :disabled="viewSelections.length === 0">{{$t('app.button.confirm')}}</ion-button>
     </div>
 </div>
