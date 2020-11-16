@@ -24,6 +24,7 @@
 </div>
 </template>
 
+
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
@@ -327,6 +328,15 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+        if (this.panelViewState) {
+            this.panelStateEvent = this.panelViewState.subscribe((res: any) => {
+                if (Object.is(res.tag, 'pickupviewpanel')) {
+                    if (Object.is(res.action, 'refresh')) {
+                        this.viewState.next({ tag: 'tree', action: 'refresh', data: res.data });
+                    }
+                }
+            });
+        }
 
 
     }
@@ -411,6 +421,9 @@ export default class SysEmployeeMpkMobPickupTreeViewBase extends Vue {
                 }
             });
         }
+    if (this.panelStateEvent) {
+        this.panelStateEvent.unsubscribe();
+    }
 
     }
 
