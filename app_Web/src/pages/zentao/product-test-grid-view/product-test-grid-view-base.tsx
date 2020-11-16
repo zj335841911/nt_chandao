@@ -93,6 +93,7 @@ export class ProductTestGridViewBase extends GridViewBase {
     protected containerModel: any = {
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
+        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
         view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
     };
 
