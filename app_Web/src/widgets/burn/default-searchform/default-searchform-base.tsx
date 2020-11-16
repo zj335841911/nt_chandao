@@ -98,5 +98,8 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
      * @memberof DefaultBase
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('isweekend')) {
+          this.data['isweekend'] = '5';
+        }
     }
 }
