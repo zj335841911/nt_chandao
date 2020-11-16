@@ -1,5 +1,13 @@
 <studio-view viewName="buildtestroundsgridview" viewTitle="版本表格视图（轮次）" class='degridview build-test-rounds-grid-view'>
-    <i-input slot='quickSearch' clearable  v-model="query" placeholder="名称编号" search @on-search="onSearch($event)"/>
+    <i-input
+        slot='quickSearch'
+        clearable
+
+        v-model="query"
+        placeholder="名称编号"
+        search
+        @on-search="onSearch($event)"
+    />
         <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

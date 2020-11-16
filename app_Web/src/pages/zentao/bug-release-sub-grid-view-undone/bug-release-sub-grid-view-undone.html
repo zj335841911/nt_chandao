@@ -1,5 +1,13 @@
 <studio-view viewName="bugreleasesubgridview_undone" viewTitle="bug表格视图" class='degridview bug-release-sub-grid-view-undone'>
-    <i-input slot='quickSearch' clearable  v-model="query" placeholder="Bug标题" search @on-search="onSearch($event)"/>
+    <i-input
+        slot='quickSearch'
+        clearable
+
+        v-model="query"
+        placeholder="Bug标题"
+        search
+        @on-search="onSearch($event)"
+    />
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>
     </template>

@@ -1,6 +1,9 @@
 <studio-view viewName="actionprojecttrendslistview" viewTitle="系统日志列表视图" class='delistview action-project-trends-list-view'>
     <template slot="quickGroupSearch">
-        <app-quick-group :items="quickGroupModel" @valuechange="quickGroupValueChange($event)"></app-quick-group>
+        <app-quick-group
+            :items="quickGroupModel"
+            @valuechange="quickGroupValueChange($event)"
+        ></app-quick-group>
     </template>
         <view_list 
         :viewState="viewState"  
