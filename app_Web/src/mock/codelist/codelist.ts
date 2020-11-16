@@ -1978,6 +1978,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "Story__type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "requirement",
+                label: "用户需求",
+                text: "用户需求",
+                "data":"",
+                "codename":"Requirement",
+                value: "requirement",
+                
+                disabled: false,
+            },
+            {
+                id: "story",
+                label: "软件需求",
+                text: "软件需求",
+                "data":"",
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "BeginendDropList",
         emptytext: "未定义",
         "codelisttype":"static",

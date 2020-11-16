@@ -302,6 +302,11 @@ export default {
     BugUserRealName: {
         "empty": "",
     },
+    Story__type: {
+        "requirement": "用户需求",
+        "story": "软件需求",
+        "empty": "",
+    },
     BeginendDropList: {
         "600": "06:00",
         "610": "06:10",

@@ -365,6 +365,13 @@ export class CustomSearchbarBase extends MainControlBase {
             mode: 'EQ',
             disabled: false
         },
+        'typeeq': {
+            label: '需求类型',
+            name: 'typeeq',
+            prop: 'type',
+            mode: 'EQ',
+            disabled: false
+        },
     };
 
     /**
