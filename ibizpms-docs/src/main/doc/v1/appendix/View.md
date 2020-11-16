@@ -401,6 +401,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品统计编辑视图|DEEDITVIEW9|&nbsp;|
 |-|任务甘特视图|DEGANTTVIEW|&nbsp;|
 |-|工时|DEOPTVIEW|&nbsp;|
+|-|task数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|文档编辑视图|DEEDITVIEW9|&nbsp;|
 |-|需求编辑视图|DEEDITVIEW9|&nbsp;|
 |-|系统更新日志分页导航视图|DETABEXPVIEW|&nbsp;|
@@ -539,6 +540,7 @@ SRFNAVPARAM.project=%project%|
 |-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务树导航视图（分组树）|DETREEEXPVIEW|&nbsp;|
 |-|部门编辑视图|DEEDITVIEW|&nbsp;|
+|-|task选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|用例步骤|DEGRIDVIEW9|&nbsp;|
 |-|bug表格视图（项目）|DEGRIDVIEW|&nbsp;|
 |-|版本编辑视图|DEEDITVIEW|&nbsp;|

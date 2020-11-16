@@ -515,5 +515,13 @@ export default {
 			caption: '更多',
 			tip: '更多',
 		},
+		tbitem2: {
+			caption: '-',
+			tip: '',
+		},
+		deuiaction1: {
+			caption: '过滤',
+			tip: '过滤',
+		},
 	},
 };

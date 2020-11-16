@@ -334,6 +334,9 @@ export default class TaskAssMobMDViewBase extends Vue {
     public righttoolbarModels: any = {
             tbitem1_myassmore: { name: 'tbitem1_myassmore', caption: '更多', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyAssMore', target: 'NONE' } },
 
+        tbitem2: {  name: 'tbitem2', type: 'SEPERATOR', visabled: true, dataaccaction: '', uiaction: { } },
+            deuiaction1: { name: 'deuiaction1', caption: '过滤', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '' } },
+
     };
 
     
@@ -589,6 +592,9 @@ export default class TaskAssMobMDViewBase extends Vue {
         if (Object.is($event.tag, 'tbitem13')) {
             this.righttoolbar_tbitem13_click($event, '', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.righttoolbar_deuiaction1_click($event, '', $event2);
+        }
     }
 
 
@@ -651,6 +657,35 @@ export default class TaskAssMobMDViewBase extends Vue {
         }
         // 界面行为
         this.globaluiservice.ExportExcel(datas, contextJO, paramJO, $event, xData, this);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskAssMobMDViewBase
+     */
+    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.mdctrl;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        this.globaluiservice.ToggleFilter(datas, contextJO, paramJO, $event, xData, this);
     }
 
     /**

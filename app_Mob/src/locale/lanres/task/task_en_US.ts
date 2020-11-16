@@ -515,5 +515,13 @@ export default {
 			caption: '更多',
 			tip: 'tbitem1_myassmore',
 		},
+		tbitem2: {
+			caption: '-',
+			tip: 'tbitem2',
+		},
+		deuiaction1: {
+			caption: 'Filter',
+			tip: 'deuiaction1',
+		},
 	},
 };
