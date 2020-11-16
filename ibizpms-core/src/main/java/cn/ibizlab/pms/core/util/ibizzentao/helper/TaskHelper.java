@@ -146,7 +146,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             this.internalUpdate(et);
 
         }
-        actionHelper.sendTodo(et.getId(), et.getName(), noticeusers, et.getAssignedto(), et.getMailto(), ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.OPENED.getValue());
+        actionHelper.sendTodo(et.getId(), et.getName(), noticeusers, et.getAssignedto(), et.getMailto(), ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.OPENED.getText());
         actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
         if(et.getStory() != null && et.getStory() != 0L) {
             storyHelper.setStage(et.getZtstory());
@@ -209,12 +209,14 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         this.removeIgonreChanges(changes);
         if (changes.size() > 0) {
             String strAction = StaticDict.Action__type.EDITED.getValue();
+            String strActionText = StaticDict.Action__type.EDITED.getText();
             if (changes.size() == 0) {
                 strAction = StaticDict.Action__type.COMMENTED.getValue();
+                strActionText = StaticDict.Action__type.COMMENTED.getText();
             }
             actionHelper.sendToread(newTask.getId(), newTask.getName(), noticeusers,
                     newTask.getAssignedto(), newTask.getMailto(), ITaskService.OBJECT_TEXT_NAME,
-                    StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, strAction);
+                    StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, strActionText);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), strAction,
                     "", "", null, true);
             if (changes.size() > 0) {
@@ -448,12 +450,14 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             String strAction = StaticDict.Action__type.EDITED.getValue();
+            String strActionText = StaticDict.Action__type.EDITED.getText();
             if (changes.size() == 0) {
                 strAction = StaticDict.Action__type.COMMENTED.getValue();
+                strActionText = StaticDict.Action__type.COMMENTED.getText();
             }
             actionHelper.sendToread(et.getId(), et.getName(), noticeusers, et.getAssignedto(),
                     et.getMailto(), ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(),
-                    ITaskService.OBJECT_SOURCE_PATH, strAction);
+                    ITaskService.OBJECT_SOURCE_PATH, strActionText);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), strAction,
                     comment, "", null, true);
             if (changes.size() > 0) {
@@ -886,12 +890,14 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             String strAction = StaticDict.Action__type.STARTED.getValue();
+            String strActionText = StaticDict.Action__type.STARTED.getText();
             if (et.getLeft() == 0) {
                 strAction = StaticDict.Action__type.FINISHED.getValue();
+                strActionText = StaticDict.Action__type.FINISHED.getText();
             }
             actionHelper.sendToread(newTask.getId(), newTask.getName(), noticeusers,newTask.getAssignedto(),
                     newTask.getMailto(), ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(),
-                    ITaskService.OBJECT_SOURCE_PATH, strAction);
+                    ITaskService.OBJECT_SOURCE_PATH, strActionText);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), strAction,
                     comment, "", null, true);
             if (changes.size() > 0) {
@@ -965,11 +971,13 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             String strAction = StaticDict.Action__type.RESTARTED.getValue();
+            String strActionText = StaticDict.Action__type.RESTARTED.getText();
             if (et.getLeft() == 0) {
                 strAction = StaticDict.Action__type.FINISHED.getValue();
+                strActionText = StaticDict.Action__type.FINISHED.getText();
             }
             actionHelper.sendToread(newTask.getId(), newTask.getName(), noticeusers, newTask.getAssignedto(), newTask.getMailto(),
-                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, strAction);
+                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, strActionText);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), strAction,
                     comment, "", null, true);
             if (changes.size() > 0) {
@@ -1001,7 +1009,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             actionHelper.sendToread(newTask.getId(), newTask.getName(), noticeusers, newTask.getAssignedto(), newTask.getMailto(),
-                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.PAUSED.getValue());
+                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.PAUSED.getText());
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.PAUSED.getValue(),
                     comment, "", null, true);
             if (changes.size() > 0) {
@@ -1062,7 +1070,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             actionHelper.sendTodo(newTask.getId(), newTask.getName(), noticeusers, newTask.getAssignedto(), newTask.getMailto(),
-                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ASSIGNED.getValue());
+                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ASSIGNED.getText());
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.ASSIGNED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
             if (changes.size() > 0) {
@@ -1116,7 +1124,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             actionHelper.sendTodo(newTask.getId(), newTask.getName(), noticeusers, newTask.getAssignedto(), newTask.getMailto(),
-                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ACTIVATED.getValue());
+                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ACTIVATED.getText());
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.ACTIVATED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
             if (changes.size() > 0) {
@@ -1176,7 +1184,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             actionHelper.sendToread(newTask.getId(), newTask.getName(), noticeusers, newTask.getAssignedto(), newTask.getMailto(),
-                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.CANCELED.getValue());
+                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.CANCELED.getText());
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.CANCELED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
             if (changes.size() > 0) {
@@ -1285,7 +1293,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             actionHelper.sendTodo(newTask.getId(), newTask.getName(), noticeusers, newTask.getAssignedto(), newTask.getMailto(),
-                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.FINISHED.getValue());
+                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.FINISHED.getText());
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.FINISHED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
             if (changes.size() > 0) {
@@ -1333,7 +1341,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<History> changes = ChangeUtil.diff(old, newTask,ignores,null,null);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             actionHelper.sendToread(newTask.getId(), newTask.getName(), noticeusers, newTask.getAssignedto(), newTask.getMailto(),
-                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.CLOSED.getValue());
+                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.CLOSED.getText());
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.CLOSED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
             if (changes.size() > 0) {

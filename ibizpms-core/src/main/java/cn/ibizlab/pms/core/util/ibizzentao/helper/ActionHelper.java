@@ -240,13 +240,13 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     public void send(String noticeusers, Action et) {
         if(StaticDict.Action__object_type.TASK.getValue().equals(et.getObjecttype())) {
             Task task = taskHelper.get(et.getObjectid());
-            sendToread(task.getId(), task.getName(), noticeusers, task.getAssignedto(), task.getMailto(), ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, et.getAction());
+            sendToread(task.getId(), task.getName(), noticeusers, task.getAssignedto(), task.getMailto(), ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.COMMENTED.getText());
         }else if(StaticDict.Action__object_type.STORY.getValue().equals(et.getObjecttype())) {
             Story story = storyHelper.get(et.getObjectid());
-            sendToread(story.getId(), story.getTitle(), noticeusers,story.getAssignedto(), story.getMailto(), IStoryService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.STORY.getValue(), IStoryService.OBJECT_SOURCE_PATH, et.getAction());
+            sendToread(story.getId(), story.getTitle(), noticeusers,story.getAssignedto(), story.getMailto(), IStoryService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.STORY.getValue(), IStoryService.OBJECT_SOURCE_PATH, StaticDict.Action__type.COMMENTED.getText());
         } else if(StaticDict.Action__object_type.BUG.getValue().equals(et.getObjecttype())) {
             Bug bug = bugHelper.get(et.getObjectid());
-            sendToread(bug.getId(), bug.getTitle(), noticeusers, bug.getAssignedto(), bug.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), IBugService.OBJECT_SOURCE_PATH, et.getAction());
+            sendToread(bug.getId(), bug.getTitle(), noticeusers, bug.getAssignedto(), bug.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.COMMENTED.getText());
         }else {
             log.info("其他暂不支持！");
         }
