@@ -19,15 +19,15 @@ iBizPMS重要特性：
 
 ## iBiz软件过程
 
-![flow1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow1_v3.png)
+![flow1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow1_v4.png)
 
 ## iBizPMS运行
 
-![flow3](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow3_v3.png)
+![flow3](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow3_v4.png)
 
 ## iBizPMS生态
 
-![flow4](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow4_v4.png)
+![flow4](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow4_v5.png)
 
 ## 特性
 
