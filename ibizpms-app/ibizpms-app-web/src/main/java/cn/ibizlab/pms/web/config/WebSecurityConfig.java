@@ -60,9 +60,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("${ibiz.file.previewpath:ibizutil/preview}")
     private String previewpath;
-
+    // 白名单处理类
     @Autowired
-    private SecurityWhitelistHandler whitelistHandler;  //白名单处理类
+    private SecurityWhitelistHandler whitelistHandler;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -91,7 +91,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 
-        whitelistHandler.handle(httpSecurity);  //对白名单放行。
+        // 对白名单放行。
+        whitelistHandler.handle(httpSecurity);
 
         httpSecurity
 
