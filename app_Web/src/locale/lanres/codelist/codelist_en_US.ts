@@ -815,6 +815,15 @@ export default {
     TestTask: {
         "empty": "",
     },
+    Bug__color: {
+        "#3da7f5": "#3da7f5",
+        "#75c941": "#75c941",
+        "#2dbdb2": "#2dbdb2",
+        "#797ec9": "#797ec9",
+        "#ffaf38": "#ffaf38",
+        "#ff4e3e": "#ff4e3e",
+        "empty": ""
+    },
     Product__status: {
         "normal": "正常",
         "closed": "结束",

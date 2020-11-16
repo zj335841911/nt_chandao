@@ -387,6 +387,14 @@ export class StoryaffectCaseGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+            {
+                name: 'lasteditedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
         ]);
     }
 

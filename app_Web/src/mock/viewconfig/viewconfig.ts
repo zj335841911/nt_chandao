@@ -1551,6 +1551,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskWorkHoursView",
             "viewtag": "5f063c226812206f8262566387a0b6a5"
         },
+        "taskpickupview": {
+            "title": "task数据选择视图",
+            "caption": "任务",
+            "viewtype": "DEPICKUPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "TaskPickupView",
+            "viewtag": "601588ff1c189387e79d24286c2a242e"
+        },
         "docdocstatuseditview": {
             "title": "文档编辑视图",
             "caption": "嵌入文档库主页",
@@ -2654,6 +2662,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "DeptInfoEditView",
             "viewtag": "a52f8b23a989b8526e4c98c49d73a3d0"
+        },
+        "taskpickupgridview": {
+            "title": "task选择表格视图",
+            "caption": "任务",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "TaskPickupGridView",
+            "viewtag": "a567636558c349902507ef69b9c510e5"
         },
         "casestepcarryouteditmode": {
             "title": "用例步骤",

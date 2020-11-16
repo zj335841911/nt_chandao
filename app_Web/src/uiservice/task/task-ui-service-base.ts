@@ -105,6 +105,15 @@ export default class TaskUIServiceBase extends UIService {
             width: 0,
             height: 0
         });
+        this.allViewMap.set('PICKUPVIEW:', {
+            viewname: 'pickupview',
+            srfappde: 'tasks',
+            component: 'task-pickup-view',
+            openmode: '',
+            title: '任务',
+            width: 0,
+            height: 0
+        });
         this.allViewMap.set('EDITVIEW:', {
             viewname: 'editview',
             srfappde: 'tasks',

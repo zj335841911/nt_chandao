@@ -141,6 +141,10 @@ export default {
 			caption: "工时",
       		title: "工时",
 		},
+		pickupview: {
+			caption: "任务",
+      		title: "task数据选择视图",
+		},
 		pivottableview: {
 			caption: "任务",
       		title: "任务表格视图",
@@ -200,6 +204,10 @@ export default {
 		grouptreeexpview: {
 			caption: "分组视图",
       		title: "任务树导航视图（分组树）",
+		},
+		pickupgridview: {
+			caption: "任务",
+      		title: "task选择表格视图",
 		},
 		canceltaskview: {
 			caption: "取消任务",

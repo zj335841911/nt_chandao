@@ -1929,6 +1929,16 @@
         "viewtag": "5f063c226812206f8262566387a0b6a5",
         "memo": ""
     },
+    "taskpickupview": {
+        "title": "task数据选择视图",
+        "caption": "任务",
+        "viewtype": "DEPICKUPVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "TaskPickupView",
+        "viewfilename": "task-pickup-view",
+        "viewtag": "601588ff1c189387e79d24286c2a242e",
+        "memo": ""
+    },
     "docdocstatuseditview": {
         "title": "文档编辑视图",
         "caption": "嵌入文档库主页",
@@ -3307,6 +3317,16 @@
         "viewname": "DeptInfoEditView",
         "viewfilename": "dept-info-edit-view",
         "viewtag": "a52f8b23a989b8526e4c98c49d73a3d0",
+        "memo": ""
+    },
+    "taskpickupgridview": {
+        "title": "task选择表格视图",
+        "caption": "任务",
+        "viewtype": "DEPICKUPGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "TaskPickupGridView",
+        "viewfilename": "task-pickup-grid-view",
+        "viewtag": "a567636558c349902507ef69b9c510e5",
         "memo": ""
     },
     "casestepcarryouteditmode": {
