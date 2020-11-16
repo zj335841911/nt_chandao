@@ -313,25 +313,23 @@
     :localParam ='{ }' 
     :disabled="detailsModel.duplicatestoryeq.disabled"
     valueType="number"
+    tag='YesNo2'
+    codelistType='STATIC'
     placeholder='请选择...'
     
 />
                 </template>
                 <template v-if="Object.is(data.editor, 'frombugeq')">
-                    
-<dropdown-list 
-    v-model="data.frombugeq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.frombugeq.disabled"
-    valueType="number"
-    placeholder='请选择...'
-    
-/>
+                    <input-box 
+  v-model="data.frombugeq"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.frombugeq.disabled" 
+  type='number' 
+   
+  style="">
+</input-box>
+
                 </template>
                 <template v-if="Object.is(data.editor, 'lasteditedbyeq')">
                     
@@ -352,20 +350,16 @@
 />
                 </template>
                 <template v-if="Object.is(data.editor, 'moduleeq')">
-                    
-<dropdown-list 
-    v-model="data.moduleeq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.moduleeq.disabled"
-    valueType="number"
-    placeholder='请选择...'
-    
-/>
+                    <input-box 
+  v-model="data.moduleeq"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.moduleeq.disabled" 
+  type='number' 
+   
+  style="">
+</input-box>
+
                 </template>
                 <template v-if="Object.is(data.editor, 'modulenameeq')">
                     
@@ -430,36 +424,28 @@
 />
                 </template>
                 <template v-if="Object.is(data.editor, 'parenteq')">
-                    
-<dropdown-list 
-    v-model="data.parenteq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.parenteq.disabled"
-    valueType="number"
-    placeholder='请选择...'
-    
-/>
+                    <input-box 
+  v-model="data.parenteq"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.parenteq.disabled" 
+  type='number' 
+   
+  style="">
+</input-box>
+
                 </template>
                 <template v-if="Object.is(data.editor, 'parentgteq')">
-                    
-<dropdown-list 
-    v-model="data.parentgteq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.parentgteq.disabled"
-    valueType="number"
-    placeholder='请选择...'
-    
-/>
+                    <input-box 
+  v-model="data.parentgteq"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.parentgteq.disabled" 
+  type='number' 
+   
+  style="">
+</input-box>
+
                 </template>
                 <template v-if="Object.is(data.editor, 'parentnameeq')">
                     
@@ -547,20 +533,16 @@
 
                 </template>
                 <template v-if="Object.is(data.editor, 'producteq')">
-                    
-<dropdown-list 
-    v-model="data.producteq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.producteq.disabled"
-    valueType="number"
-    placeholder='请选择...'
-    
-/>
+                    <input-box 
+  v-model="data.producteq"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.producteq.disabled" 
+  type='number' 
+   
+  style="">
+</input-box>
+
                 </template>
                 <template v-if="Object.is(data.editor, 'productnameeq')">
                     
@@ -678,20 +660,16 @@
 />
                 </template>
                 <template v-if="Object.is(data.editor, 'tobugeq')">
-                    
-<dropdown-list 
-    v-model="data.tobugeq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.tobugeq.disabled"
-    valueType="number"
-    placeholder='请选择...'
-    
-/>
+                    <input-box 
+  v-model="data.tobugeq"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.tobugeq.disabled" 
+  type='number' 
+   
+  style="">
+</input-box>
+
                 </template>
                 <template v-if="Object.is(data.editor, 'typeeq')">
                     
