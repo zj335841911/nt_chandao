@@ -112,7 +112,7 @@
   display: block;
   height: 100%;
   width: 100%;
-  margin: 0px auto;
+  margin: 0 auto;
   border-radius: 50%;
   position: relative;
   z-index: 3;
@@ -135,7 +135,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
@@ -208,7 +208,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
@@ -223,10 +223,10 @@
 }
 .mpvue-calendar-change {
   position: absolute;
-  left: 0px;
+  left: 0;
   top: 42px;
-  right: 0px;
-  bottom: 0px;
+  right: 0;
+  bottom: 0;
   background: #fff;
   display: flex;
   justify-content: center;
@@ -268,7 +268,7 @@
 }
 .mpvue-calendar-change .calendar-week-switch-months span {
   margin-bottom: 10px;
-  margin-top: 0px;
+  margin-top: 0;
 }
 .calendar-years,
 .calendar-months {
@@ -327,7 +327,7 @@
   border-radius: 4px;
 }
 .mpvue-calendar .mc-range-row-first.mc-range-end.month-first-date .mc-range-bg {
-  margin-left: 0px;
+  margin-left: 0;
 }
 .mc-range-row-last.mc-range-begin .mc-range-bg {
   display: block;
@@ -357,7 +357,7 @@
   display: block;
   width: 50%;
   border-radius: 4px;
-  left: 0px;
+  left: 0;
 }
 .calendar-wrapper
   .mpvue-calendar
@@ -367,7 +367,7 @@
   display: none;
 }
 .mc-range-mode .mc-range-second-to-last .mc-range-bg {
-  border-radius: 0px 25% 25% 0px;
+  border-radius: 0 25% 25% 0;
 }
 .mc-today-element .calendar-date {
   background-color: rgba(25, 47, 89, 0.1);
@@ -379,11 +379,11 @@
   .month-last-date.mc-range-begin
   .mc-range-bg {
   width: 150%;
-  border-radius: 0px 20% 20% 0px;
+  border-radius: 0 20% 20% 0;
 }
 .mpvue-calendar .mc-range-mode.week-switch .mc-range-month-last .mc-range-bg {
   background-color: #01a1ed;
-  border-radius: 0px 20% 20% 0px;
+  border-radius: 0 20% 20% 0;
 }
 /*month range*/
 .mpvue-calendar .month-range-mode {
@@ -392,15 +392,15 @@
 }
 .mpvue-calendar .mc-month-range-mode-head {
   box-shadow: 0 4px 8px rgba(25, 47, 89, 0.1);
-  padding: 8px 0px;
+  padding: 8px 0;
   position: sticky;
-  top: 0px;
+  top: 0;
   background-color: #fff;
   z-index: 9;
 }
 .month-range-mode .month-rang-head {
   text-align: left;
-  margin: 10px 0px;
+  margin: 10px 0;
   padding-left: 10px;
 }
 .month-range-mode .mc-last-month,
