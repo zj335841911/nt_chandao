@@ -3,14 +3,16 @@
         <filter-tree :datas="filterItems" :fields="filterFields">
             <template slot-scope="{ data }">
                 <template v-if="Object.is(data.editor, 'ideq')">
-                    !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+                    <input-box 
+  v-model="data.ideq"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.ideq.disabled" 
+  type='number' 
+   
+  style="">
+</input-box>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if item.getUnitName() != ""  [in template "TEMPLCODE_en_US" at line 166, column 5]
-----
                 </template>
                 <template v-if="Object.is(data.editor, 'assigneddategteq')">
                     <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.assigneddategteq" :disabled="detailsModel.assigneddategteq.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.assigneddategteq = val1 }"></date-picker>
