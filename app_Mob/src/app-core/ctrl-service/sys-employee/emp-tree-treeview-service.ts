@@ -4,5 +4,5 @@ Tip: If the failing expression is known to be legally refer to something that's 
 
 ----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: ${this.download}  [in template "TEMPLCODE_en_US" at line 723, column 44]
+	- Failed at: ${tempIcon[0] && tempIcon[0].id}  [in template "TEMPLCODE_en_US" at line 723, column 67]
 ----
