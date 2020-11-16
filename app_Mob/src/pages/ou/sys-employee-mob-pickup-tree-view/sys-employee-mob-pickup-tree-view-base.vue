@@ -572,7 +572,24 @@ export default class SysEmployeeMobPickupTreeViewBase extends Vue {
         this.query = value;
         this.viewState.next({tag:'mdctrl',action:'quicksearch',data: value});
     }
-    
+
+    /**
+     * 面板通知对象
+     *
+     * @type {Subject<ViewState>}
+     * @memberof SysEmployeeMobPickupTreeViewBase
+     */
+    @Prop() protected panelViewState?: Subject<ViewState>;
+
+    /**
+     * 面板订阅对象
+     *
+     * @type {Subject<ViewState>}
+     * @memberof SysEmployeeMobPickupTreeViewBase
+     */
+    public panelStateEvent :Subscription | undefined;
+
+
 }
 </script>
 
