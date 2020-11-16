@@ -21,6 +21,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+/**
+ * @author huhai
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -47,13 +50,13 @@ public class DevBootSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${ibiz.file.uploadpath:ibizutil/upload}")
     private String uploadpath;
 
-    @Value("${zentao.file.uploadpath:ibizutil/ztupload}")
+    @Value("${zentao.file.uploadpath:ibizutilpms/ztupload}")
     private String ztuploadpath;
 
     @Value("${ibiz.file.downloadpath:ibizutil/download}")
     private String downloadpath;
 
-    @Value("${zentao.file.downloadpath:ibizutil/ztdownload}")
+    @Value("${zentao.file.downloadpath:ibizutilpms/ztdownload}")
     private String ztdownloadpath;
 
     @Value("${ibiz.file.previewpath:ibizutil/preview}")
@@ -85,8 +88,7 @@ public class DevBootSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-
-               httpSecurity
+        httpSecurity
                 // 禁用 CSRF
                 .csrf().disable()
                 // 授权异常
@@ -113,18 +115,17 @@ public class DevBootSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/swagger-resources/**",
                         "/v2/**"
                 ).permitAll()
-                    //放行登录请求
-                   .antMatchers( HttpMethod.POST,"/"+loginPath).permitAll()
-                    //放行注销请求
-                    .antMatchers( HttpMethod.GET,"/"+logoutPath).permitAll()
-                    // 文件操作
-                   .antMatchers("/"+downloadpath+"/**").permitAll()
-                   .antMatchers("/"+ztdownloadpath+"/**").permitAll()
-                   .antMatchers("/"+uploadpath).permitAll()
-                   .antMatchers("/"+ztuploadpath).permitAll()
-                   .antMatchers("/"+previewpath+"/**").permitAll()
+                // 放行登录请求
+                .antMatchers( HttpMethod.POST,"/"+loginPath).permitAll()
+                // 放行注销请求
+                .antMatchers( HttpMethod.GET,"/"+logoutPath).permitAll()
+                // 文件操作
+                .antMatchers("/"+downloadpath+"/**").permitAll()
+                .antMatchers("/"+ztdownloadpath+"/**").permitAll()
+                .antMatchers("/"+uploadpath).permitAll()
+                .antMatchers("/"+ztuploadpath).permitAll()
+                .antMatchers("/"+previewpath+"/**").permitAll()
                 .anyRequest().authenticated()
-                // 防止iframe 造成跨域
                 .and().headers().frameOptions().disable();
         httpSecurity
                 .addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);

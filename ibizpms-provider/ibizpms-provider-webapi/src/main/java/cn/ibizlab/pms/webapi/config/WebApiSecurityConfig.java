@@ -21,8 +21,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.context.annotation.Profile;
-import org.springframework.beans.factory.annotation.Qualifier;
 
+/**
+ * @author huhai
+ */
 @Profile("webapi-prod")
 @Configuration
 @EnableWebSecurity
@@ -94,10 +96,10 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 
+
         // 对白名单放行。
         whitelistHandler.handle(httpSecurity);
-
-       httpSecurity
+        httpSecurity
                 // 禁用 CSRF
                 .csrf().disable()
 
@@ -126,9 +128,9 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/swagger-resources/**",
                         "/v2/**"
                 ).permitAll()
-                //放行登录请求
+                // 放行登录请求
                 .antMatchers( HttpMethod.POST,"/"+loginPath).permitAll()
-                //放行注销请求
+                // 放行注销请求
                 .antMatchers( HttpMethod.GET,"/"+logoutPath).permitAll()
                 // 文件操作
                 .antMatchers("/"+downloadpath+"/**").permitAll()
@@ -136,8 +138,6 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/"+uploadpath).permitAll()
                 .antMatchers("/"+ztuploadpath).permitAll()
                 .antMatchers("/"+previewpath+"/**").permitAll()
-
-
                //开放ZT API登录接口
                .antMatchers("/ztlogin").permitAll()
                //开放账号名查询接口
@@ -146,9 +146,6 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
                .antMatchers("/uaa/open/dingtalk/access_token").permitAll()
                .antMatchers("/uaa/dingtalk/jsapi/sign").permitAll()
                .antMatchers("/recordloginlog").permitAll()
-//               .antMatchers("/depts/all").permitAll()
-//
-//               .antMatchers("/users/all").permitAll()
                 // 所有请求都需要认证
                 .anyRequest().authenticated()
                 // 防止iframe 造成跨域
