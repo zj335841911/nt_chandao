@@ -122,7 +122,7 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @type {string}
      * @memberof EmpTreeService
      */
-    public download = Environment.ExportFile;
+    public download = 'ibizutil/download';
 
 
     /**
