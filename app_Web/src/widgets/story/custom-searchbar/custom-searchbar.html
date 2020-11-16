@@ -506,18 +506,26 @@
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'pathlike')">
-                    !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+                    
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if item.getUnitName() != ""  [in template "TEMPLCODE_en_US" at line 166, column 5]
-----
                 </template>
                 <template v-if="Object.is(data.editor, 'planeq')">
-                    <input-box v-model="data.planeq" :textareaId="this.$util.createUUID()"  :disabled="detailsModel.planeq.disabled" type='textarea' textareaStyle="width:100px;" ></input-box>
-
+                    
+<dropdown-list 
+    v-model="data.planeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.planeq.disabled"
+    valueType="string"
+    tag='ProductPlan'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'preversioneq')">
                     <input-box 
@@ -611,21 +619,19 @@ FTL stack trace ("~" means nesting-related):
                 </template>
                 <template v-if="Object.is(data.editor, 'reviewedbyeq')">
                     
-<app-checkbox-list 
-  v-model="data.reviewedbyeq" 
+<dropdown-list-mpicker 
+  v-model="data.reviewedbyeq"
   :data="data" 
   :context="context"
   :viewparams="viewparams" 
-  :disabled="detailsModel.reviewedbyeq.disabled" 
   :localContext ='{ }' 
   :localParam ='{ }' 
+  :disabled="detailsModel.reviewedbyeq.disabled"
   tag='UserRealName' 
   codelistType='DYNAMIC' 
   valueSeparator=","
-  mode="str"
-  name="reviewedbyeq" 
-  style="width:100px;">
-</app-checkbox-list>
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
 
                 </template>
                 <template v-if="Object.is(data.editor, 'sourceeq')">
