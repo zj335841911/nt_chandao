@@ -1270,12 +1270,6 @@ export default {
 			tip: "刷新",
 		},
 	},
-	pivottableviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-	},
 	assignedtotaskgroupgridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "新建",

@@ -5243,21 +5243,22 @@ String
 | 23 | [删除工时](#实体行为-删除工时（DeleteEstimate）) | DeleteEstimate | 用户自定义 | 后台及前台 |
 | 24 | [编辑工时](#实体行为-编辑工时（EditEstimate）) | EditEstimate | 用户自定义 | 后台及前台 |
 | 25 | [完成](#实体行为-完成（Finish）) | Finish | 用户自定义 | 后台及前台 |
-| 26 | [获取下一个团队成员(完成)](#实体行为-获取下一个团队成员(完成)（GetNextTeamUser）) | GetNextTeamUserFinish | 用户自定义 | 后台及前台 |
-| 27 | [获取联系人](#实体行为-获取联系人（GetUserConcat）) | GetUserConcat | 实体处理逻辑 | 前台 |
-| 28 | [获取团队成员](#实体行为-获取团队成员（GetUsernames）) | getUsernames | 实体处理逻辑 | 后台 |
-| 29 | [其他更新](#实体行为-其他更新（OtherUpdate）) | OtherUpdate | 用户自定义 | 后台及前台 |
-| 30 | [暂停](#实体行为-暂停（Pause）) | Pause | 用户自定义 | 后台及前台 |
-| 31 | [工时录入](#实体行为-工时录入（RecordEstimate）) | RecordEstimate | 用户自定义 | 后台及前台 |
-| 32 | [继续](#实体行为-继续（Restart）) | Restart | 用户自定义 | 后台及前台 |
-| 33 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 34 | [行为](#实体行为-行为（SendMessage）) | sendMessage | 用户自定义 | 后台及前台 |
-| 35 | [发送消息前置处理](#实体行为-发送消息前置处理（SendMsgPreProcess）) | sendMsgPreProcess | 用户自定义 | 后台及前台 |
-| 36 | [开始](#实体行为-开始（Start）) | Start | 用户自定义 | 后台及前台 |
-| 37 | [任务收藏](#实体行为-任务收藏（TaskFavorites）) | TaskFavorites | 实体处理逻辑 | 后台 |
-| 38 | [检查多人任务操作权限](#实体行为-检查多人任务操作权限（TaskForward）) | taskForward | 用户自定义 | 后台及前台 |
-| 39 | [任务收藏](#实体行为-任务收藏（TaskNFavorites）) | TaskNFavorites | 实体处理逻辑 | 后台 |
-| 40 | [更新需求版本](#实体行为-更新需求版本（UpdateStoryVersion）) | updateStoryVersion | 实体处理逻辑 | 后台 |
+| 26 | [获取最新团队成员](#实体行为-获取最新团队成员（GetNewTaskTeamUser）) | GetNewTaskTeamUser | 实体处理逻辑 | 前台 |
+| 27 | [获取下一个团队成员(完成)](#实体行为-获取下一个团队成员(完成)（GetNextTeamUser）) | GetNextTeamUserFinish | 用户自定义 | 后台及前台 |
+| 28 | [获取联系人](#实体行为-获取联系人（GetUserConcat）) | GetUserConcat | 实体处理逻辑 | 前台 |
+| 29 | [获取团队成员](#实体行为-获取团队成员（GetUsernames）) | getUsernames | 实体处理逻辑 | 后台 |
+| 30 | [其他更新](#实体行为-其他更新（OtherUpdate）) | OtherUpdate | 用户自定义 | 后台及前台 |
+| 31 | [暂停](#实体行为-暂停（Pause）) | Pause | 用户自定义 | 后台及前台 |
+| 32 | [工时录入](#实体行为-工时录入（RecordEstimate）) | RecordEstimate | 用户自定义 | 后台及前台 |
+| 33 | [继续](#实体行为-继续（Restart）) | Restart | 用户自定义 | 后台及前台 |
+| 34 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 35 | [行为](#实体行为-行为（SendMessage）) | sendMessage | 用户自定义 | 后台及前台 |
+| 36 | [发送消息前置处理](#实体行为-发送消息前置处理（SendMsgPreProcess）) | sendMsgPreProcess | 用户自定义 | 后台及前台 |
+| 37 | [开始](#实体行为-开始（Start）) | Start | 用户自定义 | 后台及前台 |
+| 38 | [任务收藏](#实体行为-任务收藏（TaskFavorites）) | TaskFavorites | 实体处理逻辑 | 后台 |
+| 39 | [检查多人任务操作权限](#实体行为-检查多人任务操作权限（TaskForward）) | taskForward | 用户自定义 | 后台及前台 |
+| 40 | [任务收藏](#实体行为-任务收藏（TaskNFavorites）) | TaskNFavorites | 实体处理逻辑 | 后台 |
+| 41 | [更新需求版本](#实体行为-更新需求版本（UpdateStoryVersion）) | updateStoryVersion | 实体处理逻辑 | 后台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -5573,6 +5574,18 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-获取最新团队成员（GetNewTaskTeamUser）
+#### 说明
+获取最新团队成员
+
+- 行为类型
+实体处理逻辑
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+无
 ### 实体行为-获取下一个团队成员(完成)（GetNextTeamUser）
 #### 说明
 获取下一个团队成员(完成)
@@ -5759,21 +5772,33 @@ FAVORITES
 ## 逻辑处理
 | 序号 | 逻辑 | 逻辑名 | 逻辑持有者 |
 | ---- | ---- | ---- | ---- |
-| 1 | [获取联系人](#逻辑处理-获取联系人（GetUserConcat）) | GetUserConcat | 前台 |
-| 2 | [重置工时统计值](#逻辑处理-重置工时统计值（ResetTaskestimate）) | ResetTaskestimate | 后台 |
-| 3 | [任务取消收藏](#逻辑处理-任务取消收藏（TaskCancleFavorites）) | TaskCancleFavorites | 后台 |
-| 4 | [任务收藏](#逻辑处理-任务收藏（TaskFavorites）) | TaskFavorites | 后台 |
-| 5 | [更新需求版本](#逻辑处理-更新需求版本（UpdateStoryVersion）) | UpdateStoryVersion | 后台 |
-| 6 | [获取团队成员](#逻辑处理-获取团队成员（getUsernames）) | getUsernames | 后台 |
-| 7 | [获取团队成员（草稿）](#逻辑处理-获取团队成员（草稿）（getUsernamesDraft）) | getUsernamesDraft | 后台 |
-| 8 | [行为[Update]主状态拒绝逻辑](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | Update__MSDeny | 后台 |
-| 9 | [行为[UpdateTemp]主状态拒绝逻辑](#逻辑处理-行为[UpdateTemp]主状态拒绝逻辑（UpdateTemp__MSDeny）) | UpdateTemp__MSDeny | 后台 |
-| 10 | [行为[UpdateTempMajor]主状态拒绝逻辑](#逻辑处理-行为[UpdateTempMajor]主状态拒绝逻辑（UpdateTempMajor__MSDeny）) | UpdateTempMajor__MSDeny | 后台 |
-| 11 | [行为[Remove]主状态拒绝逻辑](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | Remove__MSDeny | 后台 |
-| 12 | [行为[RemoveTemp]主状态拒绝逻辑](#逻辑处理-行为[RemoveTemp]主状态拒绝逻辑（RemoveTemp__MSDeny）) | RemoveTemp__MSDeny | 后台 |
-| 13 | [行为[RemoveTempMajor]主状态拒绝逻辑](#逻辑处理-行为[RemoveTempMajor]主状态拒绝逻辑（RemoveTempMajor__MSDeny）) | RemoveTempMajor__MSDeny | 后台 |
-| 14 | [行为[updateStoryVersion]主状态拒绝逻辑](#逻辑处理-行为[updateStoryVersion]主状态拒绝逻辑（UpdateStoryVersion__MSDeny）) | UpdateStoryVersion__MSDeny | 后台 |
+| 1 | [获取最新团队成员](#逻辑处理-获取最新团队成员（GetNewTaskTeamUser）) | GetNewTaskTeamUser | 前台 |
+| 2 | [获取联系人](#逻辑处理-获取联系人（GetUserConcat）) | GetUserConcat | 前台 |
+| 3 | [重置工时统计值](#逻辑处理-重置工时统计值（ResetTaskestimate）) | ResetTaskestimate | 后台 |
+| 4 | [任务取消收藏](#逻辑处理-任务取消收藏（TaskCancleFavorites）) | TaskCancleFavorites | 后台 |
+| 5 | [任务收藏](#逻辑处理-任务收藏（TaskFavorites）) | TaskFavorites | 后台 |
+| 6 | [更新需求版本](#逻辑处理-更新需求版本（UpdateStoryVersion）) | UpdateStoryVersion | 后台 |
+| 7 | [获取团队成员](#逻辑处理-获取团队成员（getUsernames）) | getUsernames | 后台 |
+| 8 | [获取团队成员（草稿）](#逻辑处理-获取团队成员（草稿）（getUsernamesDraft）) | getUsernamesDraft | 后台 |
+| 9 | [行为[Update]主状态拒绝逻辑](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | Update__MSDeny | 后台 |
+| 10 | [行为[UpdateTemp]主状态拒绝逻辑](#逻辑处理-行为[UpdateTemp]主状态拒绝逻辑（UpdateTemp__MSDeny）) | UpdateTemp__MSDeny | 后台 |
+| 11 | [行为[UpdateTempMajor]主状态拒绝逻辑](#逻辑处理-行为[UpdateTempMajor]主状态拒绝逻辑（UpdateTempMajor__MSDeny）) | UpdateTempMajor__MSDeny | 后台 |
+| 12 | [行为[Remove]主状态拒绝逻辑](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | Remove__MSDeny | 后台 |
+| 13 | [行为[RemoveTemp]主状态拒绝逻辑](#逻辑处理-行为[RemoveTemp]主状态拒绝逻辑（RemoveTemp__MSDeny）) | RemoveTemp__MSDeny | 后台 |
+| 14 | [行为[RemoveTempMajor]主状态拒绝逻辑](#逻辑处理-行为[RemoveTempMajor]主状态拒绝逻辑（RemoveTempMajor__MSDeny）) | RemoveTempMajor__MSDeny | 后台 |
+| 15 | [行为[updateStoryVersion]主状态拒绝逻辑](#逻辑处理-行为[updateStoryVersion]主状态拒绝逻辑（UpdateStoryVersion__MSDeny）) | UpdateStoryVersion__MSDeny | 后台 |
 
+### 逻辑处理-获取最新团队成员（GetNewTaskTeamUser）
+#### 说明
+获取最新团队成员
+
+- 逻辑持有者
+前台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 开始 | Begin | 开始 |
 ### 逻辑处理-获取联系人（GetUserConcat）
 #### 说明
 获取联系人

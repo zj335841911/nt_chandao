@@ -7394,6 +7394,15 @@ mock.onGet(new RegExp(/^\/subtasks\/fetchtypegroup(\?[\w-./?%&=,]*)*$/)).reply((
 // URI参数传递情况未实现
 // URI参数传递情况未实现
 
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
 
 // Remove
 mock.onDelete(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/([a-zA-Z0-9\-\;]{1,35})\/subtasks\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {

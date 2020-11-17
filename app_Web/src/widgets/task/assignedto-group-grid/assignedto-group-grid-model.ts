@@ -139,7 +139,6 @@ export default class AssignedtoGroupModel {
           name: 'task',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

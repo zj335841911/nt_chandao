@@ -8,21 +8,6 @@
         search
         @on-search="onSearch($event)"
     ></i-input>
-    <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"></view-toolbar>
-    </template>
-    <template slot="searchBar">
-                <view_searchbar 
-            :viewState="viewState"  
-            :viewparams="viewparams" 
-            :context="context" 
-            v-show="isExpandSearchForm"
-            @search="onSearch($event)"
-            name="searchbar"  
-            ref="searchbar" 
-            @closeview="closeView($event)">
-        </view_searchbar>
-    </template>
         <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

@@ -274,6 +274,7 @@ hide members
 |删除工时|用户自定义|&nbsp;|
 |编辑工时|用户自定义|&nbsp;|
 |完成|用户自定义|&nbsp;|
+|获取最新团队成员|实体处理逻辑|&nbsp;|
 |获取下一个团队成员(完成)|用户自定义|&nbsp;|
 |获取联系人|实体处理逻辑|&nbsp;|
 |获取团队成员|实体处理逻辑|&nbsp;|
@@ -291,6 +292,18 @@ hide members
 |更新需求版本|实体处理逻辑|&nbsp;|
 
 ## 处理逻辑
+* 获取最新团队成员 (GetNewTaskTeamUser)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+<center>获取最新团队成员</center>
 * 获取联系人 (GetUserConcat)
   
    

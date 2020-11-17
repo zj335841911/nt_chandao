@@ -1,6 +1,7 @@
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
+import GetNewTaskTeamUserLogic from '@/service/sub-task/get-new-task-team-user-logic';
 import GetUserConcatLogic from '@/service/sub-task/get-user-concat-logic';
 
 
@@ -2194,6 +2195,21 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async CalcTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * GetNewTaskTeamUser接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async GetNewTaskTeamUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let appLogic:GetNewTaskTeamUserLogic = new GetNewTaskTeamUserLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        const res = await appLogic.onExecute(context,data,isloading?true:false);
+        return {status:200,data:res};
     }
 
     /**
