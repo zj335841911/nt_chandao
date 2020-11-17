@@ -4,7 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { SysUpdateLogGridViewBase } from './sys-update-log-grid-view-base';
 import view_grid from '@widgets/sys-update-log/main-grid/main-grid.vue';
-import view_searchform from '@widgets/sys-update-log/default-searchform/default-searchform.vue';
+import view_searchbar from '@widgets/sys-update-log/custom-searchbar/custom-searchbar.vue';
 
 /**
  * 系统更新日志表格视图视图
@@ -16,7 +16,7 @@ import view_searchform from '@widgets/sys-update-log/default-searchform/default-
 @Component({
     components: {
         view_grid, 
-        view_searchform, 
+        view_searchbar, 
     }
 })
 @VueLifeCycleProcessing()

@@ -117,13 +117,6 @@ export default {
 		uiactions: {
 		},
 	},
-	default_searchform: {
-		details: {
-			formpage1: "常规条件", 
-		},
-		uiactions: {
-		},
-	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
@@ -154,6 +147,14 @@ export default {
 		deuiaction5: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction6_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 };

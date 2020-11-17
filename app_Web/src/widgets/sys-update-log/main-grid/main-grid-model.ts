@@ -76,7 +76,6 @@ export default class MainModel {
           name: 'sysupdatelog',
           prop: 'sysupdatelogid',
         },
-
         {
           name:'size',
           prop:'size'
