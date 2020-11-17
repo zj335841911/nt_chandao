@@ -15,7 +15,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.productmodule.mainbranch_grid.nodata')}} 
@@ -23,7 +23,7 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
                 <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productmodule.mainbranch_grid.columns.name')" :width="300"  :align="'left'" :sortable="'custom'">
@@ -49,7 +49,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='name' editorType="TEXTBOX" :value="row.name" dataType="TEXT" precision="0" ></app-span>
+            <app-span name="name" editorType="TEXTBOX" :value="row.name" dataType="TEXT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -84,7 +84,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <codelist :value="row.branch" tag='ProductBranch_Cache' codelistType='DYNAMIC' ></codelist>
+            <codelist :value="row.branch" tag="ProductBranch_Cache" codelistType="DYNAMIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -113,7 +113,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='short' editorType="TEXTBOX" :value="row.short" dataType="TEXT" precision="0" ></app-span>
+            <app-span name="short" editorType="TEXTBOX" :value="row.short" dataType="TEXT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -142,7 +142,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='order' editorType="TEXTBOX" :value="row.order" dataType="INT" precision="0" ></app-span>
+            <app-span name="order" editorType="TEXTBOX" :value="row.order" dataType="INT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -157,7 +157,7 @@
                     <template slot-scope="scope">
                         <div style="text-align: center;">
                           <a v-show="scope.row.Remove.visible" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.productmodule.mainbranch_grid.uiactions.remove')">
-                            <i class='fa fa-remove'></i>
+                            <i class="fa fa-remove"></i>
                             
                           </a>
                         </div>

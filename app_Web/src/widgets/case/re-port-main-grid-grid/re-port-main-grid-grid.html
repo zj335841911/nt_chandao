@@ -15,7 +15,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.case.reportmaingrid_grid.nodata')}} 
@@ -23,7 +23,7 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.case.reportmaingrid_grid.columns.id')" :width="100"  :align="'left'" :sortable="'custom'">
@@ -46,7 +46,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.pri" tag='Testcase__pri' codelistType='STATIC' ></codelist>
+            <codelist :value="row.pri" tag="Testcase__pri" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -59,7 +59,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='case' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'case-main-dashboard-view', height: 0,width: 0,title: $t('entities.case.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField="case" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'case-main-dashboard-view', height: 0,width: 0,title: $t('entities.case.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
@@ -80,7 +80,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.type" tag='Testcase__type' codelistType='STATIC' ></codelist>
+            <codelist :value="row.type" tag="Testcase__type" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -94,7 +94,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.openedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -108,7 +108,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.lastrunner" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.lastrunner" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -134,7 +134,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.lastrunresult" tag='Testcase__result' codelistType='STATIC' ></codelist>
+            <codelist :value="row.lastrunresult" tag="Testcase__result" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -148,7 +148,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.status1" tag='TestCaseStatusGrid' codelistType='STATIC' ></codelist>
+            <codelist :value="row.status1" tag="TestCaseStatusGrid" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -198,7 +198,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.lastrunresult1" tag='Testcase__result' codelistType='STATIC' ></codelist>
+            <codelist :value="row.lastrunresult1" tag="Testcase__result" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -207,8 +207,8 @@
                 <el-table-column></el-table-column>
             </template>
         </el-table>
-        <row class='grid-pagination' v-show="items.length > 0">
-            <page class='pull-right' @on-change="pageOnChange($event)" 
+        <row class="grid-pagination" v-show="items.length > 0">
+            <page class="pull-right" @on-change="pageOnChange($event)" 
                 @on-page-size-change="onPageSizeChange($event)"
                 :total="totalRecord"
                 show-sizer :current="curPage" :page-size="limit"

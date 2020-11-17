@@ -47,7 +47,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.pri" tag='Story__pri' codelistType='STATIC' ></codelist>
+            <codelist :value="row.pri" tag="Story__pri" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -60,7 +60,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='story' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField="story" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
@@ -81,7 +81,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.plan" tag='CurProductPlan' codelistType='DYNAMIC' ></codelist>
+            <codelist :value="row.plan" tag="CurProductPlan" codelistType="DYNAMIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -95,7 +95,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.openedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -109,7 +109,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.assignedto" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -135,7 +135,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.status" tag='Story__status' codelistType='STATIC' ></codelist>
+            <codelist :value="row.status" tag="Story__status" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -149,7 +149,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.stage" tag='Story__stage' codelistType='STATIC' ></codelist>
+            <codelist :value="row.stage" tag="Story__stage" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -164,12 +164,12 @@
                     <template slot-scope="scope">
                         <div style="text-align: center;">
                           <a v-show="scope.row.Breakdowntasks.visible" :disabled="scope.row.Breakdowntasks.disabled" @click="uiAction(scope.row, 'Breakdowntasks', $event)" :title="$t('entities.story.projectstory_grid.uiactions.story_breakdowntasks')">
-                            <i class='fa fa-plus'></i>
+                            <i class="fa fa-plus"></i>
                             
                           </a>
-                          <divider v-show="scope.row.ProjectUnlinkStory.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.ProjectUnlinkStory.visible" type="vertical"></divider>
                           <a v-show="scope.row.ProjectUnlinkStory.visible" :disabled="scope.row.ProjectUnlinkStory.disabled" @click="uiAction(scope.row, 'ProjectUnlinkStory', $event)" :title="$t('entities.story.projectstory_grid.uiactions.story_projectunlinkstory')">
-                            <i class='fa fa-unlink'></i>
+                            <i class="fa fa-unlink"></i>
                             
                           </a>
                         </div>

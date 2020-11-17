@@ -15,7 +15,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.todo.main_grid.nodata')}} 
@@ -23,7 +23,7 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.todo.main_grid.columns.id')" :width="100"  :align="'left'" :sortable="'custom'">
@@ -58,7 +58,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.type" tag='TypeAll' codelistType='STATIC' ></codelist>
+            <codelist :value="row.type" tag="TypeAll" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -72,7 +72,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.pri" tag='Pri' codelistType='STATIC' ></codelist>
+            <codelist :value="row.pri" tag="Pri" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -85,7 +85,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='todo' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'todo-dashboard-view', height: 0,width: 0,title: $t('entities.todo.views.dashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField="todo" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'todo-dashboard-view', height: 0,width: 0,title: $t('entities.todo.views.dashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             ]
             ,parameters: [
             { pathName: 'todos', parameterName: 'todo' },
@@ -105,7 +105,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.begin" tag='BeginendDropList' codelistType='STATIC' ></codelist>
+            <codelist :value="row.begin" tag="BeginendDropList" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -119,7 +119,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.end" tag='BeginendDropList' codelistType='STATIC' ></codelist>
+            <codelist :value="row.end" tag="BeginendDropList" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -133,7 +133,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.status" tag='Todo__status' codelistType='STATIC' ></codelist>
+            <codelist :value="row.status" tag="Todo__status" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -148,32 +148,32 @@
                     <template slot-scope="scope">
                         <div style="text-align: center;">
                           <a v-show="scope.row.assignTo.visible" :disabled="scope.row.assignTo.disabled" @click="uiAction(scope.row, 'assignTo', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_assignto')">
-                            <i class='fa fa-hand-o-right'></i>
+                            <i class="fa fa-hand-o-right"></i>
                             
                           </a>
-                          <divider v-show="scope.row.finish.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.finish.visible" type="vertical"></divider>
                           <a v-show="scope.row.finish.visible" :disabled="scope.row.finish.disabled" @click="uiAction(scope.row, 'finish', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_finish')">
-                            <i class='fa fa-check-square-o'></i>
+                            <i class="fa fa-check-square-o"></i>
                             
                           </a>
-                          <divider v-show="scope.row.activate.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.activate.visible" type="vertical"></divider>
                           <a v-show="scope.row.activate.visible" :disabled="scope.row.activate.disabled" @click="uiAction(scope.row, 'activate', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_activate')">
-                            <i class='fa fa-magic'></i>
+                            <i class="fa fa-magic"></i>
                             
                           </a>
-                          <divider v-show="scope.row.close.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.close.visible" type="vertical"></divider>
                           <a v-show="scope.row.close.visible" :disabled="scope.row.close.disabled" @click="uiAction(scope.row, 'close', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_close')">
-                            <i class='fa fa-close'></i>
+                            <i class="fa fa-close"></i>
                             
                           </a>
-                          <divider v-show="scope.row.edit1.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.edit1.visible" type="vertical"></divider>
                           <a v-show="scope.row.edit1.visible" :disabled="scope.row.edit1.disabled" @click="uiAction(scope.row, 'edit1', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_edit1')">
-                            <i class='fa fa-edit'></i>
+                            <i class="fa fa-edit"></i>
                             
                           </a>
-                          <divider v-show="scope.row.delete.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.delete.visible" type="vertical"></divider>
                           <a v-show="scope.row.delete.visible" :disabled="scope.row.delete.disabled" @click="uiAction(scope.row, 'delete', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_delete')">
-                            <i class='fa fa-trash'></i>
+                            <i class="fa fa-trash"></i>
                             
                           </a>
                         </div>
@@ -184,8 +184,8 @@
                 <el-table-column></el-table-column>
             </template>
         </el-table>
-        <row class='grid-pagination' v-show="items.length > 0">
-            <page class='pull-right' @on-change="pageOnChange($event)" 
+        <row class="grid-pagination" v-show="items.length > 0">
+            <page class="pull-right" @on-change="pageOnChange($event)" 
                 @on-page-size-change="onPageSizeChange($event)"
                 :total="totalRecord"
                 show-sizer :current="curPage" :page-size="limit"

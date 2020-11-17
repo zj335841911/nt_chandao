@@ -7,7 +7,7 @@
     <span class="caption-info">{{viewCaption}}</span>
     </template>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"></view-toolbar>
     </template>
         <view_kanban 
                     :viewState="viewState"  

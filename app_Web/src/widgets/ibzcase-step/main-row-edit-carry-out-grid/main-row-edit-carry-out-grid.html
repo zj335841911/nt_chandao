@@ -15,7 +15,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.ibzcasestep.main_rowedit_carryout_grid.nodata')}} 
@@ -23,7 +23,7 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('desc')">
                 <el-table-column show-overflow-tooltip :prop="'desc'" :label="$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.desc')" :width="100"  :align="'left'">
@@ -79,7 +79,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <codelist :value="row.steps" tag='Testresult__result' codelistType='STATIC' ></codelist>
+            <codelist :value="row.steps" tag="Testresult__result" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -108,7 +108,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='reals' editorType="TEXTBOX" :value="row.reals" dataType="TEXT" precision="0" ></app-span>
+            <app-span name="reals" editorType="TEXTBOX" :value="row.reals" dataType="TEXT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>

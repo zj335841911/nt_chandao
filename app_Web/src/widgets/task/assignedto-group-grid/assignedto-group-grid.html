@@ -18,7 +18,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.task.assignedtogroup_grid.nodata')}} 
@@ -26,7 +26,7 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template>
             <el-table-column show-overflow-tooltip prop="group" label="分组" :min-width="80">
@@ -56,7 +56,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.pri" tag='Task__pri' codelistType='STATIC' ></codelist>
+            <codelist :value="row.pri" tag="Task__pri" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -69,7 +69,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='task' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField="task" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'stories', parameterName: 'story' },
             ]
             ,parameters: [
@@ -90,7 +90,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.status1" tag='TaskStatusCK' codelistType='STATIC' ></codelist>
+            <codelist :value="row.status1" tag="TaskStatusCK" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -99,14 +99,14 @@
                 <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.task.assignedtogroup_grid.columns.assignedto')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                          <i class='fa fa-hand-o-right'></i>
+                          <i class="fa fa-hand-o-right"></i>
                         {{$t('entities.task.assignedtogroup_grid.columns.assignedto')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
                             <a v-show="row.AssignTask.visible" :disabled="row.AssignTask.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'AssignTask', $event)">
-            <codelist :value="row.assignedto" tag='UserRealNameW' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.assignedto" tag="UserRealNameW" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                             </a>
                         </template>
                     </template>
@@ -121,7 +121,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.finishedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.finishedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -184,42 +184,42 @@
                     <template slot-scope="scope">
                         <div style="text-align: center;">
                           <a v-show="scope.row.confirmStoryChange.visible" :disabled="scope.row.confirmStoryChange.disabled" @click="uiAction(scope.row, 'confirmStoryChange', $event)" :title="$t('entities.task.assignedtogroup_grid.uiactions.task_confirmstorychange')">
-                            <i class='fa fa-search'></i>
+                            <i class="fa fa-search"></i>
                             
                           </a>
-                          <divider v-show="scope.row.MStartTaskDash1.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.MStartTaskDash1.visible" type="vertical"></divider>
                           <a v-show="scope.row.MStartTaskDash1.visible" :disabled="scope.row.MStartTaskDash1.disabled" @click="uiAction(scope.row, 'MStartTaskDash1', $event)" :title="$t('entities.task.assignedtogroup_grid.uiactions.task_mstarttaskdash1')">
-                            <i class='fa fa-play-circle-o'></i>
+                            <i class="fa fa-play-circle-o"></i>
                             
                           </a>
-                          <divider v-show="scope.row.CloseTask.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.CloseTask.visible" type="vertical"></divider>
                           <a v-show="scope.row.CloseTask.visible" :disabled="scope.row.CloseTask.disabled" @click="uiAction(scope.row, 'CloseTask', $event)" :title="$t('entities.task.assignedtogroup_grid.uiactions.task_closetask')">
-                            <i class='fa fa-power-off'></i>
+                            <i class="fa fa-power-off"></i>
                             
                           </a>
-                          <divider v-show="scope.row.done.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.done.visible" type="vertical"></divider>
                           <a v-show="scope.row.done.visible" :disabled="scope.row.done.disabled" @click="uiAction(scope.row, 'done', $event)" :title="$t('entities.task.assignedtogroup_grid.uiactions.task_done')">
-                            <i class='fa fa-check-square-o'></i>
+                            <i class="fa fa-check-square-o"></i>
                             
                           </a>
-                          <divider v-show="scope.row.MainEdit.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.MainEdit.visible" type="vertical"></divider>
                           <a v-show="scope.row.MainEdit.visible" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.task.assignedtogroup_grid.uiactions.task_mainedit')">
-                            <i class='fa fa-edit'></i>
+                            <i class="fa fa-edit"></i>
                             
                           </a>
-                          <divider v-show="scope.row.NewSubTask.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.NewSubTask.visible" type="vertical"></divider>
                           <a v-show="scope.row.NewSubTask.visible" :disabled="scope.row.NewSubTask.disabled" @click="uiAction(scope.row, 'NewSubTask', $event)" :title="$t('entities.task.assignedtogroup_grid.uiactions.task_newsubtask')">
-                            <i class='iconfont studio-icon-subnets'></i>
+                            <i class="iconfont studio-icon-subnets"></i>
                             
                           </a>
-                          <divider v-show="scope.row.TaskFavorites.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.TaskFavorites.visible" type="vertical"></divider>
                           <a v-show="scope.row.TaskFavorites.visible" :disabled="scope.row.TaskFavorites.disabled" @click="uiAction(scope.row, 'TaskFavorites', $event)" :title="$t('entities.task.assignedtogroup_grid.uiactions.task_taskfavorites')">
-                            <i class='fa fa-star-o'></i>
+                            <i class="fa fa-star-o"></i>
                             
                           </a>
-                          <divider v-show="scope.row.TaskNFavorites.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.TaskNFavorites.visible" type="vertical"></divider>
                           <a v-show="scope.row.TaskNFavorites.visible" :disabled="scope.row.TaskNFavorites.disabled" @click="uiAction(scope.row, 'TaskNFavorites', $event)" :title="$t('entities.task.assignedtogroup_grid.uiactions.task_tasknfavorites')">
-                            <i class='fa fa-star'></i>
+                            <i class="fa fa-star"></i>
                             
                           </a>
                         </div>
@@ -230,8 +230,8 @@
                 <el-table-column></el-table-column>
             </template>
         </el-table>
-        <row class='grid-pagination' v-show="items.length > 0">
-            <page class='pull-right' @on-change="pageOnChange($event)" 
+        <row class="grid-pagination" v-show="items.length > 0">
+            <page class="pull-right" @on-change="pageOnChange($event)" 
                 @on-page-size-change="onPageSizeChange($event)"
                 :total="totalRecord"
                 show-sizer :current="curPage" :page-size="limit"

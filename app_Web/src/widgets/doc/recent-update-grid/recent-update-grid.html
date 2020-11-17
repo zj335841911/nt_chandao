@@ -15,7 +15,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.doc.recentupdate_grid.nodata')}} 
@@ -23,7 +23,7 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('title')">
                 <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.doc.recentupdate_grid.columns.title')" :min-width="200"  :align="'left'" :sortable="'custom'">
@@ -33,7 +33,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='doc' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'doc-dashboard-view', height: 0,width: 0,title: $t('entities.doc.views.dashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField="doc" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'doc-dashboard-view', height: 0,width: 0,title: $t('entities.doc.views.dashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             ]
             ,parameters: [
             { pathName: 'docs', parameterName: 'doc' },
@@ -53,7 +53,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.addedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.addedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>

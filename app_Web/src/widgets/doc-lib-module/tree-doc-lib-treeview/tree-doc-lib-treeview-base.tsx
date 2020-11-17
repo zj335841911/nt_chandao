@@ -740,8 +740,8 @@ export class TreeDocLibTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.allmodule_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
-                        <i class='fa fa-refresh'></i>
+                            <dropdown-item name="deuiaction1" v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                        <i class="fa fa-refresh"></i>
                         刷新
                     </dropdown-item>
                 </dropdown-menu>

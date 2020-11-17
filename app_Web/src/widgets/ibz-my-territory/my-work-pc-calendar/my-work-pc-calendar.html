@@ -1,4 +1,4 @@
-    <div :class='calendarClass'>
+    <div :class="calendarClass">
       <context-menu-container>
         <template>
         <div class="event-legends">
@@ -42,7 +42,7 @@
           @eventClick="onEventClick.apply(_self, arguments)"
           @eventDrop="onEventDrop.bind(_self)"
           defaultView="dayGridMonth"/>
-          <modal v-model="modalVisible" width="250px" :title="$t('app.calendar.dateSelectModalTitle')" class-name='date-select-modal' @on-ok="gotoDate()">
+          <modal v-model="modalVisible" width="250px" :title="$t('app.calendar.dateSelectModalTitle')" class-name="date-select-modal" @on-ok="gotoDate()">
             <el-date-picker style="width: 200px;" v-model="selectedGotoDate" type="date"></el-date-picker>
           </modal>
         </template>

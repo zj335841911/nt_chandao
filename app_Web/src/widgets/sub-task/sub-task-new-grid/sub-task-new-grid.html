@@ -15,7 +15,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.subtask.subtasknew_grid.nodata')}} 
@@ -23,7 +23,7 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('modulename')">
                 <el-table-column show-overflow-tooltip :prop="'modulename'" :label="$t('entities.subtask.subtasknew_grid.columns.modulename')" :width="100"  :align="'left'" :sortable="'custom'">
@@ -59,7 +59,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='modulename' editorType="PICKER" :value="row.modulename" dataType="PICKUPTEXT" precision="0" ></app-span>
+            <app-span name="modulename" editorType="PICKER" :value="row.modulename" dataType="PICKUPTEXT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -98,14 +98,14 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-                              <app-column-link deKeyField='story' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                              <app-column-link deKeyField="story" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mainview', parameterName: 'mainview' }
             ]}" valueitem="story">
-                                <app-span name='storyname' editorType="PICKER" :value="row.storyname"></app-span>
+                                <app-span name="storyname" editorType="PICKER" :value="row.storyname"></app-span>
                               </app-column-link>
                         </template>
                     </template>
@@ -135,7 +135,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='name' editorType="TEXTBOX" :value="row.name" dataType="TEXT" precision="0" ></app-span>
+            <app-span name="name" editorType="TEXTBOX" :value="row.name" dataType="TEXT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -170,7 +170,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <codelist :value="row.type" tag='Task__type' codelistType='STATIC' ></codelist>
+            <codelist :value="row.type" tag="Task__type" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -205,7 +205,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <codelist :value="row.assignedto" tag='UserRealNameProject' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.assignedto" tag="UserRealNameProject" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -225,7 +225,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='eststarted' editorType="DATEPICKER" :value="row.eststarted" dataType="DATE" precision="0" ></app-span>
+            <app-span name="eststarted" editorType="DATEPICKER" :value="row.eststarted" dataType="DATE" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -247,7 +247,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='desc' editorType="TEXTAREA" :value="row.desc" dataType="LONGTEXT" precision="0" ></app-span>
+            <app-span name="desc" editorType="TEXTAREA" :value="row.desc" dataType="LONGTEXT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -282,7 +282,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <codelist :value="row.pri" tag='Task__pri' codelistType='STATIC' ></codelist>
+            <codelist :value="row.pri" tag="Task__pri" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>

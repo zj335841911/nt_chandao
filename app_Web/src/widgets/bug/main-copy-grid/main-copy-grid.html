@@ -15,7 +15,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.bug.main_copy_grid.nodata')}} 
@@ -23,7 +23,7 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.bug.main_copy_grid.columns.id')" :width="70"  :align="'left'" :sortable="'custom'">
@@ -46,7 +46,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.pri" tag='Bug__pri' codelistType='STATIC' ></codelist>
+            <codelist :value="row.pri" tag="Bug__pri" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -60,7 +60,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.confirmed" tag='YesNo2' codelistType='STATIC' ></codelist>
+            <codelist :value="row.confirmed" tag="YesNo2" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -73,7 +73,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='bug' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'bug-main-dashboard-view', height: 0,width: 0,title: $t('entities.bug.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField="bug" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'bug-main-dashboard-view', height: 0,width: 0,title: $t('entities.bug.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
@@ -94,7 +94,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.status" tag='Bug__status' codelistType='STATIC' ></codelist>
+            <codelist :value="row.status" tag="Bug__status" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -108,7 +108,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.openedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -135,7 +135,7 @@
                     <template v-slot="{row,column,$index}">
                         <template >
                             <a v-show="row.AssingToBug.visible" :disabled="row.AssingToBug.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'AssingToBug', $event)">
-            <codelist :value="row.assignedto" tag='UserRealNameW' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.assignedto" tag="UserRealNameW" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                             </a>
                         </template>
                     </template>
@@ -150,7 +150,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.resolution" tag='Bug__resolution' codelistType='STATIC' ></codelist>
+            <codelist :value="row.resolution" tag="Bug__resolution" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -165,37 +165,37 @@
                     <template slot-scope="scope">
                         <div style="text-align: center;">
                           <a v-show="scope.row.ConfirmBug.visible" :disabled="scope.row.ConfirmBug.disabled" @click="uiAction(scope.row, 'ConfirmBug', $event)" :title="$t('entities.bug.main_copy_grid.uiactions.bug_confirmbug')">
-                            <i class='fa fa-eye'></i>
+                            <i class="fa fa-eye"></i>
                             
                           </a>
-                          <divider v-show="scope.row.ResolveBug.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.ResolveBug.visible" type="vertical"></divider>
                           <a v-show="scope.row.ResolveBug.visible" :disabled="scope.row.ResolveBug.disabled" @click="uiAction(scope.row, 'ResolveBug', $event)" :title="$t('entities.bug.main_copy_grid.uiactions.bug_resolvebug')">
-                            <i class='fa fa-check-square-o'></i>
+                            <i class="fa fa-check-square-o"></i>
                             
                           </a>
-                          <divider v-show="scope.row.CloseBug.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.CloseBug.visible" type="vertical"></divider>
                           <a v-show="scope.row.CloseBug.visible" :disabled="scope.row.CloseBug.disabled" @click="uiAction(scope.row, 'CloseBug', $event)" :title="$t('entities.bug.main_copy_grid.uiactions.bug_closebug')">
-                            <i class='fa fa-power-off'></i>
+                            <i class="fa fa-power-off"></i>
                             
                           </a>
-                          <divider v-show="scope.row.MainEdit.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.MainEdit.visible" type="vertical"></divider>
                           <a v-show="scope.row.MainEdit.visible" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.bug.main_copy_grid.uiactions.bug_mainedit')">
-                            <i class='fa fa-edit'></i>
+                            <i class="fa fa-edit"></i>
                             
                           </a>
-                          <divider v-show="scope.row.Copy.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.Copy.visible" type="vertical"></divider>
                           <a v-show="scope.row.Copy.visible" :disabled="scope.row.Copy.disabled" @click="uiAction(scope.row, 'Copy', $event)" :title="$t('entities.bug.main_copy_grid.uiactions.copy')">
-                            <i class='fa fa-copy'></i>
+                            <i class="fa fa-copy"></i>
                             
                           </a>
-                          <divider v-show="scope.row.BugFavorites.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.BugFavorites.visible" type="vertical"></divider>
                           <a v-show="scope.row.BugFavorites.visible" :disabled="scope.row.BugFavorites.disabled" @click="uiAction(scope.row, 'BugFavorites', $event)" :title="$t('entities.bug.main_copy_grid.uiactions.bug_bugfavorites')">
-                            <i class='fa fa-star-o'></i>
+                            <i class="fa fa-star-o"></i>
                             
                           </a>
-                          <divider v-show="scope.row.BugNFavorites.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.BugNFavorites.visible" type="vertical"></divider>
                           <a v-show="scope.row.BugNFavorites.visible" :disabled="scope.row.BugNFavorites.disabled" @click="uiAction(scope.row, 'BugNFavorites', $event)" :title="$t('entities.bug.main_copy_grid.uiactions.bug_bugnfavorites')">
-                            <i class='fa fa-star'></i>
+                            <i class="fa fa-star"></i>
                             
                           </a>
                         </div>
@@ -242,8 +242,8 @@
                 <el-table-column></el-table-column>
             </template>
         </el-table>
-        <row class='grid-pagination' v-show="items.length > 0">
-            <page class='pull-right' @on-change="pageOnChange($event)" 
+        <row class="grid-pagination" v-show="items.length > 0">
+            <page class="pull-right" @on-change="pageOnChange($event)" 
                 @on-page-size-change="onPageSizeChange($event)"
                 :total="totalRecord"
                 show-sizer :current="curPage" :page-size="limit"

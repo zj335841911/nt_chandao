@@ -13,7 +13,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.substory.substorynew_grid.nodata')}} 
@@ -21,7 +21,7 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('modulename')">
                 <el-table-column show-overflow-tooltip :prop="'modulename'" :label="$t('entities.substory.substorynew_grid.columns.modulename')" :width="150"  :align="'left'">
@@ -57,7 +57,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='modulename' editorType="PICKER" :value="row.modulename" dataType="PICKUPTEXT" precision="0" ></app-span>
+            <app-span name="modulename" editorType="PICKER" :value="row.modulename" dataType="PICKUPTEXT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -92,7 +92,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <codelist :value="row.plan" tag='CurProductPlan' codelistType='DYNAMIC' ></codelist>
+            <codelist :value="row.plan" tag="CurProductPlan" codelistType="DYNAMIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -121,7 +121,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='title' editorType="TEXTBOX" :value="row.title" dataType="TEXT" precision="0" ></app-span>
+            <app-span name="title" editorType="TEXTBOX" :value="row.title" dataType="TEXT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -150,7 +150,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='spec' editorType="HTMLEDITOR" :value="row.spec" dataType="TEXT" precision="0" ></app-span>
+            <app-span name="spec" editorType="HTMLEDITOR" :value="row.spec" dataType="TEXT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -185,7 +185,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <codelist :value="row.pri" tag='Story__pri' codelistType='STATIC' ></codelist>
+            <codelist :value="row.pri" tag="Story__pri" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -214,7 +214,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='estimate' editorType="TEXTBOX" :value="row.estimate" dataType="FLOAT" precision="0" ></app-span>
+            <app-span name="estimate" editorType="TEXTBOX" :value="row.estimate" dataType="FLOAT" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -249,7 +249,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <codelist :value="row.neednotreview" tag='YesNo2' codelistType='STATIC' ></codelist>
+            <codelist :value="row.neednotreview" tag="YesNo2" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -278,7 +278,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='product' editorType="HIDDEN" :value="row.product" dataType="PICKUP" precision="0" ></app-span>
+            <app-span name="product" editorType="HIDDEN" :value="row.product" dataType="PICKUP" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>
@@ -307,7 +307,7 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name='parent' editorType="HIDDEN" :value="row.parent" dataType="PICKUP" precision="0" ></app-span>
+            <app-span name="parent" editorType="HIDDEN" :value="row.parent" dataType="PICKUP" precision="0" ></app-span>
                         </template>
                     </template>
                 </el-table-column>

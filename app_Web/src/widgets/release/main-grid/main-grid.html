@@ -15,7 +15,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.release.main_grid.nodata')}} 
@@ -23,7 +23,7 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.release.main_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
@@ -45,7 +45,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='release' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'release-main-tab-exp-view', height: 0,width: 0,title: $t('entities.release.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField="release" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'release-main-tab-exp-view', height: 0,width: 0,title: $t('entities.release.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
@@ -65,7 +65,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='build' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'build-main-tab-exp-view', height: 0,width: 0,title: $t('entities.build.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField="build" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'build-main-tab-exp-view', height: 0,width: 0,title: $t('entities.build.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
@@ -86,7 +86,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.status" tag='Release__status' codelistType='STATIC' ></codelist>
+            <codelist :value="row.status" tag="Release__status" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -113,32 +113,32 @@
                     <template slot-scope="scope">
                         <div style="text-align: center;">
                           <a v-show="scope.row.linkstory.visible" :disabled="scope.row.linkstory.disabled" @click="uiAction(scope.row, 'linkstory', $event)" :title="$t('entities.release.main_grid.uiactions.release_linkstory')">
-                            <i class='fa fa-link'></i>
+                            <i class="fa fa-link"></i>
                             
                           </a>
-                          <divider v-show="scope.row.linkbug.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.linkbug.visible" type="vertical"></divider>
                           <a v-show="scope.row.linkbug.visible" :disabled="scope.row.linkbug.disabled" @click="uiAction(scope.row, 'linkbug', $event)" :title="$t('entities.release.main_grid.uiactions.release_linkbug')">
-                            <i class='fa fa-bug'></i>
+                            <i class="fa fa-bug"></i>
                             
                           </a>
-                          <divider v-show="scope.row.active.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.active.visible" type="vertical"></divider>
                           <a v-show="scope.row.active.visible" :disabled="scope.row.active.disabled" @click="uiAction(scope.row, 'active', $event)" :title="$t('entities.release.main_grid.uiactions.release_active')">
-                            <i class='fa fa-play'></i>
+                            <i class="fa fa-play"></i>
                             
                           </a>
-                          <divider v-show="scope.row.terminal.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.terminal.visible" type="vertical"></divider>
                           <a v-show="scope.row.terminal.visible" :disabled="scope.row.terminal.disabled" @click="uiAction(scope.row, 'terminal', $event)" :title="$t('entities.release.main_grid.uiactions.release_terminal')">
-                            <i class='fa fa-pause'></i>
+                            <i class="fa fa-pause"></i>
                             
                           </a>
-                          <divider v-show="scope.row.quickEdit.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.quickEdit.visible" type="vertical"></divider>
                           <a v-show="scope.row.quickEdit.visible" :disabled="scope.row.quickEdit.disabled" @click="uiAction(scope.row, 'quickEdit', $event)" :title="$t('entities.release.main_grid.uiactions.release_quickedit')">
-                            <i class='fa fa-edit'></i>
+                            <i class="fa fa-edit"></i>
                             
                           </a>
-                          <divider v-show="scope.row.remove.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.remove.visible" type="vertical"></divider>
                           <a v-show="scope.row.remove.visible" :disabled="scope.row.remove.disabled" @click="uiAction(scope.row, 'remove', $event)" :title="$t('entities.release.main_grid.uiactions.release_remove')">
-                            <i class='fa fa-remove'></i>
+                            <i class="fa fa-remove"></i>
                             
                           </a>
                         </div>
@@ -149,8 +149,8 @@
                 <el-table-column></el-table-column>
             </template>
         </el-table>
-        <row class='grid-pagination' v-show="items.length > 0">
-            <page class='pull-right' @on-change="pageOnChange($event)" 
+        <row class="grid-pagination" v-show="items.length > 0">
+            <page class="pull-right" @on-change="pageOnChange($event)" 
                 @on-page-size-change="onPageSizeChange($event)"
                 :total="totalRecord"
                 show-sizer :current="curPage" :page-size="limit"

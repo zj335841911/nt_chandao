@@ -15,7 +15,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.task.main2_grid.nodata')}} 
@@ -23,7 +23,7 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.task.main2_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
@@ -46,7 +46,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.pri" tag='Task__pri' codelistType='STATIC' ></codelist>
+            <codelist :value="row.pri" tag="Task__pri" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -59,7 +59,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='task' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField="task" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'stories', parameterName: 'story' },
             ]
             ,parameters: [
@@ -92,7 +92,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.assignedto" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -130,7 +130,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.status1" tag='TaskStatusCK' codelistType='STATIC' ></codelist>
+            <codelist :value="row.status1" tag="TaskStatusCK" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -145,37 +145,37 @@
                     <template slot-scope="scope">
                         <div style="text-align: center;">
                           <a v-show="scope.row.AssignTask.visible" :disabled="scope.row.AssignTask.disabled" @click="uiAction(scope.row, 'AssignTask', $event)" :title="$t('entities.task.main2_grid.uiactions.task_assigntask')">
-                            <i class='fa fa-hand-o-right'></i>
+                            <i class="fa fa-hand-o-right"></i>
                             
                           </a>
-                          <divider v-show="scope.row.StartTask.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.StartTask.visible" type="vertical"></divider>
                           <a v-show="scope.row.StartTask.visible" :disabled="scope.row.StartTask.disabled" @click="uiAction(scope.row, 'StartTask', $event)" :title="$t('entities.task.main2_grid.uiactions.task_starttask')">
-                            <i class='fa fa-play-circle-o'></i>
+                            <i class="fa fa-play-circle-o"></i>
                             
                           </a>
-                          <divider v-show="scope.row.Activation.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.Activation.visible" type="vertical"></divider>
                           <a v-show="scope.row.Activation.visible" :disabled="scope.row.Activation.disabled" @click="uiAction(scope.row, 'Activation', $event)" :title="$t('entities.task.main2_grid.uiactions.task_activation')">
-                            <i class='fa fa-magic'></i>
+                            <i class="fa fa-magic"></i>
                             
                           </a>
-                          <divider v-show="scope.row.WorkHours1.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.WorkHours1.visible" type="vertical"></divider>
                           <a v-show="scope.row.WorkHours1.visible" :disabled="scope.row.WorkHours1.disabled" @click="uiAction(scope.row, 'WorkHours1', $event)" :title="$t('entities.task.main2_grid.uiactions.task_workhours1')">
-                            <i class='fa fa-wordpress'></i>
+                            <i class="fa fa-wordpress"></i>
                             
                           </a>
-                          <divider v-show="scope.row.DoneTask.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.DoneTask.visible" type="vertical"></divider>
                           <a v-show="scope.row.DoneTask.visible" :disabled="scope.row.DoneTask.disabled" @click="uiAction(scope.row, 'DoneTask', $event)" :title="$t('entities.task.main2_grid.uiactions.task_donetask')">
-                            <i class='fa fa-check-square-o'></i>
+                            <i class="fa fa-check-square-o"></i>
                             
                           </a>
-                          <divider v-show="scope.row.CloseTask.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.CloseTask.visible" type="vertical"></divider>
                           <a v-show="scope.row.CloseTask.visible" :disabled="scope.row.CloseTask.disabled" @click="uiAction(scope.row, 'CloseTask', $event)" :title="$t('entities.task.main2_grid.uiactions.task_closetask')">
-                            <i class='fa fa-power-off'></i>
+                            <i class="fa fa-power-off"></i>
                             
                           </a>
-                          <divider v-show="scope.row.MainEdit.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.MainEdit.visible" type="vertical"></divider>
                           <a v-show="scope.row.MainEdit.visible" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.task.main2_grid.uiactions.task_mainedit')">
-                            <i class='fa fa-edit'></i>
+                            <i class="fa fa-edit"></i>
                             
                           </a>
                         </div>

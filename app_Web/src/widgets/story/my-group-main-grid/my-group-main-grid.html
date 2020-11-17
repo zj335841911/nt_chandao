@@ -15,7 +15,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.story.mygroupmain_grid.nodata')}} 
@@ -23,7 +23,7 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.story.mygroupmain_grid.columns.id')" :width="70"  :align="'left'" :sortable="'custom'">
@@ -46,7 +46,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.pri" tag='Story__pri' codelistType='STATIC' ></codelist>
+            <codelist :value="row.pri" tag="Story__pri" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -59,7 +59,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='product' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField="product" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
             ]
             ,parameters: [
             { pathName: 'products', parameterName: 'product' },
@@ -78,7 +78,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='story' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField="story" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
@@ -99,7 +99,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.plan" tag='CurProductPlan' codelistType='DYNAMIC' ></codelist>
+            <codelist :value="row.plan" tag="CurProductPlan" codelistType="DYNAMIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -113,7 +113,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.openedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -127,7 +127,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.assignedto" tag='UserRealNameW' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.assignedto" tag="UserRealNameW" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -153,7 +153,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.status" tag='Story__status' codelistType='STATIC' ></codelist>
+            <codelist :value="row.status" tag="Story__status" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -167,7 +167,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.stage" tag='Story__stage' codelistType='STATIC' ></codelist>
+            <codelist :value="row.stage" tag="Story__stage" codelistType="STATIC" ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -194,42 +194,42 @@
                     <template slot-scope="scope">
                         <div style="text-align: center;">
                           <a v-show="scope.row.ChangeStoryDetail.visible" :disabled="scope.row.ChangeStoryDetail.disabled" @click="uiAction(scope.row, 'ChangeStoryDetail', $event)" :title="$t('entities.story.mygroupmain_grid.uiactions.story_changestorydetail')">
-                            <i class='fa fa-exchange'></i>
+                            <i class="fa fa-exchange"></i>
                             
                           </a>
-                          <divider v-show="scope.row.ReviewStory.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.ReviewStory.visible" type="vertical"></divider>
                           <a v-show="scope.row.ReviewStory.visible" :disabled="scope.row.ReviewStory.disabled" @click="uiAction(scope.row, 'ReviewStory', $event)" :title="$t('entities.story.mygroupmain_grid.uiactions.story_reviewstory')">
-                            <i class='fa fa-search'></i>
+                            <i class="fa fa-search"></i>
                             
                           </a>
-                          <divider v-show="scope.row.CloseStory.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.CloseStory.visible" type="vertical"></divider>
                           <a v-show="scope.row.CloseStory.visible" :disabled="scope.row.CloseStory.disabled" @click="uiAction(scope.row, 'CloseStory', $event)" :title="$t('entities.story.mygroupmain_grid.uiactions.story_closestory')">
-                            <i class='fa fa-power-off'></i>
+                            <i class="fa fa-power-off"></i>
                             
                           </a>
-                          <divider v-show="scope.row.OpenBaseInfoEditView.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.OpenBaseInfoEditView.visible" type="vertical"></divider>
                           <a v-show="scope.row.OpenBaseInfoEditView.visible" :disabled="scope.row.OpenBaseInfoEditView.disabled" @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)" :title="$t('entities.story.mygroupmain_grid.uiactions.story_openbaseinfoeditview')">
-                            <i class='fa fa-edit'></i>
+                            <i class="fa fa-edit"></i>
                             
                           </a>
-                          <divider v-show="scope.row.OpenCaseCreateView.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.OpenCaseCreateView.visible" type="vertical"></divider>
                           <a v-show="scope.row.OpenCaseCreateView.visible" :disabled="scope.row.OpenCaseCreateView.disabled" @click="uiAction(scope.row, 'OpenCaseCreateView', $event)" :title="$t('entities.story.mygroupmain_grid.uiactions.story_opencasecreateview')">
-                            <i class='fa fa-lightbulb-o'></i>
+                            <i class="fa fa-lightbulb-o"></i>
                             
                           </a>
-                          <divider v-show="scope.row.SubStory.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.SubStory.visible" type="vertical"></divider>
                           <a v-show="scope.row.SubStory.visible" :disabled="scope.row.SubStory.disabled" @click="uiAction(scope.row, 'SubStory', $event)" :title="$t('entities.story.mygroupmain_grid.uiactions.story_substory')">
-                            <i class='iconfont studio-icon-subnets'></i>
+                            <i class="iconfont studio-icon-subnets"></i>
                             
                           </a>
-                          <divider v-show="scope.row.StoryFavorites.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.StoryFavorites.visible" type="vertical"></divider>
                           <a v-show="scope.row.StoryFavorites.visible" :disabled="scope.row.StoryFavorites.disabled" @click="uiAction(scope.row, 'StoryFavorites', $event)" :title="$t('entities.story.mygroupmain_grid.uiactions.story_storyfavorites')">
-                            <i class='fa fa-star-o'></i>
+                            <i class="fa fa-star-o"></i>
                             
                           </a>
-                          <divider v-show="scope.row.StoryNFavorites.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.StoryNFavorites.visible" type="vertical"></divider>
                           <a v-show="scope.row.StoryNFavorites.visible" :disabled="scope.row.StoryNFavorites.disabled" @click="uiAction(scope.row, 'StoryNFavorites', $event)" :title="$t('entities.story.mygroupmain_grid.uiactions.story_storynfavorites')">
-                            <i class='fa fa-star'></i>
+                            <i class="fa fa-star"></i>
                             
                           </a>
                         </div>
@@ -240,8 +240,8 @@
                 <el-table-column></el-table-column>
             </template>
         </el-table>
-        <row class='grid-pagination' v-show="items.length > 0">
-            <page class='pull-right' @on-change="pageOnChange($event)" 
+        <row class="grid-pagination" v-show="items.length > 0">
+            <page class="pull-right" @on-change="pageOnChange($event)" 
                 @on-page-size-change="onPageSizeChange($event)"
                 :total="totalRecord"
                 show-sizer :current="curPage" :page-size="limit"

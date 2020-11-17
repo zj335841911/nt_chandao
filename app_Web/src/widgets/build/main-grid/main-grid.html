@@ -15,7 +15,7 @@
             @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
-            ref='multipleTable' :data="items" :show-header="!isHideHeader"
+            ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
                 {{$t('entities.build.main_grid.nodata')}} 
@@ -23,7 +23,7 @@
                 </span>
             </template>
             <template v-if="!isSingleSelect">
-                <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.build.main_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
@@ -45,7 +45,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='product' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField="product" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-main-tab-exp-view', height: 0,width: 0,title: $t('entities.product.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
             ]
             ,parameters: [
             { pathName: 'products', parameterName: 'product' },
@@ -118,7 +118,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.builder" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.builder" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -133,27 +133,27 @@
                     <template slot-scope="scope">
                         <div style="text-align: center;">
                           <a v-show="scope.row.linkStories.visible" :disabled="scope.row.linkStories.disabled" @click="uiAction(scope.row, 'linkStories', $event)" :title="$t('entities.build.main_grid.uiactions.build_linkstories')">
-                            <i class='fa fa-link'></i>
+                            <i class="fa fa-link"></i>
                             
                           </a>
-                          <divider v-show="scope.row.submitToTesting.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.submitToTesting.visible" type="vertical"></divider>
                           <a v-show="scope.row.submitToTesting.visible" :disabled="scope.row.submitToTesting.disabled" @click="uiAction(scope.row, 'submitToTesting', $event)" :title="$t('entities.build.main_grid.uiactions.build_submittotesting')">
-                            <i class='fa fa-paper-plane'></i>
+                            <i class="fa fa-paper-plane"></i>
                             
                           </a>
-                          <divider v-show="scope.row.viewBugs.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.viewBugs.visible" type="vertical"></divider>
                           <a v-show="scope.row.viewBugs.visible" :disabled="scope.row.viewBugs.disabled" @click="uiAction(scope.row, 'viewBugs', $event)" :title="$t('entities.build.main_grid.uiactions.build_viewbugs')">
-                            <i class='fa fa-bug'></i>
+                            <i class="fa fa-bug"></i>
                             
                           </a>
-                          <divider v-show="scope.row.editBuild.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.editBuild.visible" type="vertical"></divider>
                           <a v-show="scope.row.editBuild.visible" :disabled="scope.row.editBuild.disabled" @click="uiAction(scope.row, 'editBuild', $event)" :title="$t('entities.build.main_grid.uiactions.build_editbuild')">
-                            <i class='fa fa-edit'></i>
+                            <i class="fa fa-edit"></i>
                             
                           </a>
-                          <divider v-show="scope.row.Delete.visible" type='vertical'></divider>
+                          <divider v-show="scope.row.Delete.visible" type="vertical"></divider>
                           <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.build.main_grid.uiactions.build_delete')">
-                            <i class='fa fa-remove'></i>
+                            <i class="fa fa-remove"></i>
                             
                           </a>
                         </div>
@@ -164,8 +164,8 @@
                 <el-table-column></el-table-column>
             </template>
         </el-table>
-        <row class='grid-pagination' v-show="items.length > 0">
-            <page class='pull-right' @on-change="pageOnChange($event)" 
+        <row class="grid-pagination" v-show="items.length > 0">
+            <page class="pull-right" @on-change="pageOnChange($event)" 
                 @on-page-size-change="onPageSizeChange($event)"
                 :total="totalRecord"
                 show-sizer :current="curPage" :page-size="limit"

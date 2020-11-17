@@ -7,7 +7,7 @@
         placeholder="用例标题"
         search
         @on-search="onSearch($event)"
-    />
+    ></i-input>
     <template slot="quickGroupSearch">
         <app-quick-group
             :items="quickGroupModel"
@@ -16,7 +16,7 @@
         ></app-quick-group>
     </template>
     <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>
+                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"></view-toolbar>
     </template>
         <view_grid 
         :viewState="viewState"  
