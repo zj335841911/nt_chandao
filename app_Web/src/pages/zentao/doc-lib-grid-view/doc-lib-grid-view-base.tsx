@@ -146,9 +146,6 @@ export class DocLibGridViewBase extends GridViewBase {
     public toolBarModels: any = {
         deuiaction1_togglefilter: { name: 'deuiaction1_togglefilter', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
-        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
-        deuiaction7: { name: 'deuiaction7', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
-
     };
 
 
@@ -225,9 +222,6 @@ export class DocLibGridViewBase extends GridViewBase {
     public toolbar_click($event: any, $event2?: any): void {
         if (Object.is($event.tag, 'deuiaction1_togglefilter')) {
             this.toolbar_deuiaction1_togglefilter_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction7')) {
-            this.toolbar_deuiaction7_click(null, '', $event2);
         }
     }
 
@@ -328,34 +322,6 @@ export class DocLibGridViewBase extends GridViewBase {
      * @memberof 
      */
     public toolbar_deuiaction1_togglefilter_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction7_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];

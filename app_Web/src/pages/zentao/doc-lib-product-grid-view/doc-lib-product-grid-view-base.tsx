@@ -217,9 +217,6 @@ export class DocLibProductGridViewBase extends GridViewBase {
         if (Object.is($event.tag, 'deuiaction1_togglefilter')) {
             this.toolbar_deuiaction1_togglefilter_click(null, '', $event2);
         }
-        if (Object.is($event.tag, 'deuiaction7')) {
-            this.toolbar_deuiaction7_click(null, '', $event2);
-        }
     }
 
     /**
@@ -319,34 +316,6 @@ export class DocLibProductGridViewBase extends GridViewBase {
      * @memberof 
      */
     public toolbar_deuiaction1_togglefilter_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction7_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];

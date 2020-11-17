@@ -146,14 +146,6 @@ export default {
 			caption: "Filter",
 			tip: "Filter",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction7: {
-			caption: "Filter",
-			tip: "Filter",
-		},
 	},
 	productgridviewtoolbar_toolbar: {
 		deuiaction1_togglefilter: {
@@ -163,14 +155,6 @@ export default {
 	},
 	undoneprojectgridviewtoolbar_toolbar: {
 		deuiaction1_togglefilter: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction7: {
 			caption: "Filter",
 			tip: "Filter",
 		},

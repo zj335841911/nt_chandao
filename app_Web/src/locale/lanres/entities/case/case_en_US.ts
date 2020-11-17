@@ -803,14 +803,6 @@ export default {
 			caption: "Filter",
 			tip: "Filter",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction7: {
-			caption: "Filter",
-			tip: "Filter",
-		},
 	},
 	curtesttaskgridviewtoolbar_toolbar: {
 		deuiaction1_linkcasec: {
@@ -886,14 +878,6 @@ export default {
 			tip: "",
 		},
 		deuiaction2_togglefilter: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction7: {
 			caption: "Filter",
 			tip: "Filter",
 		},
