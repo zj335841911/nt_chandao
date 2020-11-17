@@ -1,10 +1,7 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
 import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
-import cn.ibizlab.pms.core.ibizplugin.domain.IBIZProMessage;
 import cn.ibizlab.pms.core.ibizplugin.service.IIBIZProMessageService;
-import cn.ibizlab.pms.core.ou.domain.SysEmployee;
-import cn.ibizlab.pms.core.ou.filter.SysEmployeeSearchContext;
 import cn.ibizlab.pms.core.ou.service.ISysEmployeeService;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
@@ -21,7 +18,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -82,10 +78,30 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     List<String> ignore = Arrays.asList("totalwh","totalleft","totalconsumed","totalestimate");
 
 
+
+    public void jugEststartedAndDeadline(Task et){
+        if (et.getDeadline() != null){
+            if (et.getEststarted() == null){
+                throw new RuntimeException("请输入实际开始时间!");
+            }
+            if (et.getDeadline().getTime() < et.getEststarted().getTime()){
+                throw new RuntimeException("截至日期必须大于实际开始实际!");
+            }
+        }
+        if (et.getEststarted() != null){
+            if (et.getDeadline() == null){
+                throw new RuntimeException("请输入截至时间!");
+            }
+            if (et.getDeadline().getTime() < et.getEststarted().getTime()){
+                throw new RuntimeException("截至日期必须大于实际开始实际!");
+            }
+        }
+    }
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean create(Task et) {
         boolean bOk = false;
+        jugEststartedAndDeadline(et);
         String multiple = et.getMultiple();
         List<TaskTeam> taskTeams = et.getTaskteam();
         String assignedto = et.getAssignedto();
@@ -230,6 +246,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean edit(Task et) {
+        jugEststartedAndDeadline(et);
         String multiple = et.getMultiple();
         List<TaskTeam> teams = et.getTaskteam();
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
