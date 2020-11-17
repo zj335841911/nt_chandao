@@ -740,9 +740,6 @@ export class MainEditEditFormBase extends EditFormControlBase {
      * @memberof MainEditEditFormBase
      */
     public updateDefault() {                    
-        if (this.data.hasOwnProperty('srfsessionkey') && !this.data.srfsessionkey) {
-            this.data['srfsessionkey'] = this.viewparams['srfsessionkey'];
-        }
         if (this.data.hasOwnProperty('allmodules') && !this.data.allmodules) {
             this.data['allmodules'] = '1';
         }
