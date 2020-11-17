@@ -147,10 +147,6 @@ export class DocDocModuleGridViewBase extends GridViewBase {
             name: 'searchbar',
             type: 'SEARCHBAR',
         },
-        view_searchform: {
-            name: 'searchform',
-            type: 'SEARCHFORM',
-        },
     };
 
     /**
@@ -223,7 +219,6 @@ export class DocDocModuleGridViewBase extends GridViewBase {
                 this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
-            searchform: this.$refs.searchform,
             keyPSDEField: 'doc',
             majorPSDEField: 'title',
             isLoadDefault: true,
@@ -299,39 +294,6 @@ export class DocDocModuleGridViewBase extends GridViewBase {
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
-    }
-
-    /**
-     * searchform 部件 save 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof DocDocModuleGridViewBase
-     */
-    public searchform_save($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'save', $event);
-    }
-
-    /**
-     * searchform 部件 search 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof DocDocModuleGridViewBase
-     */
-    public searchform_search($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'search', $event);
-    }
-
-    /**
-     * searchform 部件 load 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof DocDocModuleGridViewBase
-     */
-    public searchform_load($event: any, $event2?: any): void {
-        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
     /**

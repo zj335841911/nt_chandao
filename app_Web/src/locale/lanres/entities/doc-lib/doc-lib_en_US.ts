@@ -128,13 +128,6 @@ export default {
 		uiactions: {
 		},
 	},
-	default_searchform: {
-		details: {
-			formpage1: "常规条件", 
-		},
-		uiactions: {
-		},
-	},
 	usr2editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",

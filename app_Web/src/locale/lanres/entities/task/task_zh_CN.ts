@@ -1251,14 +1251,6 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
-		seperator4: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction6: {
-			caption: "过滤",
-			tip: "过滤",
-		},
 	},
 	kanbanviewtoolbar_toolbar: {
 		deuiaction3_create: {
