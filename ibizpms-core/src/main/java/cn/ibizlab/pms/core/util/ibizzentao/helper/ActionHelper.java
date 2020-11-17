@@ -67,8 +67,6 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     @Autowired
     BugHelper bugHelper;
 
-    private static String MULTIPLE_CHOICE = ",";
-
     /**
      * 只关联产品
      */
@@ -111,34 +109,27 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         try {
             String noticeuserss = "";
             if(touser!= null && !"".equals(touser)) {
-                noticeuserss += touser + ";";
+                noticeuserss += touser + MULTIPLE_CHOICE;
             }
             JSONObject param = new JSONObject();
-            if(noticeusers != null & !"".equals(noticeusers)) {
-                noticeuserss += noticeusers.replaceAll(",", ";");
+            if(noticeusers != null && !"".equals(noticeusers)) {
+                noticeuserss += noticeusers;
             }
-            if(ccuser != null && !"".equals(ccuser) && "".equals(noticeuserss)) {
-                noticeuserss += ccuser.replaceAll(",", ";");
+            if(ccuser != null && !"".equals(ccuser) && noticeuserss.length() == 0) {
+                noticeuserss += ccuser;
             }
-            else if(ccuser != null && !"".equals(ccuser) && !"".equals(noticeuserss)) {
-                noticeuserss += ";" + ccuser.replaceAll(",", ";");
+            else if(ccuser != null && !"".equals(ccuser) && noticeuserss.length() > 0) {
+                noticeuserss += MULTIPLE_CHOICE + ccuser;
             }
-            if("".equals(noticeuserss)) {
+            if(noticeuserss.length() == 0) {
                 return;
             }
-
             IBIZProMessage ibizProMessage = new IBIZProMessage();
-            if("".equals(noticeuserss)) {
-                ibizProMessage.setCc("");
-            }else {
-                ibizProMessage.setCc(userHelper.ccUsers(noticeuserss));
-            }
 
-            ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUserid());
+            ibizProMessage.setCc(noticeuserss);
 
-            if("".equals(ibizProMessage.getCc())) {
-                return;
-            }
+            ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUsername());
+
             ibizProMessage.setType(StaticDict.Message__type.TOREAD.getValue());
             ibizProMessage.setIbizpromessagename(name);
             param.put("objectid", id);
@@ -172,35 +163,23 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
             String noticeuserss = "";
             JSONObject param = new JSONObject();
             if(noticeusers != null & !"".equals(noticeusers)) {
-                noticeuserss += noticeusers.replaceAll(MULTIPLE_CHOICE, ";");
+                noticeuserss += noticeusers;
             }
-            if(ccuser != null && !"".equals(ccuser) && "".equals(noticeuserss)) {
-                noticeuserss += ccuser.replaceAll(MULTIPLE_CHOICE, ";");
+            if(ccuser != null && !"".equals(ccuser) && noticeuserss.length() == 0) {
+                noticeuserss += ccuser;
             }
-            else if(ccuser != null && !"".equals(ccuser) && !"".equals(noticeuserss)) {
-                noticeuserss += ";" + ccuser.replaceAll(MULTIPLE_CHOICE, ";");
+            else if(ccuser != null && !"".equals(ccuser) && noticeuserss.length() > 0) {
+                noticeuserss += MULTIPLE_CHOICE + ccuser;
             }
             if("".equals(touser) && "".equals(noticeuserss)) {
                 return;
             }
 
             IBIZProMessage ibizProMessage = new IBIZProMessage();
-            if("".equals(noticeuserss)) {
-                ibizProMessage.setCc("");
-            }else {
-                ibizProMessage.setCc(userHelper.ccUsers(noticeuserss));
-            }
-            if("".equals(touser)) {
-                ibizProMessage.setTo("");
-            }else {
-                ibizProMessage.setTo(userHelper.toUser(touser));
-            }
+            ibizProMessage.setCc(noticeuserss);
+            ibizProMessage.setTo(touser);
+            ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUsername());
 
-            ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUserid());
-
-            if("".equals(ibizProMessage.getCc()) && "".equals(ibizProMessage.getTo())) {
-                return;
-            }
             ibizProMessage.setType(StaticDict.Message__type.TODO.getValue());
             ibizProMessage.setIbizpromessagename(name);
             param.put("objectid", id);
