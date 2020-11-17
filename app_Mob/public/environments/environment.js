@@ -29,4 +29,4 @@ window.Environment = {
     VisitorsUrl: '/login/guest',
     // 是否开启第三方免登
     enableThirdPartyLogin: true,
-}
+};
