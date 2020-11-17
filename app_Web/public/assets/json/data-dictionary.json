@@ -1931,6 +1931,14 @@
         ]
     }, 
     {
+        "srfkey": "AllBug",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Bug",
+        "appdedataset":"FetchDefault",
+        "items": []
+    }, 
+    {
         "srfkey": "CloseProduct",
         "emptytext": "未定义",
         "codelisttype":"static",

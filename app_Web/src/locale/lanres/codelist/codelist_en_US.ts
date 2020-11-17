@@ -247,6 +247,9 @@ export default {
         "reject": "拒绝",
         "empty": ""
     },
+    AllBug: {
+        "empty": "",
+    },
     CloseProduct: {
         "1": "关闭产品",
         "empty": ""

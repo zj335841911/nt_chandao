@@ -51,6 +51,7 @@ export class CodeListRegister {
         this.allCodeList.set('RunSQL', () => import('@/codelist/run-sql'));
         this.allCodeList.set('CurProductBuild', () => import('@/codelist/cur-product-build'));
         this.allCodeList.set('APPBuild', () => import('@/codelist/appbuild'));
+        this.allCodeList.set('AllBug', () => import('@/codelist/all-bug'));
         this.allCodeList.set('BugModule', () => import('@/codelist/bug-module'));
         this.allCodeList.set('SystemAPP', () => import('@/codelist/system-app'));
         this.allCodeList.set('Role', () => import('@/codelist/role'));

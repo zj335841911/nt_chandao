@@ -1665,6 +1665,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "AllBug",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Bug",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: "CloseProduct",
         emptytext: "未定义",
         "codelisttype":"static",
