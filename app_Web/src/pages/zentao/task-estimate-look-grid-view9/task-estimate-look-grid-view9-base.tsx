@@ -69,6 +69,24 @@ export class TaskEstimateLookGridView9Base extends GridView9Base {
      */
     public appUIService: TaskEstimateUIService = new TaskEstimateUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskEstimateLookGridView9Base
+	 */
+    protected customViewNavContexts: any = {
+        'OBJECTTYPE': {
+            isRawValue: true,
+            value: 'task',
+        },
+        'SRFPARENTKEY': {
+            isRawValue: false,
+            value: 'task',
+        }
+    };
+
     /**
      * 视图模型数据
      *

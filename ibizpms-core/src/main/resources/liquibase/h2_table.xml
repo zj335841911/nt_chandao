@@ -203,7 +203,7 @@
 
 
     <!--输出实体[ZT_BUILD]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_build-480-6">
+    <changeSet author="zentao" id="tab-zt_build-482-6">
         <createTable tableName="zt_build">
                 <column name="NAME" remarks="" type="VARCHAR(150)">
                 </column>
@@ -1980,7 +1980,7 @@
 
 
     <!--输出实体[ZT_TASK]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_task-2127-82">
+    <changeSet author="zentao" id="tab-zt_task-2129-82">
         <createTable tableName="zt_task">
                 <column name="CANCELEDBY" remarks="" type="VARCHAR(30)">
                 </column>
@@ -2094,7 +2094,7 @@
 
 
     <!--输出实体[ZT_TESTREPORT]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_testreport-407-88">
+    <changeSet author="zentao" id="tab-zt_testreport-409-88">
         <createTable tableName="zt_testreport">
                 <column name="OBJECTID" remarks="" type="INT">
                 </column>
@@ -2478,13 +2478,13 @@
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="zt_bug" constraintName="DER1N_IBZ_BUGSTATS_ZT_PRODUCT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_BUILD]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_build-480-119">
+    <changeSet author="zentao" id="fk-zt_build-482-119">
        <addForeignKeyConstraint baseColumnNames="BRANCH" baseTableName="zt_build" constraintName="DER1N_ZT_BUILD_ZT_BRANCH_BRANC" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_branch" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_build-480-120">
+    <changeSet author="zentao" id="fk-zt_build-482-120">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="zt_build" constraintName="DER1N_ZT_BUILD_ZT_PRODUCT_PROD" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_build-480-121">
+    <changeSet author="zentao" id="fk-zt_build-482-121">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="zt_build" constraintName="DER1N_ZT_BUILD_ZT_PROJECT_PROJ" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_BURN]外键关系 -->
@@ -2761,19 +2761,19 @@
         <!--输出实体[SYS_UPDATE_FEATURES]外键关系 -->
         <!--输出实体[SYS_UPDATE_LOG]外键关系 -->
         <!--输出实体[ZT_TASK]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_task-2127-191">
+    <changeSet author="zentao" id="fk-zt_task-2129-191">
        <addForeignKeyConstraint baseColumnNames="MODULE" baseTableName="zt_task" constraintName="DER1N_ZT_TASK_IBZ_PROJECTMODUL" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_task-2127-192">
+    <changeSet author="zentao" id="fk-zt_task-2129-192">
        <addForeignKeyConstraint baseColumnNames="FROMBUG" baseTableName="zt_task" constraintName="DER1N_ZT_TASK_ZT_BUG_FROMBUG" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_bug" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_task-2127-193">
+    <changeSet author="zentao" id="fk-zt_task-2129-193">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="zt_task" constraintName="DER1N_ZT_TASK_ZT_PROJECT_PROJE" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_task-2127-194">
+    <changeSet author="zentao" id="fk-zt_task-2129-194">
        <addForeignKeyConstraint baseColumnNames="STORY" baseTableName="zt_task" constraintName="DER1N_ZT_TASK_ZT_STORY_STORY" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_story" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_task-2127-195">
+    <changeSet author="zentao" id="fk-zt_task-2129-195">
        <addForeignKeyConstraint baseColumnNames="PARENT" baseTableName="zt_task" constraintName="DER1N__ZT_TASK__ZT_TASK__PAREN" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_task" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_TASKESTIMATE]外键关系 -->
@@ -2794,10 +2794,10 @@
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_module" constraintName="DER1N_IBZ_TESTMODULE_ZT_PRODUC" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_TESTREPORT]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_testreport-407-200">
+    <changeSet author="zentao" id="fk-zt_testreport-409-200">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="zt_testreport" constraintName="DER1N_ZT_TESTREPORT_ZT_PRODUCT" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_testreport-407-201">
+    <changeSet author="zentao" id="fk-zt_testreport-409-201">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="zt_testreport" constraintName="DER1N_ZT_TESTREPORT_ZT_PROJECT" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_TESTRESULT]外键关系 -->
@@ -2821,7 +2821,7 @@
        <addForeignKeyConstraint baseColumnNames="TASK" baseTableName="zt_testrun" constraintName="DER1N_ZT_TESTRUN_ZT_TESTTASK_T" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_testtask" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_TESTSUITE]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_testsuite-194-208">
+    <changeSet author="zentao" id="fk-zt_testsuite-195-208">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="zt_testsuite" constraintName="DER1N_ZT_TESTSUITE_ZT_PRODUCT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_TESTTASK]外键关系 -->

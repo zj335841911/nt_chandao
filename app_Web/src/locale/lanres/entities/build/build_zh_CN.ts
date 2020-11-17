@@ -239,4 +239,10 @@ export default {
 			tip: "过滤",
 		},
 	},
+	testroundsgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
 };
