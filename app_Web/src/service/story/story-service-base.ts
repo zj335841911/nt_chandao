@@ -52,11 +52,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchParentDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchparentdefault`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchparentdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchparentdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchparentdefault`,tempData,isloading);
         return res;
     }
 
@@ -72,11 +72,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchbymodule`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchbymodule`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchbymodule`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchbymodule`,tempData,isloading);
         return res;
     }
 
