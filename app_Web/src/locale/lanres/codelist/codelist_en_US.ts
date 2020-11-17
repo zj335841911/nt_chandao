@@ -3,6 +3,9 @@ export default {
         "1": "创建",
         "empty": ""
     },
+    AllCase: {
+        "empty": "",
+    },
     SYS_UPDATE_BRANCH: {
         "PC": "PC",
         "MOB": "MOB",

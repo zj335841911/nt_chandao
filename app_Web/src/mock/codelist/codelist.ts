@@ -25,6 +25,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "AllCase",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Case",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: "SYS_UPDATE_BRANCH",
         emptytext: "未定义",
         "codelisttype":"static",
