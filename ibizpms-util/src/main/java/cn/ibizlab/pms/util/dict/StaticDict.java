@@ -613,6 +613,7 @@ public class StaticDict {
     }
 
 
+
     /**
      * 代码表[项目优先级]
      */
@@ -1566,6 +1567,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**

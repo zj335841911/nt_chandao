@@ -443,7 +443,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         let strId: string = entity.deptid;
                         let strText: string = entity.deptname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
+                        if(strIcon && strIcon !== 'default_text'){
                             let tempIcon =  JSON.parse(strIcon);
                             if(tempIcon && tempIcon[0] && tempIcon[0].id){
                                 strIcon = `${this.download}/${tempIcon[0].id}`;
@@ -665,7 +665,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         let strId: string = entity.userid;
                         let strText: string = entity.personname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
+                        if(strIcon && strIcon !== 'default_text'){
                             let tempIcon =  JSON.parse(strIcon);
                             if(tempIcon && tempIcon[0] && tempIcon[0].id){
                                 strIcon = `${this.download}/${tempIcon[0].id}`;
@@ -802,7 +802,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         let strId: string = entity.id;
                         let strText: string = entity.listname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
+                        if(strIcon && strIcon !== 'default_text'){
                             let tempIcon =  JSON.parse(strIcon);
                             if(tempIcon && tempIcon[0] && tempIcon[0].id){
                                 strIcon = `${this.download}/${tempIcon[0].id}`;
@@ -949,7 +949,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         let strId: string = entity.id;
                         let strText: string = entity.name;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
+                        if(strIcon && strIcon !== 'default_text'){
                             let tempIcon =  JSON.parse(strIcon);
                             if(tempIcon && tempIcon[0] && tempIcon[0].id){
                                 strIcon = `${this.download}/${tempIcon[0].id}`;
@@ -1101,7 +1101,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         let strId: string = entity.username;
                         let strText: string = entity.personname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
+                        if(strIcon && strIcon !== 'default_text'){
                             let tempIcon =  JSON.parse(strIcon);
                             if(tempIcon && tempIcon[0] && tempIcon[0].id){
                                 strIcon = `${this.download}/${tempIcon[0].id}`;
@@ -1313,7 +1313,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         let strId: string = entity.username;
                         let strText: string = entity.personname;
                         let strIcon: string = entity.usericon;
-                        if(strIcon){
+                        if(strIcon && strIcon !== 'default_text'){
                             let tempIcon =  JSON.parse(strIcon);
                             if(tempIcon && tempIcon[0] && tempIcon[0].id){
                                 strIcon = `${this.download}/${tempIcon[0].id}`;
@@ -1450,7 +1450,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         let strId: string = entity.orgid;
                         let strText: string = entity.orgname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
+                        if(strIcon && strIcon !== 'default_text'){
                             let tempIcon =  JSON.parse(strIcon);
                             if(tempIcon && tempIcon[0] && tempIcon[0].id){
                                 strIcon = `${this.download}/${tempIcon[0].id}`;
@@ -1607,7 +1607,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         let strId: string = entity.username;
                         let strText: string = entity.personname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
+                        if(strIcon && strIcon !== 'default_text'){
                             let tempIcon =  JSON.parse(strIcon);
                             if(tempIcon && tempIcon[0] && tempIcon[0].id){
                                 strIcon = `${this.download}/${tempIcon[0].id}`;
@@ -1744,7 +1744,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         let strId: string = entity.postid;
                         let strText: string = entity.postname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
+                        if(strIcon && strIcon !== 'default_text'){
                             let tempIcon =  JSON.parse(strIcon);
                             if(tempIcon && tempIcon[0] && tempIcon[0].id){
                                 strIcon = `${this.download}/${tempIcon[0].id}`;
@@ -2092,7 +2092,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         let strId: string = entity.teamid;
                         let strText: string = entity.teamname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
+                        if(strIcon && strIcon !== 'default_text'){
                             let tempIcon =  JSON.parse(strIcon);
                             if(tempIcon && tempIcon[0] && tempIcon[0].id){
                                 strIcon = `${this.download}/${tempIcon[0].id}`;
