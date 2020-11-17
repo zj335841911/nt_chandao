@@ -127,13 +127,6 @@ export default {
 		uiactions: {
 		},
 	},
-	default_searchform: {
-		details: {
-			formpage1: "常规条件", 
-		},
-		uiactions: {
-		},
-	},
 	allgridviewtoolbar_toolbar: {
 		deuiaction3_addproject: {
 			caption: "添加项目",
