@@ -142,10 +142,18 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
+		deuiaction7: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	productgridviewtoolbar_toolbar: {
 	},
 	undoneprojectgridviewtoolbar_toolbar: {
+		deuiaction7: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {

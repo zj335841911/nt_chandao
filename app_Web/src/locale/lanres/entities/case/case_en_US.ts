@@ -795,11 +795,31 @@ export default {
 			caption: "保存",
 			tip: "保存",
 		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction7: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	curtesttaskgridviewtoolbar_toolbar: {
 		deuiaction1_linkcasec: {
 			caption: "关联用例",
 			tip: "关联用例",
+		},
+		deuiaction2_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 		deuiaction7: {
 			caption: "Export",
@@ -851,6 +871,14 @@ export default {
 			caption: "保存",
 			tip: "保存",
 		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction7: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	casefavoritetoolbar_toolbar: {
 		deuiaction2: {
@@ -862,6 +890,12 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	mainmygridviewtoolbar_toolbar: {
+		deuiaction1: {
 			caption: "Filter",
 			tip: "Filter",
 		},

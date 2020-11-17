@@ -19,7 +19,7 @@ ruleflow-group "projectprojecttaskqcntrawsqlcall9"
     then
     Map param =new HashMap();
     param.put("param0",projectprojecttaskqcntdefault.get("id"));
-    String strSql="select count(t.id) as UNSTARTTASKCNT from zt_task t where t.deleted = '0' and t.`status` = 'wait' and t.project = #{et.param0}";
+    String strSql="select count(t.id) as UNSTARTTASKCNT from zt_task t where t.deleted = '0' and t.`status` = 'wait' and t.project = #{et.param0} and t.parent <= '0'";
     java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);

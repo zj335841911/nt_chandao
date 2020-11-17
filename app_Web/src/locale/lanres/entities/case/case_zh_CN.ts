@@ -795,11 +795,31 @@ export default {
 			caption: "保存",
 			tip: "保存",
 		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2_togglefilter: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction7: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	curtesttaskgridviewtoolbar_toolbar: {
 		deuiaction1_linkcasec: {
 			caption: "关联用例",
 			tip: "关联用例",
+		},
+		deuiaction2_togglefilter: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 		deuiaction7: {
 			caption: "导出",
@@ -851,6 +871,14 @@ export default {
 			caption: "保存",
 			tip: "保存",
 		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction7: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	casefavoritetoolbar_toolbar: {
 		deuiaction2: {
@@ -862,6 +890,12 @@ export default {
 			tip: "导出",
 		},
 		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
+	mainmygridviewtoolbar_toolbar: {
+		deuiaction1: {
 			caption: "过滤",
 			tip: "过滤",
 		},
