@@ -179,13 +179,6 @@ export default {
 		uiactions: {
 		},
 	},
-	default_searchform: {
-		details: {
-			formpage1: "常规条件", 
-		},
-		uiactions: {
-		},
-	},
 	allgridviewtoolbar_toolbar: {
 		deuiaction3_addproduct: {
 			caption: "添加产品",

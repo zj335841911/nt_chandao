@@ -4,7 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductStatsALLGridViewBase } from './product-stats-allgrid-view-base';
 import view_grid from '@widgets/product-stats/allproduct-grid/allproduct-grid.vue';
-import view_searchform from '@widgets/product-stats/default-searchform/default-searchform.vue';
+import view_searchbar from '@widgets/product-stats/custom-searchbar/custom-searchbar.vue';
 
 /**
  * 所有产品视图
@@ -16,7 +16,7 @@ import view_searchform from '@widgets/product-stats/default-searchform/default-s
 @Component({
     components: {
         view_grid, 
-        view_searchform, 
+        view_searchbar, 
     }
 })
 @VueLifeCycleProcessing()
