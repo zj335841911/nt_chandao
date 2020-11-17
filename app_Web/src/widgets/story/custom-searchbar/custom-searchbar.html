@@ -291,16 +291,22 @@
 />
                 </template>
                 <template v-if="Object.is(data.editor, 'duplicatestoryeq')">
-                    <input-box 
-  v-model="data.duplicatestoryeq"  
-  @enter="onEnter($event)"  
-  
-  :disabled="detailsModel.duplicatestoryeq.disabled" 
-  type='number' 
-   
-  style="">
-</input-box>
-
+                    
+<dropdown-list 
+    v-model="data.duplicatestoryeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.duplicatestoryeq.disabled"
+    valueType="number"
+    tag='AllStory'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'frombugeq')">
                     <input-box 

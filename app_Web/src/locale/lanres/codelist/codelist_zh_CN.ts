@@ -845,6 +845,9 @@ export default {
         "misc": "其他",
         "empty": "",
     },
+    AllStory: {
+        "empty": "",
+    },
     ProjectProductPlan: {
         "empty": "",
     },
