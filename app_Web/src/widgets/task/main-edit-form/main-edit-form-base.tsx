@@ -111,6 +111,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
         files: null,
         projectname: null,
         project: null,
+        srfsessionkey: null,
         module: null,
         modulename: null,
         allmodules: null,
@@ -345,6 +346,13 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
         project: new FormItemModel({
     caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        srfsessionkey: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'srfsessionkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -634,6 +642,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
 
 
+
         if (Object.is(name, '') || Object.is(name, 'parent') || Object.is(name, 'multiple')) {
             let ret = false;
             const _parent = this.data.parent;
@@ -731,6 +740,9 @@ export class MainEditEditFormBase extends EditFormControlBase {
      * @memberof MainEditEditFormBase
      */
     public updateDefault() {                    
+        if (this.data.hasOwnProperty('srfsessionkey') && !this.data.srfsessionkey) {
+            this.data['srfsessionkey'] = 'srfsessionkey';
+        }
         if (this.data.hasOwnProperty('allmodules') && !this.data.allmodules) {
             this.data['allmodules'] = '1';
         }

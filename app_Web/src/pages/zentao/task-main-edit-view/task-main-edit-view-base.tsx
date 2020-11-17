@@ -80,6 +80,20 @@ export class TaskMainEditViewBase extends EditViewBase {
         }
     };
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskMainEditViewBase
+	 */
+    protected customViewParams: any = {
+        'srfsessionkey': {
+            isRawValue: false,
+            value: 'srfsessionkey',
+        }
+    };
+
     /**
      * 是否显示信息栏
      *

@@ -421,6 +421,7 @@ export default {
 			files: "附件", 
 			projectname: "所属项目", 
 			project: "所属项目", 
+			srfsessionkey: "", 
 			module: "id", 
 			modulename: "所属模块", 
 			allmodules: "所有模块", 

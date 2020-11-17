@@ -4,6 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseReportLinkGridViewBase } from './case-report-link-grid-view-base';
 import view_grid from '@widgets/case/re-port-main-grid-grid/re-port-main-grid-grid.vue';
+import view_searchbar from '@widgets/case/custom-searchbar/custom-searchbar.vue';
 
 /**
  * 测试用例表格视图（报告关联用例）视图
@@ -15,6 +16,7 @@ import view_grid from '@widgets/case/re-port-main-grid-grid/re-port-main-grid-gr
 @Component({
     components: {
         view_grid, 
+        view_searchbar, 
     }
 })
 @VueLifeCycleProcessing()

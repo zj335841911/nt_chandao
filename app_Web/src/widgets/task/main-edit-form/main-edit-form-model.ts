@@ -101,6 +101,9 @@ export default class MainEditModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'srfsessionkey',
+      },
+      {
         name: 'module',
         prop: 'module',
         dataType: 'PICKUP',

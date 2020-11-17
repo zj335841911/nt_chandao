@@ -817,13 +817,13 @@ export default {
 			caption: "关联用例",
 			tip: "关联用例",
 		},
-		deuiaction2_togglefilter: {
-			caption: "Filter",
-			tip: "Filter",
-		},
 		deuiaction7: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction3_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	projectreportlinkgridviewtoolbar_toolbar: {
@@ -859,6 +859,16 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	reportlinkgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	cursuitgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -872,6 +882,14 @@ export default {
 			tip: "保存",
 		},
 		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+		seperator2: {
 			caption: "",
 			tip: "",
 		},
