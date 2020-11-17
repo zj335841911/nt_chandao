@@ -61,6 +61,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * searchParentDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchParentDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchparentdefault`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchparentdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchByModule接口方法
      *
      * @param {*} [context={}]
@@ -78,6 +96,24 @@ export default class StoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().post(`/stories/fetchbymodule`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchByModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchbymodule`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchbymodule`,tempData,isloading);
     }
 
     /**
@@ -2599,6 +2635,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * searchAssignedToMyStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchAssignedToMyStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchassignedtomystory`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchassignedtomystory`,tempData,isloading);
+    }
+
+    /**
      * FetchAssignedToMyStoryCalendar接口方法
      *
      * @param {*} [context={}]
@@ -2616,6 +2670,24 @@ export default class StoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/stories/fetchassignedtomystorycalendar`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchAssignedToMyStoryCalendar接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchAssignedToMyStoryCalendar(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchassignedtomystorycalendar`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchassignedtomystorycalendar`,tempData,isloading);
     }
 
     /**
@@ -2639,6 +2711,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * searchBugStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchBugStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchbugstory`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchbugstory`,tempData,isloading);
+    }
+
+    /**
      * FetchBuildLinkCompletedStories接口方法
      *
      * @param {*} [context={}]
@@ -2656,6 +2746,24 @@ export default class StoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/stories/fetchbuildlinkcompletedstories`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchBuildLinkCompletedStories接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchBuildLinkCompletedStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchbuildlinkcompletedstories`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchbuildlinkcompletedstories`,tempData,isloading);
     }
 
     /**
@@ -2679,6 +2787,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * searchBuildLinkableStories接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchBuildLinkableStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchbuildlinkablestories`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchbuildlinkablestories`,tempData,isloading);
+    }
+
+    /**
      * FetchBuildStories接口方法
      *
      * @param {*} [context={}]
@@ -2696,6 +2822,24 @@ export default class StoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/stories/fetchbuildstories`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchBuildStories接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchBuildStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchbuildstories`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchbuildstories`,tempData,isloading);
     }
 
     /**
@@ -2719,6 +2863,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * searchCaseStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchCaseStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchcasestory`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchcasestory`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -2736,6 +2898,24 @@ export default class StoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/stories/fetchdefault`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchdefault`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchdefault`,tempData,isloading);
     }
 
     /**
@@ -2759,6 +2939,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * searchGetProductStories接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchGetProductStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchgetproductstories`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchgetproductstories`,tempData,isloading);
+    }
+
+    /**
      * FetchMyCurOpenedStory接口方法
      *
      * @param {*} [context={}]
@@ -2776,6 +2974,24 @@ export default class StoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/stories/fetchmycuropenedstory`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchMyCurOpenedStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchMyCurOpenedStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchmycuropenedstory`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchmycuropenedstory`,tempData,isloading);
     }
 
     /**
@@ -2799,6 +3015,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * searchMyFavorites接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchmyfavorites`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchmyfavorites`,tempData,isloading);
+    }
+
+    /**
      * FetchNotCurPlanLinkStory接口方法
      *
      * @param {*} [context={}]
@@ -2816,6 +3050,24 @@ export default class StoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/stories/fetchnotcurplanlinkstory`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchNotCurPlanLinkStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchNotCurPlanLinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchnotcurplanlinkstory`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchnotcurplanlinkstory`,tempData,isloading);
     }
 
     /**
@@ -2839,6 +3091,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * searchParentDefaultQ接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchParentDefaultQ(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchparentdefaultq`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchparentdefaultq`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectLinkStory接口方法
      *
      * @param {*} [context={}]
@@ -2856,6 +3126,24 @@ export default class StoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/stories/fetchprojectlinkstory`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchProjectLinkStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchProjectLinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchprojectlinkstory`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchprojectlinkstory`,tempData,isloading);
     }
 
     /**
@@ -2879,6 +3167,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * searchProjectStories接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchProjectStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchprojectstories`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchprojectstories`,tempData,isloading);
+    }
+
+    /**
      * FetchReleaseLinkableStories接口方法
      *
      * @param {*} [context={}]
@@ -2896,6 +3202,24 @@ export default class StoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/stories/fetchreleaselinkablestories`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchReleaseLinkableStories接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchReleaseLinkableStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchreleaselinkablestories`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchreleaselinkablestories`,tempData,isloading);
     }
 
     /**
@@ -2919,6 +3243,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * searchReleaseStories接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchReleaseStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchreleasestories`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchreleasestories`,tempData,isloading);
+    }
+
+    /**
      * FetchReportStories接口方法
      *
      * @param {*} [context={}]
@@ -2936,6 +3278,24 @@ export default class StoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/stories/fetchreportstories`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchReportStories接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchReportStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchreportstories`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchreportstories`,tempData,isloading);
     }
 
     /**
@@ -2959,6 +3319,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * searchStoryChild接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchStoryChild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchstorychild`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchstorychild`,tempData,isloading);
+    }
+
+    /**
      * FetchStoryRelated接口方法
      *
      * @param {*} [context={}]
@@ -2976,6 +3354,24 @@ export default class StoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/stories/fetchstoryrelated`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchStoryRelated接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchStoryRelated(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchstoryrelated`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchstoryrelated`,tempData,isloading);
     }
 
     /**
@@ -2999,6 +3395,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * searchSubStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchSubStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchsubstory`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchsubstory`,tempData,isloading);
+    }
+
+    /**
      * FetchTaskRelatedStory接口方法
      *
      * @param {*} [context={}]
@@ -3019,6 +3433,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * searchTaskRelatedStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchTaskRelatedStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchtaskrelatedstory`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchtaskrelatedstory`,tempData,isloading);
+    }
+
+    /**
      * FetchView接口方法
      *
      * @param {*} [context={}]
@@ -3036,6 +3468,24 @@ export default class StoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/stories/fetchview`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchView接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async searchView(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/searchview`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/searchview`,tempData,isloading);
     }
 
     /**

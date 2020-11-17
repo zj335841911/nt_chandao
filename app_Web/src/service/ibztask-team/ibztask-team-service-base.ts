@@ -63,6 +63,18 @@ export default class IBZTaskTeamServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskTeamServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
      * FetchTempDefault接口方法
      *
      * @param {*} [context={}]

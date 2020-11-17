@@ -244,6 +244,20 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
+     * searchChildDocLibDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchChildDocLibDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchchilddoclibdoc`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -256,6 +270,20 @@ export default class DocServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/docs/fetchdefault`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchdefault`,tempData,isloading);
     }
 
     /**
@@ -274,6 +302,20 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
+     * searchDocLibDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchDocLibDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchdoclibdoc`,tempData,isloading);
+    }
+
+    /**
      * FetchDocModuleDoc接口方法
      *
      * @param {*} [context={}]
@@ -286,6 +328,20 @@ export default class DocServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/docs/fetchdocmoduledoc`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchDocModuleDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchDocModuleDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchdocmoduledoc`,tempData,isloading);
     }
 
     /**
@@ -304,6 +360,20 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
+     * searchDocStatus接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchDocStatus(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchdocstatus`,tempData,isloading);
+    }
+
+    /**
      * FetchMyFavourite接口方法
      *
      * @param {*} [context={}]
@@ -316,5 +386,19 @@ export default class DocServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/docs/fetchmyfavourite`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchMyFavourite接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchMyFavourite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchmyfavourite`,tempData,isloading);
     }
 }

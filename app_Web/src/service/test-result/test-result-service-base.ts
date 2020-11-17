@@ -427,6 +427,36 @@ export default class TestResultServiceBase extends EntityService {
     }
 
     /**
+     * searchCurTestRun接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestResultServiceBase
+     */
+    public async searchCurTestRun(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/searchcurtestrun`,tempData,isloading);
+        }
+        if(context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/testresults/searchcurtestrun`,tempData,isloading);
+        }
+        if(context.product && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/testresults/searchcurtestrun`,tempData,isloading);
+        }
+        if(context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/cases/${context.case}/testresults/searchcurtestrun`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/testresults/searchcurtestrun`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -459,5 +489,35 @@ export default class TestResultServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/testresults/fetchdefault`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestResultServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/searchdefault`,tempData,isloading);
+        }
+        if(context.story && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/testresults/searchdefault`,tempData,isloading);
+        }
+        if(context.product && context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/testresults/searchdefault`,tempData,isloading);
+        }
+        if(context.case && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/cases/${context.case}/testresults/searchdefault`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/testresults/searchdefault`,tempData,isloading);
     }
 }

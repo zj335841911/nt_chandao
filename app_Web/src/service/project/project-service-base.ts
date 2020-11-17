@@ -459,6 +459,20 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * searchBugProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async searchBugProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/searchbugproject`,tempData,isloading);
+    }
+
+    /**
      * FetchCurProduct接口方法
      *
      * @param {*} [context={}]
@@ -471,6 +485,20 @@ export default class ProjectServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/projects/fetchcurproduct`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchCurProduct接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async searchCurProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/searchcurproduct`,tempData,isloading);
     }
 
     /**
@@ -489,6 +517,20 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * searchCurUser接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async searchCurUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/searchcuruser`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -501,6 +543,20 @@ export default class ProjectServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/projects/fetchdefault`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/searchdefault`,tempData,isloading);
     }
 
     /**
@@ -519,6 +575,20 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * searchInvolvedProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async searchInvolvedProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/searchinvolvedproject`,tempData,isloading);
+    }
+
+    /**
      * FetchInvolvedProject_StoryTaskBug接口方法
      *
      * @param {*} [context={}]
@@ -531,6 +601,20 @@ export default class ProjectServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/projects/fetchinvolvedproject_storytaskbug`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchInvolvedProject_StoryTaskBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async searchInvolvedProject_StoryTaskBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/searchinvolvedproject_storytaskbug`,tempData,isloading);
     }
 
     /**
@@ -549,6 +633,20 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * searchMyProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async searchMyProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/searchmyproject`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectTeam接口方法
      *
      * @param {*} [context={}]
@@ -564,6 +662,20 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * searchProjectTeam接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async searchProjectTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/searchprojectteam`,tempData,isloading);
+    }
+
+    /**
      * FetchStoryProject接口方法
      *
      * @param {*} [context={}]
@@ -576,6 +688,20 @@ export default class ProjectServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/projects/fetchstoryproject`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchStoryProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async searchStoryProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/searchstoryproject`,tempData,isloading);
     }
 
     /**

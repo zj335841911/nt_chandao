@@ -187,6 +187,20 @@ export default class FileServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/files/searchdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchDocLibFile接口方法
      *
      * @param {*} [context={}]
@@ -199,6 +213,20 @@ export default class FileServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/files/fetchdoclibfile`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchDocLibFile接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async searchDocLibFile(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/files/searchdoclibfile`,tempData,isloading);
     }
 
     /**
@@ -217,6 +245,20 @@ export default class FileServiceBase extends EntityService {
     }
 
     /**
+     * searchProductDocLibFile接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async searchProductDocLibFile(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/files/searchproductdoclibfile`,tempData,isloading);
+    }
+
+    /**
      * FetchType接口方法
      *
      * @param {*} [context={}]
@@ -229,6 +271,20 @@ export default class FileServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/files/fetchtype`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchType接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async searchType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/files/searchtype`,tempData,isloading);
     }
 
     /**

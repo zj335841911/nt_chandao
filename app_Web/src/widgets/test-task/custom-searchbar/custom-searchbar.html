@@ -14,15 +14,22 @@
 
                 </template>
                 <template v-if="Object.is(data.editor, 'ownereq')">
-                    <input-box 
-    v-model="data.ownereq"  
-    @enter="onEnter($event)"  
-      
-    :disabled="detailsModel.ownereq.disabled" 
-    type='text' 
-    style="width:100px;">
-</input-box>
-
+                    
+<dropdown-list 
+    v-model="data.ownereq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.ownereq.disabled"
+    valueType="string"
+    tag='UserRealName'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'prieq')">
                     

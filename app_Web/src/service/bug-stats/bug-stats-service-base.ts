@@ -187,6 +187,20 @@ export default class BugStatsServiceBase extends EntityService {
     }
 
     /**
+     * searchBugassignedTo接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugStatsServiceBase
+     */
+    public async searchBugassignedTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/bugstats/searchbugassignedto`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -202,6 +216,20 @@ export default class BugStatsServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugStatsServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/bugstats/searchdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchProductCreateBug接口方法
      *
      * @param {*} [context={}]
@@ -214,5 +242,19 @@ export default class BugStatsServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/bugstats/fetchproductcreatebug`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchProductCreateBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugStatsServiceBase
+     */
+    public async searchProductCreateBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/bugstats/searchproductcreatebug`,tempData,isloading);
     }
 }

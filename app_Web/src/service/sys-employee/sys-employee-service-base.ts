@@ -187,6 +187,20 @@ export default class SysEmployeeServiceBase extends EntityService {
     }
 
     /**
+     * searchBugUser接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchBugUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchbuguser`,tempData,isloading);
+    }
+
+    /**
      * FetchContActList接口方法
      *
      * @param {*} [context={}]
@@ -199,6 +213,20 @@ export default class SysEmployeeServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/sysemployees/fetchcontactlist`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchContActList接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchContActList(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchcontactlist`,tempData,isloading);
     }
 
     /**
@@ -217,6 +245,20 @@ export default class SysEmployeeServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectTeamM接口方法
      *
      * @param {*} [context={}]
@@ -229,6 +271,20 @@ export default class SysEmployeeServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteamm`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchProjectTeamM接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchProjectTeamM(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchprojectteamm`,tempData,isloading);
     }
 
     /**
@@ -247,6 +303,20 @@ export default class SysEmployeeServiceBase extends EntityService {
     }
 
     /**
+     * searchProjectTeamUser接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchProjectTeamUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchprojectteamuser`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectTeamUserTask接口方法
      *
      * @param {*} [context={}]
@@ -259,6 +329,20 @@ export default class SysEmployeeServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteamusertask`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchProjectTeamUserTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchProjectTeamUserTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchprojectteamusertask`,tempData,isloading);
     }
 
     /**
@@ -277,6 +361,20 @@ export default class SysEmployeeServiceBase extends EntityService {
     }
 
     /**
+     * searchProjectteamPk接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchProjectteamPk(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchprojectteampk`,tempData,isloading);
+    }
+
+    /**
      * FetchTaskMTeam接口方法
      *
      * @param {*} [context={}]
@@ -292,6 +390,20 @@ export default class SysEmployeeServiceBase extends EntityService {
     }
 
     /**
+     * searchTaskMTeam接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchTaskMTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchtaskmteam`,tempData,isloading);
+    }
+
+    /**
      * FetchTaskTeam接口方法
      *
      * @param {*} [context={}]
@@ -304,5 +416,19 @@ export default class SysEmployeeServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/sysemployees/fetchtaskteam`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchTaskTeam接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async searchTaskTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysemployees/searchtaskteam`,tempData,isloading);
     }
 }

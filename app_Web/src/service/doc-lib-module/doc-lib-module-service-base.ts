@@ -201,6 +201,20 @@ export default class DocLibModuleServiceBase extends EntityService {
     }
 
     /**
+     * searchAllDocLibModule_Custom接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async searchAllDocLibModule_Custom(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibmodules/searchalldoclibmodule_custom`,tempData,isloading);
+    }
+
+    /**
      * FetchAllDoclibModule接口方法
      *
      * @param {*} [context={}]
@@ -213,6 +227,20 @@ export default class DocLibModuleServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/doclibmodules/fetchalldoclibmodule`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchAllDoclibModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async searchAllDoclibModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibmodules/searchalldoclibmodule`,tempData,isloading);
     }
 
     /**
@@ -231,6 +259,20 @@ export default class DocLibModuleServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibmodules/searchdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchParentModule接口方法
      *
      * @param {*} [context={}]
@@ -243,6 +285,20 @@ export default class DocLibModuleServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/doclibmodules/fetchparentmodule`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchParentModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async searchParentModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibmodules/searchparentmodule`,tempData,isloading);
     }
 
     /**
@@ -261,6 +317,20 @@ export default class DocLibModuleServiceBase extends EntityService {
     }
 
     /**
+     * searchRootModuleMuLu接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async searchRootModuleMuLu(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibmodules/searchrootmodulemulu`,tempData,isloading);
+    }
+
+    /**
      * FetchRootModuleMuLuByRoot接口方法
      *
      * @param {*} [context={}]
@@ -273,5 +343,19 @@ export default class DocLibModuleServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/doclibmodules/fetchrootmodulemulubyroot`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchRootModuleMuLuByRoot接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async searchRootModuleMuLuByRoot(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibmodules/searchrootmodulemulubyroot`,tempData,isloading);
     }
 }

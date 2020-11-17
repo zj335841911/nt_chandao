@@ -236,6 +236,20 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzmyterritories/searchdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchMyWork接口方法
      *
      * @param {*} [context={}]
@@ -248,6 +262,20 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/ibzmyterritories/fetchmywork`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchMyWork接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async searchMyWork(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzmyterritories/searchmywork`,tempData,isloading);
     }
 
     /**
@@ -266,6 +294,20 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
     }
 
     /**
+     * searchMyWorkMob接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async searchMyWorkMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzmyterritories/searchmyworkmob`,tempData,isloading);
+    }
+
+    /**
      * FetchWelcome接口方法
      *
      * @param {*} [context={}]
@@ -278,5 +320,19 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/ibzmyterritories/fetchwelcome`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchWelcome接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async searchWelcome(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzmyterritories/searchwelcome`,tempData,isloading);
     }
 }

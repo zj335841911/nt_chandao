@@ -285,6 +285,20 @@ export default class TodoServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/todos/searchdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchMyTodo接口方法
      *
      * @param {*} [context={}]
@@ -297,6 +311,20 @@ export default class TodoServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/todos/fetchmytodo`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchMyTodo接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async searchMyTodo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/todos/searchmytodo`,tempData,isloading);
     }
 
     /**
@@ -315,6 +343,20 @@ export default class TodoServiceBase extends EntityService {
     }
 
     /**
+     * searchMyTodoPc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async searchMyTodoPc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/todos/searchmytodopc`,tempData,isloading);
+    }
+
+    /**
      * FetchMyUpcoming接口方法
      *
      * @param {*} [context={}]
@@ -327,5 +369,19 @@ export default class TodoServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/todos/fetchmyupcoming`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchMyUpcoming接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async searchMyUpcoming(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/todos/searchmyupcoming`,tempData,isloading);
     }
 }

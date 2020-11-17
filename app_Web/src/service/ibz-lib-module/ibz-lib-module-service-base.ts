@@ -247,6 +247,24 @@ export default class IbzLibModuleServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzLibModuleServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.ibzlib && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/ibzlibs/${context.ibzlib}/ibzlibmodules/searchdefault`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzlibmodules/searchdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchRoot_NoBranch接口方法
      *
      * @param {*} [context={}]
@@ -264,5 +282,23 @@ export default class IbzLibModuleServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/ibzlibmodules/fetchroot_nobranch`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchRoot_NoBranch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzLibModuleServiceBase
+     */
+    public async searchRoot_NoBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.ibzlib && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/ibzlibs/${context.ibzlib}/ibzlibmodules/searchroot_nobranch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzlibmodules/searchroot_nobranch`,tempData,isloading);
     }
 }

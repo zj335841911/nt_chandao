@@ -201,6 +201,20 @@ export default class ModuleServiceBase extends EntityService {
     }
 
     /**
+     * searchBugModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ModuleServiceBase
+     */
+    public async searchBugModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/modules/searchbugmodule`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -213,6 +227,20 @@ export default class ModuleServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/modules/fetchdefault`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ModuleServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/modules/searchdefault`,tempData,isloading);
     }
 
     /**
@@ -231,6 +259,20 @@ export default class ModuleServiceBase extends EntityService {
     }
 
     /**
+     * searchDocModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ModuleServiceBase
+     */
+    public async searchDocModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/modules/searchdocmodule`,tempData,isloading);
+    }
+
+    /**
      * FetchLine接口方法
      *
      * @param {*} [context={}]
@@ -246,6 +288,20 @@ export default class ModuleServiceBase extends EntityService {
     }
 
     /**
+     * searchLine接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ModuleServiceBase
+     */
+    public async searchLine(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/modules/searchline`,tempData,isloading);
+    }
+
+    /**
      * FetchStoryModule接口方法
      *
      * @param {*} [context={}]
@@ -258,5 +314,19 @@ export default class ModuleServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/modules/fetchstorymodule`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchStoryModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ModuleServiceBase
+     */
+    public async searchStoryModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/modules/searchstorymodule`,tempData,isloading);
     }
 }

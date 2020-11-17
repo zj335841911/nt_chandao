@@ -187,6 +187,20 @@ export default class DeptServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DeptServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/depts/searchdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchRoot接口方法
      *
      * @param {*} [context={}]
@@ -199,5 +213,19 @@ export default class DeptServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/depts/fetchroot`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchRoot接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DeptServiceBase
+     */
+    public async searchRoot(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/depts/searchroot`,tempData,isloading);
     }
 }

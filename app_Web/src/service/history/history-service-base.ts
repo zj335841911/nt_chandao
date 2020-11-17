@@ -245,4 +245,22 @@ export default class HistoryServiceBase extends EntityService {
         let res:any = Http.getInstance().get(`/histories/fetchdefault`,tempData,isloading);
         return res;
     }
+
+    /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof HistoryServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.action && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/actions/${context.action}/histories/searchdefault`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/histories/searchdefault`,tempData,isloading);
+    }
 }

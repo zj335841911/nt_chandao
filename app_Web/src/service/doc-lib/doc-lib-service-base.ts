@@ -215,6 +215,20 @@ export default class DocLibServiceBase extends EntityService {
     }
 
     /**
+     * searchByCustom接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async searchByCustom(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibs/searchbycustom`,tempData,isloading);
+    }
+
+    /**
      * FetchByProduct接口方法
      *
      * @param {*} [context={}]
@@ -227,6 +241,20 @@ export default class DocLibServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/doclibs/fetchbyproduct`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchByProduct接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async searchByProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibs/searchbyproduct`,tempData,isloading);
     }
 
     /**
@@ -245,6 +273,20 @@ export default class DocLibServiceBase extends EntityService {
     }
 
     /**
+     * searchByProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async searchByProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibs/searchbyproject`,tempData,isloading);
+    }
+
+    /**
      * FetchCurDocLib接口方法
      *
      * @param {*} [context={}]
@@ -260,6 +302,20 @@ export default class DocLibServiceBase extends EntityService {
     }
 
     /**
+     * searchCurDocLib接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async searchCurDocLib(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibs/searchcurdoclib`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -272,5 +328,19 @@ export default class DocLibServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/doclibs/fetchdefault`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibs/searchdefault`,tempData,isloading);
     }
 }

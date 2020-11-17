@@ -187,6 +187,20 @@ export default class UserContactServiceBase extends EntityService {
     }
 
     /**
+     * searchCurUSERCONTACT接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserContactServiceBase
+     */
+    public async searchCurUSERCONTACT(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/usercontacts/searchcurusercontact`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -202,6 +216,20 @@ export default class UserContactServiceBase extends EntityService {
     }
 
     /**
+     * searchDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserContactServiceBase
+     */
+    public async searchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/usercontacts/searchdefault`,tempData,isloading);
+    }
+
+    /**
      * FetchMyUSERCONTACT接口方法
      *
      * @param {*} [context={}]
@@ -214,5 +242,19 @@ export default class UserContactServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/usercontacts/fetchmyusercontact`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * searchMyUSERCONTACT接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserContactServiceBase
+     */
+    public async searchMyUSERCONTACT(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/usercontacts/searchmyusercontact`,tempData,isloading);
     }
 }
