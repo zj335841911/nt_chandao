@@ -16,8 +16,8 @@
 		<result property="parent" column="parent" />
 		<result property="frombug" column="frombug" />
 		<result property="module" column="module" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="projectmodule" javaType="cn.ibizlab.pms.core.ibiz.domain.ProjectModule" column="module" select="cn.ibizlab.pms.core.ibiz.mapper.ProjectModuleMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
@@ -193,7 +193,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 group by type,ESTSTARTED,DEADLINE,DURATION
+		 group by `type`,`ESTSTARTED`,`DEADLINE`,`DURATION`
      </select>
 
     <!--数据查询[AssignedToMyTask]-->

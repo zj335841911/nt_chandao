@@ -12,8 +12,8 @@
     <resultMap id="TaskTeamResultMap" type="cn.ibizlab.pms.core.ibiz.domain.TaskTeam" autoMapping="true">
 		<id property="id" column="id" /><!--主键字段映射-->
 		<result property="root" column="root" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="taskteam" javaType="cn.ibizlab.pms.core.zentao.domain.Task" column="root" select="cn.ibizlab.pms.core.zentao.mapper.TaskMapper.selectById" fetchType="lazy"></association>
     </resultMap>

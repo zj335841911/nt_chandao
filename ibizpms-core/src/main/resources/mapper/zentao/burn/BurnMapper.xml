@@ -12,8 +12,8 @@
     <resultMap id="BurnResultMap" type="cn.ibizlab.pms.core.zentao.domain.Burn" autoMapping="true">
 		<result property="project" column="project" />
 		<result property="task" column="task" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ztproject" javaType="cn.ibizlab.pms.core.zentao.domain.Project" column="project" select="cn.ibizlab.pms.core.zentao.mapper.ProjectMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->

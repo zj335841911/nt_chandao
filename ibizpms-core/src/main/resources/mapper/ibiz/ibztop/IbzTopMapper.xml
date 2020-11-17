@@ -12,8 +12,8 @@
     <resultMap id="IbzTopResultMap" type="cn.ibizlab.pms.core.ibiz.domain.IbzTop" autoMapping="true">
 		<id property="ibztopid" column="ibz_topid" /><!--主键字段映射-->
 		<result property="ibztopname" column="ibz_topname" />
-            
-		
+
+
     </resultMap>
 
 

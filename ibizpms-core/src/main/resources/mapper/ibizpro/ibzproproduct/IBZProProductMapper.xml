@@ -12,8 +12,8 @@
     <resultMap id="IBZProProductResultMap" type="cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct" autoMapping="true">
 		<id property="id" column="id" /><!--主键字段映射-->
 		<result property="ibizid" column="ibiz_id" />
-            
-		
+
+
     </resultMap>
 
 

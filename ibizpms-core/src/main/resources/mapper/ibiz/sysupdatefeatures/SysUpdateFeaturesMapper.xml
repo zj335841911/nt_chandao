@@ -14,8 +14,8 @@
 		<result property="sysupdatefeaturesname" column="sys_update_featuresname" />
 		<result property="sysupdatelogid" column="sys_update_logid" />
 		<result property="sysupdatelogname" column="sys_update_logname" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="sysupdatelog" javaType="cn.ibizlab.pms.core.ibiz.domain.SysUpdateLog" column="sys_update_logid" select="cn.ibizlab.pms.core.ibiz.mapper.SysUpdateLogMapper.selectById" fetchType="lazy"></association>
     </resultMap>

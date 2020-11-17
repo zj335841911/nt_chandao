@@ -12,8 +12,8 @@
     <resultMap id="ActionResultMap" type="cn.ibizlab.pms.core.zentao.domain.Action" autoMapping="true">
 		<id property="id" column="id" /><!--主键字段映射-->
 		<result property="project" column="project" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ztProject" javaType="cn.ibizlab.pms.core.zentao.domain.Project" column="project" select="cn.ibizlab.pms.core.zentao.mapper.ProjectMapper.selectById" fetchType="lazy"></association>
     </resultMap>
@@ -62,7 +62,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by date  desc  
+		 order by `date`  desc  
      </select>
 
     <!--数据集合[ProjectTrends]-->

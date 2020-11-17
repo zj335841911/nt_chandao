@@ -13,8 +13,8 @@
 		<id property="id" column="id" /><!--主键字段映射-->
 		<result property="lib" column="lib" />
 		<result property="module" column="module" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="libmodule" javaType="cn.ibizlab.pms.core.ibiz.domain.IbzLibModule" column="module" select="cn.ibizlab.pms.core.ibiz.mapper.IbzLibModuleMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->

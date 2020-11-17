@@ -1257,6 +1257,12 @@ export default {
 			tip: "刷新",
 		},
 	},
+	pivottableviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
 	assignedtotaskgroupgridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "New",
@@ -1376,8 +1382,18 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	todoeditviewtoolbar_toolbar: {
+	},
+	mainmygridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	gridviewtoolbar_toolbar: {
 		deuiaction3_create: {

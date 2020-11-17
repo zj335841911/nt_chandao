@@ -25,8 +25,8 @@
 		<result property="project" column="project" />
 		<result property="task" column="task" />
 		<result property="testtask" column="testtask" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ztrranch" javaType="cn.ibizlab.pms.core.zentao.domain.Branch" column="branch" select="cn.ibizlab.pms.core.zentao.mapper.BranchMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
@@ -201,7 +201,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by v2  asc  
+		 order by `v2`  asc  
      </select>
 
     <!--数据集合[BuildOpenBugs]-->
@@ -366,7 +366,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by id  desc  
+		 order by `id`  desc  
      </select>
 
     <!--数据集合[ProjectBugs]-->

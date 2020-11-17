@@ -12,8 +12,8 @@
     <resultMap id="IbzFavoritesResultMap" type="cn.ibizlab.pms.core.ibiz.domain.IbzFavorites" autoMapping="true">
 		<id property="ibzfavoritesid" column="ibz_favoritesid" /><!--主键字段映射-->
 		<result property="ibzfavoritesname" column="ibz_favoritesname" />
-            
-		
+
+
     </resultMap>
 
 

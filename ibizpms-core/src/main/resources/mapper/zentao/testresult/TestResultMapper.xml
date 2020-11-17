@@ -15,8 +15,8 @@
 		<result property="ibizcase" column="case" />
 		<result property="run" column="run" />
 		<result property="compile" column="compile" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ztcase" javaType="cn.ibizlab.pms.core.zentao.domain.Case" column="case" select="cn.ibizlab.pms.core.zentao.mapper.CaseMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->

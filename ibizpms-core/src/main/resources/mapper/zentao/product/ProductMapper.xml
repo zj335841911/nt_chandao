@@ -12,8 +12,8 @@
     <resultMap id="ProductResultMap" type="cn.ibizlab.pms.core.zentao.domain.Product" autoMapping="true">
 		<id property="id" column="id" /><!--主键字段映射-->
 		<result property="line" column="line" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="moduleline" javaType="cn.ibizlab.pms.core.zentao.domain.Module" column="line" select="cn.ibizlab.pms.core.zentao.mapper.ModuleMapper.selectById" fetchType="lazy"></association>
     </resultMap>
@@ -26,7 +26,7 @@
 			 ) t1
 			 where  line=#{id}
 		 )t1
-		 order by id  desc  
+		 order by `id`  desc  
      </select>
 
     <!--数据集合[AllList]-->
@@ -65,7 +65,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by id  desc  
+		 order by `id`  desc  
      </select>
 
     <!--数据集合[CurUer]-->
@@ -77,7 +77,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by order1  desc , id   desc
+		 order by `order1`  desc , `id`   desc
      </select>
 
     <!--数据集合[Default]-->
@@ -89,7 +89,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by id  desc  
+		 order by `id`  desc  
      </select>
 
     <!--数据集合[ProductPM]-->

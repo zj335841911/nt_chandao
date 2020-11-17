@@ -1257,6 +1257,12 @@ export default {
 			tip: "刷新",
 		},
 	},
+	pivottableviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
 	assignedtotaskgroupgridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "新建",
@@ -1376,8 +1382,18 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	todoeditviewtoolbar_toolbar: {
+	},
+	mainmygridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	gridviewtoolbar_toolbar: {
 		deuiaction3_create: {

@@ -14,8 +14,8 @@
 		<result property="ibizshort" column="short" />
 		<result property="branch" column="branch" />
 		<result property="parent" column="parent" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ztBranchBranch" javaType="cn.ibizlab.pms.core.zentao.domain.Branch" column="branch" select="cn.ibizlab.pms.core.zentao.mapper.BranchMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
@@ -46,7 +46,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by path  asc  
+		 order by `path`  asc  
      </select>
 
     <!--数据集合[Default]-->

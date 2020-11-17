@@ -23,8 +23,8 @@
 		<result property="ibizId" column="ibiz_id" />
 		<result property="ibizSourceid" column="ibiz_sourceid" />
 		<result property="ibizSourcename" column="ibiz_sourcename" />
-            
-		
+
+
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="ibzproductmodule" javaType="cn.ibizlab.pms.core.ibiz.domain.ProductModule" column="module" select="cn.ibizlab.pms.core.ibiz.mapper.ProductModuleMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
@@ -208,7 +208,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by id  desc  
+		 order by `id`  desc  
      </select>
 
     <!--数据集合[ParentDefault]-->
@@ -256,7 +256,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by id  desc  
+		 order by `id`  desc  
      </select>
 
     <!--数据集合[ReleaseStories]-->
