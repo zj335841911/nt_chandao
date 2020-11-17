@@ -230,6 +230,8 @@
     :localParam ='{ }' 
     :disabled="detailsModel.entryeq.disabled"
     valueType="number"
+    tag='AllEntry'
+    codelistType='DYNAMIC'
     placeholder='请选择...'
     
 />
@@ -356,6 +358,8 @@
     :localParam ='{ }' 
     :disabled="detailsModel.planeq.disabled"
     valueType="number"
+    tag='PlanCodeList'
+    codelistType='DYNAMIC'
     placeholder='请选择...'
     
 />
@@ -467,16 +471,22 @@
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'repoeq')">
-                    <input-box 
-  v-model="data.repoeq"  
-  @enter="onEnter($event)"  
-  
-  :disabled="detailsModel.repoeq.disabled" 
-  type='number' 
-   
-  style="">
-</input-box>
-
+                    
+<dropdown-list 
+    v-model="data.repoeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.repoeq.disabled"
+    valueType="number"
+    tag='AllRepo'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'resolutioneq')">
                     
@@ -679,16 +689,22 @@
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'testtaskeq')">
-                    <input-box 
-  v-model="data.testtaskeq"  
-  @enter="onEnter($event)"  
-  
-  :disabled="detailsModel.testtaskeq.disabled" 
-  type='number' 
-   
-  style="">
-</input-box>
-
+                    
+<dropdown-list 
+    v-model="data.testtaskeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.testtaskeq.disabled"
+    valueType="number"
+    tag='AllTestTask'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'titlelike')">
                     <input-box 
@@ -702,28 +718,40 @@
 
                 </template>
                 <template v-if="Object.is(data.editor, 'tostoryeq')">
-                    <input-box 
-  v-model="data.tostoryeq"  
-  @enter="onEnter($event)"  
-  
-  :disabled="detailsModel.tostoryeq.disabled" 
-  type='number' 
-   
-  style="">
-</input-box>
-
+                    
+<dropdown-list 
+    v-model="data.tostoryeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.tostoryeq.disabled"
+    valueType="number"
+    tag='AllStory'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'totaskeq')">
-                    <input-box 
-  v-model="data.totaskeq"  
-  @enter="onEnter($event)"  
-  
-  :disabled="detailsModel.totaskeq.disabled" 
-  type='number' 
-   
-  style="">
-</input-box>
-
+                    
+<dropdown-list 
+    v-model="data.totaskeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.totaskeq.disabled"
+    valueType="number"
+    tag='AllTask'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'typeeq')">
                     

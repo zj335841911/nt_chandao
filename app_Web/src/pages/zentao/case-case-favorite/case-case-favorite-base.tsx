@@ -51,7 +51,7 @@ export class CaseCaseFavoriteBase extends GridViewBase {
      * @type {string}
      * @memberof CaseCaseFavoriteBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -138,7 +138,7 @@ export class CaseCaseFavoriteBase extends GridViewBase {
      * @type {string}
      * @memberof CaseCaseFavoriteBase
      */ 
-    protected viewName: string = "CaseCaseFavorite";
+    protected viewName: string = 'CaseCaseFavorite';
 
 
     /**

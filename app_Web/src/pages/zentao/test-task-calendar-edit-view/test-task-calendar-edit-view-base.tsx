@@ -48,7 +48,7 @@ export class TestTaskCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestTaskCalendarEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -136,7 +136,7 @@ export class TestTaskCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestTaskCalendarEditViewBase
      */ 
-    protected viewName: string = "TestTaskCalendarEditView";
+    protected viewName: string = 'TestTaskCalendarEditView';
 
 
     /**

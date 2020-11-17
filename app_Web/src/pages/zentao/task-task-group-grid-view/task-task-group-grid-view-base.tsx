@@ -51,7 +51,7 @@ export class TaskTaskGroupGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskTaskGroupGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -140,7 +140,7 @@ export class TaskTaskGroupGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskTaskGroupGridViewBase
      */ 
-    protected viewName: string = "TaskTaskGroupGridView";
+    protected viewName: string = 'TaskTaskGroupGridView';
 
 
     /**

@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form info-form-mode'
-    ref='form'
-    id='doc_mainbody'
+    class="app-form info-form-mode"
+    ref="form"
+    id="doc_mainbody"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.doc.mainbody_form.details.group1')"
@@ -31,11 +39,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 1, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.id.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 1, offset: 0 }"
+>
     <app-form-item
-    name='id'
+    name="id"
     :itemRules="this.rules().id"
-    class='panelitem-borad'
+    class="panelitem-borad"
 
     :caption="$t('entities.doc.mainbody_form.details.id')"
     uiStyle="DEFAULT"
@@ -43,7 +59,8 @@
     :isShowCaption="false"
     :error="detailsModel.id.error"
     :isEmptyCaption="true"
-    labelPos="NONE">
+    labelPos="NONE"
+>
     
 <app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="height:40px;width:40px;">  
@@ -52,11 +69,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.title.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 16, offset: 0 }"
+>
     <app-form-item
-    name='title'
+    name="title"
     :itemRules="this.rules().title"
-    class=''
+    class=""
 
     :caption="$t('entities.doc.mainbody_form.details.title')"
     uiStyle="DEFAULT"
@@ -64,7 +89,8 @@
     :isShowCaption="true"
     :error="detailsModel.title.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='title' :value="data.title" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -73,11 +99,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.version.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.version.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 3, offset: 0 }"
+>
     <app-form-item
-    name='version'
+    name="version"
     :itemRules="this.rules().version"
-    class='dropdown-transparent'
+    class="dropdown-transparent"
 
     :caption="$t('entities.doc.mainbody_form.details.version')"
     uiStyle="DEFAULT"
@@ -85,7 +119,8 @@
     :isShowCaption="true"
     :error="detailsModel.version.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.version"
@@ -105,11 +140,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.content.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.content.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='content'
+    name="content"
     :itemRules="this.rules().content"
-    class=''
+    class=""
 
     :caption="$t('entities.doc.mainbody_form.details.content')"
     uiStyle="DEFAULT"
@@ -117,17 +160,26 @@
     :isShowCaption="true"
     :error="detailsModel.content.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <html-container :content="data.content"></html-container>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.doc.mainbody_form.details.grouppanel1')"
@@ -145,12 +197,20 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='doc' 
+    paramItem="doc" 
     :parentdata='{"srfparentdename":"ZT_DOC","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -158,12 +218,12 @@
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{objecttype:"doc"}'
-    parameterName='doc'
+    parameterName="doc"
     parentName="Doc"  
-    refviewtype='DELISTVIEW9' 
-    refreshitems='' 
+    refviewtype="DELISTVIEW9" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='file-list-view9' 
+    viewname="file-list-view9" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">

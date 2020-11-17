@@ -51,7 +51,7 @@ export class StoryMainGridView_ByModuleBase extends GridViewBase {
      * @type {string}
      * @memberof StoryMainGridView_ByModuleBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -154,7 +154,7 @@ export class StoryMainGridView_ByModuleBase extends GridViewBase {
      * @type {string}
      * @memberof StoryMainGridView_ByModuleBase
      */ 
-    protected viewName: string = "StoryMainGridView_ByModule";
+    protected viewName: string = 'StoryMainGridView_ByModule';
 
 
     /**

@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form'
-    ref='form'
-    id='bug_assignto'
+    class="app-form"
+    ref="form"
+    id="bug_assignto"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 23, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.assignto_form.details.group1')"
@@ -31,12 +39,20 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.assignto_form.details.grouppanel1')"
@@ -54,11 +70,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.assignedto.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='assignedto'
+    name="assignedto"
     :itemRules="this.rules().assignedto"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.assignto_form.details.assignedto')"
     uiStyle="DEFAULT"
@@ -66,7 +90,8 @@
     :isShowCaption="true"
     :error="detailsModel.assignedto.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.assignedto"
@@ -91,11 +116,19 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 18, offset: 0 }" :xl="{ span: 18, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.mailto.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 18, offset: 0 }"
+     :xl="{ span: 18, offset: 0 }"
+>
     <app-form-item
-    name='mailto'
+    name="mailto"
     :itemRules="this.rules().mailto"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.assignto_form.details.mailto')"
     uiStyle="DEFAULT"
@@ -103,7 +136,8 @@
     :isShowCaption="true"
     :error="detailsModel.mailto.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list-mpicker 
   v-model="data.mailto"
@@ -122,11 +156,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.mailtoconact.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.mailtoconact.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 6, offset: 0 }"
+     :xl="{ span: 6, offset: 0 }"
+>
     <app-form-item
-    name='mailtoconact'
+    name="mailtoconact"
     :itemRules="this.rules().mailtoconact"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.assignto_form.details.mailtoconact')"
     uiStyle="DEFAULT"
@@ -134,7 +176,8 @@
     :isShowCaption="true"
     :error="detailsModel.mailtoconact.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker  
   :formState="formState"
@@ -158,11 +201,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.comment.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='comment'
+    name="comment"
     :itemRules="this.rules().comment"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.assignto_form.details.comment')"
     uiStyle="DEFAULT"
@@ -170,18 +221,27 @@
     :isShowCaption="true"
     :error="detailsModel.comment.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel6.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel6"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel6.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.assignto_form.details.grouppanel6')"
@@ -199,12 +259,20 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 1 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 23, offset: 1 }"
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='bug' 
+    paramItem="bug" 
     :parentdata='{"srfparentdename":"ZT_BUG","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -212,12 +280,12 @@
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='bug'
+    parameterName="bug"
     parentName="Bug"  
-    refviewtype='DELISTVIEW' 
-    refreshitems='' 
+    refviewtype="DELISTVIEW" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='action-history-list-view' 
+    viewname="action-history-list-view" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">

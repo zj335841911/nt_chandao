@@ -48,7 +48,7 @@ export class DocLibModuleEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof DocLibModuleEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -140,7 +140,7 @@ export class DocLibModuleEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof DocLibModuleEditViewBase
      */ 
-    protected viewName: string = "DocLibModuleEditView";
+    protected viewName: string = 'DocLibModuleEditView';
 
 
     /**

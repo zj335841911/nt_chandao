@@ -98,7 +98,7 @@ export class ProductHtmlViewBase extends ViewBase {
      * @type {string}
      * @memberof ProductHtmlViewBase
      */ 
-    protected viewName: string = "ProductHtmlView";
+    protected viewName: string = 'ProductHtmlView';
 
 
     /**

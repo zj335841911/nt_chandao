@@ -141,7 +141,7 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof TestReportMainTabExpViewBase
      */ 
-    protected viewName: string = "TestReportMainTabExpView";
+    protected viewName: string = 'TestReportMainTabExpView';
 
 
     /**

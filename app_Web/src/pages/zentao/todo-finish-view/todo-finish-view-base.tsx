@@ -48,7 +48,7 @@ export class TodoFinishViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TodoFinishViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -153,7 +153,7 @@ export class TodoFinishViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TodoFinishViewBase
      */ 
-    protected viewName: string = "TodoFinishView";
+    protected viewName: string = 'TodoFinishView';
 
 
     /**

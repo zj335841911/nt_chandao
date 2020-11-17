@@ -48,7 +48,7 @@ export class ProductStatsEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof ProductStatsEditView9Base
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -139,7 +139,7 @@ export class ProductStatsEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof ProductStatsEditView9Base
      */ 
-    protected viewName: string = "ProductStatsEditView9";
+    protected viewName: string = 'ProductStatsEditView9';
 
 
     /**

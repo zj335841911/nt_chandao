@@ -127,7 +127,7 @@ export class IbzCaseDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof IbzCaseDashboardViewBase
      */ 
-    protected viewName: string = "IbzCaseDashboardView";
+    protected viewName: string = 'IbzCaseDashboardView';
 
 
     /**

@@ -51,7 +51,7 @@ export class TestReportGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestReportGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -162,7 +162,7 @@ export class TestReportGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestReportGridViewBase
      */ 
-    protected viewName: string = "TestReportGridView";
+    protected viewName: string = 'TestReportGridView';
 
 
     /**

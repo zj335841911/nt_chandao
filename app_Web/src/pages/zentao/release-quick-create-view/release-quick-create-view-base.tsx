@@ -48,7 +48,7 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      * @type {string}
      * @memberof ReleaseQuickCreateViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -134,7 +134,7 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      * @type {string}
      * @memberof ReleaseQuickCreateViewBase
      */ 
-    protected viewName: string = "ReleaseQuickCreateView";
+    protected viewName: string = 'ReleaseQuickCreateView';
 
 
     /**

@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form'
-    ref='form'
-    id='testtask_mainedit'
+    class="app-form"
+    ref="form"
+    id="testtask_mainedit"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.testtask.mainedit_form.details.group1')"
@@ -31,12 +39,20 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 16, offset: 0 }"
+     :xl="{ span: 16, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.testtask.mainedit_form.details.grouppanel1')"
@@ -54,11 +70,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.projecttname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.projecttname.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='projecttname'
+    name="projecttname"
     :itemRules="this.rules().projecttname"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.mainedit_form.details.projecttname')"
     uiStyle="DEFAULT"
@@ -66,7 +90,8 @@
     :isShowCaption="true"
     :error="detailsModel.projecttname.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker  
   :formState="formState"
@@ -90,11 +115,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.buildname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.buildname.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='buildname'
+    name="buildname"
     :itemRules="this.rules().buildname"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.mainedit_form.details.buildname')"
     uiStyle="DEFAULT"
@@ -102,7 +135,8 @@
     :isShowCaption="true"
     :error="detailsModel.buildname.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker  
   :formState="formState"
@@ -126,11 +160,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.owner.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.owner.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 12, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='owner'
+    name="owner"
     :itemRules="this.rules().owner"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.mainedit_form.details.owner')"
     uiStyle="DEFAULT"
@@ -138,7 +180,8 @@
     :isShowCaption="true"
     :error="detailsModel.owner.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.owner"
@@ -158,11 +201,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.pri.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 12, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='pri'
+    name="pri"
     :itemRules="this.rules().pri"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.mainedit_form.details.pri')"
     uiStyle="DEFAULT"
@@ -170,7 +221,8 @@
     :isShowCaption="true"
     :error="detailsModel.pri.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.pri"
@@ -190,12 +242,20 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel2.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel2"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.testtask.mainedit_form.details.grouppanel2')"
@@ -213,11 +273,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.begin.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 12, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='begin'
+    name="begin"
     :itemRules="this.rules().begin"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.mainedit_form.details.begin')"
     uiStyle="DEFAULT"
@@ -225,17 +293,26 @@
     :isShowCaption="true"
     :error="detailsModel.begin.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.begin" :disabled="detailsModel.begin.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.begin = val1 }"></date-picker>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.end.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 12, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='end'
+    name="end"
     :itemRules="this.rules().end"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.mainedit_form.details.end')"
     uiStyle="DEFAULT"
@@ -243,7 +320,8 @@
     :isShowCaption="true"
     :error="detailsModel.end.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.end" :disabled="detailsModel.end.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.end = val1 }"></date-picker>
 
 </app-form-item>
@@ -254,11 +332,19 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.status.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='status'
+    name="status"
     :itemRules="this.rules().status"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.mainedit_form.details.status')"
     uiStyle="DEFAULT"
@@ -266,7 +352,8 @@
     :isShowCaption="true"
     :error="detailsModel.status.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.status"
@@ -291,11 +378,19 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.name.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='name'
+    name="name"
     :itemRules="this.rules().name"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.mainedit_form.details.name')"
     uiStyle="DEFAULT"
@@ -303,7 +398,8 @@
     :isShowCaption="true"
     :error="detailsModel.name.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box 
     v-model="data.name"  
     @enter="onEnter($event)"  
@@ -316,11 +412,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.desc.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='desc'
+    name="desc"
     :itemRules="this.rules().desc"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.mainedit_form.details.desc')"
     uiStyle="DEFAULT"
@@ -328,17 +432,26 @@
     :isShowCaption="true"
     :error="detailsModel.desc.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"testtask",version:"editor"}' :exportparams='{objecttype:"testtask",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.comment.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='comment'
+    name="comment"
     :itemRules="this.rules().comment"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.mainedit_form.details.comment')"
     uiStyle="DEFAULT"
@@ -346,17 +459,26 @@
     :isShowCaption="true"
     :error="detailsModel.comment.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"testtask",version:"editor"}' :exportparams='{objecttype:"testtask",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 20, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.mailto.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 20, offset: 0 }"
+     :xl="{ span: 20, offset: 0 }"
+>
     <app-form-item
-    name='mailto'
+    name="mailto"
     :itemRules="this.rules().mailto"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.mainedit_form.details.mailto')"
     uiStyle="DEFAULT"
@@ -364,7 +486,8 @@
     :isShowCaption="true"
     :error="detailsModel.mailto.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list-mpicker 
   v-model="data.mailto"
@@ -383,11 +506,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.mailtoconact.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.mailtoconact.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 4, offset: 0 }"
+     :xl="{ span: 4, offset: 0 }"
+>
     <app-form-item
-    name='mailtoconact'
+    name="mailtoconact"
     :itemRules="this.rules().mailtoconact"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.mainedit_form.details.mailtoconact')"
     uiStyle="DEFAULT"
@@ -395,7 +526,8 @@
     :isShowCaption="true"
     :error="detailsModel.mailtoconact.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker  
   :formState="formState"

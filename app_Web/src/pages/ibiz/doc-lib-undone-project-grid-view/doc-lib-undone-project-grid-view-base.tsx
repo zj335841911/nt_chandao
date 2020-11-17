@@ -51,7 +51,7 @@ export class DocLibUndoneProjectGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocLibUndoneProjectGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -160,7 +160,7 @@ export class DocLibUndoneProjectGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocLibUndoneProjectGridViewBase
      */ 
-    protected viewName: string = "DocLibUndoneProjectGridView";
+    protected viewName: string = 'DocLibUndoneProjectGridView';
 
 
     /**

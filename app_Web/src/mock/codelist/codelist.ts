@@ -3903,6 +3903,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "AllRepo",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
+    },
+    {
         srfkey: "Project_staus",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -5408,6 +5416,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "AllTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: "File__object_type",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -5968,6 +5984,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "AllTestTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"TestTask",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         "srfkey": "TestTask",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -6075,6 +6099,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "AllEntry",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
     },
     {
         srfkey: "Task__type",

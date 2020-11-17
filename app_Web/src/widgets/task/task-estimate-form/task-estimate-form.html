@@ -1,18 +1,26 @@
 <i-form
     :model="this.data"
-    class='app-form'
-    ref='form'
-    id='task_taskestimate'
+    class="app-form"
+    ref="form"
+    id="task_taskestimate"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.id.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 2, offset: 0 }"
+>
     <app-form-item
-    name='id'
+    name="id"
     :itemRules="this.rules().id"
-    class='panelitem-borad'
+    class="panelitem-borad"
 
     :caption="$t('entities.task.taskestimate_form.details.id')"
     uiStyle="DEFAULT"
@@ -20,7 +28,8 @@
     :isShowCaption="true"
     :error="detailsModel.id.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="height:32px;width:40px;">  
@@ -29,11 +38,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.name.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 21, offset: 0 }"
+>
     <app-form-item
-    name='name'
+    name="name"
     :itemRules="this.rules().name"
-    class='MainInfo2'
+    class="MainInfo2"
 
     :caption="$t('entities.task.taskestimate_form.details.name')"
     uiStyle="DEFAULT"
@@ -41,7 +58,8 @@
     :isShowCaption="true"
     :error="detailsModel.name.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='name' :value="data.name" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -50,12 +68,20 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.druipart3.visible" :style="{'height': '200px !important',}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart3.visible"
+    :style="{'height': '200px !important',}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='task' 
+    paramItem="task" 
     :parentdata='{"srfparentdefname":"TASK","srfparentdename":"ZT_TASK","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK","SRFDER1NID":"DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK"}'
     :parameters="[
         {
@@ -67,24 +93,32 @@
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='task'
+    parameterName="task"
     parentName="Task"  
-    refviewtype='DEGRIDVIEW9' 
-    refreshitems='' 
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='task-estimate-look-grid-view9' 
+    viewname="task-estimate-look-grid-view9" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:200px;overflow: auto;">
 </app-form-druipart>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.druipart2.visible" :style="{'height': '200px !important',}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart2.visible"
+    :style="{'height': '200px !important',}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='task' 
+    paramItem="task" 
     :parentdata='{"srfparentdefname":"TASK","srfparentdename":"ZT_TASK","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK","SRFDER1NID":"DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK"}'
     :parameters="[
         {
@@ -96,24 +130,32 @@
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='task'
+    parameterName="task"
     parentName="Task"  
-    refviewtype='DEGRIDVIEW9' 
-    refreshitems='' 
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='task-estimate-edit-grid-view9' 
+    viewname="task-estimate-edit-grid-view9" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:200px;overflow: auto;">
 </app-form-druipart>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='task' 
+    paramItem="task" 
     :parentdata='{"srfparentdefname":"TASK","srfparentdename":"ZT_TASK","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK","SRFDER1NID":"DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK"}'
     :parameters="[
         {
@@ -125,12 +167,12 @@
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='task'
+    parameterName="task"
     parentName="Task"  
-    refviewtype='DEGRIDVIEW9' 
-    refreshitems='' 
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='task-estimate-grid-view9' 
+    viewname="task-estimate-grid-view9" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">

@@ -137,7 +137,7 @@ export class UserYearWorkStatsDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof UserYearWorkStatsDashboardViewBase
      */ 
-    protected viewName: string = "UserYearWorkStatsDashboardView";
+    protected viewName: string = 'UserYearWorkStatsDashboardView';
 
 
     /**

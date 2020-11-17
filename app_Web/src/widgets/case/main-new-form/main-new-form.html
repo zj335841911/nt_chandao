@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form'
-    ref='form'
-    id='case_mainnew'
+    class="app-form"
+    ref="form"
+    id="case_mainnew"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.case.mainnew_form.details.group1')"
@@ -31,11 +39,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.productname.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='productname'
+    name="productname"
     :itemRules="this.rules().productname"
-    class=''
+    class=""
 
     :caption="$t('entities.case.mainnew_form.details.productname')"
     uiStyle="DEFAULT"
@@ -43,7 +59,8 @@
     :isShowCaption="true"
     :error="detailsModel.productname.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker  
   :formState="formState"
@@ -67,11 +84,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.modulename.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='modulename'
+    name="modulename"
     :itemRules="this.rules().modulename"
-    class=''
+    class=""
 
     :caption="$t('entities.case.mainnew_form.details.modulename')"
     uiStyle="DEFAULT"
@@ -79,7 +104,8 @@
     :isShowCaption="true"
     :error="detailsModel.modulename.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker  
   :formState="formState"
@@ -103,11 +129,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.type.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='type'
+    name="type"
     :itemRules="this.rules().type"
-    class=''
+    class=""
 
     :caption="$t('entities.case.mainnew_form.details.type')"
     uiStyle="DEFAULT"
@@ -115,7 +149,8 @@
     :isShowCaption="true"
     :error="detailsModel.type.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.type"
@@ -135,11 +170,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.stage.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.stage.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='stage'
+    name="stage"
     :itemRules="this.rules().stage"
-    class=''
+    class=""
 
     :caption="$t('entities.case.mainnew_form.details.stage')"
     uiStyle="DEFAULT"
@@ -147,7 +190,8 @@
     :isShowCaption="true"
     :error="detailsModel.stage.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list-mpicker 
   v-model="data.stage"
@@ -165,12 +209,20 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 24, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.case.mainnew_form.details.grouppanel1')"
@@ -188,11 +240,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.storyname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.storyname.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='storyname'
+    name="storyname"
     :itemRules="this.rules().storyname"
-    class=''
+    class=""
 
     :caption="$t('entities.case.mainnew_form.details.storyname')"
     uiStyle="DEFAULT"
@@ -200,7 +260,8 @@
     :isShowCaption="true"
     :error="detailsModel.storyname.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker  
   :formState="formState"
@@ -224,11 +285,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.title.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 20, offset: 0 }"
+>
     <app-form-item
-    name='title'
+    name="title"
     :itemRules="this.rules().title"
-    class=''
+    class=""
 
     :caption="$t('entities.case.mainnew_form.details.title')"
     uiStyle="DEFAULT"
@@ -236,7 +305,8 @@
     :isShowCaption="true"
     :error="detailsModel.title.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box 
     v-model="data.title"  
     @enter="onEnter($event)"  
@@ -249,11 +319,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.pri.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 4, offset: 0 }"
+>
     <app-form-item
-    name='pri'
+    name="pri"
     :itemRules="this.rules().pri"
-    class=''
+    class=""
 
     :caption="$t('entities.case.mainnew_form.details.pri')"
     uiStyle="DEFAULT"
@@ -261,7 +339,8 @@
     :isShowCaption="true"
     :error="detailsModel.pri.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.pri"
@@ -281,11 +360,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.precondition.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.precondition.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='precondition'
+    name="precondition"
     :itemRules="this.rules().precondition"
-    class=''
+    class=""
 
     :caption="$t('entities.case.mainnew_form.details.precondition')"
     uiStyle="DEFAULT"
@@ -293,18 +380,27 @@
     :isShowCaption="true"
     :error="detailsModel.precondition.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box v-model="data.precondition"  :disabled="detailsModel.precondition.disabled" type='textarea' style="" ></input-box>
 
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='case' 
+    paramItem="case" 
     :parentdata='{"srfparentdefname":"CASE","srfparentdename":"ZT_CASE","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_CASESTEP_ZT_CASE_CASE","SRFDER1NID":"DER1N_ZT_CASESTEP_ZT_CASE_CASE"}'
     :parameters="[
         {
@@ -316,23 +412,31 @@
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{n_version_eq:"%version%"}'
-    parameterName='case'
+    parameterName="case"
     parentName="Case"  
-    refviewtype='DEGRIDVIEW9' 
-    refreshitems='' 
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='case-step-main-grid-view9-edit-mode' 
+    viewname="case-step-main-grid-view9-edit-mode" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.keywords.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='keywords'
+    name="keywords"
     :itemRules="this.rules().keywords"
-    class=''
+    class=""
 
     :caption="$t('entities.case.mainnew_form.details.keywords')"
     uiStyle="DEFAULT"
@@ -340,7 +444,8 @@
     :isShowCaption="true"
     :error="detailsModel.keywords.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box 
     v-model="data.keywords"  
     @enter="onEnter($event)"  
@@ -353,11 +458,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.files.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='files'
+    name="files"
     :itemRules="this.rules().files"
-    class=''
+    class=""
 
     :caption="$t('entities.case.mainnew_form.details.files')"
     uiStyle="DEFAULT"
@@ -365,7 +478,8 @@
     :isShowCaption="true"
     :error="detailsModel.files.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{objecttype:"case",objectid:"0",version:"1"}' :exportparams='{objecttype:"case",objectid:"0",version:"1"}'  style="overflow: auto;"></app-file-upload>
 </app-form-item>
 

@@ -51,7 +51,7 @@ export class CaseProjectReportLinkGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseProjectReportLinkGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -114,7 +114,7 @@ export class CaseProjectReportLinkGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseProjectReportLinkGridViewBase
      */ 
-    protected viewName: string = "CaseProjectReportLinkGridView";
+    protected viewName: string = 'CaseProjectReportLinkGridView';
 
 
     /**

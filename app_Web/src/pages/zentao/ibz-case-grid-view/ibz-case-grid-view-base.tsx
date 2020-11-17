@@ -51,7 +51,7 @@ export class IbzCaseGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzCaseGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -140,7 +140,7 @@ export class IbzCaseGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzCaseGridViewBase
      */ 
-    protected viewName: string = "IbzCaseGridView";
+    protected viewName: string = 'IbzCaseGridView';
 
 
     /**

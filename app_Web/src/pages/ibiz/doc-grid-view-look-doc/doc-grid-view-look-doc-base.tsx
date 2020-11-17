@@ -51,7 +51,7 @@ export class DocGridViewLookDocBase extends GridViewBase {
      * @type {string}
      * @memberof DocGridViewLookDocBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -174,7 +174,7 @@ export class DocGridViewLookDocBase extends GridViewBase {
      * @type {string}
      * @memberof DocGridViewLookDocBase
      */ 
-    protected viewName: string = "DocGridViewLookDoc";
+    protected viewName: string = 'DocGridViewLookDoc';
 
 
     /**

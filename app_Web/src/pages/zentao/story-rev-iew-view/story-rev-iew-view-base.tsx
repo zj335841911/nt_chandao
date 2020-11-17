@@ -48,7 +48,7 @@ export class StoryRevIewViewBase extends OptionViewBase {
      * @type {string}
      * @memberof StoryRevIewViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -171,7 +171,7 @@ export class StoryRevIewViewBase extends OptionViewBase {
      * @type {string}
      * @memberof StoryRevIewViewBase
      */ 
-    protected viewName: string = "StoryRevIewView";
+    protected viewName: string = 'StoryRevIewView';
 
 
     /**

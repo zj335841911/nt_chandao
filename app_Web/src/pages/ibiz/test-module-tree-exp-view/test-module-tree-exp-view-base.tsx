@@ -123,7 +123,7 @@ export class TestModuleTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof TestModuleTreeExpViewBase
      */ 
-    protected viewName: string = "TestModuleTreeExpView";
+    protected viewName: string = 'TestModuleTreeExpView';
 
 
     /**

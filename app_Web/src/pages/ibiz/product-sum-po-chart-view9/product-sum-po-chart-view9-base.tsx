@@ -130,7 +130,7 @@ export class ProductSumPoChartView9Base extends ChartView9Base {
      * @type {string}
      * @memberof ProductSumPoChartView9Base
      */ 
-    protected viewName: string = "ProductSumPoChartView9";
+    protected viewName: string = 'ProductSumPoChartView9';
 
 
     /**

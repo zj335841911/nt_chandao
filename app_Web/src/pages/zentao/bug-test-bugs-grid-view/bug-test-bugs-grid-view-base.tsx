@@ -51,7 +51,7 @@ export class BugTestBugsGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BugTestBugsGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -134,7 +134,7 @@ export class BugTestBugsGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BugTestBugsGridViewBase
      */ 
-    protected viewName: string = "BugTestBugsGridView";
+    protected viewName: string = 'BugTestBugsGridView';
 
 
     /**

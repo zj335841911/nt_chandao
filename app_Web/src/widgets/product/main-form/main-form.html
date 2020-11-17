@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form'
-    ref='form'
-    id='product_main'
+    class="app-form"
+    ref="form"
+    id="product_main"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :sm="{ span: 23, offset: 0 }" :md="{ span: 23, offset: 0 }" :lg="{ span: 23, offset: 0 }" :xl="{ span: 23, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+     :sm="{ span: 23, offset: 0 }"
+     :md="{ span: 23, offset: 0 }"
+     :lg="{ span: 23, offset: 0 }"
+     :xl="{ span: 23, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.product.main_form.details.group1')"
@@ -31,12 +39,20 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :sm="{ span: 16, offset: 0 }" :md="{ span: 16, offset: 0 }" :lg="{ span: 16, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+     :sm="{ span: 16, offset: 0 }"
+     :md="{ span: 16, offset: 0 }"
+     :lg="{ span: 16, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.product.main_form.details.grouppanel1')"
@@ -54,11 +70,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.name.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 21, offset: 0 }"
+>
     <app-form-item
-    name='name'
+    name="name"
     :itemRules="this.rules().name"
-    class=''
+    class=""
 
     :caption="$t('entities.product.main_form.details.name')"
     uiStyle="DEFAULT"
@@ -66,7 +90,8 @@
     :isShowCaption="true"
     :error="detailsModel.name.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box 
     v-model="data.name"  
     @enter="onEnter($event)"  
@@ -79,11 +104,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.code.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.code.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 21, offset: 0 }"
+>
     <app-form-item
-    name='code'
+    name="code"
     :itemRules="this.rules().code"
-    class=''
+    class=""
 
     :caption="$t('entities.product.main_form.details.code')"
     uiStyle="DEFAULT"
@@ -91,7 +124,8 @@
     :isShowCaption="true"
     :error="detailsModel.code.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box 
     v-model="data.code"  
     @enter="onEnter($event)"  
@@ -104,12 +138,20 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel3.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 16, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel3"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel3.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.product.main_form.details.grouppanel3')"
@@ -127,11 +169,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.linename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.linename.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='linename'
+    name="linename"
     :itemRules="this.rules().linename"
-    class=''
+    class=""
 
     :caption="$t('entities.product.main_form.details.linename')"
     uiStyle="DEFAULT"
@@ -139,7 +189,8 @@
     :isShowCaption="true"
     :error="detailsModel.linename.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker  
   :formState="formState"
@@ -168,12 +219,20 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel2.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 8, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel2"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.product.main_form.details.grouppanel2')"
@@ -191,7 +250,15 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 10, offset: 1 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.button1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 10, offset: 1 }"
+>
         <i-button 
         type="primary"
         @click="button1_click($event)"
@@ -208,11 +275,19 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.po.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.po.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 21, offset: 0 }"
+>
     <app-form-item
-    name='po'
+    name="po"
     :itemRules="this.rules().po"
-    class=''
+    class=""
 
     :caption="$t('entities.product.main_form.details.po')"
     uiStyle="DEFAULT"
@@ -220,7 +295,8 @@
     :isShowCaption="true"
     :error="detailsModel.po.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.po"
@@ -240,11 +316,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.qd.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.qd.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 21, offset: 0 }"
+>
     <app-form-item
-    name='qd'
+    name="qd"
     :itemRules="this.rules().qd"
-    class=''
+    class=""
 
     :caption="$t('entities.product.main_form.details.qd')"
     uiStyle="DEFAULT"
@@ -252,7 +336,8 @@
     :isShowCaption="true"
     :error="detailsModel.qd.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.qd"
@@ -272,11 +357,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.rd.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.rd.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 21, offset: 0 }"
+>
     <app-form-item
-    name='rd'
+    name="rd"
     :itemRules="this.rules().rd"
-    class=''
+    class=""
 
     :caption="$t('entities.product.main_form.details.rd')"
     uiStyle="DEFAULT"
@@ -284,7 +377,8 @@
     :isShowCaption="true"
     :error="detailsModel.rd.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.rd"
@@ -304,11 +398,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.type.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 21, offset: 0 }"
+>
     <app-form-item
-    name='type'
+    name="type"
     :itemRules="this.rules().type"
-    class=''
+    class=""
 
     :caption="$t('entities.product.main_form.details.type')"
     uiStyle="DEFAULT"
@@ -316,7 +418,8 @@
     :isShowCaption="true"
     :error="detailsModel.type.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.type"
@@ -341,11 +444,19 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.desc.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='desc'
+    name="desc"
     :itemRules="this.rules().desc"
-    class=''
+    class=""
 
     :caption="$t('entities.product.main_form.details.desc')"
     uiStyle="DEFAULT"
@@ -353,7 +464,8 @@
     :isShowCaption="true"
     :error="detailsModel.desc.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <rich-text-editor 
     :formState="formState" 
@@ -372,11 +484,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.acl.visible" :style="{}"  :sm="{ span: 16, offset: 0 }" :md="{ span: 16, offset: 0 }" :lg="{ span: 16, offset: 0 }" :xl="{ span: 21, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.acl.visible"
+    :style="{}"
+     :sm="{ span: 16, offset: 0 }"
+     :md="{ span: 16, offset: 0 }"
+     :lg="{ span: 16, offset: 0 }"
+     :xl="{ span: 21, offset: 0 }"
+>
     <app-form-item
-    name='acl'
+    name="acl"
     :itemRules="this.rules().acl"
-    class=''
+    class=""
 
     :caption="$t('entities.product.main_form.details.acl')"
     uiStyle="DEFAULT"
@@ -384,7 +504,8 @@
     :isShowCaption="true"
     :error="detailsModel.acl.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <dropdown-list 
     v-model="data.acl"

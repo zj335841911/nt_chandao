@@ -109,7 +109,7 @@ export class ProductCaseTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof ProductCaseTreeExpViewBase
      */ 
-    protected viewName: string = "ProductCaseTreeExpView";
+    protected viewName: string = 'ProductCaseTreeExpView';
 
 
     /**

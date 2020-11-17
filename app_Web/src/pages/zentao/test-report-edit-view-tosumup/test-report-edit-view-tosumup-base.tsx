@@ -48,7 +48,7 @@ export class TestReportEditView_tosumupBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportEditView_tosumupBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -118,7 +118,7 @@ export class TestReportEditView_tosumupBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportEditView_tosumupBase
      */ 
-    protected viewName: string = "TestReportEditView_tosumup";
+    protected viewName: string = 'TestReportEditView_tosumup';
 
 
     /**

@@ -48,7 +48,7 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectEditView_SuspendBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -134,7 +134,7 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectEditView_SuspendBase
      */ 
-    protected viewName: string = "ProjectEditView_Suspend";
+    protected viewName: string = 'ProjectEditView_Suspend';
 
 
     /**

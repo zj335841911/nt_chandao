@@ -51,7 +51,7 @@ export class TaskPivotTableViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskPivotTableViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -114,7 +114,7 @@ export class TaskPivotTableViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskPivotTableViewBase
      */ 
-    protected viewName: string = "TaskPivotTableView";
+    protected viewName: string = 'TaskPivotTableView';
 
 
     /**

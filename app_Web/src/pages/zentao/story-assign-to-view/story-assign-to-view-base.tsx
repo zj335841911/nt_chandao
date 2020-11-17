@@ -48,7 +48,7 @@ export class StoryAssignToViewBase extends OptionViewBase {
      * @type {string}
      * @memberof StoryAssignToViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -171,7 +171,7 @@ export class StoryAssignToViewBase extends OptionViewBase {
      * @type {string}
      * @memberof StoryAssignToViewBase
      */ 
-    protected viewName: string = "StoryAssignToView";
+    protected viewName: string = 'StoryAssignToView';
 
 
     /**

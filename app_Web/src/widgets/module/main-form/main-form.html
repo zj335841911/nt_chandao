@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form'
-    ref='form'
-    id='module_main'
+    class="app-form"
+    ref="form"
+    id="module_main"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.module.main_form.details.group1')"
@@ -31,11 +39,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.name.visible"
+    :style="{}"
+     :sm="{ span: 12, offset: 0 }"
+     :md="{ span: 12, offset: 0 }"
+     :lg="{ span: 12, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='name'
+    name="name"
     :itemRules="this.rules().name"
-    class=''
+    class=""
 
     :caption="$t('entities.module.main_form.details.name')"
     uiStyle="DEFAULT"
@@ -43,7 +59,8 @@
     :isShowCaption="true"
     :error="detailsModel.name.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box 
     v-model="data.name"  
     @enter="onEnter($event)"  
@@ -56,11 +73,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.short.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.short.visible"
+    :style="{}"
+     :sm="{ span: 12, offset: 0 }"
+     :md="{ span: 12, offset: 0 }"
+     :lg="{ span: 12, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='short'
+    name="short"
     :itemRules="this.rules().short"
-    class=''
+    class=""
 
     :caption="$t('entities.module.main_form.details.short')"
     uiStyle="DEFAULT"
@@ -68,7 +93,8 @@
     :isShowCaption="true"
     :error="detailsModel.short.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box 
     v-model="data.short"  
     @enter="onEnter($event)"  
@@ -81,11 +107,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.parentname.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.parentname.visible"
+    :style="{}"
+     :sm="{ span: 12, offset: 0 }"
+     :md="{ span: 12, offset: 0 }"
+     :lg="{ span: 12, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='parentname'
+    name="parentname"
     :itemRules="this.rules().parentname"
-    class=''
+    class=""
 
     :caption="$t('entities.module.main_form.details.parentname')"
     uiStyle="DEFAULT"
@@ -93,7 +127,8 @@
     :isShowCaption="true"
     :error="detailsModel.parentname.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
   <app-picker 
     :formState="formState"
@@ -118,11 +153,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.order.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.order.visible"
+    :style="{}"
+     :sm="{ span: 12, offset: 0 }"
+     :md="{ span: 12, offset: 0 }"
+     :lg="{ span: 12, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='order'
+    name="order"
     :itemRules="this.rules().order"
-    class=''
+    class=""
 
     :caption="$t('entities.module.main_form.details.order')"
     uiStyle="DEFAULT"
@@ -130,7 +173,8 @@
     :isShowCaption="true"
     :error="detailsModel.order.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <input-box 
   v-model="data.order"  
   @enter="onEnter($event)"  

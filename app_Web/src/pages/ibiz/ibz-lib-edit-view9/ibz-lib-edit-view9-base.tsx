@@ -48,7 +48,7 @@ export class IbzLibEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof IbzLibEditView9Base
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -125,7 +125,7 @@ export class IbzLibEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof IbzLibEditView9Base
      */ 
-    protected viewName: string = "IbzLibEditView9";
+    protected viewName: string = 'IbzLibEditView9';
 
 
     /**

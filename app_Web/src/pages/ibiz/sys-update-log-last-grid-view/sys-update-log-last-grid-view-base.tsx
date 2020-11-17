@@ -51,7 +51,7 @@ export class SysUpdateLogLastGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateLogLastGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -132,7 +132,7 @@ export class SysUpdateLogLastGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateLogLastGridViewBase
      */ 
-    protected viewName: string = "SysUpdateLogLastGridView";
+    protected viewName: string = 'SysUpdateLogLastGridView';
 
 
     /**

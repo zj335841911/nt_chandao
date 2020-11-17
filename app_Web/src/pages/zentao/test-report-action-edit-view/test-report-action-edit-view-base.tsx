@@ -48,7 +48,7 @@ export class TestReportActionEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportActionEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -118,7 +118,7 @@ export class TestReportActionEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportActionEditViewBase
      */ 
-    protected viewName: string = "TestReportActionEditView";
+    protected viewName: string = 'TestReportActionEditView';
 
 
     /**

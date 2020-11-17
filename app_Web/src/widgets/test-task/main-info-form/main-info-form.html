@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form info-form-mode'
-    ref='form'
-    id='testtask_maininfo'
+    class="app-form info-form-mode"
+    ref="form"
+    id="testtask_maininfo"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.testtask.maininfo_form.details.group1')"
@@ -31,11 +39,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.projecttname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.projecttname.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='projecttname'
+    name="projecttname"
     :itemRules="this.rules().projecttname"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.maininfo_form.details.projecttname')"
     uiStyle="DEFAULT"
@@ -43,7 +59,8 @@
     :isShowCaption="true"
     :error="detailsModel.projecttname.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker 
   :formState="formState"
@@ -67,11 +84,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.owner.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.owner.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='owner'
+    name="owner"
     :itemRules="this.rules().owner"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.maininfo_form.details.owner')"
     uiStyle="DEFAULT"
@@ -79,7 +104,8 @@
     :isShowCaption="true"
     :error="detailsModel.owner.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='owner' :value="data.owner" dataType="TEXT"     :precision="0"
 tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -88,11 +114,19 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.mailto.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='mailto'
+    name="mailto"
     :itemRules="this.rules().mailto"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.maininfo_form.details.mailto')"
     uiStyle="DEFAULT"
@@ -100,7 +134,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.mailto.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='mailto' :value="data.mailto" dataType="LONGTEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -109,11 +144,19 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.pri.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='pri'
+    name="pri"
     :itemRules="this.rules().pri"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.maininfo_form.details.pri')"
     uiStyle="DEFAULT"
@@ -121,7 +164,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.pri.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='pri' :value="data.pri" dataType="NSCODELIST"     :precision="0"
 tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -130,11 +174,19 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.begin.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='begin'
+    name="begin"
     :itemRules="this.rules().begin"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.maininfo_form.details.begin')"
     uiStyle="DEFAULT"
@@ -142,7 +194,8 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :isShowCaption="true"
     :error="detailsModel.begin.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='begin' :value="data.begin" dataType="DATE" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -151,11 +204,19 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.end.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='end'
+    name="end"
     :itemRules="this.rules().end"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.maininfo_form.details.end')"
     uiStyle="DEFAULT"
@@ -163,7 +224,8 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :isShowCaption="true"
     :error="detailsModel.end.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='end' :value="data.end" dataType="DATE" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -172,11 +234,19 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.status.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='status'
+    name="status"
     :itemRules="this.rules().status"
-    class=''
+    class=""
 
     :caption="$t('entities.testtask.maininfo_form.details.status')"
     uiStyle="DEFAULT"
@@ -184,7 +254,8 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :isShowCaption="true"
     :error="detailsModel.status.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='status' :value="data.status" dataType="SSCODELIST"     :precision="0"
 tag='Testtask__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  

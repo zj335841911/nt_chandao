@@ -109,7 +109,7 @@ export class IbzFavoritesTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof IbzFavoritesTabExpViewBase
      */ 
-    protected viewName: string = "IbzFavoritesTabExpView";
+    protected viewName: string = 'IbzFavoritesTabExpView';
 
 
     /**

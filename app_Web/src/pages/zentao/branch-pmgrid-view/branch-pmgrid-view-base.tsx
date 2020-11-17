@@ -51,7 +51,7 @@ export class BranchPMGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BranchPMGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -134,7 +134,7 @@ export class BranchPMGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BranchPMGridViewBase
      */ 
-    protected viewName: string = "BranchPMGridView";
+    protected viewName: string = 'BranchPMGridView';
 
 
     /**

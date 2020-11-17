@@ -48,7 +48,7 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
      * @type {string}
      * @memberof ProjectDashboardInfoViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -111,7 +111,7 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
      * @type {string}
      * @memberof ProjectDashboardInfoViewBase
      */ 
-    protected viewName: string = "ProjectDashboardInfoView";
+    protected viewName: string = 'ProjectDashboardInfoView';
 
 
     /**

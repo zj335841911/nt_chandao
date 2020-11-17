@@ -51,7 +51,7 @@ export class TestTaskGridView9_UnTestedBase extends GridView9Base {
      * @type {string}
      * @memberof TestTaskGridView9_UnTestedBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -128,7 +128,7 @@ export class TestTaskGridView9_UnTestedBase extends GridView9Base {
      * @type {string}
      * @memberof TestTaskGridView9_UnTestedBase
      */ 
-    protected viewName: string = "TestTaskGridView9_UnTested";
+    protected viewName: string = 'TestTaskGridView9_UnTested';
 
 
     /**

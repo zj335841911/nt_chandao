@@ -48,7 +48,7 @@ export class StoryCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryCalendarEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -136,7 +136,7 @@ export class StoryCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryCalendarEditViewBase
      */ 
-    protected viewName: string = "StoryCalendarEditView";
+    protected viewName: string = 'StoryCalendarEditView';
 
 
     /**

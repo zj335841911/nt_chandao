@@ -51,7 +51,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      * @type {string}
      * @memberof CaseStepCarryOutEditModeBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -114,7 +114,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      * @type {string}
      * @memberof CaseStepCarryOutEditModeBase
      */ 
-    protected viewName: string = "CaseStepCarryOutEditMode";
+    protected viewName: string = 'CaseStepCarryOutEditMode';
 
 
     /**

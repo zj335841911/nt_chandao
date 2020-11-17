@@ -137,7 +137,7 @@ export class ProductModuleTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof ProductModuleTreeExpViewBase
      */ 
-    protected viewName: string = "ProductModuleTreeExpView";
+    protected viewName: string = 'ProductModuleTreeExpView';
 
 
     /**

@@ -109,7 +109,7 @@ export class TaskMoreTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof TaskMoreTabExpViewBase
      */ 
-    protected viewName: string = "TaskMoreTabExpView";
+    protected viewName: string = 'TaskMoreTabExpView';
 
 
     /**

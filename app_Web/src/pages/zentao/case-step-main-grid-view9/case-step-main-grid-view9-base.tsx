@@ -51,7 +51,7 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof CaseStepMainGridView9Base
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -132,7 +132,7 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof CaseStepMainGridView9Base
      */ 
-    protected viewName: string = "CaseStepMainGridView9";
+    protected viewName: string = 'CaseStepMainGridView9';
 
 
     /**

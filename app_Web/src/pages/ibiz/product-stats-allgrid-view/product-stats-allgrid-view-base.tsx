@@ -51,7 +51,7 @@ export class ProductStatsALLGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductStatsALLGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -140,7 +140,7 @@ export class ProductStatsALLGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductStatsALLGridViewBase
      */ 
-    protected viewName: string = "ProductStatsALLGridView";
+    protected viewName: string = 'ProductStatsALLGridView';
 
 
     /**

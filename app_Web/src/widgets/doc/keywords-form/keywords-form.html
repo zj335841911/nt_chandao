@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form info-form-mode'
-    ref='form'
-    id='doc_keywords'
+    class="app-form info-form-mode"
+    ref="form"
+    id="doc_keywords"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.doc.keywords_form.details.grouppanel1')"
@@ -31,11 +39,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.keywords.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='keywords'
+    name="keywords"
     :itemRules="this.rules().keywords"
-    class=''
+    class=""
 
     :caption="$t('entities.doc.keywords_form.details.keywords')"
     uiStyle="DEFAULT"
@@ -43,7 +59,8 @@
     :isShowCaption="false"
     :error="detailsModel.keywords.error"
     :isEmptyCaption="true"
-    labelPos="NONE">
+    labelPos="NONE"
+>
     
 <app-span name='keywords' :value="data.keywords" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  

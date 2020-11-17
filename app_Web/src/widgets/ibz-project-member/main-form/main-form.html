@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form info-form-mode'
-    ref='form'
-    id='ibzprojectmember_main'
+    class="app-form info-form-mode"
+    ref="form"
+    id="ibzprojectmember_main"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.ibzprojectmember.main_form.details.group1')"
@@ -31,11 +39,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.pm.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.pm.visible"
+    :style="{'height': '36px !important',}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='pm'
+    name="pm"
     :itemRules="this.rules().pm"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzprojectmember.main_form.details.pm')"
     uiStyle="DEFAULT"
@@ -43,7 +59,8 @@
     :isShowCaption="true"
     :error="detailsModel.pm.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='pm' :value="data.pm" dataType="TEXT" unitName="（项目负责人）"     :precision="0"
 tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -52,11 +69,19 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.po.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.po.visible"
+    :style="{'height': '36px !important',}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='po'
+    name="po"
     :itemRules="this.rules().po"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzprojectmember.main_form.details.po')"
     uiStyle="DEFAULT"
@@ -64,7 +89,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.po.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='po' :value="data.po" dataType="TEXT" unitName="（产品负责人）"     :precision="0"
 tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -73,11 +99,19 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.qd.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.qd.visible"
+    :style="{'height': '36px !important',}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='qd'
+    name="qd"
     :itemRules="this.rules().qd"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzprojectmember.main_form.details.qd')"
     uiStyle="DEFAULT"
@@ -85,7 +119,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.qd.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='qd' :value="data.qd" dataType="TEXT" unitName="（测试负责人）"     :precision="0"
 tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -94,11 +129,19 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.rd.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.rd.visible"
+    :style="{'height': '36px !important',}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='rd'
+    name="rd"
     :itemRules="this.rules().rd"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzprojectmember.main_form.details.rd')"
     uiStyle="DEFAULT"
@@ -106,7 +149,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.rd.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='rd' :value="data.rd" dataType="TEXT" unitName="（发布负责人）"     :precision="0"
 tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -115,11 +159,19 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.fristmember.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.fristmember.visible"
+    :style="{'height': '36px !important',}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='fristmember'
+    name="fristmember"
     :itemRules="this.rules().fristmember"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzprojectmember.main_form.details.fristmember')"
     uiStyle="DEFAULT"
@@ -127,7 +179,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.fristmember.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='fristmember' :value="data.fristmember" dataType="TEXT"     :precision="0"
 tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -136,11 +189,19 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.secondmember.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.secondmember.visible"
+    :style="{'height': '36px !important',}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='secondmember'
+    name="secondmember"
     :itemRules="this.rules().secondmember"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzprojectmember.main_form.details.secondmember')"
     uiStyle="DEFAULT"
@@ -148,7 +209,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.secondmember.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='secondmember' :value="data.secondmember" dataType="TEXT"     :precision="0"
 tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -157,11 +219,19 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.thirdmember.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.thirdmember.visible"
+    :style="{'height': '36px !important',}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='thirdmember'
+    name="thirdmember"
     :itemRules="this.rules().thirdmember"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzprojectmember.main_form.details.thirdmember')"
     uiStyle="DEFAULT"
@@ -169,7 +239,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.thirdmember.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='thirdmember' :value="data.thirdmember" dataType="TEXT"     :precision="0"
 tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -178,11 +249,19 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.fourthmember.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.fourthmember.visible"
+    :style="{'height': '36px !important',}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='fourthmember'
+    name="fourthmember"
     :itemRules="this.rules().fourthmember"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzprojectmember.main_form.details.fourthmember')"
     uiStyle="DEFAULT"
@@ -190,7 +269,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.fourthmember.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='fourthmember' :value="data.fourthmember" dataType="TEXT"     :precision="0"
 tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -199,11 +279,19 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.fifthmember.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.fifthmember.visible"
+    :style="{'height': '36px !important',}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='fifthmember'
+    name="fifthmember"
     :itemRules="this.rules().fifthmember"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzprojectmember.main_form.details.fifthmember')"
     uiStyle="DEFAULT"
@@ -211,7 +299,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.fifthmember.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='fifthmember' :value="data.fifthmember" dataType="TEXT"     :precision="0"
 tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -220,11 +309,19 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.sixthmember.visible" :style="{'height': '36px !important',}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.sixthmember.visible"
+    :style="{'height': '36px !important',}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 12, offset: 0 }"
+>
     <app-form-item
-    name='sixthmember'
+    name="sixthmember"
     :itemRules="this.rules().sixthmember"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzprojectmember.main_form.details.sixthmember')"
     uiStyle="DEFAULT"
@@ -232,7 +329,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :isShowCaption="true"
     :error="detailsModel.sixthmember.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='sixthmember' :value="data.sixthmember" dataType="TEXT"     :precision="0"
 tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -241,7 +339,15 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 11, offset: 1 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 11, offset: 1 }"
+>
         <i-button 
         type="primary"
         @click="button1_click($event)"

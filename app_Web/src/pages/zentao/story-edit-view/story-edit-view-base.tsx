@@ -48,7 +48,7 @@ export class StoryEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -182,7 +182,7 @@ export class StoryEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryEditViewBase
      */ 
-    protected viewName: string = "StoryEditView";
+    protected viewName: string = 'StoryEditView';
 
 
     /**

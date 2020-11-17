@@ -48,7 +48,7 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TestTaskBlockOptionViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -167,7 +167,7 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TestTaskBlockOptionViewBase
      */ 
-    protected viewName: string = "TestTaskBlockOptionView";
+    protected viewName: string = 'TestTaskBlockOptionView';
 
 
     /**

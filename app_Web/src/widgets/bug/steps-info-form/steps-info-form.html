@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form'
-    ref='form'
-    id='bug_stepsinfo'
+    class="app-form"
+    ref="form"
+    id="bug_stepsinfo"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.stepsinfo_form.details.group1')"
@@ -31,11 +39,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{'height': '32px !important','width':'70px !important'}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.id.visible"
+    :style="{'height': '32px !important','width':'70px !important'}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 2, offset: 0 }"
+>
     <app-form-item
-    name='id'
+    name="id"
     :itemRules="this.rules().id"
-    class='panelitem-borad'
+    class="panelitem-borad"
 
     :caption="$t('entities.bug.stepsinfo_form.details.id')"
     uiStyle="DEFAULT"
@@ -43,7 +59,8 @@
     :isShowCaption="true"
     :error="detailsModel.id.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -52,11 +69,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 22, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.title.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 22, offset: 0 }"
+>
     <app-form-item
-    name='title'
+    name="title"
     :itemRules="this.rules().title"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.stepsinfo_form.details.title')"
     uiStyle="DEFAULT"
@@ -64,7 +89,8 @@
     :isShowCaption="true"
     :error="detailsModel.title.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='title' :value="data.title" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -73,11 +99,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.steps.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.steps.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='steps'
+    name="steps"
     :itemRules="this.rules().steps"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.stepsinfo_form.details.steps')"
     uiStyle="DEFAULT"
@@ -85,17 +119,26 @@
     :isShowCaption="false"
     :error="detailsModel.steps.error"
     :isEmptyCaption="true"
-    labelPos="NONE">
+    labelPos="NONE"
+>
     <html-container :content="data.steps"></html-container>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.stepsinfo_form.details.grouppanel1')"
@@ -113,12 +156,20 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='bug' 
+    paramItem="bug" 
     :parentdata='{"srfparentdename":"ZT_BUG","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -126,12 +177,12 @@
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='bug'
+    parameterName="bug"
     parentName="Bug"  
-    refviewtype='DELISTVIEW9' 
-    refreshitems='' 
+    refviewtype="DELISTVIEW9" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='file-list-view9' 
+    viewname="file-list-view9" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">

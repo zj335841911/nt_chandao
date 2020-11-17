@@ -48,7 +48,7 @@ export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
      * @type {string}
      * @memberof ProjectModuleQuickCfgViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -153,7 +153,7 @@ export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
      * @type {string}
      * @memberof ProjectModuleQuickCfgViewBase
      */ 
-    protected viewName: string = "ProjectModuleQuickCfgView";
+    protected viewName: string = 'ProjectModuleQuickCfgView';
 
 
     /**

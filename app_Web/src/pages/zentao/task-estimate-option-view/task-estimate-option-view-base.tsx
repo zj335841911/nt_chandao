@@ -48,7 +48,7 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskEstimateOptionViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -153,7 +153,7 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskEstimateOptionViewBase
      */ 
-    protected viewName: string = "TaskEstimateOptionView";
+    protected viewName: string = 'TaskEstimateOptionView';
 
 
     /**

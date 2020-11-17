@@ -51,7 +51,7 @@ export class BugReleaseSubGridView_DoneBase extends GridViewBase {
      * @type {string}
      * @memberof BugReleaseSubGridView_DoneBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -136,7 +136,7 @@ export class BugReleaseSubGridView_DoneBase extends GridViewBase {
      * @type {string}
      * @memberof BugReleaseSubGridView_DoneBase
      */ 
-    protected viewName: string = "BugReleaseSubGridView_Done";
+    protected viewName: string = 'BugReleaseSubGridView_Done';
 
 
     /**

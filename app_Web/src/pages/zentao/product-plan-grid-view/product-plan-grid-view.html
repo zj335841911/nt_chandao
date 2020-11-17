@@ -1,6 +1,6 @@
 <studio-view viewName="productplangridview" viewTitle="产品计划表格视图" class='degridview product-plan-grid-view'>
     <i-input
-        slot='quickSearch'
+        slot="quickSearch"
         clearable
         
         v-model="query"
@@ -11,6 +11,7 @@
     <template slot="quickGroupSearch">
         <app-quick-group
             :items="quickGroupModel"
+            
             @valuechange="quickGroupValueChange($event)"
         ></app-quick-group>
     </template>

@@ -109,7 +109,7 @@ export class ProjectMainDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof ProjectMainDashboardViewBase
      */ 
-    protected viewName: string = "ProjectMainDashboardView";
+    protected viewName: string = 'ProjectMainDashboardView';
 
 
     /**

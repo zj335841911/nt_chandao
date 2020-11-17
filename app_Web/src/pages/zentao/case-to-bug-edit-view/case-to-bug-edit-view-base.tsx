@@ -48,7 +48,7 @@ export class CaseToBugEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseToBugEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -146,7 +146,7 @@ export class CaseToBugEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseToBugEditViewBase
      */ 
-    protected viewName: string = "CaseToBugEditView";
+    protected viewName: string = 'CaseToBugEditView';
 
 
     /**

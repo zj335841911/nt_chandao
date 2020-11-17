@@ -51,7 +51,7 @@ export class CaseMainMyGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseMainMyGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -128,7 +128,7 @@ export class CaseMainMyGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseMainMyGridViewBase
      */ 
-    protected viewName: string = "CaseMainMyGridView";
+    protected viewName: string = 'CaseMainMyGridView';
 
 
     /**

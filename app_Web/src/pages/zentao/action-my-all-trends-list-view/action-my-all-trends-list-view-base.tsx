@@ -51,7 +51,7 @@ export class ActionMyAllTrendsListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionMyAllTrendsListViewBase
      */ 
-    protected dataControl: string = "list";
+    protected dataControl: string = 'list';
 
     /**
      * 实体服务对象
@@ -114,7 +114,7 @@ export class ActionMyAllTrendsListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionMyAllTrendsListViewBase
      */ 
-    protected viewName: string = "ActionMyAllTrendsListView";
+    protected viewName: string = 'ActionMyAllTrendsListView';
 
 
     /**

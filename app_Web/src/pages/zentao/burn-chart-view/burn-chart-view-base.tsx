@@ -122,7 +122,7 @@ export class BurnChartViewBase extends ChartViewBase {
      * @type {string}
      * @memberof BurnChartViewBase
      */ 
-    protected viewName: string = "BurnChartView";
+    protected viewName: string = 'BurnChartView';
 
 
     /**

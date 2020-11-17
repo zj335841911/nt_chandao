@@ -109,7 +109,7 @@ export class IbzMyTerritoryProductSumTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryProductSumTreeExpViewBase
      */ 
-    protected viewName: string = "IbzMyTerritoryProductSumTreeExpView";
+    protected viewName: string = 'IbzMyTerritoryProductSumTreeExpView';
 
 
     /**

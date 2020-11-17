@@ -51,7 +51,7 @@ export class DocGridView10Base extends GridView9Base {
      * @type {string}
      * @memberof DocGridView10Base
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -132,7 +132,7 @@ export class DocGridView10Base extends GridView9Base {
      * @type {string}
      * @memberof DocGridView10Base
      */ 
-    protected viewName: string = "DocGridView10";
+    protected viewName: string = 'DocGridView10';
 
 
     /**

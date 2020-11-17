@@ -51,7 +51,7 @@ export class ProjectModuleMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectModuleMainGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -150,7 +150,7 @@ export class ProjectModuleMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectModuleMainGridViewBase
      */ 
-    protected viewName: string = "ProjectModuleMainGridView";
+    protected viewName: string = 'ProjectModuleMainGridView';
 
 
     /**

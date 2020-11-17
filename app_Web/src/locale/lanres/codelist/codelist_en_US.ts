@@ -534,6 +534,9 @@ export default {
         "closed": "已关闭",
         "empty": ""
     },
+    AllRepo: {
+        "empty": "",
+    },
     Project_staus: {
         "doing": "进行中",
         "suspended": "已挂起",
@@ -747,6 +750,9 @@ export default {
         "1": "不需要评审",
         "empty": ""
     },
+    AllTask: {
+        "empty": "",
+    },
     File__object_type: {
         "product": "产品",
         "story": "需求",
@@ -823,6 +829,9 @@ export default {
         "1": "星期日",
         "empty": ""
     },
+    AllTestTask: {
+        "empty": "",
+    },
     TestTask: {
         "empty": "",
     },
@@ -839,6 +848,9 @@ export default {
         "normal": "正常",
         "closed": "结束",
         "empty": ""
+    },
+    AllEntry: {
+        "empty": "",
     },
     Task__type: {
         "design": "设计",

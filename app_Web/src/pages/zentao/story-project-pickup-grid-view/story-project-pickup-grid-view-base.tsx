@@ -48,7 +48,7 @@ export class StoryProjectPickupGridViewBase extends PickupGridViewBase {
      * @type {string}
      * @memberof StoryProjectPickupGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -133,7 +133,7 @@ export class StoryProjectPickupGridViewBase extends PickupGridViewBase {
      * @type {string}
      * @memberof StoryProjectPickupGridViewBase
      */ 
-    protected viewName: string = "StoryProjectPickupGridView";
+    protected viewName: string = 'StoryProjectPickupGridView';
 
 
     /**

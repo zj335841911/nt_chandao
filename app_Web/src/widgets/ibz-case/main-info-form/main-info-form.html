@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form info-form-mode'
-    ref='form'
-    id='ibzcase_maininfo'
+    class="app-form info-form-mode"
+    ref="form"
+    id="ibzcase_maininfo"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.ibzcase.maininfo_form.details.group1')"
@@ -31,11 +39,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 1, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.id.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 1, offset: 0 }"
+>
     <app-form-item
-    name='id'
+    name="id"
     :itemRules="this.rules().id"
-    class='panelitem-borad'
+    class="panelitem-borad"
 
     :caption="$t('entities.ibzcase.maininfo_form.details.id')"
     uiStyle="DEFAULT"
@@ -43,7 +59,8 @@
     :isShowCaption="true"
     :error="detailsModel.id.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="height:32px;width:40px;">  
@@ -52,11 +69,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 22, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.title.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 22, offset: 0 }"
+>
     <app-form-item
-    name='title'
+    name="title"
     :itemRules="this.rules().title"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzcase.maininfo_form.details.title')"
     uiStyle="DEFAULT"
@@ -64,7 +89,8 @@
     :isShowCaption="true"
     :error="detailsModel.title.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='title' :value="data.title" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -73,11 +99,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.precondition.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.precondition.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='precondition'
+    name="precondition"
     :itemRules="this.rules().precondition"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzcase.maininfo_form.details.precondition')"
     uiStyle="DEFAULT"
@@ -85,17 +119,26 @@
     :isShowCaption="true"
     :error="detailsModel.precondition.error"
     :isEmptyCaption="false"
-    labelPos="TOP">
+    labelPos="TOP"
+>
     <html-container :content="data.precondition"></html-container>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.druipart2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart2.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='ibzcase' 
+    paramItem="ibzcase" 
     :parentdata='{"srfparentdefname":"CASE","srfparentdename":"IBZ_CASE","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_IBZ_LIBCASESTEPS_IBZ_CASE_CASE","SRFDER1NID":"DER1N_IBZ_LIBCASESTEPS_IBZ_CASE_CASE"}'
     :parameters="[
         {
@@ -107,24 +150,32 @@
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='ibzcase'
+    parameterName="ibzcase"
     parentName="IbzCase"  
-    refviewtype='DEGRIDVIEW9' 
-    refreshitems='' 
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='ibz-lib-case-steps-info-grid-view9' 
+    viewname="ibz-lib-case-steps-info-grid-view9" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.ibzcase.maininfo_form.details.grouppanel1')"
@@ -142,12 +193,20 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='ibzcase' 
+    paramItem="ibzcase" 
     :parentdata='{"srfparentdename":"IBZ_CASE","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -155,12 +214,12 @@
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='ibzcase'
+    parameterName="ibzcase"
     parentName="IbzCase"  
-    refviewtype='DELISTVIEW9' 
-    refreshitems='' 
+    refviewtype="DELISTVIEW9" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='file-list-view9' 
+    viewname="file-list-view9" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">

@@ -48,7 +48,7 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
      * @type {string}
      * @memberof BugPickupGridView4Base
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -125,7 +125,7 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
      * @type {string}
      * @memberof BugPickupGridView4Base
      */ 
-    protected viewName: string = "BugPickupGridView4";
+    protected viewName: string = 'BugPickupGridView4';
 
 
     /**

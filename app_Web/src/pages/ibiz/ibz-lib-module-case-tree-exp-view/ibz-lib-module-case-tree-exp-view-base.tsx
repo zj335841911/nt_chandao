@@ -109,7 +109,7 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof IbzLibModuleCaseTreeExpViewBase
      */ 
-    protected viewName: string = "IbzLibModuleCaseTreeExpView";
+    protected viewName: string = 'IbzLibModuleCaseTreeExpView';
 
 
     /**

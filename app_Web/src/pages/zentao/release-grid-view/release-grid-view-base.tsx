@@ -51,7 +51,7 @@ export class ReleaseGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ReleaseGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -134,7 +134,7 @@ export class ReleaseGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ReleaseGridViewBase
      */ 
-    protected viewName: string = "ReleaseGridView";
+    protected viewName: string = 'ReleaseGridView';
 
 
     /**

@@ -51,7 +51,7 @@ export class FileListView9Base extends ListView9Base {
      * @type {string}
      * @memberof FileListView9Base
      */ 
-    protected dataControl: string = "list";
+    protected dataControl: string = 'list';
 
     /**
      * 实体服务对象
@@ -128,7 +128,7 @@ export class FileListView9Base extends ListView9Base {
      * @type {string}
      * @memberof FileListView9Base
      */ 
-    protected viewName: string = "FileListView9";
+    protected viewName: string = 'FileListView9';
 
 
     /**

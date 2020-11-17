@@ -51,7 +51,7 @@ export class DocMyFavouriteGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocMyFavouriteGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -118,7 +118,7 @@ export class DocMyFavouriteGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocMyFavouriteGridViewBase
      */ 
-    protected viewName: string = "DocMyFavouriteGridView";
+    protected viewName: string = 'DocMyFavouriteGridView';
 
 
     /**

@@ -1,18 +1,26 @@
 <i-form
     :model="this.data"
-    class='app-form'
-    ref='form'
-    id='testreport_tosumup'
+    class="app-form"
+    ref="form"
+    id="testreport_tosumup"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.report.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.report.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='report'
+    name="report"
     :itemRules="this.rules().report"
-    class=''
+    class=""
 
     :caption="$t('entities.testreport.tosumup_form.details.report')"
     uiStyle="DEFAULT"
@@ -20,12 +28,21 @@
     :isShowCaption="true"
     :error="detailsModel.report.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <html-container :content="data.report"></html-container>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.rawitem1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-rawitem
     :viewparams="viewparams" 
     :context="context"
@@ -33,6 +50,7 @@
     sizeStyle=""
     contentType="RAW"
     :htmlContent='``'
+
 >
         无
 </app-rawitem>

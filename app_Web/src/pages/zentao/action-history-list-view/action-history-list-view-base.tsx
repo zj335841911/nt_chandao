@@ -51,7 +51,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionHistoryListViewBase
      */ 
-    protected dataControl: string = "list";
+    protected dataControl: string = 'list';
 
     /**
      * 实体服务对象
@@ -150,7 +150,7 @@ export class ActionHistoryListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionHistoryListViewBase
      */ 
-    protected viewName: string = "ActionHistoryListView";
+    protected viewName: string = 'ActionHistoryListView';
 
 
     /**

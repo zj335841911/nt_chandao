@@ -51,7 +51,7 @@ export class TaskMyFavoriteGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskMyFavoriteGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -132,7 +132,7 @@ export class TaskMyFavoriteGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskMyFavoriteGridViewBase
      */ 
-    protected viewName: string = "TaskMyFavoriteGridView";
+    protected viewName: string = 'TaskMyFavoriteGridView';
 
 
     /**

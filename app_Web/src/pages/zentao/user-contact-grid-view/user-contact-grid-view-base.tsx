@@ -51,7 +51,7 @@ export class UserContactGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof UserContactGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -142,7 +142,7 @@ export class UserContactGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof UserContactGridViewBase
      */ 
-    protected viewName: string = "UserContactGridView";
+    protected viewName: string = 'UserContactGridView';
 
 
     /**

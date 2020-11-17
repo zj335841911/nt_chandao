@@ -130,7 +130,7 @@ export class ProjectChartView9Base extends ChartView9Base {
      * @type {string}
      * @memberof ProjectChartView9Base
      */ 
-    protected viewName: string = "ProjectChartView9";
+    protected viewName: string = 'ProjectChartView9';
 
 
     /**

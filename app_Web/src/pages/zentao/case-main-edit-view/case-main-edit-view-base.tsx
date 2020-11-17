@@ -48,7 +48,7 @@ export class CaseMainEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseMainEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -152,7 +152,7 @@ export class CaseMainEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseMainEditViewBase
      */ 
-    protected viewName: string = "CaseMainEditView";
+    protected viewName: string = 'CaseMainEditView';
 
 
     /**

@@ -137,7 +137,7 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof DocLibLibTabExpViewBase
      */ 
-    protected viewName: string = "DocLibLibTabExpView";
+    protected viewName: string = 'DocLibLibTabExpView';
 
 
     /**

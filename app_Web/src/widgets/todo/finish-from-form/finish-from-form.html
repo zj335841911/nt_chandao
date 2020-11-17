@@ -1,14 +1,22 @@
 <i-form
     :model="this.data"
-    class='app-form'
-    ref='form'
-    id='todo_finishfrom'
+    class="app-form"
+    ref="form"
+    id="todo_finishfrom"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 20, offset: 4 }" :xl="{ span: 20, offset: 4 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.rawitem1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 20, offset: 4 }"
+     :xl="{ span: 20, offset: 4 }"
+>
     <app-rawitem
     :viewparams="viewparams" 
     :context="context"
@@ -16,6 +24,7 @@
     sizeStyle=""
     contentType="RAW"
     :htmlContent='``'
+
 >
         您确定这条待办已经完成了吗？
 </app-rawitem>

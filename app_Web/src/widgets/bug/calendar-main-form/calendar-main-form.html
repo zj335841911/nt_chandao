@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form info-form-mode'
-    ref='form'
-    id='bug_calendarmain'
+    class="app-form info-form-mode"
+    ref="form"
+    id="bug_calendarmain"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.calendarmain_form.details.group1')"
@@ -31,12 +39,20 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 5, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel2.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 5, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel2"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.calendarmain_form.details.grouppanel2')"
@@ -54,11 +70,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 11, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.id.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 11, offset: 0 }"
+>
     <app-form-item
-    name='id'
+    name="id"
     :itemRules="this.rules().id"
-    class='panelitem-borad'
+    class="panelitem-borad"
 
     :caption="$t('entities.bug.calendarmain_form.details.id')"
     uiStyle="DEFAULT"
@@ -66,7 +90,8 @@
     :isShowCaption="true"
     :error="detailsModel.id.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -75,11 +100,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 13, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.status.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 13, offset: 0 }"
+>
     <app-form-item
-    name='status'
+    name="status"
     :itemRules="this.rules().status"
-    class='panelitem-borad'
+    class="panelitem-borad"
 
     :caption="$t('entities.bug.calendarmain_form.details.status')"
     uiStyle="DEFAULT"
@@ -87,7 +120,8 @@
     :isShowCaption="true"
     :error="detailsModel.status.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='status' :value="data.status" dataType="SSCODELIST"     :precision="0"
 tag='Bug__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -101,11 +135,19 @@ tag='Bug__status' codelistType='STATIC' :data="data" :context="context" :viewpar
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 19, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.title.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 19, offset: 0 }"
+>
     <app-form-item
-    name='title'
+    name="title"
     :itemRules="this.rules().title"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.calendarmain_form.details.title')"
     uiStyle="DEFAULT"
@@ -113,7 +155,8 @@ tag='Bug__status' codelistType='STATIC' :data="data" :context="context" :viewpar
     :isShowCaption="true"
     :error="detailsModel.title.error"
     :isEmptyCaption="true"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='title' :value="data.title" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -122,11 +165,19 @@ tag='Bug__status' codelistType='STATIC' :data="data" :context="context" :viewpar
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.severity.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.severity.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 8, offset: 0 }"
+>
     <app-form-item
-    name='severity'
+    name="severity"
     :itemRules="this.rules().severity"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.calendarmain_form.details.severity')"
     uiStyle="DEFAULT"
@@ -134,7 +185,8 @@ tag='Bug__status' codelistType='STATIC' :data="data" :context="context" :viewpar
     :isShowCaption="true"
     :error="detailsModel.severity.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='severity' :value="data.severity" dataType="NSCODELIST"     :precision="0"
 tag='Bug__severity' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -143,11 +195,19 @@ tag='Bug__severity' codelistType='STATIC' :data="data" :context="context" :viewp
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.pri.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 8, offset: 0 }"
+>
     <app-form-item
-    name='pri'
+    name="pri"
     :itemRules="this.rules().pri"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.calendarmain_form.details.pri')"
     uiStyle="DEFAULT"
@@ -155,7 +215,8 @@ tag='Bug__severity' codelistType='STATIC' :data="data" :context="context" :viewp
     :isShowCaption="true"
     :error="detailsModel.pri.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='pri' :value="data.pri" dataType="NSCODELIST"     :precision="0"
 tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -164,11 +225,19 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.deadline.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.deadline.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 8, offset: 0 }"
+>
     <app-form-item
-    name='deadline'
+    name="deadline"
     :itemRules="this.rules().deadline"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.calendarmain_form.details.deadline')"
     uiStyle="DEFAULT"
@@ -176,7 +245,8 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :isShowCaption="true"
     :error="detailsModel.deadline.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='deadline' :value="data.deadline" dataType="DATE" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -185,12 +255,20 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel3.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 20, offset: 0 }"
+>
     <app-form-group
     :model="detailsModel.grouppanel3"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel3.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.calendarmain_form.details.grouppanel3')"
@@ -208,7 +286,15 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.button1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 2, offset: 0 }"
+>
         <i-button 
         type="primary"
         @click="button1_click($event)"
@@ -220,7 +306,15 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     </i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button2.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 2, offset: 0 }"
+>
         <i-button 
         type="primary"
         @click="button2_click($event)"
@@ -232,7 +326,15 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     </i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button3.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 2, offset: 0 }"
+>
         <i-button 
         type="primary"
         @click="button3_click($event)"
@@ -244,7 +346,15 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     </i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button4.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 2, offset: 0 }"
+>
         <i-button 
         type="primary"
         @click="button4_click($event)"
@@ -256,7 +366,15 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     </i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button5.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 2, offset: 0 }"
+>
         <i-button 
         type="primary"
         @click="button5_click($event)"
@@ -268,7 +386,15 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     </i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button6.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+     :xl="{ span: 2, offset: 0 }"
+>
         <i-button 
         type="primary"
         @click="button6_click($event)"
@@ -285,12 +411,20 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel4.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel4"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel4.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.calendarmain_form.details.grouppanel4')"
@@ -308,11 +442,19 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.steps.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.steps.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='steps'
+    name="steps"
     :itemRules="this.rules().steps"
-    class=''
+    class=""
 
     :caption="$t('entities.bug.calendarmain_form.details.steps')"
     uiStyle="DEFAULT"
@@ -320,7 +462,8 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :isShowCaption="false"
     :error="detailsModel.steps.error"
     :isEmptyCaption="true"
-    labelPos="NONE">
+    labelPos="NONE"
+>
     <html-container :content="data.steps"></html-container>
 </app-form-item>
 
@@ -330,12 +473,20 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.bug.calendarmain_form.details.grouppanel1')"
@@ -353,12 +504,20 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='bug' 
+    paramItem="bug" 
     :parentdata='{"srfparentdename":"ZT_BUG","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -366,12 +525,12 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='bug'
+    parameterName="bug"
     parentName="Bug"  
-    refviewtype='DELISTVIEW' 
-    refreshitems='' 
+    refviewtype="DELISTVIEW" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='action-add-comment-history-list-view' 
+    viewname="action-add-comment-history-list-view" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">

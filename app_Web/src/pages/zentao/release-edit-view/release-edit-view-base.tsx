@@ -48,7 +48,7 @@ export class ReleaseEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ReleaseEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -134,7 +134,7 @@ export class ReleaseEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ReleaseEditViewBase
      */ 
-    protected viewName: string = "ReleaseEditView";
+    protected viewName: string = 'ReleaseEditView';
 
 
     /**

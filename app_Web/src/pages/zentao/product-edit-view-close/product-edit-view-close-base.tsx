@@ -48,7 +48,7 @@ export class ProductEditView_CloseBase extends EditViewBase {
      * @type {string}
      * @memberof ProductEditView_CloseBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -134,7 +134,7 @@ export class ProductEditView_CloseBase extends EditViewBase {
      * @type {string}
      * @memberof ProductEditView_CloseBase
      */ 
-    protected viewName: string = "ProductEditView_Close";
+    protected viewName: string = 'ProductEditView_Close';
 
 
     /**

@@ -48,7 +48,7 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ProductPlanMainDataEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -156,7 +156,7 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ProductPlanMainDataEditViewBase
      */ 
-    protected viewName: string = "ProductPlanMainDataEditView";
+    protected viewName: string = 'ProductPlanMainDataEditView';
 
 
     /**

@@ -109,7 +109,7 @@ export class DocLibDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof DocLibDashboardViewBase
      */ 
-    protected viewName: string = "DocLibDashboardView";
+    protected viewName: string = 'DocLibDashboardView';
 
 
     /**

@@ -1,26 +1,26 @@
 <i-form
     :model="this.data"
-    class='app-form info-form-mode'
-    ref='form'
-    id='productplan_maindata'
+    class="app-form info-form-mode"
+    ref="form"
+    id="productplan_maindata"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
+    <row>
     <tabs
         :animated="false"
         size="small"
-        name='maindata'
+        name="maindata"
         :value="detailsModel.form.activiedPage" 
         @on-click="detailsModel.form.clickPage($event)"
     >
         <tab-pane
             v-show="detailsModel.formpage2.visible"
-            name='formpage2'
+            name="formpage2"
             :index="0"
-            tab='maindata'
-            class=''  
+            tab="maindata"
+            class=""  
             :label="(h) =>{
                 return h('span',{
                     class:'caption'
@@ -35,12 +35,20 @@
                 ])
             }"
         >
-                <i-col class="form-layout-container" v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+                <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel4.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel4"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel4.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.productplan.maindata_form.details.grouppanel4')"
@@ -58,12 +66,20 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart2.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='productplan' 
+    paramItem="productplan" 
     :parentdata='{"srfparentdename":"ZT_PRODUCTPLAN","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
         {
@@ -75,12 +91,12 @@
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='productplan'
+    parameterName="productplan"
     parentName="ProductPlan"  
-    refviewtype='DEGRIDVIEW' 
-    refreshitems='' 
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='story-plan-sub-grid-view' 
+    viewname="story-plan-sub-grid-view" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
@@ -97,10 +113,10 @@
         </tab-pane> 
         <tab-pane
             v-show="detailsModel.formpage3.visible"
-            name='formpage3'
+            name="formpage3"
             :index="1"
-            tab='maindata'
-            class=''  
+            tab="maindata"
+            class=""  
             :label="(h) =>{
                 return h('span',{
                     class:'caption'
@@ -109,12 +125,20 @@
                 ])
             }"
         >
-                <i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+                <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel3.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel3"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel3.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.productplan.maindata_form.details.grouppanel3')"
@@ -132,12 +156,20 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart3.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='productplan' 
+    paramItem="productplan" 
     :parentdata='{"srfparentdefname":"PLAN","srfparentdename":"ZT_PRODUCTPLAN","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_BUG_ZT_PRODUCTPLAN_PLAN","SRFDER1NID":"DER1N_ZT_BUG_ZT_PRODUCTPLAN_PLAN"}'
     :parameters="[
         {
@@ -149,12 +181,12 @@
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='productplan'
+    parameterName="productplan"
     parentName="ProductPlan"  
-    refviewtype='DEGRIDVIEW' 
-    refreshitems='' 
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='bug-plan-sub-grid-view' 
+    viewname="bug-plan-sub-grid-view" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
@@ -171,10 +203,10 @@
         </tab-pane> 
         <tab-pane
             v-show="detailsModel.formpage1.visible"
-            name='formpage1'
+            name="formpage1"
             :index="2"
-            tab='maindata'
-            class=''  
+            tab="maindata"
+            class=""  
             :label="(h) =>{
                 return h('span',{
                     class:'caption'
@@ -183,12 +215,20 @@
                 ])
             }"
         >
-                <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+                <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.productplan.maindata_form.details.group1')"
@@ -206,12 +246,20 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.productplan.maindata_form.details.grouppanel1')"
@@ -229,11 +277,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.title.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='title'
+    name="title"
     :itemRules="this.rules().title"
-    class=''
+    class=""
 
     :caption="$t('entities.productplan.maindata_form.details.title')"
     uiStyle="DEFAULT"
@@ -241,7 +297,8 @@
     :isShowCaption="true"
     :error="detailsModel.title.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='title' :value="data.title" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -250,11 +307,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.beginstr.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.beginstr.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='beginstr'
+    name="beginstr"
     :itemRules="this.rules().beginstr"
-    class=''
+    class=""
 
     :caption="$t('entities.productplan.maindata_form.details.beginstr')"
     uiStyle="DEFAULT"
@@ -262,7 +327,8 @@
     :isShowCaption="true"
     :error="detailsModel.beginstr.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='beginstr' :value="data.beginstr" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -271,11 +337,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.endstr.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.endstr.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='endstr'
+    name="endstr"
     :itemRules="this.rules().endstr"
-    class=''
+    class=""
 
     :caption="$t('entities.productplan.maindata_form.details.endstr')"
     uiStyle="DEFAULT"
@@ -283,7 +357,8 @@
     :isShowCaption="true"
     :error="detailsModel.endstr.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='endstr' :value="data.endstr" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -292,12 +367,20 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel5.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel5"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel5.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.productplan.maindata_form.details.grouppanel5')"
@@ -315,12 +398,20 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart4.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='productplan' 
+    paramItem="productplan" 
     :parentdata='{"srfparentdefname":"PARENT","srfparentdename":"ZT_PRODUCTPLAN","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N__ZT_PRODUCTPLAN__ZT_PRODUCTPLAN__PARENT","SRFDER1NID":"DER1N__ZT_PRODUCTPLAN__ZT_PRODUCTPLAN__PARENT"}'
     :parameters="[
         {
@@ -332,12 +423,12 @@
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='productplan'
+    parameterName="productplan"
     parentName="ProductPlan"  
-    refviewtype='DEGRIDVIEW' 
-    refreshitems='' 
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='product-plan-sub-plan-grid-view' 
+    viewname="product-plan-sub-plan-grid-view" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
@@ -349,11 +440,19 @@
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.desc.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='desc'
+    name="desc"
     :itemRules="this.rules().desc"
-    class=''
+    class=""
 
     :caption="$t('entities.productplan.maindata_form.details.desc')"
     uiStyle="DEFAULT"
@@ -361,17 +460,26 @@
     :isShowCaption="true"
     :error="detailsModel.desc.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     <html-container :content="data.desc"></html-container>
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel2.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.grouppanel2"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.productplan.maindata_form.details.grouppanel2')"
@@ -389,12 +497,20 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-druipart
     
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
-    paramItem='productplan' 
+    paramItem="productplan" 
     :parentdata='{"srfparentdename":"ZT_PRODUCTPLAN","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
@@ -402,12 +518,12 @@
     :viewparams="viewparams"
     :localContext ='{}'
     :localParam ='{}'
-    parameterName='productplan'
+    parameterName="productplan"
     parentName="ProductPlan"  
-    refviewtype='DELISTVIEW' 
-    refreshitems='' 
+    refviewtype="DELISTVIEW" 
+    refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='action-add-comment-history-list-view' 
+    viewname="action-add-comment-history-list-view" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">

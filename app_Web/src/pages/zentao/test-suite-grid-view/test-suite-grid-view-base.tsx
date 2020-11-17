@@ -51,7 +51,7 @@ export class TestSuiteGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestSuiteGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -134,7 +134,7 @@ export class TestSuiteGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestSuiteGridViewBase
      */ 
-    protected viewName: string = "TestSuiteGridView";
+    protected viewName: string = 'TestSuiteGridView';
 
 
     /**

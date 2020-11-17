@@ -48,7 +48,7 @@ export class BugStatsEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugStatsEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -140,7 +140,7 @@ export class BugStatsEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugStatsEditViewBase
      */ 
-    protected viewName: string = "BugStatsEditView";
+    protected viewName: string = 'BugStatsEditView';
 
 
     /**

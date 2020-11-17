@@ -51,7 +51,7 @@ export class SysUpdateLogGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateLogGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -142,7 +142,7 @@ export class SysUpdateLogGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateLogGridViewBase
      */ 
-    protected viewName: string = "SysUpdateLogGridView";
+    protected viewName: string = 'SysUpdateLogGridView';
 
 
     /**

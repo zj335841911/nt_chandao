@@ -51,7 +51,7 @@ export class BugGridView9_StoryFormBugBase extends GridView9Base {
      * @type {string}
      * @memberof BugGridView9_StoryFormBugBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -150,7 +150,7 @@ export class BugGridView9_StoryFormBugBase extends GridView9Base {
      * @type {string}
      * @memberof BugGridView9_StoryFormBugBase
      */ 
-    protected viewName: string = "BugGridView9_StoryFormBug";
+    protected viewName: string = 'BugGridView9_StoryFormBug';
 
 
     /**

@@ -127,7 +127,7 @@ export class TaskMainDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof TaskMainDashboardViewBase
      */ 
-    protected viewName: string = "TaskMainDashboardView";
+    protected viewName: string = 'TaskMainDashboardView';
 
 
     /**

@@ -51,7 +51,7 @@ export class StoryMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryMainGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -152,7 +152,7 @@ export class StoryMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryMainGridViewBase
      */ 
-    protected viewName: string = "StoryMainGridView";
+    protected viewName: string = 'StoryMainGridView';
 
 
     /**

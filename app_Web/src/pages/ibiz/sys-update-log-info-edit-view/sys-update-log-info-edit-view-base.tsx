@@ -48,7 +48,7 @@ export class SysUpdateLogInfoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof SysUpdateLogInfoEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -118,7 +118,7 @@ export class SysUpdateLogInfoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof SysUpdateLogInfoEditViewBase
      */ 
-    protected viewName: string = "SysUpdateLogInfoEditView";
+    protected viewName: string = 'SysUpdateLogInfoEditView';
 
 
     /**

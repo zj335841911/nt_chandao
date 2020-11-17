@@ -127,7 +127,7 @@ export class StoryMainViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof StoryMainViewBase
      */ 
-    protected viewName: string = "StoryMainView";
+    protected viewName: string = 'StoryMainView';
 
 
     /**

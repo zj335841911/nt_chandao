@@ -3940,6 +3940,7 @@ public class StaticDict {
 
 
 
+
     /**
      * 代码表[测试用例颜色]
      */
@@ -4818,6 +4819,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**

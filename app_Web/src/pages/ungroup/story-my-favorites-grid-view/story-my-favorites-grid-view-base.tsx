@@ -51,7 +51,7 @@ export class StoryMyFavoritesGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryMyFavoritesGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -152,7 +152,7 @@ export class StoryMyFavoritesGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryMyFavoritesGridViewBase
      */ 
-    protected viewName: string = "StoryMyFavoritesGridView";
+    protected viewName: string = 'StoryMyFavoritesGridView';
 
 
     /**

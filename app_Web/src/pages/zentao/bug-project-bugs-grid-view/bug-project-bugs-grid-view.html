@@ -1,13 +1,13 @@
 <studio-view viewName="bugprojectbugsgridview" viewTitle="Bug实体表格视图(项目遗留得Bug)" class='degridview bug-project-bugs-grid-view'>
-    <template slot='title'>
-    <span class='caption-image'>
-            <i class='
-    fa fa-bug    '></i>
+    <template slot="title">
+    <span class="caption-image">
+            <i class="
+    fa fa-bug    "></i>
         </span>
-    <span class='caption-info'>{{viewCaption}}</span>
+    <span class="caption-info">{{viewCaption}}</span>
     </template>
     <i-input
-        slot='quickSearch'
+        slot="quickSearch"
         clearable
         v-show="!isExpandSearchForm"
         v-model="query"

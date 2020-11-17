@@ -1,13 +1,13 @@
 <studio-view viewName="caselinkcasegridview" viewTitle="测试用例表格视图（关联用例）" class='degridview case-link-case-grid-view'>
-    <template slot='title'>
-    <span class='caption-image'>
-            <i class='
-    fa fa-star-o    '></i>
+    <template slot="title">
+    <span class="caption-image">
+            <i class="
+    fa fa-star-o    "></i>
         </span>
-    <span class='caption-info'>{{viewCaption}}</span>
+    <span class="caption-info">{{viewCaption}}</span>
     </template>
     <i-input
-        slot='quickSearch'
+        slot="quickSearch"
         clearable
         v-show="!isExpandSearchForm"
         v-model="query"

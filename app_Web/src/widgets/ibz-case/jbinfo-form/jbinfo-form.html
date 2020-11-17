@@ -1,19 +1,27 @@
 <i-form
     :model="this.data"
-    class='app-form info-form-mode'
-    ref='form'
-    id='ibzcase_jbinfo'
+    class="app-form info-form-mode"
+    ref="form"
+    id="ibzcase_jbinfo"
     style=""
     @on-validate="formItemValidate.apply(_self, arguments)"
 >
     <input style="display:none;" />
-    <row >
-            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-group
     :model="detailsModel.group1"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=''
+    class=""
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.ibzcase.jbinfo_form.details.group1')"
@@ -31,11 +39,19 @@
         :viewparams="viewparams"
     />
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.libname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.libname.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='libname'
+    name="libname"
     :itemRules="this.rules().libname"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzcase.jbinfo_form.details.libname')"
     uiStyle="DEFAULT"
@@ -43,7 +59,8 @@
     :isShowCaption="true"
     :error="detailsModel.libname.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-picker 
   :formState="formState"
@@ -67,11 +84,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.modulename.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='modulename'
+    name="modulename"
     :itemRules="this.rules().modulename"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzcase.jbinfo_form.details.modulename')"
     uiStyle="DEFAULT"
@@ -79,7 +104,8 @@
     :isShowCaption="true"
     :error="detailsModel.modulename.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='modulename' :value="data.modulename" dataType="PICKUPTEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -88,11 +114,19 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.type.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='type'
+    name="type"
     :itemRules="this.rules().type"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzcase.jbinfo_form.details.type')"
     uiStyle="DEFAULT"
@@ -100,7 +134,8 @@
     :isShowCaption="true"
     :error="detailsModel.type.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='type' :value="data.type" dataType="SSCODELIST"     :precision="0"
 tag='Testcase__type' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -109,11 +144,19 @@ tag='Testcase__type' codelistType='STATIC' :data="data" :context="context" :view
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.stage.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.stage.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='stage'
+    name="stage"
     :itemRules="this.rules().stage"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzcase.jbinfo_form.details.stage')"
     uiStyle="DEFAULT"
@@ -121,7 +164,8 @@ tag='Testcase__type' codelistType='STATIC' :data="data" :context="context" :view
     :isShowCaption="true"
     :error="detailsModel.stage.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='stage' :value="data.stage" dataType="SMCODELIST"     :precision="0"
 tag='Testcase__stage' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -130,11 +174,19 @@ tag='Testcase__stage' codelistType='STATIC' :data="data" :context="context" :vie
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.pri.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='pri'
+    name="pri"
     :itemRules="this.rules().pri"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzcase.jbinfo_form.details.pri')"
     uiStyle="DEFAULT"
@@ -142,7 +194,8 @@ tag='Testcase__stage' codelistType='STATIC' :data="data" :context="context" :vie
     :isShowCaption="true"
     :error="detailsModel.pri.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='pri' :value="data.pri" dataType="SSCODELIST"     :precision="0"
 tag='Testcase__pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -151,11 +204,19 @@ tag='Testcase__pri' codelistType='STATIC' :data="data" :context="context" :viewp
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.status.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='status'
+    name="status"
     :itemRules="this.rules().status"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzcase.jbinfo_form.details.status')"
     uiStyle="DEFAULT"
@@ -163,7 +224,8 @@ tag='Testcase__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :isShowCaption="true"
     :error="detailsModel.status.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='status' :value="data.status" dataType="SSCODELIST"     :precision="0"
 tag='Testcase__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -172,11 +234,19 @@ tag='Testcase__status' codelistType='STATIC' :data="data" :context="context" :vi
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.keywords.visible"
+    :style="{}"
+    
+    
+     :lg="{ span: 24, offset: 0 }"
+    
+>
     <app-form-item
-    name='keywords'
+    name="keywords"
     :itemRules="this.rules().keywords"
-    class=''
+    class=""
 
     :caption="$t('entities.ibzcase.jbinfo_form.details.keywords')"
     uiStyle="DEFAULT"
@@ -184,7 +254,8 @@ tag='Testcase__status' codelistType='STATIC' :data="data" :context="context" :vi
     :isShowCaption="true"
     :error="detailsModel.keywords.error"
     :isEmptyCaption="false"
-    labelPos="LEFT">
+    labelPos="LEFT"
+>
     
 <app-span name='keywords' :value="data.keywords" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  

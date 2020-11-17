@@ -51,7 +51,7 @@ export class TaskMainGridView9_ChildBase extends GridView9Base {
      * @type {string}
      * @memberof TaskMainGridView9_ChildBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -128,7 +128,7 @@ export class TaskMainGridView9_ChildBase extends GridView9Base {
      * @type {string}
      * @memberof TaskMainGridView9_ChildBase
      */ 
-    protected viewName: string = "TaskMainGridView9_Child";
+    protected viewName: string = 'TaskMainGridView9_Child';
 
 
     /**

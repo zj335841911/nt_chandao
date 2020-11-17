@@ -48,7 +48,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof EMPLOYEELOADEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -140,7 +140,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof EMPLOYEELOADEditViewBase
      */ 
-    protected viewName: string = "EMPLOYEELOADEditView";
+    protected viewName: string = 'EMPLOYEELOADEditView';
 
 
     /**

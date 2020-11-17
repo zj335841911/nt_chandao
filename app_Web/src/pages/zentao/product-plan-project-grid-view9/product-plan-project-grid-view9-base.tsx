@@ -51,7 +51,7 @@ export class ProductPlanProjectGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof ProductPlanProjectGridView9Base
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -114,7 +114,7 @@ export class ProductPlanProjectGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof ProductPlanProjectGridView9Base
      */ 
-    protected viewName: string = "ProductPlanProjectGridView9";
+    protected viewName: string = 'ProductPlanProjectGridView9';
 
 
     /**

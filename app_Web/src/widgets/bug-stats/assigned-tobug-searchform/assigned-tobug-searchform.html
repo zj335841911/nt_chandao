@@ -6,7 +6,15 @@
   </div>
   <div class="form-content">
                   
-          <i-col class="form-layout-container" v-show="detailsModel.n_product_eq.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+          <i-col
+              class="form-layout-container"
+              v-show="detailsModel.n_product_eq.visible"
+              :style="{}"
+              
+              
+               :lg="{ span: 24, offset: 0 }"
+               :xl="{ span: 6, offset: 0 }"
+          >
               <app-form-item name='n_product_eq' :itemRules="this.rules.n_product_eq" class='' :caption="$t('entities.bugstats.assignedtobug_searchform.details.n_product_eq')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.n_product_eq.error" :isEmptyCaption="false" labelPos="LEFT">
               
           <dropdown-list 
@@ -27,7 +35,15 @@
           </app-form-item>
           
           </i-col>
-          <i-col class="form-layout-container" v-show="detailsModel.n_assignedto_eq.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+          <i-col
+              class="form-layout-container"
+              v-show="detailsModel.n_assignedto_eq.visible"
+              :style="{}"
+              
+              
+               :lg="{ span: 24, offset: 0 }"
+               :xl="{ span: 6, offset: 0 }"
+          >
               <app-form-item name='n_assignedto_eq' :itemRules="this.rules.n_assignedto_eq" class='' :caption="$t('entities.bugstats.assignedtobug_searchform.details.n_assignedto_eq')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.n_assignedto_eq.error" :isEmptyCaption="false" labelPos="LEFT">
               
           <dropdown-list 

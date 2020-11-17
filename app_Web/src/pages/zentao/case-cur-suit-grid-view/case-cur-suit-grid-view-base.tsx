@@ -51,7 +51,7 @@ export class CaseCurSuitGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseCurSuitGridViewBase
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -142,7 +142,7 @@ export class CaseCurSuitGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseCurSuitGridViewBase
      */ 
-    protected viewName: string = "CaseCurSuitGridView";
+    protected viewName: string = 'CaseCurSuitGridView';
 
 
     /**

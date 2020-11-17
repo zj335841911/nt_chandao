@@ -109,7 +109,7 @@ export class ProductMainDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof ProductMainDashboardViewBase
      */ 
-    protected viewName: string = "ProductMainDashboardView";
+    protected viewName: string = 'ProductMainDashboardView';
 
 
     /**

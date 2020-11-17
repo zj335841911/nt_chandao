@@ -51,7 +51,7 @@ export class ProjectGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof ProjectGridView9Base
      */ 
-    protected dataControl: string = "grid";
+    protected dataControl: string = 'grid';
 
     /**
      * 实体服务对象
@@ -142,7 +142,7 @@ export class ProjectGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof ProjectGridView9Base
      */ 
-    protected viewName: string = "ProjectGridView9";
+    protected viewName: string = 'ProjectGridView9';
 
 
     /**

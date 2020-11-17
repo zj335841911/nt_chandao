@@ -48,7 +48,7 @@ export class IbzCaseNewEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzCaseNewEditViewBase
      */ 
-    protected dataControl: string = "form";
+    protected dataControl: string = 'form';
 
     /**
      * 实体服务对象
@@ -134,7 +134,7 @@ export class IbzCaseNewEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzCaseNewEditViewBase
      */ 
-    protected viewName: string = "IbzCaseNewEditView";
+    protected viewName: string = 'IbzCaseNewEditView';
 
 
     /**
