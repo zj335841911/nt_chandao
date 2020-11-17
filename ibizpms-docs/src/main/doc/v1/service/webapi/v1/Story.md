@@ -1770,6 +1770,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[StoryDTO](#StoryDTO)>：需求实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取默认（全部数据）
+#### 访问路径
+/stories/fetchview
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [StorySearchContext](#StorySearchContext) | 需求查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[StoryDTO](#StoryDTO)>：需求实体传输对象列表 |
+
+### 查询默认（全部数据）
+#### 访问路径
+/stories/searchview
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [StorySearchContext](#StorySearchContext) | 需求查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[StoryDTO](#StoryDTO)>：需求实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据建立需求
 #### 访问路径
 /products/{product_id}/stories
@@ -3617,6 +3653,44 @@ GET
 ### 根据查询任务相关需求
 #### 访问路径
 /products/{product_id}/stories/searchtaskrelatedstory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [StorySearchContext](#StorySearchContext) | 需求查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[StoryDTO](#StoryDTO)>：需求实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取默认（全部数据）
+#### 访问路径
+/products/{product_id}/stories/fetchview
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [StorySearchContext](#StorySearchContext) | 需求查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[StoryDTO](#StoryDTO)>：需求实体传输对象列表 |
+
+### 根据查询默认（全部数据）
+#### 访问路径
+/products/{product_id}/stories/searchview
 
 #### 请求方法
 POST

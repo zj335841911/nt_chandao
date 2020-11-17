@@ -447,6 +447,7 @@ hide footbox
 |StoryRelated|获取产品发布相关需求|StoryRelated|否|&nbsp;|
 |SubStory|需求细分|SubStory|否|&nbsp;|
 |TaskRelatedStory|任务相关需求|TaskRelatedStory|否|&nbsp;|
+|VIEW|默认（全部数据）|VIEW|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

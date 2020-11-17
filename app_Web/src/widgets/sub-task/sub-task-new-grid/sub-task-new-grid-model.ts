@@ -57,20 +57,8 @@ export default class SubTaskNewModel {
           isEditable:true
         },
         {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'FLOAT',
-          isEditable:true
-        },
-        {
           name: 'eststarted',
           prop: 'eststarted',
-          dataType: 'DATE',
-          isEditable:true
-        },
-        {
-          name: 'deadline',
-          prop: 'deadline',
           dataType: 'DATE',
           isEditable:true
         },
@@ -138,14 +126,14 @@ export default class SubTaskNewModel {
           dataType: 'TEXT',
         },
         {
-          name: 'project',
-          prop: 'project',
+          name: 'story',
+          prop: 'story',
           dataType: 'PICKUP',
           isEditable:true
         },
         {
-          name: 'story',
-          prop: 'story',
+          name: 'project',
+          prop: 'project',
           dataType: 'PICKUP',
           isEditable:true
         },
