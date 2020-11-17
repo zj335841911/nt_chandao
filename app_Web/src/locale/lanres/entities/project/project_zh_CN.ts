@@ -574,6 +574,10 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -594,6 +598,10 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	mainmygridviewtoolbar_toolbar: {
 		deuiaction3_create: {
@@ -607,6 +615,16 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
+		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
+	usr2gridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	leftsidebarlistviewtoolbar_toolbar: {
@@ -634,6 +652,10 @@ export default {
 		},
 	},
 	moreundoneprogridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	moreundoneprojectgridview9toolbar_toolbar: {
 	},

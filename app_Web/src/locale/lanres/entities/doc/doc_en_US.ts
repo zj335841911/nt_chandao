@@ -359,17 +359,47 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction3_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	gridviewlookdoctoolbar_toolbar: {
 		deuiaction7: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction3_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	gridviewtoolbar_toolbar: {
 		deuiaction7: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction3_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	recentmoregridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	mymoregridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	myfavouritegridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	createeditviewtoolbar_toolbar: {
@@ -382,6 +412,10 @@ export default {
 		deuiaction7: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction3_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 };

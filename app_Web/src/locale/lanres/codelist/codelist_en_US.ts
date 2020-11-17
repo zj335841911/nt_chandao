@@ -240,6 +240,13 @@ export default {
         "1": "1",
         "empty": ""
     },
+    Project__pri: {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "empty": ""
+    },
     APPBuild: {
         "empty": "",
     },
@@ -584,6 +591,14 @@ export default {
         "2": "2",
         "3": "3",
         "4": "4",
+        "empty": ""
+    },
+    Project__statge: {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
         "empty": ""
     },
     ProjectQuickpaketMy: {

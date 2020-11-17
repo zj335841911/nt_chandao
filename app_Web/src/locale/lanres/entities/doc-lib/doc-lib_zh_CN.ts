@@ -142,14 +142,34 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
+		deuiaction1_togglefilter: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction7: {
 			caption: "过滤",
 			tip: "过滤",
 		},
 	},
 	productgridviewtoolbar_toolbar: {
+		deuiaction1_togglefilter: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	undoneprojectgridviewtoolbar_toolbar: {
+		deuiaction1_togglefilter: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction7: {
 			caption: "过滤",
 			tip: "过滤",

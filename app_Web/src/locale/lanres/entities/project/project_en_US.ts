@@ -574,6 +574,10 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -594,6 +598,10 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	mainmygridviewtoolbar_toolbar: {
 		deuiaction3_create: {
@@ -607,6 +615,16 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	usr2gridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	leftsidebarlistviewtoolbar_toolbar: {
@@ -634,6 +652,10 @@ export default {
 		},
 	},
 	moreundoneprogridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	moreundoneprojectgridview9toolbar_toolbar: {
 	},

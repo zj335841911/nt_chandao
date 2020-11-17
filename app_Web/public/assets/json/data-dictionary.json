@@ -1875,6 +1875,61 @@
         ]
     }, 
     {
+        "srfkey": "Project__pri",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "1",
+                "text": "1",
+                "class":"text-red-border-color",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": true
+            }
+            , {
+                "id": "2",
+                "label": "2",
+                "text": "2",
+                "class":"text-pink-border-color",
+                "data":"",
+                "codename":"Item_2",
+                "value": "2",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "3",
+                "label": "3",
+                "text": "3",
+                "class":"text-blue-border-color",
+                "data":"",
+                "codename":"Item_3",
+                "value": "3",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "4",
+                "label": "4",
+                "text": "4",
+                "class":"text-green-border-color",
+                "data":"",
+                "codename":"Item_4",
+                "value": "4",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "APPBuild",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -4970,6 +5025,73 @@
                 "data":"",
                 "codename":"Item_4",
                 "value": 4,
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Project__statge",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "1",
+                "text": "1",
+                "class":"",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": true
+            }
+            , {
+                "id": "2",
+                "label": "2",
+                "text": "2",
+                "class":"",
+                "data":"",
+                "codename":"Item_2",
+                "value": "2",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "3",
+                "label": "3",
+                "text": "3",
+                "class":"",
+                "data":"",
+                "codename":"Item_3",
+                "value": "3",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "4",
+                "label": "4",
+                "text": "4",
+                "class":"",
+                "data":"",
+                "codename":"Item_4",
+                "value": "4",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "5",
+                "label": "5",
+                "text": "5",
+                "class":"",
+                "data":"",
+                "codename":"Item_5",
+                "value": "5",
                 
                 "disabled": false,
                 "default": false

@@ -1617,6 +1617,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Project__pri",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "1",
+                text: "1",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "2",
+                text: "2",
+                "data":"",
+                "codename":"Item_2",
+                value: "2",
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "3",
+                text: "3",
+                "data":"",
+                "codename":"Item_3",
+                value: "3",
+                
+                disabled: false,
+            },
+            {
+                id: "4",
+                label: "4",
+                text: "4",
+                "data":"",
+                "codename":"Item_4",
+                value: "4",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "APPBuild",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -4249,6 +4296,63 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_4",
                 value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Project__statge",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "1",
+                text: "1",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "2",
+                text: "2",
+                "data":"",
+                "codename":"Item_2",
+                value: "2",
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "3",
+                text: "3",
+                "data":"",
+                "codename":"Item_3",
+                value: "3",
+                
+                disabled: false,
+            },
+            {
+                id: "4",
+                label: "4",
+                text: "4",
+                "data":"",
+                "codename":"Item_4",
+                value: "4",
+                
+                disabled: false,
+            },
+            {
+                id: "5",
+                label: "5",
+                text: "5",
+                "data":"",
+                "codename":"Item_5",
+                value: "5",
                 
                 disabled: false,
             },
