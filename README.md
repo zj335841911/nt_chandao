@@ -1,9 +1,16 @@
 # iBiz软件生产管理（iBizPMS）
 
-<p style="float:left;"><img src="https://img.shields.io/badge/license-MIT-brightgreen"/></p>
+<p style="float:left;">
+    <img src="https://img.shields.io/badge/license-MIT-brightgreen"/>
+</p>
 
 
-<p style="float:left;"><img src="https://img.shields.io/badge/JDK-1.8%2B-blue"/><img src="https://img.shields.io/badge/Spring%20Cloud%20Alibaba-2.2.1.RELEASE-blue"/><img src="https://img.shields.io/badge/Vue.js-v2.6%2B-blue"/><img src="https://img.shields.io/badge/Node.js-v10.15%2B-blue"/></p>
+<p style="float:left;">
+    <img src="https://img.shields.io/badge/JDK-1.8%2B-blue"/>
+    <img src="https://img.shields.io/badge/Spring%20Cloud%20Alibaba-2.2.1.RELEASE-blue"/>
+    <img src="https://img.shields.io/badge/Vue.js-v2.6%2B-blue"/>
+    <img src="https://img.shields.io/badge/Node.js-v10.15%2B-blue"/>
+</p>
 
 
 > 文档资料：
