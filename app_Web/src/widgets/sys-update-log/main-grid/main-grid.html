@@ -28,40 +28,47 @@
             <template v-if="getColumnState('sys_update_logname')">
                 <el-table-column show-overflow-tooltip :prop="'sys_update_logname'" :label="$t('entities.sysupdatelog.main_grid.columns.sys_update_logname')" :min-width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.sysupdatelog.main_grid.columns.sys_update_logname')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField="sysupdatelog" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'sys-update-log-tab-exp-view', height: 0,width: 0,title: $t('entities.sysupdatelog.views.tabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+                        <app-column-link
+                            deKeyField="sysupdatelog"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'sys-update-log-tab-exp-view', height: 0,width: 0,title: $t('entities.sysupdatelog.views.tabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
             ]
             ,parameters: [
             { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
             { pathName: 'tabexpview', parameterName: 'tabexpview' }
-            ]}" valueitem="srfkey">
+            ]}"
+                            valueitem="srfkey"
+                        >
                             <span>{{row.sys_update_logname}}</span>
-                        </app-column-link >
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('update')">
                 <el-table-column show-overflow-tooltip :prop="'update'" :label="$t('entities.sysupdatelog.main_grid.columns.update')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.sysupdatelog.main_grid.columns.update')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.update"></app-format-data>
+                            <app-format-data format="YYYY-MM-DD" :data="row.update"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('updatebranch')">
                 <el-table-column show-overflow-tooltip :prop="'updatebranch'" :label="$t('entities.sysupdatelog.main_grid.columns.updatebranch')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.sysupdatelog.main_grid.columns.updatebranch')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -73,9 +80,9 @@
             <template v-if="getColumnState('latestupdate')">
                 <el-table-column show-overflow-tooltip :prop="'latestupdate'" :label="$t('entities.sysupdatelog.main_grid.columns.latestupdate')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.sysupdatelog.main_grid.columns.latestupdate')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -87,9 +94,9 @@
             <template v-if="getColumnState('updateman')">
                 <el-table-column show-overflow-tooltip :prop="'updateman'" :label="$t('entities.sysupdatelog.main_grid.columns.updateman')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.sysupdatelog.main_grid.columns.updateman')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -101,12 +108,12 @@
             <template v-if="getColumnState('updatedate')">
                 <el-table-column show-overflow-tooltip :prop="'updatedate'" :label="$t('entities.sysupdatelog.main_grid.columns.updatedate')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.sysupdatelog.main_grid.columns.updatedate')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD HH:mm:ss" :data="row.updatedate"></app-format-data>
+                            <app-format-data format="YYYY-MM-DD HH:mm:ss" :data="row.updatedate"></app-format-data>
                     </template>
                 </el-table-column>
             </template>

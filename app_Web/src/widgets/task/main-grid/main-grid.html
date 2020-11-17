@@ -29,21 +29,21 @@
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.task.main_grid.columns.id')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.id')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.id}}</span>
+                            <span>{{row.id}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
                 <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.task.main_grid.columns.pri')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.pri')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -55,29 +55,36 @@
             <template v-if="getColumnState('name')">
                 <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.task.main_grid.columns.name')" :width="350"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.name')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField="task" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link
+                            deKeyField="task"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'stories', parameterName: 'story' },
             ]
             ,parameters: [
             { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'maindashboardview', parameterName: 'maindashboardview' }
-            ]}" valueitem="srfkey">
+            ]}"
+                            valueitem="srfkey"
+                        >
                             <span>{{row.name}}</span>
-                        </app-column-link >
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('status1')">
                 <el-table-column show-overflow-tooltip :prop="'status1'" :label="$t('entities.task.main_grid.columns.status1')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.status1')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -89,16 +96,16 @@
             <template v-if="getColumnState('assignedto')">
                 <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.task.main_grid.columns.assignedto')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
-                          <i class="fa fa-hand-o-right"></i>
+                       <span class="column-header ">
+                           <i class="fa fa-hand-o-right"></i>
                         {{$t('entities.task.main_grid.columns.assignedto')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-                            <a v-show="row.AssignTask.visible" :disabled="row.AssignTask.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'AssignTask', $event)">
+                                <a v-show="row.AssignTask.visible" :disabled="row.AssignTask.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'AssignTask', $event)">
             <codelist :value="row.assignedto" tag="UserRealNameW" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
-                            </a>
+                                </a>
                         </template>
                     </template>
                 </el-table-column>
@@ -106,9 +113,9 @@
             <template v-if="getColumnState('finishedby')">
                 <el-table-column show-overflow-tooltip :prop="'finishedby'" :label="$t('entities.task.main_grid.columns.finishedby')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.finishedby')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -120,9 +127,9 @@
             <template v-if="getColumnState('estimate')">
                 <el-table-column show-overflow-tooltip :prop="'estimate'" :label="$t('entities.task.main_grid.columns.estimate')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.estimate')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                             <app-format-data dataType="FLOAT" precision="0" :data="row.estimate"></app-format-data>
@@ -132,9 +139,9 @@
             <template v-if="getColumnState('consumed')">
                 <el-table-column show-overflow-tooltip :prop="'consumed'" :label="$t('entities.task.main_grid.columns.consumed')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.consumed')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                             <app-format-data dataType="FLOAT" precision="0" :data="row.consumed"></app-format-data>
@@ -144,9 +151,9 @@
             <template v-if="getColumnState('left')">
                 <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.task.main_grid.columns.left')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.left')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                             <app-format-data dataType="FLOAT" precision="0" :data="row.left"></app-format-data>
@@ -156,75 +163,75 @@
             <template v-if="getColumnState('progressrate')">
                 <el-table-column show-overflow-tooltip :prop="'progressrate'" :label="$t('entities.task.main_grid.columns.progressrate')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.progressrate')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.progressrate}}</span>
+                            <span>{{row.progressrate}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('deadline')">
                 <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.task.main_grid.columns.deadline')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.deadline')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.deadline"></app-format-data>
+                            <app-format-data format="YYYY-MM-DD" :data="row.deadline"></app-format-data>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
                 <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.task.main_grid.columns.uagridcolumn1')" :width="220"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.uagridcolumn1')}}
-                      </span>
+                       </span>
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.confirmStoryChange.visible" :disabled="scope.row.confirmStoryChange.disabled" @click="uiAction(scope.row, 'confirmStoryChange', $event)" :title="$t('entities.task.main_grid.uiactions.task_confirmstorychange')">
-                            <i class="fa fa-search"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.MStartTaskDash1.visible" type="vertical"></divider>
-                          <a v-show="scope.row.MStartTaskDash1.visible" :disabled="scope.row.MStartTaskDash1.disabled" @click="uiAction(scope.row, 'MStartTaskDash1', $event)" :title="$t('entities.task.main_grid.uiactions.task_mstarttaskdash1')">
-                            <i class="fa fa-play-circle-o"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.CloseTask.visible" type="vertical"></divider>
-                          <a v-show="scope.row.CloseTask.visible" :disabled="scope.row.CloseTask.disabled" @click="uiAction(scope.row, 'CloseTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_closetask')">
-                            <i class="fa fa-power-off"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.done.visible" type="vertical"></divider>
-                          <a v-show="scope.row.done.visible" :disabled="scope.row.done.disabled" @click="uiAction(scope.row, 'done', $event)" :title="$t('entities.task.main_grid.uiactions.task_done')">
-                            <i class="fa fa-check-square-o"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.MainEdit.visible" type="vertical"></divider>
-                          <a v-show="scope.row.MainEdit.visible" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.task.main_grid.uiactions.task_mainedit')">
-                            <i class="fa fa-edit"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.NewSubTask.visible" type="vertical"></divider>
-                          <a v-show="scope.row.NewSubTask.visible" :disabled="scope.row.NewSubTask.disabled" @click="uiAction(scope.row, 'NewSubTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_newsubtask')">
-                            <i class="iconfont studio-icon-subnets"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.TaskFavorites.visible" type="vertical"></divider>
-                          <a v-show="scope.row.TaskFavorites.visible" :disabled="scope.row.TaskFavorites.disabled" @click="uiAction(scope.row, 'TaskFavorites', $event)" :title="$t('entities.task.main_grid.uiactions.task_taskfavorites')">
-                            <i class="fa fa-star-o"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.TaskNFavorites.visible" type="vertical"></divider>
-                          <a v-show="scope.row.TaskNFavorites.visible" :disabled="scope.row.TaskNFavorites.disabled" @click="uiAction(scope.row, 'TaskNFavorites', $event)" :title="$t('entities.task.main_grid.uiactions.task_tasknfavorites')">
-                            <i class="fa fa-star"></i>
-                            
-                          </a>
+                            <a v-show="scope.row.confirmStoryChange.visible" :disabled="scope.row.confirmStoryChange.disabled" @click="uiAction(scope.row, 'confirmStoryChange', $event)" :title="$t('entities.task.main_grid.uiactions.task_confirmstorychange')">
+                                <i class="fa fa-search"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.MStartTaskDash1.visible" type="vertical"></divider>
+                            <a v-show="scope.row.MStartTaskDash1.visible" :disabled="scope.row.MStartTaskDash1.disabled" @click="uiAction(scope.row, 'MStartTaskDash1', $event)" :title="$t('entities.task.main_grid.uiactions.task_mstarttaskdash1')">
+                                <i class="fa fa-play-circle-o"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.CloseTask.visible" type="vertical"></divider>
+                            <a v-show="scope.row.CloseTask.visible" :disabled="scope.row.CloseTask.disabled" @click="uiAction(scope.row, 'CloseTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_closetask')">
+                                <i class="fa fa-power-off"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.done.visible" type="vertical"></divider>
+                            <a v-show="scope.row.done.visible" :disabled="scope.row.done.disabled" @click="uiAction(scope.row, 'done', $event)" :title="$t('entities.task.main_grid.uiactions.task_done')">
+                                <i class="fa fa-check-square-o"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.MainEdit.visible" type="vertical"></divider>
+                            <a v-show="scope.row.MainEdit.visible" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.task.main_grid.uiactions.task_mainedit')">
+                                <i class="fa fa-edit"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.NewSubTask.visible" type="vertical"></divider>
+                            <a v-show="scope.row.NewSubTask.visible" :disabled="scope.row.NewSubTask.disabled" @click="uiAction(scope.row, 'NewSubTask', $event)" :title="$t('entities.task.main_grid.uiactions.task_newsubtask')">
+                                <i class="iconfont studio-icon-subnets"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.TaskFavorites.visible" type="vertical"></divider>
+                            <a v-show="scope.row.TaskFavorites.visible" :disabled="scope.row.TaskFavorites.disabled" @click="uiAction(scope.row, 'TaskFavorites', $event)" :title="$t('entities.task.main_grid.uiactions.task_taskfavorites')">
+                                <i class="fa fa-star-o"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.TaskNFavorites.visible" type="vertical"></divider>
+                            <a v-show="scope.row.TaskNFavorites.visible" :disabled="scope.row.TaskNFavorites.disabled" @click="uiAction(scope.row, 'TaskNFavorites', $event)" :title="$t('entities.task.main_grid.uiactions.task_tasknfavorites')">
+                                <i class="fa fa-star"></i>
+                                
+                            </a>
                         </div>
                     </template>
                 </el-table-column>

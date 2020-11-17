@@ -14,8 +14,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 4, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
 >
     <app-form-item
     name="id"
@@ -44,8 +44,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 8, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
     name="date"
@@ -74,8 +74,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 8, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
     name="lastrunner"
@@ -104,8 +104,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 4, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
 >
     <app-form-item
     name="caseresult"
@@ -134,7 +134,7 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-rawitem
@@ -157,7 +157,7 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -180,7 +180,7 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -188,7 +188,7 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-druipart
@@ -225,7 +225,7 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -248,7 +248,7 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -256,18 +256,18 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 22 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 22 }"
 >
-        <i-button 
-        type="primary"
-        @click="button1_click($event)"
-        style=""
-        :title="$t('entities.testresult.main_form.uiactions.testresult_tobug')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-bug'}" />
-        <span >{{$t('entities.testresult.main_form.details.button1')}}</span>
-    </i-button>
+    <i-button 
+    type="primary"
+    @click="button1_click($event)"
+    style=""
+    :title="$t('entities.testresult.main_form.uiactions.testresult_tobug')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-bug'}" />
+    <span >{{$t('entities.testresult.main_form.details.button1')}}</span>
+</i-button>
 
 </i-col>
     

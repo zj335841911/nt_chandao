@@ -28,21 +28,21 @@
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.bug.pickupgird_grid.columns.id')" :width="70"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bug.pickupgird_grid.columns.id')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.id}}</span>
+                            <span>{{row.id}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
                 <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.bug.pickupgird_grid.columns.pri')" :width="70"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bug.pickupgird_grid.columns.pri')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -54,21 +54,21 @@
             <template v-if="getColumnState('title')">
                 <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.bug.pickupgird_grid.columns.title')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bug.pickupgird_grid.columns.title')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.title}}</span>
+                            <span>{{row.title}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('openedby')">
                 <el-table-column show-overflow-tooltip :prop="'openedby'" :label="$t('entities.bug.pickupgird_grid.columns.openedby')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bug.pickupgird_grid.columns.openedby')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -80,9 +80,9 @@
             <template v-if="getColumnState('resolvedby')">
                 <el-table-column show-overflow-tooltip :prop="'resolvedby'" :label="$t('entities.bug.pickupgird_grid.columns.resolvedby')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bug.pickupgird_grid.columns.resolvedby')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -94,9 +94,9 @@
             <template v-if="getColumnState('status')">
                 <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.bug.pickupgird_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bug.pickupgird_grid.columns.status')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >

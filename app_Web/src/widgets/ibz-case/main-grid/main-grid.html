@@ -28,21 +28,21 @@
             <template v-if="getColumnState('lib')">
                 <el-table-column show-overflow-tooltip :prop="'lib'" :label="$t('entities.ibzcase.main_grid.columns.lib')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.ibzcase.main_grid.columns.lib')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.lib}}</span>
+                            <span>{{row.lib}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
                 <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.ibzcase.main_grid.columns.pri')" :width="50"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.ibzcase.main_grid.columns.pri')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -54,29 +54,36 @@
             <template v-if="getColumnState('title')">
                 <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.ibzcase.main_grid.columns.title')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.ibzcase.main_grid.columns.title')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField="ibzcase" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'ibz-case-dashboard-view', height: 0,width: 0,title: $t('entities.ibzcase.views.dashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link
+                            deKeyField="ibzcase"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'ibz-case-dashboard-view', height: 0,width: 0,title: $t('entities.ibzcase.views.dashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'ibzlibs', parameterName: 'ibzlib' },
             ]
             ,parameters: [
             { pathName: 'ibzcases', parameterName: 'ibzcase' },
             { pathName: 'dashboardview', parameterName: 'dashboardview' }
-            ]}" valueitem="srfkey">
+            ]}"
+                            valueitem="srfkey"
+                        >
                             <span>{{row.title}}</span>
-                        </app-column-link >
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('type')">
                 <el-table-column show-overflow-tooltip :prop="'type'" :label="$t('entities.ibzcase.main_grid.columns.type')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.ibzcase.main_grid.columns.type')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -88,9 +95,9 @@
             <template v-if="getColumnState('openedby')">
                 <el-table-column show-overflow-tooltip :prop="'openedby'" :label="$t('entities.ibzcase.main_grid.columns.openedby')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.ibzcase.main_grid.columns.openedby')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -102,9 +109,9 @@
             <template v-if="getColumnState('status')">
                 <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.ibzcase.main_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.ibzcase.main_grid.columns.status')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -116,21 +123,21 @@
             <template v-if="getColumnState('uagridcolumn1')">
                 <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.ibzcase.main_grid.columns.uagridcolumn1')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.ibzcase.main_grid.columns.uagridcolumn1')}}
-                      </span>
+                       </span>
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.Editcase.visible" :disabled="scope.row.Editcase.disabled" @click="uiAction(scope.row, 'Editcase', $event)" :title="$t('entities.ibzcase.main_grid.uiactions.ibzcase_editcase')">
-                            <i class=""></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.Delete.visible" type="vertical"></divider>
-                          <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.ibzcase.main_grid.uiactions.ibzcase_delete')">
-                            <i class="fa fa-remove"></i>
-                            
-                          </a>
+                            <a v-show="scope.row.Editcase.visible" :disabled="scope.row.Editcase.disabled" @click="uiAction(scope.row, 'Editcase', $event)" :title="$t('entities.ibzcase.main_grid.uiactions.ibzcase_editcase')">
+                                <i class=""></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.Delete.visible" type="vertical"></divider>
+                            <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.ibzcase.main_grid.uiactions.ibzcase_delete')">
+                                <i class="fa fa-remove"></i>
+                                
+                            </a>
                         </div>
                     </template>
                 </el-table-column>

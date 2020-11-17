@@ -168,6 +168,13 @@ public class Module extends EntityMP implements Serializable {
     @JSONField(name = "orgid")
     @JsonProperty("orgid")
     private String orgid;
+    /**
+     * 数据选择排序
+     */
+    @TableField(exist = false)
+    @JSONField(name = "orderpk")
+    @JsonProperty("orderpk")
+    private String orderpk;
 
     /**
      * 

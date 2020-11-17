@@ -14,7 +14,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -37,7 +37,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -45,8 +45,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 5, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 5, offset: 0 }"
 >
     <app-form-group
     :model="detailsModel.grouppanel2"
@@ -68,7 +68,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -76,8 +76,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 11, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 11, offset: 0 }"
 >
     <app-form-item
     name="id"
@@ -106,8 +106,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 13, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 13, offset: 0 }"
 >
     <app-form-item
     name="status"
@@ -141,8 +141,8 @@ tag='Bug__status' codelistType='STATIC' :data="data" :context="context" :viewpar
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 19, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 19, offset: 0 }"
 >
     <app-form-item
     name="title"
@@ -171,8 +171,8 @@ tag='Bug__status' codelistType='STATIC' :data="data" :context="context" :viewpar
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 8, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
     name="severity"
@@ -201,8 +201,8 @@ tag='Bug__severity' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 8, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
     name="pri"
@@ -231,8 +231,8 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 8, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
     name="deadline"
@@ -261,8 +261,8 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 20, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 20, offset: 0 }"
 >
     <app-form-group
     :model="detailsModel.grouppanel3"
@@ -284,7 +284,7 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -292,18 +292,18 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button1_click($event)"
-        style=""
-        :title="$t('entities.bug.calendarmain_form.uiactions.bug_confirmbugdash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-eye'}" />
+    <i-button 
+    type="primary"
+    @click="button1_click($event)"
+    style=""
+    :title="$t('entities.bug.calendarmain_form.uiactions.bug_confirmbugdash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-eye'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -312,18 +312,18 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button2_click($event)"
-        style=""
-        :title="$t('entities.bug.calendarmain_form.uiactions.bug_assingtobugcz')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
+    <i-button 
+    type="primary"
+    @click="button2_click($event)"
+    style=""
+    :title="$t('entities.bug.calendarmain_form.uiactions.bug_assingtobugcz')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -332,18 +332,18 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button3_click($event)"
-        style=""
-        :title="$t('entities.bug.calendarmain_form.uiactions.bug_resolvebugdash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-check-square-o'}" />
+    <i-button 
+    type="primary"
+    @click="button3_click($event)"
+    style=""
+    :title="$t('entities.bug.calendarmain_form.uiactions.bug_resolvebugdash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-check-square-o'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -352,18 +352,18 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button4_click($event)"
-        style=""
-        :title="$t('entities.bug.calendarmain_form.uiactions.bug_closebugdash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-close'}" />
+    <i-button 
+    type="primary"
+    @click="button4_click($event)"
+    style=""
+    :title="$t('entities.bug.calendarmain_form.uiactions.bug_closebugdash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-close'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -372,18 +372,18 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button5_click($event)"
-        style=""
-        :title="$t('entities.bug.calendarmain_form.uiactions.bug_activation')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-magic'}" />
+    <i-button 
+    type="primary"
+    @click="button5_click($event)"
+    style=""
+    :title="$t('entities.bug.calendarmain_form.uiactions.bug_activation')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-magic'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -392,18 +392,18 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button6_click($event)"
-        style=""
-        :title="$t('entities.bug.calendarmain_form.uiactions.bug_maineditdash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-edit'}" />
+    <i-button 
+    type="primary"
+    @click="button6_click($event)"
+    style=""
+    :title="$t('entities.bug.calendarmain_form.uiactions.bug_maineditdash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-edit'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
     
@@ -417,7 +417,7 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -440,7 +440,7 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -448,7 +448,7 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-item
@@ -479,7 +479,7 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -502,7 +502,7 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -510,7 +510,7 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-druipart

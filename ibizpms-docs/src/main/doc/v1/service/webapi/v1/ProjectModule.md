@@ -992,7 +992,8 @@ POST
 | 14 | root | Long | 允许 | 项目 |
 | 15 | rootname | String | 允许 | 所属项目 |
 | 16 | parentname | String | 允许 | 上级模块 |
-| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 17 | orderpk | String | 允许 | 数据选择排序 |
+| 18 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectModuleSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

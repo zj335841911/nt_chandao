@@ -16,6 +16,7 @@ export default {
     root: "项目",
     rootname: "所属项目",
     parentname: "上级模块",
+    orderpk: "数据选择排序",
   },
 	views: {
 		quickcfgview: {

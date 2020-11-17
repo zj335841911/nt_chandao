@@ -133,4 +133,12 @@ export interface ProductModule {
      * @memberof ProductModule
      */
     parentname?: any;
+
+    /**
+     * 数据选择排序
+     *
+     * @returns {*}
+     * @memberof ProductModule
+     */
+    orderpk?: any;
 }

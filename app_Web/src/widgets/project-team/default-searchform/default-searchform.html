@@ -1,10 +1,10 @@
 <i-form :model="this.data" class="app-search-form" ref="searchform" style="">
-  <input style="display:none;">
-  <div class="search-button">
-    <i-button size="small" type="primary" ghost @click="onSearch.apply(_self, arguments)">{{$t('app.searchButton.search')}}</i-button>
-    <i-button size="small" type="default" ghost @click="onReset.apply(_self, arguments)">{{this.$t('app.searchButton.reset')}}</i-button>
-  </div>
-  <div class="form-content">
+    <input style="display:none;">
+    <div class="search-button">
+        <i-button size="small" type="primary" ghost @click="onSearch.apply(_self, arguments)">{{$t('app.searchButton.search')}}</i-button>
+        <i-button size="small" type="default" ghost @click="onReset.apply(_self, arguments)">{{this.$t('app.searchButton.reset')}}</i-button>
+    </div>
+    <div class="form-content">
                   
           <i-col
               class="form-layout-container"
@@ -12,10 +12,20 @@
               :style="{}"
               
               
-               :lg="{ span: 6, offset: 0 }"
-               :xl="{ span: 6, offset: 0 }"
+              :lg="{ span: 6, offset: 0 }"
+              :xl="{ span: 6, offset: 0 }"
           >
-              <app-form-item name="dept" :itemRules="this.rules.dept" class="" :caption="$t('entities.projectteam.default_searchform.details.dept')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.dept.error" :isEmptyCaption="false" labelPos="LEFT">
+              <app-form-item
+              name="dept"
+              :itemRules="this.rules.dept"
+              class=""
+              
+              :caption="$t('entities.projectteam.default_searchform.details.dept')"
+              uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true"
+              :error="detailsModel.dept.error"
+              :isEmptyCaption="false"
+              labelPos="LEFT"
+          >
               
           <dropdown-list 
               v-model="data.dept"
@@ -40,10 +50,20 @@
               :style="{}"
               
               
-               :lg="{ span: 6, offset: 0 }"
-               :xl="{ span: 6, offset: 0 }"
+              :lg="{ span: 6, offset: 0 }"
+              :xl="{ span: 6, offset: 0 }"
           >
-              <app-form-item name="teams" :itemRules="this.rules.teams" class="" :caption="$t('entities.projectteam.default_searchform.details.teams')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.teams.error" :isEmptyCaption="false" labelPos="LEFT">
+              <app-form-item
+              name="teams"
+              :itemRules="this.rules.teams"
+              class=""
+              
+              :caption="$t('entities.projectteam.default_searchform.details.teams')"
+              uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true"
+              :error="detailsModel.teams.error"
+              :isEmptyCaption="false"
+              labelPos="LEFT"
+          >
               
           <dropdown-list 
               v-model="data.teams"
@@ -62,5 +82,5 @@
           </app-form-item>
           
           </i-col>
-  </div>
+    </div>
 </i-form>

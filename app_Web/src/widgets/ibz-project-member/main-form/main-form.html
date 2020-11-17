@@ -14,7 +14,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -37,7 +37,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -45,8 +45,8 @@
     :style="{'height': '36px !important',}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 12, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
     name="pm"
@@ -75,8 +75,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :style="{'height': '36px !important',}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 12, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
     name="po"
@@ -105,8 +105,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :style="{'height': '36px !important',}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 12, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
     name="qd"
@@ -135,8 +135,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :style="{'height': '36px !important',}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 12, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
     name="rd"
@@ -165,8 +165,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :style="{'height': '36px !important',}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 12, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
     name="fristmember"
@@ -195,8 +195,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :style="{'height': '36px !important',}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 12, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
     name="secondmember"
@@ -225,8 +225,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :style="{'height': '36px !important',}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 12, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
     name="thirdmember"
@@ -255,8 +255,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :style="{'height': '36px !important',}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 12, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
     name="fourthmember"
@@ -285,8 +285,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :style="{'height': '36px !important',}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 12, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
     name="fifthmember"
@@ -315,8 +315,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :style="{'height': '36px !important',}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 12, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
     name="sixthmember"
@@ -345,18 +345,18 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 11, offset: 1 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 11, offset: 1 }"
 >
-        <i-button 
-        type="primary"
-        @click="button1_click($event)"
-        style=""
-        :title="$t('entities.ibzprojectmember.main_form.uiactions.ibzprojectmember_teammanagement')"
-    >
-        <i class="fa fa-plus" style="margin-right: 2px;"></i>
-        <span >{{$t('entities.ibzprojectmember.main_form.details.button1')}}</span>
-    </i-button>
+    <i-button 
+    type="primary"
+    @click="button1_click($event)"
+    style=""
+    :title="$t('entities.ibzprojectmember.main_form.uiactions.ibzprojectmember_teammanagement')"
+>
+    <i class="fa fa-plus" style="margin-right: 2px;"></i>
+    <span >{{$t('entities.ibzprojectmember.main_form.details.button1')}}</span>
+</i-button>
 
 </i-col>
     

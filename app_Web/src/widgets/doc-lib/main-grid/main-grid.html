@@ -28,13 +28,13 @@
             <template v-if="getColumnState('name')">
                 <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.doclib.main_grid.columns.name')" :min-width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.doclib.main_grid.columns.name')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <a v-show="row.LookMainProjectDocLib.visible" :disabled="row.LookMainProjectDocLib.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'LookMainProjectDocLib', $event)">
-                        <span>{{row.name}}</span>
+                            <span>{{row.name}}</span>
                         </a>
                     </template>
                 </el-table-column>
@@ -42,43 +42,43 @@
             <template v-if="getColumnState('doccnt')">
                 <el-table-column show-overflow-tooltip :prop="'doccnt'" :label="$t('entities.doclib.main_grid.columns.doccnt')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.doclib.main_grid.columns.doccnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.doccnt}}</span>
+                            <span>{{row.doccnt}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
                 <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.doclib.main_grid.columns.uagridcolumn1')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.doclib.main_grid.columns.uagridcolumn1')}}
-                      </span>
+                       </span>
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.EditProjectDoclib.visible" :disabled="scope.row.EditProjectDoclib.disabled" @click="uiAction(scope.row, 'EditProjectDoclib', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_editprojectdoclib')">
-                            <i class="fa fa-edit"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.WeiHuFenLei.visible" type="vertical"></divider>
-                          <a v-show="scope.row.WeiHuFenLei.visible" :disabled="scope.row.WeiHuFenLei.disabled" @click="uiAction(scope.row, 'WeiHuFenLei', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_weihufenlei')">
-                            <i class="fa fa-lock"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.Collect.visible" type="vertical"></divider>
-                          <a v-show="scope.row.Collect.visible" :disabled="scope.row.Collect.disabled" @click="uiAction(scope.row, 'Collect', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_collect')">
-                            <i class="fa fa-star-o"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.UnCollect.visible" type="vertical"></divider>
-                          <a v-show="scope.row.UnCollect.visible" :disabled="scope.row.UnCollect.disabled" @click="uiAction(scope.row, 'UnCollect', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_uncollect')">
-                            <i class="fa fa-star"></i>
-                            
-                          </a>
+                            <a v-show="scope.row.EditProjectDoclib.visible" :disabled="scope.row.EditProjectDoclib.disabled" @click="uiAction(scope.row, 'EditProjectDoclib', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_editprojectdoclib')">
+                                <i class="fa fa-edit"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.WeiHuFenLei.visible" type="vertical"></divider>
+                            <a v-show="scope.row.WeiHuFenLei.visible" :disabled="scope.row.WeiHuFenLei.disabled" @click="uiAction(scope.row, 'WeiHuFenLei', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_weihufenlei')">
+                                <i class="fa fa-lock"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.Collect.visible" type="vertical"></divider>
+                            <a v-show="scope.row.Collect.visible" :disabled="scope.row.Collect.disabled" @click="uiAction(scope.row, 'Collect', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_collect')">
+                                <i class="fa fa-star-o"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.UnCollect.visible" type="vertical"></divider>
+                            <a v-show="scope.row.UnCollect.visible" :disabled="scope.row.UnCollect.disabled" @click="uiAction(scope.row, 'UnCollect', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_uncollect')">
+                                <i class="fa fa-star"></i>
+                                
+                            </a>
                         </div>
                     </template>
                 </el-table-column>

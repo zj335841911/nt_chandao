@@ -1,4 +1,10 @@
-<split id="tasktreeexpviewtreeexpbar" class="app-tree-exp-bar" v-model="split" mode="horizontal" @on-move-end="onSplitChange.apply(_self, arguments)">
+<split
+    id="tasktreeexpviewtreeexpbar"
+    class="app-tree-exp-bar"
+    v-model="split"
+    mode="horizontal"
+    @on-move-end="onSplitChange.apply(_self, arguments)"
+>
     <div class="app-tree-exp-bar-left enable-search" slot="left">
         <div class="search-content">
             <i-input :search="true" @on-change="($event) => { this.srfnodefilter = $event.target.value; }" @on-search="onSearch($event)"></i-input>

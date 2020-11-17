@@ -63,6 +63,9 @@ export default class CaseExpModel {
       {
         name: 'parentname',
       },
+      {
+        name: 'orderpk',
+      },
     ]
   }
 

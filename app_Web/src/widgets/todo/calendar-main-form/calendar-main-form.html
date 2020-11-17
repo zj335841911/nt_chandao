@@ -14,7 +14,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -37,7 +37,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -45,8 +45,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
     <app-form-item
     name="id"
@@ -75,8 +75,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 3, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 3, offset: 0 }"
 >
     <app-form-item
     name="status"
@@ -105,8 +105,8 @@ tag='Todo__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 19, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 19, offset: 0 }"
 >
     <app-form-item
     name="name"
@@ -135,8 +135,8 @@ tag='Todo__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 6, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
 >
     <app-form-item
     name="pri"
@@ -165,8 +165,8 @@ tag='Pri' codelistType='STATIC' :data="data" :context="context" :viewparams="vie
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 6, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
 >
     <app-form-item
     name="date"
@@ -195,8 +195,8 @@ tag='Pri' codelistType='STATIC' :data="data" :context="context" :viewparams="vie
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 4, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
 >
     <app-form-item
     name="begin"
@@ -225,8 +225,8 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 6, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
 >
     <app-form-item
     name="end"
@@ -255,8 +255,8 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 20, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 20, offset: 0 }"
 >
     <app-form-group
     :model="detailsModel.grouppanel3"
@@ -278,7 +278,7 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -286,18 +286,18 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button1_click($event)"
-        style=""
-        :title="$t('entities.todo.calendarmain_form.uiactions.todo_assigntocz')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
+    <i-button 
+    type="primary"
+    @click="button1_click($event)"
+    style=""
+    :title="$t('entities.todo.calendarmain_form.uiactions.todo_assigntocz')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -306,18 +306,18 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button2_click($event)"
-        style=""
-        :title="$t('entities.todo.calendarmain_form.uiactions.todo_finishcz')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-check-square-o'}" />
+    <i-button 
+    type="primary"
+    @click="button2_click($event)"
+    style=""
+    :title="$t('entities.todo.calendarmain_form.uiactions.todo_finishcz')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-check-square-o'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -326,18 +326,18 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button3_click($event)"
-        style=""
-        :title="$t('entities.todo.calendarmain_form.uiactions.todo_activatecz')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-magic'}" />
+    <i-button 
+    type="primary"
+    @click="button3_click($event)"
+    style=""
+    :title="$t('entities.todo.calendarmain_form.uiactions.todo_activatecz')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-magic'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -346,18 +346,18 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button4_click($event)"
-        style=""
-        :title="$t('entities.todo.calendarmain_form.uiactions.todo_closecz')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-close'}" />
+    <i-button 
+    type="primary"
+    @click="button4_click($event)"
+    style=""
+    :title="$t('entities.todo.calendarmain_form.uiactions.todo_closecz')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-close'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -366,18 +366,18 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button5_click($event)"
-        style=""
-        :title="$t('entities.todo.calendarmain_form.uiactions.todo_edit1cz')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-edit'}" />
+    <i-button 
+    type="primary"
+    @click="button5_click($event)"
+    style=""
+    :title="$t('entities.todo.calendarmain_form.uiactions.todo_edit1cz')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-edit'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -386,18 +386,18 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button6_click($event)"
-        style=""
-        :title="$t('entities.todo.calendarmain_form.uiactions.todo_deletecz')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-remove'}" />
+    <i-button 
+    type="primary"
+    @click="button6_click($event)"
+    style=""
+    :title="$t('entities.todo.calendarmain_form.uiactions.todo_deletecz')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-remove'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
     
@@ -411,7 +411,7 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -434,7 +434,7 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -442,7 +442,7 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-item
@@ -473,7 +473,7 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -496,7 +496,7 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -504,7 +504,7 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-druipart

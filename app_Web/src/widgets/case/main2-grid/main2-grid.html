@@ -28,9 +28,9 @@
             <template v-if="getColumnState('pri')">
                 <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.case.main2_grid.columns.pri')" :width="70"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.case.main2_grid.columns.pri')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -42,29 +42,36 @@
             <template v-if="getColumnState('title')">
                 <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.case.main2_grid.columns.title')" :min-width="1"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.case.main2_grid.columns.title')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField="case" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'case-main-dashboard-view', height: 0,width: 0,title: $t('entities.case.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link
+                            deKeyField="case"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'case-main-dashboard-view', height: 0,width: 0,title: $t('entities.case.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
             { pathName: 'cases', parameterName: 'case' },
             { pathName: 'maindashboardview', parameterName: 'maindashboardview' }
-            ]}" valueitem="srfkey">
+            ]}"
+                            valueitem="srfkey"
+                        >
                             <span>{{row.title}}</span>
-                        </app-column-link >
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('status1')">
                 <el-table-column show-overflow-tooltip :prop="'status1'" :label="$t('entities.case.main2_grid.columns.status1')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.case.main2_grid.columns.status1')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >

@@ -1,17 +1,27 @@
 <i-form :model="this.data" class="app-search-form" ref="quicksearchform" style="">
-  <input style="display:none;">
-  <div class="form-content">
+    <input style="display:none;">
+    <div class="form-content">
                   
           <i-col
               class="form-layout-container"
               v-show="detailsModel.isweekend.visible"
               :style="{}"
-               :sm="{ span: 24, offset: 0 }"
-               :md="{ span: 24, offset: 0 }"
-               :lg="{ span: 24, offset: 0 }"
-               :xl="{ span: 24, offset: 0 }"
+              :sm="{ span: 24, offset: 0 }"
+              :md="{ span: 24, offset: 0 }"
+              :lg="{ span: 24, offset: 0 }"
+              :xl="{ span: 24, offset: 0 }"
           >
-              <app-form-item name="isweekend" :itemRules="this.rules.isweekend" class="burnout-diagram-interval" :caption="$t('entities.burn.default_searchform.details.isweekend')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.isweekend.error" :isEmptyCaption="false" labelPos="LEFT">
+              <app-form-item
+              name="isweekend"
+              :itemRules="this.rules.isweekend"
+              class="burnout-diagram-interval"
+              
+              :caption="$t('entities.burn.default_searchform.details.isweekend')"
+              uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true"
+              :error="detailsModel.isweekend.error"
+              :isEmptyCaption="false"
+              labelPos="LEFT"
+          >
               
           <dropdown-list 
               v-model="data.isweekend"
@@ -30,5 +40,5 @@
           </app-form-item>
           
           </i-col>
-  </div>
+    </div>
 </i-form>

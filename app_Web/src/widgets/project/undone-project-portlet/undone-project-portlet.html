@@ -1,16 +1,16 @@
 <div class="portlet undone-project " :style="{'height': isAdaptiveSize ? '100%' : getHeight,}">
-        <p class="portlet-title">
-            <span>
+    <p class="portlet-title">
+        <span>
             
             未完成项目
-            </span>
+        </span>
             <span class="portlet-action">
-                <a @click="uiAction('u825ff1b', $event)" v-show="uiactionModel['moreundone'].visible" :disabled="uiactionModel['moreundone'].disabled">
-                  <span>MORE</span>
-                </a>
+                    <a @click="uiAction('u825ff1b', $event)" v-show="uiactionModel['moreundone'].visible" :disabled="uiactionModel['moreundone'].disabled">
+                        <span>MORE</span>
+                    </a>
             </span>
-        </p>
-        <div class="portlet-with-title">
+    </p>
+    <div class="portlet-with-title">
         <project-undone-project-grid-view :portletState="viewState" :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></project-undone-project-grid-view>
-        </div>
+    </div>
 </div>

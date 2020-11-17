@@ -28,60 +28,60 @@
             <template v-if="getColumnState('name')">
                 <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.module.main_grid.columns.name')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.module.main_grid.columns.name')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.name}}</span>
+                            <span>{{row.name}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('parentname')">
                 <el-table-column show-overflow-tooltip :prop="'parentname'" :label="$t('entities.module.main_grid.columns.parentname')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.module.main_grid.columns.parentname')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.parentname}}</span>
+                            <span>{{row.parentname}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('grade')">
                 <el-table-column show-overflow-tooltip :prop="'grade'" :label="$t('entities.module.main_grid.columns.grade')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.module.main_grid.columns.grade')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.grade}}</span>
+                            <span>{{row.grade}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('order')">
                 <el-table-column show-overflow-tooltip :prop="'order'" :label="$t('entities.module.main_grid.columns.order')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.module.main_grid.columns.order')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.order}}</span>
+                            <span>{{row.order}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('owner')">
                 <el-table-column show-overflow-tooltip :prop="'owner'" :label="$t('entities.module.main_grid.columns.owner')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.module.main_grid.columns.owner')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.owner}}</span>
+                            <span>{{row.owner}}</span>
                     </template>
                 </el-table-column>
             </template>

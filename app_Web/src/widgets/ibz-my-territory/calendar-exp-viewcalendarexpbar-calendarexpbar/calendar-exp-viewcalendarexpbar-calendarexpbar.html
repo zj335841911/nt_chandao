@@ -12,8 +12,8 @@
     ref="calendarexpbar_calendar" 
     @selectionchange="calendarexpbar_calendar_selectionchange.apply(_self, arguments)"  
     @load="calendarexpbar_calendar_load.apply(_self, arguments)"  
-    @closeview="closeView.apply(_self, arguments)">
-</view_calendarexpbar_calendar>
+    @closeview="closeView.apply(_self, arguments)"
+></view_calendarexpbar_calendar>
     </template>
     <component 
         v-if="selection.view && !Object.is(selection.view.viewname, '')" 

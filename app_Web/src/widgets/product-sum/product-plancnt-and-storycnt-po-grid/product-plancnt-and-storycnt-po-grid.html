@@ -26,36 +26,36 @@
             <template v-if="getColumnState('name')">
                 <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productsum.productplancntandstorycnt_po_grid.columns.name')" :min-width="280"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.productplancntandstorycnt_po_grid.columns.name')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.name}}</span>
+                            <span>{{row.name}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('plan')">
                 <el-table-column show-overflow-tooltip :prop="'plan'" :label="$t('entities.productsum.productplancntandstorycnt_po_grid.columns.plan')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.productplancntandstorycnt_po_grid.columns.plan')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.plan}}</span>
+                            <span>{{row.plan}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('storycnt')">
                 <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.productsum.productplancntandstorycnt_po_grid.columns.storycnt')" :width="140"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productsum.productplancntandstorycnt_po_grid.columns.storycnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.storycnt}}</span>
+                            <span>{{row.storycnt}}</span>
                     </template>
                 </el-table-column>
             </template>

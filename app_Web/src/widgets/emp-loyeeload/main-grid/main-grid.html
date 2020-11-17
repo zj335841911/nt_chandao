@@ -26,9 +26,9 @@
             <template v-if="getColumnState('assignedto')">
                 <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.employeeload.main_grid.columns.assignedto')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.employeeload.main_grid.columns.assignedto')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -40,79 +40,86 @@
             <template v-if="getColumnState('projectname')">
                 <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.employeeload.main_grid.columns.projectname')" :min-width="100"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.employeeload.main_grid.columns.projectname')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField="project" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'project-main-tab-exp-view', height: 0,width: 0,title: $t('entities.project.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+                        <app-column-link
+                            deKeyField="project"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'project-main-tab-exp-view', height: 0,width: 0,title: $t('entities.project.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
             ]
             ,parameters: [
             { pathName: 'projects', parameterName: 'project' },
             { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
-            ]}" valueitem="project">
+            ]}"
+                            valueitem="project"
+                        >
                             <span>{{row.projectname}}</span>
-                        </app-column-link >
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('taskcnt')">
                 <el-table-column show-overflow-tooltip :prop="'taskcnt'" :label="$t('entities.employeeload.main_grid.columns.taskcnt')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.employeeload.main_grid.columns.taskcnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.taskcnt}}</span>
+                            <span>{{row.taskcnt}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('left')">
                 <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.employeeload.main_grid.columns.left')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.employeeload.main_grid.columns.left')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.left}}</span>
+                            <span>{{row.left}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('totaltaskcnt')">
                 <el-table-column show-overflow-tooltip :prop="'totaltaskcnt'" :label="$t('entities.employeeload.main_grid.columns.totaltaskcnt')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.employeeload.main_grid.columns.totaltaskcnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.totaltaskcnt}}</span>
+                            <span>{{row.totaltaskcnt}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('totalleft')">
                 <el-table-column show-overflow-tooltip :prop="'totalleft'" :label="$t('entities.employeeload.main_grid.columns.totalleft')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.employeeload.main_grid.columns.totalleft')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.totalleft}}</span>
+                            <span>{{row.totalleft}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('workload')">
                 <el-table-column show-overflow-tooltip :prop="'workload'" :label="$t('entities.employeeload.main_grid.columns.workload')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.employeeload.main_grid.columns.workload')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.workload}}</span>
+                            <span>{{row.workload}}</span>
                     </template>
                 </el-table-column>
             </template>

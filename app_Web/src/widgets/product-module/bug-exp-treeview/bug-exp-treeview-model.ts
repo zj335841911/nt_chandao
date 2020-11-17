@@ -63,6 +63,9 @@ export default class BugExpModel {
       {
         name: 'parentname',
       },
+      {
+        name: 'orderpk',
+      },
     ]
   }
 
