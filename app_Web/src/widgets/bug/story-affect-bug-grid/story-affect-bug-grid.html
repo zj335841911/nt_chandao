@@ -26,41 +26,48 @@
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.bug.storyaffectbug_grid.columns.id')" :width="70"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bug.storyaffectbug_grid.columns.id')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.id}}</span>
+                            <span>{{row.id}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('title')">
                 <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.bug.storyaffectbug_grid.columns.title')" :min-width="1"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bug.storyaffectbug_grid.columns.title')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField="bug" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'bug-main-dashboard-view', height: 0,width: 0,title: $t('entities.bug.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link
+                            deKeyField="bug"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'bug-main-dashboard-view', height: 0,width: 0,title: $t('entities.bug.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
             { pathName: 'bugs', parameterName: 'bug' },
             { pathName: 'maindashboardview', parameterName: 'maindashboardview' }
-            ]}" valueitem="srfkey">
+            ]}"
+                            valueitem="srfkey"
+                        >
                             <span>{{row.title}}</span>
-                        </app-column-link >
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('status')">
                 <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.bug.storyaffectbug_grid.columns.status')" :width="60"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bug.storyaffectbug_grid.columns.status')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -72,9 +79,9 @@
             <template v-if="getColumnState('openedby')">
                 <el-table-column show-overflow-tooltip :prop="'openedby'" :label="$t('entities.bug.storyaffectbug_grid.columns.openedby')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bug.storyaffectbug_grid.columns.openedby')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -86,9 +93,9 @@
             <template v-if="getColumnState('resolvedby')">
                 <el-table-column show-overflow-tooltip :prop="'resolvedby'" :label="$t('entities.bug.storyaffectbug_grid.columns.resolvedby')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bug.storyaffectbug_grid.columns.resolvedby')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -100,9 +107,9 @@
             <template v-if="getColumnState('resolution')">
                 <el-table-column show-overflow-tooltip :prop="'resolution'" :label="$t('entities.bug.storyaffectbug_grid.columns.resolution')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bug.storyaffectbug_grid.columns.resolution')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -114,9 +121,9 @@
             <template v-if="getColumnState('lasteditedby')">
                 <el-table-column show-overflow-tooltip :prop="'lasteditedby'" :label="$t('entities.bug.storyaffectbug_grid.columns.lasteditedby')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.bug.storyaffectbug_grid.columns.lasteditedby')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >

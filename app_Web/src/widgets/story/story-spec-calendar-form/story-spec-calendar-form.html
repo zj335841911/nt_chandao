@@ -14,7 +14,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -37,7 +37,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -45,7 +45,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -68,7 +68,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -76,8 +76,8 @@
     :style="{'width':'70px !important'}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
     <app-form-item
     name="id"
@@ -106,8 +106,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 3, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 3, offset: 0 }"
 >
     <app-form-item
     name="status"
@@ -136,8 +136,8 @@ tag='Story__status' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 16, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 16, offset: 0 }"
 >
     <app-form-item
     name="title"
@@ -166,8 +166,8 @@ tag='Story__status' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
     <app-form-item
     name="version"
@@ -207,8 +207,8 @@ tag='Story__status' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 6, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
 >
     <app-form-item
     name="pri"
@@ -237,8 +237,8 @@ tag='Story__pri' codelistType='STATIC' :data="data" :context="context" :viewpara
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 6, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
 >
     <app-form-item
     name="stage"
@@ -267,8 +267,8 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 6, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
 >
     <app-form-item
     name="estimate"
@@ -297,8 +297,8 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 18, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 18, offset: 0 }"
 >
     <app-form-group
     :model="detailsModel.grouppanel1"
@@ -320,7 +320,7 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -328,18 +328,18 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button1_click($event)"
-        style=""
-        :title="$t('entities.story.storyspeccalendar_form.uiactions.story_assigntodash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
+    <i-button 
+    type="primary"
+    @click="button1_click($event)"
+    style=""
+    :title="$t('entities.story.storyspeccalendar_form.uiactions.story_assigntodash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -348,18 +348,18 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button2_click($event)"
-        style=""
-        :title="$t('entities.story.storyspeccalendar_form.uiactions.story_reviewstorydash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-search'}" />
+    <i-button 
+    type="primary"
+    @click="button2_click($event)"
+    style=""
+    :title="$t('entities.story.storyspeccalendar_form.uiactions.story_reviewstorydash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-search'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -368,18 +368,18 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button3_click($event)"
-        style=""
-        :title="$t('entities.story.storyspeccalendar_form.uiactions.story_activitedash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-magic'}" />
+    <i-button 
+    type="primary"
+    @click="button3_click($event)"
+    style=""
+    :title="$t('entities.story.storyspeccalendar_form.uiactions.story_activitedash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-magic'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -388,18 +388,18 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button4_click($event)"
-        style=""
-        :title="$t('entities.story.storyspeccalendar_form.uiactions.story_closestorydash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-power-off'}" />
+    <i-button 
+    type="primary"
+    @click="button4_click($event)"
+    style=""
+    :title="$t('entities.story.storyspeccalendar_form.uiactions.story_closestorydash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-power-off'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -408,18 +408,18 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button5_click($event)"
-        style=""
-        :title="$t('entities.story.storyspeccalendar_form.uiactions.story_changestorydetaildash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-exchange'}" />
+    <i-button 
+    type="primary"
+    @click="button5_click($event)"
+    style=""
+    :title="$t('entities.story.storyspeccalendar_form.uiactions.story_changestorydetaildash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-exchange'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -428,18 +428,18 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button6_click($event)"
-        style=""
-        :title="$t('entities.story.storyspeccalendar_form.uiactions.story_substorycz')"
-    >
-        <menu-icon :item="{iconcls: 'iconfont studio-icon-subnets'}" />
+    <i-button 
+    type="primary"
+    @click="button6_click($event)"
+    style=""
+    :title="$t('entities.story.storyspeccalendar_form.uiactions.story_substorycz')"
+>
+    <menu-icon :item="{iconcls: 'iconfont studio-icon-subnets'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -448,18 +448,18 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button7_click($event)"
-        style=""
-        :title="$t('entities.story.storyspeccalendar_form.uiactions.story_openbaseinfoc')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-edit'}" />
+    <i-button 
+    type="primary"
+    @click="button7_click($event)"
+    style=""
+    :title="$t('entities.story.storyspeccalendar_form.uiactions.story_openbaseinfoc')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-edit'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
     
@@ -473,7 +473,7 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -496,7 +496,7 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -504,7 +504,7 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-item
@@ -535,7 +535,7 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -558,7 +558,7 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -566,7 +566,7 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-item
@@ -602,7 +602,7 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -625,7 +625,7 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -633,7 +633,7 @@ tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-druipart

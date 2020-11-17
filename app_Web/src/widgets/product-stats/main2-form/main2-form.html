@@ -14,7 +14,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -37,7 +37,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -45,8 +45,8 @@
     :style="{}"
     
     
-     :lg="{ span: 12, offset: 0 }"
-     :xl="{ span: 12, offset: 0 }"
+    :lg="{ span: 12, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-group
     :model="detailsModel.grouppanel1"
@@ -68,7 +68,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -76,7 +76,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-rawitem
@@ -99,8 +99,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 22, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 22, offset: 0 }"
 >
     <app-rawitem
     :viewparams="viewparams" 
@@ -121,8 +121,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 14, offset: 10 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 14, offset: 10 }"
 >
     <app-form-item
     name="storycnt"
@@ -151,7 +151,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -174,7 +174,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -182,18 +182,18 @@
     :style="{}"
     
     
-     :lg="{ span: 8, offset: 8 }"
-     :xl="{ span: 8, offset: 9 }"
+    :lg="{ span: 8, offset: 8 }"
+    :xl="{ span: 8, offset: 9 }"
 >
-        <i-button 
-        type="primary"
-        @click="button4_click($event)"
-        style=""
-        :title="$t('entities.productstats.main2_form.uiactions.productstats_openproductstoryview')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-search'}" />
-        <span >{{$t('entities.productstats.main2_form.details.button4')}}</span>
-    </i-button>
+    <i-button 
+    type="primary"
+    @click="button4_click($event)"
+    style=""
+    :title="$t('entities.productstats.main2_form.uiactions.productstats_openproductstoryview')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-search'}" />
+    <span >{{$t('entities.productstats.main2_form.details.button4')}}</span>
+</i-button>
 
 </i-col>
 <i-col
@@ -202,17 +202,17 @@
     :style="{}"
     
     
-     :lg="{ span: 8, offset: 8 }"
-     :xl="{ span: 8, offset: 9 }"
+    :lg="{ span: 8, offset: 8 }"
+    :xl="{ span: 8, offset: 9 }"
 >
-        <i-button 
-        type="primary"
-        @click="button5_click($event)"
-        style=""
-        :title="$t('entities.productstats.main2_form.uiactions.productstats_openstorycreateview')"
-    >
-        <span >{{$t('entities.productstats.main2_form.details.button5')}}</span>
-    </i-button>
+    <i-button 
+    type="primary"
+    @click="button5_click($event)"
+    style=""
+    :title="$t('entities.productstats.main2_form.uiactions.productstats_openstorycreateview')"
+>
+    <span >{{$t('entities.productstats.main2_form.details.button5')}}</span>
+</i-button>
 
 </i-col>
     
@@ -226,7 +226,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-rawitem
@@ -248,7 +248,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -271,7 +271,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -279,8 +279,8 @@
     :style="{}"
     
     
-     :lg="{ span: 4, offset: 2 }"
-     :xl="{ span: 4, offset: 2 }"
+    :lg="{ span: 4, offset: 2 }"
+    :xl="{ span: 4, offset: 2 }"
 >
     <app-form-item
     name="waitstorycnt"
@@ -309,8 +309,8 @@
     :style="{}"
     
     
-     :lg="{ span: 4, offset: 0 }"
-     :xl="{ span: 4, offset: 0 }"
+    :lg="{ span: 4, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
 >
     <app-form-item
     name="plannedstorycnt"
@@ -339,8 +339,8 @@
     :style="{}"
     
     
-     :lg="{ span: 4, offset: 0 }"
-     :xl="{ span: 4, offset: 0 }"
+    :lg="{ span: 4, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
 >
     <app-form-item
     name="developingstorycnt"
@@ -369,8 +369,8 @@
     :style="{}"
     
     
-     :lg="{ span: 4, offset: 0 }"
-     :xl="{ span: 4, offset: 0 }"
+    :lg="{ span: 4, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
 >
     <app-form-item
     name="testingstorycnt"
@@ -399,8 +399,8 @@
     :style="{}"
     
     
-     :lg="{ span: 4, offset: 0 }"
-     :xl="{ span: 4, offset: 0 }"
+    :lg="{ span: 4, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
 >
     <app-form-item
     name="releasedstorycnt"
@@ -439,8 +439,8 @@
     :style="{}"
     
     
-     :lg="{ span: 12, offset: 0 }"
-     :xl="{ span: 12, offset: 0 }"
+    :lg="{ span: 12, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-group
     :model="detailsModel.grouppanel2"
@@ -462,7 +462,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -470,7 +470,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -493,7 +493,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -501,8 +501,8 @@
     :style="{}"
     
     
-     :lg="{ span: 8, offset: 16 }"
-     :xl="{ span: 8, offset: 16 }"
+    :lg="{ span: 8, offset: 16 }"
+    :xl="{ span: 8, offset: 16 }"
 >
     <app-form-item
     name="productplancnt"
@@ -531,8 +531,8 @@
     :style="{}"
     
     
-     :lg="{ span: 16, offset: 0 }"
-     :xl="{ span: 16, offset: 0 }"
+    :lg="{ span: 16, offset: 0 }"
+    :xl="{ span: 16, offset: 0 }"
 >
     <app-form-group
     :model="detailsModel.grouppanel3"
@@ -554,7 +554,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -562,7 +562,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-item
@@ -594,18 +594,18 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
-        <i-button 
-        type="primary"
-        @click="button1_click($event)"
-        style=""
-        :title="$t('entities.productstats.main2_form.uiactions.productstats_openproductplancreateview')"
-    >
-        <i class="fa fa-plus" style="margin-right: 2px;"></i>
-        <span >{{$t('entities.productstats.main2_form.details.button1')}}</span>
-    </i-button>
+    <i-button 
+    type="primary"
+    @click="button1_click($event)"
+    style=""
+    :title="$t('entities.productstats.main2_form.uiactions.productstats_openproductplancreateview')"
+>
+    <i class="fa fa-plus" style="margin-right: 2px;"></i>
+    <span >{{$t('entities.productstats.main2_form.details.button1')}}</span>
+</i-button>
 
 </i-col>
     
@@ -619,8 +619,8 @@
     :style="{}"
     
     
-     :lg="{ span: 8, offset: 0 }"
-     :xl="{ span: 8, offset: 0 }"
+    :lg="{ span: 8, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
     name="unendproductplancnt"
@@ -654,7 +654,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -677,7 +677,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -685,8 +685,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 16, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 16, offset: 0 }"
 >
     <app-rawitem
     :viewparams="viewparams" 
@@ -707,8 +707,8 @@
     :style="{}"
     
     
-     :lg="{ span: 8, offset: 16 }"
-     :xl="{ span: 8, offset: 0 }"
+    :lg="{ span: 8, offset: 16 }"
+    :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
     name="resprojectcnt"
@@ -737,8 +737,8 @@
     :style="{}"
     
     
-     :lg="{ span: 16, offset: 0 }"
-     :xl="{ span: 16, offset: 0 }"
+    :lg="{ span: 16, offset: 0 }"
+    :xl="{ span: 16, offset: 0 }"
 >
     <app-form-group
     :model="detailsModel.grouppanel4"
@@ -760,7 +760,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -768,7 +768,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-item
@@ -800,18 +800,18 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
-        <i-button 
-        type="primary"
-        @click="button2_click($event)"
-        style=""
-        :title="$t('entities.productstats.main2_form.uiactions.productstats_openprojectcreateview')"
-    >
-        <i class="fa fa-plus" style="margin-right: 2px;"></i>
-        <span >{{$t('entities.productstats.main2_form.details.button2')}}</span>
-    </i-button>
+    <i-button 
+    type="primary"
+    @click="button2_click($event)"
+    style=""
+    :title="$t('entities.productstats.main2_form.uiactions.productstats_openprojectcreateview')"
+>
+    <i class="fa fa-plus" style="margin-right: 2px;"></i>
+    <span >{{$t('entities.productstats.main2_form.details.button2')}}</span>
+</i-button>
 
 </i-col>
     
@@ -825,8 +825,8 @@
     :style="{}"
     
     
-     :lg="{ span: 8, offset: 0 }"
-     :xl="{ span: 8, offset: 0 }"
+    :lg="{ span: 8, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
     name="undoneresprojectcnt"
@@ -860,7 +860,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -883,7 +883,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -891,8 +891,8 @@
     :style="{}"
     
     
-     :lg="{ span: 8, offset: 16 }"
-     :xl="{ span: 8, offset: 16 }"
+    :lg="{ span: 8, offset: 16 }"
+    :xl="{ span: 8, offset: 16 }"
 >
     <app-form-item
     name="releasecnt"
@@ -921,8 +921,8 @@
     :style="{}"
     
     
-     :lg="{ span: 16, offset: 0 }"
-     :xl="{ span: 16, offset: 0 }"
+    :lg="{ span: 16, offset: 0 }"
+    :xl="{ span: 16, offset: 0 }"
 >
     <app-form-group
     :model="detailsModel.grouppanel5"
@@ -944,7 +944,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -952,7 +952,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-item
@@ -984,18 +984,18 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
-        <i-button 
-        type="primary"
-        @click="button3_click($event)"
-        style=""
-        :title="$t('entities.productstats.main2_form.uiactions.productstats_openreleasedcreateview')"
-    >
-        <i class="fa fa-plus" style="margin-right: 2px;"></i>
-        <span >{{$t('entities.productstats.main2_form.details.button3')}}</span>
-    </i-button>
+    <i-button 
+    type="primary"
+    @click="button3_click($event)"
+    style=""
+    :title="$t('entities.productstats.main2_form.uiactions.productstats_openreleasedcreateview')"
+>
+    <i class="fa fa-plus" style="margin-right: 2px;"></i>
+    <span >{{$t('entities.productstats.main2_form.details.button3')}}</span>
+</i-button>
 
 </i-col>
     
@@ -1009,8 +1009,8 @@
     :style="{}"
     
     
-     :lg="{ span: 8, offset: 0 }"
-     :xl="{ span: 8, offset: 0 }"
+    :lg="{ span: 8, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
     name="normalreleasecnt"

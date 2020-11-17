@@ -28,21 +28,21 @@
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.story.main_buildsub_grid.columns.id')" :width="70"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.main_buildsub_grid.columns.id')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.id}}</span>
+                            <span>{{row.id}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
                 <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.story.main_buildsub_grid.columns.pri')" :width="70"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.main_buildsub_grid.columns.pri')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -54,41 +54,48 @@
             <template v-if="getColumnState('title')">
                 <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.story.main_buildsub_grid.columns.title')" :min-width="0"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.main_buildsub_grid.columns.title')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField="story" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link
+                            deKeyField="story"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mainview', parameterName: 'mainview' }
-            ]}" valueitem="srfkey">
+            ]}"
+                            valueitem="srfkey"
+                        >
                             <span>{{row.title}}</span>
-                        </app-column-link >
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('modulename')">
                 <el-table-column show-overflow-tooltip :prop="'modulename'" :label="$t('entities.story.main_buildsub_grid.columns.modulename')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.main_buildsub_grid.columns.modulename')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.modulename}}</span>
+                            <span>{{row.modulename}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('openedby')">
                 <el-table-column show-overflow-tooltip :prop="'openedby'" :label="$t('entities.story.main_buildsub_grid.columns.openedby')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.main_buildsub_grid.columns.openedby')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -100,9 +107,9 @@
             <template v-if="getColumnState('estimate')">
                 <el-table-column show-overflow-tooltip :prop="'estimate'" :label="$t('entities.story.main_buildsub_grid.columns.estimate')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.main_buildsub_grid.columns.estimate')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                             <app-format-data dataType="FLOAT" precision="0" :data="row.estimate"></app-format-data>
@@ -112,9 +119,9 @@
             <template v-if="getColumnState('status')">
                 <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.story.main_buildsub_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.main_buildsub_grid.columns.status')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -126,9 +133,9 @@
             <template v-if="getColumnState('stage')">
                 <el-table-column show-overflow-tooltip :prop="'stage'" :label="$t('entities.story.main_buildsub_grid.columns.stage')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.main_buildsub_grid.columns.stage')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
@@ -140,16 +147,16 @@
             <template v-if="getColumnState('uagridcolumn1')">
                 <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.story.main_buildsub_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.story.main_buildsub_grid.columns.uagridcolumn1')}}
-                      </span>
+                       </span>
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.buildUnlinkStory.visible" :disabled="scope.row.buildUnlinkStory.disabled" @click="uiAction(scope.row, 'buildUnlinkStory', $event)" :title="$t('entities.story.main_buildsub_grid.uiactions.story_buildunlinkstory')">
-                            <i class="fa fa-unlink"></i>
-                            
-                          </a>
+                            <a v-show="scope.row.buildUnlinkStory.visible" :disabled="scope.row.buildUnlinkStory.disabled" @click="uiAction(scope.row, 'buildUnlinkStory', $event)" :title="$t('entities.story.main_buildsub_grid.uiactions.story_buildunlinkstory')">
+                                <i class="fa fa-unlink"></i>
+                                
+                            </a>
                         </div>
                     </template>
                 </el-table-column>

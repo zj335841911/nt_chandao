@@ -11,11 +11,11 @@
         @viewload="viewload.apply(_self, arguments)"
         @viewdirty="viewdirty(item,$event)">
         </test-result-edit-view9>
-        <divider />
-     </div>
+        <divider></divider>
+    </div>
     <div>
-    <i-button type="primary" @click="handleAdd.apply(_self, arguments)" style="float: right;">
-        {{ $t('app.local.add')}}
-    </i-button>
+        <i-button type="primary" @click="handleAdd.apply(_self, arguments)" style="float: right;">
+            {{ $t('app.local.add')}}
+        </i-button>
     </div>
 </div>

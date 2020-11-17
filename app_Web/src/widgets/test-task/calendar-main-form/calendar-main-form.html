@@ -14,7 +14,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -37,7 +37,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -45,8 +45,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
     <app-form-item
     name="id"
@@ -75,8 +75,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 3, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 3, offset: 0 }"
 >
     <app-form-item
     name="status"
@@ -105,8 +105,8 @@ tag='Testtask__status' codelistType='STATIC' :data="data" :context="context" :vi
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 19, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 19, offset: 0 }"
 >
     <app-form-item
     name="name"
@@ -135,8 +135,8 @@ tag='Testtask__status' codelistType='STATIC' :data="data" :context="context" :vi
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 6, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
 >
     <app-form-item
     name="pri"
@@ -165,8 +165,8 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 9, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 9, offset: 0 }"
 >
     <app-form-item
     name="begin"
@@ -195,8 +195,8 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 9, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 9, offset: 0 }"
 >
     <app-form-item
     name="end"
@@ -225,8 +225,8 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 20, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 20, offset: 0 }"
 >
     <app-form-group
     :model="detailsModel.grouppanel2"
@@ -248,7 +248,7 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -256,18 +256,18 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button1_click($event)"
-        style=""
-        :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_startdash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-play'}" />
+    <i-button 
+    type="primary"
+    @click="button1_click($event)"
+    style=""
+    :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_startdash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-play'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -276,18 +276,18 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button2_click($event)"
-        style=""
-        :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_closedash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-close'}" />
+    <i-button 
+    type="primary"
+    @click="button2_click($event)"
+    style=""
+    :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_closedash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-close'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -296,18 +296,18 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button3_click($event)"
-        style=""
-        :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_blockdash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-pause'}" />
+    <i-button 
+    type="primary"
+    @click="button3_click($event)"
+    style=""
+    :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_blockdash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-pause'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -316,18 +316,18 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button4_click($event)"
-        style=""
-        :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_editedit')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-edit'}" />
+    <i-button 
+    type="primary"
+    @click="button4_click($event)"
+    style=""
+    :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_editedit')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-edit'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -336,18 +336,18 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button5_click($event)"
-        style=""
-        :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_look')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-stack-exchange'}" />
+    <i-button 
+    type="primary"
+    @click="button5_click($event)"
+    style=""
+    :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_look')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-stack-exchange'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
     
@@ -361,7 +361,7 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -384,7 +384,7 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -392,7 +392,7 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-item
@@ -423,7 +423,7 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -446,7 +446,7 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -454,7 +454,7 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-druipart

@@ -26,13 +26,13 @@
             <template v-if="getColumnState('sys_update_logname')">
                 <el-table-column show-overflow-tooltip :prop="'sys_update_logname'" :label="$t('entities.sysupdatelog.lookmain_grid.columns.sys_update_logname')" :min-width="150"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.sysupdatelog.lookmain_grid.columns.sys_update_logname')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <a v-show="row.LookDetail.visible" :disabled="row.LookDetail.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'LookDetail', $event)">
-                        <span>{{row.sys_update_logname}}</span>
+                            <span>{{row.sys_update_logname}}</span>
                         </a>
                     </template>
                 </el-table-column>
@@ -40,12 +40,12 @@
             <template v-if="getColumnState('update')">
                 <el-table-column show-overflow-tooltip :prop="'update'" :label="$t('entities.sysupdatelog.lookmain_grid.columns.update')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.sysupdatelog.lookmain_grid.columns.update')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.update"></app-format-data>
+                            <app-format-data format="YYYY-MM-DD" :data="row.update"></app-format-data>
                     </template>
                 </el-table-column>
             </template>

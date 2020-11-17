@@ -28,33 +28,33 @@
             <template v-if="getColumnState('desc')">
                 <el-table-column show-overflow-tooltip :prop="'desc'" :label="$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.desc')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.desc')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.desc}}</span>
+                            <span>{{row.desc}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('expect')">
                 <el-table-column show-overflow-tooltip :prop="'expect'" :label="$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.expect')" :min-width="0"  :align="'left'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.expect')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.expect}}</span>
+                            <span>{{row.expect}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('steps')">
                 <el-table-column show-overflow-tooltip :prop="'steps'" :label="$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.steps')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.steps')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template v-if="actualIsOpenEdit">
@@ -87,9 +87,9 @@
             <template v-if="getColumnState('reals')">
                 <el-table-column show-overflow-tooltip :prop="'reals'" :label="$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.reals')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.reals')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template v-if="actualIsOpenEdit">
@@ -108,7 +108,11 @@
                             </app-form-item>
                         </template>
                         <template v-if="!actualIsOpenEdit">
-            <app-span name="reals" editorType="TEXTBOX" :value="row.reals" dataType="TEXT" precision="0" ></app-span>
+                                    <app-span
+                                        name="reals"
+                                        editorType="TEXTBOX"
+            :value="row.reals" dataType="TEXT" precision="0" 
+                                    ></app-span>
                         </template>
                     </template>
                 </el-table-column>

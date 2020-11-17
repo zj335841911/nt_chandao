@@ -29,121 +29,128 @@
             <template v-if="getColumnState('id')">
                 <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.productplan.maininfo_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productplan.maininfo_grid.columns.id')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.id}}</span>
+                            <span>{{row.id}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('title')">
                 <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.productplan.maininfo_grid.columns.title')" :min-width="0"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productplan.maininfo_grid.columns.title')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField="productplan" :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-plan-main-data-edit-view', height: 0,width: 0,title: $t('entities.productplan.views.maindataeditview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link
+                            deKeyField="productplan"
+                            :context="JSON.parse(JSON.stringify(context))"
+                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                            :data="row"
+                            :linkview="{viewname: 'product-plan-main-data-edit-view', height: 0,width: 0,title: $t('entities.productplan.views.maindataeditview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
             { pathName: 'productplans', parameterName: 'productplan' },
             { pathName: 'maindataeditview', parameterName: 'maindataeditview' }
-            ]}" valueitem="srfkey">
+            ]}"
+                            valueitem="srfkey"
+                        >
                             <span>{{row.title}}</span>
-                        </app-column-link >
+                        </app-column-link>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('beginstr')">
                 <el-table-column show-overflow-tooltip :prop="'beginstr'" :label="$t('entities.productplan.maininfo_grid.columns.beginstr')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productplan.maininfo_grid.columns.beginstr')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.beginstr}}</span>
+                            <span>{{row.beginstr}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('endstr')">
                 <el-table-column show-overflow-tooltip :prop="'endstr'" :label="$t('entities.productplan.maininfo_grid.columns.endstr')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productplan.maininfo_grid.columns.endstr')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.endstr}}</span>
+                            <span>{{row.endstr}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('storycnt')">
                 <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.productplan.maininfo_grid.columns.storycnt')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productplan.maininfo_grid.columns.storycnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.storycnt}}</span>
+                            <span>{{row.storycnt}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugcnt')">
                 <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.productplan.maininfo_grid.columns.bugcnt')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productplan.maininfo_grid.columns.bugcnt')}}
-                      </span>
+                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.bugcnt}}</span>
+                            <span>{{row.bugcnt}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('actions')">
                 <el-table-column :column-key="'actions'" fixed="right" :label="$t('entities.productplan.maininfo_grid.columns.actions')" :width="180"  :align="'center'">
                     <template v-slot:header="{column}">
-                      <span class="column-header ">
+                       <span class="column-header ">
                         {{$t('entities.productplan.maininfo_grid.columns.actions')}}
-                      </span>
+                       </span>
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.AddProject.visible" :disabled="scope.row.AddProject.disabled" @click="uiAction(scope.row, 'AddProject', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_addproject')">
-                            <i class="fa fa-plus"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.RelationStory.visible" type="vertical"></divider>
-                          <a v-show="scope.row.RelationStory.visible" :disabled="scope.row.RelationStory.disabled" @click="uiAction(scope.row, 'RelationStory', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_relationstory')">
-                            <i class="fa fa-link"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.RelationBug.visible" type="vertical"></divider>
-                          <a v-show="scope.row.RelationBug.visible" :disabled="scope.row.RelationBug.disabled" @click="uiAction(scope.row, 'RelationBug', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_relationbug')">
-                            <i class="fa fa-bug"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.MainEdit.visible" type="vertical"></divider>
-                          <a v-show="scope.row.MainEdit.visible" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_mainedit')">
-                            <i class="fa fa-edit"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.NewSubPlan.visible" type="vertical"></divider>
-                          <a v-show="scope.row.NewSubPlan.visible" :disabled="scope.row.NewSubPlan.disabled" @click="uiAction(scope.row, 'NewSubPlan', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_newsubplan')">
-                            <i class="fa fa-sitemap"></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.Delete.visible" type="vertical"></divider>
-                          <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_delete')">
-                            <i class="fa fa-remove"></i>
-                            
-                          </a>
+                            <a v-show="scope.row.AddProject.visible" :disabled="scope.row.AddProject.disabled" @click="uiAction(scope.row, 'AddProject', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_addproject')">
+                                <i class="fa fa-plus"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.RelationStory.visible" type="vertical"></divider>
+                            <a v-show="scope.row.RelationStory.visible" :disabled="scope.row.RelationStory.disabled" @click="uiAction(scope.row, 'RelationStory', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_relationstory')">
+                                <i class="fa fa-link"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.RelationBug.visible" type="vertical"></divider>
+                            <a v-show="scope.row.RelationBug.visible" :disabled="scope.row.RelationBug.disabled" @click="uiAction(scope.row, 'RelationBug', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_relationbug')">
+                                <i class="fa fa-bug"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.MainEdit.visible" type="vertical"></divider>
+                            <a v-show="scope.row.MainEdit.visible" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_mainedit')">
+                                <i class="fa fa-edit"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.NewSubPlan.visible" type="vertical"></divider>
+                            <a v-show="scope.row.NewSubPlan.visible" :disabled="scope.row.NewSubPlan.disabled" @click="uiAction(scope.row, 'NewSubPlan', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_newsubplan')">
+                                <i class="fa fa-sitemap"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.Delete.visible" type="vertical"></divider>
+                            <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_delete')">
+                                <i class="fa fa-remove"></i>
+                                
+                            </a>
                         </div>
                     </template>
                 </el-table-column>

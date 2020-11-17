@@ -14,7 +14,7 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -37,7 +37,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -45,8 +45,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 5, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 5, offset: 0 }"
 >
     <app-form-group
     :model="detailsModel.grouppanel6"
@@ -68,7 +68,7 @@
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -76,8 +76,8 @@
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 11, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 11, offset: 0 }"
 >
     <app-form-item
     name="id"
@@ -106,8 +106,8 @@
     :style="{}"
     
     
-     :lg="{ span: 3, offset: 0 }"
-     :xl="{ span: 13, offset: 0 }"
+    :lg="{ span: 3, offset: 0 }"
+    :xl="{ span: 13, offset: 0 }"
 >
     <app-form-item
     name="status"
@@ -141,8 +141,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 19, offset: 0 }"
-     :xl="{ span: 19, offset: 0 }"
+    :lg="{ span: 19, offset: 0 }"
+    :xl="{ span: 19, offset: 0 }"
 >
     <app-form-item
     name="name"
@@ -171,8 +171,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 6, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
 >
     <app-form-item
     name="estimate"
@@ -201,8 +201,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 6, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
 >
     <app-form-item
     name="consumed"
@@ -231,8 +231,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 6, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
 >
     <app-form-item
     name="left"
@@ -261,8 +261,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 6, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 6, offset: 0 }"
 >
     <app-form-item
     name="progressrate"
@@ -291,7 +291,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -314,7 +314,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -322,8 +322,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 18, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 18, offset: 0 }"
 >
     <app-form-group
     :model="detailsModel.grouppanel5"
@@ -345,7 +345,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -353,18 +353,18 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button7_click($event)"
-        style=""
-        :title="$t('entities.task.calendarmain_form.uiactions.task_assigntaskdash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
+    <i-button 
+    type="primary"
+    @click="button7_click($event)"
+    style=""
+    :title="$t('entities.task.calendarmain_form.uiactions.task_assigntaskdash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -373,18 +373,18 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button8_click($event)"
-        style=""
-        :title="$t('entities.task.calendarmain_form.uiactions.task_checkforwarddash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-mail-forward'}" />
+    <i-button 
+    type="primary"
+    @click="button8_click($event)"
+    style=""
+    :title="$t('entities.task.calendarmain_form.uiactions.task_checkforwarddash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-mail-forward'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -393,18 +393,18 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button1_click($event)"
-        style=""
-        :title="$t('entities.task.calendarmain_form.uiactions.task_mstarttaskdash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-play-circle-o'}" />
+    <i-button 
+    type="primary"
+    @click="button1_click($event)"
+    style=""
+    :title="$t('entities.task.calendarmain_form.uiactions.task_mstarttaskdash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-play-circle-o'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -413,18 +413,18 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button2_click($event)"
-        style=""
-        :title="$t('entities.task.calendarmain_form.uiactions.task_mdonetask')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-check-square-o'}" />
+    <i-button 
+    type="primary"
+    @click="button2_click($event)"
+    style=""
+    :title="$t('entities.task.calendarmain_form.uiactions.task_mdonetask')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-check-square-o'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -433,18 +433,18 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button3_click($event)"
-        style=""
-        :title="$t('entities.task.calendarmain_form.uiactions.task_activationdash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-magic'}" />
+    <i-button 
+    type="primary"
+    @click="button3_click($event)"
+    style=""
+    :title="$t('entities.task.calendarmain_form.uiactions.task_activationdash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-magic'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -453,18 +453,18 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button4_click($event)"
-        style=""
-        :title="$t('entities.task.calendarmain_form.uiactions.task_mpausetask')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-circle-o'}" />
+    <i-button 
+    type="primary"
+    @click="button4_click($event)"
+    style=""
+    :title="$t('entities.task.calendarmain_form.uiactions.task_mpausetask')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-circle-o'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -473,18 +473,18 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button5_click($event)"
-        style=""
-        :title="$t('entities.task.calendarmain_form.uiactions.task_canceltaskdash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-ban'}" />
+    <i-button 
+    type="primary"
+    @click="button5_click($event)"
+    style=""
+    :title="$t('entities.task.calendarmain_form.uiactions.task_canceltaskdash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-ban'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -493,18 +493,18 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button6_click($event)"
-        style=""
-        :title="$t('entities.task.calendarmain_form.uiactions.task_closetaskdash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-power-off'}" />
+    <i-button 
+    type="primary"
+    @click="button6_click($event)"
+    style=""
+    :title="$t('entities.task.calendarmain_form.uiactions.task_closetaskdash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-power-off'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -513,18 +513,18 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button9_click($event)"
-        style=""
-        :title="$t('entities.task.calendarmain_form.uiactions.task_newsubtaskdash')"
-    >
-        <menu-icon :item="{iconcls: 'iconfont studio-icon-subnets'}" />
+    <i-button 
+    type="primary"
+    @click="button9_click($event)"
+    style=""
+    :title="$t('entities.task.calendarmain_form.uiactions.task_newsubtaskdash')"
+>
+    <menu-icon :item="{iconcls: 'iconfont studio-icon-subnets'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
 <i-col
@@ -533,18 +533,18 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
-     :xl="{ span: 2, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
 >
-        <i-button 
-        type="primary"
-        @click="button10_click($event)"
-        style=""
-        :title="$t('entities.task.calendarmain_form.uiactions.task_maineditdash')"
-    >
-        <menu-icon :item="{iconcls: 'fa fa-edit'}" />
+    <i-button 
+    type="primary"
+    @click="button10_click($event)"
+    style=""
+    :title="$t('entities.task.calendarmain_form.uiactions.task_maineditdash')"
+>
+    <menu-icon :item="{iconcls: 'fa fa-edit'}" />
 
-    </i-button>
+</i-button>
 
 </i-col>
     
@@ -563,7 +563,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -586,7 +586,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -594,7 +594,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-item
@@ -625,7 +625,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -648,7 +648,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -656,7 +656,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-druipart
@@ -698,7 +698,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-group
@@ -721,7 +721,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
         :data="data"
         :context="context"
         :viewparams="viewparams"
-    />
+    ></app-form-group-data-panel>
     <row>
         <i-col
     class="form-layout-container"
@@ -729,7 +729,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     :style="{}"
     
     
-     :lg="{ span: 24, offset: 0 }"
+    :lg="{ span: 24, offset: 0 }"
     
 >
     <app-form-druipart
