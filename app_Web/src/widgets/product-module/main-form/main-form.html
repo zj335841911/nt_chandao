@@ -63,23 +63,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.rootname.disabled"
-  name='rootname'
-  deMajorField='name'
-  deKeyField='product'
-  :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
-  valueitem='root'
-  :value="data.rootname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.rootname.disabled"
+    name="rootname"
+    deMajorField="name"
+    deKeyField="product"
+    :service="service"
+    :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
+    valueitem="root"
+    :value="data.rootname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -113,15 +113,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ PRODUCT:"%root%" }' 
-    :localParam ='{ product:"%root%" }' 
+    :localContext='{ PRODUCT:"%root%" }' 
+    :localParam='{ product:"%root%" }' 
     :disabled="detailsModel.branch.disabled"
     valueType="number"
-    tag='ProductBranch_Cache'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="ProductBranch_Cache"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -149,24 +149,24 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ N_TYPE_EQ:"story", N_ROOT_EQ:"%root%" }' 
-  :localParam ='{ n_type_eq:"story", n_root_eq:"%root%" }' 
-  :disabled="detailsModel.parentname.disabled"
-  name='parentname'
-  deMajorField='name'
-  deKeyField='productmodule'
-  :service="service"
-  :acParams="{ serviceName: 'ProductModuleService', interfaceName: 'FetchParentModule'}"
-  valueitem='parent'
-  :value="data.parentname"
-  editortype="dropdown"
-  :valFormat="{0: '/'}"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ N_TYPE_EQ:"story", N_ROOT_EQ:"%root%" }' 
+    :localParam ='{ n_type_eq:"story", n_root_eq:"%root%" }' 
+    :disabled="detailsModel.parentname.disabled"
+    name="parentname"
+    deMajorField="name"
+    deKeyField="productmodule"
+    :service="service"
+    :acParams="{ serviceName: 'ProductModuleService', interfaceName: 'FetchParentModule'}"
+    valueitem="parent"
+    :value="data.parentname"
+    editortype="dropdown"
+    :valFormat="{0: '/'}"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 

@@ -92,7 +92,15 @@
     :isEmptyCaption="false"
     labelPos="NONE"
 >
-    <circle-progress caption="所有" stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="circle" :total="this.data.alldoccnt1" :progress="this.data.recentupdatecnt" style="min-width: 244px;"/>
+    <circle-progress
+    caption="所有" 
+    stroke-color="var(--form-editor-active-color)"
+    :stroke-width="16"
+    mode="circle"
+    :total="this.data.alldoccnt1"
+    :progress="this.data.recentupdatecnt"
+    style="min-width: 244px;"
+></circle-progress>
 </app-form-item>
 
 </i-col>
@@ -314,7 +322,13 @@
     :isEmptyCaption="false"
     labelPos="NONE"
 >
-    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.alldoccnt2" :progress="this.data.recentaddcnt"/>
+    <ibiz-studio-progress-vue
+    stroke-color="var(--form-editor-active-color)"
+    :stroke-width="16"
+    mode="line"
+    :total="this.data.alldoccnt2"
+    :progress="this.data.recentaddcnt"
+></ibiz-studio-progress-vue>
 </app-form-item>
 
 </i-col>
@@ -398,7 +412,13 @@
     :isEmptyCaption="false"
     labelPos="NONE"
 >
-    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.alldoccnt3" :progress="this.data.mydoccnt"/>
+    <ibiz-studio-progress-vue
+    stroke-color="var(--form-editor-active-color)"
+    :stroke-width="16"
+    mode="line"
+    :total="this.data.alldoccnt3"
+    :progress="this.data.mydoccnt"
+></ibiz-studio-progress-vue>
 </app-form-item>
 
 </i-col>
@@ -482,7 +502,13 @@
     :isEmptyCaption="false"
     labelPos="NONE"
 >
-    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.alldoccnt4" :progress="this.data.myfavouritecnt"/>
+    <ibiz-studio-progress-vue
+    stroke-color="var(--form-editor-active-color)"
+    :stroke-width="16"
+    mode="line"
+    :total="this.data.alldoccnt4"
+    :progress="this.data.myfavouritecnt"
+></ibiz-studio-progress-vue>
 </app-form-item>
 
 </i-col>

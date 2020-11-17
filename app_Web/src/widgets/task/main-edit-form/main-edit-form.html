@@ -167,7 +167,8 @@
     :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' 
     :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}' 
     :templParams='{ account:"%srfloginname%", public:"0", type:"task" }' 
-    style=""/>
+    style=""
+></rich-text-editor>
 </app-form-item>
 
 </i-col>
@@ -229,7 +230,21 @@
     :isEmptyCaption="false"
     labelPos="NONE"
 >
-    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.comment"
+    @change="(val) =>{this.data.comment =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.comment.disabled"
+    :data="JSON.stringify(this.data)"
+    name="comment"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}'
+    :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
@@ -261,7 +276,18 @@
     :isEmptyCaption="false"
     labelPos="TOP"
 >
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{objecttype:"task",objectid:"0",version:"1"}' :exportparams='{objecttype:"task",objectid:"0",version:"1"}'  style="overflow: auto;"></app-file-upload>
+    <app-file-upload
+    :formState="formState"
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :data="JSON.stringify(this.data)"
+    name="files"
+    :value="data.files"
+    :disabled="detailsModel.files.disabled"
+    :uploadparams='{objecttype:"task",objectid:"0",version:"1"}'
+    :exportparams='{objecttype:"task",objectid:"0",version:"1"}'
+    style="overflow: auto;"
+></app-file-upload>
 </app-form-item>
 
 </i-col>
@@ -310,7 +336,7 @@
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem="task" 
-    :parentdata="{"srfparentdename":"ZT_TASK","SRFPARENTTYPE":"CUSTOM"}"
+    :parentdata='{"srfparentdename":"ZT_TASK","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
     :context="context"
@@ -425,23 +451,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.projectname.disabled"
-  name='projectname'
-  deMajorField='name'
-  deKeyField='project'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchCurUser'}"
-  valueitem='project'
-  :value="data.projectname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.projectname.disabled"
+    name="projectname"
+    deMajorField="name"
+    deKeyField="project"
+    :service="service"
+    :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchCurUser'}"
+    valueitem="project"
+    :value="data.projectname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -470,24 +496,24 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ PROJECT:"%project%", MODULE:"%module%", ALLMODULES:"%allmodules%" }' 
-  :localParam ='{ project:"%project%", module:"%module%", allmodules:"%allmodules%" }' 
-  :disabled="detailsModel.modulename.disabled"
-  name='modulename'
-  deMajorField='name'
-  deKeyField='projectmodule'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectModuleService', interfaceName: 'FetchTaskModules'}"
-  valueitem='module'
-  :value="data.modulename"
-  editortype="dropdown"
-  :valFormat="{0: '/'}"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ PROJECT:"%project%", MODULE:"%module%", ALLMODULES:"%allmodules%" }' 
+    :localParam ='{ project:"%project%", module:"%module%", allmodules:"%allmodules%" }' 
+    :disabled="detailsModel.modulename.disabled"
+    name="modulename"
+    deMajorField="name"
+    deKeyField="projectmodule"
+    :service="service"
+    :acParams="{ serviceName: 'ProjectModuleService', interfaceName: 'FetchTaskModules'}"
+    valueitem="module"
+    :value="data.modulename"
+    editortype="dropdown"
+    :valFormat="{0: '/'}"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -543,24 +569,24 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ PROJECT:"%project%", MODULE:"%module%" }' 
-  :localParam ='{ project:"%project%", module:"%module%" }' 
-  :disabled="detailsModel.storyname.disabled"
-  name='storyname'
-  deMajorField='title'
-  deKeyField='story'
-  :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchTaskRelatedStory'}"
-  valueitem='story'
-  :value="data.storyname"
-  editortype="dropdown"
-  :valFormat="{0: ''}"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ PROJECT:"%project%", MODULE:"%module%" }' 
+    :localParam ='{ project:"%project%", module:"%module%" }' 
+    :disabled="detailsModel.storyname.disabled"
+    name="storyname"
+    deMajorField="title"
+    deKeyField="story"
+    :service="service"
+    :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchTaskRelatedStory'}"
+    valueitem="story"
+    :value="data.storyname"
+    editortype="dropdown"
+    :valFormat="{0: ''}"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -589,24 +615,24 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ N_PROJECT_EQ:"%project%", N_ID_NOTEQ:"%id%" }' 
-  :localParam ='{ n_project_eq:"%project%", n_id_noteq:"%id%" }' 
-  :disabled="detailsModel.parentname.disabled"
-  name='parentname'
-  deMajorField='name'
-  deKeyField='task'
-  :service="service"
-  :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchRootTask'}"
-  valueitem='parent'
-  :value="data.parentname"
-  editortype="dropdown"
-  :valFormat="{0: '/'}"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ N_PROJECT_EQ:"%project%", N_ID_NOTEQ:"%id%" }' 
+    :localParam ='{ n_project_eq:"%project%", n_id_noteq:"%id%" }' 
+    :disabled="detailsModel.parentname.disabled"
+    name="parentname"
+    deMajorField="name"
+    deKeyField="task"
+    :service="service"
+    :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchRootTask'}"
+    valueitem="parent"
+    :value="data.parentname"
+    editortype="dropdown"
+    :valFormat="{0: '/'}"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -640,15 +666,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ PROJECT:"%project%", MULTIPLE:"0" }' 
-    :localParam ='{ project:"%project%", multiple:"0" }' 
+    :localContext='{ PROJECT:"%project%", MULTIPLE:"0" }' 
+    :localParam='{ project:"%project%", multiple:"0" }' 
     :disabled="detailsModel.assignedto.disabled"
     valueType="string"
-    tag='UserRealNameTaskTeam'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="UserRealNameTaskTeam"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -697,7 +723,7 @@
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem="task" 
-    :parentdata="{"srfparentdefname":"ROOT","srfparentdename":"ZT_TASK","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_IBZ_TASKTEAM_ZT_TASK_ROOT","SRFDER1NID":"DER1N_IBZ_TASKTEAM_ZT_TASK_ROOT"}"
+    :parentdata='{"srfparentdefname":"ROOT","srfparentdename":"ZT_TASK","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_IBZ_TASKTEAM_ZT_TASK_ROOT","SRFDER1NID":"DER1N_IBZ_TASKTEAM_ZT_TASK_ROOT"}'
     :parameters="[
         {
             pathName: 'tasks',
@@ -754,15 +780,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.type.disabled"
     valueType="string"
-    tag='Task__type'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Task__type"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -795,15 +821,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.status.disabled"
     valueType="string"
-    tag='Task__status'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Task__status"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -836,15 +862,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.pri.disabled"
     valueType="number"
-    tag='Task__pri'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Task__pri"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -912,23 +938,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.mailtoconact.disabled"
-  name='mailtoconact'
-  deMajorField='listname'
-  deKeyField='userlist'
-  :service="service"
-  :acParams="{ serviceName: 'UserContactService', interfaceName: 'FetchCurUSERCONTACT'}"
-  valueitem='mailtopk'
-  :value="data.mailtoconact"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.mailtoconact.disabled"
+    name="mailtoconact"
+    deMajorField="listname"
+    deKeyField="userlist"
+    :service="service"
+    :acParams="{ serviceName: 'UserContactService', interfaceName: 'FetchCurUSERCONTACT'}"
+    valueitem="mailtopk"
+    :value="data.mailtoconact"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -1193,15 +1219,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.openedby.disabled"
     valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -1261,15 +1287,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.finishedby.disabled"
     valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -1329,15 +1355,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.canceledby.disabled"
     valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -1397,15 +1423,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.closedby.disabled"
     valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -1438,15 +1464,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.closedreason.disabled"
     valueType="string"
-    tag='Task__closed_reason'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Task__closed_reason"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>

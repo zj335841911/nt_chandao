@@ -37,15 +37,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ PRODUCT:"%product%" }' 
-    :localParam ='{ product:"%product%" }' 
+    :localContext='{ PRODUCT:"%product%" }' 
+    :localParam='{ product:"%product%" }' 
     :disabled="detailsModel.tasks.disabled"
     valueType="string"
-    tag='TestTask'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="TestTask"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -163,15 +163,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.owner.disabled"
     valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -327,7 +327,21 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-rich-text-editor :formState="formState" :value="data.report" @change="(val) =>{this.data.report =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.report.disabled" :data="JSON.stringify(this.data)"  name="report" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"testreport",version:"editor"}' :exportparams='{objecttype:"testreport",version:"editor"}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.report"
+    @change="(val) =>{this.data.report =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.report.disabled"
+    :data="JSON.stringify(this.data)"
+    name="report"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"testreport",version:"editor"}'
+    :exportparams='{objecttype:"testreport",version:"editor"}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
@@ -354,7 +368,18 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{}' :exportparams='{}'  style="overflow: auto;"></app-file-upload>
+    <app-file-upload
+    :formState="formState"
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :data="JSON.stringify(this.data)"
+    name="files"
+    :value="data.files"
+    :disabled="detailsModel.files.disabled"
+    :uploadparams='{}'
+    :exportparams='{}'
+    style="overflow: auto;"
+></app-file-upload>
 </app-form-item>
 
 </i-col>

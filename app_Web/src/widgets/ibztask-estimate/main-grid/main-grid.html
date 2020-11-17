@@ -12,41 +12,41 @@
     </template>
     <template slot="consumed" slot-scope="{row, $index, column}">
     <input-box 
-  
-  :disabled="getColumnDisabled(row,column.property)" 
-  v-model="row[column.property]" 
-  style=""
-  type="text"
-  
-  
-  @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-</input-box>
+    
+    :disabled="getColumnDisabled(row,column.property)" 
+    v-model="row[column.property]" 
+    style=""
+    type="text"
+    
+    
+    @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}"
+></input-box>
 
     </template>
     <template slot="left" slot-scope="{row, $index, column}">
     <input-box 
-  
-  :disabled="getColumnDisabled(row,column.property)" 
-  v-model="row[column.property]" 
-  style=""
-  type="text"
-  
-  
-  @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-</input-box>
+    
+    :disabled="getColumnDisabled(row,column.property)" 
+    v-model="row[column.property]" 
+    style=""
+    type="text"
+    
+    
+    @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}"
+></input-box>
 
     </template>
     <template slot="work" slot-scope="{row, $index, column}">
     <input-box 
-  
-  :disabled="getColumnDisabled(row,column.property)" 
-  v-model="row[column.property]" 
-  style=""
-  type="text"
-  
-  
-  @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-</input-box>
+    
+    :disabled="getColumnDisabled(row,column.property)" 
+    v-model="row[column.property]" 
+    style=""
+    type="text"
+    
+    
+    @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}"
+></input-box>
 
     </template>
 </group-step-table>

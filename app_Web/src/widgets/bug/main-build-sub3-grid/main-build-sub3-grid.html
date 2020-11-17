@@ -124,23 +124,23 @@
                         <template v-if="actualIsOpenEdit">
                             <app-form-item :error="gridItemsModel[$index][column.property].error">
                                 
-             <dropdown-list-extend
-              :name="column.property"
-              v-model="row[column.property]" 
-              :disabled="getColumnDisabled(row,column.property)" 
-              :data="row" 
-              :datas="items"
-              :filterable="true"
-              :context="context"
-              :viewparams="viewparams" 
-              :localContext ='{ PROJECT:"%project%" }' 
-              :localParam ='{ project:"%project%" }' 
-              tag='BugUserRealName' 
-              codelistType='DYNAMIC'
-              placeholder='请选择...' 
-              style="" 
-              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-             </dropdown-list-extend>
+            <dropdown-list-extend
+                :name="column.property"
+                v-model="row[column.property]" 
+                :disabled="getColumnDisabled(row,column.property)" 
+                :data="row" 
+                :datas="items"
+                :filterable="true"
+                :context="context"
+                :viewparams="viewparams" 
+                :localContext='{ PROJECT:"%project%" }' 
+                :localParam='{ project:"%project%" }' 
+                tag="BugUserRealName" 
+                codelistType="DYNAMIC"
+                placeholder="请选择..." 
+                style="" 
+                @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}"
+            ></dropdown-list-extend>
             
                             </app-form-item>
                         </template>

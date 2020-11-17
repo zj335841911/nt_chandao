@@ -130,25 +130,25 @@
     labelPos="LEFT"
 >
     
-  <app-picker 
+<app-picker 
     :formState="formState"
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.parentname.disabled"
-    name='parentname'
-    deMajorField='name'
-    deKeyField='module'
+    name="parentname"
+    deMajorField="name"
+    deKeyField="module"
     :service="service"
     :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
-    valueitem='parent' 
+    valueitem="parent" 
     :value="data.parentname"
     :pickupView="{ viewname: 'module-pickup-view', title: $t('entities.module.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'modules', parameterName: 'module' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
     style=""  
     @formitemvaluechange="onFormItemValueChange($event)">
-  </app-picker>
+</app-picker>
 
 </app-form-item>
 

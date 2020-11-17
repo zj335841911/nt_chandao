@@ -156,15 +156,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.result.disabled"
     valueType="string"
-    tag='Story__review_result'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Story__review_result"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -228,15 +228,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.pri.disabled"
     valueType="number"
-    tag='Story__pri'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Story__pri"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -380,15 +380,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.closedreason.disabled"
     valueType="string"
-    tag='Story__closed_reason'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Story__closed_reason"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -426,15 +426,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.assignedto.disabled"
     valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -505,7 +505,21 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"story",objectid: "%id%",extra:"editor"}' :exportparams='{objecttype:"story",objectid: "%id%",extra:"editor"}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.comment"
+    @change="(val) =>{this.data.comment =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.comment.disabled"
+    :data="JSON.stringify(this.data)"
+    name="comment"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"story",objectid: "%id%",extra:"editor"}'
+    :exportparams='{objecttype:"story",objectid: "%id%",extra:"editor"}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
@@ -574,7 +588,7 @@
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem="story" 
-    :parentdata="{"srfparentdefname":"TOSTORY","srfparentdename":"ZT_STORY","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_BUG_ZT_STORY_TOSTORY","SRFDER1NID":"DER1N_ZT_BUG_ZT_STORY_TOSTORY"}"
+    :parentdata='{"srfparentdefname":"TOSTORY","srfparentdename":"ZT_STORY","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_BUG_ZT_STORY_TOSTORY","SRFDER1NID":"DER1N_ZT_BUG_ZT_STORY_TOSTORY"}'
     :parameters="[
         {
             pathName: 'products',
@@ -629,7 +643,7 @@
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem="story" 
-    :parentdata="{"srfparentdefname":"STORY","srfparentdename":"ZT_STORY","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_CASE_ZT_STORY_STORY","SRFDER1NID":"DER1N_ZT_CASE_ZT_STORY_STORY"}"
+    :parentdata='{"srfparentdefname":"STORY","srfparentdename":"ZT_STORY","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_CASE_ZT_STORY_STORY","SRFDER1NID":"DER1N_ZT_CASE_ZT_STORY_STORY"}'
     :parameters="[
         {
             pathName: 'products',
@@ -671,7 +685,7 @@
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem="story" 
-    :parentdata="{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}"
+    :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
     :context="context"

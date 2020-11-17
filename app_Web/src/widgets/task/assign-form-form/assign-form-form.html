@@ -68,15 +68,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ PROJECT:"%project%", MULTIPLE:"%multiple%" }' 
-    :localParam ='{ project:"%project%", multiple:"%multiple%" }' 
+    :localContext='{ PROJECT:"%project%", MULTIPLE:"%multiple%" }' 
+    :localParam='{ project:"%project%", multiple:"%multiple%" }' 
     :disabled="detailsModel.assignedto.disabled"
     valueType="string"
-    tag='UserRealNameTaskTeam'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="UserRealNameTaskTeam"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -137,7 +137,21 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.comment"
+    @change="(val) =>{this.data.comment =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.comment.disabled"
+    :data="JSON.stringify(this.data)"
+    name="comment"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}'
+    :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
@@ -187,7 +201,7 @@
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem="task" 
-    :parentdata="{"srfparentdename":"ZT_TASK","SRFPARENTTYPE":"CUSTOM"}"
+    :parentdata='{"srfparentdename":"ZT_TASK","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
     :context="context"

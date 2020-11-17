@@ -21,15 +21,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.ownereq.disabled"
     valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'prieq')">
                     
@@ -39,146 +39,146 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.prieq.disabled"
     valueType="number"
-    tag='Testtask__pri'
-    codelistType='STATIC'
-    placeholder='请选择...'
+    tag="Testtask__pri"
+    codelistType="STATIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'buildnameeq')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.buildnameeq.disabled"
-  name='buildnameeq'
-  deMajorField='name'
-  deKeyField='build'
-  :service="service"
-  :acParams="{ serviceName: 'BuildService', interfaceName: 'FetchTestBuild'}"
-  valueitem=''
-  :value="data.buildnameeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.buildnameeq.disabled"
+    name="buildnameeq"
+    deMajorField="name"
+    deKeyField="build"
+    :service="service"
+    :acParams="{ serviceName: 'BuildService', interfaceName: 'FetchTestBuild'}"
+    valueitem=""
+    :value="data.buildnameeq"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'buildnamelike')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.buildnamelike.disabled"
-  name='buildnamelike'
-  deMajorField='name'
-  deKeyField='build'
-  :service="service"
-  :acParams="{ serviceName: 'BuildService', interfaceName: 'FetchTestBuild'}"
-  valueitem=''
-  :value="data.buildnamelike"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.buildnamelike.disabled"
+    name="buildnamelike"
+    deMajorField="name"
+    deKeyField="build"
+    :service="service"
+    :acParams="{ serviceName: 'BuildService', interfaceName: 'FetchTestBuild'}"
+    valueitem=""
+    :value="data.buildnamelike"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'productnameeq')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.productnameeq.disabled"
-  name='productnameeq'
-  deMajorField='name'
-  deKeyField='product'
-  :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurProject'}"
-  valueitem=''
-  :value="data.productnameeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.productnameeq.disabled"
+    name="productnameeq"
+    deMajorField="name"
+    deKeyField="product"
+    :service="service"
+    :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurProject'}"
+    valueitem=""
+    :value="data.productnameeq"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'productnamelike')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.productnamelike.disabled"
-  name='productnamelike'
-  deMajorField='name'
-  deKeyField='product'
-  :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurProject'}"
-  valueitem=''
-  :value="data.productnamelike"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.productnamelike.disabled"
+    name="productnamelike"
+    deMajorField="name"
+    deKeyField="product"
+    :service="service"
+    :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurProject'}"
+    valueitem=""
+    :value="data.productnamelike"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'projectnameeq')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.projectnameeq.disabled"
-  name='projectnameeq'
-  deMajorField='name'
-  deKeyField='project'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
-  valueitem=''
-  :value="data.projectnameeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.projectnameeq.disabled"
+    name="projectnameeq"
+    deMajorField="name"
+    deKeyField="project"
+    :service="service"
+    :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
+    valueitem=""
+    :value="data.projectnameeq"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'projectnamelike')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.projectnamelike.disabled"
-  name='projectnamelike'
-  deMajorField='name'
-  deKeyField='project'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
-  valueitem=''
-  :value="data.projectnamelike"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.projectnamelike.disabled"
+    name="projectnamelike"
+    deMajorField="name"
+    deKeyField="project"
+    :service="service"
+    :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
+    valueitem=""
+    :value="data.projectnamelike"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'statuseq')">
@@ -189,15 +189,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.statuseq.disabled"
     valueType="string"
-    tag='Testtask__status'
-    codelistType='STATIC'
-    placeholder='请选择...'
+    tag="Testtask__status"
+    codelistType="STATIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'statusnoteq')">
                     
@@ -207,15 +207,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.statusnoteq.disabled"
     valueType="string"
-    tag='Testtask__status'
-    codelistType='STATIC'
-    placeholder='请选择...'
+    tag="Testtask__status"
+    codelistType="STATIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
             </template>
         </filter-tree>

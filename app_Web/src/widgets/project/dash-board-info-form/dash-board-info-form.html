@@ -265,7 +265,7 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem="project" 
-    :parentdata="{"srfparentdename":"ZT_PROJECT","SRFPARENTTYPE":"CUSTOM"}"
+    :parentdata='{"srfparentdename":"ZT_PROJECT","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
     :context="context"
@@ -334,7 +334,7 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem="project" 
-    :parentdata="{"srfparentdename":"ZT_PROJECT","SRFPARENTTYPE":"CUSTOM"}"
+    :parentdata='{"srfparentdename":"ZT_PROJECT","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
         {
             pathName: 'products',
@@ -446,7 +446,13 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.formitem6" :progress="this.data.formitem7"/>
+    <ibiz-studio-progress-vue
+    stroke-color="var(--form-editor-active-color)"
+    :stroke-width="16"
+    mode="line"
+    :total="this.data.formitem6"
+    :progress="this.data.formitem7"
+></ibiz-studio-progress-vue>
 </app-form-item>
 
 </i-col>

@@ -140,7 +140,8 @@
     :uploadparams='{objecttype:"bug",version:"editor"}' 
     :exportparams='{objecttype:"bug",version:"editor"}' 
     :templParams='{ }' 
-    style=""/>
+    style=""
+></rich-text-editor>
 </app-form-item>
 
 </i-col>
@@ -166,7 +167,21 @@
     :isEmptyCaption="false"
     labelPos="TOP"
 >
-    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.comment"
+    @change="(val) =>{this.data.comment =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.comment.disabled"
+    :data="JSON.stringify(this.data)"
+    name="comment"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"bug",version:"editor"}'
+    :exportparams='{objecttype:"bug",version:"editor"}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
@@ -193,7 +208,18 @@
     :isEmptyCaption="false"
     labelPos="TOP"
 >
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{objecttype:"bug",objectid:"0"}' :exportparams='{objecttype:"bug",objectid:"0"}'  style="overflow: auto;"></app-file-upload>
+    <app-file-upload
+    :formState="formState"
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :data="JSON.stringify(this.data)"
+    name="files"
+    :value="data.files"
+    :disabled="detailsModel.files.disabled"
+    :uploadparams='{objecttype:"bug",objectid:"0"}'
+    :exportparams='{objecttype:"bug",objectid:"0"}'
+    style="overflow: auto;"
+></app-file-upload>
 </app-form-item>
 
 </i-col>
@@ -242,7 +268,7 @@
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem="bug" 
-    :parentdata="{"srfparentdename":"ZT_BUG","SRFPARENTTYPE":"CUSTOM"}"
+    :parentdata='{"srfparentdename":"ZT_BUG","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
     :context="context"
@@ -357,23 +383,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.productname.disabled"
-  name='productname'
-  deMajorField='name'
-  deKeyField='product'
-  :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurUer'}"
-  valueitem='product'
-  :value="data.productname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.productname.disabled"
+    name="productname"
+    deMajorField="name"
+    deKeyField="product"
+    :service="service"
+    :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurUer'}"
+    valueitem="product"
+    :value="data.productname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -407,15 +433,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ PRODUCT:"%product%" }' 
-    :localParam ='{ product:"%product%" }' 
+    :localContext='{ PRODUCT:"%product%" }' 
+    :localParam='{ product:"%product%" }' 
     :disabled="detailsModel.branch.disabled"
     valueType="number"
-    tag='ProductBranch'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="ProductBranch"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -443,24 +469,24 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ N_BRANCH_EQ:"%branch%", PRODUCT:"%product%", N_ROOT_EQ:"%product%", BRANCH:"%branch%" }' 
-  :localParam ='{ product:"%product%", branch:"%branch%", n_root_eq:"%product%", n_branch_eq:"%branch%" }' 
-  :disabled="detailsModel.modulename.disabled"
-  name='modulename'
-  deMajorField='name'
-  deKeyField='module'
-  :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchBugModule'}"
-  valueitem='module'
-  :value="data.modulename"
-  editortype="dropdown"
-  :valFormat="{0: '/'}"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ N_BRANCH_EQ:"%branch%", PRODUCT:"%product%", N_ROOT_EQ:"%product%", BRANCH:"%branch%" }' 
+    :localParam ='{ product:"%product%", branch:"%branch%", n_root_eq:"%product%", n_branch_eq:"%branch%" }' 
+    :disabled="detailsModel.modulename.disabled"
+    name="modulename"
+    deMajorField="name"
+    deKeyField="module"
+    :service="service"
+    :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchBugModule'}"
+    valueitem="module"
+    :value="data.modulename"
+    editortype="dropdown"
+    :valFormat="{0: '/'}"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -494,15 +520,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ PRODUCT:"%product%" }' 
-    :localParam ='{ product:"%product%" }' 
+    :localContext='{ PRODUCT:"%product%" }' 
+    :localParam='{ product:"%product%" }' 
     :disabled="detailsModel.plan.disabled"
     valueType="number"
-    tag='ProductPlan'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="ProductPlan"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -535,15 +561,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.type.disabled"
     valueType="string"
-    tag='Bug__type'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Bug__type"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -576,15 +602,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.severity.disabled"
     valueType="number"
-    tag='Bug__severity'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Bug__severity"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -617,15 +643,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.pri.disabled"
     valueType="number"
-    tag='Bug__pri'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Bug__pri"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -658,15 +684,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.status.disabled"
     valueType="string"
-    tag='Bug__status'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Bug__status"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -760,15 +786,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.confirmed.disabled"
     valueType="number"
-    tag='YesNo2'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="YesNo2"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -801,15 +827,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ PROJECT:"%project%" }' 
-    :localParam ='{ project:"%project%" }' 
+    :localContext='{ PROJECT:"%project%" }' 
+    :localParam='{ project:"%project%" }' 
     :disabled="detailsModel.assignedto.disabled"
     valueType="string"
-    tag='BugUserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="BugUserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -869,15 +895,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.os.disabled"
     valueType="string"
-    tag='Bug__os'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Bug__os"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -910,15 +936,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.browser.disabled"
     valueType="string"
-    tag='Bug__browser'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Bug__browser"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -1020,23 +1046,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.mailtoconact.disabled"
-  name='mailtoconact'
-  deMajorField='listname'
-  deKeyField='userlist'
-  :service="service"
-  :acParams="{ serviceName: 'UserContactService', interfaceName: 'FetchCurUSERCONTACT'}"
-  valueitem='mailto'
-  :value="data.mailtoconact"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.mailtoconact.disabled"
+    name="mailtoconact"
+    deMajorField="listname"
+    deKeyField="userlist"
+    :service="service"
+    :acParams="{ serviceName: 'UserContactService', interfaceName: 'FetchCurUSERCONTACT'}"
+    valueitem="mailto"
+    :value="data.mailtoconact"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -1101,23 +1127,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ PRODUCT:"%product%" }' 
-  :localParam ='{ product:"%product%" }' 
-  :disabled="detailsModel.projectname.disabled"
-  name='projectname'
-  deMajorField='name'
-  deKeyField='project'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
-  valueitem='project'
-  :value="data.projectname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ PRODUCT:"%product%" }' 
+    :localParam ='{ product:"%product%" }' 
+    :disabled="detailsModel.projectname.disabled"
+    name="projectname"
+    deMajorField="name"
+    deKeyField="project"
+    :service="service"
+    :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
+    valueitem="project"
+    :value="data.projectname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -1146,24 +1172,24 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ ZT_PRODUCT:"%product%", N_MODULE_EQ:"%module%", N_PROJECT_EQ:"%project%", PRODUCT:"%product%" }' 
-  :localParam ='{ product:"%product%", n_product_eq:"%product%", n_project_eq:"%project%", n_module_eq:"%module%" }' 
-  :disabled="detailsModel.storyname.disabled"
-  name='storyname'
-  deMajorField='title'
-  deKeyField='story'
-  :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchBugStory'}"
-  valueitem='story'
-  :value="data.storyname"
-  editortype="dropdown"
-  :valFormat="{0: ''}"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ ZT_PRODUCT:"%product%", N_MODULE_EQ:"%module%", N_PROJECT_EQ:"%project%", PRODUCT:"%product%" }' 
+    :localParam ='{ product:"%product%", n_product_eq:"%product%", n_project_eq:"%project%", n_module_eq:"%module%" }' 
+    :disabled="detailsModel.storyname.disabled"
+    name="storyname"
+    deMajorField="title"
+    deKeyField="story"
+    :service="service"
+    :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchBugStory'}"
+    valueitem="story"
+    :value="data.storyname"
+    editortype="dropdown"
+    :valFormat="{0: ''}"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -1192,24 +1218,24 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ ZT_PROJECT:"%project%", PROJECT:"%project%" }' 
-  :localParam ='{ project:"%project%", n_project_eq:"%project%" }' 
-  :disabled="detailsModel.taskname.disabled"
-  name='taskname'
-  deMajorField='name'
-  deKeyField='task'
-  :service="service"
-  :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchBugTask'}"
-  valueitem='task'
-  :value="data.taskname"
-  editortype="dropdown"
-  :valFormat="{0: ''}"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ ZT_PROJECT:"%project%", PROJECT:"%project%" }' 
+    :localParam ='{ project:"%project%", n_project_eq:"%project%" }' 
+    :disabled="detailsModel.taskname.disabled"
+    name="taskname"
+    deMajorField="name"
+    deKeyField="task"
+    :service="service"
+    :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchBugTask'}"
+    valueitem="task"
+    :value="data.taskname"
+    editortype="dropdown"
+    :valFormat="{0: ''}"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -1348,15 +1374,15 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.resolvedby.disabled"
     valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -1389,15 +1415,15 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.resolution.disabled"
     valueType="string"
-    tag='Bug__resolution'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Bug__resolution"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -1430,15 +1456,15 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ BUGPRODUCT:"%product%", BUGPROJECT:"%project%" }' 
-    :localParam ='{ bugproject:"%project%", bugproduct:"%product%" }' 
+    :localContext='{ BUGPRODUCT:"%product%", BUGPROJECT:"%project%" }' 
+    :localParam='{ bugproject:"%project%", bugproduct:"%product%" }' 
     :disabled="detailsModel.resolvedbuild.disabled"
     valueType="string"
-    tag='CurProductBuild'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="CurProductBuild"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -1471,15 +1497,15 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.closedby.disabled"
     valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -1512,15 +1538,15 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.lasteditedby.disabled"
     valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>

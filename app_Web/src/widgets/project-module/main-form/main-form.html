@@ -63,23 +63,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.rootname.disabled"
-  name='rootname'
-  deMajorField='name'
-  deKeyField='project'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
-  valueitem='root'
-  :value="data.rootname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.rootname.disabled"
+    name="rootname"
+    deMajorField="name"
+    deKeyField="project"
+    :service="service"
+    :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
+    valueitem="root"
+    :value="data.rootname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -108,24 +108,24 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ N_TYPE_EQ:"task", N_ROOT_EQ:"%root%" }' 
-  :localParam ='{ n_type_eq:"task", n_root_eq:"%root%" }' 
-  :disabled="detailsModel.parentname.disabled"
-  name='parentname'
-  deMajorField='name'
-  deKeyField='projectmodule'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectModuleService', interfaceName: 'FetchParentModule'}"
-  valueitem='parent'
-  :value="data.parentname"
-  editortype="dropdown"
-  :valFormat="{0: '/'}"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ N_TYPE_EQ:"task", N_ROOT_EQ:"%root%" }' 
+    :localParam ='{ n_type_eq:"task", n_root_eq:"%root%" }' 
+    :disabled="detailsModel.parentname.disabled"
+    name="parentname"
+    deMajorField="name"
+    deKeyField="projectmodule"
+    :service="service"
+    :acParams="{ serviceName: 'ProjectModuleService', interfaceName: 'FetchParentModule'}"
+    valueitem="parent"
+    :value="data.parentname"
+    editortype="dropdown"
+    :valFormat="{0: '/'}"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 

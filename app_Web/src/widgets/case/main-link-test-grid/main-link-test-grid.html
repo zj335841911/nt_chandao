@@ -57,21 +57,21 @@
                         <template v-if="actualIsOpenEdit">
                             <app-form-item :error="gridItemsModel[$index][column.property].error">
                                 
-             <dropdown-list 
-              
-              v-model="row[column.property]" 
-              :disabled="getColumnDisabled(row,column.property)" 
-              :data="row" 
-              :context="context"
-              :viewparams="viewparams" 
-              :localContext ='{ CASE:"%case%" }' 
-              :localParam ='{ case:"%case%" }' 
-              tag='CurCaseVersion' 
-              codelistType='DYNAMIC'
-              placeholder='请选择...' 
-              style="" 
-              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-             </dropdown-list>
+            <dropdown-list 
+                
+                v-model="row[column.property]" 
+                :disabled="getColumnDisabled(row,column.property)" 
+                :data="row" 
+                :context="context"
+                :viewparams="viewparams" 
+                :localContext='{ CASE:"%case%" }' 
+                :localParam='{ case:"%case%" }' 
+                tag="CurCaseVersion" 
+                codelistType="DYNAMIC"
+                placeholder="请选择..." 
+                style="" 
+                @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}"
+            ></dropdown-list>
             
                             </app-form-item>
                         </template>

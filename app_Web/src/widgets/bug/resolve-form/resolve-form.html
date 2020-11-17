@@ -99,15 +99,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.resolution.disabled"
     valueType="string"
-    tag='Bug__resolution'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Bug__resolution"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -171,15 +171,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ BUGPRODUCT:"%product%", PRODUCT:"%product%" }' 
-    :localParam ='{ product:"%product%", bugproduct:"%product%" }' 
+    :localContext='{ BUGPRODUCT:"%product%", PRODUCT:"%product%" }' 
+    :localParam='{ product:"%product%", bugproduct:"%product%" }' 
     :disabled="detailsModel.resolvedbuild.disabled"
     valueType="string"
-    tag='CurProductBuild'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="CurProductBuild"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -212,15 +212,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ N_PRODUCT_EQ:"%product%" }' 
-    :localParam ='{ n_product_eq:"%product%" }' 
+    :localContext='{ N_PRODUCT_EQ:"%product%" }' 
+    :localParam='{ n_product_eq:"%product%" }' 
     :disabled="detailsModel.buildproject.disabled"
     valueType="string"
-    tag='CurProductProject'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="CurProductProject"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -392,15 +392,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ PROJECT:"%project%" }' 
-    :localParam ='{ project:"%project%" }' 
+    :localContext='{ PROJECT:"%project%" }' 
+    :localParam='{ project:"%project%" }' 
     :disabled="detailsModel.assignedto.disabled"
     valueType="string"
-    tag='BugUserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="BugUserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -436,7 +436,18 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{objecttype:"bug",objectid: 0}' :exportparams='{objecttype:"bug",objectid: 0}'  style="overflow: auto;"></app-file-upload>
+    <app-file-upload
+    :formState="formState"
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :data="JSON.stringify(this.data)"
+    name="files"
+    :value="data.files"
+    :disabled="detailsModel.files.disabled"
+    :uploadparams='{objecttype:"bug",objectid: 0}'
+    :exportparams='{objecttype:"bug",objectid: 0}'
+    style="overflow: auto;"
+></app-file-upload>
 </app-form-item>
 
 </i-col>
@@ -462,7 +473,21 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.comment"
+    @change="(val) =>{this.data.comment =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.comment.disabled"
+    :data="JSON.stringify(this.data)"
+    name="comment"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"bug",version:"editor"}'
+    :exportparams='{objecttype:"bug",version:"editor"}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
@@ -512,7 +537,7 @@
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem="bug" 
-    :parentdata="{"srfparentdename":"ZT_BUG","SRFPARENTTYPE":"CUSTOM"}"
+    :parentdata='{"srfparentdename":"ZT_BUG","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
     :context="context"

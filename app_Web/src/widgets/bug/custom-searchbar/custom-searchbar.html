@@ -26,58 +26,58 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.assignedtoeq.disabled"
     valueType="string"
-    tag='BugUserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="BugUserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'branchnameeq')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.branchnameeq.disabled"
-  name='branchnameeq'
-  deMajorField='name'
-  deKeyField='branch'
-  :service="service"
-  :acParams="{ serviceName: 'BranchService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.branchnameeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.branchnameeq.disabled"
+    name="branchnameeq"
+    deMajorField="name"
+    deKeyField="branch"
+    :service="service"
+    :acParams="{ serviceName: 'BranchService', interfaceName: 'FetchDefault'}"
+    valueitem=""
+    :value="data.branchnameeq"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'branchnamelike')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.branchnamelike.disabled"
-  name='branchnamelike'
-  deMajorField='name'
-  deKeyField='branch'
-  :service="service"
-  :acParams="{ serviceName: 'BranchService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.branchnamelike"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.branchnamelike.disabled"
+    name="branchnamelike"
+    deMajorField="name"
+    deKeyField="branch"
+    :service="service"
+    :acParams="{ serviceName: 'BranchService', interfaceName: 'FetchDefault'}"
+    valueitem=""
+    :value="data.branchnamelike"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'browsereq')">
@@ -88,15 +88,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.browsereq.disabled"
     valueType="string"
-    tag='Bug__browser'
-    codelistType='STATIC'
-    placeholder='请选择...'
+    tag="Bug__browser"
+    codelistType="STATIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'buildprojecteq')">
                     
@@ -106,15 +106,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.buildprojecteq.disabled"
     valueType="string"
-    tag='CurProductProject'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
+    tag="CurProductProject"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'caseeq')">
                     
@@ -124,15 +124,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.caseeq.disabled"
     valueType="number"
-    tag='AllCase'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="AllCase"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'closedbyeq')">
                     
@@ -142,15 +142,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.closedbyeq.disabled"
     valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'coloreq')">
                     
@@ -160,15 +160,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.coloreq.disabled"
     valueType="string"
-    tag='Bug__color'
-    codelistType='STATIC'
-    placeholder='请选择...'
+    tag="Bug__color"
+    codelistType="STATIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'confirmedeq')">
                     
@@ -178,15 +178,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.confirmedeq.disabled"
     valueType="number"
-    tag='YesNo2'
-    codelistType='STATIC'
-    placeholder='请选择...'
+    tag="YesNo2"
+    codelistType="STATIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'deadlinegteq')">
                     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.deadlinegteq" :disabled="detailsModel.deadlinegteq.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.deadlinegteq = val1 }"></date-picker>
@@ -208,15 +208,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.duplicatebugeq.disabled"
     valueType="number"
-    tag='AllBug'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="AllBug"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'entryeq')">
                     
@@ -226,15 +226,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.entryeq.disabled"
     valueType="number"
-    tag='AllEntry'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="AllEntry"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'lasteditedbyeq')">
                     
@@ -244,58 +244,58 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.lasteditedbyeq.disabled"
     valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'modulenameeq')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.modulenameeq.disabled"
-  name='modulenameeq'
-  deMajorField='name'
-  deKeyField='module'
-  :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchBugModule'}"
-  valueitem=''
-  :value="data.modulenameeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.modulenameeq.disabled"
+    name="modulenameeq"
+    deMajorField="name"
+    deKeyField="module"
+    :service="service"
+    :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchBugModule'}"
+    valueitem=""
+    :value="data.modulenameeq"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'modulenamelike')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.modulenamelike.disabled"
-  name='modulenamelike'
-  deMajorField='name'
-  deKeyField='module'
-  :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchBugModule'}"
-  valueitem=''
-  :value="data.modulenamelike"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.modulenamelike.disabled"
+    name="modulenamelike"
+    deMajorField="name"
+    deKeyField="module"
+    :service="service"
+    :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchBugModule'}"
+    valueitem=""
+    :value="data.modulenamelike"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'openedbyeq')">
@@ -306,15 +306,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.openedbyeq.disabled"
     valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'oseq')">
                     
@@ -324,15 +324,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.oseq.disabled"
     valueType="string"
-    tag='Bug__os'
-    codelistType='STATIC'
-    placeholder='请选择...'
+    tag="Bug__os"
+    codelistType="STATIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'overduebugslt')">
                     <input-box 
@@ -354,15 +354,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.planeq.disabled"
     valueType="number"
-    tag='PlanCodeList'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="PlanCodeList"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'prieq')">
                     
@@ -372,102 +372,102 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.prieq.disabled"
     valueType="number"
-    tag='Bug__pri'
-    codelistType='STATIC'
-    placeholder='请选择...'
+    tag="Bug__pri"
+    codelistType="STATIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'productnameeq')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.productnameeq.disabled"
-  name='productnameeq'
-  deMajorField='name'
-  deKeyField='product'
-  :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurUer'}"
-  valueitem=''
-  :value="data.productnameeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.productnameeq.disabled"
+    name="productnameeq"
+    deMajorField="name"
+    deKeyField="product"
+    :service="service"
+    :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurUer'}"
+    valueitem=""
+    :value="data.productnameeq"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'productnamelike')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.productnamelike.disabled"
-  name='productnamelike'
-  deMajorField='name'
-  deKeyField='product'
-  :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurUer'}"
-  valueitem=''
-  :value="data.productnamelike"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.productnamelike.disabled"
+    name="productnamelike"
+    deMajorField="name"
+    deKeyField="product"
+    :service="service"
+    :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurUer'}"
+    valueitem=""
+    :value="data.productnamelike"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'projectnameeq')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.projectnameeq.disabled"
-  name='projectnameeq'
-  deMajorField='name'
-  deKeyField='project'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
-  valueitem=''
-  :value="data.projectnameeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.projectnameeq.disabled"
+    name="projectnameeq"
+    deMajorField="name"
+    deKeyField="project"
+    :service="service"
+    :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
+    valueitem=""
+    :value="data.projectnameeq"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'projectnamelike')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.projectnamelike.disabled"
-  name='projectnamelike'
-  deMajorField='name'
-  deKeyField='project'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
-  valueitem=''
-  :value="data.projectnamelike"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.projectnamelike.disabled"
+    name="projectnamelike"
+    deMajorField="name"
+    deKeyField="project"
+    :service="service"
+    :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchBugProject'}"
+    valueitem=""
+    :value="data.projectnamelike"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'repoeq')">
@@ -478,15 +478,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.repoeq.disabled"
     valueType="number"
-    tag='AllRepo'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="AllRepo"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'resolutioneq')">
                     
@@ -496,15 +496,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.resolutioneq.disabled"
     valueType="string"
-    tag='Bug__resolution'
-    codelistType='STATIC'
-    placeholder='请选择...'
+    tag="Bug__resolution"
+    codelistType="STATIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'resolvedbuildeq')">
                     
@@ -514,15 +514,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.resolvedbuildeq.disabled"
     valueType="string"
-    tag='CurProductBuild'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
+    tag="CurProductBuild"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'resolvedbyeq')">
                     
@@ -532,15 +532,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.resolvedbyeq.disabled"
     valueType="string"
-    tag='UserRealName'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'resolveddatelteq')">
                     <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.resolveddatelteq" :disabled="detailsModel.resolveddatelteq.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.resolveddatelteq = val1 }"></date-picker>
@@ -554,15 +554,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.severityeq.disabled"
     valueType="number"
-    tag='Bug__severity'
-    codelistType='STATIC'
-    placeholder='请选择...'
+    tag="Bug__severity"
+    codelistType="STATIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'statuseq')">
                     
@@ -572,15 +572,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.statuseq.disabled"
     valueType="string"
-    tag='Bug__status'
-    codelistType='STATIC'
-    placeholder='请选择...'
+    tag="Bug__status"
+    codelistType="STATIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'statusnoteq')">
                     
@@ -590,102 +590,102 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.statusnoteq.disabled"
     valueType="string"
-    tag='Bug__status'
-    codelistType='STATIC'
-    placeholder='请选择...'
+    tag="Bug__status"
+    codelistType="STATIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'storynameeq')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.storynameeq.disabled"
-  name='storynameeq'
-  deMajorField='title'
-  deKeyField='story'
-  :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchBugStory'}"
-  valueitem=''
-  :value="data.storynameeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.storynameeq.disabled"
+    name="storynameeq"
+    deMajorField="title"
+    deKeyField="story"
+    :service="service"
+    :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchBugStory'}"
+    valueitem=""
+    :value="data.storynameeq"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'storynamelike')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.storynamelike.disabled"
-  name='storynamelike'
-  deMajorField='title'
-  deKeyField='story'
-  :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchBugStory'}"
-  valueitem=''
-  :value="data.storynamelike"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.storynamelike.disabled"
+    name="storynamelike"
+    deMajorField="title"
+    deKeyField="story"
+    :service="service"
+    :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchBugStory'}"
+    valueitem=""
+    :value="data.storynamelike"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'tasknameeq')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.tasknameeq.disabled"
-  name='tasknameeq'
-  deMajorField='name'
-  deKeyField='task'
-  :service="service"
-  :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchBugTask'}"
-  valueitem=''
-  :value="data.tasknameeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.tasknameeq.disabled"
+    name="tasknameeq"
+    deMajorField="name"
+    deKeyField="task"
+    :service="service"
+    :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchBugTask'}"
+    valueitem=""
+    :value="data.tasknameeq"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'tasknamelike')">
                     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.tasknamelike.disabled"
-  name='tasknamelike'
-  deMajorField='name'
-  deKeyField='task'
-  :service="service"
-  :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchBugTask'}"
-  valueitem=''
-  :value="data.tasknamelike"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.tasknamelike.disabled"
+    name="tasknamelike"
+    deMajorField="name"
+    deKeyField="task"
+    :service="service"
+    :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchBugTask'}"
+    valueitem=""
+    :value="data.tasknamelike"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'testtaskeq')">
@@ -696,15 +696,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.testtaskeq.disabled"
     valueType="number"
-    tag='AllTestTask'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="AllTestTask"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'titlelike')">
                     <input-box 
@@ -725,15 +725,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.tostoryeq.disabled"
     valueType="number"
-    tag='AllStory'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="AllStory"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'totaskeq')">
                     
@@ -743,15 +743,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.totaskeq.disabled"
     valueType="number"
-    tag='AllTask'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="AllTask"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'typeeq')">
                     
@@ -761,15 +761,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.typeeq.disabled"
     valueType="string"
-    tag='Bug__type'
-    codelistType='STATIC'
-    placeholder='请选择...'
+    tag="Bug__type"
+    codelistType="STATIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
             </template>
         </filter-tree>

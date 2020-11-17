@@ -63,23 +63,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.productname.disabled"
-  name='productname'
-  deMajorField='name'
-  deKeyField='product'
-  :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurUer'}"
-  valueitem='product'
-  :value="data.productname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.productname.disabled"
+    name="productname"
+    deMajorField="name"
+    deKeyField="product"
+    :service="service"
+    :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurUer'}"
+    valueitem="product"
+    :value="data.productname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -108,23 +108,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ N_ROOT_EQ:"%product%" }' 
-  :localParam ='{ n_root_eq:"%product%" }' 
-  :disabled="detailsModel.modulename.disabled"
-  name='modulename'
-  deMajorField='name'
-  deKeyField='module'
-  :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchBugModule'}"
-  valueitem='module'
-  :value="data.modulename"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ N_ROOT_EQ:"%product%" }' 
+    :localParam ='{ n_root_eq:"%product%" }' 
+    :disabled="detailsModel.modulename.disabled"
+    name="modulename"
+    deMajorField="name"
+    deKeyField="module"
+    :service="service"
+    :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchBugModule'}"
+    valueitem="module"
+    :value="data.modulename"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -158,15 +158,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.type.disabled"
     valueType="string"
-    tag='Testcase__type'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Testcase__type"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -264,23 +264,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ N_PRODUCT_EQ:"%product%", N_MODULE_EQ:"%module%" }' 
-  :localParam ='{ n_product_eq:"%product%", n_module_eq:"%module%" }' 
-  :disabled="detailsModel.storyname.disabled"
-  name='storyname'
-  deMajorField='title'
-  deKeyField='story'
-  :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchCaseStory'}"
-  valueitem='story'
-  :value="data.storyname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ N_PRODUCT_EQ:"%product%", N_MODULE_EQ:"%module%" }' 
+    :localParam ='{ n_product_eq:"%product%", n_module_eq:"%module%" }' 
+    :disabled="detailsModel.storyname.disabled"
+    name="storyname"
+    deMajorField="title"
+    deKeyField="story"
+    :service="service"
+    :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchCaseStory'}"
+    valueitem="story"
+    :value="data.storyname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -348,15 +348,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.pri.disabled"
     valueType="number"
-    tag='Testcase__pri'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Testcase__pri"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -401,7 +401,7 @@
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem="case" 
-    :parentdata="{"srfparentdefname":"CASE","srfparentdename":"ZT_CASE","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_CASESTEP_ZT_CASE_CASE","SRFDER1NID":"DER1N_ZT_CASESTEP_ZT_CASE_CASE"}"
+    :parentdata='{"srfparentdefname":"CASE","srfparentdename":"ZT_CASE","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_CASESTEP_ZT_CASE_CASE","SRFDER1NID":"DER1N_ZT_CASESTEP_ZT_CASE_CASE"}'
     :parameters="[
         {
             pathName: 'cases',
@@ -480,7 +480,18 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{objecttype:"case",objectid:"0",version:"1"}' :exportparams='{objecttype:"case",objectid:"0",version:"1"}'  style="overflow: auto;"></app-file-upload>
+    <app-file-upload
+    :formState="formState"
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :data="JSON.stringify(this.data)"
+    name="files"
+    :value="data.files"
+    :disabled="detailsModel.files.disabled"
+    :uploadparams='{objecttype:"case",objectid:"0",version:"1"}'
+    :exportparams='{objecttype:"case",objectid:"0",version:"1"}'
+    style="overflow: auto;"
+></app-file-upload>
 </app-form-item>
 
 </i-col>

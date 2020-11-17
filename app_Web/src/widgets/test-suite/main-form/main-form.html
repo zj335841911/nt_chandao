@@ -95,7 +95,21 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"testsuite",objectid: 0,version:"editor"}' :exportparams='{objecttype:"testsuite",objectid: 0,version:"editor"}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.desc"
+    @change="(val) =>{this.data.desc =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.desc.disabled"
+    :data="JSON.stringify(this.data)"
+    name="desc"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"testsuite",objectid: 0,version:"editor"}'
+    :exportparams='{objecttype:"testsuite",objectid: 0,version:"editor"}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 

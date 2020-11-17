@@ -23,14 +23,14 @@
               :context="context"
               :formState="formState"
               :viewparams="viewparams"
-              :localContext ='{ }' 
-              :localParam ='{ }' 
+              :localContext='{ }' 
+              :localParam='{ }' 
               :disabled="detailsModel.dept.disabled"
-              tag='RealDept'
-              codelistType='DYNAMIC'
-              placeholder='选择一个部门的成员'
-              
-          />
+              tag="RealDept"
+              codelistType="DYNAMIC"
+              placeholder="选择一个部门的成员"
+          
+          ></dropdown-list>
           </app-form-item>
           
           </i-col>
@@ -51,14 +51,14 @@
               :context="context"
               :formState="formState"
               :viewparams="viewparams"
-              :localContext ='{ N_ID_NOTEQ:"%project%" }' 
-              :localParam ='{ n_id_noteq:"%project%" }' 
+              :localContext='{ N_ID_NOTEQ:"%project%" }' 
+              :localParam='{ n_id_noteq:"%project%" }' 
               :disabled="detailsModel.teams.disabled"
-              tag='ProjectTeam'
-              codelistType='DYNAMIC'
-              placeholder='选择一个团队'
-              
-          />
+              tag="ProjectTeam"
+              codelistType="DYNAMIC"
+              placeholder="选择一个团队"
+          
+          ></dropdown-list>
           </app-form-item>
           
           </i-col>

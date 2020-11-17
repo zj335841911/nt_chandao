@@ -158,23 +158,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.buildname.disabled"
-  name='buildname'
-  deMajorField='name'
-  deKeyField='build'
-  :service="service"
-  :acParams="{ serviceName: 'BuildService', interfaceName: 'FetchDefault'}"
-  valueitem='build'
-  :value="data.buildname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.buildname.disabled"
+    name="buildname"
+    deMajorField="name"
+    deKeyField="build"
+    :service="service"
+    :acParams="{ serviceName: 'BuildService', interfaceName: 'FetchDefault'}"
+    valueitem="build"
+    :value="data.buildname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -271,15 +271,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.marker.disabled"
     valueType="string"
-    tag='YesNo'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="YesNo"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -310,7 +310,21 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"release",objectid:"%id%",version:"editor"}' :exportparams='{objecttype:"release",objectid:"%id%",version:"editor"}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.desc"
+    @change="(val) =>{this.data.desc =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.desc.disabled"
+    :data="JSON.stringify(this.data)"
+    name="desc"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"release",objectid:"%id%",version:"editor"}'
+    :exportparams='{objecttype:"release",objectid:"%id%",version:"editor"}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
@@ -337,7 +351,18 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{objecttype:"release",objectid:"0",version:"0"}' :exportparams='{objecttype:"release",objectid:"0",version:"0"}'  style="overflow: auto;"></app-file-upload>
+    <app-file-upload
+    :formState="formState"
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :data="JSON.stringify(this.data)"
+    name="files"
+    :value="data.files"
+    :disabled="detailsModel.files.disabled"
+    :uploadparams='{objecttype:"release",objectid:"0",version:"0"}'
+    :exportparams='{objecttype:"release",objectid:"0",version:"0"}'
+    style="overflow: auto;"
+></app-file-upload>
 </app-form-item>
 
 </i-col>

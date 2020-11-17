@@ -32,23 +32,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.libname.disabled"
-  name='libname'
-  deMajorField='name'
-  deKeyField='doclib'
-  :service="service"
-  :acParams="{ serviceName: 'DocLibService', interfaceName: 'FetchCurDocLib'}"
-  valueitem='lib'
-  :value="data.libname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.libname.disabled"
+    name="libname"
+    deMajorField="name"
+    deKeyField="doclib"
+    :service="service"
+    :acParams="{ serviceName: 'DocLibService', interfaceName: 'FetchCurDocLib'}"
+    valueitem="lib"
+    :value="data.libname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -77,23 +77,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ DOCLIB:"%lib%" }' 
-  :localParam ='{ doclib:"%lib%" }' 
-  :disabled="detailsModel.modulename.disabled"
-  name='modulename'
-  deMajorField='name'
-  deKeyField='module'
-  :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDocModule'}"
-  valueitem='module'
-  :value="data.modulename"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ DOCLIB:"%lib%" }' 
+    :localParam ='{ doclib:"%lib%" }' 
+    :disabled="detailsModel.modulename.disabled"
+    name="modulename"
+    deMajorField="name"
+    deKeyField="module"
+    :service="service"
+    :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDocModule'}"
+    valueitem="module"
+    :value="data.modulename"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -228,7 +228,21 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-rich-text-editor :formState="formState" :value="data.content" @change="(val) =>{this.data.content =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.content.disabled" :data="JSON.stringify(this.data)"  name="content" :context="context" :viewparams="viewparams" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.content"
+    @change="(val) =>{this.data.content =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.content.disabled"
+    :data="JSON.stringify(this.data)"
+    name="content"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{}'
+    :exportparams='{}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
@@ -289,7 +303,18 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{objecttype:"doc",objectid:"0",version:"1"}' :exportparams='{objecttype:"doc",objectid:"0",version:"1"}'  style="overflow: auto;"></app-file-upload>
+    <app-file-upload
+    :formState="formState"
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :data="JSON.stringify(this.data)"
+    name="files"
+    :value="data.files"
+    :disabled="detailsModel.files.disabled"
+    :uploadparams='{objecttype:"doc",objectid:"0",version:"1"}'
+    :exportparams='{objecttype:"doc",objectid:"0",version:"1"}'
+    style="overflow: auto;"
+></app-file-upload>
 </app-form-item>
 
 </i-col>

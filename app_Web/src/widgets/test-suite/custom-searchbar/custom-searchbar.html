@@ -21,15 +21,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.producteq.disabled"
     valueType="number"
-    tag='Product'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Product"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'typeeq')">
                     
@@ -39,15 +39,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.typeeq.disabled"
     valueType="string"
-    tag='Testsuite__type'
-    codelistType='STATIC'
-    placeholder='请选择...'
+    tag="Testsuite__type"
+    codelistType="STATIC"
+    placeholder="请选择..."
     style="width:100px;"
-/>
+></dropdown-list>
                 </template>
             </template>
         </filter-tree>

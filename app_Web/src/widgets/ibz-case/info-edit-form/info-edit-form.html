@@ -114,7 +114,7 @@
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem="ibzcase" 
-    :parentdata="{"srfparentdefname":"CASE","srfparentdename":"IBZ_CASE","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_IBZ_LIBCASESTEPS_IBZ_CASE_CASE","SRFDER1NID":"DER1N_IBZ_LIBCASESTEPS_IBZ_CASE_CASE"}"
+    :parentdata='{"srfparentdefname":"CASE","srfparentdename":"IBZ_CASE","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_IBZ_LIBCASESTEPS_IBZ_CASE_CASE","SRFDER1NID":"DER1N_IBZ_LIBCASESTEPS_IBZ_CASE_CASE"}'
     :parameters="[
         {
             pathName: 'ibzcases',
@@ -159,7 +159,21 @@
     :isEmptyCaption="false"
     labelPos="TOP"
 >
-    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.comment"
+    @change="(val) =>{this.data.comment =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.comment.disabled"
+    :data="JSON.stringify(this.data)"
+    name="comment"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{}'
+    :exportparams='{}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
@@ -178,7 +192,7 @@
     :formState="formState"
     :isForbidLoad="this.data.srfuf === '0'"
     paramItem="ibzcase" 
-    :parentdata="{"srfparentdename":"IBZ_CASE","SRFPARENTTYPE":"CUSTOM"}"
+    :parentdata='{"srfparentdename":"IBZ_CASE","SRFPARENTTYPE":"CUSTOM"}'
     :parameters="[
     ]"
     :context="context"
@@ -257,23 +271,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.libname.disabled"
-  name='libname'
-  deMajorField='name'
-  deKeyField='ibzlib'
-  :service="service"
-  :acParams="{ serviceName: 'IbzLibService', interfaceName: 'FetchDefault'}"
-  valueitem='lib'
-  :value="data.libname"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.libname.disabled"
+    name="libname"
+    deMajorField="name"
+    deKeyField="ibzlib"
+    :service="service"
+    :acParams="{ serviceName: 'IbzLibService', interfaceName: 'FetchDefault'}"
+    valueitem="lib"
+    :value="data.libname"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -302,23 +316,23 @@
 >
     
 <app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.modulename.disabled"
-  name='modulename'
-  deMajorField='name'
-  deKeyField='ibzlibmodule'
-  :service="service"
-  :acParams="{ serviceName: 'IbzLibModuleService', interfaceName: 'FetchDefault'}"
-  valueitem='module'
-  :value="data.modulename"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.modulename.disabled"
+    name="modulename"
+    deMajorField="name"
+    deKeyField="ibzlibmodule"
+    :service="service"
+    :acParams="{ serviceName: 'IbzLibModuleService', interfaceName: 'FetchDefault'}"
+    valueitem="module"
+    :value="data.modulename"
+    editortype="dropdown"
+    style=""
+    @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
 
@@ -352,15 +366,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.type.disabled"
     valueType="string"
-    tag='Testcase__type'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Testcase__type"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -432,15 +446,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.pri.disabled"
     valueType="string"
-    tag='Testcase__pri'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Testcase__pri"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -507,15 +521,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.status.disabled"
     valueType="string"
-    tag='Testcase__status'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+    tag="Testcase__status"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>

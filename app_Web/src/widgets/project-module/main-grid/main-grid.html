@@ -36,15 +36,15 @@
                         <template v-if="actualIsOpenEdit">
                             <app-form-item :error="gridItemsModel[$index][column.property].error">
                                 <input-box 
-              
-              :disabled="getColumnDisabled(row,column.property)" 
-              v-model="row[column.property]" 
-              style=""
-              type="text"
-              
-              placeholder="模块名称"
-              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-            </input-box>
+                
+                :disabled="getColumnDisabled(row,column.property)" 
+                v-model="row[column.property]" 
+                style=""
+                type="text"
+                
+                placeholder="模块名称"
+                @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}"
+            ></input-box>
             
                             </app-form-item>
                         </template>
@@ -65,15 +65,15 @@
                         <template v-if="actualIsOpenEdit">
                             <app-form-item :error="gridItemsModel[$index][column.property].error">
                                 <input-box 
-              
-              :disabled="getColumnDisabled(row,column.property)" 
-              v-model="row[column.property]" 
-              style=""
-              type="text"
-              
-              placeholder="简称"
-              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-            </input-box>
+                
+                :disabled="getColumnDisabled(row,column.property)" 
+                v-model="row[column.property]" 
+                style=""
+                type="text"
+                
+                placeholder="简称"
+                @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}"
+            ></input-box>
             
                             </app-form-item>
                         </template>
@@ -94,15 +94,15 @@
                         <template v-if="actualIsOpenEdit">
                             <app-form-item :error="gridItemsModel[$index][column.property].error">
                                 <input-box 
-              
-              :disabled="getColumnDisabled(row,column.property)" 
-              v-model="row[column.property]" 
-              style=""
-              type="text"
-              
-              placeholder="排序"
-              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-            </input-box>
+                
+                :disabled="getColumnDisabled(row,column.property)" 
+                v-model="row[column.property]" 
+                style=""
+                type="text"
+                
+                placeholder="排序"
+                @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}"
+            ></input-box>
             
                             </app-form-item>
                         </template>

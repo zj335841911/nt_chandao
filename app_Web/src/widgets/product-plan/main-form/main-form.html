@@ -99,15 +99,15 @@
     :context="context"
     :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ PRODUCT:"%product%" }' 
-    :localParam ='{ product:"%product%" }' 
+    :localContext='{ PRODUCT:"%product%" }' 
+    :localParam='{ product:"%product%" }' 
     :disabled="detailsModel.branch.disabled"
     valueType="number"
-    tag='ProductBranch'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
+    tag="ProductBranch"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -373,7 +373,21 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"productplan",version:"editor"}' :exportparams='{objecttype:"productplan",version:"editor"}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.desc"
+    @change="(val) =>{this.data.desc =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.desc.disabled"
+    :data="JSON.stringify(this.data)"
+    name="desc"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"productplan",version:"editor"}'
+    :exportparams='{objecttype:"productplan",version:"editor"}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 

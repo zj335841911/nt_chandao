@@ -102,25 +102,25 @@
     labelPos="LEFT"
 >
     
-  <app-picker 
+<app-picker 
     :formState="formState"
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.projectname.disabled"
-    name='projectname'
-    deMajorField='name'
-    deKeyField='project'
+    name="projectname"
+    deMajorField="name"
+    deKeyField="project"
     :service="service"
     :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
-    valueitem='project' 
+    valueitem="project" 
     :value="data.projectname"
     :pickupView="{ viewname: 'project-pickup-view', title: $t('entities.project.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
     style=""  
     @formitemvaluechange="onFormItemValueChange($event)">
-  </app-picker>
+</app-picker>
 
 </app-form-item>
 
@@ -148,25 +148,25 @@
     labelPos="LEFT"
 >
     
-  <app-picker 
+<app-picker 
     :formState="formState"
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext='{ }' 
+    :localParam='{ }' 
     :disabled="detailsModel.productname.disabled"
-    name='productname'
-    deMajorField='name'
-    deKeyField='product'
+    name="productname"
+    deMajorField="name"
+    deKeyField="product"
     :service="service"
     :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
-    valueitem='product' 
+    valueitem="product" 
     :value="data.productname"
     :pickupView="{ viewname: 'product-pickup-view', title: $t('entities.product.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
     style=""  
     @formitemvaluechange="onFormItemValueChange($event)">
-  </app-picker>
+</app-picker>
 
 </app-form-item>
 
