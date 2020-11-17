@@ -273,27 +273,6 @@ export class CustomSearchbarBase extends MainControlBase {
             mode: 'LIKE',
             disabled: false
         },
-        'statuseq': {
-            label: '任务状态',
-            name: 'statuseq',
-            prop: 'status',
-            mode: 'EQ',
-            disabled: false
-        },
-        'statusin': {
-            label: '任务状态',
-            name: 'statusin',
-            prop: 'status',
-            mode: 'IN',
-            disabled: false
-        },
-        'statusnoteq': {
-            label: '任务状态',
-            name: 'statusnoteq',
-            prop: 'status',
-            mode: 'NOTEQ',
-            disabled: false
-        },
         'status1eq': {
             label: '任务状态',
             name: 'status1eq',

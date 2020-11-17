@@ -415,60 +415,6 @@
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
-                <template v-if="Object.is(data.editor, 'statuseq')">
-                    
-<dropdown-list 
-    v-model="data.statuseq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.statuseq.disabled"
-    valueType="string"
-    tag='Task__status'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    style="width:100px;"
-/>
-                </template>
-                <template v-if="Object.is(data.editor, 'statusin')">
-                    
-<dropdown-list 
-    v-model="data.statusin"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.statusin.disabled"
-    valueType="string"
-    tag='Task__status'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    style="width:100px;"
-/>
-                </template>
-                <template v-if="Object.is(data.editor, 'statusnoteq')">
-                    
-<dropdown-list 
-    v-model="data.statusnoteq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.statusnoteq.disabled"
-    valueType="string"
-    tag='Task__status'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    style="width:100px;"
-/>
-                </template>
                 <template v-if="Object.is(data.editor, 'status1eq')">
                     
 <dropdown-list 
