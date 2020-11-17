@@ -14,26 +14,40 @@
 
                 </template>
                 <template v-if="Object.is(data.editor, 'typeeq')">
-                    <input-box 
-    v-model="data.typeeq"  
-    @enter="onEnter($event)"  
-      
-    :disabled="detailsModel.typeeq.disabled" 
-    type='text' 
-    style="width:100px;">
-</input-box>
+                    
+<dropdown-list 
+    v-model="data.typeeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.typeeq.disabled"
+    valueType="string"
+    tag="Type"
+    codelistType="STATIC"
+    placeholder="请选择..."
 
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'typenoteq')">
-                    <input-box 
-    v-model="data.typenoteq"  
-    @enter="onEnter($event)"  
-      
-    :disabled="detailsModel.typenoteq.disabled" 
-    type='text' 
-    style="width:100px;">
-</input-box>
+                    
+<dropdown-list 
+    v-model="data.typenoteq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.typenoteq.disabled"
+    valueType="string"
+    tag="Type"
+    codelistType="STATIC"
+    placeholder="请选择..."
 
+></dropdown-list>
                 </template>
                 <template v-if="Object.is(data.editor, 'statuseq')">
                     
