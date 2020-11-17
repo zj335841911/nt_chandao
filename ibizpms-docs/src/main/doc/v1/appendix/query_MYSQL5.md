@@ -7250,7 +7250,7 @@ GROUP BY
 	) AS `NAME`,
 	t1.`ORDER`,
 	t1.`OWNER`,
-	t1.`PARENT`,
+	case when t1.`PARENT` = 0 then null else t1.parent end as parent ,
 	t11.`NAME` AS `PARENTNAME`,
 	t1.`PATH`,
 	t1.`ROOT`,
