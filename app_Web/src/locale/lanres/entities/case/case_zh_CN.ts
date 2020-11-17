@@ -806,6 +806,12 @@ export default {
 			tip: "导出",
 		},
 	},
+	projectreportlinkgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
 	batchnewgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
@@ -832,6 +838,12 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
+		},
+	},
+	cursuitgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	suitelinkcasegridviewtoolbar_toolbar: {

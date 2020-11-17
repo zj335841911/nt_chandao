@@ -806,6 +806,12 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 	},
+	projectreportlinkgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
 	batchnewgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
@@ -832,6 +838,12 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+	},
+	cursuitgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	suitelinkcasegridviewtoolbar_toolbar: {
