@@ -171,6 +171,15 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String parentname;
 
+    /**
+     * 属性 [ORDERPK]
+     *
+     */
+    @JSONField(name = "orderpk")
+    @JsonProperty("orderpk")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String orderpk;
+
 
     /**
      * 设置 [PATH]

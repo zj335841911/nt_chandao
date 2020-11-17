@@ -13859,6 +13859,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"ORDERPK" ,
+    "codename":"Orderpk",
+    "field_logic_name":"数据选择排序",
+    "entity_name":"Module",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -23281,6 +23295,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"ORDERPK" ,
+    "codename":"Orderpk",
+    "field_logic_name":"数据选择排序",
+    "entity_name":"ProductModule",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -25718,6 +25746,20 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ORDERPK" ,
+    "codename":"Orderpk",
+    "field_logic_name":"数据选择排序",
+    "entity_name":"ProjectModule",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
     "key_field":0,
     "show_order":1000,
     "major_field":0

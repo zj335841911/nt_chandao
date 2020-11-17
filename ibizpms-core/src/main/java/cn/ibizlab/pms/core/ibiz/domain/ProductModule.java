@@ -166,6 +166,13 @@ public class ProductModule extends EntityMP implements Serializable {
     @JSONField(name = "parentname")
     @JsonProperty("parentname")
     private String parentname;
+    /**
+     * 数据选择排序
+     */
+    @TableField(exist = false)
+    @JSONField(name = "orderpk")
+    @JsonProperty("orderpk")
+    private String orderpk;
 
     /**
      * 

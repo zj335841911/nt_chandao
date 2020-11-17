@@ -63,6 +63,9 @@ export default class ModuleExpModel {
       {
         name: 'parentname',
       },
+      {
+        name: 'orderpk',
+      },
     ]
   }
 

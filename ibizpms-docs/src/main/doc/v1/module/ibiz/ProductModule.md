@@ -38,6 +38,7 @@
 | 14 | [id](#属性-id（PARENT）) | PARENT | 外键值 | 否 | 是 | 是 |
 | 15 | [所属产品](#属性-所属产品（ROOTNAME）) | ROOTNAME | 外键值文本 | 否 | 是 | 是 |
 | 16 | [上级模块](#属性-上级模块（PARENTNAME）) | PARENTNAME | 外键值文本 | 否 | 是 | 是 |
+| 17 | [数据选择排序](#属性-数据选择排序（ORDERPK）) | ORDERPK | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-path（PATH）
 #### 属性说明
@@ -741,6 +742,47 @@ String
 | 关系属性 | [名称（NAME）](../ibiz/ProductModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-数据选择排序（ORDERPK）
+#### 属性说明
+数据选择排序
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) |
+| 关系属性 | [名称（NAME）](../ibiz/ProductModule/#属性-名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -1147,6 +1189,31 @@ SELECT
 	t1.`ID`,
 	( CASE WHEN EXISTS ( SELECT 1 FROM ZT_MODULE WHERE PARENT = t1.`ID` ) THEN FALSE ELSE TRUE END ) AS `ISLEAF`,
 	CONCAT('/',(select GROUP_CONCAT(tt.name SEPARATOR '/') from zt_module tt where FIND_IN_SET(tt.id,t1.path) and tt.type = 'story' GROUP BY tt.root)) as `NAME`,
+(CONCAT_ws(
+	'',
+ case when	(
+SELECT
+	GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
+FROM
+	zt_module tt 
+WHERE
+	FIND_IN_SET( tt.id, t1.path ) 
+	AND tt.type = 'story' 
+GROUP BY
+	tt.root 
+	LIMIT 0,1
+	) is not null then (
+SELECT
+	GROUP_CONCAT( tt.`ORDER` SEPARATOR '-' ) 
+FROM
+	zt_module tt 
+WHERE
+	FIND_IN_SET( tt.id, t1.path ) 
+	AND tt.type = 'story' 
+GROUP BY
+	tt.root 
+	LIMIT 0,1
+	) else t1.`ORDER` end)) as ORDERPK,
 	t1.`ORDER`,
 	t1.`OWNER`,
 	t1.`PARENT`,

@@ -63,6 +63,9 @@ export default class ExpModel {
       {
         name: 'parentname',
       },
+      {
+        name: 'orderpk',
+      },
     ]
   }
 

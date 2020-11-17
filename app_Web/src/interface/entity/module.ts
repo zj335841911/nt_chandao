@@ -133,4 +133,12 @@ export interface Module {
      * @memberof Module
      */
     orgid?: any;
+
+    /**
+     * 数据选择排序
+     *
+     * @returns {*}
+     * @memberof Module
+     */
+    orderpk?: any;
 }

@@ -31,6 +31,7 @@ hide members
 |项目|ROOT|PICKUP|&nbsp;|
 |所属项目|ROOTNAME|PICKUPTEXT|&nbsp;|
 |上级模块|PARENTNAME|PICKUPTEXT|&nbsp;|
+|数据选择排序|ORDERPK|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -51,6 +52,7 @@ hide members
 |项目|默认规则|默认规则|
 |所属项目|默认规则|内容长度必须小于等于[90]|
 |上级模块|默认规则|内容长度必须小于等于[60]|
+|数据选择排序|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

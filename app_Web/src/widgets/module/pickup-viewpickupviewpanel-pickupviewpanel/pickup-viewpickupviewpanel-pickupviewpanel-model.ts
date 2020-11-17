@@ -63,6 +63,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'orgid',
       },
+      {
+        name: 'orderpk',
+      },
     ]
   }
 

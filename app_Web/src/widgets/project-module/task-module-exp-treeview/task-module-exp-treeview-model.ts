@@ -63,6 +63,9 @@ export default class TaskModuleExpModel {
       {
         name: 'parentname',
       },
+      {
+        name: 'orderpk',
+      },
     ]
   }
 

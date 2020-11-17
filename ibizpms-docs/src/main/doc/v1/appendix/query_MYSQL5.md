@@ -7248,6 +7248,31 @@ GROUP BY
 	LIMIT 0,1
 	) else t1.`name` end
 	) AS `NAME`,
+(CONCAT_ws(
+	'',
+ case when	(
+SELECT
+	GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
+FROM
+	zt_module tt 
+WHERE
+	FIND_IN_SET( tt.id, t1.path ) 
+	AND tt.type = 'story' 
+GROUP BY
+	tt.root 
+	LIMIT 0,1
+	) is not null then (
+SELECT
+	GROUP_CONCAT( tt.`ORDER` SEPARATOR '-' ) 
+FROM
+	zt_module tt 
+WHERE
+	FIND_IN_SET( tt.id, t1.path ) 
+	AND tt.type = 'story' 
+GROUP BY
+	tt.root 
+	LIMIT 0,1
+	) else t1.`ORDER` end)) as ORDERPK,
 	t1.`ORDER`,
 	t1.`OWNER`,
 	case when t1.`PARENT` = 0 then null else t1.parent end as parent ,
@@ -9653,6 +9678,31 @@ SELECT
 	t1.`ID`,
 	( CASE WHEN EXISTS ( SELECT 1 FROM ZT_MODULE WHERE PARENT = t1.`ID` ) THEN FALSE ELSE TRUE END ) AS `ISLEAF`,
 	CONCAT('/',(select GROUP_CONCAT(tt.name SEPARATOR '/') from zt_module tt where FIND_IN_SET(tt.id,t1.path) and tt.type = 'story' GROUP BY tt.root)) as `NAME`,
+(CONCAT_ws(
+	'',
+ case when	(
+SELECT
+	GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
+FROM
+	zt_module tt 
+WHERE
+	FIND_IN_SET( tt.id, t1.path ) 
+	AND tt.type = 'story' 
+GROUP BY
+	tt.root 
+	LIMIT 0,1
+	) is not null then (
+SELECT
+	GROUP_CONCAT( tt.`ORDER` SEPARATOR '-' ) 
+FROM
+	zt_module tt 
+WHERE
+	FIND_IN_SET( tt.id, t1.path ) 
+	AND tt.type = 'story' 
+GROUP BY
+	tt.root 
+	LIMIT 0,1
+	) else t1.`ORDER` end)) as ORDERPK,
 	t1.`ORDER`,
 	t1.`OWNER`,
 	t1.`PARENT`,
@@ -11022,6 +11072,31 @@ GROUP BY
 	tt.root 
 	) 
 	) AS `NAME`,
+	(CONCAT_ws(
+	'',
+ case when	(
+SELECT
+	GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
+FROM
+	zt_module tt 
+WHERE
+	FIND_IN_SET( tt.id, t1.path ) 
+	AND tt.type = 'story' 
+GROUP BY
+	tt.root 
+	LIMIT 0,1
+	) is not null then (
+SELECT
+	GROUP_CONCAT( tt.`ORDER` SEPARATOR '-' ) 
+FROM
+	zt_module tt 
+WHERE
+	FIND_IN_SET( tt.id, t1.path ) 
+	AND tt.type = 'story' 
+GROUP BY
+	tt.root 
+	LIMIT 0,1
+	) else t1.`ORDER` end)) as ORDERPK,
 	t1.`ORDER`,
 	t1.`PARENT`,
 	t1.`PATH`,
@@ -11051,6 +11126,21 @@ GROUP BY
 	tt.root 
 	) 
 	) AS `NAME`,
+		(CONCAT_WS(
+	'',
+	(
+SELECT
+	GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
+FROM
+	zt_module tt 
+WHERE
+	FIND_IN_SET( tt.id, t1.path ) 
+	AND tt.type = 'task' 
+GROUP BY
+	tt.root
+LIMIT 0,1	
+	) 
+	)) AS `ORDERPK`,
 	t1.`ORDER`,
 	t1.`PARENT`,
 	t1.`PATH`,
@@ -11067,6 +11157,7 @@ FROM
 	'0' as deleted,
 	0 as id,
 	'/' as `name`,
+	'0' as ORDERPK,
 	0 as `order`,
   0 as parent,
   ',0,' as path,
