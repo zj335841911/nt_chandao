@@ -81,6 +81,7 @@ export default class MainModel {
           name: 'ibzcase',
           prop: 'id',
         },
+
         {
           name:'size',
           prop:'size'

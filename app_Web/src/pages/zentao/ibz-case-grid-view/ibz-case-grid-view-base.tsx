@@ -99,6 +99,10 @@ export class IbzCaseGridViewBase extends GridViewBase {
             name: 'grid',
             type: 'GRID',
         },
+        view_searchform: {
+            name: 'searchform',
+            type: 'SEARCHFORM',
+        },
     };
 
     /**
@@ -113,6 +117,8 @@ export class IbzCaseGridViewBase extends GridViewBase {
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
         deuiaction1: { name: 'deuiaction1', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+
+        deuiaction4: { name: 'deuiaction4', caption: '过滤', 'isShowCaption': true, 'isShowIcon': true, tooltip: '过滤', iconcls: 'fa fa-filter', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ToggleFilter', target: '', class: '' } },
 
     };
 
@@ -173,6 +179,7 @@ export class IbzCaseGridViewBase extends GridViewBase {
                 this.newdata(args, fullargs, params, $event, xData);
             },
             grid: this.$refs.grid,
+            searchform: this.$refs.searchform,
             keyPSDEField: 'ibzcase',
             majorPSDEField: 'title',
             isLoadDefault: true,
@@ -254,6 +261,39 @@ export class IbzCaseGridViewBase extends GridViewBase {
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
+    }
+
+    /**
+     * searchform 部件 save 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof IbzCaseGridViewBase
+     */
+    public searchform_save($event: any, $event2?: any): void {
+        this.engine.onCtrlEvent('searchform', 'save', $event);
+    }
+
+    /**
+     * searchform 部件 search 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof IbzCaseGridViewBase
+     */
+    public searchform_search($event: any, $event2?: any): void {
+        this.engine.onCtrlEvent('searchform', 'search', $event);
+    }
+
+    /**
+     * searchform 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof IbzCaseGridViewBase
+     */
+    public searchform_load($event: any, $event2?: any): void {
+        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
     /**

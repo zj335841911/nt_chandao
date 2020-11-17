@@ -81,6 +81,15 @@ export class FormControlBase extends MainControlBase {
     public detailsModel: any = {};
 
     /**
+     * 自动加载
+     *
+     * @type {boolean}
+     * @memberof FormControlBase
+     */
+    @Prop({ default: false })
+    public isautoload?: boolean;
+
+    /**
      * 自动保存
      *
      * @type {boolean}
@@ -354,6 +363,9 @@ export class FormControlBase extends MainControlBase {
      * @memberof FormControlBase
      */
     public ctrlCreated(): void {
+        if(this.isautoload){
+            this.autoLoad({srfkey:this.context[this.appDeName]});
+        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe((params: any) => {
                 const { tag, action, data } = params;

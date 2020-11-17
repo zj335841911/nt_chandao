@@ -28,7 +28,7 @@
                     <div class="tree-node" @dblclick="doDefaultAction(node)">
                         <span class="icon">
                             <i v-if="data.iconcls && !Object.is(data.iconcls, '')" :class="data.iconcls"></i>
-                            <img v-else-if="data.icon && !Object.is(data.icon, '')" :src="data.icon" />
+                            <img v-else-if="data.icon && !Object.is(data.icon, '')" :src="data.icon">
                             <icon v-else-if="isOutputIconDefault" type="ios-paper-outline"></icon>&nbsp;
                         </span>
                         <span class="text">
