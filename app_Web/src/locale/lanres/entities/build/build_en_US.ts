@@ -239,4 +239,10 @@ export default {
 			tip: "Filter",
 		},
 	},
+	testroundsgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
 };
