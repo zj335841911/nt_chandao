@@ -4,6 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BranchPMGridViewBase } from './branch-pmgrid-view-base';
 import view_grid from '@widgets/branch/platform-management-grid/platform-management-grid.vue';
+import view_searchbar from '@widgets/branch/custom-searchbar/custom-searchbar.vue';
 
 /**
  * 平台管理视图
@@ -15,6 +16,7 @@ import view_grid from '@widgets/branch/platform-management-grid/platform-managem
 @Component({
     components: {
         view_grid, 
+        view_searchbar, 
     }
 })
 @VueLifeCycleProcessing()
