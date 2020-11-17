@@ -74,7 +74,6 @@ export default class MoreUndoneProjectModel {
           name: 'project',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'
