@@ -8,8 +8,8 @@
         </div>
         <div class="tree-partition" v-if="valueNodes.length > 0" ></div>
         <ion-list>
-        <template v-for="item in rootNodes">
-            <ion-item  :key="item.srfkey" @click="click_node(item)">
+        <template v-for="(item ,index) in rootNodes">
+            <ion-item  :key="index" @click="click_node(item)">
                 <ion-label>{{item.text}}</ion-label>
                 <ion-icon class="tree-icon" slot="end" name="chevron-forward-outline"></ion-icon>
             </ion-item>
