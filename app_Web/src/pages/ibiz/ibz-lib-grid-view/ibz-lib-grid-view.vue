@@ -4,7 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzLibGridViewBase } from './ibz-lib-grid-view-base';
 import view_grid from '@widgets/ibz-lib/main-grid/main-grid.vue';
-import view_searchform from '@widgets/ibz-lib/default-searchform/default-searchform.vue';
+import view_searchbar from '@widgets/ibz-lib/custom-searchbar/custom-searchbar.vue';
 
 /**
  * 用例库视图
@@ -16,7 +16,7 @@ import view_searchform from '@widgets/ibz-lib/default-searchform/default-searchf
 @Component({
     components: {
         view_grid, 
-        view_searchform, 
+        view_searchbar, 
     }
 })
 @VueLifeCycleProcessing()

@@ -56,7 +56,6 @@ export default class MainModel {
           name: 'ibzlib',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

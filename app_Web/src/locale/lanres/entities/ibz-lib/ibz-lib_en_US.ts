@@ -83,13 +83,6 @@ export default {
         ibzlib_delete: "删除",
 		},
 	},
-	default_searchform: {
-		details: {
-			formpage1: "常规条件", 
-		},
-		uiactions: {
-		},
-	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
