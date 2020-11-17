@@ -129,7 +129,6 @@ export default class MainModel {
           name: 'todo',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

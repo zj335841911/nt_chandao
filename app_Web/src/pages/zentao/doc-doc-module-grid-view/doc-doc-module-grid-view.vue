@@ -5,7 +5,6 @@ import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocDocModuleGridViewBase } from './doc-doc-module-grid-view-base';
 import view_grid from '@widgets/doc/main-grid/main-grid.vue';
 import view_searchbar from '@widgets/doc/custom-searchbar/custom-searchbar.vue';
-import view_searchform from '@widgets/doc/default-searchform/default-searchform.vue';
 
 /**
  * doc表格视图视图
@@ -18,7 +17,6 @@ import view_searchform from '@widgets/doc/default-searchform/default-searchform.
     components: {
         view_grid, 
         view_searchbar, 
-        view_searchform, 
     }
 })
 @VueLifeCycleProcessing()

@@ -341,13 +341,6 @@ export default {
         doc_uncollect: "取消收藏",
 		},
 	},
-	default_searchform: {
-		details: {
-			formpage1: "常规条件", 
-		},
-		uiactions: {
-		},
-	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
