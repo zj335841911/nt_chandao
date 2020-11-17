@@ -299,10 +299,13 @@ hide members
 {% plantuml %}
 hide footbox
 
+任务 -> 任务: 获取
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
+|0|开始 | 
+|1|获取 |
 <center>获取最新团队成员</center>
 * 获取联系人 (GetUserConcat)
   
