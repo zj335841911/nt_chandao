@@ -1220,6 +1220,10 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	maingridview_bymoduletoolbar_toolbar: {
 		deuiaction1: {
@@ -1245,6 +1249,14 @@ export default {
 		deuiaction5: {
 			caption: "导出",
 			tip: "导出",
+		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction6: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	kanbanviewtoolbar_toolbar: {
@@ -1284,6 +1296,14 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	typetaskgroupgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1305,6 +1325,14 @@ export default {
 		deuiaction4: {
 			caption: "导出",
 			tip: "导出",
+		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	taskgroupgridviewtoolbar_toolbar: {
@@ -1328,6 +1356,14 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	pritaskgroupgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1350,6 +1386,14 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	storytaskgroupgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1371,6 +1415,14 @@ export default {
 		deuiaction4: {
 			caption: "导出",
 			tip: "导出",
+		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	myfavoritegridviewtoolbar_toolbar: {

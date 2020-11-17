@@ -120,6 +120,14 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	editviewtoolbar_toolbar: {
 	},

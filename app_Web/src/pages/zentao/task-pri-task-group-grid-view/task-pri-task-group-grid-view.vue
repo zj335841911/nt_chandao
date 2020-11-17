@@ -4,6 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskPriTaskGroupGridViewBase } from './task-pri-task-group-grid-view-base';
 import view_grid from '@widgets/task/pri-task-group-grid/pri-task-group-grid.vue';
+import view_searchbar from '@widgets/task/custom-searchbar/custom-searchbar.vue';
 import view_searchform from '@widgets/task/default-searchform/default-searchform.vue';
 
 /**
@@ -16,6 +17,7 @@ import view_searchform from '@widgets/task/default-searchform/default-searchform
 @Component({
     components: {
         view_grid, 
+        view_searchbar, 
         view_searchform, 
     }
 })

@@ -1220,6 +1220,10 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	maingridview_bymoduletoolbar_toolbar: {
 		deuiaction1: {
@@ -1245,6 +1249,14 @@ export default {
 		deuiaction5: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction6: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	kanbanviewtoolbar_toolbar: {
@@ -1284,6 +1296,14 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	typetaskgroupgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1305,6 +1325,14 @@ export default {
 		deuiaction4: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	taskgroupgridviewtoolbar_toolbar: {
@@ -1328,6 +1356,14 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	pritaskgroupgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1350,6 +1386,14 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	storytaskgroupgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1371,6 +1415,14 @@ export default {
 		deuiaction4: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	myfavoritegridviewtoolbar_toolbar: {
