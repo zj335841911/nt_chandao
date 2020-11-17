@@ -24,17 +24,23 @@
 
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_MODULE_ZT_BRANCH_BRANCH] -->
 	 <select id="selectByBranch" resultMap="ModuleResultMap">
+	select * from (
          select t1.* from (
                 <include refid="Default" />
 			 ) t1
 			 where  branch=#{id}
+		 )t1
+		 order by `order`  asc , `id`   desc
      </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N__ZT_MODULE__ZT_MODULE__PARENT] -->
 	 <select id="selectByParent" resultMap="ModuleResultMap">
+	select * from (
          select t1.* from (
                 <include refid="Default" />
 			 ) t1
 			 where  parent=#{id}
+		 )t1
+		 order by `order`  asc , `id`   desc
      </select>
 
     <!--数据集合[BugModule]-->
@@ -51,29 +57,38 @@
 
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext"  resultMap="ModuleResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="Default" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by `order`  asc , `id`   desc
      </select>
 
     <!--数据集合[DocModule]-->
 	 <select id="searchDocModule"  parameterType="cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext"  resultMap="ModuleResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="DocModule" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by `order`  asc , `id`   desc
      </select>
 
     <!--数据集合[Line]-->
 	 <select id="searchLine"  parameterType="cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext"  resultMap="ModuleResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="Line" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by `order`  asc , `id`   desc
      </select>
 
     <!--数据集合[StoryModule]-->
