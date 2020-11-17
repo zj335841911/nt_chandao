@@ -208,13 +208,6 @@ export default {
 			ibzcase_delete: "删除",
 		},
 	},
-	default_searchform: {
-		details: {
-			formpage1: "常规条件", 
-		},
-		uiactions: {
-		},
-	},
 	editeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -239,10 +232,6 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
-		},
-		deuiaction4: {
-			caption: "过滤",
-			tip: "过滤",
 		},
 	},
 	editviewtoolbar_toolbar: {
