@@ -1,3 +1,8 @@
+/**
+ * 用户自定义环境
+ * 
+ * @environment
+ */
 window.Environment = {
     // 应用基础路径
     BaseUrl: '',
