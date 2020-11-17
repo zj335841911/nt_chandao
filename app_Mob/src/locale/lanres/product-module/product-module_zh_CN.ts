@@ -16,6 +16,7 @@ export default {
     parent: "id",
     rootname: "所属产品",
     parentname: "上级模块",
+    orderpk: "数据选择排序",
   },
 	views: {
 		mobpickupview: {

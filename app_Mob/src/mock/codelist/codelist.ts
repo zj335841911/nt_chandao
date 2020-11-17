@@ -1325,7 +1325,7 @@ const datas: Array<any> = [
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Module",
-        "appdedataset":"FetchBugModule",
+        "appdedataset":"FetchBugModuleCodeList",
         "items": []
     },
     {
