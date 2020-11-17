@@ -48,6 +48,7 @@ public interface IModuleService extends IService<Module> {
     boolean save(Module et);
     void saveBatch(List<Module> list);
     Page<Module> searchBugModule(ModuleSearchContext context);
+    Page<Module> searchBugModuleCodeList(ModuleSearchContext context);
     Page<Module> searchDefault(ModuleSearchContext context);
     Page<Module> searchDocModule(ModuleSearchContext context);
     Page<Module> searchLine(ModuleSearchContext context);

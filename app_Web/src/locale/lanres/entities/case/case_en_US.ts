@@ -854,6 +854,12 @@ export default {
 			tip: "Filter",
 		},
 	},
+	mainmynewgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction3_batchnew: {
 			caption: "批量新建用例",
@@ -870,6 +876,10 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	caseresultproject_chart: {

@@ -7263,6 +7263,29 @@ WHERE t1.DELETED = '0'
 t1.type = 'story' 
 
 ```
+### 数据查询(BugModuleCodeList)<div id="Module_BugModuleCodeList"></div>
+```sql
+SELECT
+	t1.`BRANCH`,
+	t1.`DELETED`,
+	t1.`GRADE`,
+	t1.`ID`,
+	CONCAT( '/', t1.`name` ) AS `NAME`,
+	t1.`ORDER`,
+	t1.`OWNER`,
+	case when t1.`PARENT` = 0 then null else t1.parent end as parent ,
+	t11.`NAME` AS `PARENTNAME`,
+	t1.`PATH`,
+	t1.`ROOT`,
+	t1.`SHORT`,
+	t1.`TYPE` 
+FROM
+	`zt_module` t1
+	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
+WHERE t1.DELETED = '0' 
+t1.type = 'story' 
+
+```
 ### DEFAULT(DEFAULT)<div id="Module_Default"></div>
 ```sql
 SELECT

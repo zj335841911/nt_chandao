@@ -132,7 +132,7 @@ export default class BugModule {
     public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
         return new Promise((resolve, reject) => {
             data = this.handleQueryParam(data);
-            const promise: Promise<any> = this.moduleService.FetchBugModule(context, data, isloading);
+            const promise: Promise<any> = this.moduleService.FetchBugModuleCodeList(context, data, isloading);
             promise.then((response: any) => {
                 if (response && response.status === 200) {
                     const data =  response.data;

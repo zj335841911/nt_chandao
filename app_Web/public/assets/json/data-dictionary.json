@@ -1970,7 +1970,7 @@
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Module",
-        "appdedataset":"FetchBugModule",
+        "appdedataset":"FetchBugModuleCodeList",
         "items": []
     }, 
     {
@@ -2331,6 +2331,91 @@
                 
                 "disabled": false,
                 "default": true
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Testcase__color",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "#3da7f5",
+                "label": "#3da7f5",
+                "text": "#3da7f5",
+                "class":"",
+                "data":"",
+                "codename":"Item_1",
+                "color": "rgba(61, 167, 245, 1)",
+                "value": "#3da7f5",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "#75c941",
+                "label": "#75c941",
+                "text": "#75c941",
+                "class":"",
+                "data":"",
+                "codename":"Item_2",
+                "color": "rgba(117, 201, 65, 1)",
+                "value": "#75c941",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "#2dbdb2",
+                "label": "#2dbdb2",
+                "text": "#2dbdb2",
+                "class":"",
+                "data":"",
+                "codename":"Item_3",
+                "color": "rgba(45, 189, 178, 1)",
+                "value": "#2dbdb2",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "#797ec9",
+                "label": "#797ec9",
+                "text": "#797ec9",
+                "class":"",
+                "data":"",
+                "codename":"Item_4",
+                "color": "rgba(121, 126, 201, 1)",
+                "value": "#797ec9",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "#ffaf38",
+                "label": "#ffaf38",
+                "text": "#ffaf38",
+                "class":"",
+                "data":"",
+                "codename":"Item_5",
+                "color": "rgba(255, 175, 56, 1)",
+                "value": "#ffaf38",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "#ff4e3e",
+                "label": "#ff4e3e",
+                "text": "#ff4e3e",
+                "class":"",
+                "data":"",
+                "codename":"Item_6",
+                "color": "rgba(255, 78, 62, 1)",
+                "value": "#ff4e3e",
+                
+                "disabled": false,
+                "default": false
             }
         ]
     }, 
@@ -3674,6 +3759,109 @@
                 "data":{"n_isexpired_eq":1},
                 "codename":"Isexpired",
                 "value": "ISEXPIRED",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Testcase__frame",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "junit",
+                "label": "JUnit",
+                "text": "JUnit",
+                "class":"",
+                "data":"",
+                "codename":"Junit",
+                "value": "junit",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "testng",
+                "label": "TestNG",
+                "text": "TestNG",
+                "class":"",
+                "data":"",
+                "codename":"Testng",
+                "value": "testng",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "phpunit",
+                "label": "PHPUnit",
+                "text": "PHPUnit",
+                "class":"",
+                "data":"",
+                "codename":"Phpunit",
+                "value": "phpunit",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "pytest",
+                "label": "Pytest",
+                "text": "Pytest",
+                "class":"",
+                "data":"",
+                "codename":"Pytest",
+                "value": "pytest",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "jtest",
+                "label": "JTest",
+                "text": "JTest",
+                "class":"",
+                "data":"",
+                "codename":"Jtest",
+                "value": "jtest",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "cppunit",
+                "label": "CppUnit",
+                "text": "CppUnit",
+                "class":"",
+                "data":"",
+                "codename":"Cppunit",
+                "value": "cppunit",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "gtest",
+                "label": "GTest",
+                "text": "GTest",
+                "class":"",
+                "data":"",
+                "codename":"Gtest",
+                "value": "gtest",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "qtest",
+                "label": "QTest",
+                "text": "QTest",
+                "class":"",
+                "data":"",
+                "codename":"Qtest",
+                "value": "qtest",
                 
                 "disabled": false,
                 "default": false
@@ -8858,6 +9046,49 @@
                 "data":"",
                 "codename":"Blocked",
                 "value": "blocked",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Case__frequency",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "1",
+                "label": "1",
+                "text": "1",
+                "class":"",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "2",
+                "label": "2",
+                "text": "2",
+                "class":"",
+                "data":"",
+                "codename":"Item_2",
+                "value": "2",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "3",
+                "label": "3",
+                "text": "3",
+                "class":"",
+                "data":"",
+                "codename":"Item_3",
+                "value": "3",
                 
                 "disabled": false,
                 "default": false

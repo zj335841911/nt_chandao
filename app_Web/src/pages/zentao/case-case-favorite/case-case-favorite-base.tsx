@@ -99,6 +99,10 @@ export class CaseCaseFavoriteBase extends GridViewBase {
             name: 'grid',
             type: 'GRID',
         },
+        view_searchbar: {
+            name: 'searchbar',
+            type: 'SEARCHBAR',
+        },
         view_searchform: {
             name: 'searchform',
             type: 'SEARCHFORM',

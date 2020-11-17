@@ -854,6 +854,12 @@ export default {
 			tip: "过滤",
 		},
 	},
+	mainmynewgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction3_batchnew: {
 			caption: "批量新建用例",
@@ -870,6 +876,10 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
+		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	caseresultproject_chart: {

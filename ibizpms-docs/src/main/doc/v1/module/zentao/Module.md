@@ -875,12 +875,13 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [BugModule](#数据查询-BugModule（BugModule）) | BugModule | 否 |
-| 2 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 3 | [文档目录查询](#数据查询-文档目录查询（DocModule）) | DocModule | 否 |
-| 4 | [产品线](#数据查询-产品线（Line）) | Line | 否 |
-| 5 | [需求模块](#数据查询-需求模块（StoryModule）) | StoryModule | 否 |
-| 6 | [任务模块](#数据查询-任务模块（TaskModule）) | TaskModule | 否 |
-| 7 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [数据查询](#数据查询-数据查询（BugModuleCodeList）) | BugModuleCodeList | 否 |
+| 3 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 4 | [文档目录查询](#数据查询-文档目录查询（DocModule）) | DocModule | 否 |
+| 5 | [产品线](#数据查询-产品线（Line）) | Line | 否 |
+| 6 | [需求模块](#数据查询-需求模块（StoryModule）) | StoryModule | 否 |
+| 7 | [任务模块](#数据查询-任务模块（TaskModule）) | TaskModule | 否 |
+| 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-BugModule（BugModule）
 #### 说明
@@ -926,6 +927,37 @@ GROUP BY
 	LIMIT 0,1
 	) else t1.`name` end
 	) AS `NAME`,
+	t1.`ORDER`,
+	t1.`OWNER`,
+	case when t1.`PARENT` = 0 then null else t1.parent end as parent ,
+	t11.`NAME` AS `PARENTNAME`,
+	t1.`PATH`,
+	t1.`ROOT`,
+	t1.`SHORT`,
+	t1.`TYPE` 
+FROM
+	`zt_module` t1
+	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
+```
+### 数据查询-数据查询（BugModuleCodeList）
+#### 说明
+数据查询
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.`BRANCH`,
+	t1.`DELETED`,
+	t1.`GRADE`,
+	t1.`ID`,
+	CONCAT( '/', t1.`name` ) AS `NAME`,
 	t1.`ORDER`,
 	t1.`OWNER`,
 	case when t1.`PARENT` = 0 then null else t1.parent end as parent ,
@@ -1161,10 +1193,11 @@ LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [BugModule](#数据集合-BugModule（BugModule）) | BugModule | 否 |
-| 2 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 3 | [文档目录](#数据集合-文档目录（DocModule）) | DocModule | 否 |
-| 4 | [产品线](#数据集合-产品线（Line）) | Line | 否 |
-| 5 | [需求模块](#数据集合-需求模块（StoryModule）) | StoryModule | 否 |
+| 2 | [数据集](#数据集合-数据集（BugModuleCodeList）) | BugModuleCodeList | 否 |
+| 3 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 4 | [文档目录](#数据集合-文档目录（DocModule）) | DocModule | 否 |
+| 5 | [产品线](#数据集合-产品线（Line）) | Line | 否 |
+| 6 | [需求模块](#数据集合-需求模块（StoryModule）) | StoryModule | 否 |
 
 ### 数据集合-BugModule（BugModule）
 #### 说明
@@ -1180,6 +1213,20 @@ BugModule
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [BugModule（BugModule）](#数据查询-BugModule（BugModule）) |
+### 数据集合-数据集（BugModuleCodeList）
+#### 说明
+数据集
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [数据查询（BugModuleCodeList）](#数据查询-数据查询（BugModuleCodeList）) |
 ### 数据集合-DEFAULT（Default）
 #### 说明
 DEFAULT

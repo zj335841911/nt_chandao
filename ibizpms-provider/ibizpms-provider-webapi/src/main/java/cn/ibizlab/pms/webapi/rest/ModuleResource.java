@@ -168,6 +168,28 @@ public class ModuleResource {
                 .body(new PageImpl(moduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchBugModuleCodeList-all') and hasPermission(#context,'pms-Module-Get')")
+	@ApiOperation(value = "获取数据集", tags = {"模块" } ,notes = "获取数据集")
+    @RequestMapping(method= RequestMethod.GET , value="/modules/fetchbugmodulecodelist")
+	public ResponseEntity<List<ModuleDTO>> fetchBugModuleCodeList(ModuleSearchContext context) {
+        Page<Module> domains = moduleService.searchBugModuleCodeList(context) ;
+        List<ModuleDTO> list = moduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchBugModuleCodeList-all') and hasPermission(#context,'pms-Module-Get')")
+	@ApiOperation(value = "查询数据集", tags = {"模块" } ,notes = "查询数据集")
+    @RequestMapping(method= RequestMethod.POST , value="/modules/searchbugmodulecodelist")
+	public ResponseEntity<Page<ModuleDTO>> searchBugModuleCodeList(@RequestBody ModuleSearchContext context) {
+        Page<Module> domains = moduleService.searchBugModuleCodeList(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(moduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchDefault-all') and hasPermission(#context,'pms-Module-Get')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"模块" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/modules/fetchdefault")

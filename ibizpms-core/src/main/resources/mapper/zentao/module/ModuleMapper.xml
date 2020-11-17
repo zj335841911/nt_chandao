@@ -55,6 +55,18 @@
 		 order by `path`  asc  
      </select>
 
+    <!--数据集合[BugModuleCodeList]-->
+	 <select id="searchBugModuleCodeList"  parameterType="cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext"  resultMap="ModuleResultMap">
+	 	select * from (
+         select t1.* from (
+                <include refid="BugModuleCodeList" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by `order`  asc , `id`   desc
+     </select>
+
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.ModuleSearchContext"  resultMap="ModuleResultMap">
 	 	select * from (
@@ -103,6 +115,13 @@
     <!--数据查询[BugModule]-->
     <sql id="BugModule" databaseId="mysql">
 		<![CDATA[ SELECT 	t1.`BRANCH`, 	t1.`DELETED`, 	t1.`GRADE`, 	t1.`ID`, 	CONCAT( 	'/',  case when	( SELECT 	GROUP_CONCAT( tt.NAME SEPARATOR '/' )  FROM 	zt_module tt  WHERE 	FIND_IN_SET( tt.id, t1.path )  	AND tt.type = 'story'  GROUP BY 	tt.root  	LIMIT 0,1 	) is not null then ( SELECT 	GROUP_CONCAT( tt.NAME SEPARATOR '/' )  FROM 	zt_module tt  WHERE 	FIND_IN_SET( tt.id, t1.path )  	AND tt.type = 'story'  GROUP BY 	tt.root  	LIMIT 0,1 	) else t1.`name` end 	) AS `NAME`, 	t1.`ORDER`, 	t1.`OWNER`, 	case when t1.`PARENT` = 0 then null else t1.parent end as parent , 	t11.`NAME` AS `PARENTNAME`, 	t1.`PATH`, 	t1.`ROOT`, 	t1.`SHORT`, 	t1.`TYPE`  FROM 	`zt_module` t1 	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
+					 WHERE 	t1.DELETED = '0'
+						 AND t1.type = 'story'
+			]]>
+    </sql>
+    <!--数据查询[BugModuleCodeList]-->
+    <sql id="BugModuleCodeList" databaseId="mysql">
+		<![CDATA[ SELECT 	t1.`BRANCH`, 	t1.`DELETED`, 	t1.`GRADE`, 	t1.`ID`, 	CONCAT( '/', t1.`name` ) AS `NAME`, 	t1.`ORDER`, 	t1.`OWNER`, 	case when t1.`PARENT` = 0 then null else t1.parent end as parent , 	t11.`NAME` AS `PARENTNAME`, 	t1.`PATH`, 	t1.`ROOT`, 	t1.`SHORT`, 	t1.`TYPE`  FROM 	`zt_module` t1 	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
 					 WHERE 	t1.DELETED = '0'
 						 AND t1.type = 'story'
 			]]>

@@ -313,6 +313,15 @@ export default {
         "story": "软件需求",
         "empty": ""
     },
+    Testcase__color: {
+        "#3da7f5": "#3da7f5",
+        "#75c941": "#75c941",
+        "#2dbdb2": "#2dbdb2",
+        "#797ec9": "#797ec9",
+        "#ffaf38": "#ffaf38",
+        "#ff4e3e": "#ff4e3e",
+        "empty": ""
+    },
     BeginendDropList: {
         "600": "06:00",
         "610": "06:10",
@@ -428,6 +437,17 @@ export default {
         "All": "所有",
         "UNEXPIRED": "未过期",
         "ISEXPIRED": "已过期",
+        "empty": ""
+    },
+    Testcase__frame: {
+        "junit": "JUnit",
+        "testng": "TestNG",
+        "phpunit": "PHPUnit",
+        "pytest": "Pytest",
+        "jtest": "JTest",
+        "cppunit": "CppUnit",
+        "gtest": "GTest",
+        "qtest": "QTest",
         "empty": ""
     },
     TestCaseStatusGrid: {
@@ -1041,6 +1061,12 @@ export default {
         "doing": "进行中",
         "done": "已完成",
         "blocked": "被阻塞",
+        "empty": ""
+    },
+    Case__frequency: {
+        "1": "1",
+        "2": "2",
+        "3": "3",
         "empty": ""
     },
     Story__color: {

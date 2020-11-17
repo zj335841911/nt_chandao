@@ -1702,7 +1702,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Module",
-        "appdedataset":"FetchBugModule",
+        "appdedataset":"FetchBugModuleCodeList",
         "items": []
     },
     {
@@ -2015,6 +2015,79 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Story",
                 value: "story",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Testcase__color",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "#3da7f5",
+                label: "#3da7f5",
+                text: "#3da7f5",
+                "data":"",
+                "codename":"Item_1",
+                "color": "rgba(61, 167, 245, 1)",
+                value: "#3da7f5",
+                
+                disabled: false,
+            },
+            {
+                id: "#75c941",
+                label: "#75c941",
+                text: "#75c941",
+                "data":"",
+                "codename":"Item_2",
+                "color": "rgba(117, 201, 65, 1)",
+                value: "#75c941",
+                
+                disabled: false,
+            },
+            {
+                id: "#2dbdb2",
+                label: "#2dbdb2",
+                text: "#2dbdb2",
+                "data":"",
+                "codename":"Item_3",
+                "color": "rgba(45, 189, 178, 1)",
+                value: "#2dbdb2",
+                
+                disabled: false,
+            },
+            {
+                id: "#797ec9",
+                label: "#797ec9",
+                text: "#797ec9",
+                "data":"",
+                "codename":"Item_4",
+                "color": "rgba(121, 126, 201, 1)",
+                value: "#797ec9",
+                
+                disabled: false,
+            },
+            {
+                id: "#ffaf38",
+                label: "#ffaf38",
+                text: "#ffaf38",
+                "data":"",
+                "codename":"Item_5",
+                "color": "rgba(255, 175, 56, 1)",
+                value: "#ffaf38",
+                
+                disabled: false,
+            },
+            {
+                id: "#ff4e3e",
+                label: "#ff4e3e",
+                text: "#ff4e3e",
+                "data":"",
+                "codename":"Item_6",
+                "color": "rgba(255, 78, 62, 1)",
+                value: "#ff4e3e",
                 
                 disabled: false,
             },
@@ -3139,6 +3212,93 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":{"n_isexpired_eq":1},
                 "codename":"Isexpired",
                 value: "ISEXPIRED",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Testcase__frame",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "junit",
+                label: "JUnit",
+                text: "JUnit",
+                "data":"",
+                "codename":"Junit",
+                value: "junit",
+                
+                disabled: false,
+            },
+            {
+                id: "testng",
+                label: "TestNG",
+                text: "TestNG",
+                "data":"",
+                "codename":"Testng",
+                value: "testng",
+                
+                disabled: false,
+            },
+            {
+                id: "phpunit",
+                label: "PHPUnit",
+                text: "PHPUnit",
+                "data":"",
+                "codename":"Phpunit",
+                value: "phpunit",
+                
+                disabled: false,
+            },
+            {
+                id: "pytest",
+                label: "Pytest",
+                text: "Pytest",
+                "data":"",
+                "codename":"Pytest",
+                value: "pytest",
+                
+                disabled: false,
+            },
+            {
+                id: "jtest",
+                label: "JTest",
+                text: "JTest",
+                "data":"",
+                "codename":"Jtest",
+                value: "jtest",
+                
+                disabled: false,
+            },
+            {
+                id: "cppunit",
+                label: "CppUnit",
+                text: "CppUnit",
+                "data":"",
+                "codename":"Cppunit",
+                value: "cppunit",
+                
+                disabled: false,
+            },
+            {
+                id: "gtest",
+                label: "GTest",
+                text: "GTest",
+                "data":"",
+                "codename":"Gtest",
+                value: "gtest",
+                
+                disabled: false,
+            },
+            {
+                id: "qtest",
+                label: "QTest",
+                text: "QTest",
+                "data":"",
+                "codename":"Qtest",
+                value: "qtest",
                 
                 disabled: false,
             },
@@ -7559,6 +7719,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Blocked",
                 value: "blocked",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Case__frequency",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "1",
+                text: "1",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "2",
+                text: "2",
+                "data":"",
+                "codename":"Item_2",
+                value: "2",
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "3",
+                text: "3",
+                "data":"",
+                "codename":"Item_3",
+                value: "3",
                 
                 disabled: false,
             },
