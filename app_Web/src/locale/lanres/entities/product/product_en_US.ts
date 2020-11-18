@@ -207,6 +207,7 @@ export default {
 	dashboardinfo_form: {
 		details: {
 			grouppanel1: "分组面板", 
+			grouppanel5: "分组面板", 
 			group1: "产品基本信息", 
 			grouppanel2: "负责人", 
 			grouppanel3: "基本信息", 

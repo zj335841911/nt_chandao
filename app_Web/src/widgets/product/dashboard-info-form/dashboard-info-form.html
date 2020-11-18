@@ -46,7 +46,7 @@
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 5, offset: 0 }"
+    :xl="{ span: 7, offset: 0 }"
 >
     <app-form-group
     :model="detailsModel.grouppanel1"
@@ -142,7 +142,7 @@
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 19, offset: 0 }"
+    :xl="{ span: 17, offset: 0 }"
 >
     <app-form-item
     name="name"
@@ -193,12 +193,43 @@
 </i-col>
 <i-col
     class="form-layout-container"
+    v-show="detailsModel.grouppanel5.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 5, offset: 0 }"
+>
+    <app-form-group
+    :model="detailsModel.grouppanel5"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.grouppanel5.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.product.dashboardinfo_form.details.grouppanel5')"
+    :isShowCaption="false"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel5"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
     v-show="detailsModel.type.visible"
     :style="{}"
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 3, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
     name="type"
@@ -228,7 +259,7 @@ tag='Product__type' codelistType='STATIC' :data="data" :context="context" :viewp
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 3, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
     name="status"
@@ -249,6 +280,11 @@ tag='Product__status' codelistType='STATIC' :data="data" :context="context" :vie
 </app-span>
 
 </app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
     
