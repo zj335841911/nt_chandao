@@ -66,7 +66,6 @@ export class MainGridBase extends GridControlBase {
      */  
     public appUIService: CaseStepUIService = new CaseStepUIService(this.$store);
 
-
     /**
      * 本地缓存标识
      *
