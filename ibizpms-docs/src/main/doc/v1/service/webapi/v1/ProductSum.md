@@ -345,7 +345,17 @@ POST
 | 10 | closedstorycnt | Integer | 允许 | 已关闭 |
 | 11 | storycnt | Integer | 允许 | 总计 |
 | 12 | bugcnt | Integer | 允许 | Bug数 |
-| 13 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 13 | waitstagestorycnt | Integer | 允许 | 等待阶段需求数量 |
+| 14 | planedstagestorycnt | Integer | 允许 | 已计划阶段需求数量 |
+| 15 | projectedstagestorycnt | Integer | 允许 | 已立项阶段需求数量 |
+| 16 | developingstagestorycnt | Integer | 允许 | 研发中阶段需求数量 |
+| 17 | developedstagestorycnt | Integer | 允许 | 研发完毕阶段需求数量 |
+| 18 | testingstagestorycnt | Integer | 允许 | 测试中阶段需求数量 |
+| 19 | testedstagestorycnt | Integer | 允许 | 测试完毕阶段需求数量 |
+| 20 | verifiedstagestorycnt | Integer | 允许 | 已验收阶段需求数量 |
+| 21 | releasedstagestorycnt | Integer | 允许 | 已发布阶段需求数量 |
+| 22 | closedstagestorycnt | Integer | 允许 | 已关闭状态需求数量 |
+| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductSumSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

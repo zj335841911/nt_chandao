@@ -131,6 +131,86 @@ public class ProductSumDTO extends DTOBase implements Serializable {
     @JsonProperty("bugcnt")
     private Integer bugcnt;
 
+    /**
+     * 属性 [WAITSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "waitstagestorycnt")
+    @JsonProperty("waitstagestorycnt")
+    private Integer waitstagestorycnt;
+
+    /**
+     * 属性 [PLANEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "planedstagestorycnt")
+    @JsonProperty("planedstagestorycnt")
+    private Integer planedstagestorycnt;
+
+    /**
+     * 属性 [PROJECTEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "projectedstagestorycnt")
+    @JsonProperty("projectedstagestorycnt")
+    private Integer projectedstagestorycnt;
+
+    /**
+     * 属性 [DEVELOPINGSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "developingstagestorycnt")
+    @JsonProperty("developingstagestorycnt")
+    private Integer developingstagestorycnt;
+
+    /**
+     * 属性 [DEVELOPEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "developedstagestorycnt")
+    @JsonProperty("developedstagestorycnt")
+    private Integer developedstagestorycnt;
+
+    /**
+     * 属性 [TESTINGSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "testingstagestorycnt")
+    @JsonProperty("testingstagestorycnt")
+    private Integer testingstagestorycnt;
+
+    /**
+     * 属性 [TESTEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "testedstagestorycnt")
+    @JsonProperty("testedstagestorycnt")
+    private Integer testedstagestorycnt;
+
+    /**
+     * 属性 [VERIFIEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "verifiedstagestorycnt")
+    @JsonProperty("verifiedstagestorycnt")
+    private Integer verifiedstagestorycnt;
+
+    /**
+     * 属性 [RELEASEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "releasedstagestorycnt")
+    @JsonProperty("releasedstagestorycnt")
+    private Integer releasedstagestorycnt;
+
+    /**
+     * 属性 [CLOSEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "closedstagestorycnt")
+    @JsonProperty("closedstagestorycnt")
+    private Integer closedstagestorycnt;
+
 
     /**
      * 设置 [NAME]

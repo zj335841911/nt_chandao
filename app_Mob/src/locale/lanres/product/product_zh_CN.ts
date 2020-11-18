@@ -46,6 +46,7 @@ export default {
     noticeusers: "消息通知用户",
     orgid: "组织标识",
     mdeptid: "部门标识",
+    ibiz_id: "IBIZ标识",
   },
 	views: {
 		prodmobtabexpview: {
