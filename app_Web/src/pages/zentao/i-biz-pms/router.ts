@@ -458,20 +458,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-stats-test-edit-view9/product-stats-test-edit-view9.vue'),
                 },
                 {
-                    path: 'products/:product?/leftsidebarlistview/:leftsidebarlistview?',
-                    meta: {
-                        caption: 'entities.product.views.leftsidebarlistview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-left-sidebar-list-view/product-left-sidebar-list-view.vue'),
-                },
-                {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/infoeditview9/:infoeditview9?',
                     meta: {
                         caption: 'entities.ibzcase.views.infoeditview9.caption',
@@ -499,6 +485,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/ibz-case-info-edit-view9/ibz-case-info-edit-view9.vue'),
+                },
+                {
+                    path: 'products/:product?/leftsidebarlistview/:leftsidebarlistview?',
+                    meta: {
+                        caption: 'entities.product.views.leftsidebarlistview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-left-sidebar-list-view/product-left-sidebar-list-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/opentaskview/:opentaskview?',
@@ -5960,6 +5960,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-undone-project-grid-view/project-undone-project-grid-view.vue'),
+                },
+                {
+                    path: 'productsums/:productsum?/storysumgridview/:storysumgridview?',
+                    meta: {
+                        caption: 'entities.productsum.views.storysumgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productsums', parameterName: 'productsum' },
+                            { pathName: 'storysumgridview', parameterName: 'storysumgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-sum-story-sum-grid-view/product-sum-story-sum-grid-view.vue'),
                 },
                 {
                     path: 'modules/:module?/pickupview/:pickupview?',

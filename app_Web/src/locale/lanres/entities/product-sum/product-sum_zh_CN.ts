@@ -139,6 +139,16 @@ export default {
 		uiactions: {
 		},
 	},
+	productstorysum_searchform: {
+		details: {
+			rawitem1: "", 
+			formpage1: "常规条件", 
+			closed: "关闭产品", 
+			n_id_eq: "产品", 
+		},
+		uiactions: {
+		},
+	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "保存",
@@ -164,6 +174,10 @@ export default {
 		},
 	},
 	storysumgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "导出",
+			tip: "导出",
+		},
 	},
 	productcreatestory_po_chart: {
 		nodata: "",

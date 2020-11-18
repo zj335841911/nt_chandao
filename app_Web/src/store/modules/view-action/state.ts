@@ -647,6 +647,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '240ec4bdf10888613e1601f420ad730f',
+            viewmodule: 'ibiz',
+            viewname: 'ProductSumStorySumGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ada719b0d8722509d22b4b72bbb8cf26',
+            ],
+        },
+        {
             viewtag: '2419b3758d42fb7e5a590153d28bd945',
             viewmodule: 'zentao',
             viewname: 'StoryMPickupView3',
@@ -4125,8 +4135,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '240ec4bdf10888613e1601f420ad730f',
                 '3989c98a31e037a67b27cdf7acb1f7cd',
-                'd695dac99ccf0ddd077eb13916241bd0',
             ],
         },
         {
