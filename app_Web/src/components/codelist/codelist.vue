@@ -323,11 +323,11 @@ export default class CodeList extends Vue {
                if(Object.prototype.toString.call(targetData) == "[object Array]"){
                     if(targetData && targetData.length >0){
                         let fileId:string = targetData[0] && targetData[0].id;
-                        return Environment.BaseUrl + Environment.ExportFile + fileId;
+                        return Environment.BaseUrl + "ibizutil/download/" + fileId;
                     }
                 }else if(Object.prototype.toString.call(targetData) === '[object Object]'){
                         let fileId:string = targetData && targetData.id;
-                        return Environment.BaseUrl + Environment.ExportFile + fileId;
+                        return Environment.BaseUrl + "ibizutil/download/" + fileId;
                 }
            } catch (error) {
                return arg;
@@ -335,11 +335,11 @@ export default class CodeList extends Vue {
        }else if(Object.prototype.toString.call(arg) == "[object Array]"){
            if(arg && arg.length >0){
                let fileId:string = arg[0] && arg[0].id;
-               return Environment.BaseUrl + Environment.ExportFile + fileId;
+               return Environment.BaseUrl + "ibizutil/download/" + fileId;
            }
        }else if(Object.prototype.toString.call(arg) === '[object Object]'){
             let fileId:string = arg && arg.id;
-            return Environment.BaseUrl + Environment.ExportFile + fileId;
+            return Environment.BaseUrl + "ibizutil/download/" + fileId;
        }else{
             return arg;
        }
