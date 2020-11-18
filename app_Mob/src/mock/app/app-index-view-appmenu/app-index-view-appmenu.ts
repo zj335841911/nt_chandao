@@ -145,7 +145,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	tooltip: '登录地图test',
 	expanded: false,
 	separator: false,
-	hidden: false,
+	hidden: true,
 	hidesidebar: false,
 	opendefault: false,
 	iconcls: '',
