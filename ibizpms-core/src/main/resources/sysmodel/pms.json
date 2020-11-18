@@ -30969,6 +30969,24 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"USERICON" ,
+    "codename":"UserIcon",
+    "field_logic_name":"头像",
+    "entity_name":"SysTeamMember",
+    "ref_de":"IBZEMP",
+    "ref_field_name":"USERICON",
+    "relation_name":"DER1N_SYS_TEAMMEMBER_IBZEMP_USERID",
+    "relation_codename":"Emp",
+    "field_type":"PICKUPDATA",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":255,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

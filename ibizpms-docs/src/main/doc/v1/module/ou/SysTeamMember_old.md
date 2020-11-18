@@ -23,6 +23,7 @@ hide members
 |岗位标识|POSTID|PICKUP|&nbsp;|
 |姓名|PERSONNAME|PICKUPTEXT|&nbsp;|
 |账号|USERNAME|PICKUPDATA|&nbsp;|
+|头像|USERICON|PICKUPDATA|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -36,6 +37,7 @@ hide members
 |岗位标识|默认规则|内容长度必须小于等于[100]|
 |姓名|默认规则|内容长度必须小于等于[100]|
 |账号|默认规则|内容长度必须小于等于[100]|
+|头像|默认规则|内容长度必须小于等于[255]|
 
 ## 状态控制
 

@@ -111,6 +111,15 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String username;
 
+    /**
+     * 属性 [USERICON]
+     *
+     */
+    @JSONField(name = "usericon")
+    @JsonProperty("usericon")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String usericon;
+
 
     /**
      * 设置 [DOMAINS]

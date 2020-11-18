@@ -110576,6 +110576,7 @@ CREATE TABLE `zt_suitecase`(
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
+| USERICON        | 头像  | VARCHAR      |   255   | &nbsp; |
 | USERNAME        | 账号  | VARCHAR      |   100   | &nbsp; |
 | POSTNAME        | 岗位  | VARCHAR      |   100   | &nbsp; |
 | TEAMID        | 组标识  | VARCHAR      |   100   | &nbsp; |
