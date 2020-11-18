@@ -1,31 +1,31 @@
 <template>
-    <div>
-        <div class="html-container" v-html="rHtml" @click="handleClick"></div>
-        <div
-            class="img-modal"
-            v-show="showModal"
-            @click="
-                () => {
-                    showModal = false;
-                }
-            "
-        >
-            <img :src="modalSrc" :alt="modalAlt" class="thum-img" />
+    <div class="html-outer">
+        <div class="html-container"  v-html="rHtml" ref="outer" @click="handleClick"></div>
+        <div  class="src-canvas">
+            <el-image-viewer 
+                v-if="showModal"
+                :on-close="()=>{showModal=false}"
+                :url-list="srcList" />
         </div>
+        
     </div>
 </template>
 <script lang="tsx">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 import { Environment } from '@/environments/environment';
-
-/**
+import ElImageViewer from 'element-ui/packages/image/src/image-viewer.vue';
+/** 
  * 操作历史记录
  *
  * @export
  * @class HtmlContainer
  * @extends {Vue}
  */
-@Component({})
+@Component({
+    components:{
+        'el-image-viewer':ElImageViewer
+    }
+})
 export default class HtmlContainer extends Vue {
     /**
      * 替换后html内容
@@ -69,22 +69,50 @@ export default class HtmlContainer extends Vue {
     public modalAlt: string = '';
 
     /**
+     * 模态框图片地址列表
+     * 
+     * @type Array
+     * @memberof HtmlContainer
+     */
+    public srcList: Array<any> = [];
+
+    /**
      * 监控html变化
      *
      * @memberof HtmlContainer
      */
     @Watch('content', { immediate: true })
     public watchContent(): void {
+        this.srcList = [];
         if (this.content) {
             if (!Object.is(this.content, '')) {
                 this.rHtml = this.content.replace(
                     /\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g,
                     `${Environment.BaseUrl}${Environment.ExportFile}/$1`
                 );
+                this.geturlList();
                 return;
             }
         }
         this.rHtml = '';
+    }
+
+    /**
+     * 获取图片地址
+     * 
+     * @memberof HtmlContainer
+     */
+    public geturlList(){
+        let imgs:Array<any>|null = this.rHtml.match(/<img.*?(?:>|\/>)/gi)!=null? this.rHtml.match(/<img.*?(?:>|\/>)/gi):[];
+        if(imgs && imgs.length>0){
+            imgs.forEach((item)=>{
+                if(item.match(/src=[\'\"]?([^\'\"]*)[\'\"]?/ig)!=null){
+                    let src:any = item.match(/src=[\'\"]?([^\'\"]*)[\'\"]?/ig)[0];
+                    src = src.substring(5,src.length-1);
+                    this.srcList.push(src);
+                }
+            })
+        }             
     }
 
     /**
@@ -100,36 +128,27 @@ export default class HtmlContainer extends Vue {
             this.showModal = true;
         }
     }
+
 }
 </script>
+
 <style lang="less">
 .html-container {
     height: 100%;
     width: 100%;
-
     img {
         max-width: 500px;
         max-height: 500px;
         cursor: zoom-in;
     }
 }
-.img-modal {
-    position: fixed;
-    z-index: 1000000;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: #fff;
-    text-align: center;
-    width: auto;
-    overflow: scroll;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .thum-img {
-        max-width: 100%;
-        max-height: 100%;
-    }
+.el-image-viewer__close{
+    color: #fff;
+    font-weight: bolder;
+    font-size: 60px;
 }
+.el-image-viewer__mask{
+    opacity: 0.9;
+}
+
 </style>
