@@ -46,7 +46,7 @@
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 2, offset: 0 }"
+    :xl="{ span: 1, offset: 0 }"
 >
     <app-form-item
     name="id"
@@ -76,7 +76,7 @@
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 3, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
 >
     <app-form-item
     name="code"
@@ -85,7 +85,7 @@
 
     :caption="$t('entities.product.dashboardinfo_form.details.code')"
     uiStyle="DEFAULT"
-    :labelWidth="5"
+    :labelWidth="10"
     :isShowCaption="true"
     :error="detailsModel.code.error"
     :isEmptyCaption="true"
@@ -115,7 +115,7 @@
 
     :caption="$t('entities.product.dashboardinfo_form.details.name')"
     uiStyle="DEFAULT"
-    :labelWidth="5"
+    :labelWidth="20"
     :isShowCaption="true"
     :error="detailsModel.name.error"
     :isEmptyCaption="true"
@@ -162,7 +162,7 @@
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 3, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
 >
     <app-form-item
     name="type"
@@ -171,7 +171,7 @@
 
     :caption="$t('entities.product.dashboardinfo_form.details.type')"
     uiStyle="DEFAULT"
-    :labelWidth="44"
+    :labelWidth="60"
     :isShowCaption="true"
     :error="detailsModel.type.error"
     :isEmptyCaption="false"
@@ -192,7 +192,7 @@ tag='Product__type' codelistType='STATIC' :data="data" :context="context" :viewp
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 3, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
 >
     <app-form-item
     name="status"
@@ -201,7 +201,7 @@ tag='Product__type' codelistType='STATIC' :data="data" :context="context" :viewp
 
     :caption="$t('entities.product.dashboardinfo_form.details.status')"
     uiStyle="DEFAULT"
-    :labelWidth="44"
+    :labelWidth="60"
     :isShowCaption="true"
     :error="detailsModel.status.error"
     :isEmptyCaption="false"
