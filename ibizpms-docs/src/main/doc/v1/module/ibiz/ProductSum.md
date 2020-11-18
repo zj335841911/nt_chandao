@@ -1177,8 +1177,8 @@ sum( IF ( t1.`stage` = 'projected' and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS
 sum( IF ( t1.`stage` = 'planed' and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `PLANEDSTAGESTORYCNT`, 
 sum( IF ( t1.`stage` = 'wait' and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `WAITSTAGESTORYCNT`, 
 sum( IF ( t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `STORYCNT` 
-from (select t1.`id`, t1.`name`, t1.`po`, t1.`status`, t2.`stage`, t2.`deleted`, 1 as `rowcnt` from zt_product t1 left join zt_story t2 on t1.`id` = t2.`product` where t1.`deleted` = '0' and t2.`deleted` = '0') t1 
-where t1.`status` = 'normal' or (t1.`status` = 'closed' and #{srf.datacontext.closed} = '1') 
+from (select t1.`id`, t1.`name`, t1.`po`, t1.`status`, t2.`stage`, t2.`deleted`, 1 as `rowcnt` from zt_product t1 left join zt_story t2 on t1.`id` = t2.`product` where t1.`deleted` = '0') t1 
+where t1.`status` = 'normal' or (t1.`status` = 'closed' and #{srf.datacontext.closed} = '1')
 group by t1.id
 ```
 ### 数据查询-默认（全部数据）（View）
