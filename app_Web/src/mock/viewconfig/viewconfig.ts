@@ -615,6 +615,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DocDashboardView",
             "viewtag": "23cc93d7fdddff5077a7952d26802a7b"
         },
+        "productsumstorysumgridview": {
+            "title": "产品汇总表表格视图",
+            "caption": "需求汇总",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProductSumStorySumGridView",
+            "viewtag": "240ec4bdf10888613e1601f420ad730f"
+        },
         "storympickupview3": {
             "title": "关联需求",
             "caption": "关联需求",
@@ -726,6 +734,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskMainGridView9_Child",
             "viewtag": "2e0d4fb0f3e1ba1ba5bea16a5553cc21"
+        },
+        "ibizproplugineditview": {
+            "title": "系统插件编辑视图",
+            "caption": "系统插件",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibizplugin",
+            "viewname": "IBIZProPluginEditView",
+            "viewtag": "2fe124188a5da06e3e641c7e1e1e76d6"
         },
         "storykanbanview": {
             "title": "需求看板视图",
@@ -3118,6 +3134,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TodoGridView9",
             "viewtag": "c3f0a8956b863fa05a7d961df90a3975"
+        },
+        "ibizproplugingridview": {
+            "title": "系统插件表格视图",
+            "caption": "系统插件",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibizplugin",
+            "viewname": "IBIZProPluginGridView",
+            "viewtag": "c4099c98661bbfac92a0e718c183e718"
         },
         "useryearworkstatspodashboardview": {
             "title": "用户年度工作内容统计数据看板视图",

@@ -101,4 +101,84 @@ export interface ProductSum {
      * @memberof ProductSum
      */
     bugcnt?: any;
+
+    /**
+     * 未开始阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    waitstagestorycnt?: any;
+
+    /**
+     * 已计划阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    planedstagestorycnt?: any;
+
+    /**
+     * 已立项阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    projectedstagestorycnt?: any;
+
+    /**
+     * 研发中阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    developingstagestorycnt?: any;
+
+    /**
+     * 研发完毕阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    developedstagestorycnt?: any;
+
+    /**
+     * 测试中阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    testingstagestorycnt?: any;
+
+    /**
+     * 测试完毕阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    testedstagestorycnt?: any;
+
+    /**
+     * 已验收阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    verifiedstagestorycnt?: any;
+
+    /**
+     * 已发布阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    releasedstagestorycnt?: any;
+
+    /**
+     * 已关闭阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    closedstagestorycnt?: any;
 }

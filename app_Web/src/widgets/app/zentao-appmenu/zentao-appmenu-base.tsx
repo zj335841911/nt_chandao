@@ -24,6 +24,8 @@ export class ZentaoBase extends Vue {
         if (item) {
             let judge = true;
             switch (item.appfunctag) {
+                case 'PluginManagement': 
+                    this.clickPluginManagement(item); break;
                 case 'AppFunc': 
                     this.clickAppFunc(item); break;
                 case 'Auto5': 
@@ -71,6 +73,29 @@ export class ZentaoBase extends Vue {
                 this.$appService.viewStore.reset();
             }
         }
+    }
+    
+    /**
+     * 插件管理
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickPluginManagement(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibizproplugins', parameterName: 'ibizproplugin' },
+            { pathName: 'gridview', parameterName: 'gridview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
     }
     
     /**

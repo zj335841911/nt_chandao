@@ -526,6 +526,7 @@ export const viewstate: any = {
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 'db750bbb894c25f38ca2741f234df3c6',
                 'c8171c13c1ba215f65c8587df1d98ba5',
+                'c4099c98661bbfac92a0e718c183e718',
                 '0f3dff62ef8bcb1662cc82e57a34c56b',
                 '0846a45e5ffdd4d8f857575cfa955dce',
                 '8c8adbf0a7db27078e01a8b32716fa71',
@@ -535,8 +536,8 @@ export const viewstate: any = {
                 '7f0821e7efe42bbf91090b525b05c96d',
                 '4fcd2a15ff88a97425e1ab1cadc5eb9f',
                 '7c79a923d0cdd1a5bc41a34367809077',
-                'e698418f007d36b627d6af23c1042f31',
                 '8ca39819b87c5e3e8669fcd7409cf9a2',
+                'e698418f007d36b627d6af23c1042f31',
             ],
         },
         {
@@ -786,6 +787,15 @@ export const viewstate: any = {
                 'abca63015fc84466991c6479f955f6d0',
                 'ea141fddc78fd1af4d06e494baf12cc1',
                 '507c506d62dc910a814332e6ae242266',
+            ],
+        },
+        {
+            viewtag: '2fe124188a5da06e3e641c7e1e1e76d6',
+            viewmodule: 'ibizplugin',
+            viewname: 'IBIZProPluginEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -3554,6 +3564,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e00040c0d616f2f1c0ad4b36c9e920b5',
+            ],
+        },
+        {
+            viewtag: 'c4099c98661bbfac92a0e718c183e718',
+            viewmodule: 'ibizplugin',
+            viewname: 'IBIZProPluginGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '2fe124188a5da06e3e641c7e1e1e76d6',
             ],
         },
         {
