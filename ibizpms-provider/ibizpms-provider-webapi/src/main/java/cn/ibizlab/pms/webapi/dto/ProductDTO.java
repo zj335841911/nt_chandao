@@ -424,6 +424,15 @@ public class ProductDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String mdeptid;
 
+    /**
+     * 属性 [IBIZ_ID]
+     *
+     */
+    @JSONField(name = "ibiz_id")
+    @JsonProperty("ibiz_id")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String ibizId;
+
 
     /**
      * 设置 [QD]
@@ -535,6 +544,14 @@ public class ProductDTO extends DTOBase implements Serializable {
     public void setLine(Long  line){
         this.line = line ;
         this.modify("line",line);
+    }
+
+    /**
+     * 设置 [IBIZ_ID]
+     */
+    public void setIbizId(String  ibizId){
+        this.ibizId = ibizId ;
+        this.modify("ibiz_id",ibizId);
     }
 
 

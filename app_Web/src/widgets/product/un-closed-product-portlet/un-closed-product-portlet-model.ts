@@ -153,6 +153,9 @@ export default class UnClosedProductModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'ibiz_id',
+      },
     ]
   }
 

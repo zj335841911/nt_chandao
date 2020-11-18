@@ -153,6 +153,9 @@ export default class MyTestTabExpViewtabviewpanel3Model {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'ibiz_id',
+      },
     ]
   }
 

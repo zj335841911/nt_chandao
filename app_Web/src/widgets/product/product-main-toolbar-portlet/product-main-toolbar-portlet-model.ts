@@ -153,6 +153,9 @@ export default class ProductMainToolbarModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'ibiz_id',
+      },
     ]
   }
 

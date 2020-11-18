@@ -153,6 +153,9 @@ export default class ProductStatusChartModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'ibiz_id',
+      },
     ]
   }
 

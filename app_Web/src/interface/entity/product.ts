@@ -373,4 +373,12 @@ export interface Product {
      * @memberof Product
      */
     mdeptid?: any;
+
+    /**
+     * IBIZ标识
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    ibiz_id?: any;
 }

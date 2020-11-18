@@ -153,6 +153,9 @@ export default class ProductExpViewModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'ibiz_id',
+      },
     ]
   }
 
