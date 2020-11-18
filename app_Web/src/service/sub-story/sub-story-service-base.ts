@@ -1637,16 +1637,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchbymodule`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchbymodule`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchbymodule`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchbymodule`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/substories/fetchbymodule`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/substories/fetchbymodule`,tempData,isloading);
         return res;
     }
 
@@ -1966,16 +1966,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchParentDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchparentdefault`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchparentdefault`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchparentdefault`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchparentdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/substories/fetchparentdefault`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/substories/fetchparentdefault`,tempData,isloading);
         return res;
     }
 
