@@ -153,6 +153,9 @@ export default class MainTabExpViewtabviewpanelModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'ibiz_id',
+      },
     ]
   }
 

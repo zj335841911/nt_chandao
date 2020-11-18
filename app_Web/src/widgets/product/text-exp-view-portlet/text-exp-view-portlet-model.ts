@@ -153,6 +153,9 @@ export default class TextExpViewModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'ibiz_id',
+      },
     ]
   }
 

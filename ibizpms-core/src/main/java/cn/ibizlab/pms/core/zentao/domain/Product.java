@@ -384,6 +384,14 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "mdeptid")
     @JsonProperty("mdeptid")
     private String mdeptid;
+    /**
+     * IBIZ标识
+     */
+    @DEField(name = "ibiz_id")
+    @TableField(value = "`ibiz_id`")
+    @JSONField(name = "ibiz_id")
+    @JsonProperty("ibiz_id")
+    private String ibizId;
 
     /**
      * 产品线
@@ -505,6 +513,14 @@ public class Product extends EntityMP implements Serializable {
     public void setLine(Long line) {
         this.line = line;
         this.modify("line", line);
+    }
+
+    /**
+     * 设置 [IBIZ标识]
+     */
+    public void setIbizId(String ibizId) {
+        this.ibizId = ibizId;
+        this.modify("ibiz_id", ibizId);
     }
 
 
