@@ -163,8 +163,6 @@ export class DashboardInfoEditFormBase extends EditFormControlBase {
      * @memberof DashboardInfoEditFormBase
      */
     public detailsModel: any = {
-        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.product.dashboardinfo_form', extractMode: 'ITEM', details: [] } }),
-
         grouppanel5: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.product.dashboardinfo_form', extractMode: 'ITEM', details: [] } }),
 
         group1: new FormGroupPanelModel({ caption: '产品基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.product.dashboardinfo_form', extractMode: 'ITEM', details: [] } }),
@@ -227,21 +225,21 @@ export class DashboardInfoEditFormBase extends EditFormControlBase {
 }),
 
         id: new FormItemModel({
-    caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 0,
 }),
 
         code: new FormItemModel({
-    caption: '', detailType: 'FORMITEM', name: 'code', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '', detailType: 'FORMITEM', name: 'code', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
         name: new FormItemModel({
-    caption: '', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -255,14 +253,14 @@ export class DashboardInfoEditFormBase extends EditFormControlBase {
 }),
 
         type: new FormItemModel({
-    caption: '类型：', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '类型：', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
         status: new FormItemModel({
-    caption: '状态:', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '状态:', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
