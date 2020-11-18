@@ -18,11 +18,16 @@ export default {
     productname: "产品名称",
     bugcnt: "Bug",
     assignedto: "指派给",
+    resolvedby: "由谁解决",
   },
 	views: {
 		editview: {
 			caption: "Bug统计",
       		title: "Bug统计编辑视图",
+		},
+		bugresolvedbygridview: {
+			caption: "Bug完成表",
+      		title: "Bug统计表格视图（Bug完成表）",
 		},
 		gridview: {
 			caption: "Bug创建表",
@@ -76,6 +81,17 @@ export default {
 			bugwillnotfix: "不予解决",
 			bugtostory: "转为需求",
 			bugefficient: "有效率",
+			bugtotal: "总计",
+		},
+		uiactions: {
+		},
+	},
+	bugresolvedby_grid: {
+		nodata: "",
+		columns: {
+			resolvedby: "姓名",
+			productname: "产品",
+			bugcnt: "Bug",
 			bugtotal: "总计",
 		},
 		uiactions: {

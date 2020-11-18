@@ -549,6 +549,7 @@ SRFNAVPARAM.project=%project%|
 |-|版本编辑视图|DEEDITVIEW|&nbsp;|
 |-|关联需求|DEMPICKUPVIEW|&nbsp;|
 |-|项目表格视图|DEGRIDVIEW9|&nbsp;过滤条件在视图参数中指定|
+|-|Bug统计表格视图（Bug完成表）|DEGRIDVIEW|&nbsp;|
 |-|取消任务|DEOPTVIEW|&nbsp;|
 |-|需求模块|DEOPTVIEW|&nbsp;|
 |-|关联需求|DEEDITVIEW9|&nbsp;|

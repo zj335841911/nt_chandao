@@ -109,6 +109,7 @@ export default {
 		nodes: {
 			bugassignedto: "Bug指派表",
 			bugopenendby: "Bug创建表",
+			bugresolvedby: "Bug完成表",
 			root: "默认根节点",
 		},
 		uiactions: {

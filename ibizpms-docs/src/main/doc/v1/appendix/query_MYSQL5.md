@@ -2735,6 +2735,52 @@ WHERE t1.DELETED = '0'
 
 # **Bug统计**(IBZ_BUGSTATS)
 
+### Bug完成表(BugResolvedBy)<div id="BugStats_BugResolvedBy"></div>
+```sql
+SELECT
+	t1.resolvedBy,
+	t1.product,
+	t1.productname,
+	t1.bugcnt,
+	t11.bugcnt AS bugtotal 
+FROM
+	(
+	SELECT
+		t1.resolvedBy,
+		t1.product,
+		t11.`name` AS productname,
+		COUNT( t1.id ) AS bugcnt 
+	FROM
+		`zt_bug` t1
+		LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+	WHERE
+		t1.deleted = '0' 
+		AND t1.resolvedBy <> '' 
+		AND t1.product <> 0 
+		AND t11.deleted = '0' 
+	GROUP BY
+		t1.resolvedBy,
+		t1.product,
+		t11.`name` 
+	) t1
+	INNER JOIN (
+	SELECT
+		t1.resolvedBy,
+		COUNT( t1.id ) AS bugcnt 
+	FROM
+		`zt_bug` t1
+		LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+	WHERE
+		t1.deleted = '0' 
+		AND t1.resolvedBy <> '' 
+		AND t1.product <> 0 
+		AND t11.deleted = '0' 
+	GROUP BY
+		t1.resolvedBy 
+	) t11 ON t1.resolvedBy = t11.resolvedBy 
+ORDER BY
+	t1.resolvedBy ASC
+```
 ### Bug指派表(BugassignedTo)<div id="BugStats_BugassignedTo"></div>
 ```sql
 SELECT
@@ -2852,6 +2898,7 @@ t1.`ID`,
 t1.`OPENEDBY`,
 t1.`PRODUCT`,
 t11.`NAME` AS `PRODUCTNAME`,
+t1.`RESOLVEDBY`,
 t1.`TITLE`
 FROM `zt_bug` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 

@@ -3103,6 +3103,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a7aa4a1d093b609e270df2fec5ea627b',
+            viewmodule: 'ibiz',
+            viewname: 'BugStatsBugResolvedByGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0174d3383dadc0878991e5c90bd5eaa3',
+            ],
+        },
+        {
             viewtag: 'a97ff9ae4f22d5974b51af2c0fae1aa2',
             viewmodule: 'zentao',
             viewname: 'TaskCancelTaskView',
@@ -3531,6 +3541,7 @@ export const viewstate: any = {
             refviews: [
                 'b90624360f51aadfbfaa92d563dc1410',
                 'b7427fe34d292009905e126defc9fa22',
+                'a7aa4a1d093b609e270df2fec5ea627b',
             ],
         },
         {

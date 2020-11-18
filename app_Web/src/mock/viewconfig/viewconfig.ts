@@ -2735,6 +2735,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectGridView9_UnClosed",
             "viewtag": "a7a97014cad1917b94284db21ec968f1"
         },
+        "bugstatsbugresolvedbygridview": {
+            "title": "Bug统计表格视图（Bug完成表）",
+            "caption": "Bug完成表",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "BugStatsBugResolvedByGridView",
+            "viewtag": "a7aa4a1d093b609e270df2fec5ea627b"
+        },
         "taskcanceltaskview": {
             "title": "取消任务",
             "caption": "取消任务",

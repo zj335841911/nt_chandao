@@ -3409,6 +3409,16 @@
         "viewtag": "a7a97014cad1917b94284db21ec968f1",
         "memo": "过滤条件在视图参数中指定"
     },
+    "bugstatsbugresolvedbygridview": {
+        "title": "Bug统计表格视图（Bug完成表）",
+        "caption": "Bug完成表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "BugStatsBugResolvedByGridView",
+        "viewfilename": "bug-stats-bug-resolved-by-grid-view",
+        "viewtag": "a7aa4a1d093b609e270df2fec5ea627b",
+        "memo": ""
+    },
     "taskcanceltaskview": {
         "title": "取消任务",
         "caption": "取消任务",

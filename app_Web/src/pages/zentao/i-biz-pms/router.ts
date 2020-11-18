@@ -2076,20 +2076,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-view/story-main-view.vue'),
                 },
                 {
-                    path: 'actions/:action?/addcommenthistorylistview/:addcommenthistorylistview?',
-                    meta: {
-                        caption: 'entities.action.views.addcommenthistorylistview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'actions', parameterName: 'action' },
-                            { pathName: 'addcommenthistorylistview', parameterName: 'addcommenthistorylistview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/action-add-comment-history-list-view/action-add-comment-history-list-view.vue'),
-                },
-                {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/ibzlibcasesteptmps/:ibzlibcasesteptmp?/gridview9/:gridview9?',
                     meta: {
                         caption: 'entities.ibzlibcasesteptmp.views.gridview9.caption',
@@ -2133,6 +2119,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/ibz-lib-case-steps-grid-view9/ibz-lib-case-steps-grid-view9.vue'),
+                },
+                {
+                    path: 'actions/:action?/addcommenthistorylistview/:addcommenthistorylistview?',
+                    meta: {
+                        caption: 'entities.action.views.addcommenthistorylistview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'actions', parameterName: 'action' },
+                            { pathName: 'addcommenthistorylistview', parameterName: 'addcommenthistorylistview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/action-add-comment-history-list-view/action-add-comment-history-list-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/casesteps/:casestep?/maingridview9/:maingridview9?',
@@ -9038,6 +9038,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/case-test-option-view/case-test-option-view.vue'),
+                },
+                {
+                    path: 'bugstats/:bugstats?/bugresolvedbygridview/:bugresolvedbygridview?',
+                    meta: {
+                        caption: 'entities.bugstats.views.bugresolvedbygridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugstats', parameterName: 'bugstats' },
+                            { pathName: 'bugresolvedbygridview', parameterName: 'bugresolvedbygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-stats-bug-resolved-by-grid-view/bug-stats-bug-resolved-by-grid-view.vue'),
                 },
                 {
                     path: 'projects/:project?/testtasks/:testtask?/maindashboardview/:maindashboardview?',

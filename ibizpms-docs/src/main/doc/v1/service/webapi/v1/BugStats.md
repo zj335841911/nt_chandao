@@ -184,6 +184,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
+### 获取Bug完成表
+#### 访问路径
+/bugstats/fetchbugresolvedby
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [BugStatsSearchContext](#BugStatsSearchContext) | Bug统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BugStatsDTO](#BugStatsDTO)>：Bug统计实体传输对象列表 |
+
+### 查询Bug完成表
+#### 访问路径
+/bugstats/searchbugresolvedby
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [BugStatsSearchContext](#BugStatsSearchContext) | Bug统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BugStatsDTO](#BugStatsDTO)>：Bug统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取Bug指派表
 #### 访问路径
 /bugstats/fetchbugassignedto
@@ -315,7 +351,8 @@ POST
 | 16 | productname | String | 允许 | 产品名称 |
 | 17 | bugcnt | Integer | 允许 | Bug |
 | 18 | assignedto | String | 允许 | 指派给 |
-| 19 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 19 | resolvedby | String | 允许 | 由谁解决 |
+| 20 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### BugStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
