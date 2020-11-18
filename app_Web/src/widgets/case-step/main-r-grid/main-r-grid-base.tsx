@@ -315,6 +315,17 @@ export class MainRGridBase extends GridControlBase {
      * @memberof MainR
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any) {
+        if (!(await this.validateAll())) {
+            if (this.errorMessages && this.errorMessages.length > 0) {
+                this.$Notice.error({ title: this.$t('app.commonWords.wrong') as string, desc: this.errorMessages[0] });
+            } else {
+                this.$Notice.error({
+                    title: this.$t('app.commonWords.wrong') as string,
+                    desc: this.$t('app.commonWords.rulesException') as string,
+                });
+            }
+            return [];
+        }
         for (const item of this.items) {
             item.srfmajortext = item.expect;
         }
