@@ -86094,24 +86094,35 @@ CREATE TABLE `zt_productplan`(
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
+| WAITSTAGESTORYHOURS        | 未开始阶段需求工时  | INTEGER      |   -1   | &nbsp; |
+| CLOSEDSTAGESTORYHOURS        | 已关闭阶段需求工时  | INTEGER      |   -1   | &nbsp; |
 | CLOSEDSTAGESTORYCNT        | 已关闭阶段需求数量  | INTEGER      |   -1   | &nbsp; |
+| PLANEDSTAGESTORYHOURS        | 已计划阶段需求工时  | INTEGER      |   -1   | &nbsp; |
 | PLANEDSTAGESTORYCNT        | 已计划阶段需求数量  | INTEGER      |   -1   | &nbsp; |
 | ACTIVESTORYCNT        | 激活  | INTEGER      |   -1   | &nbsp; |
 | WAITSTAGESTORYCNT        | 未开始阶段需求数量  | INTEGER      |   -1   | &nbsp; |
 | TESTINGSTAGESTORYCNT        | 测试中阶段需求数量  | INTEGER      |   -1   | &nbsp; |
 | ID        | 主键标识  |       |   20   | 主键&nbsp; |
+| TESTEDSTAGESTORYHOURS        | 测试完毕阶段需求工时  | INTEGER      |   -1   | &nbsp; |
+| DEVELOPEDSTAGESTORYHOURS        | 研发完毕阶段需求工时  | INTEGER      |   -1   | &nbsp; |
 | VERIFIEDSTAGESTORYCNT        | 已验收阶段需求数量  | INTEGER      |   -1   | &nbsp; |
 | NAME        | 产品名称  | VARCHAR      |   100   | &nbsp; |
 | PLAN        | 计划  |       |   -1   | &nbsp; |
+| VERIFIEDSTAGESTORYHOURS        | 已验收阶段需求工时  | INTEGER      |   -1   | &nbsp; |
+| TESTINGSTAGESTORYHOURS        | 测试中阶段需求工时  | INTEGER      |   -1   | &nbsp; |
 | RELEASEDSTAGESTORYCNT        | 已发布阶段需求数量  | INTEGER      |   -1   | &nbsp; |
 | TESTEDSTAGESTORYCNT        | 测试完毕阶段需求数量  | INTEGER      |   -1   | &nbsp; |
 | STORYCNT        | 总计  | INTEGER      |   -1   | &nbsp; |
 | BUGCNT        | Bug数  | INTEGER      |   -1   | &nbsp; |
+| TOTALHOURS        | 总工时  | INTEGER      |   -1   | &nbsp; |
 | DEVELOPINGSTAGESTORYCNT        | 研发中阶段需求数量  | INTEGER      |   -1   | &nbsp; |
 | PROJECTEDSTAGESTORYCNT        | 已立项阶段需求数量  | INTEGER      |   -1   | &nbsp; |
 | PO        | 产品负责人  | VARCHAR      |   60   | &nbsp; |
 | WAITSTORYCNT        | 草稿  | INTEGER      |   -1   | &nbsp; |
+| DEVELOPINGSTAGESTORYHOURS        | 研发中阶段需求工时  | INTEGER      |   -1   | &nbsp; |
 | DEVELOPEDSTAGESTORYCNT        | 研发完毕阶段需求数量  | INTEGER      |   -1   | &nbsp; |
+| PROJECTEDSTAGESTORYHOURS        | 已立项阶段需求工时  | INTEGER      |   -1   | &nbsp; |
+| RELEASEDSTAGESTORYHOURS        | 已发布阶段需求工时  | INTEGER      |   -1   | &nbsp; |
 | CLOSEDSTORYCNT        | 已关闭  | INTEGER      |   -1   | &nbsp; |
 | CHANGEDSTORYCNT        | 已变更  | INTEGER      |   -1   | &nbsp; |
 

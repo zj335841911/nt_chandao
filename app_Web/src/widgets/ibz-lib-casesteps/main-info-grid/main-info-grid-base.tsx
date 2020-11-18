@@ -140,7 +140,7 @@ export class MainInfoGridBase extends GridControlBase {
      * @type {*}
      * @memberof MainInfoGridBase
      */
-    public rules(){
+    public rules() {
         return {
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
@@ -148,6 +148,15 @@ export class MainInfoGridBase extends GridControlBase {
         ],
         }
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainInfoBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 获取对应列class

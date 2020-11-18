@@ -167,7 +167,7 @@ export class Main_RowEditGridBase extends GridControlBase {
      * @type {*}
      * @memberof Main_RowEditGridBase
      */
-    public rules(){
+    public rules() {
         return {
         expect: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预期 值不能为空', trigger: 'change' },
@@ -191,6 +191,15 @@ export class Main_RowEditGridBase extends GridControlBase {
         ],
         }
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof Main_RowEditBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 获取对应列class

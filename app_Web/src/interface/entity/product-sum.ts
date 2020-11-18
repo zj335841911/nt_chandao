@@ -181,4 +181,92 @@ export interface ProductSum {
      * @memberof ProductSum
      */
     closedstagestorycnt?: any;
+
+    /**
+     * 未开始阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    waitstagestoryhours?: any;
+
+    /**
+     * 已关闭阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    closedstagestoryhours?: any;
+
+    /**
+     * 已发布阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    releasedstagestoryhours?: any;
+
+    /**
+     * 已验收阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    verifiedstagestoryhours?: any;
+
+    /**
+     * 测试完毕阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    testedstagestoryhours?: any;
+
+    /**
+     * 测试中阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    testingstagestoryhours?: any;
+
+    /**
+     * 研发完毕阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    developedstagestoryhours?: any;
+
+    /**
+     * 研发中阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    developingstagestoryhours?: any;
+
+    /**
+     * 已立项阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    projectedstagestoryhours?: any;
+
+    /**
+     * 已计划阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    planedstagestoryhours?: any;
+
+    /**
+     * 总工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    totalhours?: any;
 }

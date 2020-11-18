@@ -315,6 +315,11 @@ export default class ProductSumService extends ControlService {
             let ProductstorysumRsNavParams:any = {};
             let ProductstorysumRsParams:any = {};
 			await this.fillProductstorysumNodes(context, filter, list ,ProductstorysumRsNavContext,ProductstorysumRsNavParams,ProductstorysumRsParams);
+			// 填充需求工时汇总表
+            let StoryhourssumRsNavContext:any = {};
+            let StoryhourssumRsNavParams:any = {};
+            let StoryhourssumRsParams:any = {};
+			await this.fillStoryhourssumNodes(context, filter, list ,StoryhourssumRsNavContext,StoryhourssumRsNavParams,StoryhourssumRsParams);
 		} else {
 			// 填充产品汇总表
             let ProductsumRsNavContext:any = {};
@@ -326,6 +331,11 @@ export default class ProductSumService extends ControlService {
             let ProductstorysumRsNavParams:any = {};
             let ProductstorysumRsParams:any = {};
 			await this.fillProductstorysumNodes(context, filter, list ,ProductstorysumRsNavContext,ProductstorysumRsNavParams,ProductstorysumRsParams);
+			// 填充需求工时汇总表
+            let StoryhourssumRsNavContext:any = {};
+            let StoryhourssumRsNavParams:any = {};
+            let StoryhourssumRsParams:any = {};
+			await this.fillStoryhourssumNodes(context, filter, list ,StoryhourssumRsNavContext,StoryhourssumRsNavParams,StoryhourssumRsParams);
 		}
 	}
 
@@ -362,7 +372,7 @@ export default class ProductSumService extends ControlService {
             Object.assign(treeNode, { id: strNodeId });
 
             Object.assign(treeNode, { expanded: filter.isAutoexpand });
-            Object.assign(treeNode, { leaf: false });
+            Object.assign(treeNode, { leaf: true });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             Object.assign(treeNode, { nodeType: "STATIC" });
@@ -384,17 +394,7 @@ export default class ProductSumService extends ControlService {
     @Errorlog
     public async fillProductsumNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充需求汇总表
-            let ProductstorysumRsNavContext:any = {};
-            let ProductstorysumRsNavParams:any = {};
-            let ProductstorysumRsParams:any = {};
-			await this.fillProductstorysumNodes(context, filter, list ,ProductstorysumRsNavContext,ProductstorysumRsNavParams,ProductstorysumRsParams);
 		} else {
-			// 填充需求汇总表
-            let ProductstorysumRsNavContext:any = {};
-            let ProductstorysumRsNavParams:any = {};
-            let ProductstorysumRsParams:any = {};
-			await this.fillProductstorysumNodes(context, filter, list ,ProductstorysumRsNavContext,ProductstorysumRsNavParams,ProductstorysumRsParams);
 		}
 	}
 

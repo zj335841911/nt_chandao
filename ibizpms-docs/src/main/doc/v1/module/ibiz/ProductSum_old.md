@@ -31,6 +31,17 @@
 |已验收阶段需求数量|VERIFIEDSTAGESTORYCNT|INT|&nbsp;|
 |已发布阶段需求数量|RELEASEDSTAGESTORYCNT|INT|&nbsp;|
 |已关闭阶段需求数量|CLOSEDSTAGESTORYCNT|INT|&nbsp;|
+|未开始阶段需求工时|WAITSTAGESTORYHOURS|INT|&nbsp;|
+|已关闭阶段需求工时|CLOSEDSTAGESTORYHOURS|INT|&nbsp;|
+|已发布阶段需求工时|RELEASEDSTAGESTORYHOURS|INT|&nbsp;|
+|已验收阶段需求工时|VERIFIEDSTAGESTORYHOURS|INT|&nbsp;|
+|测试完毕阶段需求工时|TESTEDSTAGESTORYHOURS|INT|&nbsp;|
+|测试中阶段需求工时|TESTINGSTAGESTORYHOURS|INT|&nbsp;|
+|研发完毕阶段需求工时|DEVELOPEDSTAGESTORYHOURS|INT|&nbsp;|
+|研发中阶段需求工时|DEVELOPINGSTAGESTORYHOURS|INT|&nbsp;|
+|已立项阶段需求工时|PROJECTEDSTAGESTORYHOURS|INT|&nbsp;|
+|已计划阶段需求工时|PLANEDSTAGESTORYHOURS|INT|&nbsp;|
+|总工时|TOTALHOURS|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -57,6 +68,17 @@
 |已验收阶段需求数量|默认规则|默认规则|
 |已发布阶段需求数量|默认规则|默认规则|
 |已关闭阶段需求数量|默认规则|默认规则|
+|未开始阶段需求工时|默认规则|默认规则|
+|已关闭阶段需求工时|默认规则|默认规则|
+|已发布阶段需求工时|默认规则|默认规则|
+|已验收阶段需求工时|默认规则|默认规则|
+|测试完毕阶段需求工时|默认规则|默认规则|
+|测试中阶段需求工时|默认规则|默认规则|
+|研发完毕阶段需求工时|默认规则|默认规则|
+|研发中阶段需求工时|默认规则|默认规则|
+|已立项阶段需求工时|默认规则|默认规则|
+|已计划阶段需求工时|默认规则|默认规则|
+|总工时|默认规则|默认规则|
 
 ## 状态控制
 

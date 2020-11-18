@@ -22,6 +22,17 @@ export default {
     verifiedstagestorycnt: "已验收阶段需求数量",
     releasedstagestorycnt: "已发布阶段需求数量",
     closedstagestorycnt: "已关闭阶段需求数量",
+    waitstagestoryhours: "未开始阶段需求工时",
+    closedstagestoryhours: "已关闭阶段需求工时",
+    releasedstagestoryhours: "已发布阶段需求工时",
+    verifiedstagestoryhours: "已验收阶段需求工时",
+    testedstagestoryhours: "测试完毕阶段需求工时",
+    testingstagestoryhours: "测试中阶段需求工时",
+    developedstagestoryhours: "研发完毕阶段需求工时",
+    developingstagestoryhours: "研发中阶段需求工时",
+    projectedstagestoryhours: "已立项阶段需求工时",
+    planedstagestoryhours: "已计划阶段需求工时",
+    totalhours: "总工时",
   },
 	views: {
 		storysumgridview: {

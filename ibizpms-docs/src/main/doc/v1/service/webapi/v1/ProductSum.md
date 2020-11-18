@@ -391,7 +391,18 @@ POST
 | 20 | verifiedstagestorycnt | Integer | 允许 | 已验收阶段需求数量 |
 | 21 | releasedstagestorycnt | Integer | 允许 | 已发布阶段需求数量 |
 | 22 | closedstagestorycnt | Integer | 允许 | 已关闭阶段需求数量 |
-| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 23 | waitstagestoryhours | Integer | 允许 | 未开始阶段需求工时 |
+| 24 | closedstagestoryhours | Integer | 允许 | 已关闭阶段需求工时 |
+| 25 | releasedstagestoryhours | Integer | 允许 | 已发布阶段需求工时 |
+| 26 | verifiedstagestoryhours | Integer | 允许 | 已验收阶段需求工时 |
+| 27 | testedstagestoryhours | Integer | 允许 | 测试完毕阶段需求工时 |
+| 28 | testingstagestoryhours | Integer | 允许 | 测试中阶段需求工时 |
+| 29 | developedstagestoryhours | Integer | 允许 | 研发完毕阶段需求工时 |
+| 30 | developingstagestoryhours | Integer | 允许 | 研发中阶段需求工时 |
+| 31 | projectedstagestoryhours | Integer | 允许 | 已立项阶段需求工时 |
+| 32 | planedstagestoryhours | Integer | 允许 | 已计划阶段需求工时 |
+| 33 | totalhours | Integer | 允许 | 总工时 |
+| 34 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductSumSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

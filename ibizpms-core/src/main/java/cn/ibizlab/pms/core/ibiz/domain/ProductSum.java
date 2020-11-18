@@ -198,6 +198,83 @@ public class ProductSum extends EntityMP implements Serializable {
     @JSONField(name = "closedstagestorycnt")
     @JsonProperty("closedstagestorycnt")
     private Integer closedstagestorycnt;
+    /**
+     * 未开始阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "waitstagestoryhours")
+    @JsonProperty("waitstagestoryhours")
+    private Integer waitstagestoryhours;
+    /**
+     * 已关闭阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstagestoryhours")
+    @JsonProperty("closedstagestoryhours")
+    private Integer closedstagestoryhours;
+    /**
+     * 已发布阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "releasedstagestoryhours")
+    @JsonProperty("releasedstagestoryhours")
+    private Integer releasedstagestoryhours;
+    /**
+     * 已验收阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "verifiedstagestoryhours")
+    @JsonProperty("verifiedstagestoryhours")
+    private Integer verifiedstagestoryhours;
+    /**
+     * 测试完毕阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testedstagestoryhours")
+    @JsonProperty("testedstagestoryhours")
+    private Integer testedstagestoryhours;
+    /**
+     * 测试中阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testingstagestoryhours")
+    @JsonProperty("testingstagestoryhours")
+    private Integer testingstagestoryhours;
+    /**
+     * 研发完毕阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "developedstagestoryhours")
+    @JsonProperty("developedstagestoryhours")
+    private Integer developedstagestoryhours;
+    /**
+     * 研发中阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "developingstagestoryhours")
+    @JsonProperty("developingstagestoryhours")
+    private Integer developingstagestoryhours;
+    /**
+     * 已立项阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectedstagestoryhours")
+    @JsonProperty("projectedstagestoryhours")
+    private Integer projectedstagestoryhours;
+    /**
+     * 已计划阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "planedstagestoryhours")
+    @JsonProperty("planedstagestoryhours")
+    private Integer planedstagestoryhours;
+    /**
+     * 总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalhours")
+    @JsonProperty("totalhours")
+    private Integer totalhours;
 
 
 

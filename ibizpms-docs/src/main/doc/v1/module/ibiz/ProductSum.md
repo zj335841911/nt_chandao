@@ -38,6 +38,17 @@
 | 20 | [已验收阶段需求数量](#属性-已验收阶段需求数量（VERIFIEDSTAGESTORYCNT）) | VERIFIEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 21 | [已发布阶段需求数量](#属性-已发布阶段需求数量（RELEASEDSTAGESTORYCNT）) | RELEASEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 22 | [已关闭阶段需求数量](#属性-已关闭阶段需求数量（CLOSEDSTAGESTORYCNT）) | CLOSEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
+| 23 | [未开始阶段需求工时](#属性-未开始阶段需求工时（WAITSTAGESTORYHOURS）) | WAITSTAGESTORYHOURS | 整型 | 否 | 否 | 是 |
+| 24 | [已关闭阶段需求工时](#属性-已关闭阶段需求工时（CLOSEDSTAGESTORYHOURS）) | CLOSEDSTAGESTORYHOURS | 整型 | 否 | 否 | 是 |
+| 25 | [已发布阶段需求工时](#属性-已发布阶段需求工时（RELEASEDSTAGESTORYHOURS）) | RELEASEDSTAGESTORYHOURS | 整型 | 否 | 否 | 是 |
+| 26 | [已验收阶段需求工时](#属性-已验收阶段需求工时（VERIFIEDSTAGESTORYHOURS）) | VERIFIEDSTAGESTORYHOURS | 整型 | 否 | 否 | 是 |
+| 27 | [测试完毕阶段需求工时](#属性-测试完毕阶段需求工时（TESTEDSTAGESTORYHOURS）) | TESTEDSTAGESTORYHOURS | 整型 | 否 | 否 | 是 |
+| 28 | [测试中阶段需求工时](#属性-测试中阶段需求工时（TESTINGSTAGESTORYHOURS）) | TESTINGSTAGESTORYHOURS | 整型 | 否 | 否 | 是 |
+| 29 | [研发完毕阶段需求工时](#属性-研发完毕阶段需求工时（DEVELOPEDSTAGESTORYHOURS）) | DEVELOPEDSTAGESTORYHOURS | 整型 | 否 | 否 | 是 |
+| 30 | [研发中阶段需求工时](#属性-研发中阶段需求工时（DEVELOPINGSTAGESTORYHOURS）) | DEVELOPINGSTAGESTORYHOURS | 整型 | 否 | 否 | 是 |
+| 31 | [已立项阶段需求工时](#属性-已立项阶段需求工时（PROJECTEDSTAGESTORYHOURS）) | PROJECTEDSTAGESTORYHOURS | 整型 | 否 | 否 | 是 |
+| 32 | [已计划阶段需求工时](#属性-已计划阶段需求工时（PLANEDSTAGESTORYHOURS）) | PLANEDSTAGESTORYHOURS | 整型 | 否 | 否 | 是 |
+| 33 | [总工时](#属性-总工时（TOTALHOURS）) | TOTALHOURS | 整型 | 否 | 否 | 是 |
 
 ### 属性-主键标识（ID）
 #### 属性说明
@@ -891,6 +902,435 @@ Integer
 #### 关系属性
 无
 
+### 属性-未开始阶段需求工时（WAITSTAGESTORYHOURS）
+#### 属性说明
+未开始阶段需求工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已关闭阶段需求工时（CLOSEDSTAGESTORYHOURS）
+#### 属性说明
+已关闭阶段需求工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已发布阶段需求工时（RELEASEDSTAGESTORYHOURS）
+#### 属性说明
+已发布阶段需求工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已验收阶段需求工时（VERIFIEDSTAGESTORYHOURS）
+#### 属性说明
+已验收阶段需求工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-测试完毕阶段需求工时（TESTEDSTAGESTORYHOURS）
+#### 属性说明
+测试完毕阶段需求工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-测试中阶段需求工时（TESTINGSTAGESTORYHOURS）
+#### 属性说明
+测试中阶段需求工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-研发完毕阶段需求工时（DEVELOPEDSTAGESTORYHOURS）
+#### 属性说明
+研发完毕阶段需求工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-研发中阶段需求工时（DEVELOPINGSTAGESTORYHOURS）
+#### 属性说明
+研发中阶段需求工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已立项阶段需求工时（PROJECTEDSTAGESTORYHOURS）
+#### 属性说明
+已立项阶段需求工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-已计划阶段需求工时（PLANEDSTAGESTORYHOURS）
+#### 属性说明
+已计划阶段需求工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-总工时（TOTALHOURS）
+#### 属性说明
+总工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -1199,21 +1639,32 @@ SELECT
 0 AS `BUGCNT`,
 0 AS `CHANGEDSTORYCNT`,
 0 AS `CLOSEDSTAGESTORYCNT`,
+0 AS `CLOSEDSTAGESTORYHOURS`,
 0 AS `CLOSEDSTORYCNT`,
 0 AS `DEVELOPEDSTAGESTORYCNT`,
+0 AS `DEVELOPEDSTAGESTORYHOURS`,
 0 AS `DEVELOPINGSTAGESTORYCNT`,
+0 AS `DEVELOPINGSTAGESTORYHOURS`,
 t1.`ID`,
 t1.`NAME`,
 0 AS `PLAN`,
 0 AS `PLANEDSTAGESTORYCNT`,
+0 AS `PLANEDSTAGESTORYHOURS`,
 t1.`PO`,
 0 AS `PROJECTEDSTAGESTORYCNT`,
+0 AS `PROJECTEDSTAGESTORYHOURS`,
 0 AS `RELEASEDSTAGESTORYCNT`,
+0 AS `RELEASEDSTAGESTORYHOURS`,
 0 AS `STORYCNT`,
 0 AS `TESTEDSTAGESTORYCNT`,
+0 AS `TESTEDSTAGESTORYHOURS`,
 0 AS `TESTINGSTAGESTORYCNT`,
+0 AS `TESTINGSTAGESTORYHOURS`,
+0 AS `TOTALHOURS`,
 0 AS `VERIFIEDSTAGESTORYCNT`,
+0 AS `VERIFIEDSTAGESTORYHOURS`,
 0 AS `WAITSTAGESTORYCNT`,
+0 AS `WAITSTAGESTORYHOURS`,
 0 AS `WAITSTORYCNT`
 FROM `zt_product` t1 
 
