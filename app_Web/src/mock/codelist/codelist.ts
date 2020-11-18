@@ -757,6 +757,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "TaskTeamUserTemp",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchProjectTeamTaskUserTemp",
+        "items": []
+    },
+    {
         srfkey: "Beginend_disable",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -2027,33 +2035,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "codename":"Item_4",
                 "color": "rgba(80, 133, 63, 1)",
                 value: 4,
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: "TrueFalse",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "TRUE",
-                label: "是",
-                text: "是",
-                "data":"",
-                "codename":"True",
-                value: "TRUE",
-                
-                disabled: false,
-            },
-            {
-                id: "FALSE",
-                label: "否",
-                text: "否",
-                "data":"",
-                "codename":"False",
-                value: "FALSE",
                 
                 disabled: false,
             },

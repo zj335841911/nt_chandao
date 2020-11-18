@@ -116,6 +116,9 @@ export default {
         "4": "最低",
         "empty": "",
     },
+    TaskTeamUserTemp: {
+        "empty": "",
+    },
     Beginend_disable: {
         "on": "暂时不设定时间",
         "empty": "",
@@ -310,11 +313,6 @@ export default {
         "2": "2",
         "3": "3",
         "4": "4",
-        "empty": "",
-    },
-    TrueFalse: {
-        "TRUE": "是",
-        "FALSE": "否",
         "empty": "",
     },
     BugUserRealName: {

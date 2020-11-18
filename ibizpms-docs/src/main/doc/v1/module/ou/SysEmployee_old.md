@@ -106,6 +106,7 @@ hide members
 |ContActList|联系人用户([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ContActList))|否|&nbsp;|
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_Default))|否|&nbsp;|
 |ProjectTeamM|项目团队管理([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamM))|否|&nbsp;排除当前项目已经选择的用户|
+|ProjectTeamTaskUserTemp|项目团队成员(临时)([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamTaskUserTemp))|否|&nbsp;|
 |ProjectTeamUser|项目团队成员([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamUser))|否|&nbsp;|
 |ProjectTeamUserTask|项目团队成员([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamUserTask))|否|&nbsp;|
 |ProjectteamPk|项目团队成员选择([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectteamPk))|否|&nbsp;|
@@ -121,6 +122,7 @@ hide members
 |ContActList|联系人用户|ContActList|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |ProjectTeamM|项目团队管理|ProjectTeamM|否|&nbsp;|
+|ProjectTeamTaskUserTemp|项目团队成员(临时)|ProjectTeamTaskUserTemp|否|&nbsp;|
 |ProjectTeamUser|项目团队成员|ProjectTeamUser|否|&nbsp;|
 |ProjectTeamUserTask|项目团队成员|ProjectTeamUserTask|否|&nbsp;|
 |ProjectteamPk|项目团队成员选择|ProjectteamPk|否|&nbsp;|

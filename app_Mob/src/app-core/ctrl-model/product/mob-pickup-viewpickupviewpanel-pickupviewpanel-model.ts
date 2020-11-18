@@ -153,6 +153,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'ibiz_id',
+      },
     ]
   }
 

@@ -99,6 +99,7 @@ export default {
 		nodes: {
 			root: "默认根节点",
 			productsum: "产品汇总表",
+			productstorysum: "需求汇总表",
 		},
 		uiactions: {
 		},

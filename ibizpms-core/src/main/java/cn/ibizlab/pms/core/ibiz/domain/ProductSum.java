@@ -128,6 +128,76 @@ public class ProductSum extends EntityMP implements Serializable {
     @JSONField(name = "bugcnt")
     @JsonProperty("bugcnt")
     private Integer bugcnt;
+    /**
+     * 等待阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "waitstagestorycnt")
+    @JsonProperty("waitstagestorycnt")
+    private Integer waitstagestorycnt;
+    /**
+     * 已计划阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "planedstagestorycnt")
+    @JsonProperty("planedstagestorycnt")
+    private Integer planedstagestorycnt;
+    /**
+     * 已立项阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectedstagestorycnt")
+    @JsonProperty("projectedstagestorycnt")
+    private Integer projectedstagestorycnt;
+    /**
+     * 研发中阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "developingstagestorycnt")
+    @JsonProperty("developingstagestorycnt")
+    private Integer developingstagestorycnt;
+    /**
+     * 研发完毕阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "developedstagestorycnt")
+    @JsonProperty("developedstagestorycnt")
+    private Integer developedstagestorycnt;
+    /**
+     * 测试中阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testingstagestorycnt")
+    @JsonProperty("testingstagestorycnt")
+    private Integer testingstagestorycnt;
+    /**
+     * 测试完毕阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testedstagestorycnt")
+    @JsonProperty("testedstagestorycnt")
+    private Integer testedstagestorycnt;
+    /**
+     * 已验收阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "verifiedstagestorycnt")
+    @JsonProperty("verifiedstagestorycnt")
+    private Integer verifiedstagestorycnt;
+    /**
+     * 已发布阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "releasedstagestorycnt")
+    @JsonProperty("releasedstagestorycnt")
+    private Integer releasedstagestorycnt;
+    /**
+     * 已关闭状态需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstagestorycnt")
+    @JsonProperty("closedstagestorycnt")
+    private Integer closedstagestorycnt;
 
 
 
