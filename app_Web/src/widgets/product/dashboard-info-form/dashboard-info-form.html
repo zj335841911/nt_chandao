@@ -41,12 +41,43 @@
     <row>
         <i-col
     class="form-layout-container"
+    v-show="detailsModel.grouppanel1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 5, offset: 0 }"
+>
+    <app-form-group
+    :model="detailsModel.grouppanel1"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.product.dashboardinfo_form.details.grouppanel1')"
+    :isShowCaption="false"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel1"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
     v-show="detailsModel.id.visible"
     :style="{}"
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 1, offset: 0 }"
+    :xl="{ span: 8, offset: 0 }"
 >
     <app-form-item
     name="id"
@@ -76,7 +107,7 @@
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 4, offset: 0 }"
+    :xl="{ span: 16, offset: 0 }"
 >
     <app-form-item
     name="code"
@@ -97,6 +128,11 @@
 </app-span>
 
 </app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
 <i-col
@@ -162,7 +198,7 @@
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 4, offset: 0 }"
+    :xl="{ span: 3, offset: 0 }"
 >
     <app-form-item
     name="type"
@@ -171,7 +207,7 @@
 
     :caption="$t('entities.product.dashboardinfo_form.details.type')"
     uiStyle="DEFAULT"
-    :labelWidth="60"
+    :labelWidth="38"
     :isShowCaption="true"
     :error="detailsModel.type.error"
     :isEmptyCaption="false"
@@ -192,7 +228,7 @@ tag='Product__type' codelistType='STATIC' :data="data" :context="context" :viewp
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 4, offset: 0 }"
+    :xl="{ span: 3, offset: 0 }"
 >
     <app-form-item
     name="status"
@@ -201,7 +237,7 @@ tag='Product__type' codelistType='STATIC' :data="data" :context="context" :viewp
 
     :caption="$t('entities.product.dashboardinfo_form.details.status')"
     uiStyle="DEFAULT"
-    :labelWidth="60"
+    :labelWidth="35"
     :isShowCaption="true"
     :error="detailsModel.status.error"
     :isEmptyCaption="false"
