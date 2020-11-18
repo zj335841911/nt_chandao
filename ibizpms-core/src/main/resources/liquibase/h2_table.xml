@@ -2784,7 +2784,7 @@
     </changeSet>
         <!--输出实体[TASKMSGRECORD]外键关系 -->
         <!--输出实体[IBZ_TASKTEAM]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_taskteam-157-197">
+    <changeSet author="zentao" id="fk-ibz_taskteam-160-197">
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_team" constraintName="DER1N_IBZ_TASKTEAM_ZT_TASK_ROO" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_task" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_TEAM]外键关系 -->
