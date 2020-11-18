@@ -97,6 +97,7 @@ export default {
 	},
 	productsum_treeview: {
 		nodes: {
+			storyhourssum: "需求工时汇总表",
 			root: "默认根节点",
 			productsum: "产品汇总表",
 			productstorysum: "需求汇总表",
