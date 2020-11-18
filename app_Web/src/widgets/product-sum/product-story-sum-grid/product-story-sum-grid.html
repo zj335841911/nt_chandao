@@ -1,8 +1,6 @@
 <div :class="{ 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
     <i-form>
         <el-table v-if="isDisplay === true"
-            :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
-            @sort-change="onSortChange($event)"  
             :border="isDragendCol"
             :highlight-current-row ="isSingleSelect"
             :row-class-name="getRowClassName.bind(_self)"
@@ -26,7 +24,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productsum.productstorysum_grid.columns.name')" :min-width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productsum.productstorysum_grid.columns.name')" :min-width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productsum.productstorysum_grid.columns.name')}}
@@ -38,7 +36,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('po')">
-                <el-table-column show-overflow-tooltip :prop="'po'" :label="$t('entities.productsum.productstorysum_grid.columns.po')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'po'" :label="$t('entities.productsum.productstorysum_grid.columns.po')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productsum.productstorysum_grid.columns.po')}}
@@ -52,7 +50,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('waitstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'waitstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.waitstagestorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'waitstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.waitstagestorycnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productsum.productstorysum_grid.columns.waitstagestorycnt')}}
@@ -64,7 +62,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('planedstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'planedstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.planedstagestorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'planedstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.planedstagestorycnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productsum.productstorysum_grid.columns.planedstagestorycnt')}}
@@ -76,7 +74,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('projectedstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'projectedstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.projectedstagestorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'projectedstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.projectedstagestorycnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productsum.productstorysum_grid.columns.projectedstagestorycnt')}}
@@ -88,7 +86,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('developingstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'developingstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.developingstagestorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'developingstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.developingstagestorycnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productsum.productstorysum_grid.columns.developingstagestorycnt')}}
@@ -100,7 +98,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('developedstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'developedstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.developedstagestorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'developedstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.developedstagestorycnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productsum.productstorysum_grid.columns.developedstagestorycnt')}}
@@ -112,7 +110,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('testingstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'testingstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.testingstagestorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'testingstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.testingstagestorycnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productsum.productstorysum_grid.columns.testingstagestorycnt')}}
@@ -124,7 +122,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('testedstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'testedstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.testedstagestorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'testedstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.testedstagestorycnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productsum.productstorysum_grid.columns.testedstagestorycnt')}}
@@ -136,7 +134,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('verifiedstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'verifiedstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.verifiedstagestorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'verifiedstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.verifiedstagestorycnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productsum.productstorysum_grid.columns.verifiedstagestorycnt')}}
@@ -148,7 +146,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('releasedstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'releasedstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.releasedstagestorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'releasedstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.releasedstagestorycnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productsum.productstorysum_grid.columns.releasedstagestorycnt')}}
@@ -160,7 +158,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('closedstagestorycnt')">
-                <el-table-column show-overflow-tooltip :prop="'closedstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.closedstagestorycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'closedstagestorycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.closedstagestorycnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productsum.productstorysum_grid.columns.closedstagestorycnt')}}
@@ -172,7 +170,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('storycnt')">
-                <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.storycnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.productsum.productstorysum_grid.columns.storycnt')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.productsum.productstorysum_grid.columns.storycnt')}}

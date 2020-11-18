@@ -103,6 +103,14 @@ export class ProductStorySumGridBase extends GridControlBase {
     public isEnablePagingBar: boolean = false;
 
     /**
+     * 是否禁用排序
+     *
+     * @type {boolean}
+     * @memberof ProductStorySumGridBase
+     */
+    public isNoSort: boolean = true;
+
+    /**
      * 分页条数
      *
      * @type {number}
