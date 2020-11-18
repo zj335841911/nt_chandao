@@ -292,6 +292,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProductSumDTO](#ProductSumDTO)>：产品汇总表实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取产品需求汇总查询
+#### 访问路径
+/productsums/fetchproductstorysum
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductSumSearchContext](#ProductSumSearchContext) | 产品汇总表查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProductSumDTO](#ProductSumDTO)>：产品汇总表实体传输对象列表 |
+
+### 查询产品需求汇总查询
+#### 访问路径
+/productsums/searchproductstorysum
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductSumSearchContext](#ProductSumSearchContext) | 产品汇总表查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProductSumDTO](#ProductSumDTO)>：产品汇总表实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取产品计划数和需求数
 #### 访问路径
 /productsums/fetchproductstorycntandplancnt
@@ -345,7 +381,7 @@ POST
 | 10 | closedstorycnt | Integer | 允许 | 已关闭 |
 | 11 | storycnt | Integer | 允许 | 总计 |
 | 12 | bugcnt | Integer | 允许 | Bug数 |
-| 13 | waitstagestorycnt | Integer | 允许 | 等待阶段需求数量 |
+| 13 | waitstagestorycnt | Integer | 允许 | 未开始阶段需求数量 |
 | 14 | planedstagestorycnt | Integer | 允许 | 已计划阶段需求数量 |
 | 15 | projectedstagestorycnt | Integer | 允许 | 已立项阶段需求数量 |
 | 16 | developingstagestorycnt | Integer | 允许 | 研发中阶段需求数量 |
@@ -354,7 +390,7 @@ POST
 | 19 | testedstagestorycnt | Integer | 允许 | 测试完毕阶段需求数量 |
 | 20 | verifiedstagestorycnt | Integer | 允许 | 已验收阶段需求数量 |
 | 21 | releasedstagestorycnt | Integer | 允许 | 已发布阶段需求数量 |
-| 22 | closedstagestorycnt | Integer | 允许 | 已关闭状态需求数量 |
+| 22 | closedstagestorycnt | Integer | 允许 | 已关闭阶段需求数量 |
 | 23 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductSumSearchContext

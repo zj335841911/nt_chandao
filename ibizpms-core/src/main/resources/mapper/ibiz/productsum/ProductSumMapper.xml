@@ -43,6 +43,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[ProductStorySum]-->
+	 <select id="searchProductStorySum"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProductSumSearchContext"  resultMap="ProductSumResultMap">
+         select t1.* from (
+                <include refid="ProductStorySum" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[ProductStorycntAndPlancnt]-->
 	 <select id="searchProductStorycntAndPlancnt"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProductSumSearchContext"  resultMap="ProductSumResultMap">
          select t1.* from (
@@ -74,7 +83,7 @@
     </sql>
     <!--数据查询[ProductStorySum]-->
     <sql id="ProductStorySum" databaseId="mysql">
-		<![CDATA[ 
+		<![CDATA[ select t1.`id`, t1.`name`, t1.`po`,  (select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'closed' and t2.`deleted` = '0') as `CLOSEDSTAGESTORYCNT`,  (select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'released' and t2.`deleted` = '0') as `RELEASEDSTAGESTORYCNT`,  (select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'verified' and t2.`deleted` = '0') as `VERIFIEDSTAGESTORYCNT`, (select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'tested' and t2.`deleted` = '0') as `TESTEDSTAGESTORYCNT`, (select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'testing' and t2.`deleted` = '0') as `TESTINGSTAGESTORYCNT`, (select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'developed' and t2.`deleted` = '0') as `DEVELOPEDSTAGESTORYCNT`, (select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'developing' and t2.`deleted` = '0') as `DEVELOPINGSTAGESTORYCNT`, (select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'projected' and t2.`deleted` = '0') as `PROJECTEDSTAGESTORYCNT`, (select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'planed' and t2.`deleted` = '0') as `PLANEDSTAGESTORYCNT`, (select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'wait' and t2.`deleted` = '0') as `WAITSTAGESTORYCNT`,  (select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and t2.`deleted` = '0') as `STORYCNT`  from zt_product t1 where t1.`deleted` = '0'
 			]]>
     </sql>
     <!--数据查询[View]-->

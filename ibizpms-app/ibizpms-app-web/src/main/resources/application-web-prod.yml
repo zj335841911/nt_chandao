@@ -159,6 +159,10 @@ zuul:
       path: /useryearworkstats/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibizpro_plugin:
+      path: /ibizproplugins/**
+      serviceId: ${ibiz.ref.service.pmspro-pluginserviceapi:pmspro-pluginserviceapi}
+      stripPrefix: false
     ibz_libcasestepstmp:
       path: /ibzlibcasesteptmps/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

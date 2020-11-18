@@ -201,6 +201,28 @@ public class ProductSumResource {
                 .body(new PageImpl(productsumMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductSum-searchProductStorySum-all')")
+	@ApiOperation(value = "获取产品需求汇总查询", tags = {"产品汇总表" } ,notes = "获取产品需求汇总查询")
+    @RequestMapping(method= RequestMethod.GET , value="/productsums/fetchproductstorysum")
+	public ResponseEntity<List<ProductSumDTO>> fetchProductStorySum(ProductSumSearchContext context) {
+        Page<ProductSum> domains = productsumService.searchProductStorySum(context) ;
+        List<ProductSumDTO> list = productsumMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductSum-searchProductStorySum-all')")
+	@ApiOperation(value = "查询产品需求汇总查询", tags = {"产品汇总表" } ,notes = "查询产品需求汇总查询")
+    @RequestMapping(method= RequestMethod.POST , value="/productsums/searchproductstorysum")
+	public ResponseEntity<Page<ProductSumDTO>> searchProductStorySum(@RequestBody ProductSumSearchContext context) {
+        Page<ProductSum> domains = productsumService.searchProductStorySum(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productsumMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductSum-searchProductStorycntAndPlancnt-all')")
 	@ApiOperation(value = "获取产品计划数和需求数", tags = {"产品汇总表" } ,notes = "获取产品计划数和需求数")
     @RequestMapping(method= RequestMethod.GET , value="/productsums/fetchproductstorycntandplancnt")

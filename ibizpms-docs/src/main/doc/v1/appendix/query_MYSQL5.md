@@ -5961,6 +5961,49 @@ FROM `T_IBIZPRO_MESSAGE` t1
 
 ```
 
+# **系统插件**(IBIZPRO_PLUGIN)
+
+### 数据查询(DEFAULT)<div id="IBIZProPlugin_Default"></div>
+```sql
+SELECT
+0 AS `COMMENTCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+0 AS `DOWNLOADCOUNT`,
+t1.`DOWNLOADURL`,
+t1.`IBIZPRO_PLUGINID`,
+t1.`IBIZPRO_PLUGINNAME`,
+t1.`KEYWORD`,
+0 AS `SCORE`,
+t1.`TAG`,
+t1.`TYPE`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`VERSION`
+FROM `T_IBIZPRO_PLUGIN` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IBIZProPlugin_View"></div>
+```sql
+SELECT
+0 AS `COMMENTCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+0 AS `DOWNLOADCOUNT`,
+t1.`DOWNLOADURL`,
+t1.`IBIZPRO_PLUGINID`,
+t1.`IBIZPRO_PLUGINNAME`,
+t1.`KEYWORD`,
+0 AS `SCORE`,
+t1.`TAG`,
+t1.`TYPE`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`VERSION`
+FROM `T_IBIZPRO_PLUGIN` t1 
+
+```
+
 # **平台产品**(IBZPRO_PRODUCT)
 
 ### 数据查询(DEFAULT)<div id="IBZProProduct_Default"></div>
@@ -10330,7 +10373,19 @@ SELECT 0 AS `ACTIVESTORYCNT`, 0 AS `CHANGEDSTORYCNT`, 0 AS `CLOSEDSTORYCNT`, t1.
 ```
 ### 产品需求汇总查询(ProductStorySum)<div id="ProductSum_ProductStorySum"></div>
 ```sql
-
+select t1.`id`, t1.`name`, t1.`po`, 
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'closed' and t2.`deleted` = '0') as `CLOSEDSTAGESTORYCNT`, 
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'released' and t2.`deleted` = '0') as `RELEASEDSTAGESTORYCNT`, 
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'verified' and t2.`deleted` = '0') as `VERIFIEDSTAGESTORYCNT`,
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'tested' and t2.`deleted` = '0') as `TESTEDSTAGESTORYCNT`,
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'testing' and t2.`deleted` = '0') as `TESTINGSTAGESTORYCNT`,
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'developed' and t2.`deleted` = '0') as `DEVELOPEDSTAGESTORYCNT`,
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'developing' and t2.`deleted` = '0') as `DEVELOPINGSTAGESTORYCNT`,
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'projected' and t2.`deleted` = '0') as `PROJECTEDSTAGESTORYCNT`,
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'planed' and t2.`deleted` = '0') as `PLANEDSTAGESTORYCNT`,
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'wait' and t2.`deleted` = '0') as `WAITSTAGESTORYCNT`, 
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and t2.`deleted` = '0') as `STORYCNT` 
+from zt_product t1 where t1.`deleted` = '0'
 ```
 ### 默认（全部数据）(VIEW)<div id="ProductSum_View"></div>
 ```sql

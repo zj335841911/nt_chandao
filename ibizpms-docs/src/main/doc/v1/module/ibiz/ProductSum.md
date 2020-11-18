@@ -28,7 +28,7 @@
 | 10 | [已关闭](#属性-已关闭（CLOSEDSTORYCNT）) | CLOSEDSTORYCNT | 整型 | 否 | 否 | 是 |
 | 11 | [总计](#属性-总计（STORYCNT）) | STORYCNT | 整型 | 否 | 否 | 是 |
 | 12 | [Bug数](#属性-Bug数（BUGCNT）) | BUGCNT | 整型 | 否 | 否 | 是 |
-| 13 | [等待阶段需求数量](#属性-等待阶段需求数量（WAITSTAGESTORYCNT）) | WAITSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
+| 13 | [未开始阶段需求数量](#属性-未开始阶段需求数量（WAITSTAGESTORYCNT）) | WAITSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 14 | [已计划阶段需求数量](#属性-已计划阶段需求数量（PLANEDSTAGESTORYCNT）) | PLANEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 15 | [已立项阶段需求数量](#属性-已立项阶段需求数量（PROJECTEDSTAGESTORYCNT）) | PROJECTEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 16 | [研发中阶段需求数量](#属性-研发中阶段需求数量（DEVELOPINGSTAGESTORYCNT）) | DEVELOPINGSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
@@ -37,7 +37,7 @@
 | 19 | [测试完毕阶段需求数量](#属性-测试完毕阶段需求数量（TESTEDSTAGESTORYCNT）) | TESTEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 20 | [已验收阶段需求数量](#属性-已验收阶段需求数量（VERIFIEDSTAGESTORYCNT）) | VERIFIEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 | 21 | [已发布阶段需求数量](#属性-已发布阶段需求数量（RELEASEDSTAGESTORYCNT）) | RELEASEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
-| 22 | [已关闭状态需求数量](#属性-已关闭状态需求数量（CLOSEDSTAGESTORYCNT）) | CLOSEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
+| 22 | [已关闭阶段需求数量](#属性-已关闭阶段需求数量（CLOSEDSTAGESTORYCNT）) | CLOSEDSTAGESTORYCNT | 整型 | 否 | 否 | 是 |
 
 ### 属性-主键标识（ID）
 #### 属性说明
@@ -501,9 +501,9 @@ Integer
 #### 关系属性
 无
 
-### 属性-等待阶段需求数量（WAITSTAGESTORYCNT）
+### 属性-未开始阶段需求数量（WAITSTAGESTORYCNT）
 #### 属性说明
-等待阶段需求数量
+未开始阶段需求数量
 
 - 是否是主键
 否
@@ -852,9 +852,9 @@ Integer
 #### 关系属性
 无
 
-### 属性-已关闭状态需求数量（CLOSEDSTAGESTORYCNT）
+### 属性-已关闭阶段需求数量（CLOSEDSTAGESTORYCNT）
 #### 属性说明
-已关闭状态需求数量
+已关闭阶段需求数量
 
 - 是否是主键
 否
@@ -1165,7 +1165,19 @@ SELECT 0 AS `ACTIVESTORYCNT`, 0 AS `CHANGEDSTORYCNT`, 0 AS `CLOSEDSTORYCNT`, t1.
 #### SQL
 - MYSQL5
 ```SQL
-
+select t1.`id`, t1.`name`, t1.`po`, 
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'closed' and t2.`deleted` = '0') as `CLOSEDSTAGESTORYCNT`, 
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'released' and t2.`deleted` = '0') as `RELEASEDSTAGESTORYCNT`, 
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'verified' and t2.`deleted` = '0') as `VERIFIEDSTAGESTORYCNT`,
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'tested' and t2.`deleted` = '0') as `TESTEDSTAGESTORYCNT`,
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'testing' and t2.`deleted` = '0') as `TESTINGSTAGESTORYCNT`,
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'developed' and t2.`deleted` = '0') as `DEVELOPEDSTAGESTORYCNT`,
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'developing' and t2.`deleted` = '0') as `DEVELOPINGSTAGESTORYCNT`,
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'projected' and t2.`deleted` = '0') as `PROJECTEDSTAGESTORYCNT`,
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'planed' and t2.`deleted` = '0') as `PLANEDSTAGESTORYCNT`,
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and stage = 'wait' and t2.`deleted` = '0') as `WAITSTAGESTORYCNT`, 
+(select count(t2.`id`) from zt_story t2 where t2.`product` = t1.`id` and t2.`deleted` = '0') as `STORYCNT` 
+from zt_product t1 where t1.`deleted` = '0'
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -1211,7 +1223,8 @@ FROM `zt_product` t1
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 2 | [产品创建bug数及占比](#数据集合-产品创建bug数及占比（ProductBugcnt_QA）) | ProductBugcnt_QA | 否 |
 | 3 | [产品创建需求占比](#数据集合-产品创建需求占比（ProductCreateStory）) | ProductCreateStory | 否 |
-| 4 | [产品计划数和需求数](#数据集合-产品计划数和需求数（ProductStorycntAndPlancnt）) | ProductStorycntAndPlancnt | 否 |
+| 4 | [产品需求汇总查询](#数据集合-产品需求汇总查询（ProductStorySum）) | ProductStorySum | 否 |
+| 5 | [产品计划数和需求数](#数据集合-产品计划数和需求数（ProductStorycntAndPlancnt）) | ProductStorycntAndPlancnt | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1255,6 +1268,20 @@ FROM `zt_product` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品创建需求占比（ProductCreateStory）](#数据查询-产品创建需求占比（ProductCreateStory）) |
+### 数据集合-产品需求汇总查询（ProductStorySum）
+#### 说明
+产品需求汇总查询
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品需求汇总查询（ProductStorySum）](#数据查询-产品需求汇总查询（ProductStorySum）) |
 ### 数据集合-产品计划数和需求数（ProductStorycntAndPlancnt）
 #### 说明
 产品计划数和需求数

@@ -129,7 +129,7 @@ public class ProductSum extends EntityMP implements Serializable {
     @JsonProperty("bugcnt")
     private Integer bugcnt;
     /**
-     * 等待阶段需求数量
+     * 未开始阶段需求数量
      */
     @TableField(exist = false)
     @JSONField(name = "waitstagestorycnt")
@@ -192,7 +192,7 @@ public class ProductSum extends EntityMP implements Serializable {
     @JsonProperty("releasedstagestorycnt")
     private Integer releasedstagestorycnt;
     /**
-     * 已关闭状态需求数量
+     * 已关闭阶段需求数量
      */
     @TableField(exist = false)
     @JSONField(name = "closedstagestorycnt")
