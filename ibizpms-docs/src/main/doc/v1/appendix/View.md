@@ -458,6 +458,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|需求数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|产品计划数和需求数实体表格视图|DEGRIDVIEW|&nbsp;|
+|-|产品汇总表表格视图|DEGRIDVIEW|&nbsp;|
 |-|文档库分页导航视图（文档）|DETABEXPVIEW|&nbsp;|
 |-|工时|DEEDITVIEW|&nbsp;|
 |-|测试版本编辑视图（日历导航）|DEEDITVIEW|&nbsp;|

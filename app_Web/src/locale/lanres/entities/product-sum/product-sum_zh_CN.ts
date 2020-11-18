@@ -51,6 +51,10 @@ export default {
 			caption: "产品汇总表",
       		title: "产品计划数和需求数实体表格视图",
 		},
+		storyhourssumgridview: {
+			caption: "需求工时汇总",
+      		title: "产品汇总表表格视图",
+		},
 		editview: {
 			caption: "产品汇总表",
       		title: "产品汇总表编辑视图",
@@ -138,6 +142,26 @@ export default {
 		uiactions: {
 		},
 	},
+	productstoryhourssum_grid: {
+		nodata: "",
+		columns: {
+			name: "产品名称",
+			po: "产品负责人",
+			waitstagestoryhours: "未开始",
+			planedstagestoryhours: "已计划",
+			projectedstagestoryhours: "已立项",
+			developingstagestoryhours: "研发中",
+			developedstagestoryhours: "研发完毕",
+			testingstagestoryhours: "测试中",
+			testedstagestoryhours: "测试完毕",
+			verifiedstagestoryhours: "已验收",
+			releasedstagestoryhours: "已发布",
+			closedstagestoryhours: "已关闭",
+			totalhours: "总工时",
+		},
+		uiactions: {
+		},
+	},
 	default_searchform: {
 		details: {
 			rawitem1: "", 
@@ -185,6 +209,12 @@ export default {
 		},
 	},
 	storysumgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "导出",
+			tip: "导出",
+		},
+	},
+	storyhourssumgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "导出",
 			tip: "导出",

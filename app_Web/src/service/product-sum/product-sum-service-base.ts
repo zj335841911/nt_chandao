@@ -259,6 +259,35 @@ export default class ProductSumServiceBase extends EntityService {
     }
 
     /**
+     * FetchProductStoryHoursSum接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductSumServiceBase
+     */
+    public async FetchProductStoryHoursSum(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productsums/fetchproductstoryhourssum`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProductStoryHoursSum接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductSumServiceBase
+     */
+    public async searchProductStoryHoursSum(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productsums/searchproductstoryhourssum`,tempData,isloading);
+    }
+
+    /**
      * FetchProductStorySum接口方法
      *
      * @param {*} [context={}]

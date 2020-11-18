@@ -109,6 +109,7 @@
 |ProductBugcnt_QA|产品创建bug数_测试人员([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_ProductBugcnt_QA))|否|&nbsp;|
 |ProductCreateStory|产品创建需求占比([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_ProductCreateStory))|否|&nbsp;|
 |ProductPlancntAndStorycnt_PO|产品计划数和需求数_产品经理([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_ProductPlancntAndStorycnt_PO))|否|&nbsp;|
+|ProductStoryHoursSum|产品需求工时汇总([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_ProductStoryHoursSum))|否|&nbsp;|
 |ProductStorySum|产品需求汇总查询([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_ProductStorySum))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProductSum_View))|否|&nbsp;|
 
@@ -119,6 +120,7 @@
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |ProductBugcnt_QA|产品创建bug数及占比|ProductBugcnt_QA|否|&nbsp;|
 |ProductCreateStory|产品创建需求占比|ProductCreateStory|否|&nbsp;|
+|ProductStoryHoursSum|产品需求工时汇总|ProductStoryHoursSum|否|&nbsp;|
 |ProductStorySum|产品需求汇总查询|ProductStorySum|否|&nbsp;|
 |ProductStorycntAndPlancnt|产品计划数和需求数|ProductPlancntAndStorycnt_PO|否|&nbsp;|
 

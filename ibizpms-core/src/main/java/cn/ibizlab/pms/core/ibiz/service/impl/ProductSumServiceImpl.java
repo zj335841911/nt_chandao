@@ -180,6 +180,15 @@ public class ProductSumServiceImpl extends ServiceImpl<ProductSumMapper, Product
     }
 
     /**
+     * 查询集合 产品需求工时汇总
+     */
+    @Override
+    public Page<ProductSum> searchProductStoryHoursSum(ProductSumSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductSum> pages=baseMapper.searchProductStoryHoursSum(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProductSum>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 产品需求汇总查询
      */
     @Override

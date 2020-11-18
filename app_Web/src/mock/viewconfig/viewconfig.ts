@@ -2007,6 +2007,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductSumUsr2GridView",
             "viewtag": "7e9dfdd36617a43790494790f58117ec"
         },
+        "productsumstoryhourssumgridview": {
+            "title": "产品汇总表表格视图",
+            "caption": "需求工时汇总",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProductSumStoryHoursSumGridView",
+            "viewtag": "7ee436604d479bd0ba014e136c1b8f6f"
+        },
         "docliblibtabexpview": {
             "title": "文档库分页导航视图（文档）",
             "caption": "文档库主页",

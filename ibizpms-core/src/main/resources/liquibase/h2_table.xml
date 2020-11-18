@@ -1689,7 +1689,7 @@
 
 
     <!--输出实体[IBZ_PROJECTTEAM]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_projectteam-238-68">
+    <changeSet author="zentao" id="tab-ibz_projectteam-242-68">
         <createTable tableName="zt_team">
                 <column name="JOIN" remarks="" type="DATETIME">
                 </column>
@@ -2695,7 +2695,7 @@
        <addForeignKeyConstraint baseColumnNames="STORY" baseTableName="zt_projectstory" constraintName="DER1N_ZT_PROJECTSTORY_ZT_STORY" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_story" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_PROJECTTEAM]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_projectteam-238-173">
+    <changeSet author="zentao" id="fk-ibz_projectteam-242-173">
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_team" constraintName="DER1N_IBZ_PROJECTTEAM_ZT_PROJE" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_RELATION]外键关系 -->
