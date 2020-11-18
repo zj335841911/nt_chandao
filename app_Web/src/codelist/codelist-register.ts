@@ -45,6 +45,7 @@ export class CodeListRegister {
         this.allCodeList.set('RealNameProjectM', () => import('@/codelist/real-name-project-m'));
         this.allCodeList.set('ProjectCodeList', () => import('@/codelist/project-code-list'));
         this.allCodeList.set('SQLBuild', () => import('@/codelist/sqlbuild'));
+        this.allCodeList.set('TaskTeamUserTemp', () => import('@/codelist/task-team-user-temp'));
         this.allCodeList.set('SysOperator', () => import('@/codelist/sys-operator'));
         this.allCodeList.set('UserRealNameW', () => import('@/codelist/user-real-name-w'));
         this.allCodeList.set('UserRealName', () => import('@/codelist/user-real-name'));

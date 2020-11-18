@@ -88,7 +88,7 @@ export default class ProductSumService extends ControlService {
      * @type {string}
      * @memberof ProductSumService
      */
-	public TREENODE_PRODUCTSTORYSTATUS: string = 'ProductStoryStatus';
+	public TREENODE_PRODUCTSTORYSUM: string = 'ProductStorySum';
 
     /**
      * 获取节点数据
@@ -172,8 +172,8 @@ export default class ProductSumService extends ControlService {
             await this.fillProductsumNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
-        if (Object.is(strNodeType, this.TREENODE_PRODUCTSTORYSTATUS)) {
-            await this.fillProductstorystatusNodeChilds(context,filter, list);
+        if (Object.is(strNodeType, this.TREENODE_PRODUCTSTORYSUM)) {
+            await this.fillProductstorysumNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         return Promise.resolve({ status: 500, data: { title: '失败', message: `树节点${strTreeNodeId}标识无效` } });
@@ -239,10 +239,10 @@ export default class ProductSumService extends ControlService {
             let ProductsumRsParams:any = {};
 			await this.fillProductsumNodes(context, filter, list ,ProductsumRsNavContext,ProductsumRsNavParams,ProductsumRsParams);
 			// 填充需求汇总表
-            let ProductstorystatusRsNavContext:any = {};
-            let ProductstorystatusRsNavParams:any = {};
-            let ProductstorystatusRsParams:any = {};
-			await this.fillProductstorystatusNodes(context, filter, list ,ProductstorystatusRsNavContext,ProductstorystatusRsNavParams,ProductstorystatusRsParams);
+            let ProductstorysumRsNavContext:any = {};
+            let ProductstorysumRsNavParams:any = {};
+            let ProductstorysumRsParams:any = {};
+			await this.fillProductstorysumNodes(context, filter, list ,ProductstorysumRsNavContext,ProductstorysumRsNavParams,ProductstorysumRsParams);
 		} else {
 			// 填充产品汇总表
             let ProductsumRsNavContext:any = {};
@@ -250,10 +250,10 @@ export default class ProductSumService extends ControlService {
             let ProductsumRsParams:any = {};
 			await this.fillProductsumNodes(context, filter, list ,ProductsumRsNavContext,ProductsumRsNavParams,ProductsumRsParams);
 			// 填充需求汇总表
-            let ProductstorystatusRsNavContext:any = {};
-            let ProductstorystatusRsNavParams:any = {};
-            let ProductstorystatusRsParams:any = {};
-			await this.fillProductstorystatusNodes(context, filter, list ,ProductstorystatusRsNavContext,ProductstorystatusRsNavParams,ProductstorystatusRsParams);
+            let ProductstorysumRsNavContext:any = {};
+            let ProductstorysumRsNavParams:any = {};
+            let ProductstorysumRsParams:any = {};
+			await this.fillProductstorysumNodes(context, filter, list ,ProductstorysumRsNavContext,ProductstorysumRsNavParams,ProductstorysumRsParams);
 		}
 	}
 
@@ -330,16 +330,16 @@ export default class ProductSumService extends ControlService {
      * @memberof ProductSumService
      */
     @Errorlog
-    public fillProductstorystatusNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+    public fillProductstorysumNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
         context = this.handleResNavContext(context,filter,rsNavContext);
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let treeNode: any = {};
-            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.productsum_treeview.nodes.productstorystatus') });
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.productsum_treeview.nodes.productstorysum') });
             Object.assign(treeNode, { isUseLangRes: true });
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
-            let strNodeId: string = 'ProductStoryStatus';
+            let strNodeId: string = 'ProductStorySum';
 
             // 没有指定节点值，直接使用父节点值
             Object.assign(treeNode, { srfkey: filter.strRealNodeId });
@@ -369,7 +369,7 @@ export default class ProductSumService extends ControlService {
      * @memberof ProductSumService
      */
     @Errorlog
-    public async fillProductstorystatusNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+    public async fillProductstorysumNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}

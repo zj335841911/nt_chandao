@@ -13834,6 +13834,10 @@ FROM `T_IBZEMP` t1
 WHERE ( (t1.account = ${srfwebcontext('account','{"defname":"ACCOUNT","dename":"ZT_USER"}')} or t1.account not in (select t.account from zt_team t where t.type = 'project' and t.root = ${srfwebcontext('srfparentkey','{"defname":"ACCOUNT","dename":"ZT_USER"}')})) ) 
 
 ```
+### 项目团队成员(临时)(ProjectTeamTaskUserTemp)<div id="SysEmployee_ProjectTeamTaskUserTemp"></div>
+```sql
+
+```
 ### 项目团队成员(ProjectTeamUser)<div id="SysEmployee_ProjectTeamUser"></div>
 ```sql
 

@@ -108,7 +108,7 @@ export class ProductSumTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarCon
         if (!expmode) {
             expmode = '';
         }
-        if (Object.is(expmode, 'PRODUCTSTORYSTATUS')) {
+        if (Object.is(expmode, 'PRODUCTSTORYSUM')) {
             return {  
                 viewname: 'project-more-undone-pro-grid-view', 
                 parentdata: {},
