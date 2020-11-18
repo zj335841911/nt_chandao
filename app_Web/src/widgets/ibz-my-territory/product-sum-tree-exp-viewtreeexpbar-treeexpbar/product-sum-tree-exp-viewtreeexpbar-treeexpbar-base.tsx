@@ -124,9 +124,9 @@ export class ProductSumTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarCon
         }
         if (Object.is(expmode, 'STORYHOURSSUM')) {
             return {  
-                viewname: 'case-main-grid-view', 
+                viewname: 'product-sum-story-hours-sum-grid-view', 
                 parentdata: {},
-                deKeyField:'case'
+                deKeyField:'productsum'
 			};
         }
         return null;

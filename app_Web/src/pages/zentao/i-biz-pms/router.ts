@@ -673,6 +673,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/bug-stats-edit-view/bug-stats-edit-view.vue'),
                 },
                 {
+                    path: 'productsums/:productsum?/storyhourssumgridview/:storyhourssumgridview?',
+                    meta: {
+                        caption: 'entities.productsum.views.storyhourssumgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productsums', parameterName: 'productsum' },
+                            { pathName: 'storyhourssumgridview', parameterName: 'storyhourssumgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-sum-story-hours-sum-grid-view/product-sum-story-hours-sum-grid-view.vue'),
+                },
+                {
                     path: 'modules/:module?/pickupgridview/:pickupgridview?',
                     meta: {
                         caption: 'entities.module.views.pickupgridview.caption',

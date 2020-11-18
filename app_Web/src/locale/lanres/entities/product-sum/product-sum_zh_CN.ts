@@ -105,6 +105,26 @@ export default {
 		uiactions: {
 		},
 	},
+	productstoryhourssum_grid: {
+		nodata: "",
+		columns: {
+			name: "产品名称",
+			po: "产品负责人",
+			waitstagestoryhours: "未开始",
+			planedstagestoryhours: "已计划",
+			projectedstagestoryhours: "已立项",
+			developingstagestoryhours: "研发中",
+			developedstagestoryhours: "研发完毕",
+			testingstagestoryhours: "测试中",
+			testedstagestoryhours: "测试完毕",
+			verifiedstagestoryhours: "已验收",
+			releasedstagestoryhours: "已发布",
+			closedstagestoryhours: "已关闭",
+			totalhours: "总工时",
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		nodata: "",
 		columns: {
@@ -142,22 +162,12 @@ export default {
 		uiactions: {
 		},
 	},
-	productstoryhourssum_grid: {
-		nodata: "",
-		columns: {
-			name: "产品名称",
-			po: "产品负责人",
-			waitstagestoryhours: "未开始",
-			planedstagestoryhours: "已计划",
-			projectedstagestoryhours: "已立项",
-			developingstagestoryhours: "研发中",
-			developedstagestoryhours: "研发完毕",
-			testingstagestoryhours: "测试中",
-			testedstagestoryhours: "测试完毕",
-			verifiedstagestoryhours: "已验收",
-			releasedstagestoryhours: "已发布",
-			closedstagestoryhours: "已关闭",
-			totalhours: "总工时",
+	productstorysum_searchform: {
+		details: {
+			rawitem1: "", 
+			formpage1: "常规条件", 
+			closed: "关闭产品", 
+			n_id_eq: "产品", 
 		},
 		uiactions: {
 		},
@@ -170,16 +180,6 @@ export default {
 			expired: "过期计划", 
 			n_id_eq: "产品", 
 			n_plan_eq: "计划", 
-		},
-		uiactions: {
-		},
-	},
-	productstorysum_searchform: {
-		details: {
-			rawitem1: "", 
-			formpage1: "常规条件", 
-			closed: "关闭产品", 
-			n_id_eq: "产品", 
 		},
 		uiactions: {
 		},
@@ -202,6 +202,12 @@ export default {
 			tip: "删除",
 		},
 	},
+	storyhourssumgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "导出",
+			tip: "导出",
+		},
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "导出",
@@ -209,12 +215,6 @@ export default {
 		},
 	},
 	storysumgridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "导出",
-			tip: "导出",
-		},
-	},
-	storyhourssumgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "导出",
 			tip: "导出",

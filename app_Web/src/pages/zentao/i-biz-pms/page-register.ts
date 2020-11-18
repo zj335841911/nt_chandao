@@ -21,6 +21,7 @@ export const PageComponents = {
         Vue.component('doc-recent-more-grid-view', () => import('@pages/ibiz/doc-recent-more-grid-view/doc-recent-more-grid-view.vue'));
         Vue.component('project-pickup-grid-view', () => import('@pages/zentao/project-pickup-grid-view/project-pickup-grid-view.vue'));
         Vue.component('bug-stats-edit-view', () => import('@pages/ibiz/bug-stats-edit-view/bug-stats-edit-view.vue'));
+        Vue.component('product-sum-story-hours-sum-grid-view', () => import('@pages/ibiz/product-sum-story-hours-sum-grid-view/product-sum-story-hours-sum-grid-view.vue'));
         Vue.component('module-pickup-grid-view', () => import('@pages/zentao/module-pickup-grid-view/module-pickup-grid-view.vue'));
         Vue.component('bug-stats-assignto-grid-view', () => import('@pages/ibiz/bug-stats-assignto-grid-view/bug-stats-assignto-grid-view.vue'));
         Vue.component('bug-calendar-edit-view', () => import('@pages/zentao/bug-calendar-edit-view/bug-calendar-edit-view.vue'));

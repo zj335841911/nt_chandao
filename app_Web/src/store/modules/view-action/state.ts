@@ -2266,6 +2266,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7ee436604d479bd0ba014e136c1b8f6f',
+            viewmodule: 'ibiz',
+            viewname: 'ProductSumStoryHoursSumGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ada719b0d8722509d22b4b72bbb8cf26',
+            ],
+        },
+        {
             viewtag: '7f0821e7efe42bbf91090b525b05c96d',
             viewmodule: 'zentao',
             viewname: 'DocLibLibTabExpView',
@@ -4135,9 +4145,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '7ee436604d479bd0ba014e136c1b8f6f',
                 '240ec4bdf10888613e1601f420ad730f',
                 '3989c98a31e037a67b27cdf7acb1f7cd',
-                '417541fa331fc089b84936b8359403fa',
             ],
         },
         {
