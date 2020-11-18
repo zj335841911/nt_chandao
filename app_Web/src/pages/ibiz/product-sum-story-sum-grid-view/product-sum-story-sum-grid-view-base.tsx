@@ -400,4 +400,25 @@ export class ProductSumStorySumGridViewBase extends GridViewBase {
         }
         xData.exportExcel($event.exportparms);
     }
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ProductSumStorySumGridViewBase
+     */
+    protected isExpandSearchForm: boolean = true;
+
+    /**
+     * 表格行数据默认激活模式
+     * 0 不激活
+     * 1 单击激活
+     * 2 双击激活
+     *
+     * @protected
+     * @type {(0 | 1 | 2)}
+     * @memberof ProductSumStorySumGridViewBase
+     */
+    protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }

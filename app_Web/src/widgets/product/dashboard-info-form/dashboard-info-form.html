@@ -41,12 +41,72 @@
     <row>
         <i-col
     class="form-layout-container"
+    v-show="detailsModel.id.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <app-form-item
+    name="id"
+    :itemRules="this.rules().id"
+    class="panelitem-borad"
+
+    :caption="$t('entities.product.dashboardinfo_form.details.id')"
+    uiStyle="DEFAULT"
+    :labelWidth="1"
+    :isShowCaption="true"
+    :error="detailsModel.id.error"
+    :isEmptyCaption="true"
+    labelPos="LEFT"
+>
+    
+<app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.code.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 3, offset: 0 }"
+>
+    <app-form-item
+    name="code"
+    :itemRules="this.rules().code"
+    class="panelitem-borad"
+
+    :caption="$t('entities.product.dashboardinfo_form.details.code')"
+    uiStyle="DEFAULT"
+    :labelWidth="5"
+    :isShowCaption="true"
+    :error="detailsModel.code.error"
+    :isEmptyCaption="true"
+    labelPos="LEFT"
+>
+    
+<app-span name='code' :value="data.code" dataType="TEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.name.visible"
     :style="{}"
     
     
     :lg="{ span: 24, offset: 0 }"
-    
+    :xl="{ span: 19, offset: 0 }"
 >
     <app-form-item
     name="name"
@@ -55,15 +115,101 @@
 
     :caption="$t('entities.product.dashboardinfo_form.details.name')"
     uiStyle="DEFAULT"
-    :labelWidth="100"
+    :labelWidth="5"
     :isShowCaption="true"
     :error="detailsModel.name.error"
-    :isEmptyCaption="false"
+    :isEmptyCaption="true"
     labelPos="LEFT"
 >
     
 <app-span name='name' :value="data.name" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.desc.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="desc"
+    :itemRules="this.rules().desc"
+    class=""
+
+    :caption="$t('entities.product.dashboardinfo_form.details.desc')"
+    uiStyle="DEFAULT"
+    :labelWidth="1"
+    :isShowCaption="true"
+    :error="detailsModel.desc.error"
+    :isEmptyCaption="true"
+    labelPos="LEFT"
+>
+    <html-container :content="data.desc"></html-container>
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.type.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 3, offset: 0 }"
+>
+    <app-form-item
+    name="type"
+    :itemRules="this.rules().type"
+    class="panelitem-borad"
+
+    :caption="$t('entities.product.dashboardinfo_form.details.type')"
+    uiStyle="DEFAULT"
+    :labelWidth="44"
+    :isShowCaption="true"
+    :error="detailsModel.type.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-span name='type' :value="data.type" dataType="SSCODELIST"     :precision="0"
+tag='Product__type' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.status.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 3, offset: 0 }"
+>
+    <app-form-item
+    name="status"
+    :itemRules="this.rules().status"
+    class="panelitem-borad"
+
+    :caption="$t('entities.product.dashboardinfo_form.details.status')"
+    uiStyle="DEFAULT"
+    :labelWidth="44"
+    :isShowCaption="true"
+    :error="detailsModel.status.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-span name='status' :value="data.status" dataType="SSCODELIST"     :precision="0"
+tag='Product__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
 </app-span>
 
 </app-form-item>
