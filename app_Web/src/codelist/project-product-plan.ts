@@ -114,6 +114,8 @@ export default class ProjectProductPlan {
                 Object.assign(itemdata,{text:item.title});
                 Object.assign(itemdata,{label:item.title});
                 
+                
+                
                 _items.push(itemdata);
             });
         }

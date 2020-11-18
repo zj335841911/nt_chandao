@@ -114,6 +114,8 @@ export default class ProductBranch_Cache {
                 Object.assign(itemdata,{text:item.name});
                 Object.assign(itemdata,{label:item.name});
                 
+                
+                
                 _items.push(itemdata);
             });
         }

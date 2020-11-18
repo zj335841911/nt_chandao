@@ -114,6 +114,8 @@ export default class RealDept {
                 Object.assign(itemdata,{text:item.deptname});
                 Object.assign(itemdata,{label:item.deptname});
                 
+                
+                
                 _items.push(itemdata);
             });
         }

@@ -115,6 +115,8 @@ export default class CurProductBuild {
                 Object.assign(itemdata,{text:item.name});
                 Object.assign(itemdata,{label:item.name});
                 
+                
+                
                 _items.push(itemdata);
             });
         }
