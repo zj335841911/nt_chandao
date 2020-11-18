@@ -119,6 +119,15 @@ export default {
 		uiactions: {
 		},
 	},
+	bugresolvedby_searchform: {
+		details: {
+			formpage1: "表单分页", 
+			n_product_eq: "产品", 
+			n_resolvedby_eq: "由谁完成", 
+		},
+		uiactions: {
+		},
+	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "Save",

@@ -4,7 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugStatsBugResolvedByGridViewBase } from './bug-stats-bug-resolved-by-grid-view-base';
 import view_grid from '@widgets/bug-stats/bug-resolved-by-grid/bug-resolved-by-grid.vue';
-import view_searchform from '@widgets/bug-stats/default-searchform/default-searchform.vue';
+import view_searchform from '@widgets/bug-stats/bug-resolved-by-searchform/bug-resolved-by-searchform.vue';
 
 /**
  * Bug统计表格视图（Bug完成表）视图

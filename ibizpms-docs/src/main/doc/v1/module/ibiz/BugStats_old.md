@@ -103,6 +103,7 @@ hide members
 |不予解决(BUGWILLNOTFIX)|LTANDEQ|
 |编号(PRODUCT)|EQ|
 |指派给(ASSIGNEDTO)|EQ|
+|由谁解决(RESOLVEDBY)|EQ|
 
 ## 导入模式
 无

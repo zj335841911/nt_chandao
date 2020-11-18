@@ -72,20 +72,14 @@ export default class BugResolvedByModel {
           prop: 'id',
         },
       {
-        name: 'openeddatelt',
-        prop: 'openeddatelt',
+        name: 'n_product_eq',
+        prop: 'n_product_eq',
+        dataType: 'PICKUP',
       },
       {
-        name: 'openeddategt',
-        prop: 'openeddategt',
-      },
-      {
-        name: 'producteq',
-        prop: 'producteq',
-      },
-      {
-        name: 'projecteq',
-        prop: 'projecteq',
+        name: 'n_resolvedby_eq',
+        prop: 'n_resolvedby_eq',
+        dataType: 'SSCODELIST',
       },
 
         {
