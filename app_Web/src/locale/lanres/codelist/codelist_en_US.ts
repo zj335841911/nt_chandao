@@ -312,11 +312,6 @@ export default {
         "4": "4",
         "empty": ""
     },
-    TrueFalse: {
-        "TRUE": "是",
-        "FALSE": "否",
-        "empty": ""
-    },
     BugUserRealName: {
         "empty": "",
     },

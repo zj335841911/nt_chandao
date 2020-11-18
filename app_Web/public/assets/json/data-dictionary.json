@@ -2351,37 +2351,6 @@
         ]
     }, 
     {
-        "srfkey": "TrueFalse",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "TRUE",
-                "label": "是",
-                "text": "是",
-                "class":"",
-                "data":"",
-                "codename":"True",
-                "value": "TRUE",
-                
-                "disabled": false,
-                "default": false
-            }
-            , {
-                "id": "FALSE",
-                "label": "否",
-                "text": "否",
-                "class":"",
-                "data":"",
-                "codename":"False",
-                "value": "FALSE",
-                
-                "disabled": false,
-                "default": false
-            }
-        ]
-    }, 
-    {
         "srfkey": "BugUserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
