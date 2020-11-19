@@ -158,6 +158,22 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
         return super.searchDefault(context);
     }
 
+    @Override
+    public Page<SysEmployee> searchProjectTeamTaskUserTemp(SysEmployeeSearchContext context){
+        log.info("SysEmployeeExService：searchProjectTeamTaskUserTemp");
+        Map<String,Object> params = context.getParams();
+        if((params.get("multiple") == null && params.get("project") != null) || (params.get("multiple") != null && "0".equals(params.get("multiple")))) {
+            // 项目团队
+            log.info("SysEmployeeExService：SysEmployeeExService-" + params.get("project").toString());
+            context.setN_username_in(params.get("allTeamAccount").toString().replace(",",";"));
+        }else {
+            // 任务团队
+            log.info("SysEmployeeExService：SysEmployeeExService-" + params.get("id").toString());
+            context.setN_username_in(params.get("allTeamAccount").toString().replace(",",";"));
+        }
+        return super.searchDefault(context);
+    }
+
     public String getAccounts(String type, Object root) {
         String accounts = "";
         List<Team> list = teamHelper.list(new QueryWrapper<Team>().eq("type", type).eq("root", root));
