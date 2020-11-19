@@ -1871,8 +1871,13 @@ t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `CONFIRMED` = 0 AND DELETED = '0') AS `UNCONFIRMEDBUGCNT`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND `STATUS` NOT IN ('done','cancel','closed') AND DELETED =  '0') AS `UNDONETASKCNT`,
 (select COUNT(1) from zt_task t where t.deleted = '0' and t.project = t1.id and t.`status` = 'closed' and t.closedDate BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59') ) AS `YESTERDAYCTASKCNT`,
-(SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'resolved' AND DELETED = '0' and RESOLVEDDATE BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59')) AS `YESTERDAYRBUGCNT`
-,t2.closedTaskcnt,t3.cancelTaskcnt,t4.doneTaskcnt,t5.pauseTaskcnt,t6.waitTaskcnt,t7.doingTaskcnt
+(SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'resolved' AND DELETED = '0' and RESOLVEDDATE BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59')) AS `YESTERDAYRBUGCNT`,
+case when t2.closedTaskcnt is null then 0 else t2.closedTaskcnt end as closedTaskcnt,
+case when t3.cancelTaskcnt is null then 0 else t3.cancelTaskcnt end as cancelTaskcnt,
+case when t4.doneTaskcnt is null then 0 else t4.doneTaskcnt end as doneTaskcnt,
+case when t5.pauseTaskcnt is null then 0 else t5.pauseTaskcnt end as pauseTaskcnt,
+case when t6.waitTaskcnt is null then 0 else t6.waitTaskcnt end as waitTaskcnt,
+case when t7.doingTaskcnt is null then 0 else t7.doingTaskcnt end as doingTaskcnt
 FROM `zt_project` t1 
 LEFT JOIN (select t1.project,count(1) as closedTaskcnt from zt_task t1 where t1.`status` = 'closed' and t1.deleted = '0' GROUP BY t1.project) t2 on t1.id = t2.project
 LEFT JOIN (select t1.project,count(1) as cancelTaskcnt from zt_task t1 where t1.`status` = 'cancel' and t1.deleted = '0' GROUP BY t1.project) t3 on t1.id = t3.project

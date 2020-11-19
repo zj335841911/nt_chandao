@@ -47,6 +47,138 @@ public class TaskStatsResource {
     @Lazy
     public TaskStatsMapping taskstatsMapping;
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-Create-all')")
+    @ApiOperation(value = "新建任务统计", tags = {"任务统计" },  notes = "新建任务统计")
+	@RequestMapping(method = RequestMethod.POST, value = "/taskstats")
+    public ResponseEntity<TaskStatsDTO> create(@Validated @RequestBody TaskStatsDTO taskstatsdto) {
+        TaskStats domain = taskstatsMapping.toDomain(taskstatsdto);
+		taskstatsService.create(domain);
+        TaskStatsDTO dto = taskstatsMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-Create-all')")
+    @ApiOperation(value = "批量新建任务统计", tags = {"任务统计" },  notes = "批量新建任务统计")
+	@RequestMapping(method = RequestMethod.POST, value = "/taskstats/batch")
+    public ResponseEntity<Boolean> createBatch(@RequestBody List<TaskStatsDTO> taskstatsdtos) {
+        taskstatsService.createBatch(taskstatsMapping.toDomain(taskstatsdtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-Update-all')")
+    @ApiOperation(value = "更新任务统计", tags = {"任务统计" },  notes = "更新任务统计")
+	@RequestMapping(method = RequestMethod.PUT, value = "/taskstats/{taskstats_id}")
+    public ResponseEntity<TaskStatsDTO> update(@PathVariable("taskstats_id") Long taskstats_id, @RequestBody TaskStatsDTO taskstatsdto) {
+		TaskStats domain  = taskstatsMapping.toDomain(taskstatsdto);
+        domain .setId(taskstats_id);
+		taskstatsService.update(domain );
+		TaskStatsDTO dto = taskstatsMapping.toDto(domain );
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-Update-all')")
+    @ApiOperation(value = "批量更新任务统计", tags = {"任务统计" },  notes = "批量更新任务统计")
+	@RequestMapping(method = RequestMethod.PUT, value = "/taskstats/batch")
+    public ResponseEntity<Boolean> updateBatch(@RequestBody List<TaskStatsDTO> taskstatsdtos) {
+        taskstatsService.updateBatch(taskstatsMapping.toDomain(taskstatsdtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-Remove-all')")
+    @ApiOperation(value = "删除任务统计", tags = {"任务统计" },  notes = "删除任务统计")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/taskstats/{taskstats_id}")
+    public ResponseEntity<Boolean> remove(@PathVariable("taskstats_id") Long taskstats_id) {
+         return ResponseEntity.status(HttpStatus.OK).body(taskstatsService.remove(taskstats_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-Remove-all')")
+    @ApiOperation(value = "批量删除任务统计", tags = {"任务统计" },  notes = "批量删除任务统计")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/taskstats/batch")
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
+        taskstatsService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-Get-all')")
+    @ApiOperation(value = "获取任务统计", tags = {"任务统计" },  notes = "获取任务统计")
+	@RequestMapping(method = RequestMethod.GET, value = "/taskstats/{taskstats_id}")
+    public ResponseEntity<TaskStatsDTO> get(@PathVariable("taskstats_id") Long taskstats_id) {
+        TaskStats domain = taskstatsService.get(taskstats_id);
+        TaskStatsDTO dto = taskstatsMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "获取任务统计草稿", tags = {"任务统计" },  notes = "获取任务统计草稿")
+	@RequestMapping(method = RequestMethod.GET, value = "/taskstats/getdraft")
+    public ResponseEntity<TaskStatsDTO> getDraft() {
+        return ResponseEntity.status(HttpStatus.OK).body(taskstatsMapping.toDto(taskstatsService.getDraft(new TaskStats())));
+    }
+
+    @ApiOperation(value = "检查任务统计", tags = {"任务统计" },  notes = "检查任务统计")
+	@RequestMapping(method = RequestMethod.POST, value = "/taskstats/checkkey")
+    public ResponseEntity<Boolean> checkKey(@RequestBody TaskStatsDTO taskstatsdto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(taskstatsService.checkKey(taskstatsMapping.toDomain(taskstatsdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-Save-all')")
+    @ApiOperation(value = "保存任务统计", tags = {"任务统计" },  notes = "保存任务统计")
+	@RequestMapping(method = RequestMethod.POST, value = "/taskstats/save")
+    public ResponseEntity<Boolean> save(@RequestBody TaskStatsDTO taskstatsdto) {
+        return ResponseEntity.status(HttpStatus.OK).body(taskstatsService.save(taskstatsMapping.toDomain(taskstatsdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-Save-all')")
+    @ApiOperation(value = "批量保存任务统计", tags = {"任务统计" },  notes = "批量保存任务统计")
+	@RequestMapping(method = RequestMethod.POST, value = "/taskstats/savebatch")
+    public ResponseEntity<Boolean> saveBatch(@RequestBody List<TaskStatsDTO> taskstatsdtos) {
+        taskstatsService.saveBatch(taskstatsMapping.toDomain(taskstatsdtos));
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-searchDefault-all')")
+	@ApiOperation(value = "获取数据集", tags = {"任务统计" } ,notes = "获取数据集")
+    @RequestMapping(method= RequestMethod.GET , value="/taskstats/fetchdefault")
+	public ResponseEntity<List<TaskStatsDTO>> fetchDefault(TaskStatsSearchContext context) {
+        Page<TaskStats> domains = taskstatsService.searchDefault(context) ;
+        List<TaskStatsDTO> list = taskstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-searchDefault-all')")
+	@ApiOperation(value = "查询数据集", tags = {"任务统计" } ,notes = "查询数据集")
+    @RequestMapping(method= RequestMethod.POST , value="/taskstats/searchdefault")
+	public ResponseEntity<Page<TaskStatsDTO>> searchDefault(@RequestBody TaskStatsSearchContext context) {
+        Page<TaskStats> domains = taskstatsService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-searchUserFinishTaskSum-all')")
+	@ApiOperation(value = "获取用户完成任务统计", tags = {"任务统计" } ,notes = "获取用户完成任务统计")
+    @RequestMapping(method= RequestMethod.GET , value="/taskstats/fetchuserfinishtasksum")
+	public ResponseEntity<List<TaskStatsDTO>> fetchUserFinishTaskSum(TaskStatsSearchContext context) {
+        Page<TaskStats> domains = taskstatsService.searchUserFinishTaskSum(context) ;
+        List<TaskStatsDTO> list = taskstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-searchUserFinishTaskSum-all')")
+	@ApiOperation(value = "查询用户完成任务统计", tags = {"任务统计" } ,notes = "查询用户完成任务统计")
+    @RequestMapping(method= RequestMethod.POST , value="/taskstats/searchuserfinishtasksum")
+	public ResponseEntity<Page<TaskStatsDTO>> searchUserFinishTaskSum(@RequestBody TaskStatsSearchContext context) {
+        Page<TaskStats> domains = taskstatsService.searchUserFinishTaskSum(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 
