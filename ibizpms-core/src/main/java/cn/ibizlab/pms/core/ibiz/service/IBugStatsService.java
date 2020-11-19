@@ -46,6 +46,7 @@ public interface IBugStatsService extends IService<BugStats> {
     boolean checkKey(BugStats et);
     boolean save(BugStats et);
     void saveBatch(List<BugStats> list);
+    Page<BugStats> searchBugCountInResolution(BugStatsSearchContext context);
     Page<BugStats> searchBugResolvedBy(BugStatsSearchContext context);
     Page<BugStats> searchBugassignedTo(BugStatsSearchContext context);
     Page<BugStats> searchDefault(BugStatsSearchContext context);

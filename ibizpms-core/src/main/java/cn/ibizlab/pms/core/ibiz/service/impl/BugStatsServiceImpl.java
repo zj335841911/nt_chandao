@@ -184,6 +184,15 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
 
 
     /**
+     * 查询集合 Bug在每个解决方案的Bug数
+     */
+    @Override
+    public Page<BugStats> searchBugCountInResolution(BugStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchBugCountInResolution(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 Bug完成表
      */
     @Override

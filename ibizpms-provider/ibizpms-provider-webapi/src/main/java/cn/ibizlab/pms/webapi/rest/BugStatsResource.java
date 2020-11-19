@@ -135,6 +135,28 @@ public class BugStatsResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchBugCountInResolution-all')")
+	@ApiOperation(value = "获取Bug在每个解决方案的Bug数", tags = {"Bug统计" } ,notes = "获取Bug在每个解决方案的Bug数")
+    @RequestMapping(method= RequestMethod.GET , value="/bugstats/fetchbugcountinresolution")
+	public ResponseEntity<List<BugStatsDTO>> fetchBugCountInResolution(BugStatsSearchContext context) {
+        Page<BugStats> domains = bugstatsService.searchBugCountInResolution(context) ;
+        List<BugStatsDTO> list = bugstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchBugCountInResolution-all')")
+	@ApiOperation(value = "查询Bug在每个解决方案的Bug数", tags = {"Bug统计" } ,notes = "查询Bug在每个解决方案的Bug数")
+    @RequestMapping(method= RequestMethod.POST , value="/bugstats/searchbugcountinresolution")
+	public ResponseEntity<Page<BugStatsDTO>> searchBugCountInResolution(@RequestBody BugStatsSearchContext context) {
+        Page<BugStats> domains = bugstatsService.searchBugCountInResolution(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchBugResolvedBy-all')")
 	@ApiOperation(value = "获取Bug完成表", tags = {"Bug统计" } ,notes = "获取Bug完成表")
     @RequestMapping(method= RequestMethod.GET , value="/bugstats/fetchbugresolvedby")

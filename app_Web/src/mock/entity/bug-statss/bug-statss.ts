@@ -271,6 +271,50 @@ mock.onPost(new RegExp(/^\/bugstats\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((c
     return [status, data];
 });
     
+// FetchBugCountInResolution
+mock.onGet(new RegExp(/^\/bugstats\/fetchbugcountinresolution$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bugstats 方法: FetchBugCountInResolution");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchBugCountInResolution
+mock.onGet(new RegExp(/^\/bugstats\/fetchbugcountinresolution(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:bugstats 方法: FetchBugCountInResolution");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchBugResolvedBy
 mock.onGet(new RegExp(/^\/bugstats\/fetchbugresolvedby$/)).reply((config: any) => {
     console.groupCollapsed("实体:bugstats 方法: FetchBugResolvedBy");

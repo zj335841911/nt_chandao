@@ -103,6 +103,7 @@ hide members
 
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
+|BugCountInResolution|Bug在每个解决方案的Bug数|BugCountInResolution|否|&nbsp;|
 |BugResolvedBy|Bug完成表|BugResolvedBy|否|&nbsp;|
 |BugassignedTo|Bug指派表|BugassignedTo|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|

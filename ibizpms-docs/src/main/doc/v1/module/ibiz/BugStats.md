@@ -1524,11 +1524,26 @@ LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
 ## 数据集合
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [Bug完成表](#数据集合-Bug完成表（BugResolvedBy）) | BugResolvedBy | 否 |
-| 2 | [Bug指派表](#数据集合-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
-| 3 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
-| 4 | [产品创建bug占比](#数据集合-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
+| 1 | [Bug在每个解决方案的Bug数](#数据集合-Bug在每个解决方案的Bug数（BugCountInResolution）) | BugCountInResolution | 否 |
+| 2 | [Bug完成表](#数据集合-Bug完成表（BugResolvedBy）) | BugResolvedBy | 否 |
+| 3 | [Bug指派表](#数据集合-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
+| 4 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 5 | [产品创建bug占比](#数据集合-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
 
+### 数据集合-Bug在每个解决方案的Bug数（BugCountInResolution）
+#### 说明
+Bug在每个解决方案的Bug数
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [Bug在每个解决方案的Bug数（BugCountInResolution）](#数据查询-Bug在每个解决方案的Bug数（BugCountInResolution）) |
 ### 数据集合-Bug完成表（BugResolvedBy）
 #### 说明
 Bug完成表
