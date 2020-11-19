@@ -32,6 +32,11 @@ export default class UserFinishTaskSumModel {
           dataType: 'TEXT',
         },
         {
+          name: 'finishedby',
+          prop: 'finishedby',
+          dataType: 'TEXT',
+        },
+        {
           name: 'totalestimate',
           prop: 'totalestimate',
           dataType: 'INT',

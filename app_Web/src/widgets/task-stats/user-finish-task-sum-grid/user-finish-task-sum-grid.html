@@ -35,8 +35,20 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('finishedby')">
+                <el-table-column show-overflow-tooltip :prop="'finishedby'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.finishedby')" :width="150"  :align="'center'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.taskstats.userfinishtasksum_grid.columns.finishedby')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.finishedby}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('totalestimate')">
-                <el-table-column show-overflow-tooltip :prop="'totalestimate'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.totalestimate')" :width="120"  :align="'center'">
+                <el-table-column show-overflow-tooltip :prop="'totalestimate'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.totalestimate')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.taskstats.userfinishtasksum_grid.columns.totalestimate')}}
@@ -48,7 +60,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('totalconsumed')">
-                <el-table-column show-overflow-tooltip :prop="'totalconsumed'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.totalconsumed')" :width="120"  :align="'center'">
+                <el-table-column show-overflow-tooltip :prop="'totalconsumed'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.totalconsumed')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.taskstats.userfinishtasksum_grid.columns.totalconsumed')}}
@@ -60,7 +72,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('totalleft')">
-                <el-table-column show-overflow-tooltip :prop="'totalleft'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.totalleft')" :width="120"  :align="'center'">
+                <el-table-column show-overflow-tooltip :prop="'totalleft'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.totalleft')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.taskstats.userfinishtasksum_grid.columns.totalleft')}}
