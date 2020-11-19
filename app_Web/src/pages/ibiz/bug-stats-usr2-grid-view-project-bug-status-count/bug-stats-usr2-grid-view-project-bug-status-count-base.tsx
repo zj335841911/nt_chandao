@@ -325,4 +325,13 @@ export class BugStatsUsr2GridViewProjectBugStatusCountBase extends GridViewBase 
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof BugStatsUsr2GridViewProjectBugStatusCountBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }

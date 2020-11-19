@@ -27,13 +27,8 @@ export default class ProjectBugStatusCountModel {
     }else{
 		  return [
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'projectname1',
-          prop: 'projectname1',
+          name: 'projectname',
+          prop: 'projectname',
           dataType: 'TEXT',
         },
         {
@@ -49,6 +44,11 @@ export default class ProjectBugStatusCountModel {
         {
           name: 'bugactive',
           prop: 'bugactive',
+          dataType: 'INT',
+        },
+        {
+          name: 'bugcnt',
+          prop: 'bugcnt',
           dataType: 'INT',
         },
         {

@@ -3003,7 +3003,7 @@ LEFT JOIN zt_product t2 on t2.id = t1.product
 ```sql
 SELECT
 	t1.project,
-	t1.projectname as projectname1,
+	t1.projectname,
 		sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS bugresolved,
 		sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS bugclosed,
 		sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS bugactive,

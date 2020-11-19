@@ -171,11 +171,11 @@ export default {
 	projectbugstatuscount_grid: {
 		nodata: "",
 		columns: {
-			id: "标识",
-			projectname1: "项目名称",
+			projectname: "项目名称",
 			bugresolved: "已解决Bug",
 			bugclosed: "已关闭Bug",
 			bugactive: "激活Bug",
+			bugcnt: "Bug",
 		},
 		uiactions: {
 		},

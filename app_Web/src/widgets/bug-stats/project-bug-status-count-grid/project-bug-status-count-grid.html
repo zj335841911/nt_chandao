@@ -25,27 +25,15 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('id')">
-                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.bugstats.projectbugstatuscount_grid.columns.id')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('projectname')">
+                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.bugstats.projectbugstatuscount_grid.columns.projectname')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.bugstats.projectbugstatuscount_grid.columns.id')}}
+                        {{$t('entities.bugstats.projectbugstatuscount_grid.columns.projectname')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.id}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('projectname1')">
-                <el-table-column show-overflow-tooltip :prop="'projectname1'" :label="$t('entities.bugstats.projectbugstatuscount_grid.columns.projectname1')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.bugstats.projectbugstatuscount_grid.columns.projectname1')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.projectname1}}</span>
+                            <span>{{row.projectname}}</span>
                     </template>
                 </el-table-column>
             </template>
@@ -82,6 +70,18 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                             <span>{{row.bugactive}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('bugcnt')">
+                <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.bugstats.projectbugstatuscount_grid.columns.bugcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.bugstats.projectbugstatuscount_grid.columns.bugcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.bugcnt}}</span>
                     </template>
                 </el-table-column>
             </template>

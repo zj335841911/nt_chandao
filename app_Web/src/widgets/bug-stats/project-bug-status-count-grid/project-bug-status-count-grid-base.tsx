@@ -84,13 +84,6 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "";
 
-    /**
-     * 列主键属性名称
-     *
-     * @type {string}
-     * @memberof ProjectBugStatusCountGridBase
-     */
-    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识
@@ -117,18 +110,9 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
      */
     public allColumns: any[] = [
         {
-            name: 'id',
-            label: '标识',
-            langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.id',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'projectname1',
+            name: 'projectname',
             label: '项目名称',
-            langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.projectname1',
+            langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.projectname',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -156,6 +140,15 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
             name: 'bugactive',
             label: '激活Bug',
             langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.bugactive',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'bugcnt',
+            label: 'Bug',
+            langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.bugcnt',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -262,11 +255,11 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
      * @memberof ProjectBugStatusCountBase
      */
     public hasRowEdit: any = {
-        'id':false,
-        'projectname1':false,
+        'projectname':false,
         'bugresolved':false,
         'bugclosed':false,
         'bugactive':false,
+        'bugcnt':false,
     };
 
     /**
@@ -354,7 +347,7 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
     * @memberof ProjectBugStatusCountBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','projectname1','bugresolved','bugclosed','bugactive'];
+        let allColumns:Array<any> = ['projectname','bugresolved','bugclosed','bugactive','bugcnt'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -433,11 +426,11 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
-                id:'',
-                projectname1:'',
+                projectname:'',
                 bugresolved:'',
                 bugclosed:'',
                 bugactive:'',
+                bugcnt:'',
                 children: children
             }
             groupTree.push(tree);
@@ -462,11 +455,11 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
-            id:'',
-            projectname1:'',
+            projectname:'',
             bugresolved:'',
             bugclosed:'',
             bugactive:'',
+            bugcnt:'',
             children: child
         }
         if(child && child.length > 0){
@@ -527,11 +520,11 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
-                id:'',
-                projectname1:'',
+                projectname:'',
                 bugresolved:'',
                 bugclosed:'',
                 bugactive:'',
+                bugcnt:'',
                 children: children,
             }
             groupTree.push(tree);
