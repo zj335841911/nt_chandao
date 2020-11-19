@@ -86,10 +86,6 @@ export class IbzMyTerritoryStatsTabExpViewBase extends TabExpViewBase {
      * @memberof IbzMyTerritoryStatsTabExpViewBase
      */
     protected containerModel: any = {
-        view_treeview: {
-            name: 'treeview',
-            type: 'TREEVIEW',
-        },
         view_tabexppanel: {
             name: 'tabexppanel',
             type: 'TABEXPPANEL',

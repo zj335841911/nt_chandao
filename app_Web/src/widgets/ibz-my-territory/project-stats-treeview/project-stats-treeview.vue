@@ -6,7 +6,7 @@ import { ProjectStatsTreeBase } from './project-stats-treeview-base';
  
 
 /**
- * treeview部件
+ * treeexpbar_tree部件
  *
  * @export
  * @class ProjectStatsTree

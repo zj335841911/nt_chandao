@@ -3683,6 +3683,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'cef6e71f89bb0007d341328d455f6da0',
+                'ea95775efe5ddc489fdbfae6b35a16e0',
                 'e090d7f19211e8fbbab5d4442c6e58e8',
                 'bef7c08b651990569cd09ce805ebcfe3',
             ],
@@ -4381,6 +4382,15 @@ export const viewstate: any = {
             viewtag: 'ea7b1f6631cb623ea079455b374ef9d4',
             viewmodule: 'zentao',
             viewname: 'TestReportprojectDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'ea95775efe5ddc489fdbfae6b35a16e0',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryTreeExpViewProjectStats',
             viewaction: '',
             viewdatachange: false,
             refviews: [

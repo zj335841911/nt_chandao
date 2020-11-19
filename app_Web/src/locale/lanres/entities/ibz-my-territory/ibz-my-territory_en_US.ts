@@ -119,20 +119,20 @@ export default {
 		uiactions: {
 		},
 	},
-	employeeload_treeview: {
-		nodes: {
-			employeeload: "员工负载表",
-			root: "默认根节点",
-		},
-		uiactions: {
-		},
-	},
 	projectstats_treeview: {
 		nodes: {
 			bugresolutioncount: "bug解决方案统计",
 			bugstatuscount: "bug状态统计",
 			root: "默认根节点",
 			taskstatuscount: "任务状态统计",
+		},
+		uiactions: {
+		},
+	},
+	employeeload_treeview: {
+		nodes: {
+			employeeload: "员工负载表",
+			root: "默认根节点",
 		},
 		uiactions: {
 		},

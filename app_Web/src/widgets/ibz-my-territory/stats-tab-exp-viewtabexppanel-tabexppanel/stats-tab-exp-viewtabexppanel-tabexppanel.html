@@ -37,6 +37,35 @@
         </tab-pane>
         <tab-pane
             :index="1"
+            name="tabviewpanel5"
+            tab="statstabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel5'].visible"
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '项目'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel5 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel5"
+    name="tabviewpanel5"  
+    ref="tabviewpanel5"
+    :expActive="activatedTabViewPanel === 'tabviewpanel5'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel5>
+        </tab-pane>
+        <tab-pane
+            :index="2"
             name="tabviewpanel"
             tab="statstabexpviewtabexppanel"
             class=""
@@ -65,7 +94,7 @@
 </view_tabviewpanel>
         </tab-pane>
         <tab-pane
-            :index="2"
+            :index="3"
             name="tabviewpanel2"
             tab="statstabexpviewtabexppanel"
             class=""

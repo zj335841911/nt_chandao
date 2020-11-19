@@ -7,7 +7,7 @@ import ProjectStatsService from './project-stats-treeview-service';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
 
 /**
- * treeview部件基类
+ * treeexpbar_tree部件基类
  *
  * @export
  * @class MainControlBase
@@ -426,7 +426,7 @@ export class ProjectStatsTreeBase extends MainControlBase {
         if (Object.keys(this.currentselectedNode).length === 0) {
             return;
         }
-        const tree: any = this.$refs.treeview;
+        const tree: any = this.$refs.treeexpbar_tree;
         const node: any = tree.getNode(this.currentselectedNode.id);
         if (!node || !node.parent) {
             return;
@@ -541,7 +541,7 @@ export class ProjectStatsTreeBase extends MainControlBase {
             }
             const _items = [...response.data];
             this.formatExpanded(_items);
-            const tree: any = this.$refs.treeview;
+            const tree: any = this.$refs.treeexpbar_tree;
             tree.updateKeyChildren(id, _items);
             if (parentnode) {
                 this.currentselectedNode = {};
@@ -665,7 +665,7 @@ export class ProjectStatsTreeBase extends MainControlBase {
      * @memberof ProjectStatsBase
      */
     public setTreeNodeHighLight(data: any): void {
-        const tree: any = this.$refs.treeview;
+        const tree: any = this.$refs.treeexpbar_tree;
         tree.setCurrentKey(data.id);
     }
 
