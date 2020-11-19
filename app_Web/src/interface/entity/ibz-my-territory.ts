@@ -389,4 +389,44 @@ export interface IbzMyTerritory {
      * @memberof IbzMyTerritory
      */
     myterritorycnt?: any;
+
+    /**
+     * 项目名称
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    projectname?: any;
+
+    /**
+     * 完成者
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    finishedby?: any;
+
+    /**
+     * 预计总工时
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    totalestimate?: any;
+
+    /**
+     * 消耗总工时
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    totalconsumed?: any;
+
+    /**
+     * 剩余总工时
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    totalleft?: any;
 }

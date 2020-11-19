@@ -6687,6 +6687,9 @@ t1.`SCORE`,
 t1.`SCORELEVEL`,
 t1.`SKYPE`,
 t1.`SLACK`,
+0 AS `TOTALCONSUMED`,
+0 AS `TOTALESTIMATE`,
+0 AS `TOTALLEFT`,
 t1.`VISITS`,
 t1.`WEIXIN`,
 t1.`WHATSAPP`,
@@ -6789,6 +6792,66 @@ GROUP BY
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mystorys FROM zt_story t GROUP BY t.assignedTo ) t41 ON t1.account = t41.account
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS MYETASKS FROM zt_task t where (t.`status` = 'wait' or t.`status` = 'doing') and (t.DEADLINE < DATE_FORMAT(now(),'%Y-%m-%d') and t.deadline <> '0000-00-00') GROUP BY t.assignedTo ) t51 ON t1.account = t51.account
 ```
+### 用户完成任务统计(UserFinishTaskSum)<div id="IbzMyTerritory_UserFinishTaskSum"></div>
+```sql
+SELECT
+	t1.id,
+	t1.`name`,
+	t2.account,
+	t2.`TOTALESTIMATE`,
+	t2.`TOTALCONSUMED`,
+	t2.`TOTALLEFT` 
+FROM
+	zt_project t1
+	JOIN (
+	SELECT
+		t1.project,
+		t1.account,
+		sum( t1.estimate ) AS `TOTALESTIMATE`,
+		sum( t1.consumed ) AS `TOTALCONSUMED`,
+		sum( t1.`left` ) AS `TOTALLEFT` 
+	FROM
+		((
+			SELECT
+				t1.project,
+				t2.account,
+				t2.`left` + t2.consumed AS estimate,
+				t2.consumed,
+				t2.`left` 
+			FROM
+				(
+				SELECT
+					t1.id,
+					t1.project 
+				FROM
+					zt_task t1 
+				WHERE
+					t1.deleted = '0' 
+					AND t1.parent <> - 1 
+				AND t1.id IN ( SELECT DISTINCT root FROM zt_team WHERE type = 'task' )) t1
+				JOIN zt_taskestimate t2 ON t1.id = t2.task 
+				) UNION
+			(
+			SELECT
+				t1.project,
+				t1.finishedBy AS account,
+				t1.estimate,
+				t1.consumed,
+				t1.`left` 
+			FROM
+				zt_task t1 
+			WHERE
+				t1.deleted = '0' 
+				AND t1.parent <> - 1 
+				AND t1.finishedBy <> '' 
+			AND t1.id NOT IN ( SELECT DISTINCT root FROM zt_team WHERE type = 'task' ))) t1 
+	GROUP BY
+		t1.project,
+		t1.account 
+	) t2 ON t1.id = t2.project 
+WHERE
+	deleted = '0'
+```
 ### 默认（全部数据）(VIEW)<div id="IbzMyTerritory_View"></div>
 ```sql
 SELECT
@@ -6822,6 +6885,9 @@ t1.`SCORE`,
 t1.`SCORELEVEL`,
 t1.`SKYPE`,
 t1.`SLACK`,
+0 AS `TOTALCONSUMED`,
+0 AS `TOTALESTIMATE`,
+0 AS `TOTALLEFT`,
 t1.`VISITS`,
 t1.`WEIXIN`,
 t1.`WHATSAPP`,
@@ -11807,6 +11873,19 @@ FROM
 WHERE t1.DELETED = '0' 
 ( t1.`STATUS` <> 'closed' ) 
 ((t1.acl = 'private' and t1.id in (select t3.root from zt_team t3 where t3.account = #{srf.sessioncontext.srfloginname}  and t3.type = 'project')) or t1.acl = 'open') 
+
+```
+### 项目任务统计(任务状态)(ProjectTaskCountByTaskStatus)<div id="ProjectStats_ProjectTaskCountByTaskStatus"></div>
+```sql
+
+select t1.id,t1.`name`,t2.closedTaskcnt,t3.cancelTaskcnt,t4.doneTaskcnt,t5.pauseTaskcnt,t6.waitTaskcnt,t7.doingTaskcnt from zt_project t1 
+LEFT JOIN (select t1.project,count(1) as closedTaskcnt from zt_task t1 where t1.`status` = 'closed' and t1.deleted = '0' GROUP BY t1.project) t2 on t1.id = t2.project
+LEFT JOIN (select t1.project,count(1) as cancelTaskcnt from zt_task t1 where t1.`status` = 'cancel' and t1.deleted = '0' GROUP BY t1.project) t3 on t1.id = t3.project
+LEFT JOIN (select t1.project,count(1) as doneTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t4 on t1.id = t4.project
+LEFT JOIN (select t1.project,count(1) as pauseTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t5 on t1.id = t5.project
+LEFT JOIN (select t1.project,count(1) as waitTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t6 on t1.id = t6.project
+LEFT JOIN (select t1.project,count(1) as doingTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t7 on t1.id = t7.project where  t1.deleted = '0'
+WHERE t1.DELETED = '0' 
 
 ```
 ### 任务工时消耗剩余查询(TASKTIME)<div id="ProjectStats_TaskTime"></div>

@@ -64,6 +64,11 @@
 | 46 | [我收藏的任务](#属性-我收藏的任务（MYFAVORITETASKS）) | MYFAVORITETASKS | 整型 | 否 | 否 | 是 |
 | 47 | [我的收藏](#属性-我的收藏（MYFAVORITES）) | MYFAVORITES | 整型 | 否 | 否 | 是 |
 | 48 | [我的地盘](#属性-我的地盘（MYTERRITORYCNT）) | MYTERRITORYCNT | 整型 | 否 | 否 | 是 |
+| 49 | [项目名称](#属性-项目名称（PROJECTNAME）) | PROJECTNAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 50 | [完成者](#属性-完成者（FINISHEDBY）) | FINISHEDBY | 文本，可指定长度 | 否 | 否 | 是 |
+| 51 | [预计总工时](#属性-预计总工时（TOTALESTIMATE）) | TOTALESTIMATE | 整型 | 否 | 否 | 是 |
+| 52 | [消耗总工时](#属性-消耗总工时（TOTALCONSUMED）) | TOTALCONSUMED | 整型 | 否 | 否 | 是 |
+| 53 | [剩余总工时](#属性-剩余总工时（TOTALLEFT）) | TOTALLEFT | 整型 | 否 | 否 | 是 |
 
 ### 属性-fails（FAILS）
 #### 属性说明
@@ -1882,6 +1887,197 @@ Integer
 #### 关系属性
 无
 
+### 属性-项目名称（PROJECTNAME）
+#### 属性说明
+项目名称
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-完成者（FINISHEDBY）
+#### 属性说明
+完成者
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-预计总工时（TOTALESTIMATE）
+#### 属性说明
+预计总工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-消耗总工时（TOTALCONSUMED）
+#### 属性说明
+消耗总工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-剩余总工时（TOTALLEFT）
+#### 属性说明
+剩余总工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -2095,8 +2291,9 @@ Save
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 2 | [我的工作](#数据查询-我的工作（MyWork）) | MyWork | 否 |
 | 3 | [我的工作](#数据查询-我的工作（MyWorkMob）) | MyWorkMob | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
-| 5 | [欢迎](#数据查询-欢迎（Welcome）) | Welcome | 否 |
+| 4 | [用户完成任务统计](#数据查询-用户完成任务统计（UserFinishTaskSum）) | UserFinishTaskSum | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 6 | [欢迎](#数据查询-欢迎（Welcome）) | Welcome | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -2142,6 +2339,9 @@ t1.`SCORE`,
 t1.`SCORELEVEL`,
 t1.`SKYPE`,
 t1.`SLACK`,
+0 AS `TOTALCONSUMED`,
+0 AS `TOTALESTIMATE`,
+0 AS `TOTALLEFT`,
 t1.`VISITS`,
 t1.`WEIXIN`,
 t1.`WHATSAPP`,
@@ -2266,6 +2466,77 @@ GROUP BY
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mystorys FROM zt_story t GROUP BY t.assignedTo ) t41 ON t1.account = t41.account
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS MYETASKS FROM zt_task t where (t.`status` = 'wait' or t.`status` = 'doing') and (t.DEADLINE < DATE_FORMAT(now(),'%Y-%m-%d') and t.deadline <> '0000-00-00') GROUP BY t.assignedTo ) t51 ON t1.account = t51.account
 ```
+### 数据查询-用户完成任务统计（UserFinishTaskSum）
+#### 说明
+用户完成任务统计
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.id,
+	t1.`name`,
+	t2.account,
+	t2.`TOTALESTIMATE`,
+	t2.`TOTALCONSUMED`,
+	t2.`TOTALLEFT` 
+FROM
+	zt_project t1
+	JOIN (
+	SELECT
+		t1.project,
+		t1.account,
+		sum( t1.estimate ) AS `TOTALESTIMATE`,
+		sum( t1.consumed ) AS `TOTALCONSUMED`,
+		sum( t1.`left` ) AS `TOTALLEFT` 
+	FROM
+		((
+			SELECT
+				t1.project,
+				t2.account,
+				t2.`left` + t2.consumed AS estimate,
+				t2.consumed,
+				t2.`left` 
+			FROM
+				(
+				SELECT
+					t1.id,
+					t1.project 
+				FROM
+					zt_task t1 
+				WHERE
+					t1.deleted = '0' 
+					AND t1.parent <> - 1 
+				AND t1.id IN ( SELECT DISTINCT root FROM zt_team WHERE type = 'task' )) t1
+				JOIN zt_taskestimate t2 ON t1.id = t2.task 
+				) UNION
+			(
+			SELECT
+				t1.project,
+				t1.finishedBy AS account,
+				t1.estimate,
+				t1.consumed,
+				t1.`left` 
+			FROM
+				zt_task t1 
+			WHERE
+				t1.deleted = '0' 
+				AND t1.parent <> - 1 
+				AND t1.finishedBy <> '' 
+			AND t1.id NOT IN ( SELECT DISTINCT root FROM zt_team WHERE type = 'task' ))) t1 
+	GROUP BY
+		t1.project,
+		t1.account 
+	) t2 ON t1.id = t2.project 
+WHERE
+	deleted = '0'
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -2310,6 +2581,9 @@ t1.`SCORE`,
 t1.`SCORELEVEL`,
 t1.`SKYPE`,
 t1.`SLACK`,
+0 AS `TOTALCONSUMED`,
+0 AS `TOTALESTIMATE`,
+0 AS `TOTALLEFT`,
 t1.`VISITS`,
 t1.`WEIXIN`,
 t1.`WHATSAPP`,
@@ -2344,7 +2618,8 @@ FROM
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [我的工作](#数据集合-我的工作（MyWork）) | MyWork | 否 |
 | 3 | [我的工作](#数据集合-我的工作（MyWorkMob）) | MyWorkMob | 否 |
-| 4 | [欢迎](#数据集合-欢迎（Welcome）) | Welcome | 否 |
+| 4 | [用户完成任务统计](#数据集合-用户完成任务统计（UserFinishTaskSum）) | UserFinishTaskSum | 否 |
+| 5 | [欢迎](#数据集合-欢迎（Welcome）) | Welcome | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -2388,6 +2663,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我的工作（MyWorkMob）](#数据查询-我的工作（MyWorkMob）) |
+### 数据集合-用户完成任务统计（UserFinishTaskSum）
+#### 说明
+用户完成任务统计
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [用户完成任务统计（UserFinishTaskSum）](#数据查询-用户完成任务统计（UserFinishTaskSum）) |
 ### 数据集合-欢迎（Welcome）
 #### 说明
 欢迎

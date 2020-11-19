@@ -48,15 +48,28 @@ export default {
     myfavoritetasks: "我收藏的任务",
     myfavorites: "我的收藏",
     myterritorycnt: "我的地盘",
+    projectname: "项目名称",
+    finishedby: "完成者",
+    totalestimate: "预计总工时",
+    totalconsumed: "消耗总工时",
+    totalleft: "剩余总工时",
   },
 	views: {
 		tabexpview: {
 			caption: "我的地盘",
       		title: "我的地盘",
 		},
+		editview: {
+			caption: "我的地盘",
+      		title: "我的地盘编辑视图",
+		},
 		calendarexpview: {
 			caption: "我的地盘",
       		title: "我的地盘日历导航视图",
+		},
+		userfinishtaskgridview: {
+			caption: "用户完成任务",
+      		title: "我的地盘表格视图",
 		},
 		calendarview: {
 			caption: "我的地盘",
@@ -98,6 +111,63 @@ export default {
 			caption: "项目汇总表",
       		title: "我的地盘我的地盘实体树导航视图（项目汇总表）导航视图",
 		},
+	},
+	main_form: {
+		details: {
+			group1: "我的地盘基本信息", 
+			formpage1: "基本信息", 
+			group2: "操作信息", 
+			formpage2: "其它", 
+			srforikey: "", 
+			srfkey: "ID", 
+			srfmajortext: "真实姓名", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			id: "ID", 
+		},
+		uiactions: {
+		},
+	},
+	userfinishtasksum_grid: {
+		nodata: "",
+		columns: {
+			projectname: "项目名称",
+			finishedby: "完成者",
+			totalestimate: "预计总工时",
+			totalconsumed: "消耗总工时",
+			totalleft: "剩余总工时",
+		},
+		uiactions: {
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+		},
+		uiactions: {
+		},
+	},
+	editviewtoolbar_toolbar: {
+		tbitem3: {
+			caption: "Save",
+			tip: "Save",
+		},
+		tbitem4: {
+			caption: "Save And New",
+			tip: "Save And New",
+		},
+		tbitem5: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+		tbitem7: {
+			caption: "Remove And Close",
+			tip: "Remove And Close Window",
+		},
+	},
+	userfinishtaskgridviewtoolbar_toolbar: {
 	},
 	productsum_treeview: {
 		nodes: {

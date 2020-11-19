@@ -159,6 +159,21 @@ export default class TabExpViewtabviewpanel10Model {
       {
         name: 'myterritorycnt',
       },
+      {
+        name: 'projectname',
+      },
+      {
+        name: 'finishedby',
+      },
+      {
+        name: 'totalestimate',
+      },
+      {
+        name: 'totalconsumed',
+      },
+      {
+        name: 'totalleft',
+      },
     ]
   }
 

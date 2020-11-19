@@ -159,6 +159,21 @@ export default class StatsTabExpViewtabviewpanel5Model {
       {
         name: 'myterritorycnt',
       },
+      {
+        name: 'projectname',
+      },
+      {
+        name: 'finishedby',
+      },
+      {
+        name: 'totalestimate',
+      },
+      {
+        name: 'totalconsumed',
+      },
+      {
+        name: 'totalleft',
+      },
     ]
   }
 

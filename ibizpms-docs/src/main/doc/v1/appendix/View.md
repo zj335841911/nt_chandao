@@ -320,6 +320,7 @@ SRFNAVPARAM.project=%project%|
 |-|继续任务|DEOPTVIEW|&nbsp;|
 |-|项目编辑视图（计划添加）|DEEDITVIEW|&nbsp;|
 |-|产品汇总表表格视图|DEGRIDVIEW|&nbsp;|
+|-|我的地盘编辑视图|DEEDITVIEW|&nbsp;|
 |-|任务编辑视图|DEEDITVIEW|&nbsp;|
 |-|转BUG|DEEDITVIEW|&nbsp;|
 |-|燃尽图|DECHARTVIEW|&nbsp;|
@@ -442,6 +443,7 @@ SRFNAVPARAM.project=%project%|
 |-|用例库编辑视图|DEEDITVIEW|&nbsp;|
 |-|历史记录|DELISTVIEW|&nbsp;视图参数从上下文中获取对应的对象类型|
 |-|平台管理|DEGRIDVIEW|&nbsp;|
+|-|我的地盘表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW9|&nbsp;|
 |-|需求表格视图|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|
 |-|测试套件编辑视图|DEEDITVIEW|&nbsp;|

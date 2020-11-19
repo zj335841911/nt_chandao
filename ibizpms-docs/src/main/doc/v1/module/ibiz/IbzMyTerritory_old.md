@@ -57,6 +57,11 @@
 |我收藏的任务|MYFAVORITETASKS|INT|&nbsp;|
 |我的收藏|MYFAVORITES|INT|&nbsp;|
 |我的地盘|MYTERRITORYCNT|INT|&nbsp;|
+|项目名称|PROJECTNAME|TEXT|&nbsp;|
+|完成者|FINISHEDBY|TEXT|&nbsp;|
+|预计总工时|TOTALESTIMATE|INT|&nbsp;|
+|消耗总工时|TOTALCONSUMED|INT|&nbsp;|
+|剩余总工时|TOTALLEFT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -109,6 +114,11 @@
 |我收藏的任务|默认规则|默认规则|
 |我的收藏|默认规则|默认规则|
 |我的地盘|默认规则|默认规则|
+|项目名称|默认规则|内容长度必须小于等于[100]|
+|完成者|默认规则|内容长度必须小于等于[100]|
+|预计总工时|默认规则|默认规则|
+|消耗总工时|默认规则|默认规则|
+|剩余总工时|默认规则|默认规则|
 
 ## 状态控制
 
@@ -205,6 +215,7 @@ hide footbox
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_Default))|否|&nbsp;|
 |MyWork|我的工作([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_MyWork))|否|&nbsp;|
 |MyWorkMob|我的工作([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_MyWorkMob))|否|&nbsp;|
+|UserFinishTaskSum|用户完成任务统计([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_UserFinishTaskSum))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_View))|否|&nbsp;|
 |welcome|欢迎([MYSQL5](../../appendix/query_MYSQL5.md#IbzMyTerritory_Welcome))|否|&nbsp;|
 
@@ -215,6 +226,7 @@ hide footbox
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |MyWork|我的工作|MyWork|否|&nbsp;|
 |MyWorkMob|我的工作|MyWorkMob|否|&nbsp;|
+|UserFinishTaskSum|用户完成任务统计|UserFinishTaskSum|否|&nbsp;|
 |welcome|欢迎|welcome|否|&nbsp;|
 
 ## 查询模式

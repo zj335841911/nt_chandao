@@ -1119,6 +1119,16 @@
         "viewtag": "3989c98a31e037a67b27cdf7acb1f7cd",
         "memo": ""
     },
+    "ibzmyterritoryeditview": {
+        "title": "我的地盘编辑视图",
+        "caption": "我的地盘",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "IbzMyTerritoryEditView",
+        "viewfilename": "ibz-my-territory-edit-view",
+        "viewtag": "39e5daf0dbfad3f76c5fa2625383d402",
+        "memo": ""
+    },
     "tasktodoeditview": {
         "title": "任务编辑视图",
         "caption": "待办转任务",
@@ -2337,6 +2347,16 @@
         "viewname": "BranchPMGridView",
         "viewfilename": "branch-pmgrid-view",
         "viewtag": "776ea44ea05316c9c6cb9d5948e993f9",
+        "memo": ""
+    },
+    "ibzmyterritoryuserfinishtaskgridview": {
+        "title": "我的地盘表格视图",
+        "caption": "用户完成任务",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzMyTerritoryUserFinishTaskGridView",
+        "viewfilename": "ibz-my-territory-user-finish-task-grid-view",
+        "viewtag": "786034b713f73a89a824e9a3c41129db",
         "memo": ""
     },
     "taskgridview9_assignedtome": {

@@ -230,6 +230,35 @@ export default class ProjectStatsServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectTaskCountByTaskStatus接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsServiceBase
+     */
+    public async FetchProjectTaskCountByTaskStatus(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projectstats/fetchprojecttaskcountbytaskstatus`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProjectTaskCountByTaskStatus接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsServiceBase
+     */
+    public async searchProjectTaskCountByTaskStatus(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projectstats/searchprojecttaskcountbytaskstatus`,tempData,isloading);
+    }
+
+    /**
      * FetchTaskTime接口方法
      *
      * @param {*} [context={}]

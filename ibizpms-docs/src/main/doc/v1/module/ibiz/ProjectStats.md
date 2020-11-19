@@ -1438,8 +1438,9 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 2 | [未关闭产品](#数据查询-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
-| 3 | [任务工时消耗剩余查询](#数据查询-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [项目任务统计(任务状态)](#数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
+| 4 | [任务工时消耗剩余查询](#数据查询-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -1833,6 +1834,28 @@ FROM
 	`zt_project` t1
 	left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
 ```
+### 数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）
+#### 说明
+项目任务统计(任务状态)
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+
+select t1.id,t1.`name`,t2.closedTaskcnt,t3.cancelTaskcnt,t4.doneTaskcnt,t5.pauseTaskcnt,t6.waitTaskcnt,t7.doingTaskcnt from zt_project t1 
+LEFT JOIN (select t1.project,count(1) as closedTaskcnt from zt_task t1 where t1.`status` = 'closed' and t1.deleted = '0' GROUP BY t1.project) t2 on t1.id = t2.project
+LEFT JOIN (select t1.project,count(1) as cancelTaskcnt from zt_task t1 where t1.`status` = 'cancel' and t1.deleted = '0' GROUP BY t1.project) t3 on t1.id = t3.project
+LEFT JOIN (select t1.project,count(1) as doneTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t4 on t1.id = t4.project
+LEFT JOIN (select t1.project,count(1) as pauseTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t5 on t1.id = t5.project
+LEFT JOIN (select t1.project,count(1) as waitTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t6 on t1.id = t6.project
+LEFT JOIN (select t1.project,count(1) as doingTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t7 on t1.id = t7.project where  t1.deleted = '0'
+```
 ### 数据查询-任务工时消耗剩余查询（TaskTime）
 #### 说明
 该查询主要供统计图表使用
@@ -1906,7 +1929,8 @@ FROM `zt_project` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [未关闭产品](#数据集合-未关闭产品（NoOpenProduct）) | NoOpenProduct | 否 |
-| 3 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
+| 3 | [项目任务统计(任务状态)](#数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) | ProjectTaskCountByTaskStatus | 否 |
+| 4 | [任务工时消耗剩余查询](#数据集合-任务工时消耗剩余查询（TaskTime）) | TaskTime | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -1936,6 +1960,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [未关闭产品（NoOpenProduct）](#数据查询-未关闭产品（NoOpenProduct）) |
+### 数据集合-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）
+#### 说明
+项目任务统计(任务状态)
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）](#数据查询-项目任务统计(任务状态)（ProjectTaskCountByTaskStatus）) |
 ### 数据集合-任务工时消耗剩余查询（TaskTime）
 #### 说明
 任务工时消耗剩余查询

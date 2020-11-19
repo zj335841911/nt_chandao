@@ -47159,10 +47159,12 @@ CREATE TABLE `zt_testsuite`(
 | RANZHI        | ranzhi  | VARCHAR      |   30   | &nbsp; |
 | ROLE        | 职位  | VARCHAR      |   100   | &nbsp; |
 | LOCKED        | locked  | DATETIME      |   -1   | &nbsp; |
+| TOTALESTIMATE        | 预计总工时  | INTEGER      |   -1   | &nbsp; |
 | CLIENTLANG        | clientLang  | VARCHAR      |   10   | &nbsp; |
 | REALNAME        | 真实姓名  | VARCHAR      |   100   | &nbsp; |
 | PHONE        | 电话  | VARCHAR      |   20   | &nbsp; |
 | QQ        | QQ  | VARCHAR      |   20   | &nbsp; |
+| TOTALLEFT        | 剩余总工时  | INTEGER      |   -1   | &nbsp; |
 | AVATAR        | avatar  | VARCHAR      |   30   | &nbsp; |
 | JOIN        | 入职日期  | DATETIME      |   -1   | &nbsp; |
 | LAST        | 最后登录  | INTEGER      |   -1   | &nbsp; |
@@ -47178,6 +47180,7 @@ CREATE TABLE `zt_testsuite`(
 | FAILS        | fails  | INTEGER      |   -1   | &nbsp; |
 | SLACK        | slack  | VARCHAR      |   90   | &nbsp; |
 | ACCOUNT        | 账户  | VARCHAR      |   30   | &nbsp; |
+| TOTALCONSUMED        | 消耗总工时  | INTEGER      |   -1   | &nbsp; |
 | DINGDING        | 钉钉  | VARCHAR      |   90   | &nbsp; |
 | EMAIL        | 邮箱  | VARCHAR      |   90   | &nbsp; |
 | CLIENTSTATUS        | clientStatus  | VARCHAR      |   60   | &nbsp; |

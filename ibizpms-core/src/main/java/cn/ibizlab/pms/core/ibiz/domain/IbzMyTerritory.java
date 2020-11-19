@@ -394,6 +394,41 @@ public class IbzMyTerritory extends EntityMP implements Serializable {
     @JSONField(name = "myterritorycnt")
     @JsonProperty("myterritorycnt")
     private Integer myterritorycnt;
+    /**
+     * 项目名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
+    /**
+     * 完成者
+     */
+    @TableField(exist = false)
+    @JSONField(name = "finishedby")
+    @JsonProperty("finishedby")
+    private String finishedby;
+    /**
+     * 预计总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalestimate")
+    @JsonProperty("totalestimate")
+    private Integer totalestimate;
+    /**
+     * 消耗总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalconsumed")
+    @JsonProperty("totalconsumed")
+    private Integer totalconsumed;
+    /**
+     * 剩余总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalleft")
+    @JsonProperty("totalleft")
+    private Integer totalleft;
 
 
 

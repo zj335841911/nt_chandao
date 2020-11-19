@@ -903,6 +903,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductSumGridView",
             "viewtag": "3989c98a31e037a67b27cdf7acb1f7cd"
         },
+        "ibzmyterritoryeditview": {
+            "title": "我的地盘编辑视图",
+            "caption": "我的地盘",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "IbzMyTerritoryEditView",
+            "viewtag": "39e5daf0dbfad3f76c5fa2625383d402"
+        },
         "tasktodoeditview": {
             "title": "任务编辑视图",
             "caption": "待办转任务",
@@ -1878,6 +1886,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BranchPMGridView",
             "viewtag": "776ea44ea05316c9c6cb9d5948e993f9"
+        },
+        "ibzmyterritoryuserfinishtaskgridview": {
+            "title": "我的地盘表格视图",
+            "caption": "用户完成任务",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryUserFinishTaskGridView",
+            "viewtag": "786034b713f73a89a824e9a3c41129db"
         },
         "taskgridview9_assignedtome": {
             "title": "任务表格视图",

@@ -231,6 +231,28 @@ public class IbzMyTerritoryResource {
                 .body(new PageImpl(ibzmyterritoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchUserFinishTaskSum-all')")
+	@ApiOperation(value = "获取用户完成任务统计", tags = {"我的地盘" } ,notes = "获取用户完成任务统计")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzmyterritories/fetchuserfinishtasksum")
+	public ResponseEntity<List<IbzMyTerritoryDTO>> fetchUserFinishTaskSum(IbzMyTerritorySearchContext context) {
+        Page<IbzMyTerritory> domains = ibzmyterritoryService.searchUserFinishTaskSum(context) ;
+        List<IbzMyTerritoryDTO> list = ibzmyterritoryMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchUserFinishTaskSum-all')")
+	@ApiOperation(value = "查询用户完成任务统计", tags = {"我的地盘" } ,notes = "查询用户完成任务统计")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzmyterritories/searchuserfinishtasksum")
+	public ResponseEntity<Page<IbzMyTerritoryDTO>> searchUserFinishTaskSum(@RequestBody IbzMyTerritorySearchContext context) {
+        Page<IbzMyTerritory> domains = ibzmyterritoryService.searchUserFinishTaskSum(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzmyterritoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchWelcome-all')")
 	@ApiOperation(value = "获取欢迎", tags = {"我的地盘" } ,notes = "获取欢迎")
     @RequestMapping(method= RequestMethod.GET , value="/ibzmyterritories/fetchwelcome")
