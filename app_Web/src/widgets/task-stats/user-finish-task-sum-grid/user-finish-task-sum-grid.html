@@ -35,18 +35,6 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('finshedby')">
-                <el-table-column show-overflow-tooltip :prop="'finshedby'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.finshedby')" :width="120"  :align="'center'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.taskstats.userfinishtasksum_grid.columns.finshedby')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.finshedby}}</span>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('totalestimate')">
                 <el-table-column show-overflow-tooltip :prop="'totalestimate'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.totalestimate')" :width="120"  :align="'center'">
                     <template v-slot:header="{column}">

@@ -27,6 +27,11 @@ export default class ProjectBugStatusCountModel {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'productname',
           prop: 'productname',
           dataType: 'PICKUPTEXT',

@@ -135,15 +135,6 @@ export class UserFinishTaskSumGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'finshedby',
-            label: '完成者',
-            langtag: 'entities.taskstats.userfinishtasksum_grid.columns.finshedby',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
             name: 'totalestimate',
             label: '预计总工时',
             langtag: 'entities.taskstats.userfinishtasksum_grid.columns.totalestimate',
@@ -272,7 +263,6 @@ export class UserFinishTaskSumGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'projectname':false,
-        'finshedby':false,
         'totalestimate':false,
         'totalconsumed':false,
         'totalleft':false,
@@ -363,7 +353,7 @@ export class UserFinishTaskSumGridBase extends GridControlBase {
     * @memberof UserFinishTaskSumBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['projectname','finshedby','totalestimate','totalconsumed','totalleft'];
+        let allColumns:Array<any> = ['projectname','totalestimate','totalconsumed','totalleft'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -443,7 +433,6 @@ export class UserFinishTaskSumGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 projectname:'',
-                finshedby:'',
                 totalestimate:'',
                 totalconsumed:'',
                 totalleft:'',
@@ -472,7 +461,6 @@ export class UserFinishTaskSumGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
             projectname:'',
-            finshedby:'',
             totalestimate:'',
             totalconsumed:'',
             totalleft:'',
@@ -537,7 +525,6 @@ export class UserFinishTaskSumGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 projectname:'',
-                finshedby:'',
                 totalestimate:'',
                 totalconsumed:'',
                 totalleft:'',

@@ -130,6 +130,7 @@ export default {
 	projectbugstatuscount_grid: {
 		nodata: "",
 		columns: {
+			id: "标识",
 			productname: "产品名称",
 			bugresolved: "已解决Bug",
 			bugclosed: "已关闭Bug",

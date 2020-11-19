@@ -84,6 +84,13 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "";
 
+    /**
+     * 列主键属性名称
+     *
+     * @type {string}
+     * @memberof ProjectBugStatusCountGridBase
+     */
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识
@@ -109,6 +116,15 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
      * @memberof ProjectBugStatusCountGridBase
      */
     public allColumns: any[] = [
+        {
+            name: 'id',
+            label: '标识',
+            langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.id',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
         {
             name: 'productname',
             label: '产品名称',
@@ -246,6 +262,7 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
      * @memberof ProjectBugStatusCountBase
      */
     public hasRowEdit: any = {
+        'id':false,
         'productname':false,
         'bugresolved':false,
         'bugclosed':false,
@@ -337,7 +354,7 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
     * @memberof ProjectBugStatusCountBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['productname','bugresolved','bugclosed','bugactive'];
+        let allColumns:Array<any> = ['id','productname','bugresolved','bugclosed','bugactive'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -416,6 +433,7 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
+                id:'',
                 productname:'',
                 bugresolved:'',
                 bugclosed:'',
@@ -444,6 +462,7 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
+            id:'',
             productname:'',
             bugresolved:'',
             bugclosed:'',
@@ -508,6 +527,7 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
+                id:'',
                 productname:'',
                 bugresolved:'',
                 bugclosed:'',

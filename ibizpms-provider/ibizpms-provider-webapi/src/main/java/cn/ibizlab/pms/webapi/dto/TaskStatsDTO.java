@@ -39,15 +39,6 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     private String projectname;
 
     /**
-     * 属性 [FINSHEDBY]
-     *
-     */
-    @JSONField(name = "finshedby")
-    @JsonProperty("finshedby")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String finshedby;
-
-    /**
      * 属性 [TOTALESTIMATE]
      *
      */
@@ -97,6 +88,15 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("name")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String name;
+
+    /**
+     * 属性 [FINISHEDBY]
+     *
+     */
+    @JSONField(name = "finishedby")
+    @JsonProperty("finishedby")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String finishedby;
 
 
     /**

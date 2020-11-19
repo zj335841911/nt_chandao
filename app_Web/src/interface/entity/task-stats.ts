@@ -15,14 +15,6 @@ export interface TaskStats {
     projectname?: any;
 
     /**
-     * 完成者
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    finshedby?: any;
-
-    /**
      * 预计总工时
      *
      * @returns {*}
@@ -69,4 +61,12 @@ export interface TaskStats {
      * @memberof TaskStats
      */
     name?: any;
+
+    /**
+     * 完成者
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    finishedby?: any;
 }

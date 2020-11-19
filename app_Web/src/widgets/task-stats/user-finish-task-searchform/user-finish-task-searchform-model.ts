@@ -32,7 +32,7 @@ export default class UserFinishTaskModel {
       },
       {
         name: 'n_finishedby_eq',
-        prop: 'finshedby',
+        prop: 'finishedby',
         dataType: 'TEXT',
       },
     ]

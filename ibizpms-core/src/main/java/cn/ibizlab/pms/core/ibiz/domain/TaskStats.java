@@ -51,13 +51,6 @@ public class TaskStats extends EntityMP implements Serializable {
     @JsonProperty("projectname")
     private String projectname;
     /**
-     * 完成者
-     */
-    @TableField(exist = false)
-    @JSONField(name = "finshedby")
-    @JsonProperty("finshedby")
-    private String finshedby;
-    /**
      * 预计总工时
      */
     @TableField(exist = false)
@@ -100,6 +93,13 @@ public class TaskStats extends EntityMP implements Serializable {
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
+    /**
+     * 完成者
+     */
+    @TableField(exist = false)
+    @JSONField(name = "finishedby")
+    @JsonProperty("finishedby")
+    private String finishedby;
 
 
 

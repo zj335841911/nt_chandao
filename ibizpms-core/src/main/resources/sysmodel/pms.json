@@ -33388,20 +33388,6 @@
     "major_field":0
     },
     {
-    "fieldname":"FINSHEDBY" ,
-    "codename":"Finshedby",
-    "field_logic_name":"完成者",
-    "entity_name":"TaskStats",
-    "field_type":"TEXT",
-    "nullable":1,
-    "physical_field":0,
-    "data_type":"VARCHAR",
-    "data_length":100,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
     "fieldname":"TOTALESTIMATE" ,
     "codename":"TotalEstimate",
     "field_logic_name":"预计总工时",
@@ -33484,6 +33470,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":1
+    },
+    {
+    "fieldname":"FINISHEDBY" ,
+    "codename":"FinishedBy",
+    "field_logic_name":"完成者",
+    "entity_name":"TaskStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
