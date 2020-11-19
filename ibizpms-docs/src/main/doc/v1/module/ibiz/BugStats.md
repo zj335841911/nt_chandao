@@ -1508,7 +1508,7 @@ SELECT
 		sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS bugresolved,
 		sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS bugclosed,
 		sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS bugactive,
-	count(1) as bugcnt,
+	count(1) as bugcnt
 FROM
 	(
 	SELECT

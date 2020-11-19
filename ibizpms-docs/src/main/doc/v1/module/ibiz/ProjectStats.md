@@ -1847,7 +1847,7 @@ FROM
 #### SQL
 - MYSQL5
 ```SQL
-SELECT t1.project,t1.projectname ,
+SELECT t1.project,t1.projectname  as name,
 SUM(IF(t1.`status` = 'closed',t1.ss,0)) as closdedTaskcnt,
 SUM(IF(t1.`status` = 'cancel',t1.ss,0)) as cancelTaskcnt,
 SUM(IF(t1.`status` = 'done',t1.ss,0)) as doneTaskcnt,

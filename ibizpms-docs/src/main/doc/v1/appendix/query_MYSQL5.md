@@ -2968,7 +2968,7 @@ SELECT
 		sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS bugresolved,
 		sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS bugclosed,
 		sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS bugactive,
-	count(1) as bugcnt,
+	count(1) as bugcnt
 FROM
 	(
 	SELECT
@@ -11895,7 +11895,7 @@ WHERE t1.DELETED = '0'
 ```
 ### 项目任务统计(任务状态)(ProjectTaskCountByTaskStatus)<div id="ProjectStats_ProjectTaskCountByTaskStatus"></div>
 ```sql
-SELECT t1.project,t1.projectname ,
+SELECT t1.project,t1.projectname  as name,
 SUM(IF(t1.`status` = 'closed',t1.ss,0)) as closdedTaskcnt,
 SUM(IF(t1.`status` = 'cancel',t1.ss,0)) as cancelTaskcnt,
 SUM(IF(t1.`status` = 'done',t1.ss,0)) as doneTaskcnt,
