@@ -252,6 +252,54 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("istop")
     private Integer istop;
 
+    /**
+     * 属性 [CLOSEDTASKCNT]
+     *
+     */
+    @JSONField(name = "closedtaskcnt")
+    @JsonProperty("closedtaskcnt")
+    private Integer closedtaskcnt;
+
+    /**
+     * 属性 [CANCELTASKCNT]
+     *
+     */
+    @JSONField(name = "canceltaskcnt")
+    @JsonProperty("canceltaskcnt")
+    private Integer canceltaskcnt;
+
+    /**
+     * 属性 [FINISHTASKCNT1]
+     *
+     */
+    @JSONField(name = "finishtaskcnt1")
+    @JsonProperty("finishtaskcnt1")
+    private Integer finishtaskcnt1;
+
+    /**
+     * 属性 [PAUSETASKCNT]
+     *
+     */
+    @JSONField(name = "pausetaskcnt")
+    @JsonProperty("pausetaskcnt")
+    private Integer pausetaskcnt;
+
+    /**
+     * 属性 [WAITTASKCNT]
+     *
+     */
+    @JSONField(name = "waittaskcnt")
+    @JsonProperty("waittaskcnt")
+    private Integer waittaskcnt;
+
+    /**
+     * 属性 [DOINGTASKCNT]
+     *
+     */
+    @JSONField(name = "doingtaskcnt")
+    @JsonProperty("doingtaskcnt")
+    private Integer doingtaskcnt;
+
 
     /**
      * 设置 [NAME]

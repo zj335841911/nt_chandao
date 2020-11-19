@@ -3180,6 +3180,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-main-grid-view/case-main-grid-view.vue'),
                 },
                 {
+                    path: 'projectstats/:projectstats?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.projectstats.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projectstats', parameterName: 'projectstats' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-stats-edit-view/project-stats-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/branches/:branch?/pmgridview/:pmgridview?',
                     meta: {
                         caption: 'entities.branch.views.pmgridview.caption',

@@ -230,6 +230,7 @@
 |-|文档库树导航视图（项目文档库）|DETREEEXPVIEW|&nbsp;|
 |-|testresult编辑视图|DEEDITVIEW|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
+|-|项目统计表格视图（任务状态统计）|DEGRIDVIEW|&nbsp;|
 |-|用例库用例编辑视图（编辑）|DEEDITVIEW|&nbsp;|
 |-|测试用例表格视图（测试结果条目）|DEGRIDVIEW|&nbsp;|
 |-|产品表格视图（项目）|DEGRIDVIEW9|&nbsp;|
@@ -281,6 +282,7 @@
 |-|任务|DEEDITVIEW|&nbsp;|
 |-|文档库树导航视图（产品文档库）|DETREEEXPVIEW|&nbsp;|
 |-|项目团队表格视图|DEGRIDVIEW|&nbsp;|
+|-|项目统计编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试用例表格视图（测试结果条目）|DEGRIDVIEW|&nbsp;|
 |-|文档数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|产品汇总表表格视图|DEGRIDVIEW|&nbsp;|

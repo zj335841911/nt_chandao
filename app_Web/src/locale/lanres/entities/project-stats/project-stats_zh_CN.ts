@@ -27,11 +27,25 @@ export default {
     status: "状态",
     order1: "项目排序",
     istop: "是否置顶",
+    closedtaskcnt: "已关闭任务数",
+    canceltaskcnt: "已取消任务数",
+    finishtaskcnt1: "已完成任务数",
+    pausetaskcnt: "已暂停任务数",
+    waittaskcnt: "未开始任务数",
+    doingtaskcnt: "进行中任务数",
   },
 	views: {
 		allgridview: {
 			caption: "所有项目",
       		title: "所有项目",
+		},
+		usr2gridviewtaskstatuscount: {
+			caption: "任务状态统计",
+      		title: "项目统计表格视图（任务状态统计）",
+		},
+		editview: {
+			caption: "项目统计",
+      		title: "项目统计编辑视图",
 		},
 		editview9: {
 			caption: "项目统计",
@@ -112,6 +126,21 @@ export default {
 		uiactions: {
 		},
 	},
+	projecttaskstatuscount_grid: {
+		nodata: "",
+		columns: {
+			id: "项目编号",
+			name: "项目名称",
+			doingtaskcnt: "进行中任务数",
+			finishtaskcnt1: "已完成任务数",
+			waittaskcnt: "未开始任务数",
+			pausetaskcnt: "已暂停任务数",
+			closedtaskcnt: "已关闭任务数",
+			canceltaskcnt: "已取消任务数",
+		},
+		uiactions: {
+		},
+	},
 	notcloseproject_grid: {
 		nodata: "",
 		columns: {
@@ -123,6 +152,13 @@ export default {
 			totalleft: "剩余",
 			totalwh: "总工时",
 			progress: "进度",
+		},
+		uiactions: {
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
 		},
 		uiactions: {
 		},
@@ -143,6 +179,24 @@ export default {
 		deuiaction4: {
 			caption: "过滤",
 			tip: "过滤",
+		},
+	},
+	editviewtoolbar_toolbar: {
+		tbitem3: {
+			caption: "保存",
+			tip: "保存",
+		},
+		tbitem4: {
+			caption: "保存并新建",
+			tip: "保存并新建",
+		},
+		tbitem5: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+		tbitem7: {
+			caption: "删除",
+			tip: "删除",
 		},
 	},
 };

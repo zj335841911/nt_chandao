@@ -236,6 +236,48 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JSONField(name = "istop")
     @JsonProperty("istop")
     private Integer istop;
+    /**
+     * 已关闭任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedtaskcnt")
+    @JsonProperty("closedtaskcnt")
+    private Integer closedtaskcnt;
+    /**
+     * 已取消任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "canceltaskcnt")
+    @JsonProperty("canceltaskcnt")
+    private Integer canceltaskcnt;
+    /**
+     * 已完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "finishtaskcnt1")
+    @JsonProperty("finishtaskcnt1")
+    private Integer finishtaskcnt1;
+    /**
+     * 已暂停任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "pausetaskcnt")
+    @JsonProperty("pausetaskcnt")
+    private Integer pausetaskcnt;
+    /**
+     * 未开始任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "waittaskcnt")
+    @JsonProperty("waittaskcnt")
+    private Integer waittaskcnt;
+    /**
+     * 进行中任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "doingtaskcnt")
+    @JsonProperty("doingtaskcnt")
+    private Integer doingtaskcnt;
 
 
 

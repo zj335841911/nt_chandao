@@ -199,6 +199,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugBuildSubGridView_New",
             "viewtag": "09b6c2af7dcc4b719d4c8aad2319f1c5"
         },
+        "projectstatsusr2gridviewtaskstatuscount": {
+            "title": "项目统计表格视图（任务状态统计）",
+            "caption": "任务状态统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProjectStatsUsr2GridViewTaskStatusCount",
+            "viewtag": "09ec3280dedaeac7260c00f3f923d20e"
+        },
         "ibzcaseediteditview": {
             "title": "用例库用例编辑视图（编辑）",
             "caption": "测试用例",
@@ -598,6 +606,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProjectTeamMainGridView",
             "viewtag": "231eecf4805f0b378601ea1a7912077f"
+        },
+        "projectstatseditview": {
+            "title": "项目统计编辑视图",
+            "caption": "项目统计",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectStatsEditView",
+            "viewtag": "237ae6d47a530dbc59eacb4e6f7db169"
         },
         "casetypeentrygridview": {
             "title": "测试用例表格视图（测试结果条目）",

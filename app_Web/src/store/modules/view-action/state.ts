@@ -632,6 +632,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '237ae6d47a530dbc59eacb4e6f7db169',
+            viewmodule: 'zentao',
+            viewname: 'ProjectStatsEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '23cc93d7fdddff5077a7952d26802a7b',
             viewmodule: 'zentao',
             viewname: 'DocDashboardView',
@@ -4331,6 +4340,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '85ee867b09a2d6303c061d91374ec975',
+                '237ae6d47a530dbc59eacb4e6f7db169',
             ],
         },
         {
