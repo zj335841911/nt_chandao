@@ -364,6 +364,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[BugStatsDTO](#BugStatsDTO)>：Bug统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取产品Bug状态汇总
+#### 访问路径
+/bugstats/fetchproductbugstatussum
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [BugStatsSearchContext](#BugStatsSearchContext) | Bug统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BugStatsDTO](#BugStatsDTO)>：Bug统计实体传输对象列表 |
+
+### 查询产品Bug状态汇总
+#### 访问路径
+/bugstats/searchproductbugstatussum
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [BugStatsSearchContext](#BugStatsSearchContext) | Bug统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BugStatsDTO](#BugStatsDTO)>：Bug统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取产品创建bug占比
 #### 访问路径
 /bugstats/fetchproductcreatebug
@@ -465,7 +501,8 @@ POST
 | 22 | bugactive | Integer | 允许 | 激活Bug |
 | 23 | bugresolved | Integer | 允许 | 已解决Bug |
 | 24 | bugclosed | Integer | 允许 | 已关闭Bug |
-| 25 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 25 | projectname1 | String | 允许 | 项目名称 |
+| 26 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### BugStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

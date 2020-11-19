@@ -197,4 +197,12 @@ export interface BugStats {
      * @memberof BugStats
      */
     bugclosed?: any;
+
+    /**
+     * 项目名称
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    projectname1?: any;
 }

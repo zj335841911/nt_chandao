@@ -229,6 +229,15 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     }
 
     /**
+     * 查询集合 产品Bug状态汇总
+     */
+    @Override
+    public Page<BugStats> searchProductBugStatusSum(BugStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchProductBugStatusSum(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 产品创建bug占比
      */
     @Override

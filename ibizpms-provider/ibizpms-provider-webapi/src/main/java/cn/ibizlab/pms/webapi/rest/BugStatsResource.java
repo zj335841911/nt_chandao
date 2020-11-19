@@ -245,6 +245,28 @@ public class BugStatsResource {
                 .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchProductBugStatusSum-all')")
+	@ApiOperation(value = "获取产品Bug状态汇总", tags = {"Bug统计" } ,notes = "获取产品Bug状态汇总")
+    @RequestMapping(method= RequestMethod.GET , value="/bugstats/fetchproductbugstatussum")
+	public ResponseEntity<List<BugStatsDTO>> fetchProductBugStatusSum(BugStatsSearchContext context) {
+        Page<BugStats> domains = bugstatsService.searchProductBugStatusSum(context) ;
+        List<BugStatsDTO> list = bugstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchProductBugStatusSum-all')")
+	@ApiOperation(value = "查询产品Bug状态汇总", tags = {"Bug统计" } ,notes = "查询产品Bug状态汇总")
+    @RequestMapping(method= RequestMethod.POST , value="/bugstats/searchproductbugstatussum")
+	public ResponseEntity<Page<BugStatsDTO>> searchProductBugStatusSum(@RequestBody BugStatsSearchContext context) {
+        Page<BugStats> domains = bugstatsService.searchProductBugStatusSum(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchProductCreateBug-all')")
 	@ApiOperation(value = "获取产品创建bug占比", tags = {"Bug统计" } ,notes = "获取产品创建bug占比")
     @RequestMapping(method= RequestMethod.GET , value="/bugstats/fetchproductcreatebug")

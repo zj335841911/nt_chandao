@@ -43,6 +43,7 @@ Bug统计
 | 22 | [激活Bug](#属性-激活Bug（BUGACTIVE）) | BUGACTIVE | 整型 | 否 | 是 | 是 |
 | 23 | [已解决Bug](#属性-已解决Bug（BUGRESOLVED）) | BUGRESOLVED | 整型 | 否 | 是 | 是 |
 | 24 | [已关闭Bug](#属性-已关闭Bug（BUGCLOSED）) | BUGCLOSED | 整型 | 否 | 是 | 是 |
+| 25 | [项目名称](#属性-项目名称（PROJECTNAME1）) | PROJECTNAME1 | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-标识（ID）
 #### 属性说明
@@ -1066,6 +1067,47 @@ Integer
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-项目名称（PROJECTNAME1）
+#### 属性说明
+项目名称
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -1194,9 +1236,10 @@ Save
 | 3 | [Bug指派表](#数据查询-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
 | 4 | [Bug创建表](#数据查询-Bug创建表（Default）) | Default | 否 |
 | 5 | [产品Bug解决方案汇总](#数据查询-产品Bug解决方案汇总（ProductBugResolutionStats）) | ProductBugResolutionStats | 否 |
-| 6 | [产品创建bug占比](#数据查询-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
-| 7 | [项目bug状态统计](#数据查询-项目bug状态统计（ProjectBugStatusCount）) | ProjectBugStatusCount | 否 |
-| 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 6 | [产品Bug状态汇总](#数据查询-产品Bug状态汇总（ProductBugStatusSum）) | ProductBugStatusSum | 否 |
+| 7 | [产品创建bug占比](#数据查询-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
+| 8 | [项目bug状态统计](#数据查询-项目bug状态统计（ProjectBugStatusCount）) | ProjectBugStatusCount | 否 |
+| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-Bug在每个解决方案的Bug数（BugCountInResolution）
 #### 说明
@@ -1466,6 +1509,56 @@ GROUP BY
 	t1.product) t2 on t1.id = t2.product
 	where t1.deleted = '0'
 ```
+### 数据查询-产品Bug状态汇总（ProductBugStatusSum）
+#### 说明
+产品Bug状态汇总
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+select t1.id, 
+	t1.`name`, 
+	ifnull(t2.ActiveBug, 0) AS ActiveBug, 
+	ifnull(t2.ResolvedBug, 0) AS ResolvedBug, 
+	ifnull(t2.ClosedBug, 0) AS ClosedBug, 
+	ifnull(t2.BugEfficient, '100.00%') AS BugEfficient, 
+	ifnull(t2.BUGTOTAL, 0) AS BUGTOTAL 
+	from zt_product t1 left join (SELECT
+	t1.product, 
+	sum( IF ( t1.`status` = 'active', t1.v1, 0 ) ) AS ActiveBug,
+	sum( IF ( t1.`status` = 'resolved', t1.v1, 0 ) ) AS ResolvedBug,
+	SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) ) AS ClosedBug,
+	CONCAT( ROUND( case when (SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'resolved', t1.v1, 0 ) )) = 0 then 0 else (SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'resolved', t1.v1, 0 ) ))/ (sum( IF ( t1.`status` = 'active', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'resolved', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) )) * 100 end,2), '%') as BugEfficient,
+	SUM( t1.v1 ) AS BUGTOTAL 
+FROM
+	(
+SELECT
+	t1.`OPENEDBY`,
+	t1.`OPENEDDATE`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`STATUS`,
+	1 AS `V1` 
+FROM
+	`zt_bug` t1
+WHERE
+	t1.deleted = '0'
+	) t1 
+WHERE
+	( t1.openedDate >= #{srf.datacontext.openeddatelt}  OR #{srf.datacontext.openeddatelt} IS NULL ) 
+	AND ( t1.openedDate <= #{srf.datacontext.openeddategt} OR #{srf.datacontext.openeddategt} is null ) 
+	AND ( t1.PRODUCT = #{srf.datacontext.producteq} OR #{srf.datacontext.producteq}  IS NULL ) 
+	AND ( t1.PROJECT = #{srf.datacontext.projecteq}  OR #{srf.datacontext.projecteq}  IS NULL ) 
+GROUP BY
+	t1.product) t2 on t1.id = t2.product
+	where t1.deleted = '0'
+```
 ### 数据查询-产品创建bug占比（ProductCreateBug）
 #### 说明
 产品创建bug占比
@@ -1504,7 +1597,7 @@ LEFT JOIN zt_product t2 on t2.id = t1.product
 ```SQL
 SELECT
 	t1.project,
-	t1.projectname,
+	t1.projectname as projectname1,
 		sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS bugresolved,
 		sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS bugclosed,
 		sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS bugactive,
@@ -1574,8 +1667,9 @@ LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
 | 3 | [Bug指派表](#数据集合-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
 | 4 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 5 | [产品Bug解决方案汇总](#数据集合-产品Bug解决方案汇总（ProductBugResolutionStats）) | ProductBugResolutionStats | 否 |
-| 6 | [产品创建bug占比](#数据集合-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
-| 7 | [项目bug状态统计](#数据集合-项目bug状态统计（ProjectBugStatusCount）) | ProjectBugStatusCount | 否 |
+| 6 | [产品Bug状态汇总](#数据集合-产品Bug状态汇总（ProductBugStatusSum）) | ProductBugStatusSum | 否 |
+| 7 | [产品创建bug占比](#数据集合-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
+| 8 | [项目bug状态统计](#数据集合-项目bug状态统计（ProjectBugStatusCount）) | ProjectBugStatusCount | 否 |
 
 ### 数据集合-Bug在每个解决方案的Bug数（BugCountInResolution）
 #### 说明
@@ -1647,6 +1741,20 @@ Bug指派表
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品Bug解决方案汇总（ProductBugResolutionStats）](#数据查询-产品Bug解决方案汇总（ProductBugResolutionStats）) |
+### 数据集合-产品Bug状态汇总（ProductBugStatusSum）
+#### 说明
+产品Bug状态汇总
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品Bug状态汇总（ProductBugStatusSum）](#数据查询-产品Bug状态汇总（ProductBugStatusSum）) |
 ### 数据集合-产品创建bug占比（ProductCreateBug）
 #### 说明
 产品创建bug占比

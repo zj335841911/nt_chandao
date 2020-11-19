@@ -51,6 +51,7 @@ public interface IBugStatsService extends IService<BugStats> {
     Page<BugStats> searchBugassignedTo(BugStatsSearchContext context);
     Page<BugStats> searchDefault(BugStatsSearchContext context);
     Page<BugStats> searchProductBugResolutionStats(BugStatsSearchContext context);
+    Page<BugStats> searchProductBugStatusSum(BugStatsSearchContext context);
     Page<BugStats> searchProductCreateBug(BugStatsSearchContext context);
     Page<BugStats> searchProjectBugStatusCount(BugStatsSearchContext context);
     List<BugStats> selectByProduct(Long id);

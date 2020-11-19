@@ -2948,6 +2948,45 @@ GROUP BY
 	t1.product) t2 on t1.id = t2.product
 	where t1.deleted = '0'
 ```
+### 产品Bug状态汇总(ProductBugStatusSum)<div id="BugStats_ProductBugStatusSum"></div>
+```sql
+select t1.id, 
+	t1.`name`, 
+	ifnull(t2.ActiveBug, 0) AS ActiveBug, 
+	ifnull(t2.ResolvedBug, 0) AS ResolvedBug, 
+	ifnull(t2.ClosedBug, 0) AS ClosedBug, 
+	ifnull(t2.BugEfficient, '100.00%') AS BugEfficient, 
+	ifnull(t2.BUGTOTAL, 0) AS BUGTOTAL 
+	from zt_product t1 left join (SELECT
+	t1.product, 
+	sum( IF ( t1.`status` = 'active', t1.v1, 0 ) ) AS ActiveBug,
+	sum( IF ( t1.`status` = 'resolved', t1.v1, 0 ) ) AS ResolvedBug,
+	SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) ) AS ClosedBug,
+	CONCAT( ROUND( case when (SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'resolved', t1.v1, 0 ) )) = 0 then 0 else (SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'resolved', t1.v1, 0 ) ))/ (sum( IF ( t1.`status` = 'active', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'resolved', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) )) * 100 end,2), '%') as BugEfficient,
+	SUM( t1.v1 ) AS BUGTOTAL 
+FROM
+	(
+SELECT
+	t1.`OPENEDBY`,
+	t1.`OPENEDDATE`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`STATUS`,
+	1 AS `V1` 
+FROM
+	`zt_bug` t1
+WHERE
+	t1.deleted = '0'
+	) t1 
+WHERE
+	( t1.openedDate >= #{srf.datacontext.openeddatelt}  OR #{srf.datacontext.openeddatelt} IS NULL ) 
+	AND ( t1.openedDate <= #{srf.datacontext.openeddategt} OR #{srf.datacontext.openeddategt} is null ) 
+	AND ( t1.PRODUCT = #{srf.datacontext.producteq} OR #{srf.datacontext.producteq}  IS NULL ) 
+	AND ( t1.PROJECT = #{srf.datacontext.projecteq}  OR #{srf.datacontext.projecteq}  IS NULL ) 
+GROUP BY
+	t1.product) t2 on t1.id = t2.product
+	where t1.deleted = '0'
+```
 ### 产品创建bug占比(ProductCreateBug)<div id="BugStats_ProductCreateBug"></div>
 ```sql
 SELECT t1.*,t2.productallbug, CONCAT(ROUND(t1.createbugcnt/(case when t2.productallbug = 0 or t2.productallbug is null then 1 else t2.productallbug end)*100,1),'%') from (
@@ -2964,7 +3003,7 @@ LEFT JOIN zt_product t2 on t2.id = t1.product
 ```sql
 SELECT
 	t1.project,
-	t1.projectname,
+	t1.projectname as projectname1,
 		sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS bugresolved,
 		sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS bugclosed,
 		sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS bugactive,

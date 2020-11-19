@@ -81,6 +81,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[ProductBugStatusSum]-->
+	 <select id="searchProductBugStatusSum"  parameterType="cn.ibizlab.pms.core.ibiz.filter.BugStatsSearchContext"  resultMap="BugStatsResultMap">
+         select t1.* from (
+                <include refid="ProductBugStatusSum" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[ProductCreateBug]-->
 	 <select id="searchProductCreateBug"  parameterType="cn.ibizlab.pms.core.ibiz.filter.BugStatsSearchContext"  resultMap="BugStatsResultMap">
          select t1.* from (
@@ -124,6 +133,11 @@
 		<![CDATA[ select t1.id as `PRODUCT`,  	t1.`name` as `PRODUCTNAME`,  	ifnull(t2.Bugwjj, 0) AS Bugwjj,  	ifnull(t2.Bugbydesign, 0) AS Bugbydesign,  	ifnull(t2.Bugduplicate, 0) AS Bugduplicate,  	ifnull(t2.Bugfixed, 0) AS Bugfixed,  	ifnull(t2.Bugexternal, 0) AS Bugexternal,  	ifnull(t2.Bugnotrepro, 0) AS Bugnotrepro,  	ifnull(t2.Bugpostponed, 0) AS Bugpostponed,  	ifnull(t2.Bugwillnotfix, 0) AS Bugwillnotfix,  	ifnull(t2.BugEfficient, '100.00%') AS BugEfficient,  	ifnull(t2.Bugtostory, 0) AS Bugtostory,  	ifnull(t2.BUGTOTAL, 0) AS BUGTOTAL  	from zt_product t1 left join (SELECT 	t1.product,  	sum( IF ( t1.resolution = '', t1.v1, 0 ) ) AS Bugwjj, 	sum( IF ( t1.resolution = 'bydesign', t1.v1, 0 ) ) AS Bugbydesign, 	SUM( IF ( t1.resolution = 'duplicate', t1.v1, 0 ) ) AS Bugduplicate, 	SUM( IF ( t1.resolution = 'fixed', t1.v1, 0 ) ) AS Bugfixed, 	SUM( IF ( t1.resolution = 'external', t1.v1, 0 ) ) AS Bugexternal, 	sum( IF ( t1.resolution = 'notrepro', t1.v1, 0 ) ) AS Bugnotrepro, 	SUM( IF ( t1.resolution = 'postponed', t1.v1, 0 ) ) AS Bugpostponed, 	SUM( IF ( t1.resolution = 'willnotfix', t1.v1, 0 ) ) AS Bugwillnotfix, 	CONCAT( ROUND( case when (SUM( IF ( t1.resolution = 'fixed', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'postponed', t1.v1, 0 ) )) = 0 then 0 else (SUM( IF ( t1.resolution = 'fixed', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'postponed', t1.v1, 0 ) ))/ (sum( IF ( t1.resolution = 'bydesign', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'duplicate', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'fixed', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'external', t1.v1, 0 ) ) + sum( IF ( t1.resolution = 'notrepro', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'postponed', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'willnotfix', t1.v1, 0 ) )) * 100 end,2), '%') as BugEfficient, 	SUM( IF ( t1.resolution = 'tostory', t1.v1, 0 ) ) AS Bugtostory, 	SUM( t1.v1 ) AS BUGTOTAL  FROM 	( SELECT 	t1.`OPENEDBY`, 	t1.`OPENEDDATE`, 	t1.`PRODUCT`, 	t1.`PROJECT`, 	t1.`RESOLUTION`, 	1 AS `V1`  FROM 	`zt_bug` t1 WHERE 	t1.deleted = '0' 	) t1  WHERE 	( t1.openedDate >= #{srf.datacontext.openeddatelt}  OR #{srf.datacontext.openeddatelt} IS NULL )  	AND ( t1.openedDate <= #{srf.datacontext.openeddategt} OR #{srf.datacontext.openeddategt} is null )  	AND ( t1.PRODUCT = #{srf.datacontext.producteq} OR #{srf.datacontext.producteq}  IS NULL )  	AND ( t1.PROJECT = #{srf.datacontext.projecteq}  OR #{srf.datacontext.projecteq}  IS NULL )  GROUP BY 	t1.product) t2 on t1.id = t2.product 	where t1.deleted = '0'
 			]]>
     </sql>
+    <!--数据查询[ProductBugStatusSum]-->
+    <sql id="ProductBugStatusSum" databaseId="mysql">
+		<![CDATA[ select t1.id,  	t1.`name`,  	ifnull(t2.ActiveBug, 0) AS ActiveBug,  	ifnull(t2.ResolvedBug, 0) AS ResolvedBug,  	ifnull(t2.ClosedBug, 0) AS ClosedBug,  	ifnull(t2.BugEfficient, '100.00%') AS BugEfficient,  	ifnull(t2.BUGTOTAL, 0) AS BUGTOTAL  	from zt_product t1 left join (SELECT 	t1.product,  	sum( IF ( t1.`status` = 'active', t1.v1, 0 ) ) AS ActiveBug, 	sum( IF ( t1.`status` = 'resolved', t1.v1, 0 ) ) AS ResolvedBug, 	SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) ) AS ClosedBug, 	CONCAT( ROUND( case when (SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'resolved', t1.v1, 0 ) )) = 0 then 0 else (SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'resolved', t1.v1, 0 ) ))/ (sum( IF ( t1.`status` = 'active', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'resolved', t1.v1, 0 ) ) + SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) )) * 100 end,2), '%') as BugEfficient, 	SUM( t1.v1 ) AS BUGTOTAL  FROM 	( SELECT 	t1.`OPENEDBY`, 	t1.`OPENEDDATE`, 	t1.`PRODUCT`, 	t1.`PROJECT`, 	t1.`STATUS`, 	1 AS `V1`  FROM 	`zt_bug` t1 WHERE 	t1.deleted = '0' 	) t1  WHERE 	( t1.openedDate >= #{srf.datacontext.openeddatelt}  OR #{srf.datacontext.openeddatelt} IS NULL )  	AND ( t1.openedDate <= #{srf.datacontext.openeddategt} OR #{srf.datacontext.openeddategt} is null )  	AND ( t1.PRODUCT = #{srf.datacontext.producteq} OR #{srf.datacontext.producteq}  IS NULL )  	AND ( t1.PROJECT = #{srf.datacontext.projecteq}  OR #{srf.datacontext.projecteq}  IS NULL )  GROUP BY 	t1.product) t2 on t1.id = t2.product 	where t1.deleted = '0'
+			]]>
+    </sql>
     <!--数据查询[ProductCreateBug]-->
     <sql id="ProductCreateBug" databaseId="mysql">
 		<![CDATA[ SELECT t1.*,t2.productallbug, CONCAT(ROUND(t1.createbugcnt/(case when t2.productallbug = 0 or t2.productallbug is null then 1 else t2.productallbug end)*100,1),'%') from ( SELECT t1.openedBy,t1.productid,t1.productname,COUNT(1) as createbugcnt from ( SELECT t1.id ,t1.openedBy,t2.id as productid,t1.product,t2.`name` as productname from zt_bug t1 LEFT JOIN zt_product t2 on t2.id = t1.product ) t1 GROUP BY t1.openedBy,t1.productid  )t1 LEFT JOIN ( select t1.productid,t1.productname,count(1) as productallbug from ( SELECT t1.id ,t1.openedBy,t2.id as productid,t1.product,t2.`name` as productname from zt_bug t1 LEFT JOIN zt_product t2 on t2.id = t1.product ) t1 GROUP BY t1.productid ) t2 on t2.productid = t1.productid HAVING t1.openedBy = #{srf.sessioncontext.srfloginname}
@@ -131,7 +145,7 @@
     </sql>
     <!--数据查询[ProjectBugStatusCount]-->
     <sql id="ProjectBugStatusCount" databaseId="mysql">
-		<![CDATA[ SELECT 	t1.project, 	t1.projectname, 		sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS bugresolved, 		sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS bugclosed, 		sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS bugactive, 	count(1) as bugcnt FROM 	( 	SELECT 		t1.`status`, 		t1.project, 		t11.`name` AS projectname, 		1 AS ss, 		t11.deleted 	FROM 		zt_bug t1 		LEFT JOIN zt_project t11 ON t1.project = t11.id  		where t1.deleted = '0' and t1.project <> 0 	) t1  GROUP BY 	t1.project, 	t1.projectname
+		<![CDATA[ SELECT 	t1.project, 	t1.projectname as projectname1, 		sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS bugresolved, 		sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS bugclosed, 		sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS bugactive, 	count(1) as bugcnt FROM 	( 	SELECT 		t1.`status`, 		t1.project, 		t11.`name` AS projectname, 		1 AS ss, 		t11.deleted 	FROM 		zt_bug t1 		LEFT JOIN zt_project t11 ON t1.project = t11.id  		where t1.deleted = '0' and t1.project <> 0 	) t1  GROUP BY 	t1.project, 	t1.projectname
 			]]>
     </sql>
     <!--数据查询[View]-->

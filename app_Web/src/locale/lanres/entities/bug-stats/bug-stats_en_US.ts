@@ -24,6 +24,7 @@ export default {
     bugactive: "激活Bug",
     bugresolved: "已解决Bug",
     bugclosed: "已关闭Bug",
+    projectname1: "项目名称",
   },
 	views: {
 		editview: {

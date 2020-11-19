@@ -212,6 +212,13 @@ public class BugStats extends EntityMP implements Serializable {
     @JSONField(name = "bugclosed")
     @JsonProperty("bugclosed")
     private Integer bugclosed;
+    /**
+     * 项目名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectname1")
+    @JsonProperty("projectname1")
+    private String projectname1;
 
     /**
      * 产品

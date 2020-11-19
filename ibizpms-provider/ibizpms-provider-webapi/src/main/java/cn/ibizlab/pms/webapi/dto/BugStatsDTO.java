@@ -231,6 +231,15 @@ public class BugStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("bugclosed")
     private Integer bugclosed;
 
+    /**
+     * 属性 [PROJECTNAME1]
+     *
+     */
+    @JSONField(name = "projectname1")
+    @JsonProperty("projectname1")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String projectname1;
+
 
     /**
      * 设置 [TITLE]

@@ -37,6 +37,7 @@ hide members
 |激活Bug|BUGACTIVE|INT|&nbsp;|
 |已解决Bug|BUGRESOLVED|INT|&nbsp;|
 |已关闭Bug|BUGCLOSED|INT|&nbsp;|
+|项目名称|PROJECTNAME1|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -65,6 +66,7 @@ hide members
 |激活Bug|默认规则|默认规则|
 |已解决Bug|默认规则|默认规则|
 |已关闭Bug|默认规则|默认规则|
+|项目名称|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -96,6 +98,7 @@ hide members
 |BugassignedTo|Bug指派表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_BugassignedTo))|否|&nbsp;|
 |DEFAULT|Bug创建表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_Default))|否|&nbsp;|
 |ProductBugResolutionStats|产品Bug解决方案汇总([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProductBugResolutionStats))|否|&nbsp;|
+|ProductBugStatusSum|产品Bug状态汇总([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProductBugStatusSum))|否|&nbsp;|
 |ProductCreateBug|产品创建bug占比([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProductCreateBug))|否|&nbsp;|
 |ProjectBugStatusCount|项目bug状态统计([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProjectBugStatusCount))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_View))|否|&nbsp;|
@@ -109,6 +112,7 @@ hide members
 |BugassignedTo|Bug指派表|BugassignedTo|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |ProductBugResolutionStats|产品Bug解决方案汇总|ProductBugResolutionStats|否|&nbsp;|
+|ProductBugStatusSum|产品Bug状态汇总|ProductBugStatusSum|否|&nbsp;|
 |ProductCreateBug|产品创建bug占比|ProductCreateBug|否|&nbsp;|
 |ProjectBugStatusCount|项目bug状态统计|ProjectBugStatusCount|否|&nbsp;|
 
