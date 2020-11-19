@@ -369,31 +369,39 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
      * @memberof EmpTreeBase
      */
     public parseNodes(nodes:any) {
-        let rootNodes :any= [];
-        let valueNodes :any= [];
+        this.rootNodes = [];
+        this.valueNodes = [];
         for (let index = 0; index < nodes.length; index++) {
             const item = nodes[index];
-            let ele :any= this.$refs[item.srfkey+'checkbox'];
             if(!item.leaf){
-                rootNodes.push(item);
+                this.rootNodes.push(item);
             }else{
-                if(this.selectedNodes.findIndex((temp:any)=>{return temp.srfkey == item.srfkey}) > -1){
-                    item.selected = true;
-                    if(ele && ele[0]){
-                        ele[0].ariaChecked = true;
-                    }
-                }else{
-                    item.selected = false;
-                    if(ele && ele[0]){
-                        ele[0].ariaChecked = false;
-                    }
-                }
-                valueNodes.push(item);
+                this.backfill(item);
+                this.valueNodes.push(item);
             }
         }
-        this.rootNodes = rootNodes;
-        this.valueNodes = valueNodes;
         this.$forceUpdate();
+    }
+
+    /**
+     * 回填已选择树节点
+     *
+     * @param {*} nodes
+     * @memberof EmpTreeBase
+     */
+    public backfill(item:any){
+        let ele :any= this.$refs[item.srfkey+'checkbox'];
+        if(this.selectedNodes.findIndex((temp:any)=>{return temp.srfkey == item.srfkey}) > -1){
+            item.selected = true;
+            if(ele && ele[0]){
+                ele[0].ariaChecked = true;
+            }
+        }else{
+            item.selected = false;
+            if(ele && ele[0]){
+                ele[0].ariaChecked = false;
+            }
+        }
     }
 
     /**

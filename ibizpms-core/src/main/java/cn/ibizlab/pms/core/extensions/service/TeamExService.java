@@ -22,7 +22,7 @@ public class TeamExService extends TeamServiceImpl {
     }
 
     /**
-     * 自定义行为[ManagePorjectMembers]用户扩展
+     * [ManagePorjectMembers:项目团队管理] 行为扩展
      * @param et
      * @return
      */
@@ -32,7 +32,7 @@ public class TeamExService extends TeamServiceImpl {
         return super.managePorjectMembers(et);
     }
     /**
-     * 自定义行为[UnlinkPorjectMember]用户扩展
+     * [UnlinkPorjectMember:移除项目成员] 行为扩展
      * @param et
      * @return
      */

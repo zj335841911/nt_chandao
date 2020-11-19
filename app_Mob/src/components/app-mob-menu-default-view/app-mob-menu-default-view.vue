@@ -147,44 +147,18 @@ export default class AppMobMenuDefaultView extends Vue {
         }
         let count = 0;
         this.items.forEach((item:any,index:number) => {
-            if(item.opendefault == true){
-                this.activeId = item.id;
-            } else if(item.hidden == false){
-              // 没有默认打开的话
-                count++;
-                if (count == this.items.length) {
-                  this.activeId = this.items[0].id;
-                }
-            }
             let model = this.menuModels.find((model:any) => Object.is(model.appfunctag, item.appfunctag));
             if (model) {
                 item.componentname = model.componentname;
             }
         });
-        this.loadCounterData();
-    }
-
-        /**
-     * 生命周期
-     *
-     * @memberof AppMobMenuDefaultView
-     */
-    public mounted() {
-        let ionNav:any = this.$refs.ionNav;
-        let currPage = sessionStorage.getItem("currId");
-        if(currPage){
-            this.items.forEach((item:any,index:number) => {
-                if(item.id == currPage){
-                    this.activeId =  item.id       
-                    ionNav.select(item.name);
-                }
-            })
-        } else {
-            let item:any =  this.items.find((item: any) => Object.is(item.id, this.activeId));
-            if (ionNav && ionNav.select) {
-              ionNav.select(item.name);
-            }
+        let index = this.items.findIndex((temp:any)=>{return temp.opendefault });
+        if(index!= -1){
+            this.activeId = this.items[index].id;
+        }else{
+            this.activeId = this.items[0].id;
         }
+        this.loadCounterData();
     }
 
     /**
@@ -263,6 +237,29 @@ export default class AppMobMenuDefaultView extends Vue {
         let { tab }  = detail;
         if (!tab) {
             return;
+        }
+    }
+
+    /**
+     * 生命周期
+     *
+     * @memberof AppMobMenuDefaultView
+     */
+    public mounted() {
+        let ionNav:any = this.$refs.ionNav;
+        let currPage = sessionStorage.getItem("currId");
+        if(currPage){
+            this.items.forEach((item:any,index:number) => {
+                if(item.id == currPage){
+                    this.activeId =  item.id       
+                    ionNav.select(item.name);
+                }
+            })
+        } else {
+            let item:any =  this.items.find((item: any) => Object.is(item.id, this.activeId));
+            if (ionNav && ionNav.select) {
+              ionNav.select(item.name);
+            }
         }
     }
 }

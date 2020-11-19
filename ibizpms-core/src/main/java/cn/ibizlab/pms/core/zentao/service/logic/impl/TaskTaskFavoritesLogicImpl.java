@@ -1,18 +1,12 @@
 package cn.ibizlab.pms.core.zentao.service.logic.impl;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
-
 import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.KieContainer;
-
 import cn.ibizlab.pms.core.zentao.service.logic.ITaskTaskFavoritesLogic;
 import cn.ibizlab.pms.core.zentao.domain.Task;
 
@@ -44,26 +38,25 @@ public class TaskTaskFavoritesLogicImpl implements ITaskTaskFavoritesLogic {
     @Override
     public void execute(Task et) {
 
-          KieSession kieSession = null;
-        try{
-           kieSession = kieContainer.newKieSession();
-           cn.ibizlab.pms.core.ibiz.domain.IbzFavorites tasktaskfavoritesibzfavorites = new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites();
-           kieSession.insert(tasktaskfavoritesibzfavorites); 
-           kieSession.setGlobal("tasktaskfavoritesibzfavorites", tasktaskfavoritesibzfavorites);
-           kieSession.insert(et); 
-           kieSession.setGlobal("tasktaskfavoritesdefault", et);
-           kieSession.setGlobal("ibzfavoritesservice", ibzfavoritesservice);
-           kieSession.setGlobal("iBzSysTaskDefaultService", iBzSysDefaultService);
-           kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
-           kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.tasktaskfavorites");
+        KieSession kieSession = null;
+        try {
+            kieSession = kieContainer.newKieSession();
+            cn.ibizlab.pms.core.ibiz.domain.IbzFavorites tasktaskfavoritesibzfavorites = new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites();
+            kieSession.insert(tasktaskfavoritesibzfavorites); 
+            kieSession.setGlobal("tasktaskfavoritesibzfavorites", tasktaskfavoritesibzfavorites);
+            kieSession.insert(et); 
+            kieSession.setGlobal("tasktaskfavoritesdefault", et);
+            kieSession.setGlobal("ibzfavoritesservice", ibzfavoritesservice);
+            kieSession.setGlobal("iBzSysTaskDefaultService", iBzSysDefaultService);
+            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
+            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.tasktaskfavorites");
 
-        }catch(Exception e) {
-            throw new RuntimeException("执行[任务收藏]处理逻辑发生异常"+e);
-        }finally {
-            if(kieSession!=null) {
+        } catch (Exception e) {
+            throw new RuntimeException("执行[任务收藏]处理逻辑发生异常" + e);
+        } finally {
+            if(kieSession != null) {
                 kieSession.destroy();
             }
         }
     }
-
 }

@@ -22,7 +22,7 @@ public class IBZProStoryModuleExService extends IBZProStoryModuleServiceImpl {
     }
 
     /**
-     * 自定义行为[SyncFromIBIZ]用户扩展
+     * [SyncFromIBIZ:同步Ibz平台模块] 行为扩展
      * @param et
      * @return
      */

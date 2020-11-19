@@ -1,18 +1,12 @@
 package cn.ibizlab.pms.core.zentao.service.logic.impl;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
-
 import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.KieContainer;
-
 import cn.ibizlab.pms.core.zentao.service.logic.IProjectMobProjectCountLogic;
 import cn.ibizlab.pms.core.zentao.domain.Project;
 
@@ -37,22 +31,21 @@ public class ProjectMobProjectCountLogicImpl implements IProjectMobProjectCountL
     @Override
     public void execute(Project et) {
 
-          KieSession kieSession = null;
-        try{
-           kieSession = kieContainer.newKieSession();
-           kieSession.insert(et); 
-           kieSession.setGlobal("projectmobprojectcountdefault", et);
-           kieSession.setGlobal("iBzSysProjectDefaultService", iBzSysDefaultService);
-           kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
-           kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.projectmobprojectcount");
+        KieSession kieSession = null;
+        try {
+            kieSession = kieContainer.newKieSession();
+            kieSession.insert(et); 
+            kieSession.setGlobal("projectmobprojectcountdefault", et);
+            kieSession.setGlobal("iBzSysProjectDefaultService", iBzSysDefaultService);
+            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
+            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.projectmobprojectcount");
 
-        }catch(Exception e) {
-            throw new RuntimeException("执行[移动端项目计数器]处理逻辑发生异常"+e);
-        }finally {
-            if(kieSession!=null) {
+        } catch (Exception e) {
+            throw new RuntimeException("执行[移动端项目计数器]处理逻辑发生异常" + e);
+        } finally {
+            if(kieSession != null) {
                 kieSession.destroy();
             }
         }
     }
-
 }
