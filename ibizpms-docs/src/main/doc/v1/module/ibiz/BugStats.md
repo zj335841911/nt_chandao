@@ -1458,9 +1458,9 @@ LEFT JOIN zt_product t2 on t2.id = t1.product
 SELECT
 t1.`ASSIGNEDTO`,
 0 AS `BUGBYDESIGN`,
-0 AS `BUGCNT`,
+t22.bugcnt AS `BUGCNT`,
 0 AS `BUGDUPLICATE`,
-0% AS `BUGEFFICIENT`,
+0 AS `BUGEFFICIENT`,
 0 AS `BUGEXTERNAL`,
 0 AS `BUGFIXED`,
 0 AS `BUGNOTREPRO`,
@@ -1474,11 +1474,20 @@ t1.`OPENEDBY`,
 t1.`PRODUCT`,
 t11.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,
-t2.`PROJECTNAME`,
+t22.`NAME` as projectname,
 t1.`RESOLVEDBY`,
-t1.`TITLE`
-FROM `zt_bug` t1 
+t1.`TITLE`,
+t22.bugclosed,
+t22.bugresolved,
+t22.bugactive
+FROM zt_bug t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+LEFT JOIN (
+select tt1.id,tt1.`name`,case when t2.bugclosed is null then 0 else t2.bugclosed end as bugclosed,case when t3.bugresolved is null then 0 else t3.bugresolved end as bugresolved,case when t4.bugactive is null then 0 else t4.bugactive end as bugactive,case when t5.bugcnt is null then 0 else t5.bugcnt end as bugcnt from zt_project tt1 
+LEFT JOIN (select ttt1.project,count(1) as bugclosed from zt_bug ttt1 where ttt1.deleted = '0' and ttt1.`status` = 'closed' GROUP BY ttt1.project) t2 on t2.project = tt1.id
+LEFT JOIN (select ttt1.project,count(1) as bugresolved from zt_bug ttt1 where ttt1.deleted = '0' and ttt1.`status` = 'resolved' GROUP BY ttt1.project) t3 on t3.project = tt1.id
+LEFT JOIN (select ttt1.project,count(1) as bugactive from zt_bug ttt1 where ttt1.deleted = '0' and ttt1.`status` = 'active' GROUP BY ttt1.project) t4 on t4.project = tt1.id
+LEFT JOIN (SELECT ttt1.project,count(1) as bugcnt from zt_bug ttt1 where ttt1.deleted = '0' GROUP BY ttt1.project) t5 on t5.project = tt1.id) t22 on t22.id = t1.project
 
 ```
 ### 数据查询-默认（全部数据）（View）
@@ -1529,6 +1538,7 @@ LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
 | 3 | [Bug指派表](#数据集合-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
 | 4 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 5 | [产品创建bug占比](#数据集合-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
+| 6 | [项目bug状态统计](#数据集合-项目bug状态统计（ProjectBugStatusCount）) | ProjectBugStatusCount | 否 |
 
 ### 数据集合-Bug在每个解决方案的Bug数（BugCountInResolution）
 #### 说明
@@ -1600,6 +1610,20 @@ Bug指派表
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品创建bug占比（ProductCreateBug）](#数据查询-产品创建bug占比（ProductCreateBug）) |
+### 数据集合-项目bug状态统计（ProjectBugStatusCount）
+#### 说明
+项目bug状态统计
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目bug状态统计（ProjectBugStatusCount）](#数据查询-项目bug状态统计（ProjectBugStatusCount）) |
 
 ## 数据导入
 无

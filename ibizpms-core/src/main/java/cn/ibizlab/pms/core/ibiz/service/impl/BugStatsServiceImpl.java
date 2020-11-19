@@ -228,6 +228,15 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
         return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 项目bug状态统计
+     */
+    @Override
+    public Page<BugStats> searchProjectBugStatusCount(BugStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchProjectBugStatusCount(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**

@@ -108,6 +108,7 @@ hide members
 |BugassignedTo|Bug指派表|BugassignedTo|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |ProductCreateBug|产品创建bug占比|ProductCreateBug|否|&nbsp;|
+|ProjectBugStatusCount|项目bug状态统计|ProjectBugStatusCount|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

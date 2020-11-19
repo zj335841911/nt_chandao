@@ -245,6 +245,28 @@ public class BugStatsResource {
                 .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchProjectBugStatusCount-all')")
+	@ApiOperation(value = "获取项目bug状态统计", tags = {"Bug统计" } ,notes = "获取项目bug状态统计")
+    @RequestMapping(method= RequestMethod.GET , value="/bugstats/fetchprojectbugstatuscount")
+	public ResponseEntity<List<BugStatsDTO>> fetchProjectBugStatusCount(BugStatsSearchContext context) {
+        Page<BugStats> domains = bugstatsService.searchProjectBugStatusCount(context) ;
+        List<BugStatsDTO> list = bugstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchProjectBugStatusCount-all')")
+	@ApiOperation(value = "查询项目bug状态统计", tags = {"Bug统计" } ,notes = "查询项目bug状态统计")
+    @RequestMapping(method= RequestMethod.POST , value="/bugstats/searchprojectbugstatuscount")
+	public ResponseEntity<Page<BugStatsDTO>> searchProjectBugStatusCount(@RequestBody BugStatsSearchContext context) {
+        Page<BugStats> domains = bugstatsService.searchProjectBugStatusCount(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 
