@@ -127,10 +127,12 @@ export default class ProductBugResolutionStatsModel {
       {
         name: 'producteq',
         prop: 'producteq',
+        dataType: 'PICKUP',
       },
       {
         name: 'projecteq',
         prop: 'projecteq',
+        dataType: 'PICKUP',
       },
 
         {

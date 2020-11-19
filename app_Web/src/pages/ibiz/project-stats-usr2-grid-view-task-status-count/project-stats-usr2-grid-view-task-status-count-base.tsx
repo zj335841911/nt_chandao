@@ -325,4 +325,13 @@ export class ProjectStatsUsr2GridViewTaskStatusCountBase extends GridViewBase {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ProjectStatsUsr2GridViewTaskStatusCountBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }

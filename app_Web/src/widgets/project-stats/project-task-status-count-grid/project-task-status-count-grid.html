@@ -25,18 +25,6 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('id')">
-                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.id')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.projectstats.projecttaskstatuscount_grid.columns.id')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.id}}</span>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('name')">
                 <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.name')" :min-width="15"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">

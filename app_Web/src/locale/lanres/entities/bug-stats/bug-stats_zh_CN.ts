@@ -180,7 +180,7 @@ export default {
 		uiactions: {
 		},
 	},
-	default_searchform: {
+	productbug_searchform: {
 		details: {
 			grouppanel1: "分组面板", 
 			grouppanel2: "分组面板", 
@@ -198,6 +198,19 @@ export default {
 			formpage1: "表单分页", 
 			n_product_eq: "产品", 
 			n_assignedto_eq: "指派给", 
+		},
+		uiactions: {
+		},
+	},
+	default_searchform: {
+		details: {
+			grouppanel1: "分组面板", 
+			grouppanel2: "分组面板", 
+			formpage1: "常规条件", 
+			openeddatelt: "Bug创建时间", 
+			openeddategt: "至", 
+			producteq: "产品", 
+			projecteq: "项目", 
 		},
 		uiactions: {
 		},

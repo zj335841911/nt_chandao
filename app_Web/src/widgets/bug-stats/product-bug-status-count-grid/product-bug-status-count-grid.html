@@ -24,7 +24,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('productname')">
-                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.bugstats.productbugstatuscount_grid.columns.productname')" :width="100"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'productname'" :label="$t('entities.bugstats.productbugstatuscount_grid.columns.productname')" :min-width="180"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.productbugstatuscount_grid.columns.productname')}}

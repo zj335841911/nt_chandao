@@ -4,7 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugStatsProductBugStatusGridViewBase } from './bug-stats-product-bug-status-grid-view-base';
 import view_grid from '@widgets/bug-stats/product-bug-status-count-grid/product-bug-status-count-grid.vue';
-import view_searchform from '@widgets/bug-stats/default-searchform/default-searchform.vue';
+import view_searchform from '@widgets/bug-stats/product-bug-searchform/product-bug-searchform.vue';
 
 /**
  * Bug统计表格视图视图

@@ -129,7 +129,6 @@ export default {
 	projecttaskstatuscount_grid: {
 		nodata: "",
 		columns: {
-			id: "项目编号",
 			name: "项目名称",
 			doingtaskcnt: "进行中任务数",
 			waittaskcnt: "未开始任务数",

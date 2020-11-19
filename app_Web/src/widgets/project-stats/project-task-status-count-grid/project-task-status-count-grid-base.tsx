@@ -84,13 +84,6 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "name";
 
-    /**
-     * 列主键属性名称
-     *
-     * @type {string}
-     * @memberof ProjectTaskStatusCountGridBase
-     */
-    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识
@@ -116,15 +109,6 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
      * @memberof ProjectTaskStatusCountGridBase
      */
     public allColumns: any[] = [
-        {
-            name: 'id',
-            label: '项目编号',
-            langtag: 'entities.projectstats.projecttaskstatuscount_grid.columns.id',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
         {
             name: 'name',
             label: '项目名称',
@@ -298,7 +282,6 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
      * @memberof ProjectTaskStatusCountBase
      */
     public hasRowEdit: any = {
-        'id':false,
         'name':false,
         'doingtaskcnt':false,
         'waittaskcnt':false,
@@ -394,7 +377,7 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
     * @memberof ProjectTaskStatusCountBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','name','doingtaskcnt','waittaskcnt','pausetaskcnt','closedtaskcnt','canceltaskcnt','donetaskcnt','taskcnt'];
+        let allColumns:Array<any> = ['name','doingtaskcnt','waittaskcnt','pausetaskcnt','closedtaskcnt','canceltaskcnt','donetaskcnt','taskcnt'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -473,7 +456,6 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
-                id:'',
                 name:'',
                 doingtaskcnt:'',
                 waittaskcnt:'',
@@ -506,7 +488,6 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
-            id:'',
             name:'',
             doingtaskcnt:'',
             waittaskcnt:'',
@@ -575,7 +556,6 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
-                id:'',
                 name:'',
                 doingtaskcnt:'',
                 waittaskcnt:'',

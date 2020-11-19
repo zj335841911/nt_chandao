@@ -27,11 +27,6 @@ export default class ProjectTaskStatusCountModel {
     }else{
 		  return [
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
