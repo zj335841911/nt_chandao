@@ -43,7 +43,9 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.finishedby}}</span>
+                        <template >
+            <codelist :value="row.finishedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
