@@ -149,6 +149,14 @@ export class MobPanelBase extends PanelControlBase {
     public dataModel: MobModel = new MobModel();
 
     /**
+     * 界面行为标识数组
+     *
+     * @type {Array<any>}
+     * @memberof Mob
+     */
+    public actionList:Array<any> = [];
+
+    /**
      * 界面行为
      *
      * @param {*} row

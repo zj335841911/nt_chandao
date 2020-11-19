@@ -165,6 +165,14 @@ export class StoryKanBanPanelBase extends PanelControlBase {
     public dataModel: StoryKanBanModel = new StoryKanBanModel();
 
     /**
+     * 界面行为标识数组
+     *
+     * @type {Array<any>}
+     * @memberof StoryKanBan
+     */
+    public actionList:Array<any> = ['ProjectUnlinkStory'];
+
+    /**
      * 界面行为
      *
      * @param {*} row

@@ -206,6 +206,14 @@ export class TaskKanBanPanelBase extends PanelControlBase {
     public dataModel: TaskKanBanModel = new TaskKanBanModel();
 
     /**
+     * 界面行为标识数组
+     *
+     * @type {Array<any>}
+     * @memberof TaskKanBan
+     */
+    public actionList:Array<any> = ['AssignTask'];
+
+    /**
      * 界面行为
      *
      * @param {*} row
