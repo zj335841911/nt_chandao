@@ -2920,6 +2920,34 @@ SELECT t1.id ,t1.openedBy,t2.id as productid,t1.product,t2.`name` as productname
 LEFT JOIN zt_product t2 on t2.id = t1.product
 ) t1 GROUP BY t1.productid ) t2 on t2.productid = t1.productid HAVING t1.openedBy = #{srf.sessioncontext.srfloginname}
 ```
+### 项目bug状态统计(ProjectBugStatusCount)<div id="BugStats_ProjectBugStatusCount"></div>
+```sql
+SELECT
+t1.`ASSIGNEDTO`,
+0 AS `BUGBYDESIGN`,
+0 AS `BUGCNT`,
+0 AS `BUGDUPLICATE`,
+0% AS `BUGEFFICIENT`,
+0 AS `BUGEXTERNAL`,
+0 AS `BUGFIXED`,
+0 AS `BUGNOTREPRO`,
+0 AS `BUGPOSTPONED`,
+0 AS `BUGTOSTORY`,
+0 AS `BUGTOTAL`,
+0 AS `BUGWILLNOTFIX`,
+0 AS `BUGWJJ`,
+t1.`ID`,
+t1.`OPENEDBY`,
+t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t2.`PROJECTNAME`,
+t1.`RESOLVEDBY`,
+t1.`TITLE`
+FROM `zt_bug` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+
+```
 ### 默认（全部数据）(VIEW)<div id="BugStats_View"></div>
 ```sql
 SELECT

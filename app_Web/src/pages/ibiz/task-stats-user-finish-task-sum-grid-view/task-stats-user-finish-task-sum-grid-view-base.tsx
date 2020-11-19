@@ -307,4 +307,25 @@ export class TaskStatsUserFinishTaskSumGridViewBase extends GridViewBase {
      * @memberof TaskStatsUserFinishTaskSumGridViewBase
      */
     protected isGridSingleSelect: boolean = true;
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof TaskStatsUserFinishTaskSumGridViewBase
+     */
+    protected isExpandSearchForm: boolean = true;
+
+    /**
+     * 表格行数据默认激活模式
+     * 0 不激活
+     * 1 单击激活
+     * 2 双击激活
+     *
+     * @protected
+     * @type {(0 | 1 | 2)}
+     * @memberof TaskStatsUserFinishTaskSumGridViewBase
+     */
+    protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }

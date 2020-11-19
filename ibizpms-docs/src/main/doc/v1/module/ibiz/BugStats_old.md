@@ -96,6 +96,7 @@ hide members
 |BugassignedTo|Bug指派表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_BugassignedTo))|否|&nbsp;|
 |DEFAULT|Bug创建表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_Default))|否|&nbsp;|
 |ProductCreateBug|产品创建bug占比([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProductCreateBug))|否|&nbsp;|
+|ProjectBugStatusCount|项目bug状态统计([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProjectBugStatusCount))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_View))|否|&nbsp;|
 
 * **数据集合**
