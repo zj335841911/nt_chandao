@@ -158,7 +158,7 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.modulename.visible"
+    v-show="detailsModel.module.visible"
     :style="{}"
     
     
@@ -166,39 +166,34 @@
     :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
-    name="modulename"
-    :itemRules="this.rules().modulename"
+    name="module"
+    :itemRules="this.rules().module"
     class=""
 
-    :caption="$t('entities.bug.main_form.details.modulename')"
+    :caption="$t('entities.bug.main_form.details.module')"
     uiStyle="DEFAULT"
     :labelWidth="100"
     :isShowCaption="true"
-    :error="detailsModel.modulename.error"
+    :error="detailsModel.module.error"
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
     
-<app-picker  
-    :formState="formState"
+<dropdown-list 
+    v-model="data.module"
     :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{ N_BRANCH_EQ:"%branch%", PRODUCT:"%product%", N_ROOT_EQ:"%product%", BRANCH:"%branch%" }' 
-    :localParam ='{ product:"%product%", branch:"%branch%", n_root_eq:"%product%", n_branch_eq:"%branch%" }' 
-    :disabled="detailsModel.modulename.disabled"
-    name="modulename"
-    deMajorField="name"
-    deKeyField="module"
-    :service="service"
-    :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchBugModule'}"
-    valueitem="module"
-    :value="data.modulename"
-    editortype="dropdown"
-    :valFormat="{0: '/'}"
-    style=""
-    @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+    :localContext='{ N_BRANCH_EQ:"%branch%", PRODUCT:"%product%", N_ROOT_EQ:"%product%", BRANCH:"%branch%" }' 
+    :localParam='{ product:"%product%", branch:"%branch%", n_root_eq:"%product%", n_branch_eq:"%branch%" }' 
+    :disabled="detailsModel.module.disabled"
+    valueType="number"
+    tag="BugModule"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
 </app-form-item>
 
 </i-col>

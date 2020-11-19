@@ -454,7 +454,6 @@ export class MainEditFormBase extends EditFormControlBase {
         }
         if (Object.is(name, 'branch')) {
             this.onFormItemValueChange({ name: 'modulename', value: null });
-            this.onFormItemValueChange({ name: 'module', value: null });
         }
         if (Object.is(name, 'modulename')) {
             this.onFormItemValueChange({ name: 'storyname', value: null });

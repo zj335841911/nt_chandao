@@ -4,7 +4,6 @@ import ControlService from '@/widgets/control-service';
 import BugService from '@/service/bug/bug-service';
 import MainModel from './main-form-model';
 import ProductService from '@/service/product/product-service';
-import ModuleService from '@/service/module/module-service';
 import ProjectService from '@/service/project/project-service';
 import StoryService from '@/service/story/story-service';
 import TaskService from '@/service/task/task-service';
@@ -55,14 +54,6 @@ export default class MainService extends ControlService {
      * @memberof MainService
      */
     public productService: ProductService = new ProductService();
-
-    /**
-     * 模块服务对象
-     *
-     * @type {ModuleService}
-     * @memberof MainService
-     */
-    public moduleService: ModuleService = new ModuleService();
 
     /**
      * 项目服务对象
@@ -147,9 +138,6 @@ export default class MainService extends ControlService {
         data.size = data.size ? data.size : 1000;
         if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchCurUer')) {
             return this.doItems(this.productService.FetchCurUer(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'product');
-        }
-        if (Object.is(serviceName, 'ModuleService') && Object.is(interfaceName, 'FetchBugModule')) {
-            return this.doItems(this.moduleService.FetchBugModule(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'module');
         }
         if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchBugProject')) {
             return this.doItems(this.projectService.FetchBugProject(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
