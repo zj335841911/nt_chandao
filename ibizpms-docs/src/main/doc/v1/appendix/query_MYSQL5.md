@@ -2899,8 +2899,8 @@ GROUP BY
 ```
 ### 产品Bug解决方案汇总(ProductBugResolutionStats)<div id="BugStats_ProductBugResolutionStats"></div>
 ```sql
-select t1.id as `PRODUCT`, 
-	t1.`name` as `PRODUCTNAME`, 
+select t1.id, 
+	t1.`name`, 
 	ifnull(t2.Bugwjj, 0) AS Bugwjj, 
 	ifnull(t2.Bugbydesign, 0) AS Bugbydesign, 
 	ifnull(t2.Bugduplicate, 0) AS Bugduplicate, 
@@ -2914,6 +2914,7 @@ select t1.id as `PRODUCT`,
 	ifnull(t2.BUGTOTAL, 0) AS BUGTOTAL 
 	from zt_product t1 left join (SELECT
 	t1.product, 
+	t1.project,
 	sum( IF ( t1.resolution = '', t1.v1, 0 ) ) AS Bugwjj,
 	sum( IF ( t1.resolution = 'bydesign', t1.v1, 0 ) ) AS Bugbydesign,
 	SUM( IF ( t1.resolution = 'duplicate', t1.v1, 0 ) ) AS Bugduplicate,
@@ -2942,23 +2943,24 @@ WHERE
 WHERE
 	( t1.openedDate >= #{srf.datacontext.openeddatelt}  OR #{srf.datacontext.openeddatelt} IS NULL ) 
 	AND ( t1.openedDate <= #{srf.datacontext.openeddategt} OR #{srf.datacontext.openeddategt} is null ) 
-	AND ( t1.PRODUCT = #{srf.datacontext.producteq} OR #{srf.datacontext.producteq}  IS NULL ) 
-	AND ( t1.PROJECT = #{srf.datacontext.projecteq}  OR #{srf.datacontext.projecteq}  IS NULL ) 
 GROUP BY
 	t1.product) t2 on t1.id = t2.product
 	where t1.deleted = '0'
+	AND ( t2.PRODUCT = #{srf.datacontext.producteq} OR #{srf.datacontext.producteq}  IS NULL ) 
+	AND ( t2.PROJECT = #{srf.datacontext.projecteq}  OR #{srf.datacontext.projecteq}  IS NULL )
 ```
 ### 产品Bug状态汇总(ProductBugStatusSum)<div id="BugStats_ProductBugStatusSum"></div>
 ```sql
-select t1.id AS 'PRODUCT', 
-	t1.`name` AS 'PRODUCTNAME', 
-	ifnull(t2.ActiveBug, 0) AS BugActive, 
-	ifnull(t2.ResolvedBug, 0) AS BugResolved, 
-	ifnull(t2.ClosedBug, 0) AS BugClosed, 
+select t1.id, 
+	t1.`name`, 
+	ifnull(t2.ActiveBug, 0) AS ActiveBug, 
+	ifnull(t2.ResolvedBug, 0) AS ResolvedBug, 
+	ifnull(t2.ClosedBug, 0) AS ClosedBug, 
 	ifnull(t2.BugEfficient, '100.00%') AS BugEfficient, 
 	ifnull(t2.BUGTOTAL, 0) AS BUGTOTAL 
 	from zt_product t1 left join (SELECT
 	t1.product, 
+	t1.project, 
 	sum( IF ( t1.`status` = 'active', t1.v1, 0 ) ) AS ActiveBug,
 	sum( IF ( t1.`status` = 'resolved', t1.v1, 0 ) ) AS ResolvedBug,
 	SUM( IF ( t1.`status` = 'closed', t1.v1, 0 ) ) AS ClosedBug,
@@ -2981,11 +2983,11 @@ WHERE
 WHERE
 	( t1.openedDate >= #{srf.datacontext.openeddatelt}  OR #{srf.datacontext.openeddatelt} IS NULL ) 
 	AND ( t1.openedDate <= #{srf.datacontext.openeddategt} OR #{srf.datacontext.openeddategt} is null ) 
-	AND ( t1.PRODUCT = #{srf.datacontext.producteq} OR #{srf.datacontext.producteq}  IS NULL ) 
-	AND ( t1.PROJECT = #{srf.datacontext.projecteq}  OR #{srf.datacontext.projecteq}  IS NULL ) 
 GROUP BY
 	t1.product) t2 on t1.id = t2.product
 	where t1.deleted = '0'
+		AND ( t2.PRODUCT = #{srf.datacontext.producteq} OR #{srf.datacontext.producteq}  IS NULL ) 
+	AND ( t2.PROJECT = #{srf.datacontext.projecteq}  OR #{srf.datacontext.projecteq}  IS NULL )
 ```
 ### 产品创建bug占比(ProductCreateBug)<div id="BugStats_ProductCreateBug"></div>
 ```sql
