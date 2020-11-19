@@ -27,6 +27,20 @@ import cn.ibizlab.pms.core.ibiz.domain.TaskStats;
 @Data
 public class TaskStatsSearchContext extends QueryWrapperContext<TaskStats> {
 
+	private String n_finshedby_eq;//[完成者]
+	public void setN_finshedby_eq(String n_finshedby_eq) {
+        this.n_finshedby_eq = n_finshedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_finshedby_eq)){
+            this.getSearchCond().eq("finshedby", n_finshedby_eq);
+        }
+    }
+	private String n_project_eq;//[项目]
+	public void setN_project_eq(String n_project_eq) {
+        this.n_project_eq = n_project_eq;
+        if(!ObjectUtils.isEmpty(this.n_project_eq)){
+            this.getSearchCond().eq("project", n_project_eq);
+        }
+    }
 	private String n_name_like;//[名称]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;

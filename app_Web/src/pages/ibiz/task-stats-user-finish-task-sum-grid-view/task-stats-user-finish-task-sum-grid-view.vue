@@ -4,7 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskStatsUserFinishTaskSumGridViewBase } from './task-stats-user-finish-task-sum-grid-view-base';
 import view_grid from '@widgets/task-stats/user-finish-task-sum-grid/user-finish-task-sum-grid.vue';
-import view_searchform from '@widgets/task-stats/default-searchform/default-searchform.vue';
+import view_searchform from '@widgets/task-stats/user-finish-task-searchform/user-finish-task-searchform.vue';
 
 /**
  * 任务统计表格视图视图

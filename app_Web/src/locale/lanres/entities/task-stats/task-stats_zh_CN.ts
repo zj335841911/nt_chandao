@@ -27,9 +27,11 @@ export default {
 		uiactions: {
 		},
 	},
-	default_searchform: {
+	userfinishtask_searchform: {
 		details: {
-			formpage1: "常规条件", 
+			formpage1: "表单分页", 
+			n_project_eq: "项目", 
+			n_finishedby_eq: "完成者", 
 		},
 		uiactions: {
 		},

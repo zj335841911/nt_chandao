@@ -71,6 +71,16 @@ export default class UserFinishTaskSumModel {
           name: 'taskstats',
           prop: 'id',
         },
+      {
+        name: 'n_project_eq',
+        prop: 'n_project_eq',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'n_finishedby_eq',
+        prop: 'n_finishedby_eq',
+        dataType: 'TEXT',
+      },
 
         {
           name:'size',
