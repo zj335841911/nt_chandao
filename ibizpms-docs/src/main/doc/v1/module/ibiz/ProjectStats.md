@@ -1872,7 +1872,7 @@ t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND `STATUS` NOT IN ('done','cancel','closed') AND DELETED =  '0') AS `UNDONETASKCNT`,
 (select COUNT(1) from zt_task t where t.deleted = '0' and t.project = t1.id and t.`status` = 'closed' and t.closedDate BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59') ) AS `YESTERDAYCTASKCNT`,
 (SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'resolved' AND DELETED = '0' and RESOLVEDDATE BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59')) AS `YESTERDAYRBUGCNT`
-,t2.closedTaskcnt,t3.cancelTaskcnt,t4.doneTaskcnt,t5.pauseTaskcnt,t6.waitTaskcnt,t7.doingTaskcnt,t8.taskcnt
+,t2.closedTaskcnt,t3.cancelTaskcnt,t4.doneTaskcnt,t5.pauseTaskcnt,t6.waitTaskcnt,t7.doingTaskcnt
 FROM `zt_project` t1 
 LEFT JOIN (select t1.project,count(1) as closedTaskcnt from zt_task t1 where t1.`status` = 'closed' and t1.deleted = '0' GROUP BY t1.project) t2 on t1.id = t2.project
 LEFT JOIN (select t1.project,count(1) as cancelTaskcnt from zt_task t1 where t1.`status` = 'cancel' and t1.deleted = '0' GROUP BY t1.project) t3 on t1.id = t3.project
@@ -1880,7 +1880,6 @@ LEFT JOIN (select t1.project,count(1) as doneTaskcnt from zt_task t1 where t1.`s
 LEFT JOIN (select t1.project,count(1) as pauseTaskcnt from zt_task t1 where t1.`status` = 'pause' and t1.deleted = '0' GROUP BY t1.project) t5 on t1.id = t5.project
 LEFT JOIN (select t1.project,count(1) as waitTaskcnt from zt_task t1 where t1.`status` = 'wait' and t1.deleted = '0' GROUP BY t1.project) t6 on t1.id = t6.project
 LEFT JOIN (select t1.project,count(1) as doingTaskcnt from zt_task t1 where t1.`status` = 'doing' and t1.deleted = '0' GROUP BY t1.project) t7 on t1.id = t7.project
-LEFT JOIN (select t1.project,count(1) as taskcnt from zt_task t1 where t1.deleted = '0' GROUP BY t1.project) t8 on t8.project = t1.id
 ```
 ### 数据查询-任务工时消耗剩余查询（TaskTime）
 #### 说明
