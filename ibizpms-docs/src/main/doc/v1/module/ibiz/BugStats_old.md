@@ -30,6 +30,7 @@ hide members
 |产品名称|PRODUCTNAME|PICKUPTEXT|&nbsp;|
 |Bug|BUGCNT|INT|&nbsp;|
 |指派给|ASSIGNEDTO|SSCODELIST|&nbsp;|
+|由谁解决|RESOLVEDBY|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -52,6 +53,7 @@ hide members
 |产品名称|默认规则|内容长度必须小于等于[90]|
 |Bug|默认规则|默认规则|
 |指派给|默认规则|内容长度必须小于等于[60]|
+|由谁解决|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -78,6 +80,7 @@ hide members
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
+|BugResolvedBy|Bug完成表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_BugResolvedBy))|否|&nbsp;|
 |BugassignedTo|Bug指派表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_BugassignedTo))|否|&nbsp;|
 |DEFAULT|Bug创建表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_Default))|否|&nbsp;|
 |ProductCreateBug|产品创建bug占比([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProductCreateBug))|否|&nbsp;|
@@ -87,6 +90,7 @@ hide members
 
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
+|BugResolvedBy|Bug完成表|BugResolvedBy|否|&nbsp;|
 |BugassignedTo|Bug指派表|BugassignedTo|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |ProductCreateBug|产品创建bug占比|ProductCreateBug|否|&nbsp;|
@@ -99,6 +103,7 @@ hide members
 |不予解决(BUGWILLNOTFIX)|LTANDEQ|
 |编号(PRODUCT)|EQ|
 |指派给(ASSIGNEDTO)|EQ|
+|由谁解决(RESOLVEDBY)|EQ|
 
 ## 导入模式
 无

@@ -463,15 +463,6 @@ export class ProjectTeamMainGridViewBase extends GridViewBase {
     }
 
     /**
-     * 是否展开搜索表单
-     *
-     * @protected
-     * @type {boolean}
-     * @memberof ProjectTeamMainGridViewBase
-     */
-    protected isExpandSearchForm: boolean = true;
-
-    /**
      * 表格行数据默认激活模式
      * 0 不激活
      * 1 单击激活

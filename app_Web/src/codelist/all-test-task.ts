@@ -114,6 +114,8 @@ export default class AllTestTask {
                 Object.assign(itemdata,{text:item.name});
                 Object.assign(itemdata,{label:item.name});
                 
+                
+                
                 _items.push(itemdata);
             });
         }

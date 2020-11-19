@@ -2,7 +2,6 @@ import { TreeViewServiceBase } from '@/ibiz-core';
 import { Util, HttpResponse } from '@/ibiz-core/utils';
 import { EmpTreeModel } from '@/app-core/ctrl-model/sys-employee/emp-tree-treeview-model';
 import i18n from '@/locale';
-import { Environment } from '@/environments/environment';
 import SysOrganizationService from '@/app-core/service/sys-organization/sys-organization-service';
 import ProjectService from '@/app-core/service/project/project-service';
 import SysPostService from '@/app-core/service/sys-post/sys-post-service';
@@ -114,15 +113,6 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @memberof EmpTreeService
      */
     public TREENODE_SEPARATOR: string = ';';
-
-    /**
-     * 图片地址
-     *
-     * @public
-     * @type {string}
-     * @memberof EmpTreeService
-     */
-    public download = 'ibizutil/download';
 
 
     /**
@@ -439,12 +429,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.orgid;
                         let strText: string = entity.orgname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysOrganization',srfparentkey:entity.orgid});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysOrganization',srfparentkey:entity.orgid,sysorganization:strId})
@@ -596,12 +580,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.id;
                         let strText: string = entity.name;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'Project',srfparentkey:entity.id});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'Project',srfparentkey:entity.id,project:strId})
@@ -743,12 +721,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.postid;
                         let strText: string = entity.postname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysPost',srfparentkey:entity.postid});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysPost',srfparentkey:entity.postid,syspost:strId})
@@ -1028,12 +1000,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.deptid;
                         let strText: string = entity.deptname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysDepartment',srfparentkey:entity.deptid});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysDepartment',srfparentkey:entity.deptid,sysdepartment:strId})
@@ -1183,12 +1149,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.userid;
                         let strText: string = entity.personname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysTeamMember',srfparentkey:entity.userid});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysTeamMember',srfparentkey:entity.userid,systeammember:strId})
@@ -1459,12 +1419,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.username;
                         let strText: string = entity.personname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysEmployee',srfparentkey:entity.username});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysEmployee',srfparentkey:entity.username,sysemployee:strId})
@@ -1604,12 +1558,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.username;
                         let strText: string = entity.personname;
                         let strIcon: string = entity.usericon;
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysEmployee',srfparentkey:entity.username});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysEmployee',srfparentkey:entity.username,sysemployee:strId})
@@ -1741,12 +1689,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.username;
                         let strText: string = entity.personname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysEmployee',srfparentkey:entity.username});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysEmployee',srfparentkey:entity.username,sysemployee:strId})
@@ -1945,12 +1887,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.teamid;
                         let strText: string = entity.teamname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'SysTeam',srfparentkey:entity.teamid});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'SysTeam',srfparentkey:entity.teamid,systeam:strId})
@@ -2198,12 +2134,6 @@ export class EmpTreeService extends TreeViewServiceBase {
                         let strId: string = entity.id;
                         let strText: string = entity.listname;
                         let strIcon: string = 'default_text';
-                        if(strIcon){
-                            let tempIcon =  JSON.parse(strIcon);
-                            if(tempIcon && tempIcon[0] && tempIcon[0].id){
-                                strIcon = `${this.download}/${tempIcon[0].id}`;
-                            }
-                        }
                         Object.assign(treeNode,{srfparentdename:'UserContact',srfparentkey:entity.id});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
                         Object.assign(tempContext,{srfparentdename:'UserContact',srfparentkey:entity.id,usercontact:strId})

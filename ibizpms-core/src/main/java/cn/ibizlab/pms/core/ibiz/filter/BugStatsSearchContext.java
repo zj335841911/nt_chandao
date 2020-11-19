@@ -62,6 +62,13 @@ public class BugStatsSearchContext extends QueryWrapperContext<BugStats> {
             this.getSearchCond().eq("assignedto", n_assignedto_eq);
         }
     }
+	private String n_resolvedby_eq;//[由谁解决]
+	public void setN_resolvedby_eq(String n_resolvedby_eq) {
+        this.n_resolvedby_eq = n_resolvedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_resolvedby_eq)){
+            this.getSearchCond().eq("resolvedby", n_resolvedby_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

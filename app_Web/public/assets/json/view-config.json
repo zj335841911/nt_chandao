@@ -759,6 +759,16 @@
         "viewtag": "23cc93d7fdddff5077a7952d26802a7b",
         "memo": ""
     },
+    "productsumstorysumgridview": {
+        "title": "产品汇总表表格视图",
+        "caption": "需求汇总",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductSumStorySumGridView",
+        "viewfilename": "product-sum-story-sum-grid-view",
+        "viewtag": "240ec4bdf10888613e1601f420ad730f",
+        "memo": ""
+    },
     "storympickupview3": {
         "title": "关联需求",
         "caption": "关联需求",
@@ -897,6 +907,16 @@
         "viewname": "TaskMainGridView9_Child",
         "viewfilename": "task-main-grid-view9-child",
         "viewtag": "2e0d4fb0f3e1ba1ba5bea16a5553cc21",
+        "memo": ""
+    },
+    "ibizproplugineditview": {
+        "title": "系统插件编辑视图",
+        "caption": "系统插件",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibizplugin",
+        "viewname": "IBIZProPluginEditView",
+        "viewfilename": "ibizpro-plugin-edit-view",
+        "viewtag": "2fe124188a5da06e3e641c7e1e1e76d6",
         "memo": ""
     },
     "storykanbanview": {
@@ -2479,6 +2499,16 @@
         "viewtag": "7e9dfdd36617a43790494790f58117ec",
         "memo": ""
     },
+    "productsumstoryhourssumgridview": {
+        "title": "产品汇总表表格视图",
+        "caption": "需求工时汇总",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductSumStoryHoursSumGridView",
+        "viewfilename": "product-sum-story-hours-sum-grid-view",
+        "viewtag": "7ee436604d479bd0ba014e136c1b8f6f",
+        "memo": ""
+    },
     "docliblibtabexpview": {
         "title": "文档库分页导航视图（文档）",
         "caption": "文档库主页",
@@ -3379,6 +3409,16 @@
         "viewtag": "a7a97014cad1917b94284db21ec968f1",
         "memo": "过滤条件在视图参数中指定"
     },
+    "bugstatsbugresolvedbygridview": {
+        "title": "Bug统计表格视图（Bug完成表）",
+        "caption": "Bug完成表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "BugStatsBugResolvedByGridView",
+        "viewfilename": "bug-stats-bug-resolved-by-grid-view",
+        "viewtag": "a7aa4a1d093b609e270df2fec5ea627b",
+        "memo": ""
+    },
     "taskcanceltaskview": {
         "title": "取消任务",
         "caption": "取消任务",
@@ -3887,6 +3927,16 @@
         "viewname": "TodoGridView9",
         "viewfilename": "todo-grid-view9",
         "viewtag": "c3f0a8956b863fa05a7d961df90a3975",
+        "memo": ""
+    },
+    "ibizproplugingridview": {
+        "title": "系统插件表格视图",
+        "caption": "系统插件",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibizplugin",
+        "viewname": "IBIZProPluginGridView",
+        "viewfilename": "ibizpro-plugin-grid-view",
+        "viewtag": "c4099c98661bbfac92a0e718c183e718",
         "memo": ""
     },
     "useryearworkstatspodashboardview": {

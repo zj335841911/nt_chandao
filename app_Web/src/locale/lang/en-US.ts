@@ -38,6 +38,7 @@ import todo_en_US from '@locale/lanres/entities/todo/todo_en_US';
 import ibzlibmodule_en_US from '@locale/lanres/entities/ibz-lib-module/ibz-lib-module_en_US';
 import subtask_en_US from '@locale/lanres/entities/sub-task/sub-task_en_US';
 import useryearworkstats_en_US from '@locale/lanres/entities/user-year-work-stats/user-year-work-stats_en_US';
+import ibizproplugin_en_US from '@locale/lanres/entities/ibizpro-plugin/ibizpro-plugin_en_US';
 import ibzlibcasesteptmp_en_US from '@locale/lanres/entities/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp_en_US';
 import project_en_US from '@locale/lanres/entities/project/project_en_US';
 import history_en_US from '@locale/lanres/entities/history/history_en_US';
@@ -223,6 +224,7 @@ const data: any = {
                 menuitem11: "用户",
                 menuitem7: "iBiz软件生产管理",
                 menuitem8: "更新日志",
+                menuitem17: "插件管理",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
                 menuitem5: "项目",
@@ -373,6 +375,7 @@ const data: any = {
         ibzlibmodule: ibzlibmodule_en_US,
         subtask: subtask_en_US,
         useryearworkstats: useryearworkstats_en_US,
+        ibizproplugin: ibizproplugin_en_US,
         ibzlibcasesteptmp: ibzlibcasesteptmp_en_US,
         project: project_en_US,
         history: history_en_US,

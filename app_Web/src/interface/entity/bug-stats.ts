@@ -149,4 +149,12 @@ export interface BugStats {
      * @memberof BugStats
      */
     assignedto?: any;
+
+    /**
+     * 由谁解决
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    resolvedby?: any;
 }

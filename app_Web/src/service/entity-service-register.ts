@@ -77,6 +77,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('ibzlibmodule', () => import('@/service/ibz-lib-module/ibz-lib-module-service'));
         this.allEntityService.set('subtask', () => import('@/service/sub-task/sub-task-service'));
         this.allEntityService.set('useryearworkstats', () => import('@/service/user-year-work-stats/user-year-work-stats-service'));
+        this.allEntityService.set('ibizproplugin', () => import('@/service/ibizpro-plugin/ibizpro-plugin-service'));
         this.allEntityService.set('ibzlibcasesteptmp', () => import('@/service/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp-service'));
         this.allEntityService.set('project', () => import('@/service/project/project-service'));
         this.allEntityService.set('history', () => import('@/service/history/history-service'));

@@ -172,6 +172,35 @@ export default class BugStatsServiceBase extends EntityService {
     }
 
     /**
+     * FetchBugResolvedBy接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugStatsServiceBase
+     */
+    public async FetchBugResolvedBy(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugstats/fetchbugresolvedby`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchBugResolvedBy接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugStatsServiceBase
+     */
+    public async searchBugResolvedBy(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/bugstats/searchbugresolvedby`,tempData,isloading);
+    }
+
+    /**
      * FetchBugassignedTo接口方法
      *
      * @param {*} [context={}]

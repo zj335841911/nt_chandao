@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.domain.EntityMP;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
@@ -16,12 +17,34 @@ import org.springframework.transaction.annotation.Transactional;
  */
 public class ZTBaseHelper<M extends BaseMapper<T>, T extends EntityMP> extends ServiceImpl<M , T> {
 
+    /**
+     * 多项选择分隔符
+     */
+    public static String MULTIPLE_CHOICE = ",";
+
+    /**
+     * in查询分隔符
+     */
+    public static String IN_CHOICE = ";";
+
+    /**
+     * 主键属性
+     */
+    public static  String FIELD_ID = "id";
+
+    /**
+     * 逻辑属性
+     */
+    public static  String FIELD_DELETED = "deleted";
+
+
+
     public T get(Long key){
         T et = getById(key);
         if (et == null) {
             try {
-                et = ((Class<T>) et.getClass()).newInstance();
-                et.set("id",Long.valueOf(et.get("id").toString()));
+                et = ((Class<T>) et.getClass()).getDeclaredConstructor().newInstance();
+                et.set(FIELD_ID, Long.valueOf(et.get(FIELD_ID).toString()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -35,18 +58,18 @@ public class ZTBaseHelper<M extends BaseMapper<T>, T extends EntityMP> extends S
             return false;
         }
         if(hasId()) {
-            CachedBeanCopier.copy(get(Long.valueOf(et.get("id").toString())), et);
+            CachedBeanCopier.copy(get(Long.valueOf(et.get(FIELD_ID).toString())), et);
         }
         return true;
     }
 
     @Transactional(rollbackFor = Exception.class)
     public boolean internalUpdate(T et ){
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", Long.valueOf(et.get("id").toString())))) {
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq(FIELD_ID, Long.valueOf(et.get(FIELD_ID).toString())))) {
             return false;
         }
         if(hasId()) {
-            CachedBeanCopier.copy(get(Long.valueOf(et.get("id").toString())), et);
+            CachedBeanCopier.copy(get(Long.valueOf(et.get(FIELD_ID).toString())), et);
         }
         return true;
     }
@@ -61,8 +84,8 @@ public class ZTBaseHelper<M extends BaseMapper<T>, T extends EntityMP> extends S
         if(hasId()){
             if(hasDeleted()){
                 UpdateWrapper deleteWrapper=new UpdateWrapper();
-                deleteWrapper.set("deleted","1") ;
-                deleteWrapper.eq("id",key) ;
+                deleteWrapper.set(FIELD_DELETED, StaticDict.YesNo.ITEM_1.getValue()) ;
+                deleteWrapper.eq(FIELD_ID, key) ;
                 return this.update(deleteWrapper);
             }else{
                 return removeById(key);

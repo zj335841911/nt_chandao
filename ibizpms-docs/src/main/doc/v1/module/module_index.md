@@ -667,6 +667,9 @@ package iBiz插件模块 {
 class 消息 {
 }
 
+class 系统插件 {
+}
+
 
 
 }

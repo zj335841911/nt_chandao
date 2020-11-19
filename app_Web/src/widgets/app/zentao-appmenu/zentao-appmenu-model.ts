@@ -285,6 +285,27 @@ export default class ZentaoModel {
                 	authtag:'Web-zentao-menuitem8',
                 }
                 ,
+                		        {
+                	id: 'C2324D75-EADF-4116-8EF3-2C62A3C8AB18',
+                	name: 'menuitem17',
+                	text: '插件管理',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '插件管理',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'PluginManagement',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'ibizpro-plugin-grid-view',
+                	authtag:'Web-zentao-menuitem17',
+                }
+                ,
         	],
         }
         ,
@@ -526,6 +547,18 @@ export default class ZentaoModel {
 	 * @memberof ZentaoModel
 	 */
 	private funcs: any[] = [
+        {
+            appfunctag: 'PluginManagement',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibizproplugingridview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibizproplugins/:ibizproplugin?/gridview/:gridview?',
+            parameters: [
+                { pathName: 'ibizproplugins', parameterName: 'ibizproplugin' },
+                { pathName: 'gridview', parameterName: 'gridview' },
+            ],
+        },
         {
             appfunctag: 'AppFunc',
             appfuncyype: 'APPVIEW',

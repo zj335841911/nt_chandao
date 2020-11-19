@@ -135,6 +135,28 @@ public class BugStatsResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchBugResolvedBy-all')")
+	@ApiOperation(value = "获取Bug完成表", tags = {"Bug统计" } ,notes = "获取Bug完成表")
+    @RequestMapping(method= RequestMethod.GET , value="/bugstats/fetchbugresolvedby")
+	public ResponseEntity<List<BugStatsDTO>> fetchBugResolvedBy(BugStatsSearchContext context) {
+        Page<BugStats> domains = bugstatsService.searchBugResolvedBy(context) ;
+        List<BugStatsDTO> list = bugstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchBugResolvedBy-all')")
+	@ApiOperation(value = "查询Bug完成表", tags = {"Bug统计" } ,notes = "查询Bug完成表")
+    @RequestMapping(method= RequestMethod.POST , value="/bugstats/searchbugresolvedby")
+	public ResponseEntity<Page<BugStatsDTO>> searchBugResolvedBy(@RequestBody BugStatsSearchContext context) {
+        Page<BugStats> domains = bugstatsService.searchBugResolvedBy(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchBugassignedTo-all')")
 	@ApiOperation(value = "获取Bug指派表", tags = {"Bug统计" } ,notes = "获取Bug指派表")
     @RequestMapping(method= RequestMethod.GET , value="/bugstats/fetchbugassignedto")

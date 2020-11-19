@@ -115,6 +115,8 @@ export default class CurStory {
                 Object.assign(itemdata,{text:item.title});
                 Object.assign(itemdata,{label:item.title});
                 
+                
+                
                 _items.push(itemdata);
             });
         }

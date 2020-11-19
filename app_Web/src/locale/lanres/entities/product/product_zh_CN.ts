@@ -206,6 +206,7 @@ export default {
 	},
 	dashboardinfo_form: {
 		details: {
+			grouppanel5: "分组面板", 
 			group1: "产品基本信息", 
 			grouppanel2: "负责人", 
 			grouppanel3: "基本信息", 
@@ -218,7 +219,12 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			name: "名称", 
+			id: "", 
+			code: "", 
+			name: "", 
+			desc: "", 
+			type: "类型：", 
+			status: "状态:", 
 			po: "产品", 
 			rd: "发布", 
 			qd: "测试", 
@@ -237,7 +243,6 @@ export default {
 			doccnt: "文档数", 
 			closedstorycnt: "已关闭需求", 
 			releasecnt: "发布数", 
-			id: "编号", 
 		},
 		uiactions: {
 		},

@@ -110,14 +110,21 @@ export class ProductSumTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarCon
         }
         if (Object.is(expmode, 'PRODUCTSTORYSUM')) {
             return {  
-                viewname: 'project-more-undone-pro-grid-view', 
+                viewname: 'product-sum-story-sum-grid-view', 
                 parentdata: {},
-                deKeyField:'project'
+                deKeyField:'productsum'
 			};
         }
         if (Object.is(expmode, 'PRODUCTSUM')) {
             return {  
                 viewname: 'product-sum-grid-view', 
+                parentdata: {},
+                deKeyField:'productsum'
+			};
+        }
+        if (Object.is(expmode, 'STORYHOURSSUM')) {
+            return {  
+                viewname: 'product-sum-story-hours-sum-grid-view', 
                 parentdata: {},
                 deKeyField:'productsum'
 			};

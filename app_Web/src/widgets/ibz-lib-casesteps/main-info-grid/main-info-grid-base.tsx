@@ -66,7 +66,6 @@ export class MainInfoGridBase extends GridControlBase {
      */  
     public appUIService: IbzLibCasestepsUIService = new IbzLibCasestepsUIService(this.$store);
 
-
     /**
      * 本地缓存标识
      *
@@ -140,7 +139,7 @@ export class MainInfoGridBase extends GridControlBase {
      * @type {*}
      * @memberof MainInfoGridBase
      */
-    public rules(){
+    public rules() {
         return {
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
@@ -148,6 +147,15 @@ export class MainInfoGridBase extends GridControlBase {
         ],
         }
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainInfoBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 获取对应列class
@@ -245,6 +253,17 @@ export class MainInfoGridBase extends GridControlBase {
      * @memberof MainInfo
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any) {
+        if (!(await this.validateAll())) {
+            if (this.errorMessages && this.errorMessages.length > 0) {
+                this.$Notice.error({ title: this.$t('app.commonWords.wrong') as string, desc: this.errorMessages[0] });
+            } else {
+                this.$Notice.error({
+                    title: this.$t('app.commonWords.wrong') as string,
+                    desc: this.$t('app.commonWords.rulesException') as string,
+                });
+            }
+            return [];
+        }
         for (const item of this.items) {
             item.srfmajortext = item.expect;
         }

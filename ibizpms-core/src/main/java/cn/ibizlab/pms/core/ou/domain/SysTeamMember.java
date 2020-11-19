@@ -97,6 +97,13 @@ public class SysTeamMember extends EntityClient implements Serializable {
     @JsonProperty("username")
     private String username;
 
+    /**
+     * 头像
+     */
+    @JSONField(name = "usericon")
+    @JsonProperty("usericon")
+    private String usericon;
+
 
     /**
      * 

@@ -234,5 +234,6 @@ POST
 | 7 | postid | String | 允许 | 岗位标识 |
 | 8 | personname | String | 允许 | 姓名 |
 | 9 | username | String | 允许 | 账号 |
-| 10 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 10 | usericon | String | 允许 | 头像 |
+| 11 | <动态属性> | Object | 允许 | 支持动态属性 |
 

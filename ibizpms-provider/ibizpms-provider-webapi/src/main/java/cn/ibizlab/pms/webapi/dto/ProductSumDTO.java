@@ -131,6 +131,174 @@ public class ProductSumDTO extends DTOBase implements Serializable {
     @JsonProperty("bugcnt")
     private Integer bugcnt;
 
+    /**
+     * 属性 [WAITSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "waitstagestorycnt")
+    @JsonProperty("waitstagestorycnt")
+    private Integer waitstagestorycnt;
+
+    /**
+     * 属性 [PLANEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "planedstagestorycnt")
+    @JsonProperty("planedstagestorycnt")
+    private Integer planedstagestorycnt;
+
+    /**
+     * 属性 [PROJECTEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "projectedstagestorycnt")
+    @JsonProperty("projectedstagestorycnt")
+    private Integer projectedstagestorycnt;
+
+    /**
+     * 属性 [DEVELOPINGSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "developingstagestorycnt")
+    @JsonProperty("developingstagestorycnt")
+    private Integer developingstagestorycnt;
+
+    /**
+     * 属性 [DEVELOPEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "developedstagestorycnt")
+    @JsonProperty("developedstagestorycnt")
+    private Integer developedstagestorycnt;
+
+    /**
+     * 属性 [TESTINGSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "testingstagestorycnt")
+    @JsonProperty("testingstagestorycnt")
+    private Integer testingstagestorycnt;
+
+    /**
+     * 属性 [TESTEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "testedstagestorycnt")
+    @JsonProperty("testedstagestorycnt")
+    private Integer testedstagestorycnt;
+
+    /**
+     * 属性 [VERIFIEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "verifiedstagestorycnt")
+    @JsonProperty("verifiedstagestorycnt")
+    private Integer verifiedstagestorycnt;
+
+    /**
+     * 属性 [RELEASEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "releasedstagestorycnt")
+    @JsonProperty("releasedstagestorycnt")
+    private Integer releasedstagestorycnt;
+
+    /**
+     * 属性 [CLOSEDSTAGESTORYCNT]
+     *
+     */
+    @JSONField(name = "closedstagestorycnt")
+    @JsonProperty("closedstagestorycnt")
+    private Integer closedstagestorycnt;
+
+    /**
+     * 属性 [WAITSTAGESTORYHOURS]
+     *
+     */
+    @JSONField(name = "waitstagestoryhours")
+    @JsonProperty("waitstagestoryhours")
+    private Integer waitstagestoryhours;
+
+    /**
+     * 属性 [CLOSEDSTAGESTORYHOURS]
+     *
+     */
+    @JSONField(name = "closedstagestoryhours")
+    @JsonProperty("closedstagestoryhours")
+    private Integer closedstagestoryhours;
+
+    /**
+     * 属性 [RELEASEDSTAGESTORYHOURS]
+     *
+     */
+    @JSONField(name = "releasedstagestoryhours")
+    @JsonProperty("releasedstagestoryhours")
+    private Integer releasedstagestoryhours;
+
+    /**
+     * 属性 [VERIFIEDSTAGESTORYHOURS]
+     *
+     */
+    @JSONField(name = "verifiedstagestoryhours")
+    @JsonProperty("verifiedstagestoryhours")
+    private Integer verifiedstagestoryhours;
+
+    /**
+     * 属性 [TESTEDSTAGESTORYHOURS]
+     *
+     */
+    @JSONField(name = "testedstagestoryhours")
+    @JsonProperty("testedstagestoryhours")
+    private Integer testedstagestoryhours;
+
+    /**
+     * 属性 [TESTINGSTAGESTORYHOURS]
+     *
+     */
+    @JSONField(name = "testingstagestoryhours")
+    @JsonProperty("testingstagestoryhours")
+    private Integer testingstagestoryhours;
+
+    /**
+     * 属性 [DEVELOPEDSTAGESTORYHOURS]
+     *
+     */
+    @JSONField(name = "developedstagestoryhours")
+    @JsonProperty("developedstagestoryhours")
+    private Integer developedstagestoryhours;
+
+    /**
+     * 属性 [DEVELOPINGSTAGESTORYHOURS]
+     *
+     */
+    @JSONField(name = "developingstagestoryhours")
+    @JsonProperty("developingstagestoryhours")
+    private Integer developingstagestoryhours;
+
+    /**
+     * 属性 [PROJECTEDSTAGESTORYHOURS]
+     *
+     */
+    @JSONField(name = "projectedstagestoryhours")
+    @JsonProperty("projectedstagestoryhours")
+    private Integer projectedstagestoryhours;
+
+    /**
+     * 属性 [PLANEDSTAGESTORYHOURS]
+     *
+     */
+    @JSONField(name = "planedstagestoryhours")
+    @JsonProperty("planedstagestoryhours")
+    private Integer planedstagestoryhours;
+
+    /**
+     * 属性 [TOTALHOURS]
+     *
+     */
+    @JSONField(name = "totalhours")
+    @JsonProperty("totalhours")
+    private Integer totalhours;
+
 
     /**
      * 设置 [NAME]

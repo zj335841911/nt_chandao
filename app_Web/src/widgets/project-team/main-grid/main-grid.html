@@ -34,7 +34,13 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.account" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                                  <span><icon-codelist :value="row.account" 
+            	tag="UserRealName" 
+            	codelistType="DYNAMIC" 
+             renderMode="STR"
+             valueSeparator=","
+             textSeparator=",">
+            </icon-codelist></span>
                         </template>
                     </template>
                 </el-table-column>

@@ -180,6 +180,15 @@ public class BugStatsDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String assignedto;
 
+    /**
+     * 属性 [RESOLVEDBY]
+     *
+     */
+    @JSONField(name = "resolvedby")
+    @JsonProperty("resolvedby")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String resolvedby;
+
 
     /**
      * 设置 [TITLE]
@@ -211,6 +220,14 @@ public class BugStatsDTO extends DTOBase implements Serializable {
     public void setAssignedto(String  assignedto){
         this.assignedto = assignedto ;
         this.modify("assignedto",assignedto);
+    }
+
+    /**
+     * 设置 [RESOLVEDBY]
+     */
+    public void setResolvedby(String  resolvedby){
+        this.resolvedby = resolvedby ;
+        this.modify("resolvedby",resolvedby);
     }
 
 

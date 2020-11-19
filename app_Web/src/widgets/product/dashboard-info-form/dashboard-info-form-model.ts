@@ -51,9 +51,34 @@ export default class DashboardInfoModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
+      },
+      {
+        name: 'code',
+        prop: 'code',
+        dataType: 'TEXT',
+      },
+      {
         name: 'name',
         prop: 'name',
         dataType: 'TEXT',
+      },
+      {
+        name: 'desc',
+        prop: 'desc',
+        dataType: 'LONGTEXT',
+      },
+      {
+        name: 'type',
+        prop: 'type',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'status',
+        prop: 'status',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'po',
@@ -144,11 +169,6 @@ export default class DashboardInfoModel {
         name: 'releasecnt',
         prop: 'releasecnt',
         dataType: 'INT',
-      },
-      {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
       },
       {
         name: 'product',

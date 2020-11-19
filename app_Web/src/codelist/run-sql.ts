@@ -114,6 +114,8 @@ export default class RunSQL {
                 Object.assign(itemdata,{text:item.pssystemdbcfgname});
                 Object.assign(itemdata,{label:item.pssystemdbcfgname});
                 
+                
+                
                 _items.push(itemdata);
             });
         }

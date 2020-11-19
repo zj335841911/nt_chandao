@@ -3,11 +3,14 @@
         <span v-if="ifEmpty">{{ $t('codelist.' + tag + '.empty') }}</span>
         <template v-if="!ifEmpty">
             <template v-for="(item, index) in items">
-                <span v-if="index != 0">{{ textSeparator }}</span>
-                <i v-if="item.iconCls" :class="item.iconCls"></i>
-                <span :class="item.class" :style="{ color: item.color }">
-                    {{ isUseLangres ? $t(item.text) : item.text }}
-                </span>
+                <div class="codelist-item" :key="index">
+                    <span v-if="index != 0">{{ textSeparator }}</span>
+                    <i v-if="item.iconcls" :class="item.iconcls"></i>
+                    <img v-if="item.icon" :src="getIcon(item.icon)" />
+                    <span :class="item.class" :style="{ color: item.color }">
+                        {{ isUseLangres ? $t(item.text) : item.text }}
+                    </span>
+               </div>
             </template>
         </template>
     </div>
@@ -16,6 +19,7 @@
 <script lang="ts">
 import { Vue, Component, Prop, Model, Watch } from 'vue-property-decorator';
 import CodeListService from '@service/app/codelist-service';
+import { Environment } from '@/environments/environment';
 
 @Component({})
 export default class CodeList extends Vue {
@@ -300,6 +304,46 @@ export default class CodeList extends Vue {
             Object.assign(arg.param, _param);
         }
     }
+
+
+    /**
+     * 获取图片路径
+     *
+     * @param {*} arg
+     * @returns
+     * @memberof CodeList
+     */
+    public getIcon(arg:any){
+       if(!arg){
+           return;
+        }
+       if(Object.prototype.toString.call(arg)=="[object String]"){
+           try {
+               let targetData:any = JSON.parse(arg);
+               if(Object.prototype.toString.call(targetData) == "[object Array]"){
+                    if(targetData && targetData.length >0){
+                        let fileId:string = targetData[0] && targetData[0].id;
+                        return Environment.BaseUrl + "ibizutil/download/" + fileId;
+                    }
+                }else if(Object.prototype.toString.call(targetData) === '[object Object]'){
+                        let fileId:string = targetData && targetData.id;
+                        return Environment.BaseUrl + "ibizutil/download/" + fileId;
+                }
+           } catch (error) {
+               return arg;
+           }
+       }else if(Object.prototype.toString.call(arg) == "[object Array]"){
+           if(arg && arg.length >0){
+               let fileId:string = arg[0] && arg[0].id;
+               return Environment.BaseUrl + "ibizutil/download/" + fileId;
+           }
+       }else if(Object.prototype.toString.call(arg) === '[object Object]'){
+            let fileId:string = arg && arg.id;
+            return Environment.BaseUrl + "ibizutil/download/" + fileId;
+       }else{
+            return arg;
+       }
+    }
 }
 </script>
 
@@ -309,5 +353,16 @@ export default class CodeList extends Vue {
     text-overflow: ellipsis;
     word-break: break-all;
     overflow: hidden;
+    .codelist-item{
+        display: flex;
+        align-items: center;
+        max-height: 32px;
+        > img{
+            max-height: 32px;
+            width: auto;
+            margin-right: 6px;
+            border-radius: 50%;
+        }
+    }
 }
 </style>

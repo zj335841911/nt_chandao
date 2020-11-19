@@ -18,6 +18,7 @@
 *** 用户
 *** iBiz软件生产管理
 *** 更新日志
+*** 插件管理
 ** 左侧分页导航
 *** 产品
 *** 项目
@@ -50,6 +51,7 @@
 |用户|-|
 |iBiz软件生产管理|[查看功能](func/ProductHtmlView.md)|
 |更新日志|[查看功能](func/SysUpdateLogGridView.md)|
+|插件管理|[查看功能](func/IBIZProPluginGridView.md)|
 |左侧分页导航|-|
 |产品|[查看功能](func/ProductLeftSidebarListView.md)|
 |项目|[查看功能](func/ProjectLeftSidebarListView.md)|

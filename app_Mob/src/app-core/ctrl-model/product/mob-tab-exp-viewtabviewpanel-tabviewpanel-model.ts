@@ -153,6 +153,9 @@ export class MobTabExpViewtabviewpanelModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'ibiz_id',
+      },
     ]
   }
 

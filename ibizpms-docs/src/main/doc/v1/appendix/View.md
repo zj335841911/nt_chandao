@@ -283,6 +283,7 @@
 |-|项目团队表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试用例表格视图（测试结果条目）|DEGRIDVIEW|&nbsp;|
 |-|文档数据看板视图|DEPORTALVIEW|&nbsp;|
+|-|产品汇总表表格视图|DEGRIDVIEW|&nbsp;|
 |-|关联需求|DEMPICKUPVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目相关成员编辑视图（相关成员）|DEEDITVIEW9|&nbsp;|
@@ -297,6 +298,7 @@
 |-|待办事宜表数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|文档库树导航视图（自定义文档库）|DETREEEXPVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW9|&nbsp;|
+|-|系统插件编辑视图|DEEDITVIEW|&nbsp;|
 |-|需求看板视图|DEKANBANVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试版本表格视图|DEGRIDVIEW9|&nbsp;|
@@ -456,6 +458,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|需求数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|产品计划数和需求数实体表格视图|DEGRIDVIEW|&nbsp;|
+|-|产品汇总表表格视图|DEGRIDVIEW|&nbsp;|
 |-|文档库分页导航视图（文档）|DETABEXPVIEW|&nbsp;|
 |-|工时|DEEDITVIEW|&nbsp;|
 |-|测试版本编辑视图（日历导航）|DEEDITVIEW|&nbsp;|
@@ -546,6 +549,7 @@ SRFNAVPARAM.project=%project%|
 |-|版本编辑视图|DEEDITVIEW|&nbsp;|
 |-|关联需求|DEMPICKUPVIEW|&nbsp;|
 |-|项目表格视图|DEGRIDVIEW9|&nbsp;过滤条件在视图参数中指定|
+|-|Bug统计表格视图（Bug完成表）|DEGRIDVIEW|&nbsp;|
 |-|取消任务|DEOPTVIEW|&nbsp;|
 |-|需求模块|DEOPTVIEW|&nbsp;|
 |-|关联需求|DEEDITVIEW9|&nbsp;|
@@ -597,6 +601,7 @@ SRFNAVPARAM.project=%project%|
 |-|我的工作|DELISTVIEW|&nbsp;|
 |-|测试套件数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|我的待办|DEGRIDVIEW9|&nbsp;|
+|-|系统插件表格视图|DEGRIDVIEW|&nbsp;|
 |-|用户年度工作内容统计数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试统计|DELISTEXPVIEW|&nbsp;|

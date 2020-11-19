@@ -9,5 +9,6 @@ export default {
     postid: "岗位标识",
     personname: "姓名",
     username: "账号",
+    usericon: "头像",
   },
 };

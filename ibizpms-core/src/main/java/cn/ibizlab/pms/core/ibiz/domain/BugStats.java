@@ -170,6 +170,13 @@ public class BugStats extends EntityMP implements Serializable {
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
     private String assignedto;
+    /**
+     * 由谁解决
+     */
+    @TableField(value = "`resolvedby`")
+    @JSONField(name = "resolvedby")
+    @JsonProperty("resolvedby")
+    private String resolvedby;
 
     /**
      * 产品
@@ -211,6 +218,14 @@ public class BugStats extends EntityMP implements Serializable {
     public void setAssignedto(String assignedto) {
         this.assignedto = assignedto;
         this.modify("assignedto", assignedto);
+    }
+
+    /**
+     * 设置 [由谁解决]
+     */
+    public void setResolvedby(String resolvedby) {
+        this.resolvedby = resolvedby;
+        this.modify("resolvedby", resolvedby);
     }
 
 

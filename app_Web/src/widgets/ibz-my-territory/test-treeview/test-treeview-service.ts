@@ -82,6 +82,15 @@ export default class TestService extends ControlService {
 	public TREENODE_BUGOPENENDBY: string = 'BugOpenendBy';
 
     /**
+     * Bug完成表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof TestService
+     */
+	public TREENODE_BUGRESOLVEDBY: string = 'BugResolvedBy';
+
+    /**
      * 默认根节点节点分隔符号
      *
      * @public
@@ -170,6 +179,10 @@ export default class TestService extends ControlService {
         }
         if (Object.is(strNodeType, this.TREENODE_BUGOPENENDBY)) {
             await this.fillBugopenendbyNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_BUGRESOLVEDBY)) {
+            await this.fillBugresolvedbyNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_ROOT)) {
@@ -298,6 +311,65 @@ export default class TestService extends ControlService {
 	}
 
     /**
+     * 填充 树视图节点[Bug完成表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof TestService
+     */
+    @Errorlog
+    public fillBugresolvedbyNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.test_treeview.nodes.bugresolvedby') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'BugResolvedBy';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[Bug完成表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof TestService
+     */
+    @Errorlog
+    public async fillBugresolvedbyNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
      * 填充 树视图节点[默认根节点]
      *
      * @public
@@ -361,6 +433,11 @@ export default class TestService extends ControlService {
             let BugassignedtoRsNavParams:any = {};
             let BugassignedtoRsParams:any = {};
 			await this.fillBugassignedtoNodes(context, filter, list ,BugassignedtoRsNavContext,BugassignedtoRsNavParams,BugassignedtoRsParams);
+			// 填充Bug完成表
+            let BugresolvedbyRsNavContext:any = {};
+            let BugresolvedbyRsNavParams:any = {};
+            let BugresolvedbyRsParams:any = {};
+			await this.fillBugresolvedbyNodes(context, filter, list ,BugresolvedbyRsNavContext,BugresolvedbyRsNavParams,BugresolvedbyRsParams);
 		} else {
 			// 填充Bug创建表
             let BugopenendbyRsNavContext:any = {};
@@ -372,6 +449,11 @@ export default class TestService extends ControlService {
             let BugassignedtoRsNavParams:any = {};
             let BugassignedtoRsParams:any = {};
 			await this.fillBugassignedtoNodes(context, filter, list ,BugassignedtoRsNavContext,BugassignedtoRsNavParams,BugassignedtoRsParams);
+			// 填充Bug完成表
+            let BugresolvedbyRsNavContext:any = {};
+            let BugresolvedbyRsNavParams:any = {};
+            let BugresolvedbyRsParams:any = {};
+			await this.fillBugresolvedbyNodes(context, filter, list ,BugresolvedbyRsNavContext,BugresolvedbyRsNavParams,BugresolvedbyRsParams);
 		}
 	}
 

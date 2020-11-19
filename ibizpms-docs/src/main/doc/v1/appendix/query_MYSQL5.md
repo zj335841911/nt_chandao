@@ -2735,6 +2735,52 @@ WHERE t1.DELETED = '0'
 
 # **Bug统计**(IBZ_BUGSTATS)
 
+### Bug完成表(BugResolvedBy)<div id="BugStats_BugResolvedBy"></div>
+```sql
+SELECT
+	t1.resolvedBy,
+	t1.product,
+	t1.productname,
+	t1.bugcnt,
+	t11.bugcnt AS bugtotal 
+FROM
+	(
+	SELECT
+		t1.resolvedBy,
+		t1.product,
+		t11.`name` AS productname,
+		COUNT( t1.id ) AS bugcnt 
+	FROM
+		`zt_bug` t1
+		LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+	WHERE
+		t1.deleted = '0' 
+		AND t1.resolvedBy <> '' 
+		AND t1.product <> 0 
+		AND t11.deleted = '0' 
+	GROUP BY
+		t1.resolvedBy,
+		t1.product,
+		t11.`name` 
+	) t1
+	INNER JOIN (
+	SELECT
+		t1.resolvedBy,
+		COUNT( t1.id ) AS bugcnt 
+	FROM
+		`zt_bug` t1
+		LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+	WHERE
+		t1.deleted = '0' 
+		AND t1.resolvedBy <> '' 
+		AND t1.product <> 0 
+		AND t11.deleted = '0' 
+	GROUP BY
+		t1.resolvedBy 
+	) t11 ON t1.resolvedBy = t11.resolvedBy 
+ORDER BY
+	t1.resolvedBy ASC
+```
 ### Bug指派表(BugassignedTo)<div id="BugStats_BugassignedTo"></div>
 ```sql
 SELECT
@@ -2852,6 +2898,7 @@ t1.`ID`,
 t1.`OPENEDBY`,
 t1.`PRODUCT`,
 t11.`NAME` AS `PRODUCTNAME`,
+t1.`RESOLVEDBY`,
 t1.`TITLE`
 FROM `zt_bug` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
@@ -5958,6 +6005,49 @@ t1.`SUBJECT`,
 t1.`TO`,
 t1.`TYPE`
 FROM `T_IBIZPRO_MESSAGE` t1 
+
+```
+
+# **系统插件**(IBIZPRO_PLUGIN)
+
+### 数据查询(DEFAULT)<div id="IBIZProPlugin_Default"></div>
+```sql
+SELECT
+0 AS `COMMENTCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+0 AS `DOWNLOADCOUNT`,
+t1.`DOWNLOADURL`,
+t1.`IBIZPRO_PLUGINID`,
+t1.`IBIZPRO_PLUGINNAME`,
+t1.`KEYWORD`,
+0 AS `SCORE`,
+t1.`TAG`,
+t1.`TYPE`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`VERSION`
+FROM `T_IBIZPRO_PLUGIN` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IBIZProPlugin_View"></div>
+```sql
+SELECT
+0 AS `COMMENTCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+0 AS `DOWNLOADCOUNT`,
+t1.`DOWNLOADURL`,
+t1.`IBIZPRO_PLUGINID`,
+t1.`IBIZPRO_PLUGINNAME`,
+t1.`KEYWORD`,
+0 AS `SCORE`,
+t1.`TAG`,
+t1.`TYPE`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`VERSION`
+FROM `T_IBIZPRO_PLUGIN` t1 
 
 ```
 
@@ -10328,18 +10418,75 @@ having t1.openedBy =  #{srf.sessioncontext.srfloginname}
 SELECT 0 AS `ACTIVESTORYCNT`, 0 AS `CHANGEDSTORYCNT`, 0 AS `CLOSEDSTORYCNT`, t1.`ID`, t1.`NAME`, t2.plan AS `PLAN`, t1.`PO`, t2.storycnt AS `STORYCNT`, t2.plan AS `WAITSTORYCNT`, t2.zhanbi FROM `zt_product` t1 INNER JOIN ( SELECT t1.*,IFNULL(t2.storycnt,0) as storycnt,IFNULL(t2.allstorycnt,0) as allstorycnt,IFNULL(t2.zhanbi,0) as zhanbi,IFNULL(t3.plancnt,0) as plan from ( SELECT t1.id,t1.`name`,t1.`status` from zt_product t1 where t1.id in (SELECT t1.id from zt_product t1 where YEAR(t1.createddate) =   #{srf.webcontext.curyear}  and (t1.createdBy = #{srf.sessioncontext.srfloginname} or t1.po = #{srf.sessioncontext.srfloginname} or t1.QD = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} )) or t1.id in (SELECT DISTINCT t1.product from zt_story t1 where t1.openedBy = #{srf.sessioncontext.srfloginname} and YEAR(t1.openeddate) =   #{srf.webcontext.curyear} ) or t1.id in (SELECT DISTINCT t1.product from zt_productplan t1 LEFT JOIN zt_action t2 on t1.id = t2.OBJECTID and t2.objectType = 'productplan' where YEAR(t2.date) =   
 #{srf.webcontext.curyear}  and t2.actor = #{srf.sessioncontext.srfloginname} and t2.action = 'opened' ) ) t1 LEFT JOIN ( select t1.*,t2.allstorycnt , CONCAT(ROUND(t1.storycnt/(case when t2.allstorycnt = 0 or t2.allstorycnt is null then 1 else t2.allstorycnt end)*100,1),'%') as zhanbi from (SELECT t1.openedBy,t1.productid,t1.productname,COUNT(1) as storycnt from ( SELECT t1.id,t1.openedBy,t2.id as productid ,t2.`name` as productname from zt_story t1 LEFT JOIN zt_product t2 on t2.id = t1.product) t1 GROUP BY t1.openedBy,t1.productid ) t1 LEFT JOIN (select t1.productid,t1.productname,COUNT(1) as allstorycnt from ( SELECT t1.id,t1.openedBy,t2.id as productid ,t2.`name` as productname from zt_story t1 LEFT JOIN zt_product t2 on t2.id = t1.product ) t1 GROUP BY t1.productid) t2 on t2.productid = t1.productid having t1.openedBy = #{srf.sessioncontext.srfloginname} ) t2 on t1.id = t2.productid LEFT JOIN ( SELECT t1.productid,t1.productname,count(1) as plancnt from ( select t1.id,t2.id as productid,t2.`name` as productname from zt_productplan t1 LEFT JOIN zt_product t2 on t2.id = t1.product where t1.parent >= 0 and t1.`begin` >= (CONCAT( YEAR(NOW()),'-01-01',' 00:00:00')) and t1.`end` <= (CONCAT( YEAR(NOW()),'-12-31',' 23:59:59')) and t1.parent >= '0' ) t1 GROUP BY t1.productid ) t3 on t3.productid = t1.id ) t2 on t2.id = t1.id
 ```
+### 产品需求工时汇总(ProductStoryHoursSum)<div id="ProductSum_ProductStoryHoursSum"></div>
+```sql
+select t1.`id`, t1.`name`, t1.`po`, 
+sum( IF ( t1.`stage` = 'closed' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`estimate`, 0 ) ) AS `CLOSEDSTAGESTORYHOURS`, 
+sum( IF ( t1.`stage` = 'released' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`estimate`, 0 ) ) AS `RELEASEDSTAGESTORYHOURS`, 
+sum( IF ( t1.`stage` = 'verified' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`estimate`, 0 ) ) AS `VERIFIEDSTAGESTORYHOURS`, 
+sum( IF ( t1.`stage` = 'tested' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`estimate`, 0 ) ) AS `TESTEDSTAGESTORYHOURS`, 
+sum( IF ( t1.`stage` = 'testing' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`estimate`, 0 ) ) AS `TESTINGSTAGESTORYHOURS`, 
+sum( IF ( t1.`stage` = 'developed' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`estimate`, 0 ) ) AS `DEVELOPEDSTAGESTORYHOURS`, 
+sum( IF ( t1.`stage` = 'developing' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`estimate`, 0 ) ) AS `DEVELOPINGSTAGESTORYHOURS`, 
+sum( IF ( t1.`stage` = 'projected' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`estimate`, 0 ) ) AS `PROJECTEDSTAGESTORYHOURS`, 
+sum( IF ( t1.`stage` = 'planed' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`estimate`, 0 ) ) AS `PLANEDSTAGESTORYHOURS`, 
+sum( IF ( t1.`stage` = 'wait' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`estimate`, 0 ) ) AS `WAITSTAGESTORYHOURS`, 
+sum( IF ( t1.`deleted` = '0' and t1.`parent` <> -1, t1.`estimate`, 0 ) ) AS `TOTALHOURS` 
+from (select t1.`id`, t1.`name`, t1.`po`, t1.`status`, t2.`parent`, t2.`stage`, t2.`estimate`, t2.`deleted` from zt_product t1 left join zt_story t2 on t1.`id` = t2.`product` where t1.`deleted`= '0') t1
+where t1.`status` = 'normal' or (t1.`status` = 'closed' and #{srf.datacontext.closed} = '1')
+group by t1.`id`
+```
+### 产品需求汇总查询(ProductStorySum)<div id="ProductSum_ProductStorySum"></div>
+```sql
+select t1.`id`, t1.`name`, t1.`po`, 
+sum( IF ( t1.`stage` = 'closed' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `CLOSEDSTAGESTORYCNT`, 
+sum( IF ( t1.`stage` = 'released' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `RELEASEDSTAGESTORYCNT`, 
+sum( IF ( t1.`stage` = 'verified' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `VERIFIEDSTAGESTORYCNT`, 
+sum( IF ( t1.`stage` = 'tested' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `TESTEDSTAGESTORYCNT`, 
+sum( IF ( t1.`stage` = 'testing' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `TESTINGSTAGESTORYCNT`, 
+sum( IF ( t1.`stage` = 'developed' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `DEVELOPEDSTAGESTORYCNT`, 
+sum( IF ( t1.`stage` = 'developing' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `DEVELOPINGSTAGESTORYCNT`, 
+sum( IF ( t1.`stage` = 'projected' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `PROJECTEDSTAGESTORYCNT`, 
+sum( IF ( t1.`stage` = 'planed' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `PLANEDSTAGESTORYCNT`, 
+sum( IF ( t1.`stage` = 'wait' and t1.`parent` <> -1 and t1.`deleted` = '0', t1.`rowcnt`, 0 ) ) AS `WAITSTAGESTORYCNT`, 
+sum( IF ( t1.`deleted` = '0' and t1.`parent` <> -1, t1.`rowcnt`, 0 ) ) AS `STORYCNT` 
+from (select t1.`id`, t1.`name`, t1.`po`, t1.`status`, t2.`parent`, t2.`stage`, t2.`deleted`, 1 as `rowcnt` from zt_product t1 left join zt_story t2 on t1.`id` = t2.`product` where t1.`deleted` = '0') t1 
+where t1.`status` = 'normal' or (t1.`status` = 'closed' and #{srf.datacontext.closed} = '1')
+group by t1.`id`
+```
 ### 默认（全部数据）(VIEW)<div id="ProductSum_View"></div>
 ```sql
 SELECT
 0 AS `ACTIVESTORYCNT`,
 0 AS `BUGCNT`,
 0 AS `CHANGEDSTORYCNT`,
+0 AS `CLOSEDSTAGESTORYCNT`,
+0 AS `CLOSEDSTAGESTORYHOURS`,
 0 AS `CLOSEDSTORYCNT`,
+0 AS `DEVELOPEDSTAGESTORYCNT`,
+0 AS `DEVELOPEDSTAGESTORYHOURS`,
+0 AS `DEVELOPINGSTAGESTORYCNT`,
+0 AS `DEVELOPINGSTAGESTORYHOURS`,
 t1.`ID`,
 t1.`NAME`,
 0 AS `PLAN`,
+0 AS `PLANEDSTAGESTORYCNT`,
+0 AS `PLANEDSTAGESTORYHOURS`,
 t1.`PO`,
+0 AS `PROJECTEDSTAGESTORYCNT`,
+0 AS `PROJECTEDSTAGESTORYHOURS`,
+0 AS `RELEASEDSTAGESTORYCNT`,
+0 AS `RELEASEDSTAGESTORYHOURS`,
 0 AS `STORYCNT`,
+0 AS `TESTEDSTAGESTORYCNT`,
+0 AS `TESTEDSTAGESTORYHOURS`,
+0 AS `TESTINGSTAGESTORYCNT`,
+0 AS `TESTINGSTAGESTORYHOURS`,
+0 AS `TOTALHOURS`,
+0 AS `VERIFIEDSTAGESTORYCNT`,
+0 AS `VERIFIEDSTAGESTORYHOURS`,
+0 AS `WAITSTAGESTORYCNT`,
+0 AS `WAITSTAGESTORYHOURS`,
 0 AS `WAITSTORYCNT`
 FROM `zt_product` t1 
 
@@ -14030,6 +14177,7 @@ t21.`POSTNAME`,
 t1.`TEAMID`,
 t1.`TEAMMEMBERID`,
 t11.`TEAMNAME`,
+t31.`USERICON`,
 t1.`USERID`,
 t31.`USERNAME`
 FROM `IBZTEAMMEMBER` t1 
@@ -14048,6 +14196,7 @@ t21.`POSTNAME`,
 t1.`TEAMID`,
 t1.`TEAMMEMBERID`,
 t11.`TEAMNAME`,
+t31.`USERICON`,
 t1.`USERID`,
 t31.`USERNAME`
 FROM `IBZTEAMMEMBER` t1 

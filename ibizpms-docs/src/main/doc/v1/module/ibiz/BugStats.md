@@ -36,6 +36,7 @@ Bug统计
 | 16 | [产品名称](#属性-产品名称（PRODUCTNAME）) | PRODUCTNAME | 外键值文本 | 否 | 是 | 是 |
 | 17 | [Bug](#属性-Bug（BUGCNT）) | BUGCNT | 整型 | 否 | 是 | 是 |
 | 18 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | 单项选择(文本值) | 否 | 是 | 是 |
+| 19 | [由谁解决](#属性-由谁解决（RESOLVEDBY）) | RESOLVEDBY | 单项选择(文本值) | 否 | 是 | 是 |
 
 ### 属性-标识（ID）
 #### 属性说明
@@ -809,6 +810,49 @@ String
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-由谁解决（RESOLVEDBY）
+#### 属性说明
+由谁解决
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -926,15 +970,74 @@ Save
 | 3 | [不予解决（BUGWILLNOTFIX）](#属性-不予解决（BUGWILLNOTFIX）) | `<=` |
 | 4 | [编号（PRODUCT）](#属性-编号（PRODUCT）) | `=` |
 | 5 | [指派给（ASSIGNEDTO）](#属性-指派给（ASSIGNEDTO）) | `=` |
+| 6 | [由谁解决（RESOLVEDBY）](#属性-由谁解决（RESOLVEDBY）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [Bug指派表](#数据查询-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
-| 2 | [Bug创建表](#数据查询-Bug创建表（Default）) | Default | 否 |
-| 3 | [产品创建bug占比](#数据查询-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 1 | [Bug完成表](#数据查询-Bug完成表（BugResolvedBy）) | BugResolvedBy | 否 |
+| 2 | [Bug指派表](#数据查询-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
+| 3 | [Bug创建表](#数据查询-Bug创建表（Default）) | Default | 否 |
+| 4 | [产品创建bug占比](#数据查询-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
+### 数据查询-Bug完成表（BugResolvedBy）
+#### 说明
+Bug完成表
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.resolvedBy,
+	t1.product,
+	t1.productname,
+	t1.bugcnt,
+	t11.bugcnt AS bugtotal 
+FROM
+	(
+	SELECT
+		t1.resolvedBy,
+		t1.product,
+		t11.`name` AS productname,
+		COUNT( t1.id ) AS bugcnt 
+	FROM
+		`zt_bug` t1
+		LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+	WHERE
+		t1.deleted = '0' 
+		AND t1.resolvedBy <> '' 
+		AND t1.product <> 0 
+		AND t11.deleted = '0' 
+	GROUP BY
+		t1.resolvedBy,
+		t1.product,
+		t11.`name` 
+	) t1
+	INNER JOIN (
+	SELECT
+		t1.resolvedBy,
+		COUNT( t1.id ) AS bugcnt 
+	FROM
+		`zt_bug` t1
+		LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+	WHERE
+		t1.deleted = '0' 
+		AND t1.resolvedBy <> '' 
+		AND t1.product <> 0 
+		AND t11.deleted = '0' 
+	GROUP BY
+		t1.resolvedBy 
+	) t11 ON t1.resolvedBy = t11.resolvedBy 
+ORDER BY
+	t1.resolvedBy ASC
+```
 ### 数据查询-Bug指派表（BugassignedTo）
 #### 说明
 Bug指派表
@@ -1096,6 +1199,7 @@ t1.`ID`,
 t1.`OPENEDBY`,
 t1.`PRODUCT`,
 t11.`NAME` AS `PRODUCTNAME`,
+t1.`RESOLVEDBY`,
 t1.`TITLE`
 FROM `zt_bug` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
@@ -1105,10 +1209,25 @@ LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
 ## 数据集合
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [Bug指派表](#数据集合-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
-| 2 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
-| 3 | [产品创建bug占比](#数据集合-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
+| 1 | [Bug完成表](#数据集合-Bug完成表（BugResolvedBy）) | BugResolvedBy | 否 |
+| 2 | [Bug指派表](#数据集合-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
+| 3 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 4 | [产品创建bug占比](#数据集合-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
 
+### 数据集合-Bug完成表（BugResolvedBy）
+#### 说明
+Bug完成表
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [Bug完成表（BugResolvedBy）](#数据查询-Bug完成表（BugResolvedBy）) |
 ### 数据集合-Bug指派表（BugassignedTo）
 #### 说明
 Bug指派表

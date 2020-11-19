@@ -29,6 +29,7 @@
 | 7 | [岗位标识](#属性-岗位标识（POSTID）) | POSTID | 外键值 | 否 | 是 | 是 |
 | 8 | [姓名](#属性-姓名（PERSONNAME）) | PERSONNAME | 外键值文本 | 否 | 是 | 是 |
 | 9 | [账号](#属性-账号（USERNAME）) | USERNAME | 外键值附加数据 | 否 | 是 | 是 |
+| 10 | [头像](#属性-头像（USERICON）) | USERICON | 外键值附加数据 | 否 | 是 | 是 |
 
 ### 属性-组成员标识（TEAMMEMBERID）
 #### 属性说明
@@ -68,7 +69,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [人员（IBZEMP）](../ou/SysEmployee) |
-| 关系属性 | [用户全局名（USERNAME）](../ou/SysEmployee/#属性-用户全局名（USERNAME）) |
+| 关系属性 | [照片（USERICON）](../ou/SysEmployee/#属性-照片（USERICON）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-组名称（TEAMNAME）
@@ -414,6 +415,47 @@ String
 | 关系属性 | [用户全局名（USERNAME）](../ou/SysEmployee/#属性-用户全局名（USERNAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-头像（USERICON）
+#### 属性说明
+头像
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值附加数据
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [人员（IBZEMP）](../ou/SysEmployee) |
+| 关系属性 | [照片（USERICON）](../ou/SysEmployee/#属性-照片（USERICON）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -561,6 +603,7 @@ t21.`POSTNAME`,
 t1.`TEAMID`,
 t1.`TEAMMEMBERID`,
 t11.`TEAMNAME`,
+t31.`USERICON`,
 t1.`USERID`,
 t31.`USERNAME`
 FROM `IBZTEAMMEMBER` t1 
@@ -590,6 +633,7 @@ t21.`POSTNAME`,
 t1.`TEAMID`,
 t1.`TEAMMEMBERID`,
 t11.`TEAMNAME`,
+t31.`USERICON`,
 t1.`USERID`,
 t31.`USERNAME`
 FROM `IBZTEAMMEMBER` t1 

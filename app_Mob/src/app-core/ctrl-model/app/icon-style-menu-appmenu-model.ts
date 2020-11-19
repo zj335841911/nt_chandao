@@ -31,6 +31,7 @@ export class IconStyleMenuModel {
 	textcls: '',
 	appfunctag: 'Auto17',
 	resourcetag: '',
+	authtag:'Mob-IconStyleMenu-menuitem1',
 },
         {
 	id: '5D464F52-54C7-45F3-9B7E-1A389E959920',
@@ -49,6 +50,7 @@ export class IconStyleMenuModel {
 	textcls: '',
 	appfunctag: 'Auto12',
 	resourcetag: '',
+	authtag:'Mob-IconStyleMenu-menuitem2',
 },
         {
 	id: '8CA00FFD-EF5C-471F-80EB-DAAAA755D48F',
@@ -67,6 +69,7 @@ export class IconStyleMenuModel {
 	textcls: '',
 	appfunctag: 'Auto21',
 	resourcetag: '',
+	authtag:'Mob-IconStyleMenu-menuitem3',
 },
         {
 	id: '4D89DEE9-2BFB-4E32-A0AA-72AE44AFCB82',
@@ -85,6 +88,7 @@ export class IconStyleMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-IconStyleMenu-menuitem4',
 },
         {
 	id: '4AC08B43-A80F-4168-A41B-41D3E5E7A589',
@@ -103,6 +107,7 @@ export class IconStyleMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-IconStyleMenu-menuitem5',
 },
         {
 	id: '97B4BD83-5F42-45ED-AF44-F545120FF2B5',
@@ -121,6 +126,7 @@ export class IconStyleMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-IconStyleMenu-menuitem6',
 },
         {
 	id: '24C2EB3A-3E02-4A3B-AA12-DB03A776316B',
@@ -139,6 +145,7 @@ export class IconStyleMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-IconStyleMenu-menuitem7',
 },
         {
 	id: '0FD329B2-D71D-4BF1-83A8-27A53DE6B2CB',
@@ -157,6 +164,7 @@ export class IconStyleMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-IconStyleMenu-menuitem8',
 },
         {
 	id: '0B391B87-8895-4756-A979-44C8F2373561',
@@ -175,6 +183,7 @@ export class IconStyleMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-IconStyleMenu-menuitem9',
 },
         {
 	id: 'D94DA645-9D05-4450-B470-1317BCE3026B',
@@ -193,6 +202,7 @@ export class IconStyleMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-IconStyleMenu-menuitem10',
 },
         {
 	id: 'BF9B9574-1EEC-40D9-9DE8-7F0C2407D8EC',
@@ -211,6 +221,7 @@ export class IconStyleMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-IconStyleMenu-menuitem11',
 },
         {
 	id: 'A6C1B887-05BA-4D70-B191-BE792A403175',
@@ -229,6 +240,7 @@ export class IconStyleMenuModel {
 	textcls: '',
 	appfunctag: '',
 	resourcetag: '',
+	authtag:'Mob-IconStyleMenu-menuitem12',
 },
     ];
 
