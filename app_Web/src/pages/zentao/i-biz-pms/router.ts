@@ -2743,6 +2743,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/build-main-grid-view/build-main-grid-view.vue'),
                 },
                 {
+                    path: 'ibzmyterritories/:ibzmyterritory?/usersumtreeexpview/:usersumtreeexpview?',
+                    meta: {
+                        caption: 'entities.ibzmyterritory.views.usersumtreeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'usersumtreeexpview', parameterName: 'usersumtreeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-my-territory-user-sum-tree-exp-view/ibz-my-territory-user-sum-tree-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/usr2gridview/:usr2gridview?',
                     meta: {
                         caption: 'entities.bug.views.usr2gridview.caption',
@@ -3609,6 +3623,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-grid-view9-look/task-team-grid-view9-look.vue'),
                 },
                 {
+                    path: 'ibzmyterritories/:ibzmyterritory?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibzmyterritory.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/ibz-my-territory-edit-view/ibz-my-territory-edit-view.vue'),
+                },
+                {
                     path: 'ibzmyterritories/:ibzmyterritory?/statstabexpview/:statstabexpview?',
                     meta: {
                         caption: 'entities.ibzmyterritory.views.statstabexpview.caption',
@@ -3767,70 +3795,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-build-sub-grid-view-done/bug-build-sub-grid-view-done.vue'),
                 },
                 {
-                    path: 'doclibs/:doclib?/usr2editview/:usr2editview?',
-                    meta: {
-                        caption: 'entities.doclib.views.usr2editview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'doclibs', parameterName: 'doclib' },
-                            { pathName: 'usr2editview', parameterName: 'usr2editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/doc-lib-usr2-edit-view/doc-lib-usr2-edit-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/testtasks/:testtask?/closeoptionview/:closeoptionview?',
-                    meta: {
-                        caption: 'entities.testtask.views.closeoptionview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-clipboard',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'testtasks', parameterName: 'testtask' },
-                            { pathName: 'closeoptionview', parameterName: 'closeoptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/test-task-close-option-view/test-task-close-option-view.vue'),
-                },
-                {
-                    path: 'products/:product?/testtasks/:testtask?/closeoptionview/:closeoptionview?',
-                    meta: {
-                        caption: 'entities.testtask.views.closeoptionview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-clipboard',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'testtasks', parameterName: 'testtask' },
-                            { pathName: 'closeoptionview', parameterName: 'closeoptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/test-task-close-option-view/test-task-close-option-view.vue'),
-                },
-                {
-                    path: 'testtasks/:testtask?/closeoptionview/:closeoptionview?',
-                    meta: {
-                        caption: 'entities.testtask.views.closeoptionview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-clipboard',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'testtasks', parameterName: 'testtask' },
-                            { pathName: 'closeoptionview', parameterName: 'closeoptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/test-task-close-option-view/test-task-close-option-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/cases/:case?/tobugtesteditview/:tobugtesteditview?',
                     meta: {
                         caption: 'entities.case.views.tobugtesteditview.caption',
@@ -3897,6 +3861,70 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/case-to-bug-test-edit-view/case-to-bug-test-edit-view.vue'),
+                },
+                {
+                    path: 'doclibs/:doclib?/usr2editview/:usr2editview?',
+                    meta: {
+                        caption: 'entities.doclib.views.usr2editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'usr2editview', parameterName: 'usr2editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-usr2-edit-view/doc-lib-usr2-edit-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/testtasks/:testtask?/closeoptionview/:closeoptionview?',
+                    meta: {
+                        caption: 'entities.testtask.views.closeoptionview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'closeoptionview', parameterName: 'closeoptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-close-option-view/test-task-close-option-view.vue'),
+                },
+                {
+                    path: 'products/:product?/testtasks/:testtask?/closeoptionview/:closeoptionview?',
+                    meta: {
+                        caption: 'entities.testtask.views.closeoptionview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'closeoptionview', parameterName: 'closeoptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-close-option-view/test-task-close-option-view.vue'),
+                },
+                {
+                    path: 'testtasks/:testtask?/closeoptionview/:closeoptionview?',
+                    meta: {
+                        caption: 'entities.testtask.views.closeoptionview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'closeoptionview', parameterName: 'closeoptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-close-option-view/test-task-close-option-view.vue'),
                 },
                 {
                     path: 'projects/:project?/builds/:build?/editformeditview/:editformeditview?',
@@ -12348,6 +12376,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/todo-close-view/todo-close-view.vue'),
                 },
                 {
+                    path: 'ibzmyterritories/:ibzmyterritory?/userfinishtaskgridview/:userfinishtaskgridview?',
+                    meta: {
+                        caption: 'entities.ibzmyterritory.views.userfinishtaskgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'userfinishtaskgridview', parameterName: 'userfinishtaskgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-my-territory-user-finish-task-grid-view/ibz-my-territory-user-finish-task-grid-view.vue'),
+                },
+                {
                     path: 'docs/:doc?/gridview9/:gridview9?',
                     meta: {
                         caption: 'entities.doc.views.gridview9.caption',
@@ -13431,35 +13473,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-bug-tree-exp-view/product-bug-tree-exp-view.vue'),
                 },
                 {
-                    path: 'ibzlibs/:ibzlib?/ibzlibmodules/:ibzlibmodule?/treeexpview/:treeexpview?',
-                    meta: {
-                        caption: 'entities.ibzlibmodule.views.treeexpview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
-                            { pathName: 'ibzlibmodules', parameterName: 'ibzlibmodule' },
-                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/ibz-lib-module-tree-exp-view/ibz-lib-module-tree-exp-view.vue'),
-                },
-                {
-                    path: 'ibzlibmodules/:ibzlibmodule?/treeexpview/:treeexpview?',
-                    meta: {
-                        caption: 'entities.ibzlibmodule.views.treeexpview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzlibmodules', parameterName: 'ibzlibmodule' },
-                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/ibz-lib-module-tree-exp-view/ibz-lib-module-tree-exp-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/donetaskview/:donetaskview?',
                     meta: {
                         caption: 'entities.task.views.donetaskview.caption',
@@ -13526,6 +13539,35 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-done-task-view/task-done-task-view.vue'),
+                },
+                {
+                    path: 'ibzlibs/:ibzlib?/ibzlibmodules/:ibzlibmodule?/treeexpview/:treeexpview?',
+                    meta: {
+                        caption: 'entities.ibzlibmodule.views.treeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
+                            { pathName: 'ibzlibmodules', parameterName: 'ibzlibmodule' },
+                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-lib-module-tree-exp-view/ibz-lib-module-tree-exp-view.vue'),
+                },
+                {
+                    path: 'ibzlibmodules/:ibzlibmodule?/treeexpview/:treeexpview?',
+                    meta: {
+                        caption: 'entities.ibzlibmodule.views.treeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzlibmodules', parameterName: 'ibzlibmodule' },
+                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-lib-module-tree-exp-view/ibz-lib-module-tree-exp-view.vue'),
                 },
                 {
                     path: 'productstats/:productstats?/allgridview/:allgridview?',

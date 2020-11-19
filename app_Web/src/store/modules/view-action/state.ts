@@ -1004,6 +1004,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '39e5daf0dbfad3f76c5fa2625383d402',
+            viewmodule: 'zentao',
+            viewname: 'IbzMyTerritoryEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '3a8aaf8bc175455ca2be6ace38f821a1',
             viewmodule: 'zentao',
             viewname: 'TaskTodoEditView',
@@ -2124,6 +2133,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '786034b713f73a89a824e9a3c41129db',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryUserFinishTaskGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '39e5daf0dbfad3f76c5fa2625383d402',
+            ],
+        },
+        {
             viewtag: '79b3a14f0431747becc48f5b9f3aa990',
             viewmodule: 'zentao',
             viewname: 'TaskGridView9_AssignedToMe',
@@ -2864,6 +2883,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '9ab6d468419797c4a00ff658e4f626b1',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryUserSumTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '786034b713f73a89a824e9a3c41129db',
             ],
         },
         {
@@ -3703,6 +3732,7 @@ export const viewstate: any = {
             refviews: [
                 'cef6e71f89bb0007d341328d455f6da0',
                 'ea95775efe5ddc489fdbfae6b35a16e0',
+                '9ab6d468419797c4a00ff658e4f626b1',
                 'e090d7f19211e8fbbab5d4442c6e58e8',
                 'bef7c08b651990569cd09ce805ebcfe3',
             ],

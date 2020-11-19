@@ -7,6 +7,7 @@ import view_tabviewpanel3 from '@widgets/ibz-my-territory/stats-tab-exp-viewtabv
 import view_tabviewpanel5 from '@widgets/ibz-my-territory/stats-tab-exp-viewtabviewpanel5-tabviewpanel/stats-tab-exp-viewtabviewpanel5-tabviewpanel.vue';
 import view_tabviewpanel from '@widgets/ibz-my-territory/stats-tab-exp-viewtabviewpanel-tabviewpanel/stats-tab-exp-viewtabviewpanel-tabviewpanel.vue';
 import view_tabviewpanel2 from '@widgets/ibz-my-territory/stats-tab-exp-viewtabviewpanel2-tabviewpanel/stats-tab-exp-viewtabviewpanel2-tabviewpanel.vue';
+import view_tabviewpanel6 from '@widgets/ibz-my-territory/stats-tab-exp-viewtabviewpanel6-tabviewpanel/stats-tab-exp-viewtabviewpanel6-tabviewpanel.vue';
  
 
 /**
@@ -22,6 +23,7 @@ import view_tabviewpanel2 from '@widgets/ibz-my-territory/stats-tab-exp-viewtabv
         view_tabviewpanel5,
         view_tabviewpanel,
         view_tabviewpanel2,
+        view_tabviewpanel6,
          
     },
 })

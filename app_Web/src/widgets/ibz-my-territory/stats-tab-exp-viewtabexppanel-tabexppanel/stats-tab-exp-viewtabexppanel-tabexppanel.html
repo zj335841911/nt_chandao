@@ -122,5 +122,34 @@
     @closeview="closeView($event)">
 </view_tabviewpanel2>
         </tab-pane>
+        <tab-pane
+            :index="4"
+            name="tabviewpanel6"
+            tab="statstabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel6'].visible"
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '用户'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel6 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel6"
+    name="tabviewpanel6"  
+    ref="tabviewpanel6"
+    :expActive="activatedTabViewPanel === 'tabviewpanel6'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel6>
+        </tab-pane>
     </tabs>
 </div>

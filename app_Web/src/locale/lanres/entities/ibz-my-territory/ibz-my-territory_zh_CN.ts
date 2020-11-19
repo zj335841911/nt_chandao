@@ -153,6 +153,8 @@ export default {
 		uiactions: {
 		},
 	},
+	userfinishtaskgridviewtoolbar_toolbar: {
+	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "保存",
@@ -170,8 +172,6 @@ export default {
 			caption: "删除",
 			tip: "删除",
 		},
-	},
-	userfinishtaskgridviewtoolbar_toolbar: {
 	},
 	productsum_treeview: {
 		nodes: {
@@ -211,8 +211,10 @@ export default {
 		uiactions: {
 		},
 	},
-	treeexpbar_tree_treeview: {
+	usersum_treeview: {
 		nodes: {
+			userfinashtasksum: "用户完成任务汇总表",
+			root: "默认根节点",
 		},
 		uiactions: {
 		},
