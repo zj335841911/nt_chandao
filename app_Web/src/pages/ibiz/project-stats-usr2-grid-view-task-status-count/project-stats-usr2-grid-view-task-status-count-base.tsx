@@ -334,4 +334,16 @@ export class ProjectStatsUsr2GridViewTaskStatusCountBase extends GridViewBase {
      * @memberof ProjectStatsUsr2GridViewTaskStatusCountBase
      */
     protected isGridSingleSelect: boolean = true;
+
+    /**
+     * 表格行数据默认激活模式
+     * 0 不激活
+     * 1 单击激活
+     * 2 双击激活
+     *
+     * @protected
+     * @type {(0 | 1 | 2)}
+     * @memberof ProjectStatsUsr2GridViewTaskStatusCountBase
+     */
+    protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }

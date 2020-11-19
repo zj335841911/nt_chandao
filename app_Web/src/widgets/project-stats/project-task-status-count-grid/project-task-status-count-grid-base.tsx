@@ -120,7 +120,7 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
         },
         {
             name: 'doingtaskcnt',
-            label: '进行中任务数',
+            label: '进行中',
             langtag: 'entities.projectstats.projecttaskstatuscount_grid.columns.doingtaskcnt',
             show: true,
             unit: 'PX',
@@ -129,7 +129,7 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
         },
         {
             name: 'waittaskcnt',
-            label: '未开始任务数',
+            label: '未开始',
             langtag: 'entities.projectstats.projecttaskstatuscount_grid.columns.waittaskcnt',
             show: true,
             unit: 'PX',
@@ -138,7 +138,7 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
         },
         {
             name: 'pausetaskcnt',
-            label: '已暂停任务数',
+            label: '已暂停',
             langtag: 'entities.projectstats.projecttaskstatuscount_grid.columns.pausetaskcnt',
             show: true,
             unit: 'PX',
@@ -147,7 +147,7 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
         },
         {
             name: 'closedtaskcnt',
-            label: '已关闭任务数',
+            label: '已关闭',
             langtag: 'entities.projectstats.projecttaskstatuscount_grid.columns.closedtaskcnt',
             show: true,
             unit: 'PX',
@@ -156,7 +156,7 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
         },
         {
             name: 'canceltaskcnt',
-            label: '已取消任务数',
+            label: '已取消',
             langtag: 'entities.projectstats.projecttaskstatuscount_grid.columns.canceltaskcnt',
             show: true,
             unit: 'PX',
@@ -165,7 +165,7 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
         },
         {
             name: 'donetaskcnt',
-            label: '已完成任务数',
+            label: '已完成',
             langtag: 'entities.projectstats.projecttaskstatuscount_grid.columns.donetaskcnt',
             show: true,
             unit: 'PX',
@@ -174,7 +174,7 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
         },
         {
             name: 'taskcnt',
-            label: '任务总数',
+            label: '总计',
             langtag: 'entities.projectstats.projecttaskstatuscount_grid.columns.taskcnt',
             show: true,
             unit: 'PX',

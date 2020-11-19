@@ -91,10 +91,6 @@ export class BugStatsBUGRESOLVETIONBase extends GridViewBase {
      * @memberof BugStatsBUGRESOLVETIONBase
      */
     protected containerModel: any = {
-        view_toolbar: {
-            name: 'toolbar',
-            type: 'TOOLBAR',
-        },
         view_grid: {
             name: 'grid',
             type: 'GRID',
@@ -104,16 +100,6 @@ export class BugStatsBUGRESOLVETIONBase extends GridViewBase {
             type: 'SEARCHFORM',
         },
     };
-
-    /**
-     * 工具栏模型
-     *
-     * @type {*}
-     * @memberof BugStatsBUGRESOLVETION
-     */
-    public toolBarModels: any = {
-    };
-
 
 
 	/**
@@ -339,4 +325,25 @@ export class BugStatsBUGRESOLVETIONBase extends GridViewBase {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof BugStatsBUGRESOLVETIONBase
+     */
+    protected isGridSingleSelect: boolean = true;
+
+    /**
+     * 表格行数据默认激活模式
+     * 0 不激活
+     * 1 单击激活
+     * 2 双击激活
+     *
+     * @protected
+     * @type {(0 | 1 | 2)}
+     * @memberof BugStatsBUGRESOLVETIONBase
+     */
+    protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }

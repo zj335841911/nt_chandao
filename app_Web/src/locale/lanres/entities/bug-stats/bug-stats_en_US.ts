@@ -163,7 +163,7 @@ export default {
 			bugtostory: "转为需求",
 			bugwillnotfix: "不予解决",
 			bugexternal: "外部原因",
-			bugcnt: "Bug",
+			bugcnt: "总计",
 		},
 		uiactions: {
 		},
@@ -172,10 +172,10 @@ export default {
 		nodata: "",
 		columns: {
 			projectname: "项目名称",
-			bugresolved: "已解决Bug",
-			bugclosed: "已关闭Bug",
-			bugactive: "激活Bug",
-			bugcnt: "Bug",
+			bugactive: "激活",
+			bugresolved: "已解决",
+			bugclosed: "已关闭",
+			bugcnt: "总计",
 		},
 		uiactions: {
 		},
@@ -245,7 +245,5 @@ export default {
 	productbugstatusgridviewtoolbar_toolbar: {
 	},
 	productbugresolutiongridviewtoolbar_toolbar: {
-	},
-	bugresolvetiontoolbar_toolbar: {
 	},
 };

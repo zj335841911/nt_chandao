@@ -32,6 +32,11 @@ export default class ProjectBugStatusCountModel {
           dataType: 'TEXT',
         },
         {
+          name: 'bugactive',
+          prop: 'bugactive',
+          dataType: 'INT',
+        },
+        {
           name: 'bugresolved',
           prop: 'bugresolved',
           dataType: 'INT',
@@ -39,11 +44,6 @@ export default class ProjectBugStatusCountModel {
         {
           name: 'bugclosed',
           prop: 'bugclosed',
-          dataType: 'INT',
-        },
-        {
-          name: 'bugactive',
-          prop: 'bugactive',
           dataType: 'INT',
         },
         {

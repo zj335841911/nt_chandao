@@ -114,7 +114,7 @@ export class BUGRESOLUTIONCNTGridBase extends GridControlBase {
             label: '项目名称',
             langtag: 'entities.bugstats.bugresolutioncnt_grid.columns.projectname',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
@@ -192,7 +192,7 @@ export class BUGRESOLUTIONCNTGridBase extends GridControlBase {
         },
         {
             name: 'bugcnt',
-            label: 'Bug',
+            label: '总计',
             langtag: 'entities.bugstats.bugresolutioncnt_grid.columns.bugcnt',
             show: true,
             unit: 'PX',

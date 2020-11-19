@@ -26,7 +26,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('projectname')">
-                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.projectname')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.projectname')" :min-width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolutioncnt_grid.columns.projectname')}}
@@ -134,7 +134,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugcnt')">
-                <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.bugstats.bugresolutioncnt_grid.columns.bugcnt')" :width="50"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.bugstats.bugresolutioncnt_grid.columns.bugcnt')}}

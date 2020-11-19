@@ -114,13 +114,22 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
             label: '项目名称',
             langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.projectname',
             show: true,
+            unit: 'STAR',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'bugactive',
+            label: '激活',
+            langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.bugactive',
+            show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
             name: 'bugresolved',
-            label: '已解决Bug',
+            label: '已解决',
             langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.bugresolved',
             show: true,
             unit: 'PX',
@@ -129,7 +138,7 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
         },
         {
             name: 'bugclosed',
-            label: '已关闭Bug',
+            label: '已关闭',
             langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.bugclosed',
             show: true,
             unit: 'PX',
@@ -137,17 +146,8 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'bugactive',
-            label: '激活Bug',
-            langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.bugactive',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
             name: 'bugcnt',
-            label: 'Bug',
+            label: '总计',
             langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.bugcnt',
             show: true,
             unit: 'PX',
@@ -256,9 +256,9 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'projectname':false,
+        'bugactive':false,
         'bugresolved':false,
         'bugclosed':false,
-        'bugactive':false,
         'bugcnt':false,
     };
 
@@ -347,7 +347,7 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
     * @memberof ProjectBugStatusCountBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['projectname','bugresolved','bugclosed','bugactive','bugcnt'];
+        let allColumns:Array<any> = ['projectname','bugactive','bugresolved','bugclosed','bugcnt'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -427,9 +427,9 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 projectname:'',
+                bugactive:'',
                 bugresolved:'',
                 bugclosed:'',
-                bugactive:'',
                 bugcnt:'',
                 children: children
             }
@@ -456,9 +456,9 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
             projectname:'',
+            bugactive:'',
             bugresolved:'',
             bugclosed:'',
-            bugactive:'',
             bugcnt:'',
             children: child
         }
@@ -521,9 +521,9 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 projectname:'',
+                bugactive:'',
                 bugresolved:'',
                 bugclosed:'',
-                bugactive:'',
                 bugcnt:'',
                 children: children,
             }
