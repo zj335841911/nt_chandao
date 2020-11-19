@@ -1434,7 +1434,7 @@ GROUP BY
 #### SQL
 - MYSQL5
 ```SQL
-select t1.id, 
+select t1.id as `PRODUCT`, 
 	t1.`name` as `PRODUCTNAME`, 
 	ifnull(t2.Bugwjj, 0) AS Bugwjj, 
 	ifnull(t2.Bugbydesign, 0) AS Bugbydesign, 

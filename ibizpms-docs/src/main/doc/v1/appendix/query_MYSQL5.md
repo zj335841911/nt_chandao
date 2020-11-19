@@ -2916,7 +2916,7 @@ GROUP BY
 ```
 ### 产品Bug解决方案汇总(ProductBugResolutionStats)<div id="BugStats_ProductBugResolutionStats"></div>
 ```sql
-select t1.id, 
+select t1.id as `PRODUCT`, 
 	t1.`name` as `PRODUCTNAME`, 
 	ifnull(t2.Bugwjj, 0) AS Bugwjj, 
 	ifnull(t2.Bugbydesign, 0) AS Bugbydesign, 

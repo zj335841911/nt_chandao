@@ -130,7 +130,7 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
             label: '产品名称',
             langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.productname',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
