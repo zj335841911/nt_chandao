@@ -159,21 +159,6 @@ export default class EmployEeloadModel {
       {
         name: 'myterritorycnt',
       },
-      {
-        name: 'projectname',
-      },
-      {
-        name: 'finishedby',
-      },
-      {
-        name: 'totalestimate',
-      },
-      {
-        name: 'totalconsumed',
-      },
-      {
-        name: 'totalleft',
-      },
     ]
   }
 

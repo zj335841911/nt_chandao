@@ -340,42 +340,6 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)>：我的地盘实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
-### 获取用户完成任务统计
-#### 访问路径
-/ibzmyterritories/fetchuserfinishtasksum
-
-#### 请求方法
-GET
-
-#### 参数说明
-| 序号 | 参数名 | 参数类型 | 说明 |
-| ---- | ---- | ---- | ---- |
-| 1 | context | [IbzMyTerritorySearchContext](#IbzMyTerritorySearchContext) | 我的地盘查询条件对象 |
-
-#### 返回说明
-| 项目 | 说明 |
-| ---- | ---- |
-| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | List<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)>：我的地盘实体传输对象列表 |
-
-### 查询用户完成任务统计
-#### 访问路径
-/ibzmyterritories/searchuserfinishtasksum
-
-#### 请求方法
-POST
-
-#### 参数说明
-| 序号 | 参数名 | 参数类型 | 说明 |
-| ---- | ---- | ---- | ---- |
-| 1 | context | [IbzMyTerritorySearchContext](#IbzMyTerritorySearchContext) | 我的地盘查询条件对象 |
-
-#### 返回说明
-| 项目 | 说明 |
-| ---- | ---- |
-| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | Page<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)>：我的地盘实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
-
 ### 获取欢迎
 #### 访问路径
 /ibzmyterritories/fetchwelcome
@@ -465,12 +429,7 @@ POST
 | 46 | myfavoritetasks | Integer | 允许 | 我收藏的任务 |
 | 47 | myfavorites | Integer | 允许 | 我的收藏 |
 | 48 | myterritorycnt | Integer | 允许 | 我的地盘 |
-| 49 | projectname | String | 允许 | 项目名称 |
-| 50 | finishedby | String | 允许 | 完成者 |
-| 51 | totalestimate | Integer | 允许 | 预计总工时 |
-| 52 | totalconsumed | Integer | 允许 | 消耗总工时 |
-| 53 | totalleft | Integer | 允许 | 剩余总工时 |
-| 54 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 49 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzMyTerritorySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
@@ -479,12 +438,10 @@ POST
 | 2 | n_realname_like | String | 允许 | 条件字段：realname<br>条件组合方式：`%like%` |
 | 3 | n_gender_eq | String | 允许 | 条件字段：gender<br>条件组合方式：`=` |
 | 4 | n_clientstatus_eq | String | 允许 | 条件字段：clientstatus<br>条件组合方式：`=` |
-| 5 | n_projectname_eq | String | 允许 | 条件字段：projectname<br>条件组合方式：`=` |
-| 6 | n_finishedby_eq | String | 允许 | 条件字段：finishedby<br>条件组合方式：`=` |
-| 7 | customcond | String | 允许 | 自定义查询条件 |
-| 8 | customparams | String | 允许 | 自定义查询参数 |
-| 9 | query | String | 允许 | 快速搜索 |
-| 10 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 11 | page | int | 允许 | 当前页数<br>默认值0 |
-| 12 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 13 | sort | String | 允许 | 排序 |
+| 5 | customcond | String | 允许 | 自定义查询条件 |
+| 6 | customparams | String | 允许 | 自定义查询参数 |
+| 7 | query | String | 允许 | 快速搜索 |
+| 8 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 9 | page | int | 允许 | 当前页数<br>默认值0 |
+| 10 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 11 | sort | String | 允许 | 排序 |

@@ -62,6 +62,16 @@ export default class ProjectTaskStatusCountModel {
           dataType: 'INT',
         },
         {
+          name: 'donetaskcnt',
+          prop: 'donetaskcnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'taskcnt',
+          prop: 'taskcnt',
+          dataType: 'INT',
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',

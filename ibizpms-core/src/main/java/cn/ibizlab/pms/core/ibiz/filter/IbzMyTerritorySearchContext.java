@@ -55,20 +55,6 @@ public class IbzMyTerritorySearchContext extends QueryWrapperContext<IbzMyTerrit
             this.getSearchCond().eq("clientstatus", n_clientstatus_eq);
         }
     }
-	private String n_projectname_eq;//[项目名称]
-	public void setN_projectname_eq(String n_projectname_eq) {
-        this.n_projectname_eq = n_projectname_eq;
-        if(!ObjectUtils.isEmpty(this.n_projectname_eq)){
-            this.getSearchCond().eq("projectname", n_projectname_eq);
-        }
-    }
-	private String n_finishedby_eq;//[完成者]
-	public void setN_finishedby_eq(String n_finishedby_eq) {
-        this.n_finishedby_eq = n_finishedby_eq;
-        if(!ObjectUtils.isEmpty(this.n_finishedby_eq)){
-            this.getSearchCond().eq("finishedby", n_finishedby_eq);
-        }
-    }
 
     /**
 	 * 启用快速搜索

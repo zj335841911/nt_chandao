@@ -9,22 +9,26 @@
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|任务统计标识|IBZ_TASKSTATSID|GUID|&nbsp;|
-|建立人|CREATEMAN|TEXT|&nbsp;|
-|任务统计名称|IBZ_TASKSTATSNAME|TEXT|&nbsp;|
-|更新人|UPDATEMAN|TEXT|&nbsp;|
-|建立时间|CREATEDATE|DATETIME|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
+|项目名称|PROJECTNAME|TEXT|&nbsp;|
+|完成者|FINSHEDBY|TEXT|&nbsp;|
+|预计总工时|TOTALESTIMATE|INT|&nbsp;|
+|消耗总工时|TOTALCONSUMED|INT|&nbsp;|
+|剩余总工时|TOTALLEFT|INT|&nbsp;|
+|项目|PROJECT|TEXT|&nbsp;|
+|编号|ID|ACID|&nbsp;|
+|名称|NAME|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|任务统计标识|默认规则|内容长度必须小于等于[100]|
-|建立人|默认规则|内容长度必须小于等于[60]|
-|任务统计名称|默认规则|内容长度必须小于等于[200]|
-|更新人|默认规则|内容长度必须小于等于[60]|
-|建立时间|默认规则|默认规则|
-|更新时间|默认规则|默认规则|
+|项目名称|默认规则|内容长度必须小于等于[100]|
+|完成者|默认规则|内容长度必须小于等于[100]|
+|预计总工时|默认规则|默认规则|
+|消耗总工时|默认规则|默认规则|
+|剩余总工时|默认规则|默认规则|
+|项目|默认规则|内容长度必须小于等于[100]|
+|编号|默认规则|默认规则|
+|名称|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -52,6 +56,7 @@
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#TaskStats_Default))|否|&nbsp;|
+|UserFinishTaskSum|用户完成任务统计([MYSQL5](../../appendix/query_MYSQL5.md#TaskStats_UserFinishTaskSum))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#TaskStats_View))|否|&nbsp;|
 
 * **数据集合**
@@ -59,11 +64,12 @@
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
+|UserFinishTaskSum|用户完成任务统计|UserFinishTaskSum|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
-|任务统计名称(IBZ_TASKSTATSNAME)|LIKE|
+|名称(NAME)|LIKE|
 
 ## 导入模式
 无

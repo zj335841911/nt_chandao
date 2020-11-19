@@ -39,14 +39,15 @@ public interface ITaskStatsService extends IService<TaskStats> {
     void createBatch(List<TaskStats> list);
     boolean update(TaskStats et);
     void updateBatch(List<TaskStats> list);
-    boolean remove(String key);
-    void removeBatch(Collection<String> idList);
-    TaskStats get(String key);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    TaskStats get(Long key);
     TaskStats getDraft(TaskStats et);
     boolean checkKey(TaskStats et);
     boolean save(TaskStats et);
     void saveBatch(List<TaskStats> list);
     Page<TaskStats> searchDefault(TaskStatsSearchContext context);
+    Page<TaskStats> searchUserFinishTaskSum(TaskStatsSearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
@@ -62,8 +63,6 @@ public interface ITaskStatsService extends IService<TaskStats> {
      */
     boolean execute(String sql, Map param);
 
-    List<TaskStats> getTaskstatsByIds(List<String> ids);
-    List<TaskStats> getTaskstatsByEntities(List<TaskStats> entities);
 }
 
 

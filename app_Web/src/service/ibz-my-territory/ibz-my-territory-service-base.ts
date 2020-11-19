@@ -308,35 +308,6 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
     }
 
     /**
-     * FetchUserFinishTaskSum接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof IbzMyTerritoryServiceBase
-     */
-    public async FetchUserFinishTaskSum(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmyterritories/fetchuserfinishtasksum`,tempData,isloading);
-        return res;
-    }
-
-    /**
-     * searchUserFinishTaskSum接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof IbzMyTerritoryServiceBase
-     */
-    public async searchUserFinishTaskSum(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return await Http.getInstance().post(`/ibzmyterritories/searchuserfinishtasksum`,tempData,isloading);
-    }
-
-    /**
      * FetchWelcome接口方法
      *
      * @param {*} [context={}]

@@ -26,6 +26,7 @@ import './entity/emp-loyeeloads/emp-loyeeloads';
 import './entity/doc-contents/doc-contents';
 import './entity/story-specs/story-specs';
 import './entity/user-tpls/user-tpls';
+import './entity/task-statss/task-statss';
 import './entity/ibz-favoritess/ibz-favoritess';
 import './entity/branchs/branchs';
 import './entity/sys-departments/sys-departments';

@@ -110,9 +110,9 @@ export class UserSumTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
         }
         if (Object.is(expmode, 'USERFINASHTASKSUM')) {
             return {  
-                viewname: 'ibz-my-territory-user-finish-task-grid-view', 
+                viewname: 'task-stats-user-finish-task-sum-grid-view', 
                 parentdata: {},
-                deKeyField:'ibzmyterritory'
+                deKeyField:'taskstats'
 			};
         }
         return null;

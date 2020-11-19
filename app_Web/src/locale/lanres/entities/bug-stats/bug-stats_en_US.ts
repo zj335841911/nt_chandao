@@ -21,11 +21,18 @@ export default {
     resolvedby: "由谁解决",
     project: "项目编号",
     projectname: "项目名称",
+    bugactive: "激活Bug",
+    bugresolved: "已解决Bug",
+    bugclosed: "已关闭Bug",
   },
 	views: {
 		editview: {
 			caption: "Bug统计",
       		title: "Bug统计编辑视图",
+		},
+		usr2gridviewprojectbugstatuscount: {
+			caption: "bug状态统计",
+      		title: "Bug统计表格视图(bug状态统计)",
 		},
 		bugresolvedbygridview: {
 			caption: "Bug完成表",
@@ -116,6 +123,17 @@ export default {
 			bugwillnotfix: "不予解决",
 			bugexternal: "外部原因",
 			bugcnt: "Bug",
+		},
+		uiactions: {
+		},
+	},
+	projectbugstatuscount_grid: {
+		nodata: "",
+		columns: {
+			productname: "产品名称",
+			bugresolved: "已解决Bug",
+			bugclosed: "已关闭Bug",
+			bugactive: "激活Bug",
 		},
 		uiactions: {
 		},

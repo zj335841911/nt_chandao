@@ -213,15 +213,6 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     }
 
     /**
-     * 查询集合 用户完成任务统计
-     */
-    @Override
-    public Page<IbzMyTerritory> searchUserFinishTaskSum(IbzMyTerritorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchUserFinishTaskSum(context.getPages(), context, context.getSelectCond());
-        return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
-    }
-
-    /**
      * 查询集合 欢迎
      */
     @Override

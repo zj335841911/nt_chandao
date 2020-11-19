@@ -130,7 +130,7 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
             label: '项目名称',
             langtag: 'entities.projectstats.projecttaskstatuscount_grid.columns.name',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
@@ -174,6 +174,24 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
             name: 'canceltaskcnt',
             label: '已取消任务数',
             langtag: 'entities.projectstats.projecttaskstatuscount_grid.columns.canceltaskcnt',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'donetaskcnt',
+            label: '已完成任务数',
+            langtag: 'entities.projectstats.projecttaskstatuscount_grid.columns.donetaskcnt',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'taskcnt',
+            label: '任务总数',
+            langtag: 'entities.projectstats.projecttaskstatuscount_grid.columns.taskcnt',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -287,6 +305,8 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
         'pausetaskcnt':false,
         'closedtaskcnt':false,
         'canceltaskcnt':false,
+        'donetaskcnt':false,
+        'taskcnt':false,
     };
 
     /**
@@ -374,7 +394,7 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
     * @memberof ProjectTaskStatusCountBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','name','doingtaskcnt','waittaskcnt','pausetaskcnt','closedtaskcnt','canceltaskcnt'];
+        let allColumns:Array<any> = ['id','name','doingtaskcnt','waittaskcnt','pausetaskcnt','closedtaskcnt','canceltaskcnt','donetaskcnt','taskcnt'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -460,6 +480,8 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
                 pausetaskcnt:'',
                 closedtaskcnt:'',
                 canceltaskcnt:'',
+                donetaskcnt:'',
+                taskcnt:'',
                 children: children
             }
             groupTree.push(tree);
@@ -491,6 +513,8 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
             pausetaskcnt:'',
             closedtaskcnt:'',
             canceltaskcnt:'',
+            donetaskcnt:'',
+            taskcnt:'',
             children: child
         }
         if(child && child.length > 0){
@@ -558,6 +582,8 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
                 pausetaskcnt:'',
                 closedtaskcnt:'',
                 canceltaskcnt:'',
+                donetaskcnt:'',
+                taskcnt:'',
                 children: children,
             }
             groupTree.push(tree);

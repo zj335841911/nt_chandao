@@ -354,7 +354,10 @@ POST
 | 19 | resolvedby | String | 允许 | 由谁解决 |
 | 20 | project | Long | 允许 | 项目编号 |
 | 21 | projectname | String | 允许 | 项目名称 |
-| 22 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 22 | bugactive | Integer | 允许 | 激活Bug |
+| 23 | bugresolved | Integer | 允许 | 已解决Bug |
+| 24 | bugclosed | Integer | 允许 | 已关闭Bug |
+| 25 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### BugStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

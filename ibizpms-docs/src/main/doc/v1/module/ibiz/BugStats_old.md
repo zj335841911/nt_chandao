@@ -34,6 +34,9 @@ hide members
 |由谁解决|RESOLVEDBY|SSCODELIST|&nbsp;|
 |项目编号|PROJECT|PICKUP|&nbsp;|
 |项目名称|PROJECTNAME|TEXT|&nbsp;|
+|激活Bug|BUGACTIVE|INT|&nbsp;|
+|已解决Bug|BUGRESOLVED|INT|&nbsp;|
+|已关闭Bug|BUGCLOSED|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -59,6 +62,9 @@ hide members
 |由谁解决|默认规则|内容长度必须小于等于[100]|
 |项目编号|默认规则|默认规则|
 |项目名称|默认规则|内容长度必须小于等于[100]|
+|激活Bug|默认规则|默认规则|
+|已解决Bug|默认规则|默认规则|
+|已关闭Bug|默认规则|默认规则|
 
 ## 状态控制
 

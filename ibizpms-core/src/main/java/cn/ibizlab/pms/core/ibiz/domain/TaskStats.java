@@ -38,73 +38,84 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "T_IBZ_TASKSTATS", resultMap = "TaskStatsResultMap")
+@TableName(value = "zt_task", resultMap = "TaskStatsResultMap")
 public class TaskStats extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 任务统计标识
+     * 项目名称
      */
-    @DEField(name = "ibz_taskstatsid", isKeyField = true)
-    @TableId(value = "ibz_taskstatsid", type = IdType.ASSIGN_UUID)
-    @JSONField(name = "taskstatsid")
-    @JsonProperty("taskstatsid")
-    private String taskstatsid;
+    @TableField(exist = false)
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
     /**
-     * 建立人
+     * 完成者
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`", fill = FieldFill.INSERT)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
+    @TableField(exist = false)
+    @JSONField(name = "finshedby")
+    @JsonProperty("finshedby")
+    private String finshedby;
     /**
-     * 任务统计名称
+     * 预计总工时
      */
-    @DEField(name = "ibz_taskstatsname")
-    @TableField(value = "`ibz_taskstatsname`")
-    @JSONField(name = "taskstatsname")
-    @JsonProperty("taskstatsname")
-    private String taskstatsname;
+    @TableField(exist = false)
+    @JSONField(name = "totalestimate")
+    @JsonProperty("totalestimate")
+    private Integer totalestimate;
     /**
-     * 更新人
+     * 消耗总工时
      */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @TableField(value = "`updateman`")
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
+    @TableField(exist = false)
+    @JSONField(name = "totalconsumed")
+    @JsonProperty("totalconsumed")
+    private Integer totalconsumed;
     /**
-     * 建立时间
+     * 剩余总工时
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
+    @TableField(exist = false)
+    @JSONField(name = "totalleft")
+    @JsonProperty("totalleft")
+    private Integer totalleft;
     /**
-     * 更新时间
+     * 项目
      */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "`updatedate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
+    @TableField(exist = false)
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    private String project;
+    /**
+     * 编号
+     */
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private Long id;
+    /**
+     * 名称
+     */
+    @TableField(value = "`name`")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
 
 
 
     /**
-     * 设置 [任务统计名称]
+     * 设置 [名称]
      */
-    public void setTaskstatsname(String taskstatsname) {
-        this.taskstatsname = taskstatsname;
-        this.modify("ibz_taskstatsname", taskstatsname);
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+        return IdWorker.getId();
+    }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
      * @param targetEntity 目标数据对象
@@ -114,7 +125,7 @@ public class TaskStats extends EntityMP implements Serializable {
      */
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
-        this.reset("ibz_taskstatsid");
+        this.reset("id");
         return super.copyTo(targetEntity, bIncEmpty);
     }
 }

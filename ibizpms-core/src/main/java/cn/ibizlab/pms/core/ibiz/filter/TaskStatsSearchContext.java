@@ -27,11 +27,11 @@ import cn.ibizlab.pms.core.ibiz.domain.TaskStats;
 @Data
 public class TaskStatsSearchContext extends QueryWrapperContext<TaskStats> {
 
-	private String n_ibz_taskstatsname_like;//[任务统计名称]
-	public void setN_ibz_taskstatsname_like(String n_ibz_taskstatsname_like) {
-        this.n_ibz_taskstatsname_like = n_ibz_taskstatsname_like;
-        if(!ObjectUtils.isEmpty(this.n_ibz_taskstatsname_like)){
-            this.getSearchCond().like("ibz_taskstatsname", n_ibz_taskstatsname_like);
+	private String n_name_like;//[名称]
+	public void setN_name_like(String n_name_like) {
+        this.n_name_like = n_name_like;
+        if(!ObjectUtils.isEmpty(this.n_name_like)){
+            this.getSearchCond().like("name", n_name_like);
         }
     }
 
@@ -44,7 +44,7 @@ public class TaskStatsSearchContext extends QueryWrapperContext<TaskStats> {
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("ibz_taskstatsname", query)   
+                     wrapper.like("name", query)   
             );
 		 }
 	}

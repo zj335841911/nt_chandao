@@ -16,59 +16,24 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| 1 | [任务统计标识](#属性-任务统计标识（IBZ_TASKSTATSID）) | IBZ_TASKSTATSID | 全局唯一标识，文本类型，用户不可见 | 是 | 否 | 否 |
-| 2 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
-| 3 | [任务统计名称](#属性-任务统计名称（IBZ_TASKSTATSNAME）) | IBZ_TASKSTATSNAME | 文本，可指定长度 | 否 | 否 | 是 |
-| 4 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
-| 5 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 否 | 否 |
-| 6 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | 日期时间型 | 否 | 否 | 否 |
+| 1 | [项目名称](#属性-项目名称（PROJECTNAME）) | PROJECTNAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 2 | [完成者](#属性-完成者（FINSHEDBY）) | FINSHEDBY | 文本，可指定长度 | 否 | 否 | 是 |
+| 3 | [预计总工时](#属性-预计总工时（TOTALESTIMATE）) | TOTALESTIMATE | 整型 | 否 | 否 | 是 |
+| 4 | [消耗总工时](#属性-消耗总工时（TOTALCONSUMED）) | TOTALCONSUMED | 整型 | 否 | 否 | 是 |
+| 5 | [剩余总工时](#属性-剩余总工时（TOTALLEFT）) | TOTALLEFT | 整型 | 否 | 否 | 是 |
+| 6 | [项目](#属性-项目（PROJECT）) | PROJECT | 文本，可指定长度 | 否 | 否 | 是 |
+| 7 | [编号](#属性-编号（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 是 |
+| 8 | [名称](#属性-名称（NAME）) | NAME | 文本，可指定长度 | 否 | 否 | 是 |
 
-### 属性-任务统计标识（IBZ_TASKSTATSID）
+### 属性-项目名称（PROJECTNAME）
 #### 属性说明
-任务统计标识
-
-- 是否是主键
-是
-
-- 属性类型
-物理字段[来自当前实体物理表字段]
-
-- 数据类型
-全局唯一标识，文本类型，用户不可见
-
-- Java类型
-String
-
-- 是否允许为空
-否
-
-- 默认值
-无
-
-- 取值范围/公式
-无
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-无
-
-#### 关系属性
-无
-
-### 属性-建立人（CREATEMAN）
-#### 属性说明
-建立人
+项目名称
 
 - 是否是主键
 否
 
 - 属性类型
-物理字段[来自当前实体物理表字段]
+应用界面字段[无存储]
 
 - 数据类型
 文本，可指定长度
@@ -77,13 +42,13 @@ String
 String
 
 - 是否允许为空
-否
+是
 
 - 默认值
 无
 
 - 取值范围/公式
-参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
+无
 
 - 数据格式
 无
@@ -97,9 +62,237 @@ String
 #### 关系属性
 无
 
-### 属性-任务统计名称（IBZ_TASKSTATSNAME）
+### 属性-完成者（FINSHEDBY）
 #### 属性说明
-任务统计名称
+完成者
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-预计总工时（TOTALESTIMATE）
+#### 属性说明
+预计总工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-消耗总工时（TOTALCONSUMED）
+#### 属性说明
+消耗总工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-剩余总工时（TOTALLEFT）
+#### 属性说明
+剩余总工时
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-项目（PROJECT）
+#### 属性说明
+项目
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-编号（ID）
+#### 属性说明
+编号
+
+- 是否是主键
+是
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+自增标识，整数类型，用户不可见
+
+- Java类型
+Long
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-名称（NAME）
+#### 属性说明
+名称
 
 - 是否是主键
 否
@@ -132,117 +325,6 @@ String
 | 序号 | 组合方式 |
 | ---- | ---- |
 | 1 | `%like%` |
-
-#### 关系属性
-无
-
-### 属性-更新人（UPDATEMAN）
-#### 属性说明
-更新人
-
-- 是否是主键
-否
-
-- 属性类型
-物理字段[来自当前实体物理表字段]
-
-- 数据类型
-文本，可指定长度
-
-- Java类型
-String
-
-- 是否允许为空
-否
-
-- 默认值
-无
-
-- 取值范围/公式
-参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-无
-
-#### 关系属性
-无
-
-### 属性-建立时间（CREATEDATE）
-#### 属性说明
-建立时间
-
-- 是否是主键
-否
-
-- 属性类型
-物理字段[来自当前实体物理表字段]
-
-- 数据类型
-日期时间型
-
-- Java类型
-Timestamp
-
-- 是否允许为空
-否
-
-- 默认值
-无
-
-- 取值范围/公式
-无
-
-- 数据格式
-yyyy-MM-dd HH:mm:ss
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-无
-
-#### 关系属性
-无
-
-### 属性-更新时间（UPDATEDATE）
-#### 属性说明
-更新时间
-
-- 是否是主键
-否
-
-- 属性类型
-物理字段[来自当前实体物理表字段]
-
-- 数据类型
-日期时间型
-
-- Java类型
-Timestamp
-
-- 是否允许为空
-否
-
-- 默认值
-无
-
-- 取值范围/公式
-无
-
-- 数据格式
-yyyy-MM-dd HH:mm:ss
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-无
 
 #### 关系属性
 无
@@ -354,18 +436,19 @@ Save
 ### 快速搜索项
 | 序号 | 属性 |
 | ---- | ---- |
-| 1 | [任务统计名称（IBZ_TASKSTATSNAME）](#属性-任务统计名称（IBZ_TASKSTATSNAME）) |
+| 1 | [名称（NAME）](#属性-名称（NAME）) |
 
 ### 搜索条件
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
-| 1 | [任务统计名称（IBZ_TASKSTATSNAME）](#属性-任务统计名称（IBZ_TASKSTATSNAME）) | `%like%` |
+| 1 | [名称（NAME）](#属性-名称（NAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [用户完成任务统计](#数据查询-用户完成任务统计（UserFinishTaskSum）) | UserFinishTaskSum | 否 |
+| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -381,14 +464,84 @@ Save
 - MYSQL5
 ```SQL
 SELECT
-t1.`CREATEDATE`,
-t1.`CREATEMAN`,
-t1.`IBZ_TASKSTATSID`,
-t1.`IBZ_TASKSTATSNAME`,
-t1.`UPDATEDATE`,
-t1.`UPDATEMAN`
-FROM `T_IBZ_TASKSTATS` t1 
+t1.`ID`,
+t1.`NAME`,
+0 AS `TOTALCONSUMED`,
+0 AS `TOTALESTIMATE`,
+0 AS `TOTALLEFT`
+FROM `zt_task` t1 
 
+```
+### 数据查询-用户完成任务统计（UserFinishTaskSum）
+#### 说明
+用户完成任务统计
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.id,
+	t1.`name`,
+	t2.account,
+	t2.`TOTALESTIMATE`,
+	t2.`TOTALCONSUMED`,
+	t2.`TOTALLEFT` 
+FROM
+	zt_project t1
+	JOIN (
+	SELECT
+		t1.project,
+		t1.account,
+		sum( t1.estimate ) AS `TOTALESTIMATE`,
+		sum( t1.consumed ) AS `TOTALCONSUMED`,
+		sum( t1.`left` ) AS `TOTALLEFT` 
+	FROM
+		((
+			SELECT
+				t1.project,
+				t2.account,
+				t2.`left` + t2.consumed AS estimate,
+				t2.consumed,
+				t2.`left` 
+			FROM
+				(
+				SELECT
+					t1.id,
+					t1.project 
+				FROM
+					zt_task t1 
+				WHERE
+					t1.deleted = '0' 
+					AND t1.parent <> - 1 
+				AND t1.id IN ( SELECT DISTINCT root FROM zt_team WHERE type = 'task' )) t1
+				JOIN zt_taskestimate t2 ON t1.id = t2.task 
+				) UNION
+			(
+			SELECT
+				t1.project,
+				t1.finishedBy AS account,
+				t1.estimate,
+				t1.consumed,
+				t1.`left` 
+			FROM
+				zt_task t1 
+			WHERE
+				t1.deleted = '0' 
+				AND t1.parent <> - 1 
+				AND t1.finishedBy <> '' 
+			AND t1.id NOT IN ( SELECT DISTINCT root FROM zt_team WHERE type = 'task' ))) t1 
+	GROUP BY
+		t1.project,
+		t1.account 
+	) t2 ON t1.id = t2.project 
+WHERE
+	deleted = '0'
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -404,13 +557,12 @@ FROM `T_IBZ_TASKSTATS` t1
 - MYSQL5
 ```SQL
 SELECT
-t1.`CREATEDATE`,
-t1.`CREATEMAN`,
-t1.`IBZ_TASKSTATSID`,
-t1.`IBZ_TASKSTATSNAME`,
-t1.`UPDATEDATE`,
-t1.`UPDATEMAN`
-FROM `T_IBZ_TASKSTATS` t1 
+t1.`ID`,
+t1.`NAME`,
+0 AS `TOTALCONSUMED`,
+0 AS `TOTALESTIMATE`,
+0 AS `TOTALLEFT`
+FROM `zt_task` t1 
 
 ```
 
@@ -418,6 +570,7 @@ FROM `T_IBZ_TASKSTATS` t1
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 2 | [用户完成任务统计](#数据集合-用户完成任务统计（UserFinishTaskSum）) | UserFinishTaskSum | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -433,6 +586,20 @@ FROM `T_IBZ_TASKSTATS` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（Default）](#数据查询-数据查询（Default）) |
+### 数据集合-用户完成任务统计（UserFinishTaskSum）
+#### 说明
+用户完成任务统计
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [用户完成任务统计（UserFinishTaskSum）](#数据查询-用户完成任务统计（UserFinishTaskSum）) |
 
 ## 数据导入
 无

@@ -40,6 +40,9 @@ Bug统计
 | 19 | [由谁解决](#属性-由谁解决（RESOLVEDBY）) | RESOLVEDBY | 单项选择(文本值) | 否 | 是 | 是 |
 | 20 | [项目编号](#属性-项目编号（PROJECT）) | PROJECT | 外键值 | 否 | 是 | 是 |
 | 21 | [项目名称](#属性-项目名称（PROJECTNAME）) | PROJECTNAME | 文本，可指定长度 | 否 | 是 | 是 |
+| 22 | [激活Bug](#属性-激活Bug（BUGACTIVE）) | BUGACTIVE | 整型 | 否 | 是 | 是 |
+| 23 | [已解决Bug](#属性-已解决Bug（BUGRESOLVED）) | BUGRESOLVED | 整型 | 否 | 是 | 是 |
+| 24 | [已关闭Bug](#属性-已关闭Bug（BUGCLOSED）) | BUGCLOSED | 整型 | 否 | 是 | 是 |
 
 ### 属性-标识（ID）
 #### 属性说明
@@ -940,6 +943,129 @@ String
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-激活Bug（BUGACTIVE）
+#### 属性说明
+激活Bug
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-已解决Bug（BUGRESOLVED）
+#### 属性说明
+已解决Bug
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-已关闭Bug（BUGCLOSED）
+#### 属性说明
+已关闭Bug
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -1083,6 +1209,44 @@ Bug在每个解决方案的Bug数
 #### SQL
 - MYSQL5
 ```SQL
+SELECT
+t1.`ASSIGNEDTO`,
+0 AS `BUGBYDESIGN`,
+0 AS `BUGCNT`,
+0 AS `BUGDUPLICATE`,
+0% AS `BUGEFFICIENT`,
+0 AS `BUGEXTERNAL`,
+0 AS `BUGFIXED`,
+0 AS `BUGNOTREPRO`,
+0 AS `BUGPOSTPONED`,
+0 AS `BUGTOSTORY`,
+0 AS `BUGTOTAL`,
+0 AS `BUGWILLNOTFIX`,
+0 AS `BUGWJJ`,
+t1.`ID`,
+t1.`OPENEDBY`,
+t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t2.`PROJECTNAME`,
+t1.`RESOLVEDBY`,
+t1.`TITLE`,
+t3.`NAME` AS `PROJECTNAME` ,
+t22.
+FROM `zt_bug` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+LEFT JOIN zt_project t3 ON t1.PROJECT = t1.ID
+LEFT JOIN (SELECT  t10.id,t10.`name`,t10.bydesigncnt as bydesigncnt , t10.fixedcnt,t10.duplicatecnt,t10.willnotfixcnt,t10.externalcnt,t10.notreprocnt,t10.tostorycnt,t10.postponedcnt, (t10.bydesigncnt+t10.fixedcnt+t10.duplicatecnt+t10.willnotfixcnt+t10.externalcnt+t10.notreprocnt+t10.tostorycnt+t10.postponedcnt) as BUGCNT 
+from (select t1.id,t1.`name`,(case when t2.bydesigncnt is null then 0 else t2.bydesigncnt end)as bydesigncnt,(case when t3.fixedcnt is null then 0 else t3.fixedcnt end)as fixedcnt,(case when  t4.duplicatecnt is null then 0 else t4.duplicatecnt end)as duplicatecnt,(case when t5.willnotfixcnt is null then 0 else t5.willnotfixcnt end)as willnotfixcnt,(case when t6.externalcnt is null then 0 else t6.externalcnt end) as externalcnt,(case when t7.notreprocnt is null then 0 else t7.notreprocnt end)as notreprocnt,(case when t8.tostorycnt is null then 0 else t8.tostorycnt end)as tostorycnt,(case when t9.postponedcnt is null then 0 else t9.postponedcnt end)as postponedcnt from zt_project t1 LEFT JOIN (select t1.project,count(1) as bydesigncnt from zt_bug t1 
+where t1.resolution = 'bydesign' GROUP BY t1.project
+) t2 on t1.id = t2.project LEFT JOIN ( select t1.project,count(1) as fixedcnt from zt_bug t1 where t1.resolution = 'fixed' GROUP BY t1.project
+) t3 on t3.project = t1.id LEFT JOIN ( select t1.project,count(1) as duplicatecnt from zt_bug t1 where t1.resolution = 'duplicate' GROUP BY t1.project
+) t4 on t4.project = t1.id LEFT JOIN ( select t1.project,count(1) as willnotfixcnt from zt_bug t1 where t1.resolution = 'willnotfix' GROUP BY t1.project
+) t5 on t5.project = t1.id LEFT JOIN ( select t1.project,count(1) as externalcnt from zt_bug t1 where t1.resolution = 'external' GROUP BY t1.project
+) t6 on t6.project = t1.id LEFT JOIN ( select t1.project,count(1) as notreprocnt from zt_bug t1 where t1.resolution = 'notrepro' GROUP BY t1.project
+) t7 on t7.project = t1.id LEFT JOIN ( select t1.project,count(1) as tostorycnt from zt_bug t1 where t1.resolution = 'tostory' GROUP BY t1.project
+) t8 on t8.project = t1.id LEFT JOIN ( select t1.project,count(1) as postponedcnt from zt_bug t1 where t1.resolution = 'postponed' GROUP BY t1.project
+) t9 on t9.project = t1.id where t1.deleted='0') t10) t22
 
 ```
 ### 数据查询-Bug完成表（BugResolvedBy）

@@ -48,11 +48,6 @@ export default {
     myfavoritetasks: "我收藏的任务",
     myfavorites: "我的收藏",
     myterritorycnt: "我的地盘",
-    projectname: "项目名称",
-    finishedby: "完成者",
-    totalestimate: "预计总工时",
-    totalconsumed: "消耗总工时",
-    totalleft: "剩余总工时",
   },
 	views: {
 		tabexpview: {
@@ -66,10 +61,6 @@ export default {
 		calendarexpview: {
 			caption: "我的地盘",
       		title: "我的地盘日历导航视图",
-		},
-		userfinishtaskgridview: {
-			caption: "用户完成任务",
-      		title: "我的地盘表格视图",
 		},
 		calendarview: {
 			caption: "我的地盘",
@@ -133,27 +124,6 @@ export default {
 		},
 		uiactions: {
 		},
-	},
-	userfinishtasksum_grid: {
-		nodata: "",
-		columns: {
-			projectname: "项目名称",
-			finishedby: "完成者",
-			totalestimate: "预计总工时",
-			totalconsumed: "消耗总工时",
-			totalleft: "剩余总工时",
-		},
-		uiactions: {
-		},
-	},
-	default_searchform: {
-		details: {
-			formpage1: "常规条件", 
-		},
-		uiactions: {
-		},
-	},
-	userfinishtaskgridviewtoolbar_toolbar: {
 	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {

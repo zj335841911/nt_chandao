@@ -417,6 +417,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品模块表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试用例|DEGRIDVIEW|&nbsp;|
+|-|文档库树视图（产品）|DETREEVIEW|&nbsp;|
 |-|版本编辑视图|DEEDITVIEW|&nbsp;|
 |-|文档库分类编辑视图|DEEDITVIEW|&nbsp;|
 |-|任务预计表格视图|DEGRIDVIEW9|&nbsp;|
@@ -443,7 +444,6 @@ SRFNAVPARAM.project=%project%|
 |-|用例库编辑视图|DEEDITVIEW|&nbsp;|
 |-|历史记录|DELISTVIEW|&nbsp;视图参数从上下文中获取对应的对象类型|
 |-|平台管理|DEGRIDVIEW|&nbsp;|
-|-|我的地盘表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW9|&nbsp;|
 |-|需求表格视图|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|
 |-|测试套件编辑视图|DEEDITVIEW|&nbsp;|
@@ -482,6 +482,7 @@ SRFNAVPARAM.project=%project%|
 |-|项目|DEGRIDVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW9|&nbsp;|
 |-|项目数据看板视图|DEPORTALVIEW|&nbsp;|
+|-|任务统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试用例表格视图（报告关联用例）|DEGRIDVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|需求模块选项操作视图同步|DEOPTVIEW|&nbsp;|
@@ -502,6 +503,7 @@ SRFNAVPARAM.project=%project%|
 |-|需求编辑视图（日历）|DEEDITVIEW|&nbsp;|
 |-|测试用例表格视图（测试结果条目）|DEGRIDVIEW|&nbsp;|
 |-|测试用例|DEEDITVIEW|&nbsp;|
+|-|Bug统计表格视图(bug状态统计)|DEGRIDVIEW|&nbsp;|
 |-|产品线|DEGRIDVIEW|&nbsp;|
 |-|需求|DEEDITVIEW|&nbsp;|
 |-|测试用例图表视图（执行结果）|DECHARTVIEW9|&nbsp;|

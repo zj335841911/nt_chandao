@@ -19,6 +19,7 @@ import employeeload_zh_CN from '@locale/lanres/entities/emp-loyeeload/emp-loyeel
 import doccontent_zh_CN from '@locale/lanres/entities/doc-content/doc-content_zh_CN';
 import storyspec_zh_CN from '@locale/lanres/entities/story-spec/story-spec_zh_CN';
 import usertpl_zh_CN from '@locale/lanres/entities/user-tpl/user-tpl_zh_CN';
+import taskstats_zh_CN from '@locale/lanres/entities/task-stats/task-stats_zh_CN';
 import ibzfavorites_zh_CN from '@locale/lanres/entities/ibz-favorites/ibz-favorites_zh_CN';
 import branch_zh_CN from '@locale/lanres/entities/branch/branch_zh_CN';
 import sysdepartment_zh_CN from '@locale/lanres/entities/sys-department/sys-department_zh_CN';
@@ -355,6 +356,7 @@ const data: any = {
         doccontent: doccontent_zh_CN,
         storyspec: storyspec_zh_CN,
         usertpl: usertpl_zh_CN,
+        taskstats: taskstats_zh_CN,
         ibzfavorites: ibzfavorites_zh_CN,
         branch: branch_zh_CN,
         sysdepartment: sysdepartment_zh_CN,

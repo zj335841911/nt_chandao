@@ -1679,6 +1679,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseBatchNewGridView",
             "viewtag": "66769499a681f12bd2ebff8859f1d4ea"
         },
+        "doclibproducttreeview": {
+            "title": "文档库树视图（产品）",
+            "caption": "产品",
+            "viewtype": "DETREEVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibProductTreeView",
+            "viewtag": "686d79c8c3e4e2aaaa43edcfb6caf39c"
+        },
         "buildeditformeditview": {
             "title": "版本编辑视图",
             "caption": "版本",
@@ -1886,14 +1894,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BranchPMGridView",
             "viewtag": "776ea44ea05316c9c6cb9d5948e993f9"
-        },
-        "ibzmyterritoryuserfinishtaskgridview": {
-            "title": "我的地盘表格视图",
-            "caption": "用户完成任务",
-            "viewtype": "DEGRIDVIEW",
-            "viewmodule": "ibiz",
-            "viewname": "IbzMyTerritoryUserFinishTaskGridView",
-            "viewtag": "786034b713f73a89a824e9a3c41129db"
         },
         "taskgridview9_assignedtome": {
             "title": "任务表格视图",
@@ -2199,6 +2199,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectMainDashboardView",
             "viewtag": "85ee867b09a2d6303c061d91374ec975"
         },
+        "taskstatsuserfinishtasksumgridview": {
+            "title": "任务统计表格视图",
+            "caption": "用户完成任务汇总",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "TaskStatsUserFinishTaskSumGridView",
+            "viewtag": "861a7b35cdff8ff000b5f90a9a4a12e9"
+        },
         "caseprojectreportlinkgridview": {
             "title": "测试用例表格视图（报告关联用例）",
             "caption": "关联用例",
@@ -2358,6 +2366,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseMainEditView",
             "viewtag": "8e070a3e9ad67b127db723463198f9ac"
+        },
+        "bugstatsusr2gridviewprojectbugstatuscount": {
+            "title": "Bug统计表格视图(bug状态统计)",
+            "caption": "bug状态统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "BugStatsUsr2GridViewProjectBugStatusCount",
+            "viewtag": "8e4b19edd3239846958a86bd33eef611"
         },
         "modulelinegridview": {
             "title": "产品线",

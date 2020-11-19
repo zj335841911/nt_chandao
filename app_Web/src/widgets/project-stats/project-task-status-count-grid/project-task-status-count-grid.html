@@ -38,7 +38,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.name')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.name')" :min-width="40"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.projectstats.projecttaskstatuscount_grid.columns.name')}}
@@ -120,6 +120,30 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                             <span>{{row.canceltaskcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('donetaskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'donetaskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.donetaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.projectstats.projecttaskstatuscount_grid.columns.donetaskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.donetaskcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('taskcnt')">
+                <el-table-column show-overflow-tooltip :prop="'taskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.taskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.projectstats.projecttaskstatuscount_grid.columns.taskcnt')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.taskcnt}}</span>
                     </template>
                 </el-table-column>
             </template>

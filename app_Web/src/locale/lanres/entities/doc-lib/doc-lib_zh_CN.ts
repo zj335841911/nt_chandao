@@ -49,6 +49,10 @@ export default {
 			caption: "文档库",
       		title: "doclib表格视图",
 		},
+		producttreeview: {
+			caption: "产品",
+      		title: "文档库树视图（产品）",
+		},
 		productgridview: {
 			caption: "文档库",
       		title: "doclib表格视图",
@@ -193,11 +197,18 @@ export default {
 		uiactions: {
 		},
 	},
-	productdoclibtree_treeview: {
+	doclibtreeproduct_treeview: {
 		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
+	looproductdoclibtree_treeview: {
+		nodes: {
+			root: "默认根节点",
 			files: "附件库",
 			allproduct: "所有产品",
-			root: "默认根节点",
 		},
 		uiactions: {
 		},

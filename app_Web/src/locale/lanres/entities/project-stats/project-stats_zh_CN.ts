@@ -136,6 +136,8 @@ export default {
 			pausetaskcnt: "已暂停任务数",
 			closedtaskcnt: "已关闭任务数",
 			canceltaskcnt: "已取消任务数",
+			donetaskcnt: "已完成任务数",
+			taskcnt: "任务总数",
 		},
 		uiactions: {
 		},

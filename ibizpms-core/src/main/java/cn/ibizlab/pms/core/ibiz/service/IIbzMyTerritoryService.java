@@ -52,7 +52,6 @@ public interface IIbzMyTerritoryService extends IService<IbzMyTerritory> {
     Page<IbzMyTerritory> searchDefault(IbzMyTerritorySearchContext context);
     Page<IbzMyTerritory> searchMyWork(IbzMyTerritorySearchContext context);
     Page<IbzMyTerritory> searchMyWorkMob(IbzMyTerritorySearchContext context);
-    Page<IbzMyTerritory> searchUserFinishTaskSum(IbzMyTerritorySearchContext context);
     Page<IbzMyTerritory> searchWelcome(IbzMyTerritorySearchContext context);
     /**
      * 自定义查询SQL

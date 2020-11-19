@@ -173,4 +173,28 @@ export interface BugStats {
      * @memberof BugStats
      */
     projectname?: any;
+
+    /**
+     * 激活Bug
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    bugactive?: any;
+
+    /**
+     * 已解决Bug
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    bugresolved?: any;
+
+    /**
+     * 已关闭Bug
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    bugclosed?: any;
 }

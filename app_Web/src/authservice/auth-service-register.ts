@@ -58,6 +58,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('doccontent', () => import('@/authservice/doc-content/doc-content-auth-service'));
         this.allAuthService.set('storyspec', () => import('@/authservice/story-spec/story-spec-auth-service'));
         this.allAuthService.set('usertpl', () => import('@/authservice/user-tpl/user-tpl-auth-service'));
+        this.allAuthService.set('taskstats', () => import('@/authservice/task-stats/task-stats-auth-service'));
         this.allAuthService.set('ibzfavorites', () => import('@/authservice/ibz-favorites/ibz-favorites-auth-service'));
         this.allAuthService.set('branch', () => import('@/authservice/branch/branch-auth-service'));
         this.allAuthService.set('sysdepartment', () => import('@/authservice/sys-department/sys-department-auth-service'));

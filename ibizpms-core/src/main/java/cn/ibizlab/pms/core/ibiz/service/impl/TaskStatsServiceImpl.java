@@ -57,7 +57,7 @@ public class TaskStatsServiceImpl extends ServiceImpl<TaskStatsMapper, TaskStats
         if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getTaskstatsid()), et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -70,10 +70,10 @@ public class TaskStatsServiceImpl extends ServiceImpl<TaskStatsMapper, TaskStats
     @Override
     @Transactional
     public boolean update(TaskStats et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibz_taskstatsid", et.getTaskstatsid()))) {
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getTaskstatsid()), et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -85,24 +85,24 @@ public class TaskStatsServiceImpl extends ServiceImpl<TaskStatsMapper, TaskStats
 
     @Override
     @Transactional
-    public boolean remove(String key) {
+    public boolean remove(Long key) {
         boolean result = removeById(key);
         return result;
     }
 
     @Override
     @Transactional
-    public void removeBatch(Collection<String> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public TaskStats get(String key) {
+    public TaskStats get(Long key) {
         TaskStats et = getById(key);
         if (et == null) {
             et = new TaskStats();
-            et.setTaskstatsid(key);
+            et.setId(key);
         }
         else {
         }
@@ -116,7 +116,7 @@ public class TaskStatsServiceImpl extends ServiceImpl<TaskStatsMapper, TaskStats
 
     @Override
     public boolean checkKey(TaskStats et) {
-        return (!ObjectUtils.isEmpty(et.getTaskstatsid())) && (!Objects.isNull(this.getById(et.getTaskstatsid())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
@@ -161,6 +161,15 @@ public class TaskStatsServiceImpl extends ServiceImpl<TaskStatsMapper, TaskStats
         return new PageImpl<TaskStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 用户完成任务统计
+     */
+    @Override
+    public Page<TaskStats> searchUserFinishTaskSum(TaskStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskStats> pages=baseMapper.searchUserFinishTaskSum(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<TaskStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 
@@ -191,27 +200,6 @@ public class TaskStatsServiceImpl extends ServiceImpl<TaskStatsMapper, TaskStats
         return true;
     }
 
-    @Override
-    public List<TaskStats> getTaskstatsByIds(List<String> ids) {
-         return this.listByIds(ids);
-    }
-
-    @Override
-    public List<TaskStats> getTaskstatsByEntities(List<TaskStats> entities) {
-        List ids =new ArrayList();
-        for(TaskStats entity : entities){
-            Serializable id=entity.getTaskstatsid();
-            if (!ObjectUtils.isEmpty(id)) {
-                ids.add(id);
-            }
-        }
-        if (ids.size() > 0) {
-            return this.listByIds(ids);
-        }
-        else {
-            return entities;
-        }
-    }
 
 
 

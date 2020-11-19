@@ -673,6 +673,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/bug-stats-edit-view/bug-stats-edit-view.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/producttreeview/:producttreeview?',
+                    meta: {
+                        caption: 'entities.doclib.views.producttreeview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'producttreeview', parameterName: 'producttreeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-product-tree-view/doc-lib-product-tree-view.vue'),
+                },
+                {
                     path: 'productsums/:productsum?/storyhourssumgridview/:storyhourssumgridview?',
                     meta: {
                         caption: 'entities.productsum.views.storyhourssumgridview.caption',
@@ -2074,6 +2088,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-main-view/story-main-view.vue'),
+                },
+                {
+                    path: 'taskstats/:taskstats?/userfinishtasksumgridview/:userfinishtasksumgridview?',
+                    meta: {
+                        caption: 'entities.taskstats.views.userfinishtasksumgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'taskstats', parameterName: 'taskstats' },
+                            { pathName: 'userfinishtasksumgridview', parameterName: 'userfinishtasksumgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-stats-user-finish-task-sum-grid-view/task-stats-user-finish-task-sum-grid-view.vue'),
                 },
                 {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/ibzlibcasesteptmps/:ibzlibcasesteptmp?/gridview9/:gridview9?',
@@ -3621,20 +3649,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/task-team-grid-view9-look/task-team-grid-view9-look.vue'),
-                },
-                {
-                    path: 'ibzmyterritories/:ibzmyterritory?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.ibzmyterritory.views.editview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/ibz-my-territory-edit-view/ibz-my-territory-edit-view.vue'),
                 },
                 {
                     path: 'ibzmyterritories/:ibzmyterritory?/statstabexpview/:statstabexpview?',
@@ -10643,6 +10657,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/doc-lib-undone-project-grid-view/doc-lib-undone-project-grid-view.vue'),
                 },
                 {
+                    path: 'bugstats/:bugstats?/usr2gridviewprojectbugstatuscount/:usr2gridviewprojectbugstatuscount?',
+                    meta: {
+                        caption: 'entities.bugstats.views.usr2gridviewprojectbugstatuscount.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugstats', parameterName: 'bugstats' },
+                            { pathName: 'usr2gridviewprojectbugstatuscount', parameterName: 'usr2gridviewprojectbugstatuscount' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-stats-usr2-grid-view-project-bug-status-count/bug-stats-usr2-grid-view-project-bug-status-count.vue'),
+                },
+                {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.ibzcase.views.gridview.caption',
@@ -12388,20 +12416,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/todo-close-view/todo-close-view.vue'),
-                },
-                {
-                    path: 'ibzmyterritories/:ibzmyterritory?/userfinishtaskgridview/:userfinishtaskgridview?',
-                    meta: {
-                        caption: 'entities.ibzmyterritory.views.userfinishtaskgridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-                            { pathName: 'userfinishtaskgridview', parameterName: 'userfinishtaskgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/ibz-my-territory-user-finish-task-grid-view/ibz-my-territory-user-finish-task-grid-view.vue'),
                 },
                 {
                     path: 'docs/:doc?/gridview9/:gridview9?',

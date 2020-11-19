@@ -444,48 +444,6 @@ public class IbzMyTerritoryDTO extends DTOBase implements Serializable {
     @JsonProperty("myterritorycnt")
     private Integer myterritorycnt;
 
-    /**
-     * 属性 [PROJECTNAME]
-     *
-     */
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String projectname;
-
-    /**
-     * 属性 [FINISHEDBY]
-     *
-     */
-    @JSONField(name = "finishedby")
-    @JsonProperty("finishedby")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String finishedby;
-
-    /**
-     * 属性 [TOTALESTIMATE]
-     *
-     */
-    @JSONField(name = "totalestimate")
-    @JsonProperty("totalestimate")
-    private Integer totalestimate;
-
-    /**
-     * 属性 [TOTALCONSUMED]
-     *
-     */
-    @JSONField(name = "totalconsumed")
-    @JsonProperty("totalconsumed")
-    private Integer totalconsumed;
-
-    /**
-     * 属性 [TOTALLEFT]
-     *
-     */
-    @JSONField(name = "totalleft")
-    @JsonProperty("totalleft")
-    private Integer totalleft;
-
 
     /**
      * 设置 [FAILS]

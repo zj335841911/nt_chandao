@@ -2737,6 +2737,44 @@ WHERE t1.DELETED = '0'
 
 ### Bug在每个解决方案的Bug数(BugCountInResolution)<div id="BugStats_BugCountInResolution"></div>
 ```sql
+SELECT
+t1.`ASSIGNEDTO`,
+0 AS `BUGBYDESIGN`,
+0 AS `BUGCNT`,
+0 AS `BUGDUPLICATE`,
+0% AS `BUGEFFICIENT`,
+0 AS `BUGEXTERNAL`,
+0 AS `BUGFIXED`,
+0 AS `BUGNOTREPRO`,
+0 AS `BUGPOSTPONED`,
+0 AS `BUGTOSTORY`,
+0 AS `BUGTOTAL`,
+0 AS `BUGWILLNOTFIX`,
+0 AS `BUGWJJ`,
+t1.`ID`,
+t1.`OPENEDBY`,
+t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t2.`PROJECTNAME`,
+t1.`RESOLVEDBY`,
+t1.`TITLE`,
+t3.`NAME` AS `PROJECTNAME` ,
+t22.
+FROM `zt_bug` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+LEFT JOIN zt_project t3 ON t1.PROJECT = t1.ID
+LEFT JOIN (SELECT  t10.id,t10.`name`,t10.bydesigncnt as bydesigncnt , t10.fixedcnt,t10.duplicatecnt,t10.willnotfixcnt,t10.externalcnt,t10.notreprocnt,t10.tostorycnt,t10.postponedcnt, (t10.bydesigncnt+t10.fixedcnt+t10.duplicatecnt+t10.willnotfixcnt+t10.externalcnt+t10.notreprocnt+t10.tostorycnt+t10.postponedcnt) as BUGCNT 
+from (select t1.id,t1.`name`,(case when t2.bydesigncnt is null then 0 else t2.bydesigncnt end)as bydesigncnt,(case when t3.fixedcnt is null then 0 else t3.fixedcnt end)as fixedcnt,(case when  t4.duplicatecnt is null then 0 else t4.duplicatecnt end)as duplicatecnt,(case when t5.willnotfixcnt is null then 0 else t5.willnotfixcnt end)as willnotfixcnt,(case when t6.externalcnt is null then 0 else t6.externalcnt end) as externalcnt,(case when t7.notreprocnt is null then 0 else t7.notreprocnt end)as notreprocnt,(case when t8.tostorycnt is null then 0 else t8.tostorycnt end)as tostorycnt,(case when t9.postponedcnt is null then 0 else t9.postponedcnt end)as postponedcnt from zt_project t1 LEFT JOIN (select t1.project,count(1) as bydesigncnt from zt_bug t1 
+where t1.resolution = 'bydesign' GROUP BY t1.project
+) t2 on t1.id = t2.project LEFT JOIN ( select t1.project,count(1) as fixedcnt from zt_bug t1 where t1.resolution = 'fixed' GROUP BY t1.project
+) t3 on t3.project = t1.id LEFT JOIN ( select t1.project,count(1) as duplicatecnt from zt_bug t1 where t1.resolution = 'duplicate' GROUP BY t1.project
+) t4 on t4.project = t1.id LEFT JOIN ( select t1.project,count(1) as willnotfixcnt from zt_bug t1 where t1.resolution = 'willnotfix' GROUP BY t1.project
+) t5 on t5.project = t1.id LEFT JOIN ( select t1.project,count(1) as externalcnt from zt_bug t1 where t1.resolution = 'external' GROUP BY t1.project
+) t6 on t6.project = t1.id LEFT JOIN ( select t1.project,count(1) as notreprocnt from zt_bug t1 where t1.resolution = 'notrepro' GROUP BY t1.project
+) t7 on t7.project = t1.id LEFT JOIN ( select t1.project,count(1) as tostorycnt from zt_bug t1 where t1.resolution = 'tostory' GROUP BY t1.project
+) t8 on t8.project = t1.id LEFT JOIN ( select t1.project,count(1) as postponedcnt from zt_bug t1 where t1.resolution = 'postponed' GROUP BY t1.project
+) t9 on t9.project = t1.id where t1.deleted='0') t10) t22
 
 ```
 ### Bug完成表(BugResolvedBy)<div id="BugStats_BugResolvedBy"></div>
@@ -6667,9 +6705,6 @@ t1.`SCORE`,
 t1.`SCORELEVEL`,
 t1.`SKYPE`,
 t1.`SLACK`,
-0 AS `TOTALCONSUMED`,
-0 AS `TOTALESTIMATE`,
-0 AS `TOTALLEFT`,
 t1.`VISITS`,
 t1.`WEIXIN`,
 t1.`WHATSAPP`,
@@ -6772,66 +6807,6 @@ GROUP BY
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mystorys FROM zt_story t GROUP BY t.assignedTo ) t41 ON t1.account = t41.account
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS MYETASKS FROM zt_task t where (t.`status` = 'wait' or t.`status` = 'doing') and (t.DEADLINE < DATE_FORMAT(now(),'%Y-%m-%d') and t.deadline <> '0000-00-00') GROUP BY t.assignedTo ) t51 ON t1.account = t51.account
 ```
-### 用户完成任务统计(UserFinishTaskSum)<div id="IbzMyTerritory_UserFinishTaskSum"></div>
-```sql
-SELECT
-	t1.id,
-	t1.`name`,
-	t2.account,
-	t2.`TOTALESTIMATE`,
-	t2.`TOTALCONSUMED`,
-	t2.`TOTALLEFT` 
-FROM
-	zt_project t1
-	JOIN (
-	SELECT
-		t1.project,
-		t1.account,
-		sum( t1.estimate ) AS `TOTALESTIMATE`,
-		sum( t1.consumed ) AS `TOTALCONSUMED`,
-		sum( t1.`left` ) AS `TOTALLEFT` 
-	FROM
-		((
-			SELECT
-				t1.project,
-				t2.account,
-				t2.`left` + t2.consumed AS estimate,
-				t2.consumed,
-				t2.`left` 
-			FROM
-				(
-				SELECT
-					t1.id,
-					t1.project 
-				FROM
-					zt_task t1 
-				WHERE
-					t1.deleted = '0' 
-					AND t1.parent <> - 1 
-				AND t1.id IN ( SELECT DISTINCT root FROM zt_team WHERE type = 'task' )) t1
-				JOIN zt_taskestimate t2 ON t1.id = t2.task 
-				) UNION
-			(
-			SELECT
-				t1.project,
-				t1.finishedBy AS account,
-				t1.estimate,
-				t1.consumed,
-				t1.`left` 
-			FROM
-				zt_task t1 
-			WHERE
-				t1.deleted = '0' 
-				AND t1.parent <> - 1 
-				AND t1.finishedBy <> '' 
-			AND t1.id NOT IN ( SELECT DISTINCT root FROM zt_team WHERE type = 'task' ))) t1 
-	GROUP BY
-		t1.project,
-		t1.account 
-	) t2 ON t1.id = t2.project 
-WHERE
-	deleted = '0'
-```
 ### 默认（全部数据）(VIEW)<div id="IbzMyTerritory_View"></div>
 ```sql
 SELECT
@@ -6865,9 +6840,6 @@ t1.`SCORE`,
 t1.`SCORELEVEL`,
 t1.`SKYPE`,
 t1.`SLACK`,
-0 AS `TOTALCONSUMED`,
-0 AS `TOTALESTIMATE`,
-0 AS `TOTALLEFT`,
 t1.`VISITS`,
 t1.`WEIXIN`,
 t1.`WHATSAPP`,
@@ -11882,14 +11854,15 @@ t1.`STATUS`,
 (SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND `STATUS` NOT IN ('done','cancel','closed') AND DELETED =  '0') AS `UNDONETASKCNT`,
 (select COUNT(1) from zt_task t where t.deleted = '0' and t.project = t1.id and t.`status` = 'closed' and t.closedDate BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59') ) AS `YESTERDAYCTASKCNT`,
 (SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'resolved' AND DELETED = '0' and RESOLVEDDATE BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59')) AS `YESTERDAYRBUGCNT`
-,t2.closedTaskcnt,t3.cancelTaskcnt,t4.doneTaskcnt,t5.pauseTaskcnt,t6.waitTaskcnt,t7.doingTaskcnt
+,t2.closedTaskcnt,t3.cancelTaskcnt,t4.doneTaskcnt,t5.pauseTaskcnt,t6.waitTaskcnt,t7.doingTaskcnt,t8.taskcnt
 FROM `zt_project` t1 
 LEFT JOIN (select t1.project,count(1) as closedTaskcnt from zt_task t1 where t1.`status` = 'closed' and t1.deleted = '0' GROUP BY t1.project) t2 on t1.id = t2.project
 LEFT JOIN (select t1.project,count(1) as cancelTaskcnt from zt_task t1 where t1.`status` = 'cancel' and t1.deleted = '0' GROUP BY t1.project) t3 on t1.id = t3.project
 LEFT JOIN (select t1.project,count(1) as doneTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t4 on t1.id = t4.project
-LEFT JOIN (select t1.project,count(1) as pauseTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t5 on t1.id = t5.project
-LEFT JOIN (select t1.project,count(1) as waitTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t6 on t1.id = t6.project
-LEFT JOIN (select t1.project,count(1) as doingTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t7 on t1.id = t7.project
+LEFT JOIN (select t1.project,count(1) as pauseTaskcnt from zt_task t1 where t1.`status` = 'pause' and t1.deleted = '0' GROUP BY t1.project) t5 on t1.id = t5.project
+LEFT JOIN (select t1.project,count(1) as waitTaskcnt from zt_task t1 where t1.`status` = 'wait' and t1.deleted = '0' GROUP BY t1.project) t6 on t1.id = t6.project
+LEFT JOIN (select t1.project,count(1) as doingTaskcnt from zt_task t1 where t1.`status` = 'doing' and t1.deleted = '0' GROUP BY t1.project) t7 on t1.id = t7.project
+LEFT JOIN (select t1.project,count(1) as taskcnt from zt_task t1 where t1.deleted = '0' GROUP BY t1.project) t8 on t8.project = t1.id
 WHERE t1.DELETED = '0' 
 
 ```
@@ -15391,25 +15364,83 @@ WHERE t1.ENABLE = 1
 ### 数据查询(DEFAULT)<div id="TaskStats_Default"></div>
 ```sql
 SELECT
-t1.`CREATEDATE`,
-t1.`CREATEMAN`,
-t1.`IBZ_TASKSTATSID`,
-t1.`IBZ_TASKSTATSNAME`,
-t1.`UPDATEDATE`,
-t1.`UPDATEMAN`
-FROM `T_IBZ_TASKSTATS` t1 
+t1.`ID`,
+t1.`NAME`,
+0 AS `TOTALCONSUMED`,
+0 AS `TOTALESTIMATE`,
+0 AS `TOTALLEFT`
+FROM `zt_task` t1 
 
+```
+### 用户完成任务统计(UserFinishTaskSum)<div id="TaskStats_UserFinishTaskSum"></div>
+```sql
+SELECT
+	t1.id,
+	t1.`name`,
+	t2.account,
+	t2.`TOTALESTIMATE`,
+	t2.`TOTALCONSUMED`,
+	t2.`TOTALLEFT` 
+FROM
+	zt_project t1
+	JOIN (
+	SELECT
+		t1.project,
+		t1.account,
+		sum( t1.estimate ) AS `TOTALESTIMATE`,
+		sum( t1.consumed ) AS `TOTALCONSUMED`,
+		sum( t1.`left` ) AS `TOTALLEFT` 
+	FROM
+		((
+			SELECT
+				t1.project,
+				t2.account,
+				t2.`left` + t2.consumed AS estimate,
+				t2.consumed,
+				t2.`left` 
+			FROM
+				(
+				SELECT
+					t1.id,
+					t1.project 
+				FROM
+					zt_task t1 
+				WHERE
+					t1.deleted = '0' 
+					AND t1.parent <> - 1 
+				AND t1.id IN ( SELECT DISTINCT root FROM zt_team WHERE type = 'task' )) t1
+				JOIN zt_taskestimate t2 ON t1.id = t2.task 
+				) UNION
+			(
+			SELECT
+				t1.project,
+				t1.finishedBy AS account,
+				t1.estimate,
+				t1.consumed,
+				t1.`left` 
+			FROM
+				zt_task t1 
+			WHERE
+				t1.deleted = '0' 
+				AND t1.parent <> - 1 
+				AND t1.finishedBy <> '' 
+			AND t1.id NOT IN ( SELECT DISTINCT root FROM zt_team WHERE type = 'task' ))) t1 
+	GROUP BY
+		t1.project,
+		t1.account 
+	) t2 ON t1.id = t2.project 
+WHERE
+	deleted = '0'
 ```
 ### 默认（全部数据）(VIEW)<div id="TaskStats_View"></div>
 ```sql
 SELECT
-t1.`CREATEDATE`,
-t1.`CREATEMAN`,
-t1.`IBZ_TASKSTATSID`,
-t1.`IBZ_TASKSTATSNAME`,
-t1.`UPDATEDATE`,
-t1.`UPDATEMAN`
-FROM `T_IBZ_TASKSTATS` t1 
+t1.`ID`,
+t1.`NAME`,
+0 AS `TOTALCONSUMED`,
+0 AS `TOTALESTIMATE`,
+0 AS `TOTALLEFT`
+FROM `zt_task` t1 
 
 ```
 
