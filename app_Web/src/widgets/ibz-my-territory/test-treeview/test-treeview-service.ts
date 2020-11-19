@@ -73,6 +73,15 @@ export default class TestService extends ControlService {
 	public TREENODE_BUGASSIGNEDTO: string = 'BugassignedTo';
 
     /**
+     * 产品Bug解决方案汇总表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof TestService
+     */
+	public TREENODE_PRODUCTBUGRESOLUTIONSTATS: string = 'ProductBugResolutionStats';
+
+    /**
      * Bug创建表节点分隔符号
      *
      * @public
@@ -177,6 +186,10 @@ export default class TestService extends ControlService {
             await this.fillBugassignedtoNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
+        if (Object.is(strNodeType, this.TREENODE_PRODUCTBUGRESOLUTIONSTATS)) {
+            await this.fillProductbugresolutionstatsNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         if (Object.is(strNodeType, this.TREENODE_BUGOPENENDBY)) {
             await this.fillBugopenendbyNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
@@ -246,6 +259,65 @@ export default class TestService extends ControlService {
      */
     @Errorlog
     public async fillBugassignedtoNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
+     * 填充 树视图节点[产品Bug解决方案汇总表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof TestService
+     */
+    @Errorlog
+    public fillProductbugresolutionstatsNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.test_treeview.nodes.productbugresolutionstats') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'ProductBugResolutionStats';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[产品Bug解决方案汇总表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof TestService
+     */
+    @Errorlog
+    public async fillProductbugresolutionstatsNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}
@@ -438,6 +510,11 @@ export default class TestService extends ControlService {
             let BugresolvedbyRsNavParams:any = {};
             let BugresolvedbyRsParams:any = {};
 			await this.fillBugresolvedbyNodes(context, filter, list ,BugresolvedbyRsNavContext,BugresolvedbyRsNavParams,BugresolvedbyRsParams);
+			// 填充产品Bug解决方案汇总表
+            let ProductbugresolutionstatsRsNavContext:any = {};
+            let ProductbugresolutionstatsRsNavParams:any = {};
+            let ProductbugresolutionstatsRsParams:any = {};
+			await this.fillProductbugresolutionstatsNodes(context, filter, list ,ProductbugresolutionstatsRsNavContext,ProductbugresolutionstatsRsNavParams,ProductbugresolutionstatsRsParams);
 		} else {
 			// 填充Bug创建表
             let BugopenendbyRsNavContext:any = {};
@@ -454,6 +531,11 @@ export default class TestService extends ControlService {
             let BugresolvedbyRsNavParams:any = {};
             let BugresolvedbyRsParams:any = {};
 			await this.fillBugresolvedbyNodes(context, filter, list ,BugresolvedbyRsNavContext,BugresolvedbyRsNavParams,BugresolvedbyRsParams);
+			// 填充产品Bug解决方案汇总表
+            let ProductbugresolutionstatsRsNavContext:any = {};
+            let ProductbugresolutionstatsRsNavParams:any = {};
+            let ProductbugresolutionstatsRsParams:any = {};
+			await this.fillProductbugresolutionstatsNodes(context, filter, list ,ProductbugresolutionstatsRsNavContext,ProductbugresolutionstatsRsNavParams,ProductbugresolutionstatsRsParams);
 		}
 	}
 

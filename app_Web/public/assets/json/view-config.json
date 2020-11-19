@@ -1959,6 +1959,16 @@
         "viewtag": "5d468f620cc30181773d875b3bb8be6e",
         "memo": ""
     },
+    "bugstatsproductbugresolutiongridview": {
+        "title": "Bug统计表格视图",
+        "caption": "产品Bug解决方案汇总",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "BugStatsProductBugResolutionGridView",
+        "viewfilename": "bug-stats-product-bug-resolution-grid-view",
+        "viewtag": "5e8408526c67859b65aa66e614dd0b04",
+        "memo": ""
+    },
     "tasktasktypeganttview": {
         "title": "任务甘特视图",
         "caption": "任务",

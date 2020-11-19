@@ -1745,6 +1745,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5e8408526c67859b65aa66e614dd0b04',
+            viewmodule: 'ibiz',
+            viewname: 'BugStatsProductBugResolutionGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0174d3383dadc0878991e5c90bd5eaa3',
+            ],
+        },
+        {
             viewtag: '5ef23f01b2cffa48351b3272dfeeaf14',
             viewmodule: 'zentao',
             viewname: 'TaskTaskTypeGanttView',
@@ -3608,6 +3618,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '5e8408526c67859b65aa66e614dd0b04',
                 'b90624360f51aadfbfaa92d563dc1410',
                 'b7427fe34d292009905e126defc9fa22',
                 'a7aa4a1d093b609e270df2fec5ea627b',

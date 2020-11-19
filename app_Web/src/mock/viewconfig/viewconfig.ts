@@ -1575,6 +1575,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductStatsEditView9",
             "viewtag": "5d468f620cc30181773d875b3bb8be6e"
         },
+        "bugstatsproductbugresolutiongridview": {
+            "title": "Bug统计表格视图",
+            "caption": "产品Bug解决方案汇总",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "BugStatsProductBugResolutionGridView",
+            "viewtag": "5e8408526c67859b65aa66e614dd0b04"
+        },
         "tasktasktypeganttview": {
             "title": "任务甘特视图",
             "caption": "任务",

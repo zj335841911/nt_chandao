@@ -404,6 +404,7 @@ SRFNAVPARAM.project=%project%|
 |-|部门|DEGRIDVIEW|&nbsp;|
 |-|相关用例|DEGRIDVIEW9|&nbsp;|
 |-|产品统计编辑视图|DEEDITVIEW9|&nbsp;|
+|-|Bug统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务甘特视图|DEGANTTVIEW|&nbsp;|
 |-|工时|DEOPTVIEW|&nbsp;|
 |-|task数据选择视图|DEPICKUPVIEW|&nbsp;|

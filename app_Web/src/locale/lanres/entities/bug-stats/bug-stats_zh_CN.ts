@@ -30,6 +30,10 @@ export default {
 			caption: "Bug统计",
       		title: "Bug统计编辑视图",
 		},
+		productbugresolutiongridview: {
+			caption: "产品Bug解决方案汇总",
+      		title: "Bug统计表格视图",
+		},
 		usr2gridviewprojectbugstatuscount: {
 			caption: "bug状态统计",
       		title: "Bug统计表格视图(bug状态统计)",
@@ -75,6 +79,25 @@ export default {
 			assignedto: "姓名",
 			productname: "产品",
 			bugcnt: "Bug",
+			bugtotal: "总计",
+		},
+		uiactions: {
+		},
+	},
+	productbugresolutionstats_grid: {
+		nodata: "",
+		columns: {
+			productname: "产品名称",
+			bugwjj: "未解决",
+			bugbydesign: "设计如此",
+			bugduplicate: "重复Bug",
+			bugexternal: "外部原因",
+			bugfixed: "已解决",
+			bugnotrepro: "无法重现",
+			bugpostponed: "延期处理",
+			bugwillnotfix: "不予解决",
+			bugtostory: "转为需求",
+			bugefficient: "有效率",
 			bugtotal: "总计",
 		},
 		uiactions: {
@@ -187,6 +210,8 @@ export default {
 			caption: "删除",
 			tip: "删除",
 		},
+	},
+	productbugresolutiongridviewtoolbar_toolbar: {
 	},
 	bugresolvetiontoolbar_toolbar: {
 	},

@@ -16445,6 +16445,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-grid-view9/task-estimate-grid-view9.vue'),
                 },
                 {
+                    path: 'bugstats/:bugstats?/productbugresolutiongridview/:productbugresolutiongridview?',
+                    meta: {
+                        caption: 'entities.bugstats.views.productbugresolutiongridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugstats', parameterName: 'bugstats' },
+                            { pathName: 'productbugresolutiongridview', parameterName: 'productbugresolutiongridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-stats-product-bug-resolution-grid-view/bug-stats-product-bug-resolution-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
                         caption: 'entities.task.views.gridview9_storyrelated.caption',
