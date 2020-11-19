@@ -975,12 +975,50 @@ Save
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [Bug完成表](#数据查询-Bug完成表（BugResolvedBy）) | BugResolvedBy | 否 |
-| 2 | [Bug指派表](#数据查询-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
-| 3 | [Bug创建表](#数据查询-Bug创建表（Default）) | Default | 否 |
-| 4 | [产品创建bug占比](#数据查询-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
-| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 1 | [Bug在每个解决方案的Bug数](#数据查询-Bug在每个解决方案的Bug数（BugCountInResolution）) | BugCountInResolution | 否 |
+| 2 | [Bug完成表](#数据查询-Bug完成表（BugResolvedBy）) | BugResolvedBy | 否 |
+| 3 | [Bug指派表](#数据查询-Bug指派表（BugassignedTo）) | BugassignedTo | 否 |
+| 4 | [Bug创建表](#数据查询-Bug创建表（Default）) | Default | 否 |
+| 5 | [产品创建bug占比](#数据查询-产品创建bug占比（ProductCreateBug）) | ProductCreateBug | 否 |
+| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
+### 数据查询-Bug在每个解决方案的Bug数（BugCountInResolution）
+#### 说明
+Bug在每个解决方案的Bug数
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ASSIGNEDTO`,
+0 AS `BUGBYDESIGN`,
+0 AS `BUGCNT`,
+0 AS `BUGDUPLICATE`,
+0% AS `BUGEFFICIENT`,
+0 AS `BUGEXTERNAL`,
+0 AS `BUGFIXED`,
+0 AS `BUGNOTREPRO`,
+0 AS `BUGPOSTPONED`,
+0 AS `BUGTOSTORY`,
+0 AS `BUGTOTAL`,
+0 AS `BUGWILLNOTFIX`,
+0 AS `BUGWJJ`,
+t1.`ID`,
+t1.`OPENEDBY`,
+t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
+t1.`RESOLVEDBY`,
+t1.`TITLE`
+FROM `zt_bug` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+
+```
 ### 数据查询-Bug完成表（BugResolvedBy）
 #### 说明
 Bug完成表

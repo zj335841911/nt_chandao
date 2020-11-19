@@ -94,6 +94,10 @@ export default {
 			caption: "我的工作",
       		title: "我的工作",
 		},
+		treeexpviewprojectstats: {
+			caption: "项目汇总表",
+      		title: "我的地盘我的地盘实体树导航视图（项目汇总表）导航视图",
+		},
 	},
 	productsum_treeview: {
 		nodes: {
@@ -119,6 +123,16 @@ export default {
 		nodes: {
 			employeeload: "员工负载表",
 			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
+	projectstats_treeview: {
+		nodes: {
+			bugresolutioncount: "bug解决方案统计",
+			bugstatuscount: "bug状态统计",
+			root: "默认根节点",
+			taskstatuscount: "任务状态统计",
 		},
 		uiactions: {
 		},

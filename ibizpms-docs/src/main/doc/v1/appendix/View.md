@@ -690,6 +690,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试报告分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|测试报告数据看板视图|DEPORTALVIEW|&nbsp;|
+|-|我的地盘我的地盘实体树导航视图（项目汇总表）导航视图|DETREEEXPVIEW|&nbsp;|
 |-|文档编辑视图（关键字）|DEEDITVIEW9|&nbsp;|
 |-|待办编辑视图（日历导航）|DEEDITVIEW|&nbsp;|
 |-|待办事宜表数据看板视图|DEPORTALVIEW|&nbsp;|

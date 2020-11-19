@@ -3863,6 +3863,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestReportprojectDashboardView",
             "viewtag": "ea7b1f6631cb623ea079455b374ef9d4"
         },
+        "ibzmyterritorytreeexpviewprojectstats": {
+            "title": "我的地盘我的地盘实体树导航视图（项目汇总表）导航视图",
+            "caption": "项目汇总表",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryTreeExpViewProjectStats",
+            "viewtag": "ea95775efe5ddc489fdbfae6b35a16e0"
+        },
         "dockeditview9": {
             "title": "文档编辑视图（关键字）",
             "caption": "关键字",
