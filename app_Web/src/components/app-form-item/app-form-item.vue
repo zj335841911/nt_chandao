@@ -312,6 +312,7 @@ export default class AppFormItem extends Vue {
                 });
             } catch (error) {}
         }
+        this.getShowTip();
     }
 
     /**
