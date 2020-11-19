@@ -95,6 +95,7 @@ hide members
 |BugResolvedBy|Bug完成表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_BugResolvedBy))|否|&nbsp;|
 |BugassignedTo|Bug指派表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_BugassignedTo))|否|&nbsp;|
 |DEFAULT|Bug创建表([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_Default))|否|&nbsp;|
+|ProductBugResolutionStats|产品Bug解决方案汇总([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProductBugResolutionStats))|否|&nbsp;|
 |ProductCreateBug|产品创建bug占比([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProductCreateBug))|否|&nbsp;|
 |ProjectBugStatusCount|项目bug状态统计([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_ProjectBugStatusCount))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#BugStats_View))|否|&nbsp;|
@@ -107,6 +108,7 @@ hide members
 |BugResolvedBy|Bug完成表|BugResolvedBy|否|&nbsp;|
 |BugassignedTo|Bug指派表|BugassignedTo|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
+|ProductBugResolutionStats|产品Bug解决方案汇总|ProductBugResolutionStats|否|&nbsp;|
 |ProductCreateBug|产品创建bug占比|ProductCreateBug|否|&nbsp;|
 |ProjectBugStatusCount|项目bug状态统计|ProjectBugStatusCount|否|&nbsp;|
 

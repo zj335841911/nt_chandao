@@ -2914,6 +2914,57 @@ WHERE
 GROUP BY
 	t1.openedBy
 ```
+### 产品Bug解决方案汇总(ProductBugResolutionStats)<div id="BugStats_ProductBugResolutionStats"></div>
+```sql
+select t1.id, 
+	t1.`name`, 
+	ifnull(t2.Bugwjj, 0) AS Bugwjj, 
+	ifnull(t2.Bugbydesign, 0) AS Bugbydesign, 
+	ifnull(t2.Bugduplicate, 0) AS Bugduplicate, 
+	ifnull(t2.Bugfixed, 0) AS Bugfixed, 
+	ifnull(t2.Bugexternal, 0) AS Bugexternal, 
+	ifnull(t2.Bugnotrepro, 0) AS Bugnotrepro, 
+	ifnull(t2.Bugpostponed, 0) AS Bugpostponed, 
+	ifnull(t2.Bugwillnotfix, 0) AS Bugwillnotfix, 
+	ifnull(t2.BugEfficient, '100.00%') AS BugEfficient, 
+	ifnull(t2.Bugtostory, 0) AS Bugtostory, 
+	ifnull(t2.BUGTOTAL, 0) AS BUGTOTAL 
+	from zt_product t1 left join (SELECT
+	t1.product, 
+	sum( IF ( t1.resolution = '', t1.v1, 0 ) ) AS Bugwjj,
+	sum( IF ( t1.resolution = 'bydesign', t1.v1, 0 ) ) AS Bugbydesign,
+	SUM( IF ( t1.resolution = 'duplicate', t1.v1, 0 ) ) AS Bugduplicate,
+	SUM( IF ( t1.resolution = 'fixed', t1.v1, 0 ) ) AS Bugfixed,
+	SUM( IF ( t1.resolution = 'external', t1.v1, 0 ) ) AS Bugexternal,
+	sum( IF ( t1.resolution = 'notrepro', t1.v1, 0 ) ) AS Bugnotrepro,
+	SUM( IF ( t1.resolution = 'postponed', t1.v1, 0 ) ) AS Bugpostponed,
+	SUM( IF ( t1.resolution = 'willnotfix', t1.v1, 0 ) ) AS Bugwillnotfix,
+	CONCAT( ROUND( case when (SUM( IF ( t1.resolution = 'fixed', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'postponed', t1.v1, 0 ) )) = 0 then 0 else (SUM( IF ( t1.resolution = 'fixed', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'postponed', t1.v1, 0 ) ))/ (sum( IF ( t1.resolution = 'bydesign', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'duplicate', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'fixed', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'external', t1.v1, 0 ) ) + sum( IF ( t1.resolution = 'notrepro', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'postponed', t1.v1, 0 ) ) + SUM( IF ( t1.resolution = 'willnotfix', t1.v1, 0 ) )) * 100 end,2), '%') as BugEfficient,
+	SUM( IF ( t1.resolution = 'tostory', t1.v1, 0 ) ) AS Bugtostory,
+	SUM( t1.v1 ) AS BUGTOTAL 
+FROM
+	(
+SELECT
+	t1.`OPENEDBY`,
+	t1.`OPENEDDATE`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`RESOLUTION`,
+	1 AS `V1` 
+FROM
+	`zt_bug` t1
+WHERE
+	t1.deleted = '0'
+	) t1 
+WHERE
+	( t1.openedDate >= #{srf.datacontext.openeddatelt}  OR #{srf.datacontext.openeddatelt} IS NULL ) 
+	AND ( t1.openedDate <= #{srf.datacontext.openeddategt} OR #{srf.datacontext.openeddategt} is null ) 
+	AND ( t1.PRODUCT = #{srf.datacontext.producteq} OR #{srf.datacontext.producteq}  IS NULL ) 
+	AND ( t1.PROJECT = #{srf.datacontext.projecteq}  OR #{srf.datacontext.projecteq}  IS NULL ) 
+GROUP BY
+	t1.product) t2 on t1.id = t2.product
+	where t1.deleted = '0'
+```
 ### 产品创建bug占比(ProductCreateBug)<div id="BugStats_ProductCreateBug"></div>
 ```sql
 SELECT t1.*,t2.productallbug, CONCAT(ROUND(t1.createbugcnt/(case when t2.productallbug = 0 or t2.productallbug is null then 1 else t2.productallbug end)*100,1),'%') from (
@@ -2934,14 +2985,16 @@ SELECT
 	sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS resolvedcnt,
 	sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS closedcnt,
 	sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS activecnt,
-	count(1) as bugcnt
+	count(1) as bugcnt,
+	t1.deleted
 FROM
 	(
 	SELECT
 		t1.`status`,
 		t1.project,
 		t11.`name` AS projectname,
-		1 AS ss 
+		1 AS ss,
+		t11.deleted
 	FROM
 		zt_bug t1
 		LEFT JOIN zt_project t11 ON t1.project = t11.id 
@@ -11867,9 +11920,10 @@ SUM(IF(t1.`status` = 'done',t1.ss,0)) as doneTaskcnt,
 SUM(IF(t1.`status` = 'pause',t1.ss,0)) as pauseTaskcnt,
 SUM(IF(t1.`status` = 'wait',t1.ss,0)) as waitTaskcnt,
 SUM(IF(t1.`status` = 'doing',t1.ss,0)) as doingTaskcnt,
-COUNT(1) as taskcnt
+COUNT(1) as taskcnt,
+t1.deleted
 from (
-select t1.`status`,t1.project,t2.`name` as projectname, 1 as ss from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t1.project <> '0' ) t1 GROUP BY t1.project
+select t1.`status`,t1.project,t2.`name` as projectname, 1 as ss,t2.deleted from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t1.project <> '0' ) t1 GROUP BY t1.project
 WHERE t1.DELETED = '0' 
 
 ```

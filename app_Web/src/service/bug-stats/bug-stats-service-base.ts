@@ -288,6 +288,35 @@ export default class BugStatsServiceBase extends EntityService {
     }
 
     /**
+     * FetchProductBugResolutionStats接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugStatsServiceBase
+     */
+    public async FetchProductBugResolutionStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugstats/fetchproductbugresolutionstats`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProductBugResolutionStats接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugStatsServiceBase
+     */
+    public async searchProductBugResolutionStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/bugstats/searchproductbugresolutionstats`,tempData,isloading);
+    }
+
+    /**
      * FetchProductCreateBug接口方法
      *
      * @param {*} [context={}]
