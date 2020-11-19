@@ -9096,6 +9096,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-test-option-view/case-test-option-view.vue'),
                 },
                 {
+                    path: 'bugstats/:bugstats?/bugresolvetion/:bugresolvetion?',
+                    meta: {
+                        caption: 'entities.bugstats.views.bugresolvetion.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugstats', parameterName: 'bugstats' },
+                            { pathName: 'bugresolvetion', parameterName: 'bugresolvetion' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-stats-bugresolvetion/bug-stats-bugresolvetion.vue'),
+                },
+                {
                     path: 'bugstats/:bugstats?/bugresolvedbygridview/:bugresolvedbygridview?',
                     meta: {
                         caption: 'entities.bugstats.views.bugresolvedbygridview.caption',

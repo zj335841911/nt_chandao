@@ -94,6 +94,9 @@ class 更新日志 {
 class 待办消息记录 {
 }
 
+class 任务统计 {
+}
+
 class 任务团队 {
 }
 

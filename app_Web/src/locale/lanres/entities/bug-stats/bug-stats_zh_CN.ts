@@ -31,6 +31,10 @@ export default {
 			caption: "Bug完成表",
       		title: "Bug统计表格视图（Bug完成表）",
 		},
+		bugresolvetion: {
+			caption: "Bug统计",
+      		title: "每个解决方案的Bug数统计表格视图",
+		},
 		gridview: {
 			caption: "Bug创建表",
       		title: "Bug统计表格视图",
@@ -99,6 +103,23 @@ export default {
 		uiactions: {
 		},
 	},
+	bugresolutioncnt_grid: {
+		nodata: "",
+		columns: {
+			projectname: "项目名称",
+			bugduplicate: "重复Bug",
+			bugbydesign: "设计如此",
+			bugfixed: "已解决",
+			bugpostponed: "延期处理",
+			bugnotrepro: "无法重现",
+			bugtostory: "转为需求",
+			bugwillnotfix: "不予解决",
+			bugexternal: "外部原因",
+			bugcnt: "Bug",
+		},
+		uiactions: {
+		},
+	},
 	assignedtobug_searchform: {
 		details: {
 			formpage1: "表单分页", 
@@ -147,5 +168,7 @@ export default {
 			caption: "删除",
 			tip: "删除",
 		},
+	},
+	bugresolvetiontoolbar_toolbar: {
 	},
 };

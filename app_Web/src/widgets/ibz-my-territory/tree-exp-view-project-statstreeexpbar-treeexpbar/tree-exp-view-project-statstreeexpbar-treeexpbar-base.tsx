@@ -115,6 +115,13 @@ export class TreeExpViewProjectStatstreeexpbarTreeExpBarBase extends TreeExpBarC
                 deKeyField:'projectstats'
 			};
         }
+        if (Object.is(expmode, 'BUGSTATUSCOUNT')) {
+            return {  
+                viewname: 'bug-stats-bugresolvetion', 
+                parentdata: {},
+                deKeyField:'bugstats'
+			};
+        }
         return null;
     }
 

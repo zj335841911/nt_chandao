@@ -573,4 +573,15 @@ export class CaseToBugEditFormBase extends EditFormControlBase {
             this.data['case'] = this.viewparams['case'];
         }
     }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof CaseToBugBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
+    }
 }

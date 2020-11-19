@@ -2737,28 +2737,6 @@ WHERE t1.DELETED = '0'
 
 ### Bug在每个解决方案的Bug数(BugCountInResolution)<div id="BugStats_BugCountInResolution"></div>
 ```sql
-SELECT
-t1.`ASSIGNEDTO`,
-0 AS `BUGBYDESIGN`,
-0 AS `BUGCNT`,
-0 AS `BUGDUPLICATE`,
-0% AS `BUGEFFICIENT`,
-0 AS `BUGEXTERNAL`,
-0 AS `BUGFIXED`,
-0 AS `BUGNOTREPRO`,
-0 AS `BUGPOSTPONED`,
-0 AS `BUGTOSTORY`,
-0 AS `BUGTOTAL`,
-0 AS `BUGWILLNOTFIX`,
-0 AS `BUGWJJ`,
-t1.`ID`,
-t1.`OPENEDBY`,
-t1.`PRODUCT`,
-t11.`NAME` AS `PRODUCTNAME`,
-t1.`RESOLVEDBY`,
-t1.`TITLE`
-FROM `zt_bug` t1 
-LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 
 ```
 ### Bug完成表(BugResolvedBy)<div id="BugStats_BugResolvedBy"></div>
@@ -15405,6 +15383,33 @@ t1.`UPDATEMAN`
 FROM `T_TASKMSGRECORD` t1 
 
 WHERE t1.ENABLE = 1 
+
+```
+
+# **任务统计**(IBZ_TASKSTATS)
+
+### 数据查询(DEFAULT)<div id="TaskStats_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZ_TASKSTATSID`,
+t1.`IBZ_TASKSTATSNAME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_TASKSTATS` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="TaskStats_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZ_TASKSTATSID`,
+t1.`IBZ_TASKSTATSNAME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_TASKSTATS` t1 
 
 ```
 

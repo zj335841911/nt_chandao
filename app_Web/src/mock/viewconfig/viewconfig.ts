@@ -2839,6 +2839,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzCaseEditView",
             "viewtag": "ab45ff5d2250ad8a5d88f39cc26b7646"
         },
+        "bugstatsbugresolvetion": {
+            "title": "每个解决方案的Bug数统计表格视图",
+            "caption": "Bug统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "BugStatsBUGRESOLVETION",
+            "viewtag": "abaea74da4d7efea713dabf193a4bdaf"
+        },
         "companymainview": {
             "title": "公司数据看板视图",
             "caption": "公司信息",

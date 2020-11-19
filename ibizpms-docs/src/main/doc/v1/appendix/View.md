@@ -562,6 +562,7 @@ SRFNAVPARAM.project=%project%|
 |-|计划|DEEDITVIEW|&nbsp;|
 |-|测试单表格视图|DEGRIDVIEW|&nbsp;|
 |-|用例库用例编辑视图|DEEDITVIEW|&nbsp;|
+|-|每个解决方案的Bug数统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|公司数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|开始任务|DEOPTVIEW|&nbsp;|
 |-|项目团队表格视图|DEGRIDVIEW|&nbsp;|

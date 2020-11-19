@@ -85,6 +85,9 @@ class 更新日志 {
 class 待办消息记录 {
 }
 
+class 任务统计 {
+}
+
 class 任务团队 {
 }
 
@@ -166,6 +169,7 @@ hide members
 |SYS_UPDATE_FEATURES|[系统更新功能](ibiz/SysUpdateFeatures.md)|主实体|&nbsp;|
 |SYS_UPDATE_LOG|[更新日志](ibiz/SysUpdateLog.md)|主实体|&nbsp;|
 |TASKMSGRECORD|[待办消息记录](ibiz/TaskMsgRecord.md)|主实体|&nbsp;用于保存待办消息发送成功后，返回的ID|
+|IBZ_TASKSTATS|[任务统计](ibiz/TaskStats.md)|主实体|&nbsp;|
 |IBZ_TASKTEAM|[任务团队](ibiz/TaskTeam.md)|主实体|&nbsp;任务团队|
 |IBZ_TESTMODULE|[测试模块](ibiz/TestModule.md)|主实体|&nbsp;|
 |IBZ_USERYEARWORKSTATS|[用户年度工作内容统计](ibiz/UserYearWorkStats.md)|主实体|&nbsp;|

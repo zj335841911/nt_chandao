@@ -58,6 +58,8 @@
 
     * [待办消息记录](module/ibiz/TaskMsgRecord.md) 
 
+    * [任务统计](module/ibiz/TaskStats.md) 
+
     * [任务团队](module/ibiz/TaskTeam.md) 
 
     * [测试模块](module/ibiz/TestModule.md) 

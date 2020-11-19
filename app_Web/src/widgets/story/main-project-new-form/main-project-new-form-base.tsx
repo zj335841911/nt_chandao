@@ -471,4 +471,15 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
             this.data['project'] = this.viewparams['project'];
         }
     }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof MainProjectNewBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
+    }
 }

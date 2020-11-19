@@ -731,4 +731,15 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         this.form_button2_click(null, null, $event);
 
     }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof Main_EditModeBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
+    }
 }

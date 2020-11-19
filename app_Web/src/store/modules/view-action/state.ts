@@ -3224,6 +3224,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'abaea74da4d7efea713dabf193a4bdaf',
+            viewmodule: 'ibiz',
+            viewname: 'BugStatsBUGRESOLVETION',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0174d3383dadc0878991e5c90bd5eaa3',
+            ],
+        },
+        {
             viewtag: 'abca63015fc84466991c6479f955f6d0',
             viewmodule: 'zentao',
             viewname: 'TaskOpenTaskView',
@@ -4445,6 +4455,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '09ec3280dedaeac7260c00f3f923d20e',
+                'abaea74da4d7efea713dabf193a4bdaf',
             ],
         },
         {
