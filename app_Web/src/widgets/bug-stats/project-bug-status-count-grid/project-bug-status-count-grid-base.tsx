@@ -126,11 +126,11 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'productname',
-            label: '产品名称',
-            langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.productname',
+            name: 'projectname1',
+            label: '项目名称',
+            langtag: 'entities.bugstats.projectbugstatuscount_grid.columns.projectname1',
             show: true,
-            unit: 'STAR',
+            unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
@@ -263,7 +263,7 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'id':false,
-        'productname':false,
+        'projectname1':false,
         'bugresolved':false,
         'bugclosed':false,
         'bugactive':false,
@@ -354,7 +354,7 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
     * @memberof ProjectBugStatusCountBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','productname','bugresolved','bugclosed','bugactive'];
+        let allColumns:Array<any> = ['id','projectname1','bugresolved','bugclosed','bugactive'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -434,7 +434,7 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 id:'',
-                productname:'',
+                projectname1:'',
                 bugresolved:'',
                 bugclosed:'',
                 bugactive:'',
@@ -463,7 +463,7 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
             id:'',
-            productname:'',
+            projectname1:'',
             bugresolved:'',
             bugclosed:'',
             bugactive:'',
@@ -528,7 +528,7 @@ export class ProjectBugStatusCountGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 id:'',
-                productname:'',
+                projectname1:'',
                 bugresolved:'',
                 bugclosed:'',
                 bugactive:'',

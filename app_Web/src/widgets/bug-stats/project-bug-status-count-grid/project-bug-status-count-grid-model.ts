@@ -32,9 +32,9 @@ export default class ProjectBugStatusCountModel {
           dataType: 'ACID',
         },
         {
-          name: 'productname',
-          prop: 'productname',
-          dataType: 'PICKUPTEXT',
+          name: 'projectname1',
+          prop: 'projectname1',
+          dataType: 'TEXT',
         },
         {
           name: 'bugresolved',
