@@ -131,7 +131,7 @@
     </sql>
     <!--数据查询[ProjectBugStatusCount]-->
     <sql id="ProjectBugStatusCount" databaseId="mysql">
-		<![CDATA[ SELECT 	t1.project, 	t1.projectname, 	sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS resolvedcnt, 	sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS closedcnt, 	sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS activecnt, 	count(1) as bugcnt, 	t1.deleted FROM 	( 	SELECT 		t1.`status`, 		t1.project, 		t11.`name` AS projectname, 		1 AS ss, 		t11.deleted 	FROM 		zt_bug t1 		LEFT JOIN zt_project t11 ON t1.project = t11.id  		where t1.deleted = '0' and t1.project <> 0 	) t1  GROUP BY 	t1.project, 	t1.projectname
+		<![CDATA[ SELECT 	t1.project, 	t1.projectname, 		sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS bugresolved, 		sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS bugclosed, 		sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS bugactive, 	count(1) as bugcnt, FROM 	( 	SELECT 		t1.`status`, 		t1.project, 		t11.`name` AS projectname, 		1 AS ss, 		t11.deleted 	FROM 		zt_bug t1 		LEFT JOIN zt_project t11 ON t1.project = t11.id  		where t1.deleted = '0' and t1.project <> 0 	) t1  GROUP BY 	t1.project, 	t1.projectname
 			]]>
     </sql>
     <!--数据查询[View]-->

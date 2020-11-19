@@ -1847,9 +1847,6 @@ FROM
 #### SQL
 - MYSQL5
 ```SQL
-
-
-SELECT * from (
 SELECT t1.project,t1.projectname ,
 SUM(IF(t1.`status` = 'closed',t1.ss,0)) as closdedTaskcnt,
 SUM(IF(t1.`status` = 'cancel',t1.ss,0)) as cancelTaskcnt,
@@ -1860,7 +1857,7 @@ SUM(IF(t1.`status` = 'doing',t1.ss,0)) as doingTaskcnt,
 COUNT(1) as taskcnt,
 t1.deleted
 from (
-select t1.`status`,t1.project,t2.`name` as projectname, 1 as ss,t2.deleted from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t1.project <> '0' ) t1 GROUP BY t1.project ) t1
+select t1.`status`,t1.project,t2.`name` as projectname, 1 as ss,t2.deleted from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t1.project <> '0' ) t1 GROUP BY t1.project
 ```
 ### 数据查询-任务工时消耗剩余查询（TaskTime）
 #### 说明

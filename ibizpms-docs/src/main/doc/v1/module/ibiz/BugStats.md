@@ -1505,11 +1505,10 @@ LEFT JOIN zt_product t2 on t2.id = t1.product
 SELECT
 	t1.project,
 	t1.projectname,
-	sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS resolvedcnt,
-	sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS closedcnt,
-	sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS activecnt,
+		sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS bugresolved,
+		sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS bugclosed,
+		sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS bugactive,
 	count(1) as bugcnt,
-	t1.deleted
 FROM
 	(
 	SELECT

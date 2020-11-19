@@ -2965,11 +2965,10 @@ LEFT JOIN zt_product t2 on t2.id = t1.product
 SELECT
 	t1.project,
 	t1.projectname,
-	sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS resolvedcnt,
-	sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS closedcnt,
-	sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS activecnt,
+		sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS bugresolved,
+		sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS bugclosed,
+		sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS bugactive,
 	count(1) as bugcnt,
-	t1.deleted
 FROM
 	(
 	SELECT
@@ -11896,9 +11895,6 @@ WHERE t1.DELETED = '0'
 ```
 ### 项目任务统计(任务状态)(ProjectTaskCountByTaskStatus)<div id="ProjectStats_ProjectTaskCountByTaskStatus"></div>
 ```sql
-
-
-SELECT * from (
 SELECT t1.project,t1.projectname ,
 SUM(IF(t1.`status` = 'closed',t1.ss,0)) as closdedTaskcnt,
 SUM(IF(t1.`status` = 'cancel',t1.ss,0)) as cancelTaskcnt,
@@ -11909,9 +11905,7 @@ SUM(IF(t1.`status` = 'doing',t1.ss,0)) as doingTaskcnt,
 COUNT(1) as taskcnt,
 t1.deleted
 from (
-select t1.`status`,t1.project,t2.`name` as projectname, 1 as ss,t2.deleted from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t1.project <> '0' ) t1 GROUP BY t1.project ) t1
-WHERE t1.DELETED = '0' 
-
+select t1.`status`,t1.project,t2.`name` as projectname, 1 as ss,t2.deleted from zt_task t1 LEFT JOIN zt_project t2 on t1.project = t2.id where t1.deleted = '0' and t1.project <> '0' ) t1 GROUP BY t1.project
 ```
 ### 任务工时消耗剩余查询(TASKTIME)<div id="ProjectStats_TaskTime"></div>
 ```sql
