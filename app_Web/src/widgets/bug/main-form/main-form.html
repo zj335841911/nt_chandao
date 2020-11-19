@@ -241,6 +241,7 @@
     valueitem="project"
     :value="data.projectname"
     editortype="dropdown"
+    :valFormat="{0: '/'}"
     style=""
     @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
@@ -709,6 +710,7 @@
     valueitem="story"
     :value="data.storyname"
     editortype="dropdown"
+    :valFormat="{0: '/'}"
     style=""
     @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
@@ -754,6 +756,7 @@
     valueitem="task"
     :value="data.taskname"
     editortype="dropdown"
+    :valFormat="{0: '/'}"
     style=""
     @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
