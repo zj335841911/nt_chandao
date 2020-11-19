@@ -177,6 +177,20 @@ public class BugStats extends EntityMP implements Serializable {
     @JSONField(name = "resolvedby")
     @JsonProperty("resolvedby")
     private String resolvedby;
+    /**
+     * 项目编号
+     */
+    @TableField(value = "`project`")
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    private Long project;
+    /**
+     * 项目名称
+     */
+    @TableField(value = "`projectname`")
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
 
     /**
      * 产品
@@ -185,6 +199,14 @@ public class BugStats extends EntityMP implements Serializable {
     @JSONField(serialize = false)
     @TableField(exist = false)
     private cn.ibizlab.pms.core.zentao.domain.Product ztproduct;
+
+    /**
+     * 项目
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.Project ztproject;
 
 
 
@@ -226,6 +248,22 @@ public class BugStats extends EntityMP implements Serializable {
     public void setResolvedby(String resolvedby) {
         this.resolvedby = resolvedby;
         this.modify("resolvedby", resolvedby);
+    }
+
+    /**
+     * 设置 [项目编号]
+     */
+    public void setProject(Long project) {
+        this.project = project;
+        this.modify("project", project);
+    }
+
+    /**
+     * 设置 [项目名称]
+     */
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+        this.modify("projectname", projectname);
     }
 
 

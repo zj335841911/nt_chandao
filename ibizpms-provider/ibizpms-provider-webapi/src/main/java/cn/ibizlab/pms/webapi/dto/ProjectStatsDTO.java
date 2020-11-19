@@ -269,14 +269,6 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     private Integer canceltaskcnt;
 
     /**
-     * 属性 [FINISHTASKCNT1]
-     *
-     */
-    @JSONField(name = "finishtaskcnt1")
-    @JsonProperty("finishtaskcnt1")
-    private Integer finishtaskcnt1;
-
-    /**
      * 属性 [PAUSETASKCNT]
      *
      */
@@ -299,6 +291,14 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "doingtaskcnt")
     @JsonProperty("doingtaskcnt")
     private Integer doingtaskcnt;
+
+    /**
+     * 属性 [DONETASKCNT]
+     *
+     */
+    @JSONField(name = "donetaskcnt")
+    @JsonProperty("donetaskcnt")
+    private Integer donetaskcnt;
 
 
     /**

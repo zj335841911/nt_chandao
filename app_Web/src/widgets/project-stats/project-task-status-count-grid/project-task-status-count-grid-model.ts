@@ -42,11 +42,6 @@ export default class ProjectTaskStatusCountModel {
           dataType: 'INT',
         },
         {
-          name: 'finishtaskcnt1',
-          prop: 'finishtaskcnt1',
-          dataType: 'INT',
-        },
-        {
           name: 'waittaskcnt',
           prop: 'waittaskcnt',
           dataType: 'INT',

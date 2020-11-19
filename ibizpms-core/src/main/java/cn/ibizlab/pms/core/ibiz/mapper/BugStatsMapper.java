@@ -67,4 +67,6 @@ public interface BugStatsMapper extends BaseMapper<BugStats> {
 
     List<BugStats> selectByProduct(@Param("id") Serializable id);
 
+    List<BugStats> selectByProject(@Param("id") Serializable id);
+
 }

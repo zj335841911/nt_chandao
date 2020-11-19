@@ -10,21 +10,22 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [员工负载表（IBZ_EMPLOYEELOAD）](../ibiz/EmpLoyeeload) | （默认） |
-| 2 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) | （默认） |
-| 3 | [项目团队（IBZ_PROJECTTEAM）](../ibiz/ProjectTeam) | 嵌套操作 |
-| 4 | [系统日志（ZT_ACTION）](../zentao/Action) | （默认） |
-| 5 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
-| 6 | [版本（ZT_BUILD）](../zentao/Build) | （默认） |
-| 7 | [burn（ZT_BURN）](../zentao/Burn) | （默认） |
-| 8 | [文档库（ZT_DOCLIB）](../zentao/DocLib) | （默认） |
-| 9 | [文档（ZT_DOC）](../zentao/Doc) | （默认） |
-| 10 | [项目产品（ZT_PROJECTPRODUCT）](../zentao/ProjectProduct) | （默认） |
-| 11 | [项目中需要做的需求（ZT_PROJECTSTORY）](../zentao/ProjectStory) | （默认） |
-| 12 | [任务（ZT_TASK）](../zentao/Task) | （默认） |
-| 13 | [测试报告（ZT_TESTREPORT）](../zentao/TestReport) | （默认） |
-| 14 | [测试版本（ZT_TESTTASK）](../zentao/TestTask) | （默认） |
-| 15 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
+| 1 | [Bug统计（IBZ_BUGSTATS）](../ibiz/BugStats) | （默认） |
+| 2 | [员工负载表（IBZ_EMPLOYEELOAD）](../ibiz/EmpLoyeeload) | （默认） |
+| 3 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) | （默认） |
+| 4 | [项目团队（IBZ_PROJECTTEAM）](../ibiz/ProjectTeam) | 嵌套操作 |
+| 5 | [系统日志（ZT_ACTION）](../zentao/Action) | （默认） |
+| 6 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 7 | [版本（ZT_BUILD）](../zentao/Build) | （默认） |
+| 8 | [burn（ZT_BURN）](../zentao/Burn) | （默认） |
+| 9 | [文档库（ZT_DOCLIB）](../zentao/DocLib) | （默认） |
+| 10 | [文档（ZT_DOC）](../zentao/Doc) | （默认） |
+| 11 | [项目产品（ZT_PROJECTPRODUCT）](../zentao/ProjectProduct) | （默认） |
+| 12 | [项目中需要做的需求（ZT_PROJECTSTORY）](../zentao/ProjectStory) | （默认） |
+| 13 | [任务（ZT_TASK）](../zentao/Task) | （默认） |
+| 14 | [测试报告（ZT_TESTREPORT）](../zentao/TestReport) | （默认） |
+| 15 | [测试版本（ZT_TESTTASK）](../zentao/TestTask) | （默认） |
+| 16 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |

@@ -352,7 +352,9 @@ POST
 | 17 | bugcnt | Integer | 允许 | Bug |
 | 18 | assignedto | String | 允许 | 指派给 |
 | 19 | resolvedby | String | 允许 | 由谁解决 |
-| 20 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 20 | project | Long | 允许 | 项目编号 |
+| 21 | projectname | String | 允许 | 项目名称 |
+| 22 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### BugStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
@@ -363,10 +365,11 @@ POST
 | 4 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
 | 5 | n_assignedto_eq | String | 允许 | 条件字段：assignedto<br>条件组合方式：`=` |
 | 6 | n_resolvedby_eq | String | 允许 | 条件字段：resolvedby<br>条件组合方式：`=` |
-| 7 | customcond | String | 允许 | 自定义查询条件 |
-| 8 | customparams | String | 允许 | 自定义查询参数 |
-| 9 | query | String | 允许 | 快速搜索 |
-| 10 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 11 | page | int | 允许 | 当前页数<br>默认值0 |
-| 12 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 13 | sort | String | 允许 | 排序 |
+| 7 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
+| 8 | customcond | String | 允许 | 自定义查询条件 |
+| 9 | customparams | String | 允许 | 自定义查询参数 |
+| 10 | query | String | 允许 | 快速搜索 |
+| 11 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 12 | page | int | 允许 | 当前页数<br>默认值0 |
+| 13 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 14 | sort | String | 允许 | 排序 |

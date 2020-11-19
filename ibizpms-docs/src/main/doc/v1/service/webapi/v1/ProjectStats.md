@@ -362,10 +362,10 @@ POST
 | 27 | istop | Integer | 允许 | 是否置顶 |
 | 28 | closedtaskcnt | Integer | 允许 | 已关闭任务数 |
 | 29 | canceltaskcnt | Integer | 允许 | 已取消任务数 |
-| 30 | finishtaskcnt1 | Integer | 允许 | 已完成任务数 |
-| 31 | pausetaskcnt | Integer | 允许 | 已暂停任务数 |
-| 32 | waittaskcnt | Integer | 允许 | 未开始任务数 |
-| 33 | doingtaskcnt | Integer | 允许 | 进行中任务数 |
+| 30 | pausetaskcnt | Integer | 允许 | 已暂停任务数 |
+| 31 | waittaskcnt | Integer | 允许 | 未开始任务数 |
+| 32 | doingtaskcnt | Integer | 允许 | 进行中任务数 |
+| 33 | donetaskcnt | Integer | 允许 | 已完成任务数 |
 | 34 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectStatsSearchContext

@@ -69,6 +69,13 @@ public class BugStatsSearchContext extends QueryWrapperContext<BugStats> {
             this.getSearchCond().eq("resolvedby", n_resolvedby_eq);
         }
     }
+	private Long n_project_eq;//[项目编号]
+	public void setN_project_eq(Long n_project_eq) {
+        this.n_project_eq = n_project_eq;
+        if(!ObjectUtils.isEmpty(this.n_project_eq)){
+            this.getSearchCond().eq("project", n_project_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

@@ -13,6 +13,7 @@ Bug统计
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
 | 1 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
+| 2 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
 
 
 ## 实体属性
@@ -37,6 +38,8 @@ Bug统计
 | 17 | [Bug](#属性-Bug（BUGCNT）) | BUGCNT | 整型 | 否 | 是 | 是 |
 | 18 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | 单项选择(文本值) | 否 | 是 | 是 |
 | 19 | [由谁解决](#属性-由谁解决（RESOLVEDBY）) | RESOLVEDBY | 单项选择(文本值) | 否 | 是 | 是 |
+| 20 | [项目编号](#属性-项目编号（PROJECT）) | PROJECT | 外键值 | 否 | 是 | 是 |
+| 21 | [项目名称](#属性-项目名称（PROJECTNAME）) | PROJECTNAME | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-标识（ID）
 #### 属性说明
@@ -75,8 +78,8 @@ Long
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-名称（TITLE）
@@ -118,8 +121,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-由谁创建（OPENEDBY）
@@ -161,8 +164,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-未解决（BUGWJJ）
@@ -204,8 +207,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-设计如此（BUGBYDESIGN）
@@ -247,8 +250,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-重复Bug（BUGDUPLICATE）
@@ -290,8 +293,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-外部原因（BUGEXTERNAL）
@@ -333,8 +336,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-已解决（BUGFIXED）
@@ -376,8 +379,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-无法重现（BUGNOTREPRO）
@@ -419,8 +422,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-延期处理（BUGPOSTPONED）
@@ -462,8 +465,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-不予解决（BUGWILLNOTFIX）
@@ -507,8 +510,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-转为需求（BUGTOSTORY）
@@ -550,8 +553,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-有效率（BUGEFFICIENT）
@@ -593,8 +596,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-总计（BUGTOTAL）
@@ -636,8 +639,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-编号（PRODUCT）
@@ -853,6 +856,90 @@ String
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-项目编号（PROJECT）
+#### 属性说明
+项目编号
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+外键值
+
+- Java类型
+Long
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-项目名称（PROJECTNAME）
+#### 属性说明
+项目名称
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -971,6 +1058,7 @@ Save
 | 4 | [编号（PRODUCT）](#属性-编号（PRODUCT）) | `=` |
 | 5 | [指派给（ASSIGNEDTO）](#属性-指派给（ASSIGNEDTO）) | `=` |
 | 6 | [由谁解决（RESOLVEDBY）](#属性-由谁解决（RESOLVEDBY）) | `=` |
+| 7 | [项目编号（PROJECT）](#属性-项目编号（PROJECT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -1237,6 +1325,8 @@ t1.`ID`,
 t1.`OPENEDBY`,
 t1.`PRODUCT`,
 t11.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t2.`PROJECTNAME`,
 t1.`RESOLVEDBY`,
 t1.`TITLE`
 FROM `zt_bug` t1 

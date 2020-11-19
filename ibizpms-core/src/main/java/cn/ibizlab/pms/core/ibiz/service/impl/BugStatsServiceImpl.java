@@ -51,6 +51,9 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
     protected int batchSize = 500;
 
@@ -168,6 +171,15 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     @Override
     public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<BugStats>().eq("product", id));
+    }
+
+    @Override
+    public List<BugStats> selectByProject(Long id) {
+        return baseMapper.selectByProject(id);
+    }
+    @Override
+    public void removeByProject(Long id) {
+        this.remove(new QueryWrapper<BugStats>().eq("project", id));
     }
 
 

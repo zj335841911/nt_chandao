@@ -38,10 +38,10 @@
 |是否置顶|ISTOP|INT|&nbsp;|
 |已关闭任务数|CLOSEDTASKCNT|INT|&nbsp;|
 |已取消任务数|CANCELTASKCNT|INT|&nbsp;|
-|已完成任务数|FINISHTASKCNT1|INT|&nbsp;|
 |已暂停任务数|PAUSETASKCNT|INT|&nbsp;|
 |未开始任务数|WAITTASKCNT|INT|&nbsp;|
 |进行中任务数|DOINGTASKCNT|INT|&nbsp;|
+|已完成任务数|DONETASKCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -75,10 +75,10 @@
 |是否置顶|默认规则|默认规则|
 |已关闭任务数|默认规则|默认规则|
 |已取消任务数|默认规则|默认规则|
-|已完成任务数|默认规则|默认规则|
 |已暂停任务数|默认规则|默认规则|
 |未开始任务数|默认规则|默认规则|
 |进行中任务数|默认规则|默认规则|
+|已完成任务数|默认规则|默认规则|
 
 ## 状态控制
 

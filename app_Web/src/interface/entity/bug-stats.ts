@@ -157,4 +157,20 @@ export interface BugStats {
      * @memberof BugStats
      */
     resolvedby?: any;
+
+    /**
+     * 项目编号
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    project?: any;
+
+    /**
+     * 项目名称
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    projectname?: any;
 }

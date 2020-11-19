@@ -108,6 +108,11 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'bugstats',
           prop: 'id',
         },

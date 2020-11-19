@@ -75,18 +75,6 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('finishtaskcnt1')">
-                <el-table-column show-overflow-tooltip :prop="'finishtaskcnt1'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.finishtaskcnt1')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.projectstats.projecttaskstatuscount_grid.columns.finishtaskcnt1')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.finishtaskcnt1}}</span>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('waittaskcnt')">
                 <el-table-column show-overflow-tooltip :prop="'waittaskcnt'" :label="$t('entities.projectstats.projecttaskstatuscount_grid.columns.waittaskcnt')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">

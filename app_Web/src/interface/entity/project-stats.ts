@@ -239,14 +239,6 @@ export interface ProjectStats {
     canceltaskcnt?: any;
 
     /**
-     * 已完成任务数
-     *
-     * @returns {*}
-     * @memberof ProjectStats
-     */
-    finishtaskcnt1?: any;
-
-    /**
      * 已暂停任务数
      *
      * @returns {*}
@@ -269,4 +261,12 @@ export interface ProjectStats {
      * @memberof ProjectStats
      */
     doingtaskcnt?: any;
+
+    /**
+     * 已完成任务数
+     *
+     * @returns {*}
+     * @memberof ProjectStats
+     */
+    donetaskcnt?: any;
 }

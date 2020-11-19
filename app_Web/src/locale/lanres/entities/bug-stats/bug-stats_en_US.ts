@@ -19,6 +19,8 @@ export default {
     bugcnt: "Bug",
     assignedto: "指派给",
     resolvedby: "由谁解决",
+    project: "项目编号",
+    projectname: "项目名称",
   },
 	views: {
 		editview: {

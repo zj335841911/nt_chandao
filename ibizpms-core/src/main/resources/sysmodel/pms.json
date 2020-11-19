@@ -2264,6 +2264,38 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"PROJECT" ,
+    "codename":"Project",
+    "field_logic_name":"项目编号",
+    "entity_name":"BugStats",
+    "ref_de":"ZT_PROJECT",
+    "ref_field_name":"ID",
+    "relation_name":"DER1N_IBZ_BUGSTATS_ZT_PROJECT_PROJECT",
+    "relation_codename":"ZTProject",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":8,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"PROJECTNAME" ,
+    "codename":"ProjectName",
+    "field_logic_name":"项目名称",
+    "entity_name":"BugStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -2274,6 +2306,12 @@
      "code_name":"ZTProduct",
      "entity_name":"IBZ_BUGSTATS",
      "ref_entity_name":"ZT_PRODUCT"
+    },
+    {"name":"DER1N_IBZ_BUGSTATS_ZT_PROJECT_PROJECT",
+     "relation_type":"DER1N",
+     "code_name":"ZTProject",
+     "entity_name":"IBZ_BUGSTATS",
+     "ref_entity_name":"ZT_PROJECT"
     }
     ]
  }
@@ -26010,6 +26048,12 @@
     }
     ],
     "subEntitys":[
+    {"name":"DER1N_IBZ_BUGSTATS_ZT_PROJECT_PROJECT",
+     "relation_type":"DER1N",
+     "code_name":"ZTProject",
+     "entity_name":"IBZ_BUGSTATS",
+     "ref_entity_name":"ZT_PROJECT"
+    },
     {"name":"DER1N_IBZ_EMPLOYEELOAD_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"Ztproject",
@@ -26998,19 +27042,6 @@
     "major_field":0
     },
     {
-    "fieldname":"FINISHTASKCNT1" ,
-    "codename":"Finishtaskcnt1",
-    "field_logic_name":"已完成任务数",
-    "entity_name":"ProjectStats",
-    "field_type":"INT",
-    "nullable":1,
-    "physical_field":0,
-    "data_type":"INT",
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
     "fieldname":"PAUSETASKCNT" ,
     "codename":"Pausetaskcnt",
     "field_logic_name":"已暂停任务数",
@@ -27040,6 +27071,19 @@
     "fieldname":"DOINGTASKCNT" ,
     "codename":"Doingtaskcnt",
     "field_logic_name":"进行中任务数",
+    "entity_name":"ProjectStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"DONETASKCNT" ,
+    "codename":"Donetaskcnt",
+    "field_logic_name":"已完成任务数",
     "entity_name":"ProjectStats",
     "field_type":"INT",
     "nullable":1,

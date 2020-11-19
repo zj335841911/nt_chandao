@@ -52,6 +52,8 @@ public interface IBugStatsService extends IService<BugStats> {
     Page<BugStats> searchProductCreateBug(BugStatsSearchContext context);
     List<BugStats> selectByProduct(Long id);
     void removeByProduct(Long id);
+    List<BugStats> selectByProject(Long id);
+    void removeByProject(Long id);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

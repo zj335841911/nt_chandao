@@ -144,15 +144,6 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'finishtaskcnt1',
-            label: '已完成任务数',
-            langtag: 'entities.projectstats.projecttaskstatuscount_grid.columns.finishtaskcnt1',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
             name: 'waittaskcnt',
             label: '未开始任务数',
             langtag: 'entities.projectstats.projecttaskstatuscount_grid.columns.waittaskcnt',
@@ -292,7 +283,6 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
         'id':false,
         'name':false,
         'doingtaskcnt':false,
-        'finishtaskcnt1':false,
         'waittaskcnt':false,
         'pausetaskcnt':false,
         'closedtaskcnt':false,
@@ -384,7 +374,7 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
     * @memberof ProjectTaskStatusCountBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','name','doingtaskcnt','finishtaskcnt1','waittaskcnt','pausetaskcnt','closedtaskcnt','canceltaskcnt'];
+        let allColumns:Array<any> = ['id','name','doingtaskcnt','waittaskcnt','pausetaskcnt','closedtaskcnt','canceltaskcnt'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -466,7 +456,6 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
                 id:'',
                 name:'',
                 doingtaskcnt:'',
-                finishtaskcnt1:'',
                 waittaskcnt:'',
                 pausetaskcnt:'',
                 closedtaskcnt:'',
@@ -498,7 +487,6 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
             id:'',
             name:'',
             doingtaskcnt:'',
-            finishtaskcnt1:'',
             waittaskcnt:'',
             pausetaskcnt:'',
             closedtaskcnt:'',
@@ -566,7 +554,6 @@ export class ProjectTaskStatusCountGridBase extends GridControlBase {
                 id:'',
                 name:'',
                 doingtaskcnt:'',
-                finishtaskcnt1:'',
                 waittaskcnt:'',
                 pausetaskcnt:'',
                 closedtaskcnt:'',

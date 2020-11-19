@@ -1919,7 +1919,9 @@ String
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
 
 #### 关系属性
 无
@@ -1956,7 +1958,9 @@ String
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
 
 #### 关系属性
 无
@@ -2284,6 +2288,8 @@ Save
 | 2 | [真实姓名（REALNAME）](#属性-真实姓名（REALNAME）) | `%like%` |
 | 3 | [男女（GENDER）](#属性-男女（GENDER）) | `=` |
 | 4 | [clientStatus（CLIENTSTATUS）](#属性-clientStatus（CLIENTSTATUS）) | `=` |
+| 5 | [项目名称（PROJECTNAME）](#属性-项目名称（PROJECTNAME）) | `=` |
+| 6 | [完成者（FINISHEDBY）](#属性-完成者（FINISHEDBY）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

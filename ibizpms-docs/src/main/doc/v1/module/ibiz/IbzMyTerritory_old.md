@@ -236,6 +236,8 @@ hide footbox
 |真实姓名(REALNAME)|LIKE|
 |男女(GENDER)|EQ|
 |clientStatus(CLIENTSTATUS)|EQ|
+|项目名称(PROJECTNAME)|EQ|
+|完成者(FINISHEDBY)|EQ|
 
 ## 导入模式
 无

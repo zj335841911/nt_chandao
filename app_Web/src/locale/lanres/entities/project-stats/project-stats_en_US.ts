@@ -29,10 +29,10 @@ export default {
     istop: "是否置顶",
     closedtaskcnt: "已关闭任务数",
     canceltaskcnt: "已取消任务数",
-    finishtaskcnt1: "已完成任务数",
     pausetaskcnt: "已暂停任务数",
     waittaskcnt: "未开始任务数",
     doingtaskcnt: "进行中任务数",
+    donetaskcnt: "已完成任务数",
   },
 	views: {
 		allgridview: {
@@ -132,7 +132,6 @@ export default {
 			id: "项目编号",
 			name: "项目名称",
 			doingtaskcnt: "进行中任务数",
-			finishtaskcnt1: "已完成任务数",
 			waittaskcnt: "未开始任务数",
 			pausetaskcnt: "已暂停任务数",
 			closedtaskcnt: "已关闭任务数",

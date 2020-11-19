@@ -189,6 +189,24 @@ public class BugStatsDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String resolvedby;
 
+    /**
+     * 属性 [PROJECT]
+     *
+     */
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long project;
+
+    /**
+     * 属性 [PROJECTNAME]
+     *
+     */
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String projectname;
+
 
     /**
      * 设置 [TITLE]
@@ -228,6 +246,22 @@ public class BugStatsDTO extends DTOBase implements Serializable {
     public void setResolvedby(String  resolvedby){
         this.resolvedby = resolvedby ;
         this.modify("resolvedby",resolvedby);
+    }
+
+    /**
+     * 设置 [PROJECT]
+     */
+    public void setProject(Long  project){
+        this.project = project ;
+        this.modify("project",project);
+    }
+
+    /**
+     * 设置 [PROJECTNAME]
+     */
+    public void setProjectname(String  projectname){
+        this.projectname = projectname ;
+        this.modify("projectname",projectname);
     }
 
 

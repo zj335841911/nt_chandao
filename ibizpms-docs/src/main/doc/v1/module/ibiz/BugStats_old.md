@@ -5,6 +5,7 @@
 ## 关系
 {% plantuml %}
 产品 *-- Bug统计 
+项目 *-- Bug统计 
 hide members
 {% endplantuml %}
 
@@ -31,6 +32,8 @@ hide members
 |Bug|BUGCNT|INT|&nbsp;|
 |指派给|ASSIGNEDTO|SSCODELIST|&nbsp;|
 |由谁解决|RESOLVEDBY|SSCODELIST|&nbsp;|
+|项目编号|PROJECT|PICKUP|&nbsp;|
+|项目名称|PROJECTNAME|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -54,6 +57,8 @@ hide members
 |Bug|默认规则|默认规则|
 |指派给|默认规则|内容长度必须小于等于[60]|
 |由谁解决|默认规则|内容长度必须小于等于[100]|
+|项目编号|默认规则|默认规则|
+|项目名称|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -105,6 +110,7 @@ hide members
 |编号(PRODUCT)|EQ|
 |指派给(ASSIGNEDTO)|EQ|
 |由谁解决(RESOLVEDBY)|EQ|
+|项目编号(PROJECT)|EQ|
 
 ## 导入模式
 无
