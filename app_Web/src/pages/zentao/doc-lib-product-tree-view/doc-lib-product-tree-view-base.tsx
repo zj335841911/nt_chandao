@@ -66,6 +66,34 @@ export class DocLibProductTreeViewBase extends TreeViewBase {
      */
     public appUIService: DocLibUIService = new DocLibUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof DocLibProductTreeViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'PRODUCT': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof DocLibProductTreeViewBase
+	 */
+    protected customViewParams: any = {
+        'product': {
+            isRawValue: false,
+            value: 'srfparentkey',
+        }
+    };
+
     /**
      * 视图模型数据
      *
