@@ -1456,26 +1456,28 @@ LEFT JOIN zt_product t2 on t2.id = t1.product
 #### SQL
 - MYSQL5
 ```SQL
-select t1.id,t1.`name` as projectname ,0 AS `BUGDUPLICATE`,
-0 AS `BUGBYDESIGN`,
-0 AS `BUGEFFICIENT`,
-0 AS `BUGEXTERNAL`,
-0 AS `BUGFIXED`,
-0 AS `BUGNOTREPRO`,
-0 AS `BUGPOSTPONED`,
-0 AS `BUGTOSTORY`,
-0 AS `BUGTOTAL`,
-0 AS `BUGWILLNOTFIX`,
-0 AS `BUGWJJ`,
-case when t2.bugclosed is null then 0 else t2.bugclosed end as bugclosed,
-case when t3.bugresolved is null then 0 else t3.bugresolved end as bugresolved,
-case when t4.bugactive is null then 0 else t4.bugactive end as bugactive,
-case when t5.bugcnt is null then 0 else t5.bugcnt end as bugcnt 
-from zt_project t1 
-LEFT JOIN (select ttt1.project,count(1) as bugclosed from zt_bug ttt1 where ttt1.deleted = '0' and ttt1.`status` = 'closed' GROUP BY ttt1.project) t2 on t2.project = t1.id
-LEFT JOIN (select ttt1.project,count(1) as bugresolved from zt_bug ttt1 where ttt1.deleted = '0' and ttt1.`status` = 'resolved' GROUP BY ttt1.project) t3 on t3.project = t1.id
-LEFT JOIN (select ttt1.project,count(1) as bugactive from zt_bug ttt1 where ttt1.deleted = '0' and ttt1.`status` = 'active' GROUP BY ttt1.project) t4 on t4.project = t1.id
-LEFT JOIN (SELECT ttt1.project,count(1) as bugcnt from zt_bug ttt1 where ttt1.deleted = '0' GROUP BY ttt1.project) t5 on t5.project = t1.id
+SELECT
+	t1.project,
+	t1.projectname,
+	sum( IF ( t1.`status` = 'resolved', t1.ss, 0 ) ) AS resolvedcnt,
+	sum( IF ( t1.`status` = 'closed', t1.ss, 0 ) ) AS closedcnt,
+	sum( IF ( t1.`status` = 'active', t1.ss, 0 ) ) AS activecnt,
+	count(1) as bugcnt
+FROM
+	(
+	SELECT
+		t1.`status`,
+		t1.project,
+		t11.`name` AS projectname,
+		1 AS ss 
+	FROM
+		zt_bug t1
+		LEFT JOIN zt_project t11 ON t1.project = t11.id 
+		where t1.deleted = '0' and t1.project <> 0
+	) t1 
+GROUP BY
+	t1.project,
+	t1.projectname
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
