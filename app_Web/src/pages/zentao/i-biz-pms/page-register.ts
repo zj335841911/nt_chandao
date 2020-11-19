@@ -364,6 +364,7 @@ export const PageComponents = {
         Vue.component('task-kanban-view', () => import('@pages/zentao/task-kanban-view/task-kanban-view.vue'));
         Vue.component('test-report-main-info-view', () => import('@pages/zentao/test-report-main-info-view/test-report-main-info-view.vue'));
         Vue.component('release-main-info-view', () => import('@pages/zentao/release-main-info-view/release-main-info-view.vue'));
+        Vue.component('project-stats-usr2-grid-view-task-status-count', () => import('@pages/ibiz/project-stats-usr2-grid-view-task-status-count/project-stats-usr2-grid-view-task-status-count.vue'));
         Vue.component('case-to-bug-edit-view', () => import('@pages/zentao/case-to-bug-edit-view/case-to-bug-edit-view.vue'));
         Vue.component('ibizpro-plugin-grid-view', () => import('@pages/ibizplugin/ibizpro-plugin-grid-view/ibizpro-plugin-grid-view.vue'));
         Vue.component('file-project-grid-view-file', () => import('@pages/zentao/file-project-grid-view-file/file-project-grid-view-file.vue'));

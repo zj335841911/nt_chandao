@@ -178,6 +178,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '09ec3280dedaeac7260c00f3f923d20e',
+            viewmodule: 'ibiz',
+            viewname: 'ProjectStatsUsr2GridViewTaskStatusCount',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '237ae6d47a530dbc59eacb4e6f7db169',
+            ],
+        },
+        {
             viewtag: '0a43b5a8be540dcb1227223ae1c9adc9',
             viewmodule: 'ibiz',
             viewname: 'IbzCaseEditEditView',
@@ -4404,6 +4414,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '09ec3280dedaeac7260c00f3f923d20e',
             ],
         },
         {

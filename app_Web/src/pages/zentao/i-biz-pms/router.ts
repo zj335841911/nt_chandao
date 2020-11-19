@@ -14754,6 +14754,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/release-main-info-view/release-main-info-view.vue'),
                 },
                 {
+                    path: 'projectstats/:projectstats?/usr2gridviewtaskstatuscount/:usr2gridviewtaskstatuscount?',
+                    meta: {
+                        caption: 'entities.projectstats.views.usr2gridviewtaskstatuscount.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projectstats', parameterName: 'projectstats' },
+                            { pathName: 'usr2gridviewtaskstatuscount', parameterName: 'usr2gridviewtaskstatuscount' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-stats-usr2-grid-view-task-status-count/project-stats-usr2-grid-view-task-status-count.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/tobugeditview/:tobugeditview?',
                     meta: {
                         caption: 'entities.case.views.tobugeditview.caption',
