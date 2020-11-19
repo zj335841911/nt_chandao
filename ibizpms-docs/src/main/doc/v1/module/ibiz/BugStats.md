@@ -1435,7 +1435,7 @@ GROUP BY
 - MYSQL5
 ```SQL
 select t1.id, 
-	t1.`name`, 
+	t1.`name` as `PRODUCTNAME`, 
 	ifnull(t2.Bugwjj, 0) AS Bugwjj, 
 	ifnull(t2.Bugbydesign, 0) AS Bugbydesign, 
 	ifnull(t2.Bugduplicate, 0) AS Bugduplicate, 
