@@ -4523,7 +4523,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "exWeek",
                 label: "去除周末",
                 text: "去除周末",
-                "data":{"n_isweekend_eq":"0"},
+                "data":{"n_isweekend_in":"1;2;3;4;5"},
                 "codename":"Exweek",
                 value: "exWeek",
                 
@@ -4533,7 +4533,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "Week",
                 label: "显示周末",
                 text: "显示周末",
-                "data":{"n_isweekend_eq":"1"},
+                "data":{},
                 "codename":"Week",
                 value: "Week",
                 

@@ -5284,7 +5284,7 @@
                 "label": "去除周末",
                 "text": "去除周末",
                 "class":"",
-                "data":{"n_isweekend_eq":"0"},
+                "data":{"n_isweekend_in":"1;2;3;4;5"},
                 "codename":"Exweek",
                 "value": "exWeek",
                 
@@ -5296,7 +5296,7 @@
                 "label": "显示周末",
                 "text": "显示周末",
                 "class":"",
-                "data":{"n_isweekend_eq":"1"},
+                "data":{},
                 "codename":"Week",
                 "value": "Week",
                 

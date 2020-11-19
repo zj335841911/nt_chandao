@@ -3176,7 +3176,7 @@ t1.`DATE`,
 ROUND((select estimate from zt_burn where date=t2.begin and project=t1.project)*(1-(DATEDIFF(t1.date,t2.`begin`))/(DATEDIFF(t2.`end`,t2.`begin`))),1) AS `ESTIMATE`,
 t1.`LEFT`,
 t1.`PROJECT`,
-1 as ISWEEKEND
+DATE_FORMAT(t1.date,'%w')  as ISWEEKEND
 FROM `zt_burn` t1  
 LEFT JOIN zt_project t2 on t1.project=t2.id
 ```
