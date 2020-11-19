@@ -492,9 +492,9 @@ FROM `zt_task` t1
 - MYSQL5
 ```SQL
 SELECT
-	t1.id,
-	t1.`name`,
-	t2.account,
+	t1.id as `PROJECT`,
+	t1.`name` as `PROJECTNAME`,
+	t2.account as `FINISHEDBY`,
 	t2.`TOTALESTIMATE`,
 	t2.`TOTALCONSUMED`,
 	t2.`TOTALLEFT` 
