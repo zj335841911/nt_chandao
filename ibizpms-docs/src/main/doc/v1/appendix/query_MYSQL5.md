@@ -2742,7 +2742,7 @@ t1.`ASSIGNEDTO`,
 0 AS `BUGBYDESIGN`,
 0 AS `BUGCNT`,
 0 AS `BUGDUPLICATE`,
-0% AS `BUGEFFICIENT`,
+0 AS `BUGEFFICIENT`,
 0 AS `BUGEXTERNAL`,
 0 AS `BUGFIXED`,
 0 AS `BUGNOTREPRO`,
@@ -2756,26 +2756,31 @@ t1.`OPENEDBY`,
 t1.`PRODUCT`,
 t11.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,
-t2.`PROJECTNAME`,
 t1.`RESOLVEDBY`,
 t1.`TITLE`,
-t3.`NAME` AS `PROJECTNAME` ,
-t22.
+t22.PROJECTNAME,
+t22.BUGFIXED,
+t22.BUGBYDESIGN,
+t22.BUGDUPLICATE,
+t22.BUGEXTERNAL,
+t22.BUGNOTREPRO,
+t22.BUGPOSTPONED,
+t22.BUGTOSTORY,
+t22.BUGWILLNOTFIX,
+t22.BUGCNT 
 FROM `zt_bug` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
-LEFT JOIN zt_project t3 ON t1.PROJECT = t1.ID
-LEFT JOIN (SELECT  t10.id,t10.`name`,t10.bydesigncnt as bydesigncnt , t10.fixedcnt,t10.duplicatecnt,t10.willnotfixcnt,t10.externalcnt,t10.notreprocnt,t10.tostorycnt,t10.postponedcnt, (t10.bydesigncnt+t10.fixedcnt+t10.duplicatecnt+t10.willnotfixcnt+t10.externalcnt+t10.notreprocnt+t10.tostorycnt+t10.postponedcnt) as BUGCNT 
-from (select t1.id,t1.`name`,(case when t2.bydesigncnt is null then 0 else t2.bydesigncnt end)as bydesigncnt,(case when t3.fixedcnt is null then 0 else t3.fixedcnt end)as fixedcnt,(case when  t4.duplicatecnt is null then 0 else t4.duplicatecnt end)as duplicatecnt,(case when t5.willnotfixcnt is null then 0 else t5.willnotfixcnt end)as willnotfixcnt,(case when t6.externalcnt is null then 0 else t6.externalcnt end) as externalcnt,(case when t7.notreprocnt is null then 0 else t7.notreprocnt end)as notreprocnt,(case when t8.tostorycnt is null then 0 else t8.tostorycnt end)as tostorycnt,(case when t9.postponedcnt is null then 0 else t9.postponedcnt end)as postponedcnt from zt_project t1 LEFT JOIN (select t1.project,count(1) as bydesigncnt from zt_bug t1 
+LEFT JOIN (SELECT  t10.id,t10.`name` as PROJECTNAME,t10.BUGBYDESIGN  , t10.BUGFIXED,t10.BUGDUPLICATE,t10.BUGWILLNOTFIX,t10.BUGEXTERNAL,t10.BUGNOTREPRO,t10.BUGTOSTORY,t10.BUGPOSTPONED, (t10.BUGBYDESIGN+t10.BUGFIXED+t10.BUGDUPLICATE+t10.BUGWILLNOTFIX+t10.BUGEXTERNAL+t10.BUGNOTREPRO+t10.BUGTOSTORY+t10.BUGPOSTPONED) as BUGCNT 
+from (select t1.id,t1.`name`,(case when t2.BUGBYDESIGN is null then 0 else t2.BUGBYDESIGN end)as BUGBYDESIGN,(case when t3.BUGFIXED is null then 0 else t3.BUGFIXED end)as BUGFIXED,(case when  t4.BUGDUPLICATE is null then 0 else t4.BUGDUPLICATE end)as BUGDUPLICATE,(case when t5.BUGWILLNOTFIX is null then 0 else t5.BUGWILLNOTFIX end)as BUGWILLNOTFIX,(case when t6.BUGEXTERNAL is null then 0 else t6.BUGEXTERNAL end) as BUGEXTERNAL,(case when t7.BUGNOTREPRO is null then 0 else t7.BUGNOTREPRO end)as BUGNOTREPRO,(case when t8.BUGTOSTORY is null then 0 else t8.BUGTOSTORY end)as BUGTOSTORY,(case when t9.BUGPOSTPONED is null then 0 else t9.BUGPOSTPONED end)as BUGPOSTPONED from zt_project t1 LEFT JOIN (select t1.project,count(1) as BUGBYDESIGN from zt_bug t1 
 where t1.resolution = 'bydesign' GROUP BY t1.project
-) t2 on t1.id = t2.project LEFT JOIN ( select t1.project,count(1) as fixedcnt from zt_bug t1 where t1.resolution = 'fixed' GROUP BY t1.project
-) t3 on t3.project = t1.id LEFT JOIN ( select t1.project,count(1) as duplicatecnt from zt_bug t1 where t1.resolution = 'duplicate' GROUP BY t1.project
-) t4 on t4.project = t1.id LEFT JOIN ( select t1.project,count(1) as willnotfixcnt from zt_bug t1 where t1.resolution = 'willnotfix' GROUP BY t1.project
-) t5 on t5.project = t1.id LEFT JOIN ( select t1.project,count(1) as externalcnt from zt_bug t1 where t1.resolution = 'external' GROUP BY t1.project
-) t6 on t6.project = t1.id LEFT JOIN ( select t1.project,count(1) as notreprocnt from zt_bug t1 where t1.resolution = 'notrepro' GROUP BY t1.project
-) t7 on t7.project = t1.id LEFT JOIN ( select t1.project,count(1) as tostorycnt from zt_bug t1 where t1.resolution = 'tostory' GROUP BY t1.project
-) t8 on t8.project = t1.id LEFT JOIN ( select t1.project,count(1) as postponedcnt from zt_bug t1 where t1.resolution = 'postponed' GROUP BY t1.project
-) t9 on t9.project = t1.id where t1.deleted='0') t10) t22
-
+) t2 on t1.id = t2.project LEFT JOIN ( select t1.project,count(1) as BUGFIXED from zt_bug t1 where t1.resolution = 'fixed' GROUP BY t1.project
+) t3 on t3.project = t1.id LEFT JOIN ( select t1.project,count(1) as BUGDUPLICATE from zt_bug t1 where t1.resolution = 'duplicate' GROUP BY t1.project
+) t4 on t4.project = t1.id LEFT JOIN ( select t1.project,count(1) as BUGWILLNOTFIX from zt_bug t1 where t1.resolution = 'willnotfix' GROUP BY t1.project
+) t5 on t5.project = t1.id LEFT JOIN ( select t1.project,count(1) as BUGEXTERNAL from zt_bug t1 where t1.resolution = 'external' GROUP BY t1.project
+) t6 on t6.project = t1.id LEFT JOIN ( select t1.project,count(1) as BUGNOTREPRO from zt_bug t1 where t1.resolution = 'notrepro' GROUP BY t1.project
+) t7 on t7.project = t1.id LEFT JOIN ( select t1.project,count(1) as BUGTOSTORY from zt_bug t1 where t1.resolution = 'tostory' GROUP BY t1.project
+) t8 on t8.project = t1.id LEFT JOIN ( select t1.project,count(1) as BUGPOSTPONED from zt_bug t1 where t1.resolution = 'postponed' GROUP BY t1.project
+) t9 on t9.project = t1.id where t1.deleted= '0') t10) t22 on t22.id = t1.project
 ```
 ### Bug完成表(BugResolvedBy)<div id="BugStats_BugResolvedBy"></div>
 ```sql
