@@ -11884,7 +11884,7 @@ LEFT JOIN (select t1.project,count(1) as cancelTaskcnt from zt_task t1 where t1.
 LEFT JOIN (select t1.project,count(1) as doneTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t4 on t1.id = t4.project
 LEFT JOIN (select t1.project,count(1) as pauseTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t5 on t1.id = t5.project
 LEFT JOIN (select t1.project,count(1) as waitTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t6 on t1.id = t6.project
-LEFT JOIN (select t1.project,count(1) as doingTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t7 on t1.id = t7.project where  t1.deleted = '0'
+LEFT JOIN (select t1.project,count(1) as doingTaskcnt from zt_task t1 where t1.`status` = 'done' and t1.deleted = '0' GROUP BY t1.project) t7 on t1.id = t7.project
 WHERE t1.DELETED = '0' 
 
 ```

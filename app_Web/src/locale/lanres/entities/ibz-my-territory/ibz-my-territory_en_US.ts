@@ -75,6 +75,10 @@ export default {
 			caption: "我的地盘",
       		title: "我的地盘日历视图",
 		},
+		usersumtreeexpview: {
+			caption: "用户汇总表",
+      		title: "我的地盘树导航视图",
+		},
 		testtreeexpview: {
 			caption: "测试统计",
       		title: "我的地盘树导航视图（测试统计）",
@@ -203,6 +207,12 @@ export default {
 		nodes: {
 			employeeload: "员工负载表",
 			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
+	treeexpbar_tree_treeview: {
+		nodes: {
 		},
 		uiactions: {
 		},

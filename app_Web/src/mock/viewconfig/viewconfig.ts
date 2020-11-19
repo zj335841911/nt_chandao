@@ -2543,6 +2543,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectEditView_Close",
             "viewtag": "9a8c28c2365d7dc8bb5619f39576b558"
         },
+        "ibzmyterritoryusersumtreeexpview": {
+            "title": "我的地盘树导航视图",
+            "caption": "用户汇总表",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryUserSumTreeExpView",
+            "viewtag": "9ab6d468419797c4a00ff658e4f626b1"
+        },
         "releasegridview": {
             "title": "发布表格视图",
             "caption": "发布",

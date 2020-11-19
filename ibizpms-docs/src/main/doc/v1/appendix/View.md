@@ -525,6 +525,7 @@ SRFNAVPARAM.project=%project%|
 |-|用例|DETREEEXPVIEW|&nbsp;|
 |-|版本表格视图（轮次）|DEGRIDVIEW|&nbsp;|
 |-|项目|DEEDITVIEW|&nbsp;|
+|-|我的地盘树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|发布表格视图|DEGRIDVIEW|&nbsp;|
 |-|平台产品编辑视图|DEEDITVIEW|&nbsp;|
 |-|任务分页导航视图（更多）|DETABEXPVIEW|&nbsp;|

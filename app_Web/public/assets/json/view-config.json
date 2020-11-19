@@ -3169,6 +3169,16 @@
         "viewtag": "9a8c28c2365d7dc8bb5619f39576b558",
         "memo": ""
     },
+    "ibzmyterritoryusersumtreeexpview": {
+        "title": "我的地盘树导航视图",
+        "caption": "用户汇总表",
+        "viewtype": "DETREEEXPVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzMyTerritoryUserSumTreeExpView",
+        "viewfilename": "ibz-my-territory-user-sum-tree-exp-view",
+        "viewtag": "9ab6d468419797c4a00ff658e4f626b1",
+        "memo": ""
+    },
     "releasegridview": {
         "title": "发布表格视图",
         "caption": "发布",
