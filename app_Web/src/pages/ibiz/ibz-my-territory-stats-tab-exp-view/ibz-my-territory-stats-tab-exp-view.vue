@@ -3,6 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzMyTerritoryStatsTabExpViewBase } from './ibz-my-territory-stats-tab-exp-view-base';
+import view_treeview from '@widgets/ibz-my-territory/project-stats-treeview/project-stats-treeview.vue';
 import view_tabexppanel from '@widgets/ibz-my-territory/stats-tab-exp-viewtabexppanel-tabexppanel/stats-tab-exp-viewtabexppanel-tabexppanel.vue';
 
 /**
@@ -14,6 +15,7 @@ import view_tabexppanel from '@widgets/ibz-my-territory/stats-tab-exp-viewtabexp
  */
 @Component({
     components: {
+        view_treeview, 
         view_tabexppanel, 
     }
 })
