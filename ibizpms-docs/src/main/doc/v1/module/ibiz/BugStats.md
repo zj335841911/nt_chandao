@@ -1212,50 +1212,33 @@ Bug在每个解决方案的Bug数
 - MYSQL5
 ```SQL
 SELECT
-t1.`ASSIGNEDTO`,
-0 AS `PROJECTNAME`,
-0 AS `BUGBYDESIGN`,
-0 AS `BUGCNT`,
-0 AS `BUGDUPLICATE`,
-0 AS `BUGEFFICIENT`,
-0 AS `BUGEXTERNAL`,
-0 AS `BUGFIXED`,
-0 AS `BUGNOTREPRO`,
-0 AS `BUGPOSTPONED`,
-0 AS `BUGTOSTORY`,
-0 AS `BUGTOTAL`,
-0 AS `BUGWILLNOTFIX`,
-0 AS `BUGWJJ`,
-t1.`ID`,
-t1.`OPENEDBY`,
-t1.`PRODUCT`,
-t11.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t1.`RESOLVEDBY`,
-t1.`TITLE`,
-t22.PROJECTNAME,
-t22.BUGFIXED,
-t22.BUGBYDESIGN,
-t22.BUGDUPLICATE,
-t22.BUGEXTERNAL,
-t22.BUGNOTREPRO,
-t22.BUGPOSTPONED,
-t22.BUGTOSTORY,
-t22.BUGWILLNOTFIX,
-t22.BUGCNT 
-FROM `zt_bug` t1 
-LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
-LEFT JOIN (SELECT  t10.id,t10.`name` as PROJECTNAME,t10.BUGBYDESIGN  , t10.BUGFIXED,t10.BUGDUPLICATE,t10.BUGWILLNOTFIX,t10.BUGEXTERNAL,t10.BUGNOTREPRO,t10.BUGTOSTORY,t10.BUGPOSTPONED, (t10.BUGBYDESIGN+t10.BUGFIXED+t10.BUGDUPLICATE+t10.BUGWILLNOTFIX+t10.BUGEXTERNAL+t10.BUGNOTREPRO+t10.BUGTOSTORY+t10.BUGPOSTPONED) as BUGCNT 
-from (select t1.id,t1.`name`,(case when t2.BUGBYDESIGN is null then 0 else t2.BUGBYDESIGN end)as BUGBYDESIGN,(case when t3.BUGFIXED is null then 0 else t3.BUGFIXED end)as BUGFIXED,(case when  t4.BUGDUPLICATE is null then 0 else t4.BUGDUPLICATE end)as BUGDUPLICATE,(case when t5.BUGWILLNOTFIX is null then 0 else t5.BUGWILLNOTFIX end)as BUGWILLNOTFIX,(case when t6.BUGEXTERNAL is null then 0 else t6.BUGEXTERNAL end) as BUGEXTERNAL,(case when t7.BUGNOTREPRO is null then 0 else t7.BUGNOTREPRO end)as BUGNOTREPRO,(case when t8.BUGTOSTORY is null then 0 else t8.BUGTOSTORY end)as BUGTOSTORY,(case when t9.BUGPOSTPONED is null then 0 else t9.BUGPOSTPONED end)as BUGPOSTPONED from zt_project t1 LEFT JOIN (select t1.project,count(1) as BUGBYDESIGN from zt_bug t1 
-where t1.resolution = 'bydesign' GROUP BY t1.project
-) t2 on t1.id = t2.project LEFT JOIN ( select t1.project,count(1) as BUGFIXED from zt_bug t1 where t1.resolution = 'fixed' GROUP BY t1.project
-) t3 on t3.project = t1.id LEFT JOIN ( select t1.project,count(1) as BUGDUPLICATE from zt_bug t1 where t1.resolution = 'duplicate' GROUP BY t1.project
-) t4 on t4.project = t1.id LEFT JOIN ( select t1.project,count(1) as BUGWILLNOTFIX from zt_bug t1 where t1.resolution = 'willnotfix' GROUP BY t1.project
-) t5 on t5.project = t1.id LEFT JOIN ( select t1.project,count(1) as BUGEXTERNAL from zt_bug t1 where t1.resolution = 'external' GROUP BY t1.project
-) t6 on t6.project = t1.id LEFT JOIN ( select t1.project,count(1) as BUGNOTREPRO from zt_bug t1 where t1.resolution = 'notrepro' GROUP BY t1.project
-) t7 on t7.project = t1.id LEFT JOIN ( select t1.project,count(1) as BUGTOSTORY from zt_bug t1 where t1.resolution = 'tostory' GROUP BY t1.project
-) t8 on t8.project = t1.id LEFT JOIN ( select t1.project,count(1) as BUGPOSTPONED from zt_bug t1 where t1.resolution = 'postponed' GROUP BY t1.project
-) t9 on t9.project = t1.id where t1.deleted= '0') t10) t22 on t22.id = t1.project
+t1.project,
+t1.projectname,
+sum(if(t1.resolution='tostory',t1.ss,0)) as bugtostory,
+sum(if(t1.resolution='bydesign',t1.ss,0)) as bugbydesign,
+sum(if(t1.resolution='duplicate',t1.ss,0)) as bugduplicate,
+sum(if(t1.resolution='fixed',t1.ss,0)) as bugfixed,
+sum(if(t1.resolution='external',t1.ss,0)) as bugexternal,
+sum(if(t1.resolution='willnotfix',t1.ss,0)) as bugwillnotfix,
+sum(if(t1.resolution='notrepro',t1.ss,0)) as bugnotrepro,
+sum(if(t1.resolution='postponed',t1.ss,0)) as bugpostponed,
+count(1) as bugcnt
+from
+(
+SELECT
+t1.resolution,
+t1.project,
+t11.name as projectname,
+1 as ss
+from
+zt_bug t1
+left join zt_project t11 on t1.project = t11.id
+where t1.deleted='0' and t1.project <>0 and t1.resolution <> ''
+)t1
+GROUP BY
+t1.project,
+t1.projectname
+
 ```
 ### 数据查询-Bug完成表（BugResolvedBy）
 #### 说明
