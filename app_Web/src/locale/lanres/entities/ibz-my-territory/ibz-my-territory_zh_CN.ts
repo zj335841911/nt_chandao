@@ -155,6 +155,7 @@ export default {
 	},
 	test_treeview: {
 		nodes: {
+			productbugstatussum: "产品Bug状态汇总表",
 			bugassignedto: "Bug指派表",
 			productbugresolutionstats: "产品Bug解决方案汇总表",
 			bugopenendby: "Bug创建表",

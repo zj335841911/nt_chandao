@@ -10700,6 +10700,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/ibz-case-grid-view/ibz-case-grid-view.vue'),
                 },
                 {
+                    path: 'bugstats/:bugstats?/productbugstatusgridview/:productbugstatusgridview?',
+                    meta: {
+                        caption: 'entities.bugstats.views.productbugstatusgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugstats', parameterName: 'bugstats' },
+                            { pathName: 'productbugstatusgridview', parameterName: 'productbugstatusgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-stats-product-bug-status-grid-view/bug-stats-product-bug-status-grid-view.vue'),
+                },
+                {
                     path: 'ibzlibs/:ibzlib?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.ibzlib.views.gridview.caption',

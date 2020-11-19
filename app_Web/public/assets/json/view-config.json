@@ -3629,6 +3629,16 @@
         "viewtag": "ada719b0d8722509d22b4b72bbb8cf26",
         "memo": ""
     },
+    "bugstatsproductbugstatusgridview": {
+        "title": "Bug统计表格视图",
+        "caption": "产品Bug状态汇总",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "BugStatsProductBugStatusGridView",
+        "viewfilename": "bug-stats-product-bug-status-grid-view",
+        "viewtag": "ae715fb0beead59fd6157e0ef163a4bb",
+        "memo": ""
+    },
     "actionaddcommenthistorylistview": {
         "title": "历史记录",
         "caption": "系统日志",

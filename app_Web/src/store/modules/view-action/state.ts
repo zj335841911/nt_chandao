@@ -3292,6 +3292,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ae715fb0beead59fd6157e0ef163a4bb',
+            viewmodule: 'ibiz',
+            viewname: 'BugStatsProductBugStatusGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0174d3383dadc0878991e5c90bd5eaa3',
+            ],
+        },
+        {
             viewtag: 'aeee411b8bffcf0c30d65557a8deeeee',
             viewmodule: 'zentao',
             viewname: 'ActionAddCommentHistoryListView',
@@ -3620,6 +3630,7 @@ export const viewstate: any = {
             refviews: [
                 '5e8408526c67859b65aa66e614dd0b04',
                 'b90624360f51aadfbfaa92d563dc1410',
+                'ae715fb0beead59fd6157e0ef163a4bb',
                 'b7427fe34d292009905e126defc9fa22',
                 'a7aa4a1d093b609e270df2fec5ea627b',
             ],

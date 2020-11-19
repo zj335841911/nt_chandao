@@ -64,6 +64,15 @@ export default class TestService extends ControlService {
     public TREENODE_SEPARATOR: string = ';';
 
     /**
+     * 产品Bug状态汇总表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof TestService
+     */
+	public TREENODE_PRODUCTBUGSTATUSSUM: string = 'ProductBugStatusSum';
+
+    /**
      * Bug指派表节点分隔符号
      *
      * @public
@@ -182,6 +191,10 @@ export default class TestService extends ControlService {
             }
         }
 
+        if (Object.is(strNodeType, this.TREENODE_PRODUCTBUGSTATUSSUM)) {
+            await this.fillProductbugstatussumNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         if (Object.is(strNodeType, this.TREENODE_BUGASSIGNEDTO)) {
             await this.fillBugassignedtoNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
@@ -204,6 +217,65 @@ export default class TestService extends ControlService {
         }
         return Promise.resolve({ status: 500, data: { title: '失败', message: `树节点${strTreeNodeId}标识无效` } });
     }
+
+    /**
+     * 填充 树视图节点[产品Bug状态汇总表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof TestService
+     */
+    @Errorlog
+    public fillProductbugstatussumNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.test_treeview.nodes.productbugstatussum') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'ProductBugStatusSum';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[产品Bug状态汇总表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof TestService
+     */
+    @Errorlog
+    public async fillProductbugstatussumNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
 
     /**
      * 填充 树视图节点[Bug指派表]
@@ -510,6 +582,11 @@ export default class TestService extends ControlService {
             let BugresolvedbyRsNavParams:any = {};
             let BugresolvedbyRsParams:any = {};
 			await this.fillBugresolvedbyNodes(context, filter, list ,BugresolvedbyRsNavContext,BugresolvedbyRsNavParams,BugresolvedbyRsParams);
+			// 填充产品Bug状态汇总表
+            let ProductbugstatussumRsNavContext:any = {};
+            let ProductbugstatussumRsNavParams:any = {};
+            let ProductbugstatussumRsParams:any = {};
+			await this.fillProductbugstatussumNodes(context, filter, list ,ProductbugstatussumRsNavContext,ProductbugstatussumRsNavParams,ProductbugstatussumRsParams);
 			// 填充产品Bug解决方案汇总表
             let ProductbugresolutionstatsRsNavContext:any = {};
             let ProductbugresolutionstatsRsNavParams:any = {};
@@ -531,6 +608,11 @@ export default class TestService extends ControlService {
             let BugresolvedbyRsNavParams:any = {};
             let BugresolvedbyRsParams:any = {};
 			await this.fillBugresolvedbyNodes(context, filter, list ,BugresolvedbyRsNavContext,BugresolvedbyRsNavParams,BugresolvedbyRsParams);
+			// 填充产品Bug状态汇总表
+            let ProductbugstatussumRsNavContext:any = {};
+            let ProductbugstatussumRsNavParams:any = {};
+            let ProductbugstatussumRsParams:any = {};
+			await this.fillProductbugstatussumNodes(context, filter, list ,ProductbugstatussumRsNavContext,ProductbugstatussumRsNavParams,ProductbugstatussumRsParams);
 			// 填充产品Bug解决方案汇总表
             let ProductbugresolutionstatsRsNavContext:any = {};
             let ProductbugresolutionstatsRsNavParams:any = {};

@@ -268,6 +268,7 @@ export const PageComponents = {
         Vue.component('task-more-tab-exp-view', () => import('@pages/zentao/task-more-tab-exp-view/task-more-tab-exp-view.vue'));
         Vue.component('doc-lib-undone-project-grid-view', () => import('@pages/ibiz/doc-lib-undone-project-grid-view/doc-lib-undone-project-grid-view.vue'));
         Vue.component('bug-stats-usr2-grid-view-project-bug-status-count', () => import('@pages/ibiz/bug-stats-usr2-grid-view-project-bug-status-count/bug-stats-usr2-grid-view-project-bug-status-count.vue'));
+        Vue.component('bug-stats-product-bug-status-grid-view', () => import('@pages/ibiz/bug-stats-product-bug-status-grid-view/bug-stats-product-bug-status-grid-view.vue'));
         Vue.component('ibz-lib-grid-view', () => import('@pages/ibiz/ibz-lib-grid-view/ibz-lib-grid-view.vue'));
         Vue.component('bug-dashboard-main-edit-view9', () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'));
         Vue.component('bug-mpickup-view5', () => import('@pages/zentao/bug-mpickup-view5/bug-mpickup-view5.vue'));

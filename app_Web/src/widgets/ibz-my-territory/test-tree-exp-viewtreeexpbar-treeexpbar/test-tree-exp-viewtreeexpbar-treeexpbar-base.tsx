@@ -129,6 +129,13 @@ export class TestTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBa
                 deKeyField:'bugstats'
 			};
         }
+        if (Object.is(expmode, 'PRODUCTBUGSTATUSSUM')) {
+            return {  
+                viewname: 'bug-stats-product-bug-status-grid-view', 
+                parentdata: {},
+                deKeyField:'bugstats'
+			};
+        }
         if (Object.is(expmode, 'PRODUCTBUGRESOLUTIONSTATS')) {
             return {  
                 viewname: 'bug-stats-product-bug-resolution-grid-view', 

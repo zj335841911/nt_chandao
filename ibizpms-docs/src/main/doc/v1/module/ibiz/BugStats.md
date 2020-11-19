@@ -1522,11 +1522,11 @@ GROUP BY
 #### SQL
 - MYSQL5
 ```SQL
-select t1.id, 
-	t1.`name`, 
-	ifnull(t2.ActiveBug, 0) AS ActiveBug, 
-	ifnull(t2.ResolvedBug, 0) AS ResolvedBug, 
-	ifnull(t2.ClosedBug, 0) AS ClosedBug, 
+select t1.id AS 'PRODUCT', 
+	t1.`name` AS 'PRODUCTNAME', 
+	ifnull(t2.ActiveBug, 0) AS BugActive, 
+	ifnull(t2.ResolvedBug, 0) AS BugResolved, 
+	ifnull(t2.ClosedBug, 0) AS BugClosed, 
 	ifnull(t2.BugEfficient, '100.00%') AS BugEfficient, 
 	ifnull(t2.BUGTOTAL, 0) AS BUGTOTAL 
 	from zt_product t1 left join (SELECT

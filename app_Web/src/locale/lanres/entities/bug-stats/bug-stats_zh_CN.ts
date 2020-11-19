@@ -47,6 +47,10 @@ export default {
 			caption: "Bug统计",
       		title: "每个解决方案的Bug数统计表格视图",
 		},
+		productbugstatusgridview: {
+			caption: "产品Bug状态汇总",
+      		title: "Bug统计表格视图",
+		},
 		gridview: {
 			caption: "Bug创建表",
       		title: "Bug统计表格视图",
@@ -70,6 +74,19 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			id: "标识", 
+		},
+		uiactions: {
+		},
+	},
+	productbugstatuscount_grid: {
+		nodata: "",
+		columns: {
+			productname: "产品名称",
+			bugresolved: "已解决",
+			bugclosed: "已关闭",
+			bugactive: "已激活",
+			bugefficient: "有效率",
+			bugtotal: "总计",
 		},
 		uiactions: {
 		},
@@ -163,15 +180,6 @@ export default {
 		uiactions: {
 		},
 	},
-	assignedtobug_searchform: {
-		details: {
-			formpage1: "表单分页", 
-			n_product_eq: "产品", 
-			n_assignedto_eq: "指派给", 
-		},
-		uiactions: {
-		},
-	},
 	default_searchform: {
 		details: {
 			grouppanel1: "分组面板", 
@@ -181,6 +189,15 @@ export default {
 			openeddategt: "至", 
 			producteq: "产品", 
 			projecteq: "项目", 
+		},
+		uiactions: {
+		},
+	},
+	assignedtobug_searchform: {
+		details: {
+			formpage1: "表单分页", 
+			n_product_eq: "产品", 
+			n_assignedto_eq: "指派给", 
 		},
 		uiactions: {
 		},
@@ -211,6 +228,8 @@ export default {
 			caption: "删除",
 			tip: "删除",
 		},
+	},
+	productbugstatusgridviewtoolbar_toolbar: {
 	},
 	productbugresolutiongridviewtoolbar_toolbar: {
 	},

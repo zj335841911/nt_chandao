@@ -2911,6 +2911,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductSumEditView",
             "viewtag": "ada719b0d8722509d22b4b72bbb8cf26"
         },
+        "bugstatsproductbugstatusgridview": {
+            "title": "Bug统计表格视图",
+            "caption": "产品Bug状态汇总",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "BugStatsProductBugStatusGridView",
+            "viewtag": "ae715fb0beead59fd6157e0ef163a4bb"
+        },
         "actionaddcommenthistorylistview": {
             "title": "历史记录",
             "caption": "系统日志",
