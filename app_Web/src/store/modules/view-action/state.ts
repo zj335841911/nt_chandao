@@ -159,7 +159,7 @@ export const viewstate: any = {
             refviews: [
                 '007d984e6319843d935a48b30587ab1b',
                 '4503911318e1f1f26599b68a6c6e681d',
-                '599bad7e939d0de2523f0fcf4444f8c7',
+                'c468f1ff894437a6de5b9496f0f8b92e',
             ],
         },
         {
@@ -3691,6 +3691,17 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'c468f1ff894437a6de5b9496f0f8b92e',
+            viewmodule: 'zentao',
+            viewname: 'DocLibProjectTreeView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f7e64f3828c862a4bce56437e1e51069',
+                '73fbcf0e3685096f63587bcff234f958',
             ],
         },
         {

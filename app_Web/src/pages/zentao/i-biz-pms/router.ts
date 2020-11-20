@@ -14920,6 +14920,20 @@ const router = new Router({
                     component: () => import('@pages/ibizplugin/ibizpro-plugin-grid-view/ibizpro-plugin-grid-view.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/projecttreeview/:projecttreeview?',
+                    meta: {
+                        caption: 'entities.doclib.views.projecttreeview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'projecttreeview', parameterName: 'projecttreeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-project-tree-view/doc-lib-project-tree-view.vue'),
+                },
+                {
                     path: 'projects/:project?/editview_activate/:editview_activate?',
                     meta: {
                         caption: 'entities.project.views.editview_activate.caption',

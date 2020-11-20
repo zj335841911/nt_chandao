@@ -203,6 +203,17 @@ export default {
 			doclib_collect: "收藏",
 		},
 	},
+	doclibtreeproject_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+			doclib_editdoclib: "编辑",
+			doclib_weihufenlei: "维护分类",
+			doclib_uncollect: "取消收藏",
+			doclib_collect: "收藏",
+		},
+	},
 	projectdoclibtree_treeview: {
 		nodes: {
 			root: "默认根节点",
@@ -230,17 +241,6 @@ export default {
 			doclib_editcustomdoclib: "编辑",
 			refreshall: "刷新",
 			doclib_weihufenlei: "维护分类",
-		},
-	},
-	doclibtreeproject_treeview: {
-		nodes: {
-			root: "默认根节点",
-		},
-		uiactions: {
-			doclib_editdoclib: "编辑",
-			doclib_weihufenlei: "维护分类",
-			doclib_uncollect: "取消收藏",
-			doclib_collect: "收藏",
 		},
 	},
 };

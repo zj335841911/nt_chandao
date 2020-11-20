@@ -124,7 +124,7 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
         }
         if (Object.is(expmode, 'PROJECT')) {
             return {  
-                viewname: 'doc-lib-grid-view', 
+                viewname: 'doc-lib-project-tree-view', 
                 parentdata: {"srfparentdefname":"project"},
                 deKeyField:'doclib'
 			};

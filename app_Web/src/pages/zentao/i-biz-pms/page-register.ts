@@ -372,6 +372,7 @@ export const PageComponents = {
         Vue.component('project-stats-usr2-grid-view-task-status-count', () => import('@pages/ibiz/project-stats-usr2-grid-view-task-status-count/project-stats-usr2-grid-view-task-status-count.vue'));
         Vue.component('case-to-bug-edit-view', () => import('@pages/zentao/case-to-bug-edit-view/case-to-bug-edit-view.vue'));
         Vue.component('ibizpro-plugin-grid-view', () => import('@pages/ibizplugin/ibizpro-plugin-grid-view/ibizpro-plugin-grid-view.vue'));
+        Vue.component('doc-lib-project-tree-view', () => import('@pages/zentao/doc-lib-project-tree-view/doc-lib-project-tree-view.vue'));
         Vue.component('file-project-grid-view-file', () => import('@pages/zentao/file-project-grid-view-file/file-project-grid-view-file.vue'));
         Vue.component('sys-update-log-grid-view', () => import('@pages/ibiz/sys-update-log-grid-view/sys-update-log-grid-view.vue'));
         Vue.component('bug-confirm-view', () => import('@pages/zentao/bug-confirm-view/bug-confirm-view.vue'));
