@@ -146,6 +146,11 @@
                                 <i class="fa fa-sitemap"></i>
                                 
                             </a>
+                            <divider v-show="scope.row.Copy.visible" type="vertical"></divider>
+                            <a v-show="scope.row.Copy.visible" :disabled="scope.row.Copy.disabled" @click="uiAction(scope.row, 'Copy', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.copy')">
+                                <i class="fa fa-copy"></i>
+                                
+                            </a>
                             <divider v-show="scope.row.Delete.visible" type="vertical"></divider>
                             <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_delete')">
                                 <i class="fa fa-remove"></i>

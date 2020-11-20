@@ -170,6 +170,7 @@ export default {
 			productplan_relationbug: "关联Bug",
 			productplan_mainedit: "编辑",
 			productplan_newsubplan: "子计划",
+			copy: "拷贝",
 			productplan_delete: "删除",
 		},
 	},

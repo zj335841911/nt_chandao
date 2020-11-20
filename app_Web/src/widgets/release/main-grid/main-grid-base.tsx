@@ -214,6 +214,33 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_ubc55262_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Copy(datas, contextJO,paramJO,  $event, xData,this,"Release");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_u04119fb_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -254,6 +281,35 @@ export class MainGridBase extends GridControlBase {
         }
     }
 
+    /**
+     * 拷贝
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof ReleaseGridViewBase
+     */
+    public Copy(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        if (args.length === 0) {
+            return;
+        }
+        const _this: any = this;
+        if (_this.newdata && _this.newdata instanceof Function) {
+            const data: any = { };
+            if (args.length > 0) {
+                Object.assign(data, { release: args[0].release });
+            }
+            if(!params) params = {};
+            Object.assign(params,{copymode:true});
+            _this.newdata([{ ...data }], params, $event, xData);
+        } else {
+            Object.assign(this.viewparams,{copymode:true});
+        }
+    }
+
 
     /**
      * 界面行为模型
@@ -268,6 +324,7 @@ export class MainGridBase extends GridControlBase {
         active: { name: 'active',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_ACTIVE', actiontarget: 'SINGLEKEY'},
         terminal: { name: 'terminal',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_TERMINATE', actiontarget: 'SINGLEKEY'},
         quickEdit: { name: 'quickEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
+        Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
         remove: { name: 'remove',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'}
     };
 
@@ -640,6 +697,9 @@ export class MainGridBase extends GridControlBase {
         if(Object.is('quickEdit', tag)) {
             this.grid_uagridcolumn1_u6847e62_click(row, tag, $event);
         }
+        if(Object.is('Copy', tag)) {
+            this.grid_uagridcolumn1_ubc55262_click(row, tag, $event);
+        }
         if(Object.is('remove', tag)) {
             this.grid_uagridcolumn1_u04119fb_click(row, tag, $event);
         }
@@ -758,6 +818,9 @@ export class MainGridBase extends GridControlBase {
                 quickEdit:{
                     visible: false
                 },
+                Copy:{
+                    visible: false
+                },
                 remove:{
                     visible: false
                 },
@@ -803,6 +866,9 @@ export class MainGridBase extends GridControlBase {
                 visible: false
             },
             quickEdit:{
+                visible: false
+            },
+            Copy:{
                 visible: false
             },
             remove:{
@@ -886,6 +952,9 @@ export class MainGridBase extends GridControlBase {
                     visible: false
                 },
                 quickEdit:{
+                    visible: false
+                },
+                Copy:{
                     visible: false
                 },
                 remove:{

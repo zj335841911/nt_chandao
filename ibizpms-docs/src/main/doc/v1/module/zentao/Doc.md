@@ -1892,7 +1892,8 @@ Save
 | 5 | [文档库分类文档](#数据查询-文档库分类文档（DocModuleDoc）) | DocModuleDoc | 否 |
 | 6 | [文档统计](#数据查询-文档统计（DocStatus）) | DocStatus | 否 |
 | 7 | [我的收藏](#数据查询-我的收藏（MyFavourite）) | MyFavourite | 否 |
-| 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 8 | [根目录文档](#数据查询-根目录文档（RootDoc）) | RootDoc | 否 |
+| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-文档库文档（子库）（ChildDocLibDoc）
 #### 说明
@@ -2297,6 +2298,50 @@ FROM
 		t3.collector LIKE CONCAT_WS( '', '%,', #{srf.sessioncontext.srfloginname}, '%,' ) 
 	AND t3.deleted = '0' 
 	) t1
+```
+### 数据查询-根目录文档（RootDoc）
+#### 说明
+根目录文档
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACL`,
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+'doc' AS `DOCQTYPE`,
+t1.`EDITEDBY`,
+t1.`EDITEDDATE`,
+t1.`GROUPS`,
+t1.`ID`,
+0 AS `ISFAVOURITES`,
+t1.`KEYWORDS`,
+t1.`LIB`,
+t31.`NAME` AS `LIBNAME`,
+t1.`MODULE`,
+t41.`NAME` AS `MODULENAME`,
+t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TITLE`,
+t1.`TYPE`,
+t1.`VERSION`,
+t1.`VIEWS`
+FROM `zt_doc` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
+LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID 
+
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
