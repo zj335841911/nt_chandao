@@ -1,55 +1,8 @@
-<div class="design-tree-container">
-    <context-menu-container>
-        <el-tree
-            v-if="inited"
-            ref="tree"
-            class="design-tree"
-            node-key="id"
-            lazy
-            :show-checkbox="!isSingleSelect"
-            :check-on-click-node="!isSingleSelect"
-            :default-expanded-keys="expandedKeys"
-            :props="{
-                label: 'text',
-                isLeaf: 'leaf',
-                children: 'children'
-            }"
-            :load="load.bind(_self)"
-            :highlight-current="true"
-            :expand-on-click-node="false"
-            @check="onCheck.apply(_self, arguments)"
-            @current-change="selectionChange.apply(_self, arguments)"
-            :filter-node-method="filterNode"
-            :empty-text="$t('entities.doclib.doclibtreeproduct_treeview.nodata')"
-        >
-            <template slot-scope="{ node, data }">
-                <context-menu
-                    :ref="data.id"
-                    :isBlocked="true"
-                    :contextMenuStyle="{width: '100%'}"
-                    :data="node"
-                    :renderContent="($event) => renderContextMenu($event)"
-                    @showContext="showContext(data,$event)"
-                >
-                    <tooltip transfer style="width: 100%;" max-width="2000" placement="right">
-                        <div class="tree-node" @dblclick="doDefaultAction(node)">
-                            <span class="icon">
-                                <i v-if="data.iconcls && !Object.is(data.iconcls, '')" :class="data.iconcls"></i>
-                                <img v-else-if="data.icon && !Object.is(data.icon, '')" :src="data.icon">
-                                <icon v-else-if="isOutputIconDefault" type="ios-paper-outline"></icon>&nbsp;
-                            </span>
-                            <span class="text">
-                                <span v-if="data.html" v-html="data.html"></span>
-                                <span v-else>{{ data.isUseLangRes ? $t(data.text) : data.text }}</span>
-                            </span>
-                        </div>
-                        <template slot="content">
-                            <span v-if="data.html" v-html="data.html"></span>
-                            <span v-else>{{ data.isUseLangRes ? $t(data.text) : data.text }}</span>
-                        </template>
-                    </tooltip>
-                </context-menu>
-            </template>
-        </el-tree>
-    </context-menu-container>
-</div>
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if item.isShowCaption()  [in template "TEMPLCODE_en_US" at line 57, column 25]
+----

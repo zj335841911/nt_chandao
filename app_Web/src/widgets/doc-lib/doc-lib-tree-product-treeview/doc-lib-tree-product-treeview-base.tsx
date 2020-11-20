@@ -225,54 +225,6 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
     }
 
     /**
-     * 是否单选
-     *
-     * @type {boolean}
-     * @memberof DocLibTreeProductBase
-     */
-    @Prop({ default: true }) public isSingleSelect!: boolean;
-
-    /**
-     * 是否默认选中第一条数据
-     *
-     * @type {boolean}
-     * @memberof DocLibTreeProductBase
-     */
-    @Prop({ default: false }) public isSelectFirstDefault!: boolean;
-
-    /**
-     * 枝干节点是否可用（具有数据能力，可抛出）
-     *
-     * @type {string}
-     * @memberof DocLibTreeProductBase
-     */
-    @Prop({default:true}) public isBranchAvailable!: boolean;
-
-    /**
-     * 显示处理提示
-     *
-     * @type {boolean}
-     * @memberof DocLibTreeProductBase
-     */
-    @Prop({ default: true }) public showBusyIndicator?: boolean;
-
-    /**
-     * 初始化完成
-     *
-     * @type {boolean}
-     * @memberof DocLibTreeProductBase
-     */
-    public inited: boolean = false;
-
-    /**
-     * 已选中数据集合
-     *
-     * @type {*}
-     * @memberof DocLibTreeProductBase
-     */
-    public selectedNodes: any = [];
-
-    /**
      * 当前选中数据项
      *
      * @type {*}
@@ -281,51 +233,12 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
     public currentselectedNode: any = {};
 
     /**
-     * 选中数据字符串
-     *
-     * @type {string}
-     * @memberof DocLibTreeProductBase
-     */
-    @Prop() public selectedData!: string;
-
-    /**
      * 备份行为模型
      * 
      * @type any
      * @memberof DocLibTreeProductBase
      */
     public copyActionModel: any = {};
-
-    /**
-     * 选中值变化
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof DocLibTreeProductBase
-     */
-    @Watch('selectedData')
-    public onValueChange(newVal: any, oldVal: any) {
-        this.echoselectedNodes = newVal ? this.isSingleSelect ? JSON.parse(newVal)[0] : JSON.parse(newVal) : [];
-        this.selectedNodes = [];
-        if(this.echoselectedNodes.length > 0){
-            let AllnodesObj = (this.$refs.treeexpbar_tree as any).store.nodesMap;
-            let AllnodesArray : any[] = [];
-            for (const key in AllnodesObj) {
-              if (AllnodesObj.hasOwnProperty(key)) {
-                AllnodesArray.push(AllnodesObj[key].data);
-              }
-            }
-            this.setDefaultSelection(AllnodesArray);
-        }
-    }
-
-    /**
-     * 回显选中数据集合
-     *
-     * @type {*}
-     * @memberof DocLibTreeProductBase
-     */
-    public echoselectedNodes:any[] = this.selectedData ? ( this.isSingleSelect ? [JSON.parse(this.selectedData)[0]] : JSON.parse(this.selectedData)) : [];
 
     /**
      * 部件行为--update
@@ -376,22 +289,28 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
     public srfnodefilter: string = '';
 
     /**
-     * 默认输出图标
-     *
-     * @type {boolean}
+     * 当前文件夹所含文件
+     *  
+     * @type {Array<any>}
      * @memberof DocLibTreeProductBase
      */
-    public isOutputIconDefault: boolean = true;
-
+    public items: any[] = [];
 
     /**
-     * 数据展开主键
-     *
-     * @type {string[]}
+     * 面包屑数据(默认第一项为图标)
+     * 
+     * @type {Array<any>}
      * @memberof DocLibTreeProductBase
      */
-    @Provide()
-    public expandedKeys: string[] = [];
+    public breadcrumbs: Array<any> = [{curData: ''}];
+
+    /**
+     * 展现形式(默认为图表)
+     * 
+     * @type {string}
+     * @memberof DocLibTreeProductBase
+     */
+    public modality: string = 'chart';
 
     /**
      * 树节点上下文菜单集合
@@ -404,50 +323,6 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
         docLib_deuiaction2: {name:'deuiaction2',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
         docLib_deuiaction3: {name:'deuiaction3',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visible: true, disabled: false},
         docLib_deuiaction4: {name:'deuiaction4',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visible: true, disabled: false},
-    }
-
-    /**
-     * 选中数据变更事件
-     *
-     * @public
-     * @param {*} data
-     * @param {*} data 当前节点对应传入对象
-     * @param {*} checkedState 树目前选中状态对象
-     * @memberof DocLibTreeProductBase
-     */
-    public onCheck(data: any, checkedState: any) {
-        // 处理多选数据
-        if(!this.isSingleSelect){
-            let leafNodes = checkedState.checkedNodes.filter((item:any) => item.leaf);
-            this.selectedNodes = JSON.parse(JSON.stringify(leafNodes));
-            this.$emit('selectionchange', this.selectedNodes);
-        }
-    }
-
-    /**
-     * 选中数据变更事件
-     *
-     * @public
-     * @param {*} data 节点对应传入对象
-     * @param {*} node 节点对应node对象
-     * @memberof DocLibTreeProductBase
-     */
-    public selectionChange(data: any, node: any) {
-        // 禁用项处理
-        if (data.disabled){
-            node.isCurrent = false;
-            return;
-        }
-        // 只处理最底层子节点
-        if(this.isBranchAvailable || data.leaf){
-            this.currentselectedNode = JSON.parse(JSON.stringify(data));
-            // 单选直接替换
-            if(this.isSingleSelect){
-                this.selectedNodes = [this.currentselectedNode];
-                this.$emit('selectionchange', this.selectedNodes);
-            }
-            // 多选用check方法
-        }
     }
 
     /**
@@ -471,34 +346,22 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
                     return;
                 }
                 if (Object.is('load', action)) {
-                    this.inited = false;
-                    this.$nextTick(() => {
-                        this.inited = true;
-                    });
+                    this.load();
                 }
                 if (Object.is('filter', action)) {
                     this.srfnodefilter  = data.srfnodefilter;
-                    this.refresh_all();
+                    this.refresh();
                 }
                 if (Object.is('refresh_parent', action)) {
-                    this.refresh_parent();
+                    this.refresh();
                 }
                 if (Object.is('refresh_current', action)) {
-                    this.refresh_current();
+                    this.refresh();
                 }
+            });
             });
         }
     }
-
-    /**
-     * 对树节点进行筛选操作
-     * @memberof OrderTree
-     */
-    public filterNode(value:any, data:any) {
-        if (!value) return true;
-        return data.text.indexOf(value) !== -1;
-    }
-
 
     /**
      * vue 生命周期
@@ -521,81 +384,39 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
     }
 
     /**
-     * 刷新数据
+     * 监听视图参数变化
+     * 
+     * @param newVal 新值
+     * @param oldVal 旧值
+     * @memberof DocumentsLibrary
+     */
+    @Watch('viewparams')
+    public viewparamsChange(newVal: any, oldVal: any){
+        if (newVal && newVal.n_product_eq && !Object.is(newVal.n_product_eq, oldVal.n_product_eq)) {
+            this.breadcrumbs.splice(1);
+            this.modality = 'chart';
+        }
+    }
+
+    /**
+     * 刷新功能
      *
+     * @param {any[]} args
      * @memberof DocLibTreeProductBase
      */
-    public refresh_all(): void {
-        this.inited = false;
-        this.$nextTick(() => {
-            this.inited = true;
-        });
+    public refresh(args: any[]): void {
+        this.load({});
     }
 
     /**
-     * 刷新当前
+     * 加载当前文件夹所有文件
      *
-     * @memberof ModuleExpBase
-     */
-    public refresh_current(): void {
-        if (Object.keys(this.currentselectedNode).length === 0) {
-            return;
-        }
-        const tree: any = this.$refs.treeexpbar_tree;
-        const node: any = tree.getNode(this.currentselectedNode.id);
-        if (!node || !node.parent) {
-            return;
-        }
-        let curNode:any = {}; 
-        curNode = this.$util.deepObjectMerge(curNode,node);
-        let tempContext:any = {};
-        if(curNode.data && curNode.data.srfappctx){
-            Object.assign(tempContext,curNode.data.srfappctx);
-        }else{
-            Object.assign(tempContext,this.context);
-        }
-        const id: string = node.key ? node.key : '#';
-        const param: any = { srfnodeid: id };
-        this.refresh_node(tempContext,param, false);
-    }
-
-    /**
-     * 刷新父节点
-     *
-     * @memberof DocLibTreeProductBase
-     */
-    public refresh_parent(): void {
-        if (Object.keys(this.currentselectedNode).length === 0) {
-            return;
-        }
-        const tree: any = this.$refs.tree;
-        const node: any = tree.getNode(this.currentselectedNode.id);
-        if (!node || !node.parent) {
-            return;
-        }
-        let curNode:any = {}; 
-        const { parent: _parent } = node;
-        curNode = this.$util.deepObjectMerge(curNode,_parent);
-        let tempContext:any = {};
-        if(curNode.data && curNode.data.srfappctx){
-            Object.assign(tempContext,curNode.data.srfappctx);
-        }else{
-            Object.assign(tempContext,this.context);
-        }
-        const id: string = _parent.key ? _parent.key : '#';
-        const param: any = { srfnodeid: id };
-        this.refresh_node(tempContext,param, true);
-    }
-
-    /**
-     * 数据加载
-     *
-     * @param {*} node
+     * @param {*} node 当前文件夹对象
      * @memberof DocLibTreeProductBase
      */
     public load(node: any = {}, resolve?: any) {
+        this.items = [];
         if (node.data && node.data.children) {
-            resolve(node.data.children);
             return;
         }
         const params: any = {
@@ -618,18 +439,13 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
         this.service.getNodes(tempContext,params).then((response: any) => {
             if (!response || response.status !== 200) {
                 this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
-                resolve([]);
                 return;
             }
             const _items = response.data;
-            this.formatExpanded(_items);
-            resolve([..._items]);
-            let isRoot = Object.is(node.level,0);
-            let isSelectedAll = node.checked;
-            this.setDefaultSelection(_items, isRoot, isSelectedAll);
+            this.items = [..._items];
             this.$emit("load", _items);
+            this.computeAllNodeState();
         }).catch((response: any) => {
-            resolve([]);
             if (response && response.status === 401) {
                 return;
             }
@@ -643,145 +459,79 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      * @param {*} curNode 当前节点
      * @memberof DocLibTreeProductBase
      */
-    public computecurNodeContext(curNode:any){
+    public computecurNodeContext(curNode:any) {
         let tempContext:any = {};
-        if(curNode && curNode.data && curNode.data.srfappctx){
+        if (curNode && curNode.data && curNode.data.srfappctx) {
             tempContext = JSON.parse(JSON.stringify(curNode.data.srfappctx));
-        }else{
+        } else {
             tempContext = JSON.parse(JSON.stringify(this.context));
         }
         return tempContext;
     }
 
     /**
-     * 刷新功能
-     *
-     * @param {any[]} args
+     * 添加面包屑数据
+     * 
+     * @param node 文件夹对象
      * @memberof DocLibTreeProductBase
      */
-    public refresh(args: any[]): void {
-        this.refresh_all();
+    public addBreadcrumbs(node: any) {
+        if (this.breadcrumbs.length > 0) {
+            const index: number = this.breadcrumbs.findIndex((item: any) => Object.is(item.srfkey, node.srfkey));
+            if(index === -1){
+                this.breadcrumbs.push(node);
+            }
+        } else {
+            this.breadcrumbs.push(node);
+        }
     }
 
     /**
-     * 刷新节点
-     *
-     * @public
-     * @param {*} [curContext] 当前节点上下文
-     * @param {*} [arg={}] 当前节点附加参数
-     * @param {boolean} parentnode 是否是刷新父节点
+     * 移除面包屑数据
+     * 
+     * @param node 文件夹对象
      * @memberof DocLibTreeProductBase
      */
-    public refresh_node(curContext:any,arg: any = {}, parentnode: boolean): void {
-        const { srfnodeid: id } = arg;
-        Object.assign(arg,{viewparams:this.viewparams});
-        const get: Promise<any> = this.service.getNodes(JSON.parse(JSON.stringify(this.context)),arg);
-        get.then((response: any) => {
-            if (!response || response.status !== 200) {
-                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
-                return;
+    public removeBreadcrumbs(node: any) {
+        if (this.breadcrumbs.length > 0) {
+            const index: number = this.breadcrumbs.findIndex((item: any) => Object.is(item.srfkey, node.srfkey));
+            if (index !== -1) {
+                this.breadcrumbs.splice(index+1);
             }
-            const _items = [...response.data];
-            this.formatExpanded(_items);
-            const tree: any = this.$refs.tree;
-            tree.updateKeyChildren(id, _items);
-            if (parentnode) {
-                this.currentselectedNode = {};
-            }
-            this.$forceUpdate();
-            this.setDefaultSelection(_items);
-        }).catch((response: any) => {
-            if (response && response.status === 401) {
-                return;
-            }
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
-        });
+        }
     }
 
     /**
-     * 默认展开节点
-     *
-     * @public
-     * @param {any[]} items
-     * @returns {any[]}
+     * 面包屑跳转文件夹
+     * 
+     * @param node 文件夹对象
      * @memberof DocLibTreeProductBase
      */
-    public formatExpanded(items: any[]): any[] {
-        const data: any[] = [];
-        items.forEach((item) => {
-            if (item.expanded || (item.children && item.children.length > 0)) {
-                this.expandedKeys.push(item.id);
-            }
-        });
-        return data;
+    public handleLink(node: any) {
+        this.removeBreadcrumbs(node);
+        this.load({data: node});
     }
 
     /**
-     * 设置默认选中,回显数项，选中所有子节点
-     *
-     * @param {any[]} items 当前节点所有子节点集合
-     * @param {boolean} isRoot 是否是加载根节点
-     * @param {boolean} isSelectedAll 是否选中所有子节点
+     * 切换展现形式
+     * 
+     * @param modality 展现形式
      * @memberof DocLibTreeProductBase
      */
-    public setDefaultSelection(items: any[], isRoot: boolean = false, isSelectedAll: boolean = false): void {
-        if(items.length == 0){
-            return;
-        }
-        let defaultData: any;
-        // 导航中选中第一条配置的默认选中,没有选中第一条
-        if(this.isSelectFirstDefault){
-            if(this.isSingleSelect){
-                let index = items.findIndex((item: any) => item.selected);
-                if(index === -1) {
-                    if(isRoot){
-                        index = 0;
-                    }else{
-                        return;
-                    }
-                }
-                defaultData = items[index];
-                this.setTreeNodeHighLight(defaultData);
-                this.currentselectedNode = JSON.parse(JSON.stringify(defaultData));
-                if(this.isBranchAvailable || defaultData.leaf){
-                    this.selectedNodes = [this.currentselectedNode];
-                    this.$emit('selectionchange', this.selectedNodes);
-                } 
-            }
-        }
-        // 已选数据的回显
-        if(this.echoselectedNodes && this.echoselectedNodes.length > 0){
-            let checkedNodes = items.filter((item:any)=>{
-                return this.echoselectedNodes.some((val:any)=> {
-                    if(Object.is(item.srfkey,val.srfkey) && Object.is(item.srfmajortext,val.srfmajortext)){
-                        val.used = true;
-                        return true;
-                    }
-                });
-            });
-            if(checkedNodes.length > 0){
-                this.echoselectedNodes = this.echoselectedNodes.filter((item:any)=> !item.used);
-                // 父节点选中时，不需要执行这段，会选中所有子节点
-                if(!isSelectedAll){
-                    if(this.isSingleSelect){
-                        this.setTreeNodeHighLight(checkedNodes[0]);
-                        this.currentselectedNode = JSON.parse(JSON.stringify(checkedNodes[0]));
-                        this.selectedNodes = [this.currentselectedNode];
-                    }else{
-                        this.selectedNodes = this.selectedNodes.concat(checkedNodes);
-                        const tree: any = this.$refs.treeexpbar_tree;
-                        tree.setCheckedNodes(this.selectedNodes);
-                    }
-                }
-            }
-        }
-        // 父节点选中时，选中所有子节点
-        if(isSelectedAll){
-            let leafNodes = items.filter((item:any) => item.leaf);
-            this.selectedNodes = this.selectedNodes.concat(leafNodes);
-            this.$emit('selectionchange', this.selectedNodes);
-        }
-    } 
+    public modalityChange(modality: string) {
+        this.modality = modality;
+    }
+
+    /**
+     * 打开目标文件
+     * 
+     * @param file 目标文件
+     * @memberof DocLibTreeProductBase
+     */
+    public openNode(node: any) {
+        this.addBreadcrumbs(node);
+        this.load({data: node});
+    }
 
     /**
      * 绘制右击菜单
@@ -836,17 +586,6 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
     }
 
     /**
-     * 设置选中高亮
-     *
-     * @param {*} data
-     * @memberof DocLibTreeProductBase
-     */
-    public setTreeNodeHighLight(data: any): void {
-        const tree: any = this.$refs.tree;
-        tree.setCurrentKey(data.id);
-    }
-
-    /**
      * 执行默认界面行为
      *
      * @param {*} node
@@ -861,16 +600,27 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
     }
 
     /**
-     * 显示上下文菜单
+     * 计算当前文件夹的所有文件工具栏状态
      * 
-     * @param data 节点数据
-     * @param event 事件源
      * @memberof DocLibTreeProductBase
      */
-    public showContext(data:any,event:any){
-        let _this:any = this;
+    public computeAllNodeState() {
+        if (this.items && this.items.length > 0) {
+            this.items.forEach((item: any)=>{
+                this.computeRowState(item);
+            });
+        }
+    }
+
+    /**
+     * 获取当前文件夹指定文件的工具栏状态
+     * 
+     * @param node 指定的文件对象
+     * @memberof DocLibTreeProductBase
+     */
+    public getNodeState(node: any) {
         this.copyActionModel = {};
-        const tags: string[] = data.id.split(';');
+        const tags: string[] = node.id.split(';');
         Object.values(this.actionModel).forEach((item:any) =>{
             if(Object.is(item.nodeOwner,tags[0])){
                 this.copyActionModel[item.name] = item;
@@ -879,29 +629,23 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
         if(Object.keys(this.copyActionModel).length === 0){
             return;
         }
-        this.computeNodeState(data,data.nodeType,data.appEntityName).then((result:any) => {
-            let flag:boolean = false;
+        this.computeNodeState(node,node.nodeType,node.appEntityName).then((result:any) => {
             if(Object.values(result).length>0){
-                flag =Object.values(result).some((item:any) =>{
-                    return item.visible === true;
-                })
-            }
-            if(flag){
-                (_this.$refs[data.id] as any).showContextMenu(event.clientX, event.clientY);
+                node.curData.copyActionModel = JSON.parse(JSON.stringify(this.copyActionModel));;
             }
         });
     }
 
     /**
-     * 计算节点右键权限
+     * 计算文件的工具栏状态
      *
-     * @param {*} node 节点数据
-     * @param {*} nodeType 节点类型
+     * @param {*} node 指定的文件对象
+     * @param {*} nodeType 指定的文件类型
      * @param {*} appEntityName 应用实体名称  
      * @returns
      * @memberof DocLibTreeProductBase
      */
-    public async computeNodeState(node:any,nodeType:string,appEntityName:string) {
+    public async computeNodeState(node: any, nodeType: string, appEntityName: string) {
         if(Object.is(nodeType,"STATIC")){
             return this.copyActionModel;
         }
