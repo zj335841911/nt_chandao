@@ -115,7 +115,7 @@ export class CustomTreeExpView_9296treeexpbarTreeExpBarBase extends TreeExpBarCo
                 deKeyField:'file'
 			};
         }
-        if (Object.is(expmode, 'DOCROOT')) {
+        if (Object.is(expmode, 'CHILDDOCLIBMODULE')) {
             return {  
                 viewname: 'doc-lib-custom-doc-lib-child-tree-view', 
                 parentdata: {},
