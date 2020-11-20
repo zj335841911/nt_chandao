@@ -33,6 +33,10 @@ export default {
 			caption: "自定义文档库",
       		title: "文档库树导航视图（自定义文档库）",
 		},
+		customdoclibchildtreeview: {
+			caption: "自定义文档库-子目录",
+      		title: "文档库树视图（自定义文档库-子目录）",
+		},
 		editview: {
 			caption: "文档库",
       		title: "创建文档库",
@@ -53,6 +57,10 @@ export default {
 			caption: "产品",
       		title: "文档库树视图（产品）",
 		},
+		customdoclibroottreeview: {
+			caption: "自定义文档库-跟目录",
+      		title: "文档库树视图（自定义文档库-跟目录）",
+		},
 		productgridview: {
 			caption: "文档库",
       		title: "doclib表格视图",
@@ -68,6 +76,10 @@ export default {
 		projecttreeview: {
 			caption: "项目",
       		title: "文档库树视图",
+		},
+		producttreeviewcust: {
+			caption: "自定义文档库",
+      		title: "文档库树视图（自定义文档库）",
 		},
 		dashboardview: {
 			caption: "文档主页",
@@ -230,6 +242,24 @@ export default {
 			allproduct: "所有产品",
 		},
 		uiactions: {
+		},
+	},
+	doclibtreecustroot_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
+	doclibtreecust_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+			doclib_editdoclib: "编辑",
+			doclib_weihufenlei: "维护分类",
+			doclib_uncollect: "取消收藏",
+			doclib_collect: "收藏",
 		},
 	},
 	customdoclibtree_treeview: {

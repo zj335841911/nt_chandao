@@ -796,7 +796,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '4503911318e1f1f26599b68a6c6e681d',
+                '69aed44649019bd0215c246d524cfc24',
+                'd87ba00acab6dc934aa28dc57632436f',
+                '2e47613b1ffa6c0d31c513a4492013f6',
                 'f7e64f3828c862a4bce56437e1e51069',
                 '73fbcf0e3685096f63587bcff234f958',
             ],
@@ -816,6 +818,15 @@ export const viewstate: any = {
                 'abca63015fc84466991c6479f955f6d0',
                 'ea141fddc78fd1af4d06e494baf12cc1',
                 '507c506d62dc910a814332e6ae242266',
+            ],
+        },
+        {
+            viewtag: '2e47613b1ffa6c0d31c513a4492013f6',
+            viewmodule: 'zentao',
+            viewname: 'DocLibCustomDocLibChildTreeView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1890,6 +1901,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '4acc52d66d0c31e82166d85b1b0cd826',
+            ],
+        },
+        {
+            viewtag: '69aed44649019bd0215c246d524cfc24',
+            viewmodule: 'zentao',
+            viewname: 'DocLibCustomDocLibRootTreeView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -4098,6 +4118,17 @@ export const viewstate: any = {
                 'e0fbca7627cdd68765e173028b07f687',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
                 '6cf95e90393715815492a7e5e6f2a6f3',
+            ],
+        },
+        {
+            viewtag: 'd87ba00acab6dc934aa28dc57632436f',
+            viewmodule: 'zentao',
+            viewname: 'DocLibProductTreeViewCust',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f7e64f3828c862a4bce56437e1e51069',
+                '73fbcf0e3685096f63587bcff234f958',
             ],
         },
         {

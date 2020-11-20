@@ -751,6 +751,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainGridView9_Child",
             "viewtag": "2e0d4fb0f3e1ba1ba5bea16a5553cc21"
         },
+        "doclibcustomdoclibchildtreeview": {
+            "title": "文档库树视图（自定义文档库-子目录）",
+            "caption": "自定义文档库-子目录",
+            "viewtype": "DETREEVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibCustomDocLibChildTreeView",
+            "viewtag": "2e47613b1ffa6c0d31c513a4492013f6"
+        },
         "ibizproplugineditview": {
             "title": "系统插件编辑视图",
             "caption": "系统插件",
@@ -1718,6 +1726,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskEstimateEditGridView9",
             "viewtag": "6991c25388155df89dc9c44eeb11ad90"
+        },
+        "doclibcustomdoclibroottreeview": {
+            "title": "文档库树视图（自定义文档库-跟目录）",
+            "caption": "自定义文档库-跟目录",
+            "viewtype": "DETREEVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibCustomDocLibRootTreeView",
+            "viewtag": "69aed44649019bd0215c246d524cfc24"
         },
         "doclibproductgridview": {
             "title": "doclib表格视图",
@@ -3630,6 +3646,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryMainMyGridView",
             "viewtag": "d86b9d1e9fad770e8fc97718cee8ed31"
+        },
+        "doclibproducttreeviewcust": {
+            "title": "文档库树视图（自定义文档库）",
+            "caption": "自定义文档库",
+            "viewtype": "DETREEVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibProductTreeViewCust",
+            "viewtag": "d87ba00acab6dc934aa28dc57632436f"
         },
         "ibzmyterritorydashboardview": {
             "title": "首页",

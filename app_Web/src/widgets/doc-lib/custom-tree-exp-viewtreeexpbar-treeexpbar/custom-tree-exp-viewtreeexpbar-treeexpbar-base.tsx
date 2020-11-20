@@ -110,23 +110,30 @@ export class CustomTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControl
         }
         if (Object.is(expmode, 'DOCROOT')) {
             return {  
-                viewname: 'doc-grid-view', 
+                viewname: 'doc-lib-custom-doc-lib-child-tree-view', 
                 parentdata: {},
-                deKeyField:'doc'
+                deKeyField:'doclib'
 			};
         }
         if (Object.is(expmode, 'DOCLIBMODULE')) {
             return {  
-                viewname: 'doc-grid-view', 
+                viewname: 'doc-lib-custom-doc-lib-child-tree-view', 
                 parentdata: {},
-                deKeyField:'doc'
+                deKeyField:'doclib'
 			};
         }
         if (Object.is(expmode, 'DOCLIB')) {
             return {  
-                viewname: 'doc-grid-view', 
-                parentdata: {"srfparentdefname":"n_lib_eq"},
-                deKeyField:'doc'
+                viewname: 'doc-lib-custom-doc-lib-root-tree-view', 
+                parentdata: {},
+                deKeyField:'doclib'
+			};
+        }
+        if (Object.is(expmode, 'ALL')) {
+            return {  
+                viewname: 'doc-lib-product-tree-view-cust', 
+                parentdata: {},
+                deKeyField:'doclib'
 			};
         }
         return null;

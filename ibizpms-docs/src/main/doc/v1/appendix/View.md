@@ -300,6 +300,7 @@
 |-|待办事宜表数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|文档库树导航视图（自定义文档库）|DETREEEXPVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW9|&nbsp;|
+|-|文档库树视图（自定义文档库-子目录）|DETREEVIEW|&nbsp;|
 |-|系统插件编辑视图|DEEDITVIEW|&nbsp;|
 |-|需求看板视图|DEKANBANVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
@@ -422,6 +423,7 @@ SRFNAVPARAM.project=%project%|
 |-|版本编辑视图|DEEDITVIEW|&nbsp;|
 |-|文档库分类编辑视图|DEEDITVIEW|&nbsp;|
 |-|任务预计表格视图|DEGRIDVIEW9|&nbsp;|
+|-|文档库树视图（自定义文档库-跟目录）|DETREEVIEW|&nbsp;|
 |-|doclib表格视图|DEGRIDVIEW|&nbsp;|
 |-|执行|DEOPTVIEW|&nbsp;|
 |-|产品|DETABEXPVIEW|&nbsp;|
@@ -661,6 +663,7 @@ SRFNAVPARAM.project=%project%|
 |-|细分需求|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|
 |-|公司编辑视图|DEEDITVIEW9|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
+|-|文档库树视图（自定义文档库）|DETREEVIEW|&nbsp;|
 |-|首页|DEPORTALVIEW|&nbsp;|
 |-|系统更新功能编辑视图|DEEDITVIEW|&nbsp;|
 |-|Bug实体表格视图(项目遗留得Bug)|DEGRIDVIEW|&nbsp;|
