@@ -131,7 +131,7 @@ export class CustomTreeExpView_9296treeexpbarTreeExpBarBase extends TreeExpBarCo
         }
         if (Object.is(expmode, 'ALL')) {
             return {  
-                viewname: 'doc-lib-project-tree-view', 
+                viewname: 'doc-lib-product-tree-view', 
                 parentdata: {},
                 deKeyField:'doclib'
 			};

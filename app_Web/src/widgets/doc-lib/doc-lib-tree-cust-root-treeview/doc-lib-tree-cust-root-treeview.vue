@@ -20,6 +20,3 @@ import { DocLibTreeCustRootTreeBase } from './doc-lib-tree-cust-root-treeview-ba
 @VueLifeCycleProcessing()
 export default class DocLibTreeCustRootTree extends DocLibTreeCustRootTreeBase {}
 </script>
-<style lang="less">
-@import './doc-lib-tree-cust-root-treeview.less';
-</style>
