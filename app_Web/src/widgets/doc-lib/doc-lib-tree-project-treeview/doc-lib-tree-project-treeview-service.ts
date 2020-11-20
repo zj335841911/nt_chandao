@@ -109,13 +109,13 @@ export default class DocLibTreeProjectService extends ControlService {
 	public TREENODE_ROOT: string = 'ROOT';
 
     /**
-     * 附件库节点分隔符号
+     * 附件节点分隔符号
      *
      * @public
      * @type {string}
      * @memberof DocLibTreeProjectService
      */
-	public TREENODE_FILES: string = 'Files';
+	public TREENODE_FILE: string = 'File';
 
     /**
      * 文档节点分隔符号
@@ -143,6 +143,15 @@ export default class DocLibTreeProjectService extends ControlService {
      * @memberof DocLibTreeProjectService
      */
 	public TREENODE_ROOTMODULE: string = 'RootModule';
+
+    /**
+     * 附件库节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof DocLibTreeProjectService
+     */
+	public TREENODE_FILES: string = 'Files';
 
     /**
      * 获取节点数据
@@ -226,8 +235,8 @@ export default class DocLibTreeProjectService extends ControlService {
             await this.fillRootNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
-        if (Object.is(strNodeType, this.TREENODE_FILES)) {
-            await this.fillFilesNodeChilds(context,filter, list);
+        if (Object.is(strNodeType, this.TREENODE_FILE)) {
+            await this.fillFileNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_DOC)) {
@@ -240,6 +249,10 @@ export default class DocLibTreeProjectService extends ControlService {
         }
         if (Object.is(strNodeType, this.TREENODE_ROOTMODULE)) {
             await this.fillRootmoduleNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_FILES)) {
+            await this.fillFilesNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         return Promise.resolve({ status: 500, data: { title: '失败', message: `树节点${strTreeNodeId}标识无效` } });
@@ -477,7 +490,7 @@ export default class DocLibTreeProjectService extends ControlService {
 	}
 
     /**
-     * 填充 树视图节点[附件库]
+     * 填充 树视图节点[附件]
      *
      * @public
      * @param {any{}} context     
@@ -490,13 +503,13 @@ export default class DocLibTreeProjectService extends ControlService {
      * @memberof DocLibTreeProjectService
      */
     @Errorlog
-    public fillFilesNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+    public fillFileNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
         context = this.handleResNavContext(context,filter,rsNavContext);
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
 
-            if (Object.is(filter.strNodeType, this.TREENODE_ROOT)) {
+            if (Object.is(filter.strNodeType, this.TREENODE_FILES)) {
                 Object.assign(searchFilter, { n_project_eq: filter.nodeid });
             }
 
@@ -504,7 +517,7 @@ export default class DocLibTreeProjectService extends ControlService {
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
-                this.searchFiles(context, searchFilter, filter).then((records:any) =>{
+                this.searchFile(context, searchFilter, filter).then((records:any) =>{
                     if(records && records.length >0){
                         records.forEach((entity: any) => {
                         let treeNode: any = {};
@@ -518,11 +531,10 @@ export default class DocLibTreeProjectService extends ControlService {
                         Object.assign(treeNode,{'file':strId});
                         Object.assign(treeNode, { srfkey: strId });
                         Object.assign(treeNode, { text: strText, srfmajortext: strText });
-                        let strNodeId: string = 'Files';
+                        let strNodeId: string = 'File';
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
-                        Object.assign(treeNode, { iconcls: 'fa fa-paperclip' });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
                         Object.assign(treeNode, { leaf: true });
                         Object.assign(treeNode, { curData: entity });
@@ -555,7 +567,7 @@ export default class DocLibTreeProjectService extends ControlService {
      * @memberof TestEnetityDatasService
      */
     @Errorlog
-    public searchFiles(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public searchFile(context:any={}, searchFilter: any, filter: any): Promise<any> {
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -599,7 +611,7 @@ export default class DocLibTreeProjectService extends ControlService {
     }
 
     /**
-     * 填充 树视图节点[附件库]子节点
+     * 填充 树视图节点[附件]子节点
      *
      * @public
      * @param {any{}} context         
@@ -609,7 +621,7 @@ export default class DocLibTreeProjectService extends ControlService {
      * @memberof DocLibTreeProjectService
      */
     @Errorlog
-    public async fillFilesNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+    public async fillFileNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}
@@ -1031,6 +1043,75 @@ export default class DocLibTreeProjectService extends ControlService {
             let ModuleanddocRsNavParams:any = {};
             let ModuleanddocRsParams:any = {};
 			await this.fillModuleanddocNodes(context, filter, list ,ModuleanddocRsNavContext,ModuleanddocRsNavParams,ModuleanddocRsParams);
+		}
+	}
+
+    /**
+     * 填充 树视图节点[附件库]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof DocLibTreeProjectService
+     */
+    @Errorlog
+    public fillFilesNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.doclib.doclibtreeproject_treeview.nodes.files') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'Files';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: false });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[附件库]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof DocLibTreeProjectService
+     */
+    @Errorlog
+    public async fillFilesNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+			// 填充附件
+            let FileRsNavContext:any = {};
+            let FileRsNavParams:any = {};
+            let FileRsParams:any = {};
+			await this.fillFileNodes(context, filter, list ,FileRsNavContext,FileRsNavParams,FileRsParams);
+		} else {
+			// 填充附件
+            let FileRsNavContext:any = {};
+            let FileRsNavParams:any = {};
+            let FileRsParams:any = {};
+			await this.fillFileNodes(context, filter, list ,FileRsNavContext,FileRsNavParams,FileRsParams);
 		}
 	}
 

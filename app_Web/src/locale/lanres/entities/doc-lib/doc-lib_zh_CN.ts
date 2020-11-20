@@ -228,7 +228,7 @@ export default {
 			tip: "过滤",
 		},
 	},
-	doclibtreecustchild_treeview: {
+	rootdoclibprojecttreeveiw_treeview: {
 		nodes: {
 			root: "默认根节点",
 		},
@@ -238,6 +238,7 @@ export default {
 	doclibtreeproject_treeview: {
 		nodes: {
 			root: "默认根节点",
+			files: "附件库",
 		},
 		uiactions: {
 			doclib_editdoclib: "编辑",
@@ -246,7 +247,7 @@ export default {
 			doclib_collect: "收藏",
 		},
 	},
-	doclibtreecustroot_treeview: {
+	childdoclibmoduletree_treeview: {
 		nodes: {
 			root: "默认根节点",
 		},
@@ -268,47 +269,13 @@ export default {
 	doclibtreeproduct_treeview: {
 		nodes: {
 			root: "默认根节点",
+			files: "附件库",
 		},
 		uiactions: {
 			doclib_editdoclib: "编辑",
 			doclib_weihufenlei: "维护分类",
 			doclib_uncollect: "取消收藏",
 			doclib_collect: "收藏",
-		},
-	},
-	productleftdoclibtree_treeview: {
-		nodes: {
-			root: "默认根节点",
-			files: "附件库",
-			all: "所有文档库",
-		},
-		uiactions: {
-			doclib_editcustomdoclib: "编辑",
-			refreshall: "刷新",
-			doclib_weihufenlei: "维护分类",
-		},
-	},
-	childdoclibmoduletree_treeview: {
-		nodes: {
-			root: "默认根节点",
-		},
-		uiactions: {
-		},
-	},
-	rootdoclibprojecttreeveiw_treeview: {
-		nodes: {
-			root: "默认根节点",
-		},
-		uiactions: {
-		},
-	},
-	projectdoclibtree_treeview: {
-		nodes: {
-			root: "默认根节点",
-			allproject: "所有项目",
-			files: "附件库",
-		},
-		uiactions: {
 		},
 	},
 	docchildproducttreeview_treeview: {
@@ -325,11 +292,46 @@ export default {
 		uiactions: {
 		},
 	},
+	productleftdoclibtree_treeview: {
+		nodes: {
+			root: "默认根节点",
+			files: "附件库",
+			all: "所有文档库",
+		},
+		uiactions: {
+			doclib_editcustomdoclib: "编辑",
+			refreshall: "刷新",
+			doclib_weihufenlei: "维护分类",
+		},
+	},
+	projectdoclibtree_treeview: {
+		nodes: {
+			root: "默认根节点",
+			allproject: "所有项目",
+			files: "附件库",
+		},
+		uiactions: {
+		},
+	},
 	looproductdoclibtree_treeview: {
 		nodes: {
 			root: "默认根节点",
 			files: "附件库",
 			allproduct: "所有产品",
+		},
+		uiactions: {
+		},
+	},
+	doclibtreecustchild_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
+	doclibtreecustroot_treeview: {
+		nodes: {
+			root: "默认根节点",
 		},
 		uiactions: {
 		},
