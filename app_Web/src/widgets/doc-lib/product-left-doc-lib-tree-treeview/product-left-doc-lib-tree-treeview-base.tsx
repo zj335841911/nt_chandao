@@ -434,9 +434,9 @@ export class ProductLeftDocLibTreeTreeBase extends MainControlBase {
      * @memberof ProductLeftDocLibTreeBase
      */
      public actionModel: any = {
-        Doclib_deuiaction1: {name:'deuiaction1',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'EditCustomDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
-        Doclib_deuiaction2: {name:'deuiaction2',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visible: true, disabled: false},
-        Doclib_deuiaction3: {name:'deuiaction3',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
+        DocLib_deuiaction1: {name:'deuiaction1',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'EditCustomDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
+        DocLib_deuiaction2: {name:'deuiaction2',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visible: true, disabled: false},
+        DocLib_deuiaction3: {name:'deuiaction3',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
         ALL_deuiaction1: {name:'deuiaction1',nodeOwner:'ALL',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visible: true, disabled: false},
     }
 
@@ -830,7 +830,7 @@ export class ProductLeftDocLibTreeTreeBase extends MainControlBase {
             const data: any = JSON.parse(JSON.stringify(node.data));
             this.currentselectedNode = { ...data };
             const tags: string[] = data.id.split(';');
-            if (tags[0] === "Doclib") {
+            if (tags[0] === "DocLib") {
                 content = this.renderContextMenuDoclib();
             }
             if (tags[0] === "ALL") {
@@ -841,7 +841,7 @@ export class ProductLeftDocLibTreeTreeBase extends MainControlBase {
     }
 
     /**
-     * 绘制Doclib类型右键菜单
+     * 绘制DocLib类型右键菜单
      *
      * @param {*} node
      * @returns

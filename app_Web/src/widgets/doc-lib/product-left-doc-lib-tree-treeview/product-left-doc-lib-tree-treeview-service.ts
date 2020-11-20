@@ -79,7 +79,7 @@ export default class ProductLeftDocLibTreeService extends ControlService {
      * @type {string}
      * @memberof ProductLeftDocLibTreeService
      */
-	public TREENODE_DOCLIB: string = 'Doclib';
+	public TREENODE_DOCLIB: string = 'DocLib';
 
     /**
      * 附件库节点分隔符号
@@ -268,7 +268,7 @@ export default class ProductLeftDocLibTreeService extends ControlService {
                         Object.assign(treeNode,{'doclib':strId});
                         Object.assign(treeNode, { srfkey: strId });
                         Object.assign(treeNode, { text: strText, srfmajortext: strText });
-                        let strNodeId: string = 'Doclib';
+                        let strNodeId: string = 'DocLib';
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
