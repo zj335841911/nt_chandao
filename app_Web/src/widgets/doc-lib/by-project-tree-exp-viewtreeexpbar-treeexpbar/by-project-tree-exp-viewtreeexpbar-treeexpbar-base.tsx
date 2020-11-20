@@ -108,6 +108,13 @@ export class ByProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarCont
         if (!expmode) {
             expmode = '';
         }
+        if (Object.is(expmode, 'FILES')) {
+            return {  
+                viewname: 'file-project-grid-view-file', 
+                parentdata: {},
+                deKeyField:'file'
+			};
+        }
         if (Object.is(expmode, 'CHILDDOCLIBMODULE')) {
             return {  
                 viewname: 'doc-lib-custom-doc-lib-child-tree-view', 

@@ -100,6 +100,15 @@ export default class ProjectLeftDocLibTreeService extends ControlService {
 	public TREENODE_ALL: string = 'ALL';
 
     /**
+     * 附件库节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProjectLeftDocLibTreeService
+     */
+	public TREENODE_FILES: string = 'Files';
+
+    /**
      * 文档库节点分隔符号
      *
      * @public
@@ -201,6 +210,10 @@ export default class ProjectLeftDocLibTreeService extends ControlService {
         }
         if (Object.is(strNodeType, this.TREENODE_ALL)) {
             await this.fillAllNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_FILES)) {
+            await this.fillFilesNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_DOCLIB)) {
@@ -500,6 +513,68 @@ export default class ProjectLeftDocLibTreeService extends ControlService {
 	}
 
     /**
+     * 填充 树视图节点[附件库]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProjectLeftDocLibTreeService
+     */
+    @Errorlog
+    public fillFilesNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.doclib.projectleftdoclibtree_treeview.nodes.files') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'Files';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { iconcls: 'fa fa-paperclip' });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, {navigateParams: {project:"%project%"} });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[附件库]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProjectLeftDocLibTreeService
+     */
+    @Errorlog
+    public async fillFilesNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
      * 填充 树视图节点[文档库]
      *
      * @public
@@ -592,13 +667,13 @@ export default class ProjectLeftDocLibTreeService extends ControlService {
             }
             const _appEntityService: any = this.appEntityService;
             let list: any[] = [];
-            if (_appEntityService['FetchByProject'] && _appEntityService['FetchByProject'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchByProject'](context, searchFilter, false);
+            if (_appEntityService['FetchByProjectNotFiles'] && _appEntityService['FetchByProjectNotFiles'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchByProjectNotFiles'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchByProject数据集异常!');
+                        console.error('查询FetchByProjectNotFiles数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -610,7 +685,7 @@ export default class ProjectLeftDocLibTreeService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchByProject数据集异常!');
+                        console.error('查询FetchByProjectNotFiles数据集异常!');
                 });
             }
         })

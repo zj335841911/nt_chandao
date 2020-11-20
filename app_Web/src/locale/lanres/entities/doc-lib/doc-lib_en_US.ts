@@ -249,6 +249,7 @@ export default {
 		nodes: {
 			root: "默认根节点",
 			all: "所有文档库",
+			files: "附件库",
 		},
 		uiactions: {
         refreshall: "刷新",
