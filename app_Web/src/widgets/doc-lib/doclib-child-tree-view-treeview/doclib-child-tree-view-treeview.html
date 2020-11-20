@@ -1,0 +1,45 @@
+<div class="documents-library">
+    <div class="documents-library-operation">
+        <Breadcrumb separator=">">
+            <template v-for="(item,index) in breadcrumbs">
+                <BreadcrumbItem :key="index">
+                    <Icon v-if="index === 0" @click="handleLink(item).apply(_self, arguments)" type="md-folder" size="25" color="rgb(255, 202, 40)" />
+                    <a v-else-if="index < breadcrumbs.length-1" @click="handleLink(item)" >{{ item.curData.name }}</a>
+                    <span v-else >{{ item.curData.name }}</span>
+                </BreadcrumbItem>
+            </template>
+        </Breadcrumb>
+        <ButtonGroup>
+            <Button icon="md-apps" @click="modalityChange('chart').apply(_self, arguments)"></Button>
+            <Button icon="md-menu" @click="modalityChange('list').apply(_self, arguments)"></Button>
+        </ButtonGroup>
+    </div>
+    <div v-show="Object.is(modality, 'chart')" class="documents-library-chart">
+        <template v-for="(item,index) in items">
+            <div :key="index" class="chart-item">
+                <div @dblclick="openNode(item).apply(_self, arguments)">
+                    <Icon v-if="!item.leaf" type="md-folder" size="70" color="rgb(255, 202, 40)"/>
+                    <Icon v-else type="md-document" size="70" color="darkgrey"/>
+                </div>
+                <div>
+                    <a @click="openNode(item).apply(_self, arguments)">
+                        <span>{{ item.curData.name }}</span>
+                    </a>
+                </div>
+            </div>
+        </template>
+    </div>
+    <div v-show="Object.is(modality, 'list')" class="documents-library-list">
+        <template v-for="(item,index) in items">
+            <div :key="index" class="list-item">
+                <div>
+                    <span @click="openNode(item).apply(_self, arguments)">
+                        <Icon type="md-folder" color="rgb(255, 202, 40)" size="20" /><a>{{ item.curData.name }}</a>
+                    </span>
+                </div>
+                <div v-if="item.curData.copyActionModel">
+                </div>
+            </div>
+        </template>
+    </div>
+</div>
