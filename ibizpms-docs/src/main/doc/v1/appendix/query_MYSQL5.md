@@ -5701,7 +5701,7 @@ t1.`PARENT`,
 t1.`PATH`,
 t1.`ROOT`,
 t1.`SHORT`,
-t1.`TYPE`
+'module'  as `TYPE`
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
