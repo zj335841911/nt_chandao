@@ -683,6 +683,7 @@ export default {
 			case_mainedit: "编辑",
 			refresh: "刷新",
 			case_newbugbycaseresult: "转Bug",
+			copy: "拷贝",
 			case_casefavorite: "收藏",
 			case_casenfavorite: "取消收藏",
 		},

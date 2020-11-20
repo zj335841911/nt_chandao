@@ -229,6 +229,11 @@
                                 <i class="fa fa-bug"></i>
                                 
                             </a>
+                            <divider v-show="scope.row.Copy.visible" type="vertical"></divider>
+                            <a v-show="scope.row.Copy.visible" :disabled="scope.row.Copy.disabled" @click="uiAction(scope.row, 'Copy', $event)" :title="$t('entities.case.maingrid_grid.uiactions.copy')">
+                                <i class="fa fa-copy"></i>
+                                
+                            </a>
                             <divider v-show="scope.row.caseFavorite.visible" type="vertical"></divider>
                             <a v-show="scope.row.caseFavorite.visible" :disabled="scope.row.caseFavorite.disabled" @click="uiAction(scope.row, 'caseFavorite', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_casefavorite')">
                                 <i class="fa fa-star-o"></i>
