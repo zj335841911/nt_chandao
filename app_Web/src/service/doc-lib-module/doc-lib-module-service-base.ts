@@ -244,6 +244,35 @@ export default class DocLibModuleServiceBase extends EntityService {
     }
 
     /**
+     * FetchChildModuleByParent接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async FetchChildModuleByParent(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/doclibmodules/fetchchildmodulebyparent`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchChildModuleByParent接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async searchChildModuleByParent(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibmodules/searchchildmodulebyparent`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]

@@ -49,6 +49,7 @@ public interface IDocLibModuleService extends IService<DocLibModule> {
     void saveBatch(List<DocLibModule> list);
     Page<DocLibModule> searchAllDocLibModule_Custom(DocLibModuleSearchContext context);
     Page<DocLibModule> searchAllDoclibModule(DocLibModuleSearchContext context);
+    Page<DocLibModule> searchChildModuleByParent(DocLibModuleSearchContext context);
     Page<DocLibModule> searchDefault(DocLibModuleSearchContext context);
     Page<DocLibModule> searchParentModule(DocLibModuleSearchContext context);
     Page<DocLibModule> searchRootModuleMuLu(DocLibModuleSearchContext context);

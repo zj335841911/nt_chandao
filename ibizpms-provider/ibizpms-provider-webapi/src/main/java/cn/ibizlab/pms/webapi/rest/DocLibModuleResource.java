@@ -190,6 +190,28 @@ public class DocLibModuleResource {
                 .body(new PageImpl(doclibmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-searchChildModuleByParent-all')")
+	@ApiOperation(value = "获取子模块目录", tags = {"文档库分类" } ,notes = "获取子模块目录")
+    @RequestMapping(method= RequestMethod.GET , value="/doclibmodules/fetchchildmodulebyparent")
+	public ResponseEntity<List<DocLibModuleDTO>> fetchChildModuleByParent(DocLibModuleSearchContext context) {
+        Page<DocLibModule> domains = doclibmoduleService.searchChildModuleByParent(context) ;
+        List<DocLibModuleDTO> list = doclibmoduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-searchChildModuleByParent-all')")
+	@ApiOperation(value = "查询子模块目录", tags = {"文档库分类" } ,notes = "查询子模块目录")
+    @RequestMapping(method= RequestMethod.POST , value="/doclibmodules/searchchildmodulebyparent")
+	public ResponseEntity<Page<DocLibModuleDTO>> searchChildModuleByParent(@RequestBody DocLibModuleSearchContext context) {
+        Page<DocLibModule> domains = doclibmoduleService.searchChildModuleByParent(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(doclibmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-searchDefault-all')")
 	@ApiOperation(value = "获取数据集", tags = {"文档库分类" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/doclibmodules/fetchdefault")

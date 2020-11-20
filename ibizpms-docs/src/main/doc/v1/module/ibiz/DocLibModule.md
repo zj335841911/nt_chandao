@@ -892,17 +892,52 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（AllDoclibModule_Custom）) | AllDoclibModule_Custom | 否 |
-| 2 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 3 | [数据查询](#数据查询-数据查询（DefaultDoclib）) | DefaultDoclib | 否 |
-| 4 | [父模块](#数据查询-父模块（ParentModule）) | ParentModule | 否 |
-| 5 | [所有根模块目录](#数据查询-所有根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
-| 6 | [根模块目录动态](#数据查询-根模块目录动态（RootModuleMuLuByRoot）) | RootModuleMuLuByRoot | 否 |
-| 7 | [根模块目录动态](#数据查询-根模块目录动态（RootModuleMuLuBysrfparentkey）) | RootModuleMuLuBysrfparentkey | 否 |
-| 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [子模块目录](#数据查询-子模块目录（ChildModuleByParent）) | ChildModuleByParent | 否 |
+| 3 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
+| 4 | [数据查询](#数据查询-数据查询（DefaultDoclib）) | DefaultDoclib | 否 |
+| 5 | [父模块](#数据查询-父模块（ParentModule）) | ParentModule | 否 |
+| 6 | [所有根模块目录](#数据查询-所有根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 7 | [根模块目录动态](#数据查询-根模块目录动态（RootModuleMuLuByRoot）) | RootModuleMuLuByRoot | 否 |
+| 8 | [根模块目录动态](#数据查询-根模块目录动态（RootModuleMuLuBysrfparentkey）) | RootModuleMuLuBysrfparentkey | 否 |
+| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（AllDoclibModule_Custom）
 #### 说明
 数据查询
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`BRANCH`,
+t1.`DELETED`,
+t11.`NAME` AS `DOCLIBNAME`,
+t1.`GRADE`,
+t1.`ID`,
+(CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
+t21.`NAME` AS `MODULENAME`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`OWNER`,
+t1.`PARENT`,
+t1.`PATH`,
+t1.`ROOT`,
+t1.`SHORT`,
+t1.`TYPE`
+FROM `zt_module` t1 
+LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
+LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
+
+```
+### 数据查询-子模块目录（ChildModuleByParent）
+#### 说明
+子模块目录
 
 - 默认查询
 否
@@ -1180,11 +1215,12 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 | ---- | ---- | ---- | ---- |
 | 1 | [自定义文档库的模块](#数据集合-自定义文档库的模块（AllDocLibModule_Custom）) | AllDocLibModule_Custom | 否 |
 | 2 | [所有文档库模块](#数据集合-所有文档库模块（AllDoclibModule）) | AllDoclibModule | 否 |
-| 3 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
-| 4 | [父集合](#数据集合-父集合（ParentModule）) | ParentModule | 否 |
-| 5 | [所有根模块目录](#数据集合-所有根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
-| 6 | [根模块目录](#数据集合-根模块目录（RootModuleMuLuByRoot）) | RootModuleMuLuByRoot | 否 |
-| 7 | [根模块目录动态](#数据集合-根模块目录动态（RootModuleMuLuBysrfparentkey）) | RootModuleMuLuBysrfparentkey | 否 |
+| 3 | [子模块目录](#数据集合-子模块目录（ChildModuleByParent）) | ChildModuleByParent | 否 |
+| 4 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 5 | [父集合](#数据集合-父集合（ParentModule）) | ParentModule | 否 |
+| 6 | [所有根模块目录](#数据集合-所有根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 7 | [根模块目录](#数据集合-根模块目录（RootModuleMuLuByRoot）) | RootModuleMuLuByRoot | 否 |
+| 8 | [根模块目录动态](#数据集合-根模块目录动态（RootModuleMuLuBysrfparentkey）) | RootModuleMuLuBysrfparentkey | 否 |
 
 ### 数据集合-自定义文档库的模块（AllDocLibModule_Custom）
 #### 说明
@@ -1214,6 +1250,20 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（DefaultDoclib）](#数据查询-数据查询（DefaultDoclib）) |
+### 数据集合-子模块目录（ChildModuleByParent）
+#### 说明
+子模块目录
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [子模块目录（ChildModuleByParent）](#数据查询-子模块目录（ChildModuleByParent）) |
 ### 数据集合-数据集（Default）
 #### 说明
 数据集

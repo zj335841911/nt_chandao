@@ -5679,6 +5679,33 @@ WHERE t1.DELETED = '0'
 (t1.parent = 0 or t1.parent is null ) and t1.type = 'doc' 
 
 ```
+### 子模块目录(ChildModuleByParent)<div id="DocLibModule_ChildModuleByParent"></div>
+```sql
+SELECT
+t1.`BRANCH`,
+t1.`DELETED`,
+t11.`NAME` AS `DOCLIBNAME`,
+t1.`GRADE`,
+t1.`ID`,
+(CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
+t21.`NAME` AS `MODULENAME`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`OWNER`,
+t1.`PARENT`,
+t1.`PATH`,
+t1.`ROOT`,
+t1.`SHORT`,
+t1.`TYPE`
+FROM `zt_module` t1 
+LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
+LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
+
+WHERE t1.DELETED = '0' 
+t1.type = 'doc' 
+t1.parent = ${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} 
+
+```
 ### 数据查询(DEFAULT)<div id="DocLibModule_Default"></div>
 ```sql
 SELECT
