@@ -1905,20 +1905,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '6a667f9ae1a5096ceac93a16d1586978',
-            viewmodule: 'zentao',
-            viewname: 'DocLibProductGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'bfdd5a8d625f1be3f009084fbc16c909',
-                '4503911318e1f1f26599b68a6c6e681d',
-                'a501a42f3adfa826e382e4cbc134a4fc',
-                'f7e64f3828c862a4bce56437e1e51069',
-                '73fbcf0e3685096f63587bcff234f958',
-            ],
-        },
-        {
             viewtag: '6b041208cbc10321a4d9cd74eaac3689',
             viewmodule: 'zentao',
             viewname: 'CaseTestOptionView',
@@ -1937,7 +1923,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '58a943454a652d4f4ce2702d6447c079',
-                '6a667f9ae1a5096ceac93a16d1586978',
+                '22dcf6656e1b870d0427a450cdbd7d20',
                 '07327890c326f9c806b9343f0c660fc1',
                 '9ae49b10ec96e8f7b063be2ed4172247',
                 '522b28992d16207a0fc47340589bb2cf',

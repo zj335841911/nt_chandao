@@ -76,9 +76,9 @@ export default {
 		uiactions: {
 		},
 	},
-	projectgridviewfiletoolbar_toolbar: {
-	},
 	productgridviewtoolbar_toolbar: {
+	},
+	projectgridviewfiletoolbar_toolbar: {
 	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {

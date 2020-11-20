@@ -109,6 +109,14 @@ export default {
         doclib_uncollect: "取消收藏",
 		},
 	},
+	expproductmain_grid: {
+		nodata: "",
+		columns: {
+			name: "文档库名称",
+		},
+		uiactions: {
+		},
+	},
 	productmain_grid: {
 		nodata: "",
 		columns: {
@@ -124,14 +132,6 @@ export default {
         doclib_uncollect: "取消收藏",
 		},
 	},
-	expproductmain_grid: {
-		nodata: "",
-		columns: {
-			name: "文档库名称",
-		},
-		uiactions: {
-		},
-	},
 	usr2editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
@@ -139,12 +139,6 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction1_togglefilter: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-	},
-	productgridviewtoolbar_toolbar: {
 		deuiaction1_togglefilter: {
 			caption: "Filter",
 			tip: "Filter",
@@ -188,13 +182,10 @@ export default {
 			tip: "创建文档",
 		},
 	},
-	projectdoclibtree_treeview: {
-		nodes: {
-			root: "默认根节点",
-			allproject: "所有项目",
-			files: "附件库",
-		},
-		uiactions: {
+	productgridviewtoolbar_toolbar: {
+		deuiaction1_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	doclibtreeproduct_treeview: {
@@ -213,6 +204,15 @@ export default {
 			root: "默认根节点",
 			files: "附件库",
 			allproduct: "所有产品",
+		},
+		uiactions: {
+		},
+	},
+	projectdoclibtree_treeview: {
+		nodes: {
+			root: "默认根节点",
+			allproject: "所有项目",
+			files: "附件库",
 		},
 		uiactions: {
 		},

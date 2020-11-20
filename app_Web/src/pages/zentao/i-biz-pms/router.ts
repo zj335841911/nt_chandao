@@ -6765,20 +6765,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-grid-view9-assigned-to-me/task-grid-view9-assigned-to-me.vue'),
                 },
                 {
-                    path: 'doclibs/:doclib?/productgridview/:productgridview?',
-                    meta: {
-                        caption: 'entities.doclib.views.productgridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'doclibs', parameterName: 'doclib' },
-                            { pathName: 'productgridview', parameterName: 'productgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/doc-lib-product-grid-view/doc-lib-product-grid-view.vue'),
-                },
-                {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/neweditview/:neweditview?',
                     meta: {
                         caption: 'entities.ibzcase.views.neweditview.caption',
