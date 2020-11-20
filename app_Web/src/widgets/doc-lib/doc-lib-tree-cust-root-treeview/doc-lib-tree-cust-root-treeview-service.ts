@@ -462,12 +462,12 @@ export default class DocLibTreeCustRootService extends ControlService {
             let searchFilter: any = {};
 
             if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
-                Object.assign(searchFilter, { n_module_eq: filter.nodeid });
+                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 
 
             if (Object.is(filter.strNodeType, this.TREENODE_CHILDMODULE)) {
-                Object.assign(searchFilter, { n_module_eq: filter.nodeid });
+                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 
             Object.assign(searchFilter, { total: false });
