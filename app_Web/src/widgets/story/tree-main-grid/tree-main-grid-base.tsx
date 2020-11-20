@@ -186,34 +186,6 @@ export class TreeMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u7480d3d_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_OpenBaseInfoEditView(datas,contextJO, paramJO,  $event, xData,this,"Story");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
     public grid_uagridcolumn1_u5aaa4ae_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -386,7 +358,6 @@ export class TreeMainGridBase extends GridControlBase {
         ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', target: 'SINGLEKEY'},
         ReviewStory: { name: 'ReviewStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', target: 'SINGLEKEY'},
         CloseStory: { name: 'CloseStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', target: 'SINGLEKEY'},
-        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_EDIT_BUT', target: 'SINGLEKEY'},
         OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CCASE_BUT', target: 'SINGLEKEY'},
         SubStory: { name: 'SubStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_XQXF_BUT', target: 'SINGLEKEY'},
         Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', target: 'SINGLEKEY'},
@@ -755,9 +726,6 @@ export class TreeMainGridBase extends GridControlBase {
         }
         if(Object.is('CloseStory', tag)) {
             this.grid_uagridcolumn1_u824d7d6_click(row, tag, $event);
-        }
-        if(Object.is('OpenBaseInfoEditView', tag)) {
-            this.grid_uagridcolumn1_u7480d3d_click(row, tag, $event);
         }
         if(Object.is('OpenCaseCreateView', tag)) {
             this.grid_uagridcolumn1_u5aaa4ae_click(row, tag, $event);

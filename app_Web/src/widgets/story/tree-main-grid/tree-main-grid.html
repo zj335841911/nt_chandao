@@ -198,11 +198,6 @@
                                 <i class="fa fa-power-off"></i>
                                 
                             </a>
-                            <divider v-show="scope.row.OpenBaseInfoEditView.visible" type="vertical"></divider>
-                            <a v-show="scope.row.OpenBaseInfoEditView.visible" :disabled="scope.row.OpenBaseInfoEditView.disabled" @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_openbaseinfoeditview')">
-                                <i class="fa fa-edit"></i>
-                                
-                            </a>
                             <divider v-show="scope.row.OpenCaseCreateView.visible" type="vertical"></divider>
                             <a v-show="scope.row.OpenCaseCreateView.visible" :disabled="scope.row.OpenCaseCreateView.disabled" @click="uiAction(scope.row, 'OpenCaseCreateView', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_opencasecreateview')">
                                 <i class="fa fa-lightbulb-o"></i>
