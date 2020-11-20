@@ -258,6 +258,35 @@ export default class DocLibServiceBase extends EntityService {
     }
 
     /**
+     * FetchByProductNotFiles接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async FetchByProductNotFiles(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/doclibs/fetchbyproductnotfiles`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchByProductNotFiles接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async searchByProductNotFiles(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibs/searchbyproductnotfiles`,tempData,isloading);
+    }
+
+    /**
      * FetchByProject接口方法
      *
      * @param {*} [context={}]
@@ -284,6 +313,35 @@ export default class DocLibServiceBase extends EntityService {
     public async searchByProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/doclibs/searchbyproject`,tempData,isloading);
+    }
+
+    /**
+     * FetchByProjectNotFiles接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async FetchByProjectNotFiles(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/doclibs/fetchbyprojectnotfiles`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchByProjectNotFiles接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async searchByProjectNotFiles(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibs/searchbyprojectnotfiles`,tempData,isloading);
     }
 
     /**

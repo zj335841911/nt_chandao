@@ -294,6 +294,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[DocLibDTO](#DocLibDTO)>：文档库实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取产品文档库
+#### 访问路径
+/doclibs/fetchbyproductnotfiles
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocLibSearchContext](#DocLibSearchContext) | 文档库查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[DocLibDTO](#DocLibDTO)>：文档库实体传输对象列表 |
+
+### 查询产品文档库
+#### 访问路径
+/doclibs/searchbyproductnotfiles
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocLibSearchContext](#DocLibSearchContext) | 文档库查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[DocLibDTO](#DocLibDTO)>：文档库实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取项目文件库
 #### 访问路径
 /doclibs/fetchbyproject
@@ -315,6 +351,42 @@ GET
 ### 查询项目文件库
 #### 访问路径
 /doclibs/searchbyproject
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocLibSearchContext](#DocLibSearchContext) | 文档库查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[DocLibDTO](#DocLibDTO)>：文档库实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取项目文件库
+#### 访问路径
+/doclibs/fetchbyprojectnotfiles
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocLibSearchContext](#DocLibSearchContext) | 文档库查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[DocLibDTO](#DocLibDTO)>：文档库实体传输对象列表 |
+
+### 查询项目文件库
+#### 访问路径
+/doclibs/searchbyprojectnotfiles
 
 #### 请求方法
 POST
