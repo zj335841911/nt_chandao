@@ -221,14 +221,14 @@
                                 <i class="iconfont studio-icon-subnets"></i>
                                 
                             </a>
-                            <divider v-show="scope.row.TaskFavorites.visible" type="vertical"></divider>
-                            <a v-show="scope.row.TaskFavorites.visible" :disabled="scope.row.TaskFavorites.disabled" @click="uiAction(scope.row, 'TaskFavorites', $event)" :title="$t('entities.task.taskgroup_grid.uiactions.task_taskfavorites')">
-                                <i class="fa fa-star-o"></i>
-                                
-                            </a>
                             <divider v-show="scope.row.Copy.visible" type="vertical"></divider>
                             <a v-show="scope.row.Copy.visible" :disabled="scope.row.Copy.disabled" @click="uiAction(scope.row, 'Copy', $event)" :title="$t('entities.task.taskgroup_grid.uiactions.copy')">
                                 <i class="fa fa-copy"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.TaskFavorites.visible" type="vertical"></divider>
+                            <a v-show="scope.row.TaskFavorites.visible" :disabled="scope.row.TaskFavorites.disabled" @click="uiAction(scope.row, 'TaskFavorites', $event)" :title="$t('entities.task.taskgroup_grid.uiactions.task_taskfavorites')">
+                                <i class="fa fa-star-o"></i>
                                 
                             </a>
                             <divider v-show="scope.row.TaskNFavorites.visible" type="vertical"></divider>
