@@ -2103,6 +2103,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskCalendarEditView",
             "viewtag": "7f46287768fb888f84467e285f960323"
         },
+        "doclibbyprojecttreeexpview": {
+            "title": "文档库树导航视图（项目下属）",
+            "caption": "项目下属文档库",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "DocLibByProjectTreeExpView",
+            "viewtag": "7f46508e06873e3e19336170cb94d279"
+        },
         "casegridview9": {
             "title": "测试用例表格视图",
             "caption": "测试用例",

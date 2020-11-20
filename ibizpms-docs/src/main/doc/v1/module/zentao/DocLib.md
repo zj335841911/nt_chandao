@@ -1227,9 +1227,10 @@ Save
 | 2 | [产品文档库](#数据查询-产品文档库（ByProduct）) | ByProduct | 否 |
 | 3 | [产品文档库](#数据查询-产品文档库（ByProductNotFiles）) | ByProductNotFiles | 否 |
 | 4 | [项目文件库](#数据查询-项目文件库（ByProject）) | ByProject | 否 |
-| 5 | [所属文档库](#数据查询-所属文档库（CurDocLib）) | CurDocLib | 否 |
-| 6 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 7 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 5 | [项目文件库](#数据查询-项目文件库（ByProjectNotFiles）) | ByProjectNotFiles | 否 |
+| 6 | [所属文档库](#数据查询-所属文档库（CurDocLib）) | CurDocLib | 否 |
+| 7 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-自定义文档库（ByCustom）
 #### 说明
@@ -1331,7 +1332,39 @@ FROM
 #### SQL
 - MYSQL5
 ```SQL
-
+SELECT
+	t1.* 
+FROM
+	(
+	SELECT
+		(
+		CASE
+				
+				WHEN FIND_IN_SET(#{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
+					t1.`ACL`,
+					t1.`DELETED`,
+					t1.`GROUPS`,
+					t1.`ID`,
+					t1.`MAIN`,
+					t1.`NAME`,
+					t1.`ORDER`,
+					t1.`PRODUCT`,
+					t1.`PROJECT`,
+					t1.`TYPE`,
+					'doc' AS DOCLIBTYPE,
+					(
+					SELECT
+						count( 1 ) 
+					FROM
+						zt_doc t 
+					WHERE
+						t.lib = t1.id 
+						AND t.product = t1.product 
+						AND t.deleted = '0' 
+					) AS DOCCNT 
+				FROM
+				`zt_doclib` t1 
+	) t1
 ```
 ### 数据查询-项目文件库（ByProject）
 #### 说明
@@ -1380,6 +1413,53 @@ FROM
 	(select count(1) from zt_file t where ((t.objectType ='project' and t.objectID = #{srf.datacontext.project}) or (t.objectType = 'task' and exists(select 1 from zt_task tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0')) or (t.objectType = 'build' and exists(select 1 from zt_build tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0')) or (t.objectType = 'doc' and EXISTS(select 1 from zt_doc tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0'))) and t.deleted = '0') as DOCCNT
 FROM
 	dual  ) t1
+```
+### 数据查询-项目文件库（ByProjectNotFiles）
+#### 说明
+不含附件库
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.* 
+FROM
+	(
+	SELECT
+		(
+		CASE
+				
+				WHEN FIND_IN_SET(#{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
+					t1.`ACL`,
+					t1.`DELETED`,
+					t1.`GROUPS`,
+					t1.`ID`,
+					t1.`MAIN`,
+					t1.`NAME`,
+					t1.`ORDER`,
+					t1.`PRODUCT`,
+					t1.`PROJECT`,
+					t1.`TYPE`,
+					'doc' AS DOCLIBTYPE,
+					(
+					SELECT
+						count( 1 ) 
+					FROM
+						zt_doc t 
+					WHERE
+						t.lib = t1.id 
+						AND t.project = t1.project 
+						AND t.deleted = '0' 
+					) AS DOCCNT 
+				FROM
+				`zt_doclib` t1 
+	) t1
 ```
 ### 数据查询-所属文档库（CurDocLib）
 #### 说明
@@ -1492,9 +1572,11 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 | ---- | ---- | ---- | ---- |
 | 1 | [自定义文档库](#数据集合-自定义文档库（ByCustom）) | ByCustom | 否 |
 | 2 | [产品文档库](#数据集合-产品文档库（ByProduct）) | ByProduct | 否 |
-| 3 | [项目文件库](#数据集合-项目文件库（ByProject）) | ByProject | 否 |
-| 4 | [所属文档库](#数据集合-所属文档库（CurDocLib）) | CurDocLib | 否 |
-| 5 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 3 | [产品文档库](#数据集合-产品文档库（ByProductNotFiles）) | ByProductNotFiles | 否 |
+| 4 | [项目文件库](#数据集合-项目文件库（ByProject）) | ByProject | 否 |
+| 5 | [项目文件库](#数据集合-项目文件库（ByProjectNotFiles）) | ByProjectNotFiles | 否 |
+| 6 | [所属文档库](#数据集合-所属文档库（CurDocLib）) | CurDocLib | 否 |
+| 7 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 
 ### 数据集合-自定义文档库（ByCustom）
 #### 说明
@@ -1524,6 +1606,20 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品文档库（ByProduct）](#数据查询-产品文档库（ByProduct）) |
+### 数据集合-产品文档库（ByProductNotFiles）
+#### 说明
+产品文档库
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品文档库（ByProductNotFiles）](#数据查询-产品文档库（ByProductNotFiles）) |
 ### 数据集合-项目文件库（ByProject）
 #### 说明
 项目文件库
@@ -1538,6 +1634,20 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [项目文件库（ByProject）](#数据查询-项目文件库（ByProject）) |
+### 数据集合-项目文件库（ByProjectNotFiles）
+#### 说明
+项目文件库
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目文件库（ByProjectNotFiles）](#数据查询-项目文件库（ByProjectNotFiles）) |
 ### 数据集合-所属文档库（CurDocLib）
 #### 说明
 所属文档库

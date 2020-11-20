@@ -470,6 +470,7 @@ SRFNAVPARAM.project=%project%|
 |-|文档库分页导航视图（文档）|DETABEXPVIEW|&nbsp;|
 |-|工时|DEEDITVIEW|&nbsp;|
 |-|测试版本编辑视图（日历导航）|DEEDITVIEW|&nbsp;|
+|-|文档库树导航视图（项目下属）|DETREEEXPVIEW|&nbsp;|
 |-|测试用例表格视图|DEGRIDVIEW9|&nbsp;|
 |-|完成|DEOPTVIEW|&nbsp;|
 |-|用例库用例步骤表格视图（主数据）|DEGRIDVIEW9|&nbsp;|

@@ -5533,6 +5533,41 @@ WHERE t1.type = 'product'  AND t1.deleted = '0'
 ```
 ### 产品文档库(ByProductNotFiles)<div id="DocLib_ByProductNotFiles"></div>
 ```sql
+SELECT
+	t1.* 
+FROM
+	(
+	SELECT
+		(
+		CASE
+				
+				WHEN FIND_IN_SET(#{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
+					t1.`ACL`,
+					t1.`DELETED`,
+					t1.`GROUPS`,
+					t1.`ID`,
+					t1.`MAIN`,
+					t1.`NAME`,
+					t1.`ORDER`,
+					t1.`PRODUCT`,
+					t1.`PROJECT`,
+					t1.`TYPE`,
+					'doc' AS DOCLIBTYPE,
+					(
+					SELECT
+						count( 1 ) 
+					FROM
+						zt_doc t 
+					WHERE
+						t.lib = t1.id 
+						AND t.product = t1.product 
+						AND t.deleted = '0' 
+					) AS DOCCNT 
+				FROM
+				`zt_doclib` t1 
+	) t1
+WHERE t1.type = 'product'  AND t1.deleted = '0' 
+ t1.`PRODUCT` = #{srf.datacontext.product} 
 
 ```
 ### 项目文件库(ByProject)<div id="DocLib_ByProject"></div>
@@ -5571,6 +5606,45 @@ FROM
 	(select count(1) from zt_file t where ((t.objectType ='project' and t.objectID = #{srf.datacontext.project}) or (t.objectType = 'task' and exists(select 1 from zt_task tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0')) or (t.objectType = 'build' and exists(select 1 from zt_build tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0')) or (t.objectType = 'doc' and EXISTS(select 1 from zt_doc tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0'))) and t.deleted = '0') as DOCCNT
 FROM
 	dual  ) t1
+WHERE t1.type = 'project'  AND t1.deleted = '0' 
+t1.project = #{srf.datacontext.project} 
+
+```
+### 项目文件库(ByProjectNotFiles)<div id="DocLib_ByProjectNotFiles"></div>
+```sql
+SELECT
+	t1.* 
+FROM
+	(
+	SELECT
+		(
+		CASE
+				
+				WHEN FIND_IN_SET(#{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
+					t1.`ACL`,
+					t1.`DELETED`,
+					t1.`GROUPS`,
+					t1.`ID`,
+					t1.`MAIN`,
+					t1.`NAME`,
+					t1.`ORDER`,
+					t1.`PRODUCT`,
+					t1.`PROJECT`,
+					t1.`TYPE`,
+					'doc' AS DOCLIBTYPE,
+					(
+					SELECT
+						count( 1 ) 
+					FROM
+						zt_doc t 
+					WHERE
+						t.lib = t1.id 
+						AND t.project = t1.project 
+						AND t.deleted = '0' 
+					) AS DOCCNT 
+				FROM
+				`zt_doclib` t1 
+	) t1
 WHERE t1.type = 'project'  AND t1.deleted = '0' 
 t1.project = #{srf.datacontext.project} 
 

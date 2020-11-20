@@ -13215,6 +13215,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/doc-mian-bedit-view9/doc-mian-bedit-view9.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/byprojecttreeexpview/:byprojecttreeexpview?',
+                    meta: {
+                        caption: 'entities.doclib.views.byprojecttreeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'byprojecttreeexpview', parameterName: 'byprojecttreeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/doc-lib-by-project-tree-exp-view/doc-lib-by-project-tree-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/maingridview_bymodule/:maingridview_bymodule?',
                     meta: {
                         caption: 'entities.story.views.maingridview_bymodule.caption',

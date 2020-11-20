@@ -332,6 +332,7 @@ export const PageComponents = {
         Vue.component('employeeloadgrid-view', () => import('@pages/ibiz/employeeloadgrid-view/employeeloadgrid-view.vue'));
         Vue.component('product-test-grid-view', () => import('@pages/zentao/product-test-grid-view/product-test-grid-view.vue'));
         Vue.component('doc-mian-bedit-view9', () => import('@pages/zentao/doc-mian-bedit-view9/doc-mian-bedit-view9.vue'));
+        Vue.component('doc-lib-by-project-tree-exp-view', () => import('@pages/ibiz/doc-lib-by-project-tree-exp-view/doc-lib-by-project-tree-exp-view.vue'));
         Vue.component('story-main-grid-view-by-module', () => import('@pages/zentao/story-main-grid-view-by-module/story-main-grid-view-by-module.vue'));
         Vue.component('sys-update-features-last-grid-view', () => import('@pages/ibiz/sys-update-features-last-grid-view/sys-update-features-last-grid-view.vue'));
         Vue.component('ibz-project-member-edit-view9', () => import('@pages/ibiz/ibz-project-member-edit-view9/ibz-project-member-edit-view9.vue'));
