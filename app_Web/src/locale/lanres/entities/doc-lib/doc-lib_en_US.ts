@@ -270,6 +270,7 @@ export default {
 	productleftdoclibtree_treeview: {
 		nodes: {
 			root: "默认根节点",
+			files: "附件库",
 			all: "所有文档库",
 		},
 		uiactions: {

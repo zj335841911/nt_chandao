@@ -536,13 +536,13 @@ export default class DocLibTreeProjectService extends ControlService {
             }
             const _appEntityService: any = this.docService;
             let list: any[] = [];
-            if (_appEntityService['FetchDocLibDoc'] && _appEntityService['FetchDocLibDoc'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchDocLibDoc'](context, searchFilter, false);
+            if (_appEntityService['FetchRootDoc'] && _appEntityService['FetchRootDoc'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchRootDoc'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchDocLibDoc数据集异常!');
+                        console.error('查询FetchRootDoc数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -554,7 +554,7 @@ export default class DocLibTreeProjectService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchDocLibDoc数据集异常!');
+                        console.error('查询FetchRootDoc数据集异常!');
                 });
             }
         })
@@ -619,7 +619,7 @@ export default class DocLibTreeProjectService extends ControlService {
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
-                        Object.assign(treeNode, { leaf: true });
+                        Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
@@ -706,7 +706,17 @@ export default class DocLibTreeProjectService extends ControlService {
     @Errorlog
     public async fillModuleanddocNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+			// 填充文档库分类和文档
+            let ModuleanddocRsNavContext:any = {};
+            let ModuleanddocRsNavParams:any = {};
+            let ModuleanddocRsParams:any = {};
+			await this.fillModuleanddocNodes(context, filter, list ,ModuleanddocRsNavContext,ModuleanddocRsNavParams,ModuleanddocRsParams);
 		} else {
+			// 填充文档库分类和文档
+            let ModuleanddocRsNavContext:any = {};
+            let ModuleanddocRsNavParams:any = {};
+            let ModuleanddocRsParams:any = {};
+			await this.fillModuleanddocNodes(context, filter, list ,ModuleanddocRsNavContext,ModuleanddocRsNavParams,ModuleanddocRsParams);
 		}
 	}
 
