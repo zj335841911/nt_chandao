@@ -178,45 +178,45 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.ChangeStoryDetail.visible" :disabled="scope.row.ChangeStoryDetail.disabled" @click="uiAction(scope.row, 'ChangeStoryDetail', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_changestorydetail')">
-                            <i class='fa fa-exchange'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.ReviewStory.visible" type='vertical'></divider>
-                          <a v-show="scope.row.ReviewStory.visible" :disabled="scope.row.ReviewStory.disabled" @click="uiAction(scope.row, 'ReviewStory', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_reviewstory')">
-                            <i class='fa fa-search'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.CloseStory.visible" type='vertical'></divider>
-                          <a v-show="scope.row.CloseStory.visible" :disabled="scope.row.CloseStory.disabled" @click="uiAction(scope.row, 'CloseStory', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_closestory')">
-                            <i class='fa fa-power-off'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.OpenBaseInfoEditView.visible" type='vertical'></divider>
-                          <a v-show="scope.row.OpenBaseInfoEditView.visible" :disabled="scope.row.OpenBaseInfoEditView.disabled" @click="uiAction(scope.row, 'OpenBaseInfoEditView', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_openbaseinfoeditview')">
-                            <i class='fa fa-edit'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.OpenCaseCreateView.visible" type='vertical'></divider>
-                          <a v-show="scope.row.OpenCaseCreateView.visible" :disabled="scope.row.OpenCaseCreateView.disabled" @click="uiAction(scope.row, 'OpenCaseCreateView', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_opencasecreateview')">
-                            <i class='fa fa-lightbulb-o'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.SubStory.visible" type='vertical'></divider>
-                          <a v-show="scope.row.SubStory.visible" :disabled="scope.row.SubStory.disabled" @click="uiAction(scope.row, 'SubStory', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_substory')">
-                            <i class='iconfont studio-icon-subnets'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.StoryFavorites.visible" type='vertical'></divider>
-                          <a v-show="scope.row.StoryFavorites.visible" :disabled="scope.row.StoryFavorites.disabled" @click="uiAction(scope.row, 'StoryFavorites', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_storyfavorites')">
-                            <i class='fa fa-star-o'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.StoryNFavorites.visible" type='vertical'></divider>
-                          <a v-show="scope.row.StoryNFavorites.visible" :disabled="scope.row.StoryNFavorites.disabled" @click="uiAction(scope.row, 'StoryNFavorites', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_storynfavorites')">
-                            <i class='fa fa-star'></i>
-                            
-                          </a>
+                            <a v-show="scope.row.ChangeStoryDetail.visible" :disabled="scope.row.ChangeStoryDetail.disabled" @click="uiAction(scope.row, 'ChangeStoryDetail', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_changestorydetail')">
+                                 <i class="fa fa-exchange"></i>
+
+                             </a>
+                             <divider v-show="scope.row.ReviewStory.visible" type="vertical"></divider>
+                             <a v-show="scope.row.ReviewStory.visible" :disabled="scope.row.ReviewStory.disabled" @click="uiAction(scope.row, 'ReviewStory', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_reviewstory')">
+                                 <i class="fa fa-search"></i>
+
+                             </a>
+                             <divider v-show="scope.row.CloseStory.visible" type="vertical"></divider>
+                             <a v-show="scope.row.CloseStory.visible" :disabled="scope.row.CloseStory.disabled" @click="uiAction(scope.row, 'CloseStory', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_closestory')">
+                                 <i class="fa fa-power-off"></i>
+
+                             </a>
+                             <divider v-show="scope.row.OpenCaseCreateView.visible" type="vertical"></divider>
+                             <a v-show="scope.row.OpenCaseCreateView.visible" :disabled="scope.row.OpenCaseCreateView.disabled" @click="uiAction(scope.row, 'OpenCaseCreateView', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_opencasecreateview')">
+                                 <i class="fa fa-lightbulb-o"></i>
+
+                             </a>
+                             <divider v-show="scope.row.SubStory.visible" type="vertical"></divider>
+                             <a v-show="scope.row.SubStory.visible" :disabled="scope.row.SubStory.disabled" @click="uiAction(scope.row, 'SubStory', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_substory')">
+                                 <i class="iconfont studio-icon-subnets"></i>
+
+                             </a>
+                             <divider v-show="scope.row.Copy.visible" type="vertical"></divider>
+                             <a v-show="scope.row.Copy.visible" :disabled="scope.row.Copy.disabled" @click="uiAction(scope.row, 'Copy', $event)" :title="$t('entities.story.treemain_grid.uiactions.copy')">
+                                 <i class="fa fa-copy"></i>
+
+                             </a>
+                             <divider v-show="scope.row.StoryFavorites.visible" type="vertical"></divider>
+                             <a v-show="scope.row.StoryFavorites.visible" :disabled="scope.row.StoryFavorites.disabled" @click="uiAction(scope.row, 'StoryFavorites', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_storyfavorites')">
+                                 <i class="fa fa-star-o"></i>
+
+                             </a>
+                             <divider v-show="scope.row.StoryNFavorites.visible" type="vertical"></divider>
+                             <a v-show="scope.row.StoryNFavorites.visible" :disabled="scope.row.StoryNFavorites.disabled" @click="uiAction(scope.row, 'StoryNFavorites', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_storynfavorites')">
+                                 <i class="fa fa-star"></i>
+
+                             </a>
                         </div>
                     </template>
                 </el-table-column>
