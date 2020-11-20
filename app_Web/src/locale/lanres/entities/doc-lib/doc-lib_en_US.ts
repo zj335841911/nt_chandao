@@ -199,20 +199,20 @@ export default {
         doclib_collect: "收藏",
 		},
 	},
-	looproductdoclibtree_treeview: {
-		nodes: {
-			root: "默认根节点",
-			files: "附件库",
-			allproduct: "所有产品",
-		},
-		uiactions: {
-		},
-	},
 	projectdoclibtree_treeview: {
 		nodes: {
 			root: "默认根节点",
 			allproject: "所有项目",
 			files: "附件库",
+		},
+		uiactions: {
+		},
+	},
+	looproductdoclibtree_treeview: {
+		nodes: {
+			root: "默认根节点",
+			files: "附件库",
+			allproduct: "所有产品",
 		},
 		uiactions: {
 		},
