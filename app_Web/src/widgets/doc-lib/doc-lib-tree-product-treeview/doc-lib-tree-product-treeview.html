@@ -1,8 +1,73 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if item.isShowCaption()  [in template "TEMPLCODE_en_US" at line 57, column 25]
-----
+<div class="documents-library">
+    <div class="documents-library-operation">
+        <Breadcrumb separator=">">
+            <template v-for="(item,index) in breadcrumbs">
+                <BreadcrumbItem :key="index">
+                    <Icon v-if="index === 0" @click="handleLink(item).apply(_self, arguments)" type="md-folder" size="25" color="rgb(255, 202, 40)" />
+                    <a v-else-if="index < breadcrumbs.length-1" @click="handleLink(item)" >{{ item.curData.name }}</a>
+                    <span v-else >{{ item.curData.name }}</span>
+                </BreadcrumbItem>
+            </template>
+        </Breadcrumb>
+        <ButtonGroup>
+            <Button icon="md-apps" @click="modalityChange('chart').apply(_self, arguments)"></Button>
+            <Button icon="md-menu" @click="modalityChange('list').apply(_self, arguments)"></Button>
+        </ButtonGroup>
+    </div>
+    <div v-show="Object.is(modality, 'chart')" class="documents-library-chart">
+        <template v-for="(item,index) in items">
+            <div :key="index" class="chart-item">
+                <div @dblclick="openNode(item).apply(_self, arguments)">
+                    <Icon v-if="!item.leaf" type="md-folder" size="70" color="rgb(255, 202, 40)"/>
+                    <Icon v-else type="md-document" size="70" color="darkgrey"/>
+                </div>
+                <div>
+                    <a @click="openNode(item).apply(_self, arguments)">
+                        <span>{{ item.curData.name }}</span>
+                    </a>
+                </div>
+            </div>
+        </template>
+    </div>
+    <div v-show="Object.is(modality, 'list')" class="documents-library-list">
+        <template v-for="(item,index) in items">
+            <div :key="index" class="list-item">
+                <div>
+                    <span @click="openNode(item).apply(_self, arguments)">
+                        <Icon type="md-folder" color="rgb(255, 202, 40)" size="20" /><a>{{ item.curData.name }}</a>
+                    </span>
+                </div>
+                <div v-if="item.curData.copyActionModel">
+                    <a 
+                        class="list-row-action" 
+                        @click="doclib_cm_click('deuiaction1').apply(_self, arguments)" 
+                        v-show="item.curData.copyActionModel['deuiaction1'].visible"
+                        :disabled="item.curData.copyActionModel['deuiaction1'].disabled">
+                        <i class='fa fa-edit'></i>
+                    </a>
+                    <a 
+                        class="list-row-action" 
+                        @click="doclib_cm_click('deuiaction2').apply(_self, arguments)" 
+                        v-show="item.curData.copyActionModel['deuiaction2'].visible"
+                        :disabled="item.curData.copyActionModel['deuiaction2'].disabled">
+                        <i class='fa fa-lock'></i>
+                    </a>
+                    <a 
+                        class="list-row-action" 
+                        @click="doclib_cm_click('deuiaction3').apply(_self, arguments)" 
+                        v-show="item.curData.copyActionModel['deuiaction3'].visible"
+                        :disabled="item.curData.copyActionModel['deuiaction3'].disabled">
+                        <i class='fa fa-star'></i>
+                    </a>
+                    <a 
+                        class="list-row-action" 
+                        @click="doclib_cm_click('deuiaction4').apply(_self, arguments)" 
+                        v-show="item.curData.copyActionModel['deuiaction4'].visible"
+                        :disabled="item.curData.copyActionModel['deuiaction4'].disabled">
+                        <i class='fa fa-star-o'></i>
+                    </a>
+                </div>
+            </div>
+        </template>
+    </div>
+</div>
