@@ -5084,7 +5084,7 @@ t2.product as `PRODUCT`,
 0 as `PROJECT`,
 '' AS `PROJECTNAME`,
 t1.`name` as `TITLE`,
-t1.type as `TYPE`,
+'module' as `TYPE`,
 1 as `VERSION`,
 '' as `VIEWS`, 'module' as DOCQTYPE from zt_module t1 
 LEFT JOIN zt_doclib t2 on t2.id = t1.root
