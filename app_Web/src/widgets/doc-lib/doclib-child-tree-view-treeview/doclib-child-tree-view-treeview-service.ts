@@ -302,13 +302,13 @@ export default class DoclibChildTreeViewService extends ControlService {
             }
             const _appEntityService: any = this.docService;
             let list: any[] = [];
-            if (_appEntityService['FetchDocLibAndDoc'] && _appEntityService['FetchDocLibAndDoc'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchDocLibAndDoc'](context, searchFilter, false);
+            if (_appEntityService['FetchRootDoc'] && _appEntityService['FetchRootDoc'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchRootDoc'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchDocLibAndDoc数据集异常!');
+                        console.error('查询FetchRootDoc数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -320,7 +320,7 @@ export default class DoclibChildTreeViewService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchDocLibAndDoc数据集异常!');
+                        console.error('查询FetchRootDoc数据集异常!');
                 });
             }
         })

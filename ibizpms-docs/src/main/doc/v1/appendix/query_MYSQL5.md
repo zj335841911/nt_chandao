@@ -5347,6 +5347,8 @@ LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID
 LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID 
 
 WHERE t1.DELETED = '0' 
+t1.module = '0' 
+t1.lib = ${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="Doc_View"></div>

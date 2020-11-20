@@ -2400,6 +2400,7 @@ LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID
 | 5 | [文档库分类文档](#数据集合-文档库分类文档（DocModuleDoc）) | DocModuleDoc | 否 |
 | 6 | [文档统计](#数据集合-文档统计（DocStatus）) | DocStatus | 否 |
 | 7 | [我的收藏](#数据集合-我的收藏（MyFavourite）) | MyFavourite | 否 |
+| 8 | [根目录文档](#数据集合-根目录文档（RootDoc）) | RootDoc | 否 |
 
 ### 数据集合-文档库文档（子库）（ChildDocLibDoc）
 #### 说明
@@ -2499,6 +2500,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我的收藏（MyFavourite）](#数据查询-我的收藏（MyFavourite）) |
+### 数据集合-根目录文档（RootDoc）
+#### 说明
+根目录文档
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [根目录文档（RootDoc）](#数据查询-根目录文档（RootDoc）) |
 
 ## 数据导入
 无

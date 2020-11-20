@@ -430,4 +430,33 @@ export default class DocServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/docs/searchmyfavourite`,tempData,isloading);
     }
+
+    /**
+     * FetchRootDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async FetchRootDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/docs/fetchrootdoc`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchRootDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchRootDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchrootdoc`,tempData,isloading);
+    }
 }

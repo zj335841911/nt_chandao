@@ -164,6 +164,7 @@ hide footbox
 |DocModuleDoc|文档库分类文档|DocModuleDoc|否|&nbsp;|
 |DocStatus|文档统计|DocStatus|否|&nbsp;|
 |MYFAVOURITE|我的收藏|MYFAVOURITE|否|&nbsp;|
+|RootDoc|根目录文档|RootDoc|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

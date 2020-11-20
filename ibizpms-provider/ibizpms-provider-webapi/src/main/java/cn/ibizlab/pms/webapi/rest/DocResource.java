@@ -333,6 +333,28 @@ public class DocResource {
                 .body(new PageImpl(docMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchRootDoc-all')")
+	@ApiOperation(value = "获取根目录文档", tags = {"文档" } ,notes = "获取根目录文档")
+    @RequestMapping(method= RequestMethod.GET , value="/docs/fetchrootdoc")
+	public ResponseEntity<List<DocDTO>> fetchRootDoc(DocSearchContext context) {
+        Page<Doc> domains = docService.searchRootDoc(context) ;
+        List<DocDTO> list = docMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchRootDoc-all')")
+	@ApiOperation(value = "查询根目录文档", tags = {"文档" } ,notes = "查询根目录文档")
+    @RequestMapping(method= RequestMethod.POST , value="/docs/searchrootdoc")
+	public ResponseEntity<Page<DocDTO>> searchRootDoc(@RequestBody DocSearchContext context) {
+        Page<Doc> domains = docService.searchRootDoc(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(docMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 
