@@ -331,7 +331,7 @@ export class Main_CopyGridBase extends GridControlBase {
         ResolveBug: { name: 'ResolveBug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', actiontarget: 'SINGLEKEY'},
         CloseBug: { name: 'CloseBug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
         MainEdit: { name: 'MainEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
+        Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
         BugFavorites: { name: 'BugFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
         BugNFavorites: { name: 'BugNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
     };

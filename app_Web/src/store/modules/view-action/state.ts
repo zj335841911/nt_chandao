@@ -2859,6 +2859,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '97f56de6c7228abfcf66f475eba07030',
+            viewmodule: 'zentao',
+            viewname: 'DocLibTreeViewProductRoot',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '983aa1b77ca021f30978523ddef010a0',
             viewmodule: 'zentao',
             viewname: 'ReleaseMainInfoView',
