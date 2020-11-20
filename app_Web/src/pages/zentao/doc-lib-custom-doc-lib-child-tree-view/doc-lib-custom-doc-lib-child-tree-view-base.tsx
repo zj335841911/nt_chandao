@@ -80,7 +80,7 @@ export class DocLibCustomDocLibChildTreeViewBase extends TreeViewBase {
         },
         'n_module_eq': {
             isRawValue: false,
-            value: 'srfparentkey:',
+            value: 'srfparentkey',
         }
     };
 

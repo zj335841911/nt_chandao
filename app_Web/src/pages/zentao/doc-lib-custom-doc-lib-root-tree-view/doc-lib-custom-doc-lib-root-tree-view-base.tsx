@@ -76,7 +76,7 @@ export class DocLibCustomDocLibRootTreeViewBase extends TreeViewBase {
     protected customViewParams: any = {
         'n_root_eq': {
             isRawValue: false,
-            value: 'srfparentkey:',
+            value: 'srfparentkey',
         }
     };
 
