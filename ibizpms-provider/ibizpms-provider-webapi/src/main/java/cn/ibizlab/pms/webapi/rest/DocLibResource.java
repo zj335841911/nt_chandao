@@ -201,28 +201,6 @@ public class DocLibResource {
                 .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProductNotFiles-all') and hasPermission(#context,'pms-DocLib-Get')")
-	@ApiOperation(value = "获取产品文档库", tags = {"文档库" } ,notes = "获取产品文档库")
-    @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchbyproductnotfiles")
-	public ResponseEntity<List<DocLibDTO>> fetchByProductNotFiles(DocLibSearchContext context) {
-        Page<DocLib> domains = doclibService.searchByProductNotFiles(context) ;
-        List<DocLibDTO> list = doclibMapping.toDto(domains.getContent());
-        return ResponseEntity.status(HttpStatus.OK)
-                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
-                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
-                .header("x-total", String.valueOf(domains.getTotalElements()))
-                .body(list);
-	}
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProductNotFiles-all') and hasPermission(#context,'pms-DocLib-Get')")
-	@ApiOperation(value = "查询产品文档库", tags = {"文档库" } ,notes = "查询产品文档库")
-    @RequestMapping(method= RequestMethod.POST , value="/doclibs/searchbyproductnotfiles")
-	public ResponseEntity<Page<DocLibDTO>> searchByProductNotFiles(@RequestBody DocLibSearchContext context) {
-        Page<DocLib> domains = doclibService.searchByProductNotFiles(context) ;
-	    return ResponseEntity.status(HttpStatus.OK)
-                .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
-	}
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProject-all') and hasPermission(#context,'pms-DocLib-Get')")
 	@ApiOperation(value = "获取项目文件库", tags = {"文档库" } ,notes = "获取项目文件库")
     @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchbyproject")
@@ -241,28 +219,6 @@ public class DocLibResource {
     @RequestMapping(method= RequestMethod.POST , value="/doclibs/searchbyproject")
 	public ResponseEntity<Page<DocLibDTO>> searchByProject(@RequestBody DocLibSearchContext context) {
         Page<DocLib> domains = doclibService.searchByProject(context) ;
-	    return ResponseEntity.status(HttpStatus.OK)
-                .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
-	}
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProjectNotFiles-all') and hasPermission(#context,'pms-DocLib-Get')")
-	@ApiOperation(value = "获取项目文件库", tags = {"文档库" } ,notes = "获取项目文件库")
-    @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchbyprojectnotfiles")
-	public ResponseEntity<List<DocLibDTO>> fetchByProjectNotFiles(DocLibSearchContext context) {
-        Page<DocLib> domains = doclibService.searchByProjectNotFiles(context) ;
-        List<DocLibDTO> list = doclibMapping.toDto(domains.getContent());
-        return ResponseEntity.status(HttpStatus.OK)
-                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
-                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
-                .header("x-total", String.valueOf(domains.getTotalElements()))
-                .body(list);
-	}
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProjectNotFiles-all') and hasPermission(#context,'pms-DocLib-Get')")
-	@ApiOperation(value = "查询项目文件库", tags = {"文档库" } ,notes = "查询项目文件库")
-    @RequestMapping(method= RequestMethod.POST , value="/doclibs/searchbyprojectnotfiles")
-	public ResponseEntity<Page<DocLibDTO>> searchByProjectNotFiles(@RequestBody DocLibSearchContext context) {
-        Page<DocLib> domains = doclibService.searchByProjectNotFiles(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

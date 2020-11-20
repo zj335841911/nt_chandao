@@ -435,50 +435,6 @@ mock.onGet(new RegExp(/^\/doclibs\/fetchbyproduct(\?[\w-./?%&=,]*)*$/)).reply((c
     return [status, records ?  records : []];
 });
     
-// FetchByProductNotFiles
-mock.onGet(new RegExp(/^\/doclibs\/fetchbyproductnotfiles$/)).reply((config: any) => {
-    console.groupCollapsed("实体:doclib 方法: FetchByProductNotFiles");
-    console.table({url:config.url, method: config.method, data:config.data});
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    console.groupCollapsed("response数据  status: "+status+" data: ");
-    console.table(mockDatas);
-    console.groupEnd();
-    console.groupEnd();
-    return [status, mockDatas ? mockDatas : []];
-});
-
-// FetchByProductNotFiles
-mock.onGet(new RegExp(/^\/doclibs\/fetchbyproductnotfiles(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:doclib 方法: FetchByProductNotFiles");
-    console.table({url:config.url, method: config.method, data:config.data});
-    if(config.url.includes('page')){
-        let url = config.url.split('?')[1];
-        let params  =  qs.parse(url);
-        Object.assign(config, params);
-    }
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    let total = mockDatas.length;
-    let records: Array<any> = [];
-    if(!config.page || !config.size){
-        records = mockDatas;
-    }else{
-        if((config.page-1)*config.size < total){
-          records = mockDatas.slice(config.page,config.size);
-        }
-    }
-    console.groupCollapsed("response数据  status: "+status+" data: ");
-    console.table(records ?  records : []);
-    console.groupEnd();
-    console.groupEnd();
-    return [status, records ?  records : []];
-});
-    
 // FetchByProject
 mock.onGet(new RegExp(/^\/doclibs\/fetchbyproject$/)).reply((config: any) => {
     console.groupCollapsed("实体:doclib 方法: FetchByProject");
@@ -497,50 +453,6 @@ mock.onGet(new RegExp(/^\/doclibs\/fetchbyproject$/)).reply((config: any) => {
 // FetchByProject
 mock.onGet(new RegExp(/^\/doclibs\/fetchbyproject(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
     console.groupCollapsed("实体:doclib 方法: FetchByProject");
-    console.table({url:config.url, method: config.method, data:config.data});
-    if(config.url.includes('page')){
-        let url = config.url.split('?')[1];
-        let params  =  qs.parse(url);
-        Object.assign(config, params);
-    }
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    let total = mockDatas.length;
-    let records: Array<any> = [];
-    if(!config.page || !config.size){
-        records = mockDatas;
-    }else{
-        if((config.page-1)*config.size < total){
-          records = mockDatas.slice(config.page,config.size);
-        }
-    }
-    console.groupCollapsed("response数据  status: "+status+" data: ");
-    console.table(records ?  records : []);
-    console.groupEnd();
-    console.groupEnd();
-    return [status, records ?  records : []];
-});
-    
-// FetchByProjectNotFiles
-mock.onGet(new RegExp(/^\/doclibs\/fetchbyprojectnotfiles$/)).reply((config: any) => {
-    console.groupCollapsed("实体:doclib 方法: FetchByProjectNotFiles");
-    console.table({url:config.url, method: config.method, data:config.data});
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }
-    console.groupCollapsed("response数据  status: "+status+" data: ");
-    console.table(mockDatas);
-    console.groupEnd();
-    console.groupEnd();
-    return [status, mockDatas ? mockDatas : []];
-});
-
-// FetchByProjectNotFiles
-mock.onGet(new RegExp(/^\/doclibs\/fetchbyprojectnotfiles(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:doclib 方法: FetchByProjectNotFiles");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];
