@@ -3169,6 +3169,16 @@
         "viewtag": "97f38c5fa6f63f69e18299306eae9077",
         "memo": ""
     },
+    "doclibtreeviewproductroot": {
+        "title": "文档库树视图",
+        "caption": "文档库",
+        "viewtype": "DETREEVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocLibTreeViewProductRoot",
+        "viewfilename": "doc-lib-tree-view-product-root",
+        "viewtag": "97f56de6c7228abfcf66f475eba07030",
+        "memo": ""
+    },
     "releasemaininfoview": {
         "title": "发布编辑视图",
         "caption": "发布",

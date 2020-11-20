@@ -525,6 +525,7 @@ SRFNAVPARAM.project=%project%|
 |-|需求|DEPICKUPGRIDVIEW|&nbsp;用于【版本】关联【需求】，显示项目下的所有需求。|
 |-|产品动态|DELISTVIEW9|&nbsp;|
 |-|团队|DEGRIDVIEW9|&nbsp;|
+|-|文档库树视图|DETREEVIEW|&nbsp;|
 |-|发布编辑视图|DEEDITVIEW|&nbsp;|
 |-|路线图|DELISTVIEW9|&nbsp;视图参数转换|
 |-|用例|DETREEEXPVIEW|&nbsp;|

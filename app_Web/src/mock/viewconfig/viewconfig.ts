@@ -2543,6 +2543,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskTeamGridView9_Look",
             "viewtag": "97f38c5fa6f63f69e18299306eae9077"
         },
+        "doclibtreeviewproductroot": {
+            "title": "文档库树视图",
+            "caption": "文档库",
+            "viewtype": "DETREEVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibTreeViewProductRoot",
+            "viewtag": "97f56de6c7228abfcf66f475eba07030"
+        },
         "releasemaininfoview": {
             "title": "发布编辑视图",
             "caption": "发布",
