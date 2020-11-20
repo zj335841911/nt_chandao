@@ -246,6 +246,7 @@ export const PageComponents = {
         Vue.component('build-main-tab-exp-view', () => import('@pages/zentao/build-main-tab-exp-view/build-main-tab-exp-view.vue'));
         Vue.component('todo-assign-to-view', () => import('@pages/zentao/todo-assign-to-view/todo-assign-to-view.vue'));
         Vue.component('bug-grid-view9-story-form-bug', () => import('@pages/zentao/bug-grid-view9-story-form-bug/bug-grid-view9-story-form-bug.vue'));
+        Vue.component('doc-lib-tree-view-product-root', () => import('@pages/zentao/doc-lib-tree-view-product-root/doc-lib-tree-view-product-root.vue'));
         Vue.component('file-product-grid-view', () => import('@pages/zentao/file-product-grid-view/file-product-grid-view.vue'));
         Vue.component('file-list-view9', () => import('@pages/zentao/file-list-view9/file-list-view9.vue'));
         Vue.component('build-edit-view', () => import('@pages/zentao/build-edit-view/build-edit-view.vue'));

@@ -9848,6 +9848,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-grid-view9-story-form-bug/bug-grid-view9-story-form-bug.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/treeviewproductroot/:treeviewproductroot?',
+                    meta: {
+                        caption: 'entities.doclib.views.treeviewproductroot.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'treeviewproductroot', parameterName: 'treeviewproductroot' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-tree-view-product-root/doc-lib-tree-view-product-root.vue'),
+                },
+                {
                     path: 'files/:file?/productgridview/:productgridview?',
                     meta: {
                         caption: 'entities.file.views.productgridview.caption',

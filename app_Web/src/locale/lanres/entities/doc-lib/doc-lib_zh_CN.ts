@@ -239,6 +239,13 @@ export default {
 		uiactions: {
 		},
 	},
+	doclibchildtreeview_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
 	looproductdoclibtree_treeview: {
 		nodes: {
 			root: "默认根节点",
@@ -275,13 +282,6 @@ export default {
 			doclib_editcustomdoclib: "编辑",
 			refreshall: "刷新",
 			doclib_weihufenlei: "维护分类",
-		},
-	},
-	doclibchildtreeview_treeview: {
-		nodes: {
-			root: "默认根节点",
-		},
-		uiactions: {
 		},
 	},
 };
