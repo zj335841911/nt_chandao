@@ -108,13 +108,6 @@ export class CustomTreeExpView_9296treeexpbarTreeExpBarBase extends TreeExpBarCo
         if (!expmode) {
             expmode = '';
         }
-        if (Object.is(expmode, 'FILES')) {
-            return {  
-                viewname: 'file-product-grid-view', 
-                parentdata: {},
-                deKeyField:'file'
-			};
-        }
         if (Object.is(expmode, 'CHILDDOCLIBMODULE')) {
             return {  
                 viewname: 'doc-lib-custom-doc-lib-child-tree-view', 

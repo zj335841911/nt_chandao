@@ -5100,10 +5100,10 @@ public class StaticDict {
      */
     @Getter
     public enum Bug__severity {
-        ITEM_1(1,"1"),
-        ITEM_2(2,"2"),
-        ITEM_3(3,"3"),
-        ITEM_4(4,"4");
+        ITEM_1(1,"致命"),
+        ITEM_2(2,"严重"),
+        ITEM_3(3,"一般"),
+        ITEM_4(4,"轻微");
 
         private int value;
         private String text;

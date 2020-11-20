@@ -1107,8 +1107,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         items: [
             {
                 id: "1",
-                label: "1",
-                text: "1",
+                label: "致命",
+                text: "致命",
                 "data":"",
                 "codename":"Item_1",
                 value: 1,
@@ -1117,8 +1117,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
             },
             {
                 id: "2",
-                label: "2",
-                text: "2",
+                label: "严重",
+                text: "严重",
                 "data":"",
                 "codename":"Item_2",
                 value: 2,
@@ -1127,8 +1127,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
             },
             {
                 id: "3",
-                label: "3",
-                text: "3",
+                label: "一般",
+                text: "一般",
                 "data":"",
                 "codename":"Item_3",
                 value: 3,
@@ -1137,8 +1137,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
             },
             {
                 id: "4",
-                label: "4",
-                text: "4",
+                label: "轻微",
+                text: "轻微",
                 "data":"",
                 "codename":"Item_4",
                 value: 4,
