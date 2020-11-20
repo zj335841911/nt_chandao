@@ -249,6 +249,15 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 根模块目录动态
+     */
+    @Override
+    public Page<DocLibModule> searchRootModuleMuLuBysrfparentkey(DocLibModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchRootModuleMuLuBysrfparentkey(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**

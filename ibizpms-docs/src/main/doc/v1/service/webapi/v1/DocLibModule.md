@@ -419,6 +419,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[DocLibModuleDTO](#DocLibModuleDTO)>：文档库分类实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取根模块目录动态
+#### 访问路径
+/doclibmodules/fetchrootmodulemulubysrfparentkey
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocLibModuleSearchContext](#DocLibModuleSearchContext) | 文档库分类查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[DocLibModuleDTO](#DocLibModuleDTO)>：文档库分类实体传输对象列表 |
+
+### 查询根模块目录动态
+#### 访问路径
+/doclibmodules/searchrootmodulemulubysrfparentkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocLibModuleSearchContext](#DocLibModuleSearchContext) | 文档库分类查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[DocLibModuleDTO](#DocLibModuleDTO)>：文档库分类实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### DocLibModuleDTO

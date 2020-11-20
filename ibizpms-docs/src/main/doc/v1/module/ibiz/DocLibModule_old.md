@@ -99,6 +99,7 @@ hide footbox
 |ParentModule|父模块([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_ParentModule))|否|&nbsp;|
 |RootModuleMuLu|所有根模块目录([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_RootModuleMuLu))|否|&nbsp;|
 |RootModuleMuLuByRoot|根模块目录动态([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_RootModuleMuLuByRoot))|否|&nbsp;|
+|RootModuleMuLuBysrfparentkey|根模块目录动态([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_RootModuleMuLuBysrfparentkey))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_View))|否|&nbsp;|
 
 * **数据集合**
@@ -111,6 +112,7 @@ hide footbox
 |ParentModule|父集合|ParentModule|否|&nbsp;|
 |RootModuleMuLu|所有根模块目录|RootModuleMuLu|否|&nbsp;|
 |RootModuleMuLuByRoot|根模块目录|RootModuleMuLuByRoot|否|&nbsp;|
+|RootModuleMuLuBysrfparentkey|根模块目录动态|RootModuleMuLuBysrfparentkey|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

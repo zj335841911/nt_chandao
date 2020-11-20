@@ -358,4 +358,33 @@ export default class DocLibModuleServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/doclibmodules/searchrootmodulemulubyroot`,tempData,isloading);
     }
+
+    /**
+     * FetchRootModuleMuLuBysrfparentkey接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async FetchRootModuleMuLuBysrfparentkey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/doclibmodules/fetchrootmodulemulubysrfparentkey`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchRootModuleMuLuBysrfparentkey接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async searchRootModuleMuLuBysrfparentkey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibmodules/searchrootmodulemulubysrfparentkey`,tempData,isloading);
+    }
 }
