@@ -107,6 +107,7 @@ export class MainEditFormBase extends EditFormControlBase {
         os: null,
         browser: null,
         title: null,
+        color: null,
         severity: null,
         pri: null,
         steps: null,
@@ -348,6 +349,13 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        color: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         severity: new FormItemModel({
     caption: '严重程度', detailType: 'FORMITEM', name: 'severity', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -481,6 +489,7 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
+
 
 
 

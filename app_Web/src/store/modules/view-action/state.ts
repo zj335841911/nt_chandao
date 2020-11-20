@@ -2731,11 +2731,10 @@ export const viewstate: any = {
         {
             viewtag: '905ab75396c304821d250f18e2fd6571',
             viewmodule: 'ibiz',
-            viewname: 'DocLibCustomTreeExpView_9296',
+            viewname: 'DocLibByProductTreeExpView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '69aed44649019bd0215c246d524cfc24',
                 '686d79c8c3e4e2aaaa43edcfb6caf39c',
                 '2e47613b1ffa6c0d31c513a4492013f6',
                 'f7e64f3828c862a4bce56437e1e51069',

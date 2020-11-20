@@ -2423,12 +2423,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryPlanEditView",
             "viewtag": "901398a79547094cd0e9791cbe6e90ef"
         },
-        "doclibcustomtreeexpview_9296": {
-            "title": "文档库树导航视图（自定义文档库）",
-            "caption": "自定义文档库",
+        "doclibbyproducttreeexpview": {
+            "title": "文档库树导航视图（产品下属）",
+            "caption": "产品下属文档库",
             "viewtype": "DETREEEXPVIEW",
             "viewmodule": "ibiz",
-            "viewname": "DocLibCustomTreeExpView_9296",
+            "viewname": "DocLibByProductTreeExpView",
             "viewtag": "905ab75396c304821d250f18e2fd6571"
         },
         "caserunresultchartview9": {

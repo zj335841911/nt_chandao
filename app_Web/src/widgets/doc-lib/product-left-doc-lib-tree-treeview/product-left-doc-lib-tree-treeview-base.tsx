@@ -220,7 +220,7 @@ export class ProductLeftDocLibTreeTreeBase extends MainControlBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof DocLibCustomTreeExpView_9296Base
+     * @memberof DocLibByProductTreeExpViewBase
      */
     public RefreshAll(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         if (xData && xData.refresh_all && xData.refresh_all instanceof Function) {

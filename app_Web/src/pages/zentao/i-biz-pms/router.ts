@@ -5792,18 +5792,18 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-activation-task-view/task-activation-task-view.vue'),
                 },
                 {
-                    path: 'doclibs/:doclib?/customtreeexpview_9296/:customtreeexpview_9296?',
+                    path: 'doclibs/:doclib?/byproducttreeexpview/:byproducttreeexpview?',
                     meta: {
-                        caption: 'entities.doclib.views.customtreeexpview_9296.caption',
+                        caption: 'entities.doclib.views.byproducttreeexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'doclibs', parameterName: 'doclib' },
-                            { pathName: 'customtreeexpview_9296', parameterName: 'customtreeexpview_9296' },
+                            { pathName: 'byproducttreeexpview', parameterName: 'byproducttreeexpview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/doc-lib-custom-tree-exp-view-9296/doc-lib-custom-tree-exp-view-9296.vue'),
+                    component: () => import('@pages/ibiz/doc-lib-by-product-tree-exp-view/doc-lib-by-product-tree-exp-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/maingridview_bymodule/:maingridview_bymodule?',

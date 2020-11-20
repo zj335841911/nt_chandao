@@ -507,6 +507,7 @@ export default {
 			os: "操作系统", 
 			browser: "浏览器", 
 			title: "Bug标题", 
+			color: "", 
 			severity: "严重程度", 
 			pri: "优先级", 
 			steps: "重现步骤", 

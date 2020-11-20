@@ -519,12 +519,53 @@
 </i-col>
 <i-col
     class="form-layout-container"
+    v-show="detailsModel.color.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <app-form-item
+    name="color"
+    :itemRules="this.rules().color"
+    class=""
+
+    :caption="$t('entities.bug.main_form.details.color')"
+    uiStyle="DEFAULT"
+    :labelWidth="10"
+    :isShowCaption="true"
+    :error="detailsModel.color.error"
+    :isEmptyCaption="true"
+    labelPos="LEFT"
+>
+    
+<dropdown-list 
+    v-model="data.color"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.color.disabled"
+    valueType="string"
+    tag="Bug__color"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.severity.visible"
     :style="{}"
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 6, offset: 0 }"
+    :xl="{ span: 5, offset: 0 }"
 >
     <app-form-item
     name="severity"
@@ -533,7 +574,7 @@
 
     :caption="$t('entities.bug.main_form.details.severity')"
     uiStyle="DEFAULT"
-    :labelWidth="100"
+    :labelWidth="80"
     :isShowCaption="true"
     :error="detailsModel.severity.error"
     :isEmptyCaption="false"
@@ -565,7 +606,7 @@
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 6, offset: 0 }"
+    :xl="{ span: 5, offset: 0 }"
 >
     <app-form-item
     name="pri"
@@ -574,7 +615,7 @@
 
     :caption="$t('entities.bug.main_form.details.pri')"
     uiStyle="DEFAULT"
-    :labelWidth="80"
+    :labelWidth="60"
     :isShowCaption="true"
     :error="detailsModel.pri.error"
     :isEmptyCaption="false"

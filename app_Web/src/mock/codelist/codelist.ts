@@ -1111,6 +1111,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "致命",
                 "data":"",
                 "codename":"Item_1",
+                "color": "rgba(241, 11, 11, 1)",
                 value: 1,
                 
                 disabled: false,
@@ -1121,6 +1122,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "严重",
                 "data":"",
                 "codename":"Item_2",
+                "color": "rgba(239, 155, 18, 1)",
                 value: 2,
                 
                 disabled: false,
@@ -1131,6 +1133,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "一般",
                 "data":"",
                 "codename":"Item_3",
+                "color": "rgba(58, 149, 247, 1)",
                 value: 3,
                 
                 disabled: false,
@@ -1141,6 +1144,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "轻微",
                 "data":"",
                 "codename":"Item_4",
+                "color": "rgba(11, 228, 87, 1)",
                 value: 4,
                 
                 disabled: false,
