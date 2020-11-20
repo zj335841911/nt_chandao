@@ -511,6 +511,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestModulePickupGridView",
             "viewtag": "1cd7fbb3fdd5fa489e87d4cffa01e993"
         },
+        "doclibtreeview": {
+            "title": "文档库树视图",
+            "caption": "文档库",
+            "viewtype": "DETREEVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibTreeView",
+            "viewtag": "1cfbd454f62ef5339730bf627e66a486"
+        },
         "producttestgridview": {
             "title": "所有产品",
             "caption": "测试",
@@ -2414,6 +2422,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryPlanEditView",
             "viewtag": "901398a79547094cd0e9791cbe6e90ef"
+        },
+        "doclibcustomtreeexpview_9296": {
+            "title": "文档库树导航视图（自定义文档库）",
+            "caption": "自定义文档库",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "DocLibCustomTreeExpView_9296",
+            "viewtag": "905ab75396c304821d250f18e2fd6571"
         },
         "caserunresultchartview9": {
             "title": "测试用例图表视图（执行结果）",

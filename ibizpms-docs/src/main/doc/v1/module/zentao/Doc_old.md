@@ -150,6 +150,7 @@ hide footbox
 |DocModuleDoc|文档库分类文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocModuleDoc))|否|&nbsp;|
 |DocStatus|文档统计([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocStatus))|否|&nbsp;|
 |MYFAVOURITE|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Doc_MyFavourite))|否|&nbsp;|
+|NotRootDoc|子目录文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_NotRootDoc))|否|&nbsp;|
 |RootDoc|根目录文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_RootDoc))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Doc_View))|否|&nbsp;|
 
@@ -164,6 +165,7 @@ hide footbox
 |DocModuleDoc|文档库分类文档|DocModuleDoc|否|&nbsp;|
 |DocStatus|文档统计|DocStatus|否|&nbsp;|
 |MYFAVOURITE|我的收藏|MYFAVOURITE|否|&nbsp;|
+|NotRootDoc|子目录文档|NotRootDoc|否|&nbsp;|
 |RootDoc|根目录文档|RootDoc|否|&nbsp;|
 
 ## 查询模式

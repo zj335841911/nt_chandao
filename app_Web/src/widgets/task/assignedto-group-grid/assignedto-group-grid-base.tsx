@@ -298,6 +298,33 @@ export class AssignedtoGroupGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_ufbbe2a3_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Copy(datas, contextJO,paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_u9190267_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -318,6 +345,35 @@ export class AssignedtoGroupGridBase extends GridControlBase {
         curUIService.Task_TaskNFavorites(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
+    /**
+     * 拷贝
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof TaskAssignedtoTaskGroupGridViewBase
+     */
+    public Copy(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        if (args.length === 0) {
+            return;
+        }
+        const _this: any = this;
+        if (_this.newdata && _this.newdata instanceof Function) {
+            const data: any = { };
+            if (args.length > 0) {
+                Object.assign(data, { task: args[0].task });
+            }
+            if(!params) params = {};
+            Object.assign(params,{copymode:true});
+            _this.newdata([{ ...data }], params, $event, xData);
+        } else {
+            Object.assign(this.viewparams,{copymode:true});
+        }
+    }
+
 
     /**
      * 界面行为模型
@@ -336,6 +392,7 @@ export class AssignedtoGroupGridBase extends GridControlBase {
         MainEdit: { name: 'MainEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_EDIT_BUT', actiontarget: 'SINGLEKEY'},
         NewSubTask: { name: 'NewSubTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_SUBTASKS_BUT', actiontarget: 'SINGLEKEY'},
         TaskFavorites: { name: 'TaskFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
+        Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
         TaskNFavorites: { name: 'TaskNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
     };
 
@@ -737,6 +794,9 @@ export class AssignedtoGroupGridBase extends GridControlBase {
         if(Object.is('TaskFavorites', tag)) {
             this.grid_uagridcolumn1_ue92fc99_click(row, tag, $event);
         }
+        if(Object.is('Copy', tag)) {
+            this.grid_uagridcolumn1_ufbbe2a3_click(row, tag, $event);
+        }
         if(Object.is('TaskNFavorites', tag)) {
             this.grid_uagridcolumn1_u9190267_click(row, tag, $event);
         }
@@ -869,6 +929,9 @@ export class AssignedtoGroupGridBase extends GridControlBase {
                 TaskFavorites:{
                     visible: false
                 },
+                Copy:{
+                    visible: false
+                },
                 TaskNFavorites:{
                     visible: false
                 },
@@ -928,6 +991,9 @@ export class AssignedtoGroupGridBase extends GridControlBase {
                 visible: false
             },
             TaskFavorites:{
+                visible: false
+            },
+            Copy:{
                 visible: false
             },
             TaskNFavorites:{
@@ -1025,6 +1091,9 @@ export class AssignedtoGroupGridBase extends GridControlBase {
                     visible: false
                 },
                 TaskFavorites:{
+                    visible: false
+                },
+                Copy:{
                     visible: false
                 },
                 TaskNFavorites:{

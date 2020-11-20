@@ -25,6 +25,10 @@ export default {
 			caption: "项目文档库",
       		title: "文档库树导航视图（项目文档库）",
 		},
+		treeview: {
+			caption: "文档库",
+      		title: "文档库树视图",
+		},
 		producttreeexpview: {
 			caption: "产品文档库",
       		title: "文档库树导航视图（产品文档库）",
@@ -72,6 +76,10 @@ export default {
 		libtabexpview: {
 			caption: "文档库主页",
       		title: "文档库分页导航视图（文档）",
+		},
+		customtreeexpview_9296: {
+			caption: "自定义文档库",
+      		title: "文档库树导航视图（自定义文档库）",
 		},
 		treeviewproductroot: {
 			caption: "文档库",
@@ -219,15 +227,22 @@ export default {
         doclib_collect: "收藏",
 		},
 	},
-	doclibtreeproduct_treeview: {
+	doclibtreecustroot_treeview: {
 		nodes: {
 			root: "默认根节点",
 		},
 		uiactions: {
-        doclib_editdoclib: "编辑",
+		},
+	},
+	productleftdoclibtree_treeview: {
+		nodes: {
+			root: "默认根节点",
+			all: "所有文档库",
+		},
+		uiactions: {
+        doclib_editcustomdoclib: "编辑",
+        refreshall: "刷新",
         doclib_weihufenlei: "维护分类",
-        doclib_uncollect: "取消收藏",
-        doclib_collect: "收藏",
 		},
 	},
 	projectdoclibtree_treeview: {
@@ -237,6 +252,24 @@ export default {
 			files: "附件库",
 		},
 		uiactions: {
+		},
+	},
+	docchildproducttreeview_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
+	doclibtreeproduct_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+        doclib_editdoclib: "编辑",
+        doclib_weihufenlei: "维护分类",
+        doclib_uncollect: "取消收藏",
+        doclib_collect: "收藏",
 		},
 	},
 	doclibchildtreeview_treeview: {
@@ -251,13 +284,6 @@ export default {
 			root: "默认根节点",
 			files: "附件库",
 			allproduct: "所有产品",
-		},
-		uiactions: {
-		},
-	},
-	doclibtreecustroot_treeview: {
-		nodes: {
-			root: "默认根节点",
 		},
 		uiactions: {
 		},

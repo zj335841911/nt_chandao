@@ -629,6 +629,16 @@
         "viewtag": "1cd7fbb3fdd5fa489e87d4cffa01e993",
         "memo": ""
     },
+    "doclibtreeview": {
+        "title": "文档库树视图",
+        "caption": "文档库",
+        "viewtype": "DETREEVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocLibTreeView",
+        "viewfilename": "doc-lib-tree-view",
+        "viewtag": "1cfbd454f62ef5339730bf627e66a486",
+        "memo": ""
+    },
     "producttestgridview": {
         "title": "所有产品",
         "caption": "测试",
@@ -3007,6 +3017,16 @@
         "viewname": "StoryPlanEditView",
         "viewfilename": "story-plan-edit-view",
         "viewtag": "901398a79547094cd0e9791cbe6e90ef",
+        "memo": ""
+    },
+    "doclibcustomtreeexpview_9296": {
+        "title": "文档库树导航视图（自定义文档库）",
+        "caption": "自定义文档库",
+        "viewtype": "DETREEEXPVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "DocLibCustomTreeExpView_9296",
+        "viewfilename": "doc-lib-custom-tree-exp-view-9296",
+        "viewtag": "905ab75396c304821d250f18e2fd6571",
         "memo": ""
     },
     "caserunresultchartview9": {

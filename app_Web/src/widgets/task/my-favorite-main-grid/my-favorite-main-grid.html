@@ -264,6 +264,11 @@
                                 <i class="fa fa-star-o"></i>
                                 
                             </a>
+                            <divider v-show="scope.row.Copy.visible" type="vertical"></divider>
+                            <a v-show="scope.row.Copy.visible" :disabled="scope.row.Copy.disabled" @click="uiAction(scope.row, 'Copy', $event)" :title="$t('entities.task.myfavoritemain_grid.uiactions.copy')">
+                                <i class="fa fa-copy"></i>
+                                
+                            </a>
                             <divider v-show="scope.row.TaskNFavorites.visible" type="vertical"></divider>
                             <a v-show="scope.row.TaskNFavorites.visible" :disabled="scope.row.TaskNFavorites.disabled" @click="uiAction(scope.row, 'TaskNFavorites', $event)" :title="$t('entities.task.myfavoritemain_grid.uiactions.task_tasknfavorites')">
                                 <i class="fa fa-star"></i>

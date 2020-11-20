@@ -504,6 +504,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1cfbd454f62ef5339730bf627e66a486',
+            viewmodule: 'zentao',
+            viewname: 'DocLibTreeView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '1d697dd8e47a4781be8f690bcc5f7800',
             viewmodule: 'zentao',
             viewname: 'ProductTestGridView',
@@ -628,6 +637,7 @@ export const viewstate: any = {
             refviews: [
                 '97f56de6c7228abfcf66f475eba07030',
                 'bfdd5a8d625f1be3f009084fbc16c909',
+                '1cfbd454f62ef5339730bf627e66a486',
                 '686d79c8c3e4e2aaaa43edcfb6caf39c',
             ],
         },
@@ -1932,10 +1942,10 @@ export const viewstate: any = {
             refviews: [
                 '58a943454a652d4f4ce2702d6447c079',
                 '07327890c326f9c806b9343f0c660fc1',
-                '686d79c8c3e4e2aaaa43edcfb6caf39c',
                 '9ae49b10ec96e8f7b063be2ed4172247',
                 '522b28992d16207a0fc47340589bb2cf',
                 '81b0cee2fedff8f4902c0d735714e5af',
+                '905ab75396c304821d250f18e2fd6571',
                 '84104216ff9049079f9442c9cbd54342',
                 '776ea44ea05316c9c6cb9d5948e993f9',
                 'bc36be2ee4a78e69c13665a8ad03ab6a',
@@ -2716,6 +2726,20 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '905ab75396c304821d250f18e2fd6571',
+            viewmodule: 'ibiz',
+            viewname: 'DocLibCustomTreeExpView_9296',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '69aed44649019bd0215c246d524cfc24',
+                'c468f1ff894437a6de5b9496f0f8b92e',
+                '2e47613b1ffa6c0d31c513a4492013f6',
+                'f7e64f3828c862a4bce56437e1e51069',
+                '73fbcf0e3685096f63587bcff234f958',
             ],
         },
         {
