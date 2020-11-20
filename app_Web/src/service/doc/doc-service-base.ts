@@ -403,6 +403,35 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
+     * FetchModuleDocChild接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async FetchModuleDocChild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/docs/fetchmoduledocchild`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchModuleDocChild接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async searchModuleDocChild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/searchmoduledocchild`,tempData,isloading);
+    }
+
+    /**
      * FetchMyFavourite接口方法
      *
      * @param {*} [context={}]

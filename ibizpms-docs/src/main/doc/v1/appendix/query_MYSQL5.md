@@ -5264,6 +5264,42 @@ count(1) as `ALLDOCCNT`,
 from zt_doc
 where deleted = '0'
 ```
+### 文件夹文档（子目录）(ModuleDocChild)<div id="Doc_ModuleDocChild"></div>
+```sql
+SELECT
+t1.`ACL`,
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+'doc' AS `DOCQTYPE`,
+t1.`EDITEDBY`,
+t1.`EDITEDDATE`,
+t1.`GROUPS`,
+t1.`ID`,
+0 AS `ISFAVOURITES`,
+t1.`KEYWORDS`,
+t1.`LIB`,
+t31.`NAME` AS `LIBNAME`,
+t1.`MODULE`,
+t41.`NAME` AS `MODULENAME`,
+t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TITLE`,
+t1.`TYPE`,
+t1.`VERSION`,
+t1.`VIEWS`
+FROM `zt_doc` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
+LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID 
+
+WHERE t1.DELETED = '0' 
+( t1.`MODULE` = ${srfwebcontext('srfparentkey','{"defname":"MODULE","dename":"ZT_DOC"}')} ) 
+
+```
 ### 我的收藏(MYFAVOURITE)<div id="Doc_MyFavourite"></div>
 ```sql
 SELECT

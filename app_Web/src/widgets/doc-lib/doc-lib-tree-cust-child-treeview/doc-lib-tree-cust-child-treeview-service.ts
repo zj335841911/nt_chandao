@@ -216,11 +216,6 @@ export default class DocLibTreeCustChildService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
-
-            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
-                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
-            }
-
             Object.assign(searchFilter, { total: false });
             let bFirst: boolean = true;
             let records: any[] = [];
@@ -294,13 +289,13 @@ export default class DocLibTreeCustChildService extends ControlService {
             }
             const _appEntityService: any = this.doclibmoduleService;
             let list: any[] = [];
-            if (_appEntityService['FetchAllDoclibModule'] && _appEntityService['FetchAllDoclibModule'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchAllDoclibModule'](context, searchFilter, false);
+            if (_appEntityService['FetchChildModuleByParent'] && _appEntityService['FetchChildModuleByParent'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchChildModuleByParent'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchAllDoclibModule数据集异常!');
+                        console.error('查询FetchChildModuleByParent数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -312,7 +307,7 @@ export default class DocLibTreeCustChildService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchAllDoclibModule数据集异常!');
+                        console.error('查询FetchChildModuleByParent数据集异常!');
                 });
             }
         })
@@ -374,11 +369,6 @@ export default class DocLibTreeCustChildService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
-
-            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
-                Object.assign(searchFilter, { n_module_eq: filter.nodeid });
-            }
-
             Object.assign(searchFilter, { total: false });
             let bFirst: boolean = true;
             let records: any[] = [];
@@ -452,13 +442,13 @@ export default class DocLibTreeCustChildService extends ControlService {
             }
             const _appEntityService: any = this.docService;
             let list: any[] = [];
-            if (_appEntityService['FetchNotRootDoc'] && _appEntityService['FetchNotRootDoc'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchNotRootDoc'](context, searchFilter, false);
+            if (_appEntityService['FetchModuleDocChild'] && _appEntityService['FetchModuleDocChild'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchModuleDocChild'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchNotRootDoc数据集异常!');
+                        console.error('查询FetchModuleDocChild数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -470,7 +460,7 @@ export default class DocLibTreeCustChildService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchNotRootDoc数据集异常!');
+                        console.error('查询FetchModuleDocChild数据集异常!');
                 });
             }
         })

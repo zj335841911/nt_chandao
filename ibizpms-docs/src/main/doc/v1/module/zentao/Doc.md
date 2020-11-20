@@ -1891,10 +1891,11 @@ Save
 | 4 | [文档库文档](#数据查询-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
 | 5 | [文档库分类文档](#数据查询-文档库分类文档（DocModuleDoc）) | DocModuleDoc | 否 |
 | 6 | [文档统计](#数据查询-文档统计（DocStatus）) | DocStatus | 否 |
-| 7 | [我的收藏](#数据查询-我的收藏（MyFavourite）) | MyFavourite | 否 |
-| 8 | [子目录文档](#数据查询-子目录文档（NotRootDoc）) | NotRootDoc | 否 |
-| 9 | [根目录文档](#数据查询-根目录文档（RootDoc）) | RootDoc | 否 |
-| 10 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 7 | [文件夹文档（子目录）](#数据查询-文件夹文档（子目录）（ModuleDocChild）) | ModuleDocChild | 否 |
+| 8 | [我的收藏](#数据查询-我的收藏（MyFavourite）) | MyFavourite | 否 |
+| 9 | [子目录文档](#数据查询-子目录文档（NotRootDoc）) | NotRootDoc | 否 |
+| 10 | [根目录文档](#数据查询-根目录文档（RootDoc）) | RootDoc | 否 |
+| 11 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-文档库文档（子库）（ChildDocLibDoc）
 #### 说明
@@ -2239,6 +2240,50 @@ count(1) as `ALLDOCCNT`,
 from zt_doc
 where deleted = '0'
 ```
+### 数据查询-文件夹文档（子目录）（ModuleDocChild）
+#### 说明
+文件夹文档（子目录）
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACL`,
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+'doc' AS `DOCQTYPE`,
+t1.`EDITEDBY`,
+t1.`EDITEDDATE`,
+t1.`GROUPS`,
+t1.`ID`,
+0 AS `ISFAVOURITES`,
+t1.`KEYWORDS`,
+t1.`LIB`,
+t31.`NAME` AS `LIBNAME`,
+t1.`MODULE`,
+t41.`NAME` AS `MODULENAME`,
+t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TITLE`,
+t1.`TYPE`,
+t1.`VERSION`,
+t1.`VIEWS`
+FROM `zt_doc` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
+LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID 
+
+```
 ### 数据查询-我的收藏（MyFavourite）
 #### 说明
 我的收藏
@@ -2444,9 +2489,10 @@ LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID
 | 4 | [文档库文档](#数据集合-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
 | 5 | [文档库分类文档](#数据集合-文档库分类文档（DocModuleDoc）) | DocModuleDoc | 否 |
 | 6 | [文档统计](#数据集合-文档统计（DocStatus）) | DocStatus | 否 |
-| 7 | [我的收藏](#数据集合-我的收藏（MyFavourite）) | MyFavourite | 否 |
-| 8 | [子目录文档](#数据集合-子目录文档（NotRootDoc）) | NotRootDoc | 否 |
-| 9 | [根目录文档](#数据集合-根目录文档（RootDoc）) | RootDoc | 否 |
+| 7 | [文件夹文档（子目录）](#数据集合-文件夹文档（子目录）（ModuleDocChild）) | ModuleDocChild | 否 |
+| 8 | [我的收藏](#数据集合-我的收藏（MyFavourite）) | MyFavourite | 否 |
+| 9 | [子目录文档](#数据集合-子目录文档（NotRootDoc）) | NotRootDoc | 否 |
+| 10 | [根目录文档](#数据集合-根目录文档（RootDoc）) | RootDoc | 否 |
 
 ### 数据集合-文档库文档（子库）（ChildDocLibDoc）
 #### 说明
@@ -2532,6 +2578,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [文档统计（DocStatus）](#数据查询-文档统计（DocStatus）) |
+### 数据集合-文件夹文档（子目录）（ModuleDocChild）
+#### 说明
+文件夹文档（子目录）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [文件夹文档（子目录）（ModuleDocChild）](#数据查询-文件夹文档（子目录）（ModuleDocChild）) |
 ### 数据集合-我的收藏（MyFavourite）
 #### 说明
 我的收藏
