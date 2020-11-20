@@ -316,6 +316,7 @@ export const PageComponents = {
         Vue.component('branch-pminfo-edit-view', () => import('@pages/zentao/branch-pminfo-edit-view/branch-pminfo-edit-view.vue'));
         Vue.component('todo-close-view', () => import('@pages/zentao/todo-close-view/todo-close-view.vue'));
         Vue.component('doc-grid-view9', () => import('@pages/zentao/doc-grid-view9/doc-grid-view9.vue'));
+        Vue.component('doc-lib-usr2-tree-view', () => import('@pages/zentao/doc-lib-usr2-tree-view/doc-lib-usr2-tree-view.vue'));
         Vue.component('story-project-plan-view', () => import('@pages/zentao/story-project-plan-view/story-project-plan-view.vue'));
         Vue.component('project-cur-product-grid-view', () => import('@pages/zentao/project-cur-product-grid-view/project-cur-product-grid-view.vue'));
         Vue.component('casesuite-link-case-grid-view', () => import('@pages/zentao/casesuite-link-case-grid-view/casesuite-link-case-grid-view.vue'));

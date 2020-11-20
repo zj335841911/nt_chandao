@@ -158,6 +158,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '007d984e6319843d935a48b30587ab1b',
+                'f0c5e57e6807ba57c5bfee086c302361',
                 '4503911318e1f1f26599b68a6c6e681d',
                 'c468f1ff894437a6de5b9496f0f8b92e',
             ],
@@ -4688,6 +4689,15 @@ export const viewstate: any = {
                 '9ed41cee96088630f3d4b0a91e705930',
                 'a9d151a6bb5fb2481836a7e0ed5afb7e',
                 '2e0d4fb0f3e1ba1ba5bea16a5553cc21',
+            ],
+        },
+        {
+            viewtag: 'f0c5e57e6807ba57c5bfee086c302361',
+            viewmodule: 'zentao',
+            viewname: 'DocLibUsr2TreeView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

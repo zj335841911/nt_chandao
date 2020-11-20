@@ -12502,6 +12502,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/doc-grid-view9/doc-grid-view9.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/usr2treeview/:usr2treeview?',
+                    meta: {
+                        caption: 'entities.doclib.views.usr2treeview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'usr2treeview', parameterName: 'usr2treeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-usr2-tree-view/doc-lib-usr2-tree-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/projectplanview/:projectplanview?',
                     meta: {
                         caption: 'entities.story.views.projectplanview.caption',
