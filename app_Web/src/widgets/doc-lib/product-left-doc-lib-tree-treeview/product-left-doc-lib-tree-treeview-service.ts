@@ -324,13 +324,13 @@ export default class ProductLeftDocLibTreeService extends ControlService {
             }
             const _appEntityService: any = this.appEntityService;
             let list: any[] = [];
-            if (_appEntityService['FetchByProduct'] && _appEntityService['FetchByProduct'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchByProduct'](context, searchFilter, false);
+            if (_appEntityService['FetchDefault'] && _appEntityService['FetchDefault'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchDefault'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchByProduct数据集异常!');
+                        console.error('查询FetchDefault数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -342,7 +342,7 @@ export default class ProductLeftDocLibTreeService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchByProduct数据集异常!');
+                        console.error('查询FetchDefault数据集异常!');
                 });
             }
         })
