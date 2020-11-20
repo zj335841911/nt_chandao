@@ -16353,20 +16353,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-plan-edit-view/product-plan-edit-view.vue'),
                 },
                 {
-                    path: 'doclibs/:doclib?/gridview/:gridview?',
-                    meta: {
-                        caption: 'entities.doclib.views.gridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'doclibs', parameterName: 'doclib' },
-                            { pathName: 'gridview', parameterName: 'gridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/doc-lib-grid-view/doc-lib-grid-view.vue'),
-                },
-                {
                     path: 'actions/:action?/historylistview/:historylistview?',
                     meta: {
                         caption: 'entities.action.views.historylistview.caption',

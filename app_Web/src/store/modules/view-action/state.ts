@@ -1656,18 +1656,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '599bad7e939d0de2523f0fcf4444f8c7',
-            viewmodule: 'zentao',
-            viewname: 'DocLibGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'a501a42f3adfa826e382e4cbc134a4fc',
-                'f7e64f3828c862a4bce56437e1e51069',
-                '73fbcf0e3685096f63587bcff234f958',
-            ],
-        },
-        {
             viewtag: '5a8a29268a7563b62fc0160233958830',
             viewmodule: 'zentao',
             viewname: 'ProjectPickupView',
@@ -4828,7 +4816,7 @@ export const viewstate: any = {
                 '19641dcdbd1f1973c9693859003e1f60',
                 '9c96a98b291c9cbe420f7a519091212f',
                 '76bd64e6d21e10838e42517992e58c65',
-                '599bad7e939d0de2523f0fcf4444f8c7',
+                'c468f1ff894437a6de5b9496f0f8b92e',
                 '7d34636d1c24d613abf8d3fdc64ec7ba',
                 '7088260bcd6a0303378af2f8e207f479',
                 '85ee867b09a2d6303c061d91374ec975',

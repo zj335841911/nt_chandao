@@ -109,6 +109,31 @@ export default {
       		title: "doc表格视图",
 		},
 	},
+	main_form: {
+		details: {
+			group1: "doc基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "文档编号", 
+			srfmajortext: "文档标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			projectname: "所属项目", 
+			productname: "所属产品", 
+			libname: "所属文档库", 
+			modulename: "模块分类", 
+			addeddate: "添加时间", 
+			editedby: "由谁更新", 
+			editeddate: "更新时间", 
+			id: "文档编号", 
+			product: "所属产品", 
+			project: "所属项目", 
+		},
+		uiactions: {
+		},
+	},
 	createeditform_form: {
 		details: {
 			formpage1: "基本信息", 
@@ -185,31 +210,6 @@ export default {
 			srfsourcekey: "", 
 			keywords: "", 
 			id: "文档编号", 
-		},
-		uiactions: {
-		},
-	},
-	main_form: {
-		details: {
-			group1: "doc基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "文档编号", 
-			srfmajortext: "文档标题", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			projectname: "所属项目", 
-			productname: "所属产品", 
-			libname: "所属文档库", 
-			modulename: "模块分类", 
-			addeddate: "添加时间", 
-			editedby: "由谁更新", 
-			editeddate: "更新时间", 
-			id: "文档编号", 
-			product: "所属产品", 
-			project: "所属项目", 
 		},
 		uiactions: {
 		},
@@ -357,16 +357,6 @@ export default {
 			tip: "Filter",
 		},
 	},
-	gridviewlookdoctoolbar_toolbar: {
-		deuiaction7: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
-		},
-		deuiaction3_togglefilter: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-	},
 	gridviewtoolbar_toolbar: {
 		deuiaction7: {
 			caption: "Export",
@@ -391,6 +381,16 @@ export default {
 	},
 	myfavouritegridviewtoolbar_toolbar: {
 		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	gridviewlookdoctoolbar_toolbar: {
+		deuiaction7: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+		deuiaction3_togglefilter: {
 			caption: "Filter",
 			tip: "Filter",
 		},

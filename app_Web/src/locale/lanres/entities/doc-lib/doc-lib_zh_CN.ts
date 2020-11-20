@@ -142,12 +142,6 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	gridviewtoolbar_toolbar: {
-		deuiaction1_togglefilter: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-	},
 	undoneprojectgridviewtoolbar_toolbar: {
 		deuiaction1_togglefilter: {
 			caption: "过滤",
@@ -186,13 +180,19 @@ export default {
 			tip: "创建文档",
 		},
 	},
+	gridviewtoolbar_toolbar: {
+		deuiaction1_togglefilter: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
 	productgridviewtoolbar_toolbar: {
 		deuiaction1_togglefilter: {
 			caption: "过滤",
 			tip: "过滤",
 		},
 	},
-	doclibtreeproduct_treeview: {
+	doclibtreeproject_treeview: {
 		nodes: {
 			root: "默认根节点",
 		},
@@ -203,7 +203,7 @@ export default {
 			doclib_collect: "收藏",
 		},
 	},
-	doclibtreeproject_treeview: {
+	doclibtreeproduct_treeview: {
 		nodes: {
 			root: "默认根节点",
 		},
