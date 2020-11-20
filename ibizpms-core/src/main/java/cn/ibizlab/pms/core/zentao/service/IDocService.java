@@ -52,6 +52,7 @@ public interface IDocService extends IService<Doc> {
     Doc unCollect(Doc et);
     Page<Doc> searchChildDocLibDoc(DocSearchContext context);
     Page<Doc> searchDefault(DocSearchContext context);
+    Page<Doc> searchDocLibAndDoc(DocSearchContext context);
     Page<Doc> searchDocLibDoc(DocSearchContext context);
     Page<Doc> searchDocModuleDoc(DocSearchContext context);
     Page<Doc> searchDocStatus(DocSearchContext context);

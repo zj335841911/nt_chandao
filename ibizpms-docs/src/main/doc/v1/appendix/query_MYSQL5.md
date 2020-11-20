@@ -5060,6 +5060,72 @@ LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID
 WHERE t1.DELETED = '0' 
 
 ```
+### 文档库文档(DocLibAndDoc)<div id="Doc_DocLibAndDoc"></div>
+```sql
+select t1.* from (select null as `ACL`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
+null as `ADDEDBY`,
+null as `ADDEDDATE`,
+'0' as `DELETED`,
+null as `EDITEDBY`,
+null as `EDITEDDATE`,
+null as  `GROUPS`,
+t1.`ID`,
+''`KEYWORDS`,
+'0' as `LIB`,
+'' AS `LIBNAME`,
+(case when ${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} is null then '0' else 
+${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} end
+)
+ as `MODULE`,
+'' AS `MODULENAME`,
+0 as `PRODUCT`,
+'' AS `PRODUCTNAME`,
+0 as `PROJECT`,
+'' AS `PROJECTNAME`,
+t1.`name` as `TITLE`,
+'text' as `TYPE`,
+1 as `VERSION`,
+'' as `VIEWS`,'module' as DOCQTYPE from zt_module t1 where t1.deleted = '0' and t1.type = 'doc'  and t1.parent =  (case when ${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} is null then '0' else 
+${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} end
+)
+UNION
+SELECT
+t1.`ACL`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+t1.`EDITEDBY`,
+t1.`EDITEDDATE`,
+t1.`GROUPS`,
+t1.`ID`,
+t1.`KEYWORDS`,
+t1.`LIB`,
+t31.`NAME` AS `LIBNAME`,
+t1.`MODULE`,
+t41.`NAME` AS `MODULENAME`,
+t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TITLE`,
+t1.`TYPE`,
+t1.`VERSION`,
+t1.`VIEWS`,
+'doc' as DOCQTYPE
+FROM `zt_doc` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
+LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID ) t1
+WHERE t1.DELETED = '0' 
+t1.module = (case when ${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} is null then '0' else 
+${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} end
+)
+ 
+
+```
 ### 文档库文档(DocLibDoc)<div id="Doc_DocLibDoc"></div>
 ```sql
 select t1.* from (select null as `ACL`,

@@ -145,6 +145,7 @@ hide footbox
 | --------  | --------   | --------   | ----- |
 |ChildDocLibDoc|文档库文档（子库）([MYSQL5](../../appendix/query_MYSQL5.md#Doc_ChildDocLibDoc))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Doc_Default))|否|&nbsp;|
+|DocLibAndDoc|文档库文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocLibAndDoc))|否|&nbsp;|
 |DocLibDoc|文档库文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocLibDoc))|否|&nbsp;|
 |DocModuleDoc|文档库分类文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocModuleDoc))|否|&nbsp;|
 |DocStatus|文档统计([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocStatus))|否|&nbsp;|
@@ -157,6 +158,7 @@ hide footbox
 | --------  | --------   | -------- | --------   | ----- |
 |ChildDocLibDoc|文档库文档（子库）|ChildDocLibDoc|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+|DocLibAndDoc|文档库文档|DocLibAndDoc|否|&nbsp;|
 |DocLibDoc|文档库文档|DocLibDoc|否|&nbsp;|
 |DocModuleDoc|文档库分类文档|DocModuleDoc|否|&nbsp;|
 |DocStatus|文档统计|DocStatus|否|&nbsp;|

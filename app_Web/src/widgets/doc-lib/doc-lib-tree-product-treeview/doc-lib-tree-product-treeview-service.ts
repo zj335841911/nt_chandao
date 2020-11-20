@@ -5,8 +5,8 @@ import DocLibService from '@/service/doc-lib/doc-lib-service';
 import DocLibTreeProductModel from './doc-lib-tree-product-treeview-model';
 import CodeListService from '@service/app/codelist-service';
 import i18n from '@/locale';
-import DocLibModuleService from '@service/doc-lib-module/doc-lib-module-service';
 import DocService from '@service/doc/doc-service';
+import DocLibModuleService from '@service/doc-lib-module/doc-lib-module-service';
 
 
 /**
@@ -57,20 +57,20 @@ export default class DocLibTreeProductService extends ControlService {
 
 
     /**
-     * 文档库分类服务对象
-     *
-     * @type {DocLibModuleService}
-     * @memberof DocLibTreeProductService
-     */
-    public doclibmoduleService: DocLibModuleService = new DocLibModuleService({ $store: this.getStore() });
-
-    /**
      * 文档服务对象
      *
      * @type {DocService}
      * @memberof DocLibTreeProductService
      */
     public docService: DocService = new DocService({ $store: this.getStore() });
+
+    /**
+     * 文档库分类服务对象
+     *
+     * @type {DocLibModuleService}
+     * @memberof DocLibTreeProductService
+     */
+    public doclibmoduleService: DocLibModuleService = new DocLibModuleService({ $store: this.getStore() });
 
     /**
      * 节点分隔符号
@@ -324,12 +324,12 @@ export default class DocLibTreeProductService extends ControlService {
                         let treeNode: any = {};
                         // 整理context
                         let strId: string = entity.id;
-                        let strText: string = entity.name;
-                        Object.assign(treeNode,{srfparentdename:'DocLibModule',srfparentkey:entity.id});
+                        let strText: string = entity.title;
+                        Object.assign(treeNode,{srfparentdename:'Doc',srfparentkey:entity.id});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
-                        Object.assign(tempContext,{srfparentdename:'DocLibModule',srfparentkey:entity.id,doclibmodule:strId})
+                        Object.assign(tempContext,{srfparentdename:'Doc',srfparentkey:entity.id,doc:strId})
                         Object.assign(treeNode,{srfappctx:tempContext});
-                        Object.assign(treeNode,{'doclibmodule':strId});
+                        Object.assign(treeNode,{'doc':strId});
                         Object.assign(treeNode, { srfkey: strId });
                         Object.assign(treeNode, { text: strText, srfmajortext: strText });
                         let strNodeId: string = 'ChildDocLibModule';
@@ -341,7 +341,7 @@ export default class DocLibTreeProductService extends ControlService {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"doclibmodule" });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"doc" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -385,15 +385,15 @@ export default class DocLibTreeProductService extends ControlService {
             if(context && context.srfparentkey){
                 Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
             }
-            const _appEntityService: any = this.doclibmoduleService;
+            const _appEntityService: any = this.docService;
             let list: any[] = [];
-            if (_appEntityService['FetchAllDoclibModule'] && _appEntityService['FetchAllDoclibModule'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchAllDoclibModule'](context, searchFilter, false);
+            if (_appEntityService['FetchDocLibAndDoc'] && _appEntityService['FetchDocLibAndDoc'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchDocLibAndDoc'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchAllDoclibModule数据集异常!');
+                        console.error('查询FetchDocLibAndDoc数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -405,7 +405,7 @@ export default class DocLibTreeProductService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchAllDoclibModule数据集异常!');
+                        console.error('查询FetchDocLibAndDoc数据集异常!');
                 });
             }
         })
