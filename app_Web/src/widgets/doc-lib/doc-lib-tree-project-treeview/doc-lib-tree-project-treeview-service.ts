@@ -350,13 +350,13 @@ export default class DocLibTreeProjectService extends ControlService {
             }
             const _appEntityService: any = this.appEntityService;
             let list: any[] = [];
-            if (_appEntityService['FetchByProject'] && _appEntityService['FetchByProject'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchByProject'](context, searchFilter, false);
+            if (_appEntityService['FetchByProjectNotFiles'] && _appEntityService['FetchByProjectNotFiles'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchByProjectNotFiles'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchByProject数据集异常!');
+                        console.error('查询FetchByProjectNotFiles数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -368,7 +368,7 @@ export default class DocLibTreeProjectService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchByProject数据集异常!');
+                        console.error('查询FetchByProjectNotFiles数据集异常!');
                 });
             }
         })
