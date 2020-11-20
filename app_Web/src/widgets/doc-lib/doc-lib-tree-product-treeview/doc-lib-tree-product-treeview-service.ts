@@ -601,11 +601,6 @@ export default class DocLibTreeProductService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
-
-            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
-                Object.assign(searchFilter, { n_module_eq: filter.nodeid });
-            }
-
             if (Object.is(filter.strNodeType, this.TREENODE_DOCLIB)) {
                 Object.assign(searchFilter, { n_lib_eq: filter.nodeid });
             }
@@ -857,22 +852,12 @@ export default class DocLibTreeProductService extends ControlService {
     @Errorlog
     public async fillModuleNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充文档
-            let DocRsNavContext:any = {};
-            let DocRsNavParams:any = {};
-            let DocRsParams:any = {};
-			await this.fillDocNodes(context, filter, list ,DocRsNavContext,DocRsNavParams,DocRsParams);
 			// 填充文档库子模块
             let ChilddoclibmoduleRsNavContext:any = {};
             let ChilddoclibmoduleRsNavParams:any = {};
             let ChilddoclibmoduleRsParams:any = {};
 			await this.fillChilddoclibmoduleNodes(context, filter, list ,ChilddoclibmoduleRsNavContext,ChilddoclibmoduleRsNavParams,ChilddoclibmoduleRsParams);
 		} else {
-			// 填充文档
-            let DocRsNavContext:any = {};
-            let DocRsNavParams:any = {};
-            let DocRsParams:any = {};
-			await this.fillDocNodes(context, filter, list ,DocRsNavContext,DocRsNavParams,DocRsParams);
 			// 填充文档库子模块
             let ChilddoclibmoduleRsNavContext:any = {};
             let ChilddoclibmoduleRsNavParams:any = {};
