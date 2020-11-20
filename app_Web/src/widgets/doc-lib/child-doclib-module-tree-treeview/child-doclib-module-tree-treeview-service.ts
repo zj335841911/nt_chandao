@@ -523,13 +523,13 @@ export default class ChildDoclibModuleTreeService extends ControlService {
             }
             const _appEntityService: any = this.doclibmoduleService;
             let list: any[] = [];
-            if (_appEntityService['FetchRootModuleMuLuBysrfparentkey'] && _appEntityService['FetchRootModuleMuLuBysrfparentkey'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchRootModuleMuLuBysrfparentkey'](context, searchFilter, false);
+            if (_appEntityService['FetchChildModuleByParent'] && _appEntityService['FetchChildModuleByParent'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchChildModuleByParent'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchRootModuleMuLuBysrfparentkey数据集异常!');
+                        console.error('查询FetchChildModuleByParent数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -541,7 +541,7 @@ export default class ChildDoclibModuleTreeService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchRootModuleMuLuBysrfparentkey数据集异常!');
+                        console.error('查询FetchChildModuleByParent数据集异常!');
                 });
             }
         })
