@@ -5119,6 +5119,16 @@
         "viewtag": "ef6cfafd09bb61ddb6fec7840f78e97d",
         "memo": ""
     },
+    "doclibusr2treeview": {
+        "title": "文档库树视图",
+        "caption": "文档库",
+        "viewtype": "DETREEVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocLibUsr2TreeView",
+        "viewfilename": "doc-lib-usr2-tree-view",
+        "viewtag": "f0c5e57e6807ba57c5bfee086c302361",
+        "memo": ""
+    },
     "bugmpickupview5": {
         "title": "关联Bug",
         "caption": "关联Bug",

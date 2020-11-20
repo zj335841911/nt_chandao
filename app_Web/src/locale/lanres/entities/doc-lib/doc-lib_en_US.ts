@@ -101,6 +101,10 @@ export default {
 			caption: "文档主页",
       		title: "文档库数据看板视图",
 		},
+		usr2treeview: {
+			caption: "文档库",
+      		title: "文档库树视图",
+		},
 	},
 	main_form: {
 		details: {
@@ -332,6 +336,13 @@ export default {
         doclib_editcustomdoclib: "编辑",
         refreshall: "刷新",
         doclib_weihufenlei: "维护分类",
+		},
+	},
+	rootdoclibprojecttreeveiw_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
 		},
 	},
 };

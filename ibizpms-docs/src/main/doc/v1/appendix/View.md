@@ -720,6 +720,7 @@ SRFNAVPARAM.project=%project%|
 |-|项目信息|DEEDITVIEW9|&nbsp;|
 |-|执行结果|DEEDITVIEW|&nbsp;|
 |-|任务编辑视图|DEEDITVIEW9|&nbsp;|
+|-|文档库树视图|DETREEVIEW|&nbsp;|
 |-|关联Bug|DEMPICKUPVIEW|&nbsp;|
 |-|转交任务|DEOPTVIEW|&nbsp;|
 |-|系统更新日志编辑视图|DEEDITVIEW|&nbsp;|

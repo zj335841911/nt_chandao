@@ -4103,6 +4103,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainDetailView9",
             "viewtag": "ef6cfafd09bb61ddb6fec7840f78e97d"
         },
+        "doclibusr2treeview": {
+            "title": "文档库树视图",
+            "caption": "文档库",
+            "viewtype": "DETREEVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibUsr2TreeView",
+            "viewtag": "f0c5e57e6807ba57c5bfee086c302361"
+        },
         "bugmpickupview5": {
             "title": "关联Bug",
             "caption": "关联Bug",
