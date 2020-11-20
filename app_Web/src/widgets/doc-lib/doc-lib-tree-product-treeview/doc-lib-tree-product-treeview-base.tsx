@@ -359,7 +359,6 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
                     this.refresh();
                 }
             });
-            });
         }
     }
 
@@ -404,8 +403,8 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      * @param {any[]} args
      * @memberof DocLibTreeProductBase
      */
-    public refresh(args: any[]): void {
-        this.load({});
+    public refresh(): void {
+        this.load();
     }
 
     /**
@@ -534,72 +533,6 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
     }
 
     /**
-     * 绘制右击菜单
-     *
-     * @param {*} node
-     * @returns
-     * @memberof DocLibTreeProductBase
-     */
-    public renderContextMenu(node: any) {
-        let content;
-        if (node && node.data) {
-            const data: any = JSON.parse(JSON.stringify(node.data));
-            this.currentselectedNode = { ...data };
-            const tags: string[] = data.id.split(';');
-            if (tags[0] === "docLib") {
-                content = this.renderContextMenuDoclib();
-            }
-        }
-        return content;
-    }
-
-    /**
-     * 绘制docLib类型右键菜单
-     *
-     * @param {*} node
-     * @returns
-     * @memberof DocLibTreeProductBase
-     */
-    public renderContextMenuDoclib() {
-        return (
-            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.doclib_cm_click({tag: $event})}>
-                <dropdown-menu slot="list">
-                            <dropdown-item name="deuiaction1" v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
-                        <i class="fa fa-edit"></i>
-                        
-                    </dropdown-item>
-                            <dropdown-item name="deuiaction2" v-show={this.copyActionModel['deuiaction2']?.visible} disabled={this.copyActionModel['deuiaction2']?.disabled}>
-                        <i class="fa fa-lock"></i>
-                        
-                    </dropdown-item>
-                            <dropdown-item name="deuiaction3" v-show={this.copyActionModel['deuiaction3']?.visible} disabled={this.copyActionModel['deuiaction3']?.disabled}>
-                        <i class="fa fa-star"></i>
-                        
-                    </dropdown-item>
-                            <dropdown-item name="deuiaction4" v-show={this.copyActionModel['deuiaction4']?.visible} disabled={this.copyActionModel['deuiaction4']?.disabled}>
-                        <i class="fa fa-star-o"></i>
-                        
-                    </dropdown-item>
-                </dropdown-menu>
-            </dropdown>
-        );
-    }
-
-    /**
-     * 执行默认界面行为
-     *
-     * @param {*} node
-     * @memberof DocLibTreeProductBase
-     */
-    public doDefaultAction(node: any) {
-        if (node && node.data) {
-            const data: any = node.data;
-            const tags: string[] = data.id.split(';');
-        }
-        this.$emit('nodedblclick', this.selectedNodes);
-    }
-
-    /**
      * 计算当前文件夹的所有文件工具栏状态
      * 
      * @memberof DocLibTreeProductBase
@@ -607,7 +540,7 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
     public computeAllNodeState() {
         if (this.items && this.items.length > 0) {
             this.items.forEach((item: any)=>{
-                this.computeRowState(item);
+                this.getNodeState(item);
             });
         }
     }

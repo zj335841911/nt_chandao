@@ -23,7 +23,7 @@
     "core-js": "^3.4.4",
     "dingtalk-jsapi": "^2.12.1",
     "echarts": "^4.6.0",
-    "element-ui": "^2.13.2",
+    "element-ui": "git+https://gitee.com/ibizr7pfstdtempl/ibiz-element",
     "file-saver": "^2.0.2",
     "font-awesome": "^4.7.0",
     "ibiz-studio-components-vue": "^0.0.1-alpha.9",
