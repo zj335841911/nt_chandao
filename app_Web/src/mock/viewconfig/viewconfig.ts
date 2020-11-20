@@ -1736,8 +1736,8 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "6991c25388155df89dc9c44eeb11ad90"
         },
         "doclibcustomdoclibroottreeview": {
-            "title": "文档库树视图（自定义文档库-跟目录）",
-            "caption": "自定义文档库-跟目录",
+            "title": "文档库树视图（自定义文档库-根目录）",
+            "caption": "自定义文档库-根目录",
             "viewtype": "DETREEVIEW",
             "viewmodule": "zentao",
             "viewname": "DocLibCustomDocLibRootTreeView",

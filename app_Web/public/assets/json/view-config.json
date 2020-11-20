@@ -2160,8 +2160,8 @@
         "memo": ""
     },
     "doclibcustomdoclibroottreeview": {
-        "title": "文档库树视图（自定义文档库-跟目录）",
-        "caption": "自定义文档库-跟目录",
+        "title": "文档库树视图（自定义文档库-根目录）",
+        "caption": "自定义文档库-根目录",
         "viewtype": "DETREEVIEW",
         "viewmodule": "zentao",
         "viewname": "DocLibCustomDocLibRootTreeView",

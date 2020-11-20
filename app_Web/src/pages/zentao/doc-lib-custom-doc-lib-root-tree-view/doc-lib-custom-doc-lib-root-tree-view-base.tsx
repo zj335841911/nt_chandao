@@ -7,7 +7,7 @@ import TreeViewEngine from '@engine/view/tree-view-engine';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
 
 /**
- * 文档库树视图（自定义文档库-跟目录）视图基类
+ * 文档库树视图（自定义文档库-根目录）视图基类
  *
  * @export
  * @class DocLibCustomDocLibRootTreeViewBase

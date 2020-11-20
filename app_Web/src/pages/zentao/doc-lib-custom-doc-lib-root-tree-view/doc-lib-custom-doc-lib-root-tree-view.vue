@@ -6,7 +6,7 @@ import { DocLibCustomDocLibRootTreeViewBase } from './doc-lib-custom-doc-lib-roo
 import view_tree from '@widgets/doc-lib/doc-lib-tree-cust-root-treeview/doc-lib-tree-cust-root-treeview.vue';
 
 /**
- * 文档库树视图（自定义文档库-跟目录）视图
+ * 文档库树视图（自定义文档库-根目录）视图
  *
  * @export
  * @class DocLibCustomDocLibRootTreeView
