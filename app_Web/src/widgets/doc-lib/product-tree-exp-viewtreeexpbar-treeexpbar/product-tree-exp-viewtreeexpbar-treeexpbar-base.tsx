@@ -122,13 +122,6 @@ export class ProductTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
                 deKeyField:'doclib'
 			};
         }
-        if (Object.is(expmode, 'CHILDDOCLIBMODULE')) {
-            return {  
-                viewname: 'doc-lib-tree-view', 
-                parentdata: {"srfparentdefname":"n_lib_eq"},
-                deKeyField:'doclib'
-			};
-        }
         if (Object.is(expmode, 'DOCLIBMODULE')) {
             return {  
                 viewname: 'doc-lib-tree-view', 
