@@ -4063,10 +4063,10 @@ public class StaticDict {
      */
     @Getter
     public enum Bug__pri {
-        ITEM_1(1,"1"),
-        ITEM_2(2,"2"),
-        ITEM_3(3,"3"),
-        ITEM_4(4,"4");
+        ITEM_1(1,"严重"),
+        ITEM_2(2,"主要"),
+        ITEM_3(3,"次要"),
+        ITEM_4(4,"不重要");
 
         private int value;
         private String text;
