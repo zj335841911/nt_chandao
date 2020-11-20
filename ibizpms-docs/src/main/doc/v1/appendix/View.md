@@ -613,6 +613,7 @@ SRFNAVPARAM.project=%project%|
 |-|我的待办|DEGRIDVIEW9|&nbsp;|
 |-|系统插件表格视图|DEGRIDVIEW|&nbsp;|
 |-|用户年度工作内容统计数据看板视图|DEPORTALVIEW|&nbsp;|
+|-|文档库树视图|DETREEVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试统计|DELISTEXPVIEW|&nbsp;|
 |-|用例库模块编辑视图|DEEDITVIEW|&nbsp;|

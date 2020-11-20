@@ -3247,6 +3247,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "UserYearWorkStatsPODashboardView",
             "viewtag": "c42384620820be3bce40b5b1dc8dcff2"
         },
+        "doclibprojecttreeview": {
+            "title": "文档库树视图",
+            "caption": "项目",
+            "viewtype": "DETREEVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibProjectTreeView",
+            "viewtag": "c468f1ff894437a6de5b9496f0f8b92e"
+        },
         "testreporteditview_tosumup": {
             "title": "测试报告编辑视图",
             "caption": "测试报告",

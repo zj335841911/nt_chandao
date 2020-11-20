@@ -65,6 +65,10 @@ export default {
 			caption: "文档库主页",
       		title: "文档库分页导航视图（文档）",
 		},
+		projecttreeview: {
+			caption: "项目",
+      		title: "文档库树视图",
+		},
 		dashboardview: {
 			caption: "文档主页",
       		title: "文档库数据看板视图",
@@ -226,6 +230,12 @@ export default {
         doclib_editcustomdoclib: "编辑",
         refreshall: "刷新",
         doclib_weihufenlei: "维护分类",
+		},
+	},
+	tree_treeview: {
+		nodes: {
+		},
+		uiactions: {
 		},
 	},
 };

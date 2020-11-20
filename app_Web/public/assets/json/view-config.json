@@ -4049,6 +4049,16 @@
         "viewtag": "c42384620820be3bce40b5b1dc8dcff2",
         "memo": ""
     },
+    "doclibprojecttreeview": {
+        "title": "文档库树视图",
+        "caption": "项目",
+        "viewtype": "DETREEVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocLibProjectTreeView",
+        "viewfilename": "doc-lib-project-tree-view",
+        "viewtag": "c468f1ff894437a6de5b9496f0f8b92e",
+        "memo": ""
+    },
     "testreporteditview_tosumup": {
         "title": "测试报告编辑视图",
         "caption": "测试报告",
