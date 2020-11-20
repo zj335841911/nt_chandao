@@ -270,6 +270,33 @@ export class TreeMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_u1980bfd_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Copy(datas, contextJO,paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_ucfd61f1_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -318,6 +345,35 @@ export class TreeMainGridBase extends GridControlBase {
         curUIService.Story_StoryNFavorites(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
+    /**
+     * 拷贝
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof StoryMainGridViewBase
+     */
+    public Copy(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        if (args.length === 0) {
+            return;
+        }
+        const _this: any = this;
+        if (_this.newdata && _this.newdata instanceof Function) {
+            const data: any = { };
+            if (args.length > 0) {
+                Object.assign(data, { story: args[0].story });
+            }
+            if(!params) params = {};
+            Object.assign(params,{copymode:true});
+            _this.newdata([{ ...data }], params, $event, xData);
+        } else {
+            Object.assign(this.viewparams,{copymode:true});
+        }
+    }
+
 
     /**
      * 界面行为模型
@@ -333,6 +389,7 @@ export class TreeMainGridBase extends GridControlBase {
         OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_EDIT_BUT', target: 'SINGLEKEY'},
         OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CCASE_BUT', target: 'SINGLEKEY'},
         SubStory: { name: 'SubStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_XQXF_BUT', target: 'SINGLEKEY'},
+        Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', target: 'SINGLEKEY'},
         StoryFavorites: { name: 'StoryFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', target: 'SINGLEKEY'},
         StoryNFavorites: { name: 'StoryNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY'}
     };
@@ -707,6 +764,9 @@ export class TreeMainGridBase extends GridControlBase {
         }
         if(Object.is('SubStory', tag)) {
             this.grid_uagridcolumn1_u1c090d0_click(row, tag, $event);
+        }
+        if(Object.is('Copy', tag)) {
+            this.grid_uagridcolumn1_u1980bfd_click(row, tag, $event);
         }
         if(Object.is('StoryFavorites', tag)) {
             this.grid_uagridcolumn1_ucfd61f1_click(row, tag, $event);
