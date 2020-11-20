@@ -503,12 +503,22 @@ export default class ProjectLeftDocLibTreeService extends ControlService {
             let DoclibRsNavParams:any = {};
             let DoclibRsParams:any = {};
 			await this.fillDoclibNodes(context, filter, list ,DoclibRsNavContext,DoclibRsNavParams,DoclibRsParams);
+			// 填充附件库
+            let FilesRsNavContext:any = {};
+            let FilesRsNavParams:any = {};
+            let FilesRsParams:any = {};
+			await this.fillFilesNodes(context, filter, list ,FilesRsNavContext,FilesRsNavParams,FilesRsParams);
 		} else {
 			// 填充文档库
             let DoclibRsNavContext:any = {};
             let DoclibRsNavParams:any = {};
             let DoclibRsParams:any = {};
 			await this.fillDoclibNodes(context, filter, list ,DoclibRsNavContext,DoclibRsNavParams,DoclibRsParams);
+			// 填充附件库
+            let FilesRsNavContext:any = {};
+            let FilesRsNavParams:any = {};
+            let FilesRsParams:any = {};
+			await this.fillFilesNodes(context, filter, list ,FilesRsNavContext,FilesRsNavParams,FilesRsParams);
 		}
 	}
 

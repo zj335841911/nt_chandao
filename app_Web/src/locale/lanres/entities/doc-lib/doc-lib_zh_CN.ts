@@ -25,6 +25,10 @@ export default {
 			caption: "项目文档库",
       		title: "文档库树导航视图（项目文档库）",
 		},
+		usr3treeview: {
+			caption: "文档库",
+      		title: "文档库树视图",
+		},
 		treeview: {
 			caption: "文档库",
       		title: "文档库树视图",
@@ -296,6 +300,13 @@ export default {
 			root: "默认根节点",
 			allproject: "所有项目",
 			files: "附件库",
+		},
+		uiactions: {
+		},
+	},
+	childdoclibmoduletree_treeview: {
+		nodes: {
+			root: "默认根节点",
 		},
 		uiactions: {
 		},

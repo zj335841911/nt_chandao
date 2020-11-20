@@ -359,6 +359,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductStatsALLGridView",
             "viewtag": "1381e29846ae321ca2d06d71bbe3082d"
         },
+        "doclibusr3treeview": {
+            "title": "文档库树视图",
+            "caption": "文档库",
+            "viewtype": "DETREEVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibUsr3TreeView",
+            "viewtag": "13ee26e3aef1942ab979bab497a318b1"
+        },
         "docgridview10": {
             "title": "文档表格视图",
             "caption": "最近更新",
