@@ -288,6 +288,13 @@ export default {
 			doclib_weihufenlei: "维护分类",
 		},
 	},
+	childdoclibmoduletree_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
 	rootdoclibprojecttreeveiw_treeview: {
 		nodes: {
 			root: "默认根节点",
@@ -300,13 +307,6 @@ export default {
 			root: "默认根节点",
 			allproject: "所有项目",
 			files: "附件库",
-		},
-		uiactions: {
-		},
-	},
-	childdoclibmoduletree_treeview: {
-		nodes: {
-			root: "默认根节点",
 		},
 		uiactions: {
 		},

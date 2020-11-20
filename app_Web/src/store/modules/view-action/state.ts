@@ -158,8 +158,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '007d984e6319843d935a48b30587ab1b',
+                '13ee26e3aef1942ab979bab497a318b1',
                 'f0c5e57e6807ba57c5bfee086c302361',
-                '4503911318e1f1f26599b68a6c6e681d',
                 'c468f1ff894437a6de5b9496f0f8b92e',
             ],
         },
@@ -365,6 +365,15 @@ export const viewstate: any = {
             refviews: [
                 'bc36be2ee4a78e69c13665a8ad03ab6a',
                 'e042a1dee405b0a853f315b39a375783',
+            ],
+        },
+        {
+            viewtag: '13ee26e3aef1942ab979bab497a318b1',
+            viewmodule: 'zentao',
+            viewname: 'DocLibUsr3TreeView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1249,18 +1258,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6f78b25e86923ab600a2141d50fe49fd',
-            ],
-        },
-        {
-            viewtag: '4503911318e1f1f26599b68a6c6e681d',
-            viewmodule: 'zentao',
-            viewname: 'DocGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'b6e02216d1e5c69d79b32342d8b67c7a',
-                '23cc93d7fdddff5077a7952d26802a7b',
-                'c9be79d1ad2a32e56092cd1ec1e896eb',
             ],
         },
         {

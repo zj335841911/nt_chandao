@@ -4413,6 +4413,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/usr3treeview/:usr3treeview?',
+                    meta: {
+                        caption: 'entities.doclib.views.usr3treeview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'usr3treeview', parameterName: 'usr3treeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-usr3-tree-view/doc-lib-usr3-tree-view.vue'),
+                },
+                {
                     path: 'todos/:todo?/calendareditview/:calendareditview?',
                     meta: {
                         caption: 'entities.todo.views.calendareditview.caption',
@@ -9054,20 +9068,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/product-sum-usr3-grid-view/product-sum-usr3-grid-view.vue'),
-                },
-                {
-                    path: 'docs/:doc?/gridview/:gridview?',
-                    meta: {
-                        caption: 'entities.doc.views.gridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'docs', parameterName: 'doc' },
-                            { pathName: 'gridview', parameterName: 'gridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/doc-grid-view/doc-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/testoptionview/:testoptionview?',
