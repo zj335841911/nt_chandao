@@ -1225,10 +1225,11 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [自定义文档库](#数据查询-自定义文档库（ByCustom）) | ByCustom | 否 |
 | 2 | [产品文档库](#数据查询-产品文档库（ByProduct）) | ByProduct | 否 |
-| 3 | [项目文件库](#数据查询-项目文件库（ByProject）) | ByProject | 否 |
-| 4 | [所属文档库](#数据查询-所属文档库（CurDocLib）) | CurDocLib | 否 |
-| 5 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [产品文档库](#数据查询-产品文档库（ByProductNotFiles）) | ByProductNotFiles | 否 |
+| 4 | [项目文件库](#数据查询-项目文件库（ByProject）) | ByProject | 否 |
+| 5 | [所属文档库](#数据查询-所属文档库（CurDocLib）) | CurDocLib | 否 |
+| 6 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 7 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-自定义文档库（ByCustom）
 #### 说明
@@ -1316,6 +1317,21 @@ FROM
 	and tt.deleted = '0'))) and t.deleted = '0') as DOCCNT
 FROM
 	dual  ) t1
+```
+### 数据查询-产品文档库（ByProductNotFiles）
+#### 说明
+不含附件库
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+
 ```
 ### 数据查询-项目文件库（ByProject）
 #### 说明

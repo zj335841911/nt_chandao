@@ -103,6 +103,7 @@ hide members
 | --------  | --------   | --------   | ----- |
 |ByCustom|自定义文档库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_ByCustom))|否|&nbsp;|
 |ByProduct|产品文档库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_ByProduct))|否|&nbsp;|
+|ByProductNotFiles|产品文档库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_ByProductNotFiles))|否|&nbsp;不含附件库|
 |ByProject|项目文件库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_ByProject))|否|&nbsp;|
 |CurDocLib|所属文档库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_CurDocLib))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_Default))|否|&nbsp;|

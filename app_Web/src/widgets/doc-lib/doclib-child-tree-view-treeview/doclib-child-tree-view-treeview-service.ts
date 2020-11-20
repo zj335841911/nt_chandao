@@ -528,7 +528,7 @@ export default class DoclibChildTreeViewService extends ControlService {
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
-                        Object.assign(treeNode, { leaf: true });
+                        Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
@@ -615,7 +615,17 @@ export default class DoclibChildTreeViewService extends ControlService {
     @Errorlog
     public async fillChilddoclibNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+			// 填充文档库子节点
+            let ChilddoclibRsNavContext:any = {};
+            let ChilddoclibRsNavParams:any = {};
+            let ChilddoclibRsParams:any = {};
+			await this.fillChilddoclibNodes(context, filter, list ,ChilddoclibRsNavContext,ChilddoclibRsNavParams,ChilddoclibRsParams);
 		} else {
+			// 填充文档库子节点
+            let ChilddoclibRsNavContext:any = {};
+            let ChilddoclibRsNavParams:any = {};
+            let ChilddoclibRsParams:any = {};
+			await this.fillChilddoclibNodes(context, filter, list ,ChilddoclibRsNavContext,ChilddoclibRsNavParams,ChilddoclibRsParams);
 		}
 	}
 
