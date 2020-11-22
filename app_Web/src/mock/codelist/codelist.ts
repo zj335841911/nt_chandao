@@ -4019,6 +4019,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "未开始",
                 "data":"",
                 "codename":"Wait",
+                "color": "rgba(144, 248, 25, 1)",
                 value: "wait",
                 
                 disabled: false,
@@ -4029,6 +4030,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已计划",
                 "data":"",
                 "codename":"Planned",
+                "color": "rgba(108, 159, 19, 1)",
                 value: "planned",
                 
                 disabled: false,
@@ -4039,6 +4041,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已立项",
                 "data":"",
                 "codename":"Projected",
+                "color": "rgba(45, 89, 5, 1)",
                 value: "projected",
                 
                 disabled: false,
@@ -4049,6 +4052,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "研发中",
                 "data":"",
                 "codename":"Developing",
+                "color": "rgba(10, 164, 181, 1)",
                 value: "developing",
                 
                 disabled: false,
@@ -4059,6 +4063,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "研发完毕",
                 "data":"",
                 "codename":"Developed",
+                "color": "rgba(7, 98, 108, 1)",
                 value: "developed",
                 
                 disabled: false,
@@ -4069,6 +4074,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "测试中",
                 "data":"",
                 "codename":"Testing",
+                "color": "rgba(18, 46, 205, 1)",
                 value: "testing",
                 
                 disabled: false,
@@ -4079,6 +4085,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "测试完毕",
                 "data":"",
                 "codename":"Tested",
+                "color": "rgba(8, 56, 115, 1)",
                 value: "tested",
                 
                 disabled: false,
@@ -4089,6 +4096,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已验收",
                 "data":"",
                 "codename":"Verified",
+                "color": "rgba(85, 7, 137, 1)",
                 value: "verified",
                 
                 disabled: false,
@@ -4099,6 +4107,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已发布",
                 "data":"",
                 "codename":"Released",
+                "color": "rgba(12, 244, 47, 1)",
                 value: "released",
                 
                 disabled: false,
@@ -4109,6 +4118,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "已关闭",
                 "data":"",
                 "codename":"Closed",
+                "color": "rgba(212, 219, 221, 1)",
                 value: "closed",
                 
                 disabled: false,
