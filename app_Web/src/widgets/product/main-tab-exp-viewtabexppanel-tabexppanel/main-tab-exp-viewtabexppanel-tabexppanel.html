@@ -84,7 +84,13 @@
             v-if="authResourceObject['tabviewpanel11'].visible"
             :label="(h) =>{
                 return h('div', [
-                    h('span', '需求看板'),
+                    h('i',{
+                        class:'fa fa-trello',
+                        style:{
+                            'margin-right' : '2px'
+                        }
+                    }),
+                    h('span', '看板'),
                     h('Badge', {
                         props: {
                             count: undefined,
