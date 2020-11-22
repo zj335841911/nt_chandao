@@ -521,6 +521,16 @@
     labelPos="LEFT"
 >
     
+<dropdown-list-mpicker 
+  v-model="data.mailto"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.mailto.disabled"
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
 
 </app-form-item>
 
