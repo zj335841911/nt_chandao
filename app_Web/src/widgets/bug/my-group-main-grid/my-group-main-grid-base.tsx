@@ -374,6 +374,15 @@ export class MyGroupMainGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'severity',
+            label: '严重程度',
+            langtag: 'entities.bug.mygroupmain_grid.columns.severity',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'confirmed',
             label: '确认',
             langtag: 'entities.bug.mygroupmain_grid.columns.confirmed',
@@ -575,6 +584,7 @@ export class MyGroupMainGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'id':false,
         'pri':false,
+        'severity':false,
         'confirmed':false,
         'productname':false,
         'projectname':false,
@@ -856,7 +866,7 @@ export class MyGroupMainGridBase extends GridControlBase {
     * @memberof MyGroupMainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','pri','confirmed','productname','projectname','title','status','openedby','openeddate','assignedto','resolution','uagridcolumn1','isfavorites'];
+        let allColumns:Array<any> = ['id','pri','severity','confirmed','productname','projectname','title','status','openedby','openeddate','assignedto','resolution','uagridcolumn1','isfavorites'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -937,6 +947,7 @@ export class MyGroupMainGridBase extends GridControlBase {
                 group: group.label,
                 id:'',
                 pri:'',
+                severity:'',
                 confirmed:'',
                 productname:'',
                 projectname:'',
@@ -994,6 +1005,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             group: '其他',
             id:'',
             pri:'',
+            severity:'',
             confirmed:'',
             productname:'',
             projectname:'',
@@ -1087,6 +1099,7 @@ export class MyGroupMainGridBase extends GridControlBase {
                 group: group,
                 id:'',
                 pri:'',
+                severity:'',
                 confirmed:'',
                 productname:'',
                 projectname:'',

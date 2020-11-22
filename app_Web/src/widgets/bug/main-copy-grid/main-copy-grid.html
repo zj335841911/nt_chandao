@@ -51,6 +51,20 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('severity')">
+                <el-table-column show-overflow-tooltip :prop="'severity'" :label="$t('entities.bug.main_copy_grid.columns.severity')" :width="82"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.bug.main_copy_grid.columns.severity')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.severity" tag="Bug__severity" codelistType="STATIC" ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('confirmed')">
                 <el-table-column show-overflow-tooltip :prop="'confirmed'" :label="$t('entities.bug.main_copy_grid.columns.confirmed')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">

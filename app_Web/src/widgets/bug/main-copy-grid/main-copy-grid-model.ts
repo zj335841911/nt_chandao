@@ -107,6 +107,11 @@ export default class Main_CopyModel {
           dataType: 'NSCODELIST',
         },
         {
+          name: 'severity',
+          prop: 'severity',
+          dataType: 'NSCODELIST',
+        },
+        {
           name: 'confirmed',
           prop: 'confirmed',
           dataType: 'NSCODELIST',

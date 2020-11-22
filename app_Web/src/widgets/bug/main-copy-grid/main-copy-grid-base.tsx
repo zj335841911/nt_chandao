@@ -403,6 +403,15 @@ export class Main_CopyGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'severity',
+            label: '严重程度',
+            langtag: 'entities.bug.main_copy_grid.columns.severity',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'confirmed',
             label: '确认',
             langtag: 'entities.bug.main_copy_grid.columns.confirmed',
@@ -604,6 +613,7 @@ export class Main_CopyGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'id':false,
         'pri':false,
+        'severity':false,
         'confirmed':false,
         'title':false,
         'status':false,
@@ -888,7 +898,7 @@ export class Main_CopyGridBase extends GridControlBase {
     * @memberof Main_CopyBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['id','pri','confirmed','title','status','openedby','openeddate','assignedto','resolution','uagridcolumn1','lastediteddate','activateddate','isfavorites'];
+        let allColumns:Array<any> = ['id','pri','severity','confirmed','title','status','openedby','openeddate','assignedto','resolution','uagridcolumn1','lastediteddate','activateddate','isfavorites'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -969,6 +979,7 @@ export class Main_CopyGridBase extends GridControlBase {
                 group: group.label,
                 id:'',
                 pri:'',
+                severity:'',
                 confirmed:'',
                 title:'',
                 status:'',
@@ -1029,6 +1040,7 @@ export class Main_CopyGridBase extends GridControlBase {
             group: '其他',
             id:'',
             pri:'',
+            severity:'',
             confirmed:'',
             title:'',
             status:'',
@@ -1125,6 +1137,7 @@ export class Main_CopyGridBase extends GridControlBase {
                 group: group,
                 id:'',
                 pri:'',
+                severity:'',
                 confirmed:'',
                 title:'',
                 status:'',
