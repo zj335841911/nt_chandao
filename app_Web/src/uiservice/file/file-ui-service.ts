@@ -56,7 +56,7 @@ export default class FileUIService extends FileUIServiceBase {
         Object.assign(context,parentObj);
         // 自定义实体界面行为
         // actionContext.$Notice.warning({ title: '错误', desc: '下载 未实现' });
-        let url = "../ibizutil/ztdownload/" + context.file;
+        let url = "../ibizutilpms/ztdownload/" + context.file;
         window.open(url);
 
     }
