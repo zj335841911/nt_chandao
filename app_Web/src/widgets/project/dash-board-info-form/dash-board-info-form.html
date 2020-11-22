@@ -146,11 +146,11 @@
 
     :caption="$t('entities.project.dashboardinfo_form.details.name')"
     uiStyle="DEFAULT"
-    :labelWidth="0"
-    :isShowCaption="false"
+    :labelWidth="10"
+    :isShowCaption="true"
     :error="detailsModel.name.error"
-    :isEmptyCaption="false"
-    labelPos="NONE"
+    :isEmptyCaption="true"
+    labelPos="LEFT"
 >
     
 <app-span name='name' :value="data.name" dataType="TEXT"     :precision="0"

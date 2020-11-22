@@ -325,7 +325,7 @@ export default {
 			srfsourcekey: "", 
 			id: "项目编号", 
 			code: "项目代号", 
-			name: "项目名称", 
+			name: "", 
 			desc: "", 
 			type: "项目类型", 
 			status: "项目状态", 

@@ -258,7 +258,7 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
 }),
 
         name: new FormItemModel({
-    caption: '项目名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    caption: '', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
