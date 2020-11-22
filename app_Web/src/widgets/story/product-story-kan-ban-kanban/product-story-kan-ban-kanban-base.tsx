@@ -255,7 +255,7 @@ export class ProductStoryKanBanKanbanBase extends MainControlBase {
      * @type {string}
      * @memberof ProductStoryKanBanBase
      */ 
-    public groupCodelist: string = 'StoryStageKane'
+    public groupCodelist: string = 'Story__stage'
 
     /**
      * Vue声明周期，组件挂载完毕
