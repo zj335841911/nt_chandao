@@ -419,6 +419,16 @@
         "viewtag": "12661bdb476cd339554799b417c6ea48",
         "memo": ""
     },
+    "storyproductstagekanbanview": {
+        "title": "需求看板视图",
+        "caption": "需求",
+        "viewtype": "DEKANBANVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryProductStageKanbanView",
+        "viewfilename": "story-product-stage-kanban-view",
+        "viewtag": "1340907d0c403b48b0ca086331cd2083",
+        "memo": ""
+    },
     "testresultmeditview9": {
         "title": "测试结果多表单编辑视图",
         "caption": "测试结果",

@@ -76,6 +76,10 @@ export default {
 			caption: "需求",
       		title: "发布下属需求数据多项选择视图",
 		},
+		productstagekanbanview: {
+			caption: "需求",
+      		title: "需求看板视图",
+		},
 		mainview9_related: {
 			caption: "需求",
       		title: "需求编辑视图",
@@ -1447,6 +1451,24 @@ export default {
 			tip: "Filter",
 		},
 	},
+	productstagekanbanviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		deuiaction3: {
+			caption: "关联需求",
+			tip: "关联需求",
+		},
+		deuiaction4: {
+			caption: "按照计划关联",
+			tip: "按照计划关联",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
 	releasesubgridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "关联需求",
@@ -1506,6 +1528,11 @@ export default {
 		nodata: "",
 	},
 	storykanban_kanban: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	productstorykanban_kanban: {
 		nodata: "",
 		uiactions: {
 		},

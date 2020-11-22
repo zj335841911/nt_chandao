@@ -347,6 +347,20 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1340907d0c403b48b0ca086331cd2083',
+            viewmodule: 'zentao',
+            viewname: 'StoryProductStageKanbanView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '645efdb73a5b13723410903dff447667',
+                'bd6f41c3367241b8eddd61eb6e80f029',
+                'cad4ce05432f03f140d6ee3ad5dfe8c5',
+                '3f2ca3e560d9082bb56fbf7667a57a66',
+                '4863a523ac490ebce771717756f0c6a8',
+            ],
+        },
+        {
             viewtag: '136cd30bd141450ecd9e7791215733e6',
             viewmodule: 'zentao',
             viewname: 'TestResultMEditView9',
@@ -1944,6 +1958,7 @@ export const viewstate: any = {
                 '522b28992d16207a0fc47340589bb2cf',
                 '81b0cee2fedff8f4902c0d735714e5af',
                 '905ab75396c304821d250f18e2fd6571',
+                '1340907d0c403b48b0ca086331cd2083',
                 '84104216ff9049079f9442c9cbd54342',
                 '776ea44ea05316c9c6cb9d5948e993f9',
                 'bc36be2ee4a78e69c13665a8ad03ab6a',

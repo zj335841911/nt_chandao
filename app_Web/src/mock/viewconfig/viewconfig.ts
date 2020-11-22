@@ -343,6 +343,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskAssignTaskView",
             "viewtag": "12661bdb476cd339554799b417c6ea48"
         },
+        "storyproductstagekanbanview": {
+            "title": "需求看板视图",
+            "caption": "需求",
+            "viewtype": "DEKANBANVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryProductStageKanbanView",
+            "viewtag": "1340907d0c403b48b0ca086331cd2083"
+        },
         "testresultmeditview9": {
             "title": "测试结果多表单编辑视图",
             "caption": "测试结果",

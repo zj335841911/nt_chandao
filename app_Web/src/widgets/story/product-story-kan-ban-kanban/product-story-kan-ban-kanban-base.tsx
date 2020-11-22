@@ -3,7 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
-import StoryKanBanService from './story-kan-ban-kanban-service';
+import ProductStoryKanBanService from './product-story-kan-ban-kanban-service';
 import StoryUIService from '@/uiservice/story/story-ui-service';
 import draggable from "vuedraggable";
 
@@ -12,31 +12,31 @@ import draggable from "vuedraggable";
  *
  * @export
  * @class MainControlBase
- * @extends {StoryKanBanKanbanBase}
+ * @extends {ProductStoryKanBanKanbanBase}
  */
-export class StoryKanBanKanbanBase extends MainControlBase {
+export class ProductStoryKanBanKanbanBase extends MainControlBase {
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof StoryKanBanKanbanBase
+     * @memberof ProductStoryKanBanKanbanBase
      */
     protected controlType: string = 'KANBAN';
 
     /**
      * 建构部件服务对象
      *
-     * @type {StoryKanBanService}
-     * @memberof StoryKanBanKanbanBase
+     * @type {ProductStoryKanBanService}
+     * @memberof ProductStoryKanBanKanbanBase
      */
-    public service: StoryKanBanService = new StoryKanBanService({ $store: this.$store });
+    public service: ProductStoryKanBanService = new ProductStoryKanBanService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {StoryService}
-     * @memberof StoryKanBanKanbanBase
+     * @memberof ProductStoryKanBanKanbanBase
      */
     public appEntityService: StoryService = new StoryService({ $store: this.$store });
 
@@ -45,7 +45,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof StoryKanBanKanbanBase
+     * @memberof ProductStoryKanBanKanbanBase
      */
     protected appDeName: string = 'story';
 
@@ -54,7 +54,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof StoryKanBanKanbanBase
+     * @memberof ProductStoryKanBanKanbanBase
      */
     protected appDeLogicName: string = '需求';
 
@@ -62,7 +62,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 界面UI服务对象
      *
      * @type {StoryUIService}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */  
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
@@ -70,7 +70,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public getDatas(): any[] {
         return this.selections;
@@ -80,7 +80,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public getData(): any {
         return null;
@@ -90,7 +90,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 是否默认选中第一条数据
      *
      * @type {boolean}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     @Prop({ default: false }) public isSelectFirstDefault!: boolean;
 
@@ -98,7 +98,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     @Prop({ default: true }) public showBusyIndicator?: boolean;
 
@@ -106,7 +106,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     @Prop() public createAction!: string;
 
@@ -114,7 +114,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     @Prop() public removeAction!: string;
 
@@ -122,7 +122,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     @Prop() public updateAction!: string;
 
@@ -130,7 +130,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     @Prop() public fetchAction!: string;
 
@@ -138,7 +138,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 部件行为--updateGroup
      *
      * @type {string}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     @Prop() public updateGroupAction!: string;
 
@@ -146,7 +146,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     @Prop() public isSingleSelect?: boolean;
 
@@ -154,7 +154,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 数据
      *
      * @type {any[]}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public items: any[] = [];
 
@@ -162,7 +162,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 是否支持分页
      *
      * @type {boolean}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public isEnablePagingBar: boolean = false;;
 
@@ -170,7 +170,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 总条数
      *
      * @type {number}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public totalRecord: number = 0;
 
@@ -178,14 +178,14 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 加载的数据是否附加在items之后
      *
      * @type {boolean}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public isAddBehind:boolean = false;
 
     /**
      * 选中数组
      * @type {Array<any>}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public selections: Array<any> = [];
 
@@ -193,7 +193,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 当前页
      *
      * @type {number}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public curPage: number = 1;
 
@@ -201,7 +201,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 分页条数
      *
      * @type {number}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public limit: number = 1000;
 
@@ -209,7 +209,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 排序方向
      *
      * @type {string}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */    
     public sortDir:string = '';
 
@@ -217,7 +217,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 排序字段
      *
      * @type {string}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */    
     public sortField: string = '';
 
@@ -225,42 +225,42 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 是否分组
      *
      * @type {string}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */   
     public isGroup: boolean = true;
     /**
      * 分组集合
      *
      * @type {string}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */ 
     public groups: any[] = [];
     /**
      * 分组属性名称
      *
      * @type {string}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */ 
     public groupField: string = 'stage';
     /**
      * 分组模式
      *
      * @type {string}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */ 
     public groupMode: string = 'CODELIST'
     /**
      * 分组模式
      *
      * @type {string}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */ 
     public groupCodelist: string = 'StoryStageKane'
 
     /**
      * Vue声明周期，组件挂载完毕
      *
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public mounted () {
         this.afterMounted();
@@ -269,7 +269,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
     /**
      * 执行mounted后的逻辑
      *
-     *  @memberof StoryKanBanBase
+     *  @memberof ProductStoryKanBanBase
      */    
     public afterMounted(){
         this.$el.addEventListener('scroll', ()=> {
@@ -282,7 +282,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
     /**
      * Vue声明周期，组件创建完毕
      *
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public created() {
         this.afterCreated();
@@ -291,7 +291,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof StoryKanBanBase
+     *  @memberof ProductStoryKanBanBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -312,7 +312,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
     /**
 	 * 加载更多
 	 *
-	 * @memberof StoryKanBanBase
+	 * @memberof ProductStoryKanBanBase
 	 */
     public loadMore(){
         if(this.totalRecord>this.items.length)
@@ -327,7 +327,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 刷新
      *
      * @param {*} [opt={}]
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public refresh(opt: any = {}) {
         this.curPage = 1;
@@ -337,7 +337,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -346,7 +346,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -360,11 +360,11 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * @public
      * @param {*} [arg={}]
      * @param {boolean} [isReset=false] 是否重置items
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public load(opt: any = {}, isReset: boolean = false): void {
         if(!this.fetchAction){
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: 'StoryKanbanView' + (this.$t('app.kanban.notConfig.fetchAction') as string) });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: 'StoryProductStageKanbanView' + (this.$t('app.kanban.notConfig.fetchAction') as string) });
             return;
         }      
         const arg: any = {...opt};
@@ -427,11 +427,11 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      *
      * @param {any[]} datas
      * @returns {Promise<any>}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public async remove(datas: any[]): Promise<any> {
         if(!this.removeAction){
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: 'StoryKanbanView' + (this.$t('app.kanban.notConfig.removeAction') as string) });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: 'StoryProductStageKanbanView' + (this.$t('app.kanban.notConfig.removeAction') as string) });
             return;
         }
         let _datas:any[] = [];
@@ -527,7 +527,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 设置分组集合
      *
      * @param {*}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public updateData(opt: any) {
         const arg: any = { ...opt };
@@ -563,7 +563,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 设置分组集合
      *
      * @param {}
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public setGroups() {
         if(!this.isGroup || !this.groupField || Object.is(this.groupMode, 'NONE')) {
@@ -599,7 +599,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 设置分组集合
      *
      * @param {string} name
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public getGroupItems(name: string) {
         let datas: any = [];
@@ -615,7 +615,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * 设置分组集合
      *
      * @param {string} name
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public getGroupText(name: string) {
         if(Object.is(this.groupMode, 'CODELIST') && this.groupCodelist) {
@@ -635,7 +635,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
 
     /**
      * 选择数据
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      *
      */
     public handleClick(args: any) {
@@ -650,7 +650,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
 
     /**
      * 双击数据
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      *
      */
     public handleDblClick(args: any) {
@@ -665,7 +665,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
 
     /**
      * 触发事件
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      *
      */
     public selectchange() {
@@ -683,7 +683,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      *
      * @param {*} tag
      * @param {*} $event
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
 	public uiAction(tag: any, $event: any) {
         let row = this.selections.length > 0 ? this.selections[0] : {};
@@ -694,7 +694,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      *
      * @param {*} evt
      * @param {*} name
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public onDragChange(evt: any, name: string) {
         if(evt && evt.added && evt.added.element) {
@@ -728,7 +728,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      *
      * @param {*} evt
      * @param {*} name
-     * @memberof StoryKanBanBase
+     * @memberof ProductStoryKanBanBase
      */
     public getUpdateView(group: any) {
         switch(group) {
@@ -740,7 +740,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      *
      * @param {*} evt
      * @param {*} name
-     * @memberof StoryKanBan
+     * @memberof ProductStoryKanBan
      */
     public getHeaderStyle(name: string) {
         let style = { 'text-align': 'center' };
