@@ -732,6 +732,12 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      */
     public getUpdateView(group: any) {
         switch(group) {
+            case 'wait1': 
+                return {
+                    viewname: 'story-main-view',
+                    title: this.$t('entities.story.views.mainview.title'),
+                    placement:'DRAWER_TOP'
+                };
         }
     }
 
