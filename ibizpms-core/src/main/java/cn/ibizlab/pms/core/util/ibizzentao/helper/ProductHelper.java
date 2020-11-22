@@ -48,8 +48,8 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         // 校验产品名称和产品代号
         String sql = "select * from zt_product where `name` = #{et.name} or `code` = #{et.code}";
         Map<String,Object> param = new HashMap<>();
-        param.put("name", et.getName());
-        param.put("code", et.getCode());
+        param.put(FIELD_NAME, et.getName());
+        param.put(FIELD_CODE, et.getCode());
         List<JSONObject> nameList = productService.select(sql,param);
         if(!nameList.isEmpty() && nameList.size() > 0) {
             throw new RuntimeException(String.format("[产品名称：%1$s]或[产品代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
@@ -93,9 +93,9 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         // 校验产品名称和产品代号
         String sql = "select * from zt_product where (`name` = #{et.name} or `code` = #{et.code}) and `id` <> #{et.id}";
         Map<String,Object> param = new HashMap<>();
-        param.put("name", et.getName());
-        param.put("code", et.getCode());
-        param.put("id", et.getId());
+        param.put(FIELD_NAME, et.getName());
+        param.put(FIELD_CODE, et.getCode());
+        param.put(FIELD_ID, et.getId());
         List<JSONObject> nameList = productService.select(sql,param);
         if(!nameList.isEmpty() && nameList.size() > 0) {
             throw new RuntimeException(String.format("[产品名称：%1$s]或[产品代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
@@ -128,7 +128,7 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         boolean result = removeById(key);
 
         //删除doclib
-        docLibHelper.remove(new QueryWrapper<DocLib>().eq("product", key));
+        docLibHelper.remove(new QueryWrapper<DocLib>().eq(StaticDict.Action__object_type.PRODUCT.getValue(), key));
 
         return result;
     }

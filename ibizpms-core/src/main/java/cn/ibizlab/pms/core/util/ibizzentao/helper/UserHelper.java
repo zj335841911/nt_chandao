@@ -29,31 +29,4 @@ public class UserHelper extends ZTBaseHelper<UserMapper, User> {
         return true;
     }
 
-    public String ccUsers(String noticeUsers) {
-        SysEmployeeSearchContext sysEmployeeSearchContext = new SysEmployeeSearchContext();
-        sysEmployeeSearchContext.setN_username_in(noticeUsers);
-        sysEmployeeSearchContext.setN_username_notin(AuthenticationUser.getAuthenticationUser().getUsername());
-        Page<SysEmployee> pages = sysEmployeeService.searchDefault(sysEmployeeSearchContext);
-        String users = "";
-        for(SysEmployee sysEmployee : pages.getContent()) {
-            if(!"".equals(users)) {
-                users += ",";
-            }
-            users += sysEmployee.getUserid();
-        }
-        return users;
-    }
-
-    public String toUser(String assignedto) {
-        SysEmployeeSearchContext sysEmployeeSearchContext = new SysEmployeeSearchContext();
-        sysEmployeeSearchContext.setN_username_in(assignedto);
-        sysEmployeeSearchContext.setN_username_notin(AuthenticationUser.getAuthenticationUser().getUsername());
-        Page<SysEmployee> pages = sysEmployeeService.searchDefault(sysEmployeeSearchContext);
-        if(pages.getContent().size() > 0) {
-            return pages.getContent().get(0).getUserid();
-        }
-        return "";
-    }
-
-
 }

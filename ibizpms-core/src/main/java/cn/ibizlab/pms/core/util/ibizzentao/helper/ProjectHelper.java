@@ -63,8 +63,8 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     public boolean create(Project et) {
         String sql = "select * from zt_project where (`name` = #{et.name} or `code` = #{et.code})";
         Map<String,Object> param = new HashMap<>();
-        param.put("name", et.getName());
-        param.put("code", et.getCode());
+        param.put(FIELD_NAME, et.getName());
+        param.put(FIELD_CODE, et.getCode());
         List<JSONObject> nameList = projectService.select(sql,param);
         if(!nameList.isEmpty() && nameList.size() > 0) {
             throw new RuntimeException(String.format("[项目名称：%1$s]或[项目代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
@@ -112,13 +112,13 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
                 JSONObject json = projectproducts.getJSONObject(i);
                 ProjectProduct projectProduct = new ProjectProduct();
                 projectProduct.setProject(et.getId());
-                if (json.containsKey("products")) {
-                    projectProduct.setProduct(json.getLongValue("products"));
+                if (json.containsKey(FIELD_PRODUCTS)) {
+                    projectProduct.setProduct(json.getLongValue(FIELD_PRODUCTS));
                 } else {
                     continue;
                 }
-                projectProduct.setPlan(json.getLongValue("plans"));
-                projectProduct.setBranch(json.getLongValue("branchs"));
+                projectProduct.setPlan(json.getLongValue(FIELD_PLANS));
+                projectProduct.setBranch(json.getLongValue(FIELD_BRANCHS));
                 projectProductHelper.create(projectProduct);
             }
         }
@@ -136,9 +136,9 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     public boolean edit(Project et) {
         String sql = "select * from zt_project where (`name` = #{et.name} or `code` = #{et.code}) and `id` <> #{et.id}";
         Map<String,Object> param = new HashMap<>();
-        param.put("name", et.getName());
-        param.put("code", et.getCode());
-        param.put("id", et.getId());
+        param.put(FIELD_NAME, et.getName());
+        param.put(FIELD_CODE, et.getCode());
+        param.put(FIELD_ID, et.getId());
         List<JSONObject> nameList = projectService.select(sql,param);
         if(!nameList.isEmpty() && nameList.size() > 0) {
             throw new RuntimeException(String.format("[项目名称：%1$s]或[项目代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
@@ -161,13 +161,13 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
                 JSONObject json = projectproducts.getJSONObject(i);
                 ProjectProduct projectProduct = new ProjectProduct();
                 projectProduct.setProject(et.getId());
-                if (json.containsKey("products") && json.get("products") != null) {
-                    projectProduct.setProduct(json.getLongValue("products"));
+                if (json.containsKey(FIELD_PRODUCTS) && json.get(FIELD_PRODUCTS) != null) {
+                    projectProduct.setProduct(json.getLongValue(FIELD_PRODUCTS));
                 } else {
                     continue;
                 }
-                projectProduct.setPlan(json.getLongValue("plans"));
-                projectProduct.setBranch(json.getLongValue("branchs"));
+                projectProduct.setPlan(json.getLongValue(FIELD_PLANS));
+                projectProduct.setBranch(json.getLongValue(FIELD_BRANCHS));
                 projectProductHelper.create(projectProduct);
             }
         }
@@ -290,19 +290,19 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
 
     @Transactional(rollbackFor = Exception.class)
     public Project linkStory(Project et) {
-        if (et.getId() == null || et.get("stories") == null) {
+        if (et.getId() == null || et.get(FIELD_STORIES) == null) {
             return et;
         }
 
         int order = -1;
-        ProjectStory maxProjectStory = projectStoryHelper.getOne(new QueryWrapper<ProjectStory>().eq("project", et.getId()).orderByDesc("`order`").last("limit 0,1"));
+        ProjectStory maxProjectStory = projectStoryHelper.getOne(new QueryWrapper<ProjectStory>().eq(StaticDict.Action__object_type.PROJECT.getValue(), et.getId()).orderByDesc("`order`").last("limit 0,1"));
         if (maxProjectStory != null) {
             order = maxProjectStory.getOrder();
         }
 
-        for (String storyId :  et.get("stories").toString().split(",")) {
+        for (String storyId :  et.get(FIELD_STORIES).toString().split(MULTIPLE_CHOICE)) {
             Story story = storyHelper.get(Long.parseLong(storyId));
-            ProjectStory exists = projectStoryHelper.getOne(new QueryWrapper<ProjectStory>().eq("project", et.getId()).eq("story", story.getId()));
+            ProjectStory exists = projectStoryHelper.getOne(new QueryWrapper<ProjectStory>().eq(StaticDict.Action__object_type.PROJECT.getValue(), et.getId()).eq(StaticDict.Action__object_type.STORY.getValue(), story.getId()));
             if (exists != null) {
                 continue;
             }
@@ -324,19 +324,19 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
 
     @Transactional(rollbackFor = Exception.class)
     public Project unlinkStory(Project et) {
-        if (et.getId() == null || et.get("story") == null) {
+        if (et.getId() == null || et.get(StaticDict.Action__object_type.STORY.getValue()) == null) {
             throw new RuntimeException("解除需求错误");
         }
 
-        projectStoryHelper.remove(new QueryWrapper<ProjectStory>().eq("project", et.getId()).eq("story", et.get("story")));
+        projectStoryHelper.remove(new QueryWrapper<ProjectStory>().eq(StaticDict.Action__object_type.PROJECT.getValue(), et.getId()).eq(StaticDict.Action__object_type.STORY.getValue(), et.get(StaticDict.Action__object_type.STORY.getValue())));
 
         //order 处理
 
-        actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), Long.parseLong(et.get("story").toString()), StaticDict.Action__type.UNLINKEDFROMPROJECT.getValue(),
+        actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), Long.parseLong(et.get(StaticDict.Action__object_type.STORY.getValue()).toString()), StaticDict.Action__type.UNLINKEDFROMPROJECT.getValue(),
                 "", String.valueOf(et.getId()), null, true);
 
         //需求的task处理
-        List<Task> tasks = taskHelper.list(new QueryWrapper<Task>().eq("story", et.get("story")).eq("project", et.getId()).in("status", "wait", "doing"));
+        List<Task> tasks = taskHelper.list(new QueryWrapper<Task>().eq(StaticDict.Action__object_type.STORY.getValue(), et.get(StaticDict.Action__object_type.STORY.getValue())).eq(StaticDict.Action__object_type.PROJECT.getValue(), et.getId()).in(FIELD_STATUS, StaticDict.Task__status.WAIT.getValue(), StaticDict.Task__status.DOING.getValue()));
         for (Task task : tasks) {
             taskHelper.cancel(task);
         }
@@ -353,7 +353,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     @Transactional(rollbackFor = Exception.class)
     public Project manageMembers(Project et) {
         List<ProjectTeam> list = et.getProjectteam();
-        teamHelper.remove(new QueryWrapper<Team>().eq("type","project").eq("root", et.getId()));
+        teamHelper.remove(new QueryWrapper<Team>().eq(FIELD_TYPE,StaticDict.Action__object_type.PROJECT.getValue()).eq(FIELD_ROOT, et.getId()));
         for(ProjectTeam projectTeam : list) {
             projectTeam.setType(StaticDict.Action__object_type.PROJECT.getValue());
             Team team = new Team();
@@ -377,16 +377,16 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
 
     @Transactional(rollbackFor = Exception.class)
     public Project importPlanStories(Project et) {
-        List<Story> planStories = storyHelper.list(new QueryWrapper<Story>().eq("plan", et.getPlans()));
+        List<Story> planStories = storyHelper.list(new QueryWrapper<Story>().eq(FIELD_PLAN, et.getPlans()));
         String stories = "" ;
         for (Story story : planStories) {
             if(stories.length()>0) {
-                stories += ",";
+                stories += MULTIPLE_CHOICE;
             }
             stories += story.getId() ;
         }
         if (StringUtils.isNotBlank(stories)) {
-            et.set("stories", stories);
+            et.set(FIELD_STORIES, stories);
             linkStory(et);
         }
         return et;

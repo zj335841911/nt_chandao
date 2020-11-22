@@ -72,25 +72,25 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
         String stories = "";
         if(et.getStories() != null && !"".equals(et.getStories())) {
             stories = et.getStories();
-        } else if(et.get("srfactionparam") != null) {
-            ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+        } else if(et.get(FIELD_SRFACTIONPARAM) != null) {
+            ArrayList<Map> list = (ArrayList) et.get(FIELD_SRFACTIONPARAM);
             for (Map data : list) {
                 if (stories.length() > 0) {
-                    stories += ",";
+                    stories += MULTIPLE_CHOICE;
                 }
-                stories += data.get("id");
+                stories += data.get(FIELD_ID);
             }
         }
         if("".equals(stories)) {
             return et;
         }
-        for (String storyId : stories.split(",")) {
+        for (String storyId : stories.split(MULTIPLE_CHOICE)) {
             if (StringUtils.isBlank(build.getStories())) {
                 build.setStories(storyId);
                 internalUpdate(build);
             } else {
-                if (!("," + build.getStories() ).contains("," + storyId )) {
-                    build.setStories(build.getStories() + "," + storyId);
+                if (!(MULTIPLE_CHOICE + build.getStories() ).contains(MULTIPLE_CHOICE + storyId )) {
+                    build.setStories(build.getStories() + MULTIPLE_CHOICE + storyId);
                     internalUpdate(build);
                     actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), Long.parseLong(storyId), StaticDict.Action__type.LINKED2BUILD.getValue(),
                             "", String.valueOf(build.getId()), null, true);
@@ -103,13 +103,13 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
     @Transactional(rollbackFor = Exception.class)
     public Build unlinkStory(Build et) {
         Build build = get(et.getId());
-        if (et.get("stories") == null) {
+        if (et.get(FIELD_STORIES) == null) {
             return et;
         }
-        for (String storyId : et.get("stories").toString().split(",")) {
-            if (("," + build.getStories() ).contains("," + storyId )) {
-                String stories = ("," + build.getStories() ).replace("," + storyId , "");
-                if(stories.indexOf(",")==0) {
+        for (String storyId : et.get(FIELD_STORIES).toString().split(MULTIPLE_CHOICE)) {
+            if ((MULTIPLE_CHOICE + build.getStories() ).contains(MULTIPLE_CHOICE + storyId )) {
+                String stories = (MULTIPLE_CHOICE + build.getStories() ).replace(MULTIPLE_CHOICE + storyId , "");
+                if(stories.indexOf(MULTIPLE_CHOICE)==0) {
                     stories = stories.substring(1,stories.length()) ;
                 }
                 build.setStories(stories);
@@ -124,18 +124,18 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
     @Transactional(rollbackFor = Exception.class)
     public Build linkBug(Build et) {
         Build build = get(et.getId());
-        if (et.get("bugs") == null) {
+        if (et.get(FIELD_BUGS) == null) {
             return et;
         }
-        String[] resolvedbys = et.get("resolvedby").toString().split(",");
+        String[] resolvedbys = et.get(FIELD_RESOLVEDBY).toString().split(MULTIPLE_CHOICE);
         int i = 0;
-        for (String bugId : et.get("bugs").toString().split(",")) {
+        for (String bugId : et.get(FIELD_BUGS).toString().split(MULTIPLE_CHOICE)) {
             String bug = "";
             if (StringUtils.isBlank(build.getBugs())) {
                 bug = bugId;
             } else {
-                if (!("," + build.getBugs() + ",").contains("," + bugId + ",")) {
-                    bug = build.getBugs() + "," + bugId;
+                if (!(MULTIPLE_CHOICE + build.getBugs() + MULTIPLE_CHOICE).contains(MULTIPLE_CHOICE + bugId + MULTIPLE_CHOICE)) {
+                    bug = build.getBugs() + MULTIPLE_CHOICE + bugId;
                 }else {
                     bug = build.getBugs();
                 }
@@ -175,13 +175,13 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
     @Transactional(rollbackFor = Exception.class)
     public Build unlinkBug(Build et) {
         Build build = get(et.getId());
-        if (et.get("bugs") == null) {
+        if (et.get(FIELD_BUGS) == null) {
             return et;
         }
-        for (String bugId : et.get("bugs").toString().split(",")) {
-            if (("," + build.getBugs()).contains("," + bugId )) {
-                String bugs =("," + build.getBugs()).replace("," + bugId, "");
-                if(bugs.indexOf(",")==0) {
+        for (String bugId : et.get(FIELD_BUGS).toString().split(MULTIPLE_CHOICE)) {
+            if ((MULTIPLE_CHOICE + build.getBugs()).contains(MULTIPLE_CHOICE + bugId )) {
+                String bugs =(MULTIPLE_CHOICE + build.getBugs()).replace(MULTIPLE_CHOICE + bugId, "");
+                if(bugs.indexOf(MULTIPLE_CHOICE)==0) {
                     bugs = bugs.substring(1,bugs.length()) ;
                 }
                 build.setBugs(bugs);

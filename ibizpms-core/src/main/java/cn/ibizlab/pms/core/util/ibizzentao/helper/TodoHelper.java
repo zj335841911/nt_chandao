@@ -53,11 +53,11 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
         if (et.getCycle() != null && et.getCycle() == 1) {
             et.setType(StaticDict.Type.CYCLE.getValue());
             JSONObject config = new JSONObject();
-            config.put("begin", et.getDate());
-            config.put("type", et.getConfigType());
-            config.put("beforeDays", et.getConfigBeforedays());
+            config.put(FIELD_BEGIN, et.getDate());
+            config.put(FIELD_TYPE, et.getConfigType());
+            config.put(FIELD_BEFOREDAYS, et.getConfigBeforedays());
             if (et.getConfigEnd() != null) {
-                config.put("end", et.getConfigEnd());
+                config.put(FIELD_END, et.getConfigEnd());
             }
             if (StringUtils.compare(et.getConfigType(), StaticDict.CycleType.DAY.getValue()) == 0) {
                 config.put(StaticDict.CycleType.DAY.getValue(), et.getConfigDay());
@@ -98,15 +98,15 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
         }
 
         JSONObject config = JSONObject.parseObject(todo.getConfig());
-        Date begin = config.getDate("begin");
+        Date begin = config.getDate(FIELD_BEGIN);
         if(begin == null) {
             begin = todo.getDate();
         }
         if(begin == null) {
             begin = today;
         }
-        Date end = config.getDate("end");
-        Integer beforeDays = config.getInteger("beforeDays");
+        Date end = config.getDate(FIELD_END);
+        Integer beforeDays = config.getInteger(FIELD_BEFOREDAYS);
         Calendar calendar = Calendar.getInstance();
         if (beforeDays != null && beforeDays > 0) {
             if (begin != null) {
@@ -141,7 +141,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
         for (long time = begin.getTime(); time <= finish.getTime(); time += 86400000) {
 
             Date today1 = new Date(time);
-            List<Todo> lastCycleList = this.list(new QueryWrapper<Todo>().eq("idvalue", todo.getId()).orderByDesc("date"));
+            List<Todo> lastCycleList = this.list(new QueryWrapper<Todo>().eq(FIELD_IDVALUE, todo.getId()).orderByDesc(FIELD_DATE));
 
             Todo lastCycleJson = null;
             if(lastCycleList.size() > 0) {
@@ -150,8 +150,8 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
 
             Date date = null;
 
-            if (StaticDict.CycleType.DAY.getValue().equals(config.getString("type"))) {
-                Integer day = config.getInteger("day");
+            if (StaticDict.CycleType.DAY.getValue().equals(config.getString(FIELD_TYPE))) {
+                Integer day = config.getInteger(StaticDict.CycleType.DAY.getValue());
                 if (day <= 0) {
                     continue;
                 }
@@ -165,10 +165,10 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
                     calendar.add(Calendar.DATE, day);
                     date = calendar.getTime();
                 }
-            } else if (StaticDict.CycleType.WEEK.getValue().equals(config.getString("type"))) {
+            } else if (StaticDict.CycleType.WEEK.getValue().equals(config.getString(FIELD_TYPE))) {
                 calendar.setTime(today1);
                 int week = calendar.get(Calendar.DAY_OF_WEEK);
-                if (config.getString("week").contains("" + week)) {
+                if (config.getString(StaticDict.CycleType.WEEK.getValue()).contains("" + week)) {
                     if (lastCycleJson == null) {
                         date = today1;
                     }
@@ -176,10 +176,10 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
                         date = today1;
                     }
                 }
-            } else if (StaticDict.CycleType.MONTH.getValue().equals(config.getString("type"))) {
+            } else if (StaticDict.CycleType.MONTH.getValue().equals(config.getString(FIELD_TYPE))) {
                 calendar.setTime(today1);
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
-                if (config.getString("month").contains("" + day)) {
+                if (config.getString(StaticDict.CycleType.MONTH.getValue()).contains("" + day)) {
                     if (lastCycleJson == null) {
                         date = today1;
                     }
@@ -192,7 +192,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
             if (date == null) {
                 continue;
             }
-            Date configBegin = config.getDate("begin");
+            Date configBegin = config.getDate(FIELD_BEGIN);
 
             if (configBegin == null) {
                 configBegin = todo.getDate();
@@ -235,11 +235,11 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
         }
         if (et.getCycle() != null && et.getCycle() == 1) {
             JSONObject config = new JSONObject();
-            config.put("begin", et.getDate());
-            config.put("type", et.getConfigType());
-            config.put("beforeDays", et.getConfigBeforedays());
+            config.put(FIELD_BEGIN, et.getDate());
+            config.put(FIELD_TYPE, et.getConfigType());
+            config.put(FIELD_BEFOREDAYS, et.getConfigBeforedays());
             if (et.getConfigEnd() != null) {
-                config.put("end", et.getConfigEnd());
+                config.put(FIELD_END, et.getConfigEnd());
             }
             if (StringUtils.compare(et.getConfigType(), StaticDict.CycleType.DAY.getValue()) == 0) {
                 config.put(StaticDict.CycleType.DAY.getValue(), et.getConfigDay());

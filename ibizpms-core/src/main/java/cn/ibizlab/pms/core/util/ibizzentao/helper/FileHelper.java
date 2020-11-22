@@ -47,7 +47,7 @@ public class FileHelper extends ZTBaseHelper<FileMapper, File> {
             List<File> list = new ArrayList<>();
             for (int i = 0; i < jsonArray.size(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                cn.ibizlab.pms.core.zentao.domain.File file = new cn.ibizlab.pms.core.zentao.domain.File();
+                File file = new File();
                 file.setId(jsonObject.getLongValue("id"));
                 file.setObjectid(objectId);
                 file.setObjecttype(objectType);
