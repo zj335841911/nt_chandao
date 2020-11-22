@@ -303,6 +303,7 @@ export default {
 	},
 	dashboardinfo_form: {
 		details: {
+			grouppanel9: "分组面板", 
 			group1: "project基本信息", 
 			druipart1: "", 
 			grouppanel6: "关联产品", 
