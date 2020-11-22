@@ -1261,46 +1261,50 @@
         "items": [
              {
                 "id": "1",
-                "label": "1",
-                "text": "1",
+                "label": "致命",
+                "text": "致命",
                 "default": false,
                 "data": "",
                 "value": 1,
                 "isValueNumber":true,
                 
+                "color": "rgba(241, 11, 11, 1)",
                 "disabled": false
             }
             , {
                 "id": "2",
-                "label": "2",
-                "text": "2",
+                "label": "严重",
+                "text": "严重",
                 "default": false,
                 "data": "",
                 "value": 2,
                 "isValueNumber":true,
                 
+                "color": "rgba(239, 155, 18, 1)",
                 "disabled": false
             }
             , {
                 "id": "3",
-                "label": "3",
-                "text": "3",
+                "label": "一般",
+                "text": "一般",
                 "default": false,
                 "data": "",
                 "value": 3,
                 "isValueNumber":true,
                 
+                "color": "rgba(58, 149, 247, 1)",
                 "disabled": false
             }
             , {
                 "id": "4",
-                "label": "4",
-                "text": "4",
+                "label": "轻微",
+                "text": "轻微",
                 "default": false,
                 "data": "",
                 "value": 4,
                 "isValueNumber":true,
                 
+                "color": "rgba(11, 228, 87, 1)",
                 "disabled": false
             }
         ]
@@ -5301,9 +5305,7 @@
                 "value": 1,
                 "isValueNumber":true,
                 
-                "iconcls":"fa fa-bomb",
-                "color": "rgba(183, 35, 35, 1)",
-                "className":"text-blue-border-color",
+                "className":"text-red-border-color",
                 "disabled": false
             }
             , {
@@ -5315,7 +5317,6 @@
                 "value": 2,
                 "isValueNumber":true,
                 
-                "color": "rgba(197, 26, 26, 1)",
                 "className":"text-pink-border-color",
                 "disabled": false
             }
@@ -5328,8 +5329,6 @@
                 "value": 3,
                 "isValueNumber":true,
                 
-                "iconcls":"fa fa-sort-amount-asc",
-                "color": "rgba(64, 78, 227, 1)",
                 "className":"text-blue-border-color",
                 "disabled": false
             }
@@ -5342,7 +5341,6 @@
                 "value": 4,
                 "isValueNumber":true,
                 
-                "color": "rgba(94, 231, 3, 1)",
                 "className":"text-green-border-color",
                 "disabled": false
             }
@@ -5828,6 +5826,7 @@
                 "value": "wait",
                 "isValueNumber":false,
                 
+                "color": "rgba(144, 248, 25, 1)",
                 "disabled": false
             }
             , {
@@ -5839,6 +5838,7 @@
                 "value": "planned",
                 "isValueNumber":false,
                 
+                "color": "rgba(108, 159, 19, 1)",
                 "disabled": false
             }
             , {
@@ -5850,6 +5850,7 @@
                 "value": "projected",
                 "isValueNumber":false,
                 
+                "color": "rgba(45, 89, 5, 1)",
                 "disabled": false
             }
             , {
@@ -5861,6 +5862,7 @@
                 "value": "developing",
                 "isValueNumber":false,
                 
+                "color": "rgba(10, 164, 181, 1)",
                 "disabled": false
             }
             , {
@@ -5872,6 +5874,7 @@
                 "value": "developed",
                 "isValueNumber":false,
                 
+                "color": "rgba(7, 98, 108, 1)",
                 "disabled": false
             }
             , {
@@ -5883,6 +5886,7 @@
                 "value": "testing",
                 "isValueNumber":false,
                 
+                "color": "rgba(18, 46, 205, 1)",
                 "disabled": false
             }
             , {
@@ -5894,6 +5898,7 @@
                 "value": "tested",
                 "isValueNumber":false,
                 
+                "color": "rgba(8, 56, 115, 1)",
                 "disabled": false
             }
             , {
@@ -5905,6 +5910,7 @@
                 "value": "verified",
                 "isValueNumber":false,
                 
+                "color": "rgba(85, 7, 137, 1)",
                 "disabled": false
             }
             , {
@@ -5916,6 +5922,7 @@
                 "value": "released",
                 "isValueNumber":false,
                 
+                "color": "rgba(12, 244, 47, 1)",
                 "disabled": false
             }
             , {
@@ -5927,6 +5934,7 @@
                 "value": "closed",
                 "isValueNumber":false,
                 
+                "color": "rgba(212, 219, 221, 1)",
                 "disabled": false
             }
         ]
@@ -6319,8 +6327,8 @@
         "items": [
              {
                 "id": "1",
-                "label": "1",
-                "text": "1",
+                "label": "严重",
+                "text": "严重",
                 "default": false,
                 "data": "",
                 "value": 1,
@@ -6331,8 +6339,8 @@
             }
             , {
                 "id": "2",
-                "label": "2",
-                "text": "2",
+                "label": "主要",
+                "text": "主要",
                 "default": false,
                 "data": "",
                 "value": 2,
@@ -6343,8 +6351,8 @@
             }
             , {
                 "id": "3",
-                "label": "3",
-                "text": "3",
+                "label": "次要",
+                "text": "次要",
                 "default": true,
                 "data": "",
                 "value": 3,
@@ -6355,8 +6363,8 @@
             }
             , {
                 "id": "4",
-                "label": "4",
-                "text": "4",
+                "label": "不重要",
+                "text": "不重要",
                 "default": false,
                 "data": "",
                 "value": 4,
