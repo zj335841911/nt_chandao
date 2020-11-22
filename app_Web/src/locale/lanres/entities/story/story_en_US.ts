@@ -1451,24 +1451,6 @@ export default {
 			tip: "Filter",
 		},
 	},
-	productstagekanbanviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		deuiaction3: {
-			caption: "关联需求",
-			tip: "关联需求",
-		},
-		deuiaction4: {
-			caption: "按照计划关联",
-			tip: "按照计划关联",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-	},
 	releasesubgridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "关联需求",

@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductStoryKanBanKanbanBase } from './product-story-kan-ban-kanban-base';
-import layout_itemlayoutpanel from '@widgets/story/story-kan-ban-panel/story-kan-ban-panel.vue';
+import layout_itemlayoutpanel from '@widgets/story/product-story-kan-ban-panel/product-story-kan-ban-panel.vue';
  
 
 /**
