@@ -1052,8 +1052,8 @@ export default {
 		nodata: "",
 		columns: {
 			id: "ID",
+			severity: "级别",
 			pri: "P",
-			severity: "严重程度",
 			confirmed: "确认",
 			title: "Bug标题",
 			status: "Bug状态",
@@ -1172,8 +1172,8 @@ export default {
 		nodata: "",
 		columns: {
 			id: "ID",
+			severity: "级别",
 			pri: "P",
-			severity: "严重程度",
 			confirmed: "确认",
 			productname: "产品",
 			projectname: "项目",

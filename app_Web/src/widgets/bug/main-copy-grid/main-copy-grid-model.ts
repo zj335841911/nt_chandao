@@ -102,13 +102,13 @@ export default class Main_CopyModel {
           dataType: 'ACID',
         },
         {
-          name: 'pri',
-          prop: 'pri',
+          name: 'severity',
+          prop: 'severity',
           dataType: 'NSCODELIST',
         },
         {
-          name: 'severity',
-          prop: 'severity',
+          name: 'pri',
+          prop: 'pri',
           dataType: 'NSCODELIST',
         },
         {
