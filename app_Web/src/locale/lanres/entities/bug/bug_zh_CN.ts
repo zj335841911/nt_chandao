@@ -153,6 +153,10 @@ export default {
 			caption: "重现步骤",
       		title: "Bug编辑视图",
 		},
+		bugkanbanview: {
+			caption: "Bug实体看板视图",
+      		title: "Bug看板视图",
+		},
 		gridview9_storyformbug: {
 			caption: "来源Bug",
       		title: "来源Bug",
@@ -1414,6 +1418,8 @@ export default {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
 		},
+	},
+	bugkanbanviewtoolbar_toolbar: {
 	},
 	bugseverity_project_chart: {
 		nodata: "无",

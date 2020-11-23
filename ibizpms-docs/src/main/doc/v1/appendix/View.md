@@ -433,6 +433,7 @@ SRFNAVPARAM.project=%project%|
 |-|执行结果|DEEDITVIEW|&nbsp;|
 |-|需求细分|DEGRIDVIEW|&nbsp;|
 |-|系统日志列表视图|DELISTVIEW|&nbsp;|
+|-|Bug看板视图|DEKANBANVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|需求图表视图（累计创建需求-优先级）|DECHARTVIEW9|&nbsp;|
 |-|功能测试|DEPORTALVIEW|&nbsp;|

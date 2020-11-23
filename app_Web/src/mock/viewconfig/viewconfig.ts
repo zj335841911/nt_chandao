@@ -1807,6 +1807,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ActionMyAllTrendsListView",
             "viewtag": "6d466e003e0479fb8b1a16e49b889dc1"
         },
+        "bugbugkanbanview": {
+            "title": "Bug看板视图",
+            "caption": "Bug实体看板视图",
+            "viewtype": "DEKANBANVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugBugKanbanView",
+            "viewtag": "6e27d3c90de590e23204e3a310321f21"
+        },
         "testreportprojectmainediteditview": {
             "title": "测试报告编辑视图",
             "caption": "测试报告",
