@@ -38,6 +38,10 @@ export default class ProjectTeamPcModel {
       {
         name: 'estimate',
         prop: 'estimate'
+      },
+      {
+        name: 'id',
+        prop: 'id'
       }
     ]
   }

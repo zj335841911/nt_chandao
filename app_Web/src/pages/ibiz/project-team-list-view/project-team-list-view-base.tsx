@@ -165,12 +165,6 @@ export class ProjectTeamListViewBase extends ListViewBase {
         this.engine.init({
             view: this,
             list: this.$refs.list,
-            opendata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
-                this.opendata(args, fullargs, params, $event, xData);
-            },
-            newdata: (args: any[], fullargs?: any[], params?: any, $event?: any, xData?: any) => {
-                this.newdata(args, fullargs, params, $event, xData);
-            },
             keyPSDEField: 'projectteam',
             majorPSDEField: 'account',
             isLoadDefault: true,
@@ -366,38 +360,6 @@ export class ProjectTeamListViewBase extends ListViewBase {
         // 界面行为
         this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"ProjectTeam");
     }
-
-    /**
-     * 打开新建数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @memberof ProjectTeamListView
-     */
-    public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
-    }
-
-
-    /**
-     * 打开编辑数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @memberof ProjectTeamListView
-     */
-    public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
-    }
-
 
     /**
      * 刷新

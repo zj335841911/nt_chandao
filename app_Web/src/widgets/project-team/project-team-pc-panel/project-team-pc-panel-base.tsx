@@ -118,6 +118,8 @@ export class ProjectTeamPcPanelBase extends PanelControlBase {
 ,
         button1: new PanelButtonModel({ caption: '移除', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'RemoveMember',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__PROJT_TM_BUT',visible: true,disabled: false} })
 ,
+        id: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'id', panel: this })
+,
         container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container1', panel: this })
 ,
     };
@@ -131,6 +133,7 @@ export class ProjectTeamPcPanelBase extends PanelControlBase {
      */
     public panelLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
 
 
 

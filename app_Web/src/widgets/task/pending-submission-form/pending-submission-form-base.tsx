@@ -418,7 +418,7 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
 }),
 
         mailtopk: new FormItemModel({
-    caption: '属性', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

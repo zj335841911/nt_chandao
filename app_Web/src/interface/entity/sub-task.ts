@@ -527,7 +527,7 @@ export interface SubTask {
     delay?: any;
 
     /**
-     * 属性
+     * 抄送给
      *
      * @returns {*}
      * @memberof SubTask

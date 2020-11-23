@@ -527,7 +527,7 @@ export interface Task {
     delay?: any;
 
     /**
-     * 属性
+     * 抄送给
      *
      * @returns {*}
      * @memberof Task
