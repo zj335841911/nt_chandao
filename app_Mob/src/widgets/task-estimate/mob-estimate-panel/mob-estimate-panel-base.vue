@@ -14,7 +14,8 @@
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem2.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-rowitem">
-                    工时
+                    
+                
                 
                 
                 </ion-col>
@@ -29,7 +30,8 @@
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem1.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-rowitem">
-                    剩余
+                    
+                
                 
                 
                 </ion-col>

@@ -1226,12 +1226,13 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
      */  
     public codeListService:CodeListService = new CodeListService();
 
+
     /**
      * 快速分组数据对象
      *
      * @memberof CaseMobMDView_TestTaskBase
      */
-    public quickGroupData:any;
+    public quickGroupData:any = {{"n_assignedto_eq":"%srfloginname%"}};
 
     /**
      * 快速分组是否有抛值

@@ -1299,12 +1299,13 @@ export default class BugTestMobMDViewBase extends Vue {
      */  
     public codeListService:CodeListService = new CodeListService();
 
+
     /**
      * 快速分组数据对象
      *
      * @memberof BugTestMobMDViewBase
      */
-    public quickGroupData:any;
+    public quickGroupData:any = {{"n_overduebugs_lt":  0}};
 
     /**
      * 快速分组是否有抛值

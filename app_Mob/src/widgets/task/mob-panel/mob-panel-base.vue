@@ -32,7 +32,8 @@
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem1.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-rowitem">
-                    <i class="fa fa-hand-o-right"></i>
+                    
+                
                 
                 
                 </ion-col>
@@ -41,10 +42,12 @@
                     
                 
                 
+                
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem2.visible"  :lg="1" :size="1" style="" class="app-layoutpanel-rowitem">
                     
+                
                 
                 
                 </ion-col>

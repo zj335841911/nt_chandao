@@ -44,16 +44,19 @@
                     
                 
                 
+                
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem3.visible"  :lg="1" :size="1" :offset="1" style="" class="app-layoutpanel-rowitem">
                     
                 
                 
+                
                 </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem1.visible"  :lg="1" :size="1" :offset="1" style="" class="app-layoutpanel-rowitem">
-                    <i class="fa fa-hand-o-right"></i>
+                    
+                
                 
                 
                 </ion-col>

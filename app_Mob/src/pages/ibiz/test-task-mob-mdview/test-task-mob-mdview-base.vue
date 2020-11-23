@@ -1214,12 +1214,13 @@ export default class TestTaskMobMDViewBase extends Vue {
      */  
     public codeListService:CodeListService = new CodeListService();
 
+
     /**
      * 快速分组数据对象
      *
      * @memberof TestTaskMobMDViewBase
      */
-    public quickGroupData:any;
+    public quickGroupData:any = {{"n_status_eq":"done"}};
 
     /**
      * 快速分组是否有抛值

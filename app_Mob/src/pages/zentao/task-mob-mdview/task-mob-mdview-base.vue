@@ -1226,12 +1226,13 @@ export default class TaskMobMDViewBase extends Vue {
      */  
     public codeListService:CodeListService = new CodeListService();
 
+
     /**
      * 快速分组数据对象
      *
      * @memberof TaskMobMDViewBase
      */
-    public quickGroupData:any;
+    public quickGroupData:any = {{"n_status_eq":"cancel"}};
 
     /**
      * 快速分组是否有抛值

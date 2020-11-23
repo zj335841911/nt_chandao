@@ -1110,12 +1110,13 @@ export default class CaseMobMDViewBase extends Vue {
      */  
     public codeListService:CodeListService = new CodeListService();
 
+
     /**
      * 快速分组数据对象
      *
      * @memberof CaseMobMDViewBase
      */
-    public quickGroupData:any;
+    public quickGroupData:any = {{"n_status1_eq":"storychange"}};
 
     /**
      * 快速分组是否有抛值

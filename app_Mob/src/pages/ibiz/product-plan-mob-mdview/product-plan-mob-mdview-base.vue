@@ -1204,12 +1204,13 @@ export default class ProductPlanMobMDViewBase extends Vue {
      */  
     public codeListService:CodeListService = new CodeListService();
 
+
     /**
      * 快速分组数据对象
      *
      * @memberof ProductPlanMobMDViewBase
      */
-    public quickGroupData:any;
+    public quickGroupData:any = {{"n_isexpired_eq":1}};
 
     /**
      * 快速分组是否有抛值
