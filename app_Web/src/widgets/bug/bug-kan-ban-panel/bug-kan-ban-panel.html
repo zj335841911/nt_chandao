@@ -17,6 +17,64 @@
                 
                 </i-col>
                         
+                <i-col v-show="detailsModel.rawitem4.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 3, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                    <app-rawitem
+                    :viewparams="viewparams" 
+                    :context="context"
+                    contentStyle=""
+                    sizeStyle=""
+                    contentType="RAW"
+                    :htmlContent='``'
+                >
+                        级别
+                </app-rawitem>
+                
+                
+                </i-col>
+                        
+                <i-col v-show="detailsModel.severity.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 8, offset: 0 }" style="" class="app-layoutpanel-field">
+                    <div class="item-field">
+                    
+                    <div class="item-field-content">
+                    
+                <app-span :value="data.severity" name="severity" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  tag='Bug__severity' codelistType='STATIC'   style=""
+                > </app-span> 
+                
+                    </div>
+                </div>
+                
+                
+                </i-col>
+                        
+                <i-col v-show="detailsModel.rawitem3.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 3, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                    <app-rawitem
+                    :viewparams="viewparams" 
+                    :context="context"
+                    contentStyle=""
+                    sizeStyle=""
+                    contentType="RAW"
+                    :htmlContent='``'
+                >
+                        优先级
+                </app-rawitem>
+                
+                
+                </i-col>
+                        
+                <i-col v-show="detailsModel.pri.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 8, offset: 0 }" style="" class="app-layoutpanel-field">
+                    <div class="item-field">
+                    
+                    <div class="item-field-content">
+                    
+                <app-span :value="data.pri" name="pri" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  tag='Bug__pri' codelistType='STATIC'   style=""
+                > </app-span> 
+                
+                    </div>
+                </div>
+                
+                
+                </i-col>
+                        
                 <i-col v-show="detailsModel.rawitem1.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-rowitem">
                     <app-rawitem
                     :viewparams="viewparams" 
@@ -76,7 +134,7 @@
                 </i-col>
                         <i-col v-show="detailsModel.container5.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
                     <row style="height:100%;">
-                                                                            </row>
+                                                                    </row>
                 </i-col>
             </row>
         </i-col>

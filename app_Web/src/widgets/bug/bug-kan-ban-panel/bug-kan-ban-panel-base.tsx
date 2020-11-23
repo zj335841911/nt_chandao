@@ -106,6 +106,14 @@ export class BugKanBanPanelBase extends PanelControlBase {
     public detailsModel: any = {
         name: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'name', panel: this })
 ,
+        rawitem4: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem4', panel: this })
+,
+        severity: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'severity', panel: this })
+,
+        rawitem3: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem3', panel: this })
+,
+        pri: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'pri', panel: this })
+,
         rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem1', panel: this })
 ,
         button1: new PanelButtonModel({ caption: '指派', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'AssingToBug',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__BUG_ASSIGNTO_BUT',visible: true,disabled: false} })
@@ -130,8 +138,6 @@ export class BugKanBanPanelBase extends PanelControlBase {
 ,
         story: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'story', panel: this })
 ,
-        pri: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'pri', panel: this })
-,
         status: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'status', panel: this })
 ,
         container5: new PanelContainerModel({ caption: '隐藏项', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container5', panel: this })
@@ -154,6 +160,10 @@ export class BugKanBanPanelBase extends PanelControlBase {
 
 
 
+
+
+
+
         if (Object.is(name, '') || Object.is(name, 'deadline')) {
             let ret = false;
             const _deadline = this.data.deadline;
@@ -162,7 +172,6 @@ export class BugKanBanPanelBase extends PanelControlBase {
             }
             this.detailsModel.rawitem2.setVisible(ret);
         }
-
 
 
 

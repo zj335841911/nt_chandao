@@ -45,17 +45,20 @@ export default class BugKanBanModel {
 				dataType: 'PICKUP',
 			},
 			{
-				name: 'srfmstag',
+				name: 'severity',
 			},
 			{
-				name: 'srfkey',
-				prop: 'id',
-				dataType: 'ACID',
+				name: 'srfmstag',
 			},
 			{
 				name: 'srfmajortext',
 				prop: 'title',
 				dataType: 'TEXT',
+			},
+			{
+				name: 'srfkey',
+				prop: 'id',
+				dataType: 'ACID',
 			},
 			{
 				name: 'duplicatebug',

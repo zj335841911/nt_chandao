@@ -19,6 +19,16 @@ export default class BugKanBanModel {
         prop: 'title'
       },
       {
+        name: 'severity',
+        codelist:{tag:'Bug__severity',codelistType:'STATIC'},
+        prop: 'severity'
+      },
+      {
+        name: 'pri',
+        codelist:{tag:'Bug__pri',codelistType:'STATIC'},
+        prop: 'pri'
+      },
+      {
         name: 'assignedto',
         codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
         prop: 'assignedto'
@@ -46,10 +56,6 @@ export default class BugKanBanModel {
       {
         name: 'story',
         prop: 'story'
-      },
-      {
-        name: 'pri',
-        prop: 'pri'
       },
       {
         name: 'status',
