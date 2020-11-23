@@ -125,4 +125,12 @@ export interface IBZTaskTeam {
      * @memberof IBZTaskTeam
      */
     left?: any;
+
+    /**
+     * 任务数
+     *
+     * @returns {*}
+     * @memberof IBZTaskTeam
+     */
+    taskcnt?: any;
 }

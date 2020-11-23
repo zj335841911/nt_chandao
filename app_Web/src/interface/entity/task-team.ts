@@ -125,4 +125,12 @@ export interface TaskTeam {
      * @memberof TaskTeam
      */
     left?: any;
+
+    /**
+     * 任务数
+     *
+     * @returns {*}
+     * @memberof TaskTeam
+     */
+    taskcnt?: any;
 }
