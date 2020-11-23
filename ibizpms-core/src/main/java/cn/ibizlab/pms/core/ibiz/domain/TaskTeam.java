@@ -159,6 +159,13 @@ public class TaskTeam extends EntityMP implements Serializable {
     @JSONField(name = "left")
     @JsonProperty("left")
     private Double left;
+    /**
+     * 任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskcnt")
+    @JsonProperty("taskcnt")
+    private String taskcnt;
 
     /**
      * 

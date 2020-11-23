@@ -157,6 +157,15 @@ public class TaskTeamDTO extends DTOBase implements Serializable {
     @JsonProperty("left")
     private Double left;
 
+    /**
+     * 属性 [TASKCNT]
+     *
+     */
+    @JSONField(name = "taskcnt")
+    @JsonProperty("taskcnt")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String taskcnt;
+
 
     /**
      * 设置 [ROLE]

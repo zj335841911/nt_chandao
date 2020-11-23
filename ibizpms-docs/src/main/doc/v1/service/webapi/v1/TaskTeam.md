@@ -939,7 +939,8 @@ POST
 | 13 | join | Timestamp | 允许 | 加盟日<br>时间格式：yyyy-MM-dd |
 | 14 | hours | Double | 允许 | 可用工时/天 |
 | 15 | left | Double | 允许 | 预计剩余 |
-| 16 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 16 | taskcnt | String | 允许 | 任务数 |
+| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskTeamSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

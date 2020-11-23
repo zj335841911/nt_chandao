@@ -12241,7 +12241,7 @@ WHERE t1.DELETED = '0'
 ### 项目任务统计(任务状态)(ProjectTaskCountByTaskStatus)<div id="ProjectStats_ProjectTaskCountByTaskStatus"></div>
 ```sql
 SELECT t1.project,t1.projectname  as name,
-SUM(IF(t1.`status` = 'closed',t1.ss,0)) as closdedTaskcnt,
+SUM(IF(t1.`status` = 'closed',t1.ss,0)) as closedtaskcnt,
 SUM(IF(t1.`status` = 'cancel',t1.ss,0)) as cancelTaskcnt,
 SUM(IF(t1.`status` = 'done',t1.ss,0)) as doneTaskcnt,
 SUM(IF(t1.`status` = 'pause',t1.ss,0)) as pauseTaskcnt,
