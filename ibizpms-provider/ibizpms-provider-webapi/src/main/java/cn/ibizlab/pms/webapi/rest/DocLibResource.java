@@ -311,6 +311,28 @@ public class DocLibResource {
                 .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchRootModuleMuLu-all') and hasPermission(#context,'pms-DocLib-Get')")
+	@ApiOperation(value = "获取根目录", tags = {"文档库" } ,notes = "获取根目录")
+    @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchrootmodulemulu")
+	public ResponseEntity<List<DocLibDTO>> fetchRootModuleMuLu(DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchRootModuleMuLu(context) ;
+        List<DocLibDTO> list = doclibMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchRootModuleMuLu-all') and hasPermission(#context,'pms-DocLib-Get')")
+	@ApiOperation(value = "查询根目录", tags = {"文档库" } ,notes = "查询根目录")
+    @RequestMapping(method= RequestMethod.POST , value="/doclibs/searchrootmodulemulu")
+	public ResponseEntity<Page<DocLibDTO>> searchRootModuleMuLu(@RequestBody DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchRootModuleMuLu(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

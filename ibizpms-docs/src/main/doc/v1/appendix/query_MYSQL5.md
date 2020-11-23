@@ -5753,6 +5753,7 @@ FROM `zt_module` t1
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 WHERE t1.DELETED = '0' 
+(t1.parent = 0 or t1.parent is null ) and t1.type = 'doc' 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="DocLib_View"></div>

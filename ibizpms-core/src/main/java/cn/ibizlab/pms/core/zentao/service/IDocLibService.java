@@ -55,6 +55,7 @@ public interface IDocLibService extends IService<DocLib> {
     Page<DocLib> searchByProjectNotFiles(DocLibSearchContext context);
     Page<DocLib> searchCurDocLib(DocLibSearchContext context);
     Page<DocLib> searchDefault(DocLibSearchContext context);
+    Page<DocLib> searchRootModuleMuLu(DocLibSearchContext context);
     List<DocLib> selectByProduct(Long id);
     void removeByProduct(Long id);
     List<DocLib> selectByProject(Long id);

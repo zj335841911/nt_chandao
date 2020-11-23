@@ -439,11 +439,11 @@ export default class LooProductDocLibTreeService extends ControlService {
                         // 整理context
                         let strId: string = entity.id;
                         let strText: string = entity.name;
-                        Object.assign(treeNode,{srfparentdename:'DocLibModule',srfparentkey:entity.id});
+                        Object.assign(treeNode,{srfparentdename:'DocLib',srfparentkey:entity.id});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
-                        Object.assign(tempContext,{srfparentdename:'DocLibModule',srfparentkey:entity.id,doclibmodule:strId})
+                        Object.assign(tempContext,{srfparentdename:'DocLib',srfparentkey:entity.id,doclib:strId})
                         Object.assign(treeNode,{srfappctx:tempContext});
-                        Object.assign(treeNode,{'doclibmodule':strId});
+                        Object.assign(treeNode,{'doclib':strId});
                         Object.assign(treeNode, { srfkey: strId });
                         Object.assign(treeNode, { text: strText, srfmajortext: strText });
                         let strNodeId: string = 'DoclibModule';
@@ -456,7 +456,7 @@ export default class LooProductDocLibTreeService extends ControlService {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"doclibmodule" });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"doclib" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -500,7 +500,7 @@ export default class LooProductDocLibTreeService extends ControlService {
             if(context && context.srfparentkey){
                 Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
             }
-            const _appEntityService: any = this.doclibmoduleService;
+            const _appEntityService: any = this.appEntityService;
             let list: any[] = [];
             if (_appEntityService['FetchRootModuleMuLu'] && _appEntityService['FetchRootModuleMuLu'] instanceof Function) {
                 const response: Promise<any> = _appEntityService['FetchRootModuleMuLu'](context, searchFilter, false);
