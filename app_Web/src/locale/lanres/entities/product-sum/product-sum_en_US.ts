@@ -86,6 +86,25 @@ export default {
 		uiactions: {
 		},
 	},
+	productplancntandstorycnt_po_grid: {
+		nodata: "",
+		columns: {
+			name: "产品名称",
+			plan: "计划数",
+			storycnt: "需求数",
+		},
+		uiactions: {
+		},
+	},
+	productbugcnt_qa_grid: {
+		nodata: "",
+		columns: {
+			name: "产品名称",
+			bugcnt: "创建bug数",
+		},
+		uiactions: {
+		},
+	},
 	productstoryhourssum_grid: {
 		nodata: "",
 		columns: {
@@ -143,25 +162,6 @@ export default {
 		uiactions: {
 		},
 	},
-	productplancntandstorycnt_po_grid: {
-		nodata: "",
-		columns: {
-			name: "产品名称",
-			plan: "计划数",
-			storycnt: "需求数",
-		},
-		uiactions: {
-		},
-	},
-	productbugcnt_qa_grid: {
-		nodata: "",
-		columns: {
-			name: "产品名称",
-			bugcnt: "创建bug数",
-		},
-		uiactions: {
-		},
-	},
 	productstorysum_searchform: {
 		details: {
 			rawitem1: "", 
@@ -184,12 +184,6 @@ export default {
 		uiactions: {
 		},
 	},
-	storyhourssumgridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
-		},
-	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "Save",
@@ -206,6 +200,12 @@ export default {
 		tbitem7: {
 			caption: "Remove And Close",
 			tip: "Remove And Close Window",
+		},
+	},
+	storyhourssumgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	gridviewtoolbar_toolbar: {

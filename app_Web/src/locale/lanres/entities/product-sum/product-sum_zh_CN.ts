@@ -86,6 +86,25 @@ export default {
 		uiactions: {
 		},
 	},
+	productplancntandstorycnt_po_grid: {
+		nodata: "",
+		columns: {
+			name: "产品名称",
+			plan: "计划数",
+			storycnt: "需求数",
+		},
+		uiactions: {
+		},
+	},
+	productbugcnt_qa_grid: {
+		nodata: "",
+		columns: {
+			name: "产品名称",
+			bugcnt: "创建bug数",
+		},
+		uiactions: {
+		},
+	},
 	productstoryhourssum_grid: {
 		nodata: "",
 		columns: {
@@ -143,25 +162,6 @@ export default {
 		uiactions: {
 		},
 	},
-	productplancntandstorycnt_po_grid: {
-		nodata: "",
-		columns: {
-			name: "产品名称",
-			plan: "计划数",
-			storycnt: "需求数",
-		},
-		uiactions: {
-		},
-	},
-	productbugcnt_qa_grid: {
-		nodata: "",
-		columns: {
-			name: "产品名称",
-			bugcnt: "创建bug数",
-		},
-		uiactions: {
-		},
-	},
 	productstorysum_searchform: {
 		details: {
 			rawitem1: "", 
@@ -184,12 +184,6 @@ export default {
 		uiactions: {
 		},
 	},
-	storyhourssumgridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "导出",
-			tip: "导出",
-		},
-	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "保存",
@@ -206,6 +200,12 @@ export default {
 		tbitem7: {
 			caption: "删除",
 			tip: "删除",
+		},
+	},
+	storyhourssumgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 	gridviewtoolbar_toolbar: {
