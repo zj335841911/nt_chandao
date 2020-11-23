@@ -65,6 +65,144 @@ export class LooProductDocLibTreeTreeBase extends MainControlBase {
      */  
     public appUIService: DocLibUIService = new DocLibUIService(this.$store);
 
+    /**
+     * doclib_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof LooProductDocLibTreeTreeBase
+     */
+    public doclib_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.doclib_cm_deuiaction1_click(null, 'doclib_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.doclib_cm_deuiaction2_click(null, 'doclib_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction3')) {
+            this.doclib_cm_deuiaction3_click(null, 'doclib_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction4')) {
+            this.doclib_cm_deuiaction4_click(null, 'doclib_cm', $event2);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public doclib_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_EditDocLib(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public doclib_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public doclib_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_UnCollect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public doclib_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_Collect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
 
     /**
      * 获取多项数据
@@ -262,6 +400,10 @@ export class LooProductDocLibTreeTreeBase extends MainControlBase {
      * @memberof LooProductDocLibTreeBase
      */
      public actionModel: any = {
+        DocLib_deuiaction1: {name:'deuiaction1',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'EditDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
+        DocLib_deuiaction2: {name:'deuiaction2',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
+        DocLib_deuiaction3: {name:'deuiaction3',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visible: true, disabled: false},
+        DocLib_deuiaction4: {name:'deuiaction4',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visible: true, disabled: false},
     }
 
     /**
@@ -654,8 +796,43 @@ export class LooProductDocLibTreeTreeBase extends MainControlBase {
             const data: any = JSON.parse(JSON.stringify(node.data));
             this.currentselectedNode = { ...data };
             const tags: string[] = data.id.split(';');
+            if (tags[0] === "DocLib") {
+                content = this.renderContextMenuDoclib();
+            }
         }
         return content;
+    }
+
+    /**
+     * 绘制DocLib类型右键菜单
+     *
+     * @param {*} node
+     * @returns
+     * @memberof LooProductDocLibTreeBase
+     */
+    public renderContextMenuDoclib() {
+        return (
+            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.doclib_cm_click({tag: $event})}>
+                <dropdown-menu slot="list">
+                            <dropdown-item name="deuiaction1" v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                        <i class="fa fa-edit"></i>
+                        
+                    </dropdown-item>
+                            <dropdown-item name="deuiaction2" v-show={this.copyActionModel['deuiaction2']?.visible} disabled={this.copyActionModel['deuiaction2']?.disabled}>
+                        <i class="fa fa-lock"></i>
+                        
+                    </dropdown-item>
+                            <dropdown-item name="deuiaction3" v-show={this.copyActionModel['deuiaction3']?.visible} disabled={this.copyActionModel['deuiaction3']?.disabled}>
+                        <i class="fa fa-star"></i>
+                        
+                    </dropdown-item>
+                            <dropdown-item name="deuiaction4" v-show={this.copyActionModel['deuiaction4']?.visible} disabled={this.copyActionModel['deuiaction4']?.disabled}>
+                        <i class="fa fa-star-o"></i>
+                        
+                    </dropdown-item>
+                </dropdown-menu>
+            </dropdown>
+        );
     }
 
     /**
