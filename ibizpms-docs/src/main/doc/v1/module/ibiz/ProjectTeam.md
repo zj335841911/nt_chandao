@@ -1044,7 +1044,7 @@ WHERE
 	) AS taskcnt,
 	(
 SELECT
-	sum( CASE WHEN tt.LEFT IS NOT NULL THEN tt.LEFT ELSE t2.LEFT END ) 
+	ROUND(sum( CASE WHEN tt.LEFT IS NOT NULL THEN tt.LEFT ELSE t2.LEFT END ), 1) 
 FROM
 	zt_task t2
 	LEFT JOIN zt_team tt ON tt.root = t2.id 
@@ -1057,7 +1057,7 @@ WHERE
 	) AS `left`,
 	(
 SELECT
-	sum( CASE WHEN tt.estimate IS NOT NULL THEN tt.estimate ELSE t2.estimate END ) 
+	ROUND(sum( CASE WHEN tt.estimate IS NOT NULL THEN tt.estimate ELSE t2.estimate END ), 1)
 FROM
 	zt_task t2
 	LEFT JOIN zt_team tt ON tt.root = t2.id 
@@ -1070,7 +1070,7 @@ WHERE
 	) AS `estimate`,
 	(
 SELECT
-	sum( CASE WHEN tt.consumed IS NOT NULL THEN tt.consumed ELSE t2.consumed END ) 
+	ROUND(sum( CASE WHEN tt.consumed IS NOT NULL THEN tt.consumed ELSE t2.consumed END ), 1)
 FROM
 	zt_task t2
 	LEFT JOIN zt_team tt ON tt.root = t2.id 
