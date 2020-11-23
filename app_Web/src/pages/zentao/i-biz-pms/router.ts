@@ -2005,6 +2005,91 @@ const router = new Router({
                     component: () => import('@pages/ibizplugin/ibizpro-plugin-edit-view/ibizpro-plugin-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/bugkanbanview/:bugkanbanview?',
+                    meta: {
+                        caption: 'entities.bug.views.bugkanbanview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'bugkanbanview', parameterName: 'bugkanbanview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-bug-kanban-view/bug-bug-kanban-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/bugkanbanview/:bugkanbanview?',
+                    meta: {
+                        caption: 'entities.bug.views.bugkanbanview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'bugkanbanview', parameterName: 'bugkanbanview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-bug-kanban-view/bug-bug-kanban-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/bugkanbanview/:bugkanbanview?',
+                    meta: {
+                        caption: 'entities.bug.views.bugkanbanview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'bugkanbanview', parameterName: 'bugkanbanview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-bug-kanban-view/bug-bug-kanban-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/bugkanbanview/:bugkanbanview?',
+                    meta: {
+                        caption: 'entities.bug.views.bugkanbanview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'bugkanbanview', parameterName: 'bugkanbanview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-bug-kanban-view/bug-bug-kanban-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/bugkanbanview/:bugkanbanview?',
+                    meta: {
+                        caption: 'entities.bug.views.bugkanbanview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'bugkanbanview', parameterName: 'bugkanbanview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-bug-kanban-view/bug-bug-kanban-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.bug.views.gridview.caption',

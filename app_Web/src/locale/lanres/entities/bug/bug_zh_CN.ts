@@ -1385,6 +1385,16 @@ export default {
 			tip: "过滤",
 		},
 	},
+	bugkanbanviewtoolbar_toolbar: {
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
 	testbugsgridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "过滤",
@@ -1417,16 +1427,6 @@ export default {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
-		},
-	},
-	bugkanbanviewtoolbar_toolbar: {
-		deuiaction3_create: {
-			caption: "新建",
-			tip: "新建",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
 		},
 	},
 	bugseverity_project_chart: {

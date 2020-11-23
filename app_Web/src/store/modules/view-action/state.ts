@@ -11,6 +11,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'f78c94cb0a20d7f459753a4070f8f3e7',
+                '6e27d3c90de590e23204e3a310321f21',
                 'a4c56767e9b34cd619d79b676fa2ccd9',
                 'a3bd82ec712d2e3ad12e716655e960fc',
                 '63b82c8ee288130faca83833ec1f837c',
@@ -1980,6 +1981,20 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'f8b69912b3ca27b5d083c8fb1971c84a',
+            ],
+        },
+        {
+            viewtag: '6e27d3c90de590e23204e3a310321f21',
+            viewmodule: 'zentao',
+            viewname: 'BugBugKanbanView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e67fe0ec86d17b74944c16e187da482d',
+                '1540523a668e920d831510cfbec2c5e2',
+                '843526ee13bf0af6fe937470853bf36b',
+                'c1e9611b6972b1877b75fa5d2c67aad6',
+                '46517a803b2470cd0bef27aeda0dbcaf',
             ],
         },
         {
