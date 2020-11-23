@@ -66,6 +66,11 @@ export class AssignToMobModel {
                 dataType: 'SMCODELIST',
             },
             {
+                name: 'mailtopk',
+                prop: 'mailtopk',
+                dataType: 'SMCODELIST',
+            },
+            {
                 name: 'comment',
                 prop: 'comment',
                 dataType: 'HTMLTEXT',

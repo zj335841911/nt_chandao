@@ -111,6 +111,11 @@ export class MobEditTableModel {
                 dataType: 'LONGTEXT',
             },
             {
+                name: 'mailtopk',
+                prop: 'mailtopk',
+                dataType: 'SMCODELIST',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

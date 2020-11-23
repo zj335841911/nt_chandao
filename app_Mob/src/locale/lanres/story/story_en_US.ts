@@ -233,6 +233,7 @@ export default {
 			spec: '需求描述', 
 			verify: '验收标准', 
 			mailto: '抄送给', 
+			mailtopk: '抄送给', 
 			keywords: '关键词', 
 			id: '编号', 
 		},
