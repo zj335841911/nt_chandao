@@ -125,7 +125,22 @@
     :disabled="detailsModel.mailtopk.disabled"
     :error="detailsModel.mailtopk.error" 
     :isEmptyCaption="false">
-        
+        <app-mob-mpicker 
+    :data="data"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    :disabled="detailsModel.mailtopk.disabled"
+    :value="data.mailtopk"
+    name="mailtopk"
+    :context="context"
+    :viewparams="viewparams"
+    :service="service"
+    deMajorField='personname'
+    deKeyField='sysemployee'
+    :pickupView="{ viewname: 'sys-employee-user-tree-mob-mpickup-view', title: '人员移动端多数据选择视图（人员树）', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange" 
+    style=""/>
+
 </app-form-item>
 
 
