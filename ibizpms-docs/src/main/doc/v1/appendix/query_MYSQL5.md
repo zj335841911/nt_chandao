@@ -12489,7 +12489,18 @@ WHERE
 ### 数据查询(TaskCntEstimateConsumedLeft)<div id="ProjectTeam_TaskCntEstimateConsumedLeft"></div>
 ```sql
 SELECT
-	t1.account,t1.consumed1,t1.days,t1.estimate1,t1.hours,t1.id,t1.join,t1.left1,t1.limited,t1.order,t1.role,t1.root,(t1.days*t1.hours)as total,t1.type,(select t.realname from zt_user t where t.account=t1.account)as username from zt_team t1,
+	t1.account,
+	t1.days,
+	t1.hours,
+	t1.id,
+	t1.`join`,
+	t1.limited,
+	t1.`order`,
+	t1.role,
+	t1.root,
+	( t1.days * t1.hours ) AS total,
+	t1.type,
+	( SELECT t.realname FROM zt_user t WHERE t.account = t1.account ) AS username,
 	(
 SELECT
 	count( t2.id ) 
@@ -12517,7 +12528,7 @@ WHERE
 	AND t2.project = t1.root 
 	AND t2.parent >= 0 
 	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
-	) AS left1,
+	) AS `left`,
 	(
 SELECT
 	sum( CASE WHEN tt.estimate IS NOT NULL THEN tt.estimate ELSE t2.estimate END ) 
@@ -12530,7 +12541,7 @@ WHERE
 	AND t2.project = t1.root 
 	AND t2.parent >= 0 
 	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
-	) AS estimate1,
+	) AS `estimate`,
 	(
 SELECT
 	sum( CASE WHEN tt.consumed IS NOT NULL THEN tt.consumed ELSE t2.consumed END ) 
@@ -12543,10 +12554,9 @@ WHERE
 	AND t2.project = t1.root 
 	AND t2.parent >= 0 
 	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
-	) AS consumed1 
+	) AS consumed 
 FROM
-	zt_team t1 
-	
+	zt_team t1
 WHERE t1.type = 'project' 
 
 ```
