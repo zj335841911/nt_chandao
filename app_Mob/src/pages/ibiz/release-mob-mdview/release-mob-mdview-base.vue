@@ -1210,7 +1210,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      *
      * @memberof ReleaseMobMDViewBase
      */
-    public quickGroupData:any = {{"n_status_eq":"terminate"}};
+    public quickGroupData:any ={"n_status_eq":"terminate"};
 
     /**
      * 快速分组是否有抛值

@@ -1232,7 +1232,7 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
      *
      * @memberof CaseMobMDView_TestTaskBase
      */
-    public quickGroupData:any = {{"n_assignedto_eq":"%srfloginname%"}};
+    public quickGroupData:any ={"n_assignedto_eq":"%srfloginname%"};
 
     /**
      * 快速分组是否有抛值

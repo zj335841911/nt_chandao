@@ -1305,7 +1305,7 @@ export default class BugTestMobMDViewBase extends Vue {
      *
      * @memberof BugTestMobMDViewBase
      */
-    public quickGroupData:any = {{"n_overduebugs_lt":  0}};
+    public quickGroupData:any ={"n_overduebugs_lt":  0};
 
     /**
      * 快速分组是否有抛值

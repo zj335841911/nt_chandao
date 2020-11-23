@@ -1189,7 +1189,7 @@ export default class BugMobMDViewBase extends Vue {
      *
      * @memberof BugMobMDViewBase
      */
-    public quickGroupData:any = {{"n_status_eq":"active"}};
+    public quickGroupData:any ={"n_status_eq":"active"};
 
     /**
      * 快速分组是否有抛值

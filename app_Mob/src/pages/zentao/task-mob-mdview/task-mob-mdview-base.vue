@@ -1232,7 +1232,7 @@ export default class TaskMobMDViewBase extends Vue {
      *
      * @memberof TaskMobMDViewBase
      */
-    public quickGroupData:any = {{"n_status_eq":"cancel"}};
+    public quickGroupData:any ={"n_status_eq":"cancel"};
 
     /**
      * 快速分组是否有抛值

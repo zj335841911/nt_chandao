@@ -420,6 +420,7 @@ hide footbox
 |MyFavorite|用例我得收藏([MYSQL5](../../appendix/query_MYSQL5.md#Case_MyFavorite))|否|&nbsp;|
 |NotCurTestSuite|套件关联用例([MYSQL5](../../appendix/query_MYSQL5.md#Case_NotCurTestSuite))|否|&nbsp;|
 |NotCurTestTask|测试单关联用例([MYSQL5](../../appendix/query_MYSQL5.md#Case_NotCurTestTask))|否|&nbsp;|
+|NotCurTestTaskProject|测试单关联用例（项目关联）([MYSQL5](../../appendix/query_MYSQL5.md#Case_NotCurTestTaskProject))|否|&nbsp;|
 |RePortCase|测试报告关联用例([MYSQL5](../../appendix/query_MYSQL5.md#Case_RePortCase))|否|&nbsp;|
 |RePortCaseEntry|测试报告关联用例-条目([MYSQL5](../../appendix/query_MYSQL5.md#Case_RePortCaseEntry))|否|&nbsp;|
 |RePortCase_Project|项目报告关联用例-关联用例([MYSQL5](../../appendix/query_MYSQL5.md#Case_RePortCase_Project))|否|&nbsp;|
@@ -446,6 +447,7 @@ hide footbox
 |MyFavorite|我的收藏|MyFavorite|否|&nbsp;|
 |NotCurTestSuite|套件关联用例|NotCurTestSuite|否|&nbsp;|
 |NotCurTestTask|测试单关联用例|NotCurTestTask|否|&nbsp;|
+|NotCurTestTaskProject|测试单关联用例（项目关联）|NotCurTestTaskProject|否|&nbsp;|
 |RePortCase|测试报告关联用例|RePortCase|否|&nbsp;|
 |RePortCaseEntry|测试报告关联用例-条目|RePortCaseEntry|否|&nbsp;|
 |RePortCase_Project|项目报告关联用例-关联用例|RePortCase_Project|否|&nbsp;|

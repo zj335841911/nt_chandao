@@ -5562,16 +5562,17 @@ unlinkSuiteCases
 | 9 | [用例我得收藏](#数据查询-用例我得收藏（MyFavorite）) | MyFavorite | 否 |
 | 10 | [套件关联用例](#数据查询-套件关联用例（NotCurTestSuite）) | NotCurTestSuite | 否 |
 | 11 | [测试单关联用例](#数据查询-测试单关联用例（NotCurTestTask）) | NotCurTestTask | 否 |
-| 12 | [测试报告关联用例](#数据查询-测试报告关联用例（RePortCase）) | RePortCase | 否 |
-| 13 | [测试报告关联用例-条目](#数据查询-测试报告关联用例-条目（RePortCaseEntry）) | RePortCaseEntry | 否 |
-| 14 | [项目报告关联用例-关联用例](#数据查询-项目报告关联用例-关联用例（RePortCase_Project）) | RePortCase_Project | 否 |
-| 15 | [测试报告关联-执行人](#数据查询-测试报告关联-执行人（RunERRePortCase）) | RunERRePortCase | 否 |
-| 16 | [测试报告关联-执行人-条目](#数据查询-测试报告关联-执行人-条目（RunERRePortCaseEntry）) | RunERRePortCaseEntry | 否 |
-| 17 | [项目报告关联-执行人](#数据查询-项目报告关联-执行人（RunERRePortCase_Project）) | RunERRePortCase_Project | 否 |
-| 18 | [测试报告关联--执行结果](#数据查询-测试报告关联--执行结果（RunRePortCase）) | RunRePortCase | 否 |
-| 19 | [测试报告关联--执行结果条目](#数据查询-测试报告关联--执行结果条目（RunRePortCaseEntry）) | RunRePortCaseEntry | 否 |
-| 20 | [项目报告关联-执行结果](#数据查询-项目报告关联-执行结果（RunRePortCase_Project）) | RunRePortCase_Project | 否 |
-| 21 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 12 | [测试单关联用例（项目关联）](#数据查询-测试单关联用例（项目关联）（NotCurTestTaskProject）) | NotCurTestTaskProject | 否 |
+| 13 | [测试报告关联用例](#数据查询-测试报告关联用例（RePortCase）) | RePortCase | 否 |
+| 14 | [测试报告关联用例-条目](#数据查询-测试报告关联用例-条目（RePortCaseEntry）) | RePortCaseEntry | 否 |
+| 15 | [项目报告关联用例-关联用例](#数据查询-项目报告关联用例-关联用例（RePortCase_Project）) | RePortCase_Project | 否 |
+| 16 | [测试报告关联-执行人](#数据查询-测试报告关联-执行人（RunERRePortCase）) | RunERRePortCase | 否 |
+| 17 | [测试报告关联-执行人-条目](#数据查询-测试报告关联-执行人-条目（RunERRePortCaseEntry）) | RunERRePortCaseEntry | 否 |
+| 18 | [项目报告关联-执行人](#数据查询-项目报告关联-执行人（RunERRePortCase_Project）) | RunERRePortCase_Project | 否 |
+| 19 | [测试报告关联--执行结果](#数据查询-测试报告关联--执行结果（RunRePortCase）) | RunRePortCase | 否 |
+| 20 | [测试报告关联--执行结果条目](#数据查询-测试报告关联--执行结果条目（RunRePortCaseEntry）) | RunRePortCaseEntry | 否 |
+| 21 | [项目报告关联-执行结果](#数据查询-项目报告关联-执行结果（RunRePortCase_Project）) | RunRePortCase_Project | 否 |
+| 22 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-批量新建用例（BatchNew）
 #### 说明
@@ -6397,6 +6398,76 @@ LEFT JOIN zt_story t21 ON t1.STORY = t21.ID
 LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID 
 
 ```
+### 数据查询-测试单关联用例（项目关联）（NotCurTestTaskProject）
+#### 说明
+测试单关联用例（项目关联）
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`AUTO`,
+t1.`BRANCH`,
+t1.`COLOR`,
+t1.`DELETED`,
+t1.`FRAME`,
+t1.`FREQUENCY`,
+t1.`FROMBUG`,
+t1.`FROMCASEID`,
+t1.`FROMCASEVERSION`,
+t1.`HOWRUN`,
+t1.`ID`,
+(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'case' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
+t1.`KEYWORDS`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LASTRUNDATE`,
+t1.`LASTRUNNER`,
+t1.`LASTRUNRESULT`,
+(case when t1.`LASTRUNRESULT` = '' or t1.`LASTRUNRESULT` is null then 'no' else t1.`LASTRUNRESULT` end) as  `LASTRUNRESULT1`,
+t1.`LIB`,
+t1.`LINKCASE`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`ORDER`,
+t1.`PATH`,
+t1.`PRI`,
+t1.`PRODUCT`,
+t31.`NAME` AS `PRODUCTNAME`,
+(SELECT COUNT(1) FROM zt_testresult WHERE `case` = t1.`ID` ) AS `RESULTCNT`,
+(SELECT COUNT(1) FROM zt_testresult WHERE `case` = t1.`ID`  and caseResult in('fail','blocked') ) AS `RESULTFALICNT`,
+t1.`REVIEWEDBY`,
+t1.`REVIEWEDDATE`,
+t1.`SCRIPTEDBY`,
+t1.`SCRIPTEDDATE`,
+t1.`SCRIPTLOCATION`,
+t1.`SCRIPTSTATUS`,
+t1.`STAGE`,
+t1.`STATUS`,
+(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+(SELECT COUNT(1) FROM zt_casestep WHERE `case` = t1.`ID` AND version = t1.`VERSION` ) AS `STEPCNT`,
+t1.`STORY`,
+t21.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+t1.`TITLE`,
+(SELECT COUNT(1) FROM zt_bug WHERE `case` = t1.`ID` ) AS `TOBUGCNT`,
+t1.`TYPE`,
+t1.`VERSION`
+FROM `zt_case` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
+LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID 
+
+```
 ### 数据查询-测试报告关联用例（RePortCase）
 #### 说明
 测试报告关联用例
@@ -7130,15 +7201,16 @@ LEFT JOIN zt_testsuite t41 ON t1.LIB = t41.ID
 | 9 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
 | 10 | [套件关联用例](#数据集合-套件关联用例（NotCurTestSuite）) | NotCurTestSuite | 否 |
 | 11 | [测试单关联用例](#数据集合-测试单关联用例（NotCurTestTask）) | NotCurTestTask | 否 |
-| 12 | [测试报告关联用例](#数据集合-测试报告关联用例（RePortCase）) | RePortCase | 否 |
-| 13 | [测试报告关联用例-条目](#数据集合-测试报告关联用例-条目（RePortCaseEntry）) | RePortCaseEntry | 否 |
-| 14 | [项目报告关联用例-关联用例](#数据集合-项目报告关联用例-关联用例（RePortCase_Project）) | RePortCase_Project | 否 |
-| 15 | [测试报告关联-执行人](#数据集合-测试报告关联-执行人（RunERRePortCase）) | RunERRePortCase | 否 |
-| 16 | [测试报告关联-执行人-条目](#数据集合-测试报告关联-执行人-条目（RunERRePortCaseEntry）) | RunERRePortCaseEntry | 否 |
-| 17 | [项目报告关联-执行人](#数据集合-项目报告关联-执行人（RunERRePortCase_Project）) | RunERRePortCase_Project | 否 |
-| 18 | [测试报告关联用例](#数据集合-测试报告关联用例（RunRePortCase）) | RunRePortCase | 否 |
-| 19 | [测试报告关联--执行结果条目](#数据集合-测试报告关联--执行结果条目（RunRePortCaseEntry）) | RunRePortCaseEntry | 否 |
-| 20 | [项目报告关联-执行结果](#数据集合-项目报告关联-执行结果（RunRePortCase_Project）) | RunRePortCase_Project | 否 |
+| 12 | [测试单关联用例（项目关联）](#数据集合-测试单关联用例（项目关联）（NotCurTestTaskProject）) | NotCurTestTaskProject | 否 |
+| 13 | [测试报告关联用例](#数据集合-测试报告关联用例（RePortCase）) | RePortCase | 否 |
+| 14 | [测试报告关联用例-条目](#数据集合-测试报告关联用例-条目（RePortCaseEntry）) | RePortCaseEntry | 否 |
+| 15 | [项目报告关联用例-关联用例](#数据集合-项目报告关联用例-关联用例（RePortCase_Project）) | RePortCase_Project | 否 |
+| 16 | [测试报告关联-执行人](#数据集合-测试报告关联-执行人（RunERRePortCase）) | RunERRePortCase | 否 |
+| 17 | [测试报告关联-执行人-条目](#数据集合-测试报告关联-执行人-条目（RunERRePortCaseEntry）) | RunERRePortCaseEntry | 否 |
+| 18 | [项目报告关联-执行人](#数据集合-项目报告关联-执行人（RunERRePortCase_Project）) | RunERRePortCase_Project | 否 |
+| 19 | [测试报告关联用例](#数据集合-测试报告关联用例（RunRePortCase）) | RunRePortCase | 否 |
+| 20 | [测试报告关联--执行结果条目](#数据集合-测试报告关联--执行结果条目（RunRePortCaseEntry）) | RunRePortCaseEntry | 否 |
+| 21 | [项目报告关联-执行结果](#数据集合-项目报告关联-执行结果（RunRePortCase_Project）) | RunRePortCase_Project | 否 |
 
 ### 数据集合-批量新建用例（BatchNew）
 #### 说明
@@ -7294,6 +7366,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [测试单关联用例（NotCurTestTask）](#数据查询-测试单关联用例（NotCurTestTask）) |
+### 数据集合-测试单关联用例（项目关联）（NotCurTestTaskProject）
+#### 说明
+测试单关联用例（项目关联）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [测试单关联用例（项目关联）（NotCurTestTaskProject）](#数据查询-测试单关联用例（项目关联）（NotCurTestTaskProject）) |
 ### 数据集合-测试报告关联用例（RePortCase）
 #### 说明
 测试报告关联用例

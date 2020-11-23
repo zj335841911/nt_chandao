@@ -1210,7 +1210,7 @@ export default class ProductPlanMobMDViewBase extends Vue {
      *
      * @memberof ProductPlanMobMDViewBase
      */
-    public quickGroupData:any = {{"n_isexpired_eq":1}};
+    public quickGroupData:any ={"n_isexpired_eq":1};
 
     /**
      * 快速分组是否有抛值
