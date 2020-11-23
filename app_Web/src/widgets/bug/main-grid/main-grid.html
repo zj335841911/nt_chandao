@@ -142,7 +142,14 @@
                     <template v-slot="{row,column,$index}">
                         <template >
                                 <a v-show="row.AssingToBug.visible" :disabled="row.AssingToBug.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'AssingToBug', $event)">
-            <codelist :value="row.assignedto" tag="UserRealNameW" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                                  <span>!!!!模版产生代码错误:----
+            Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+            ----
+            
+            ----
+            FTL stack trace ("~" means nesting-related):
+            	- Failed at: ${editor.getEditorCssStyle()}  [in template "TEMPLCODE_en_US" at line 4, column 18]
+            ----</span>
                                 </a>
                         </template>
                     </template>
