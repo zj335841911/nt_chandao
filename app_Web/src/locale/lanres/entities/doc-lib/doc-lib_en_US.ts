@@ -228,7 +228,7 @@ export default {
 			tip: "Filter",
 		},
 	},
-	rootdoclibprojecttreeveiw_treeview: {
+	childdoclibmoduletree_treeview: {
 		nodes: {
 			root: "默认根节点",
 		},
@@ -247,7 +247,7 @@ export default {
         doclib_collect: "收藏",
 		},
 	},
-	childdoclibmoduletree_treeview: {
+	rootdoclibprojecttreeveiw_treeview: {
 		nodes: {
 			root: "默认根节点",
 		},
@@ -266,6 +266,20 @@ export default {
         doclib_weihufenlei: "维护分类",
 		},
 	},
+	doclibchildtreeview_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
+	docchildproducttreeview_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
 	doclibtreeproduct_treeview: {
 		nodes: {
 			root: "默认根节点",
@@ -276,20 +290,6 @@ export default {
         doclib_weihufenlei: "维护分类",
         doclib_uncollect: "取消收藏",
         doclib_collect: "收藏",
-		},
-	},
-	docchildproducttreeview_treeview: {
-		nodes: {
-			root: "默认根节点",
-		},
-		uiactions: {
-		},
-	},
-	doclibchildtreeview_treeview: {
-		nodes: {
-			root: "默认根节点",
-		},
-		uiactions: {
 		},
 	},
 	productleftdoclibtree_treeview: {
