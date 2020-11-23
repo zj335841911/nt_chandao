@@ -216,6 +216,9 @@ export class MyFavoriteTaskModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
     ]
   }
 

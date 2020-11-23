@@ -67,6 +67,7 @@ export default {
     delay: "延期",
     mailtopk: "抄送给",
     mailtoconact: "联系人",
+    statusorder: "属性",
   },
 	views: {
 		mobmdview: {

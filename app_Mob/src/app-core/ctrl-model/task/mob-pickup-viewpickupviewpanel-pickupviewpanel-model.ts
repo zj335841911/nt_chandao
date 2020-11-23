@@ -216,6 +216,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
     ]
   }
 

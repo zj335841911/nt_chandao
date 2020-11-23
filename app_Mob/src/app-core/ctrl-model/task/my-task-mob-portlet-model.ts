@@ -216,6 +216,9 @@ export class MyTaskMobModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
     ]
   }
 

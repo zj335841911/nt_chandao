@@ -1,7 +1,7 @@
 <template>
     <ion-row>
         <ion-list class='app-mob-portlet ibzmyterritory-dashboard_container9 '>
-            <ion-list-header class='app-mob-portlet__header'>
+            <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
                 <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else></span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
