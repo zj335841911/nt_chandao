@@ -72,6 +72,9 @@ export default class ProjectDocLibTreeModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'root',
+      },
     ]
   }
 

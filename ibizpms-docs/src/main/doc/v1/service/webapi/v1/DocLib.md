@@ -534,7 +534,8 @@ POST
 | 17 | isfavourites | String | 允许 | 是否收藏 |
 | 18 | orgid | String | 允许 | 组织标识 |
 | 19 | mdeptid | String | 允许 | 部门标识 |
-| 20 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 20 | root | String | 允许 | Root |
+| 21 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DocLibSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

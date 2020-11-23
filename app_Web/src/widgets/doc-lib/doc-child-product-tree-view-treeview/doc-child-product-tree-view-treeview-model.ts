@@ -72,6 +72,9 @@ export default class DocChildProductTreeViewModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'root',
+      },
     ]
   }
 

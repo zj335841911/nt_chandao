@@ -72,6 +72,9 @@ export default class LibTabExpViewtabviewpanel3Model {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'root',
+      },
     ]
   }
 

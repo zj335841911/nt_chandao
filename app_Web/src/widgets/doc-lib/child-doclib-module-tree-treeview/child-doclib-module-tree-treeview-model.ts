@@ -72,6 +72,9 @@ export default class ChildDoclibModuleTreeModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'root',
+      },
     ]
   }
 

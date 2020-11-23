@@ -157,4 +157,12 @@ export interface DocLib {
      * @memberof DocLib
      */
     mdeptid?: any;
+
+    /**
+     * Root
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    root?: any;
 }

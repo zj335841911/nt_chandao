@@ -72,6 +72,9 @@ export default class ProjectTreeExpViewtreeexpbarModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'root',
+      },
     ]
   }
 

@@ -72,6 +72,9 @@ export default class ByProductTreeExpViewtreeexpbarModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'root',
+      },
     ]
   }
 

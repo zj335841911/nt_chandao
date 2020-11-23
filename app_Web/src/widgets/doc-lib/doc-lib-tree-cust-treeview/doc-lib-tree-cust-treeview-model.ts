@@ -72,6 +72,9 @@ export default class DocLibTreeCustModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'root',
+      },
     ]
   }
 

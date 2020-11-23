@@ -72,6 +72,9 @@ export default class RootDoclibProjectTreeVeiwModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'root',
+      },
     ]
   }
 

@@ -189,6 +189,13 @@ public class DocLib extends EntityMP implements Serializable {
     @JSONField(name = "mdeptid")
     @JsonProperty("mdeptid")
     private String mdeptid;
+    /**
+     * Root
+     */
+    @TableField(exist = false)
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    private String root;
 
     /**
      * 

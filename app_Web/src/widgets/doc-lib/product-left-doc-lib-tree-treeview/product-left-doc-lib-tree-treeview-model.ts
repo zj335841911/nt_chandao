@@ -72,6 +72,9 @@ export default class ProductLeftDocLibTreeModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'root',
+      },
     ]
   }
 

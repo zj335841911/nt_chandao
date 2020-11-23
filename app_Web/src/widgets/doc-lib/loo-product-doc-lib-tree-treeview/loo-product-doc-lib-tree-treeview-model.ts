@@ -72,6 +72,9 @@ export default class LooProductDocLibTreeModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'root',
+      },
     ]
   }
 

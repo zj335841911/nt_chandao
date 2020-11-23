@@ -72,6 +72,9 @@ export default class DocLibTreeProductModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'root',
+      },
     ]
   }
 

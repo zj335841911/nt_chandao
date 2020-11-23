@@ -72,6 +72,9 @@ export default class DoclibChildTreeViewModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'root',
+      },
     ]
   }
 

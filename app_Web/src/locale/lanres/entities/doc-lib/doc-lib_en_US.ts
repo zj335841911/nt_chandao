@@ -19,6 +19,7 @@ export default {
     isfavourites: "是否收藏",
     orgid: "组织标识",
     mdeptid: "部门标识",
+    root: "Root",
   },
 	views: {
 		projecttreeexpview: {
