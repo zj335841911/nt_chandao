@@ -428,34 +428,21 @@
 
 
 <app-form-item 
-    name='mailto' 
+    name='mailtopk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="mailto_item"  
-    :itemValue="this.data.mailto" 
-    v-show="detailsModel.mailto.visible" 
-    :itemRules="this.rules.mailto" 
-    :caption="$t('task.mobnewfrom_form.details.mailto')"  
+    ref="mailtopk_item"  
+    :itemValue="this.data.mailtopk" 
+    v-show="detailsModel.mailtopk.visible" 
+    :itemRules="this.rules.mailtopk" 
+    :caption="$t('task.mobnewfrom_form.details.mailtopk')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.mailto.disabled"
-    :error="detailsModel.mailto.error" 
+    :disabled="detailsModel.mailtopk.disabled"
+    :error="detailsModel.mailtopk.error" 
     :isEmptyCaption="false">
-        <app-mob-check-list 
-    orMode="str"
-    valueSeparator=","
-    textSeparator=","
-    type="dynamic"  
-    tag="UserRealName"
-    :disabled="detailsModel.mailto.disabled" 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.mailto"   
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.mailto = $event"/>
+        
 </app-form-item>
 
 
@@ -810,6 +797,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         deadline: null,
         desc: null,
         mailto: null,
+        mailtopk: null,
         id: null,
         task: null,
     };
@@ -1077,6 +1065,8 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        mailtopk: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -1395,6 +1385,18 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 mailtopk 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.mailtopk')
+    onMailtopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailtopk', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -1514,6 +1516,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
             }
             this.detailsModel.estimate.setDisabled(!ret);
         }
+
 
 
 

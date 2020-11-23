@@ -543,6 +543,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品模块编辑视图|DEEDITVIEW|&nbsp;|
 |-|发布编辑视图|DEEDITVIEW|&nbsp;|
 |-|附件|DELISTVIEW9|&nbsp;视图参数从上下文中获取对应的对象类型|
+|-|项目团队列表视图|DELISTVIEW|&nbsp;|
 |-|用例库用例编辑视图（基本信息）|DEEDITVIEW9|&nbsp;|
 |-|相关需求|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|
 |-|任务图表视图|DECHARTVIEW9|&nbsp;|

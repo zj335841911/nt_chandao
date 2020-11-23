@@ -20,3 +20,6 @@ import { DocLibTreeProductTreeBase } from './doc-lib-tree-product-treeview-base'
 @VueLifeCycleProcessing()
 export default class DocLibTreeProductTree extends DocLibTreeProductTreeBase {}
 </script>
+<style lang="less">
+@import './doc-lib-tree-product-treeview.less';
+</style>

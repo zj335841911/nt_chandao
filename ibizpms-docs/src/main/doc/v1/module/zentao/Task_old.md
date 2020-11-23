@@ -87,7 +87,7 @@ hide members
 |消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 |进度|PROGRESSRATE|TEXT|&nbsp;|
 |延期|DELAY|TEXT|&nbsp;|
-|属性|MAILTOPK|SMCODELIST|&nbsp;|
+|抄送给|MAILTOPK|SMCODELIST|&nbsp;|
 |联系人|MAILTOCONACT|TEXT|&nbsp;|
 
 ## 值规则
@@ -166,7 +166,7 @@ hide members
 |消息通知用户|默认规则|内容长度必须小于等于[100]|
 |进度|默认规则|内容长度必须小于等于[200]|
 |延期|默认规则|内容长度必须小于等于[200]|
-|属性|默认规则|内容长度必须小于等于[200]|
+|抄送给|默认规则|内容长度必须小于等于[200]|
 |联系人|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制

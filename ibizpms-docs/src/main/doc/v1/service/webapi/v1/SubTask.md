@@ -5727,7 +5727,7 @@ POST
 | 61 | noticeusers | String | 允许 | 消息通知用户 |
 | 62 | progressrate | String | 允许 | 进度 |
 | 63 | delay | String | 允许 | 延期 |
-| 64 | mailtopk | String | 允许 | 属性 |
+| 64 | mailtopk | String | 允许 | 抄送给 |
 | 65 | mailtoconact | String | 允许 | 联系人 |
 | 66 | <动态属性> | Object | 允许 | 支持动态属性 |
 

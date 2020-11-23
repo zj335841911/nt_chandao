@@ -21,6 +21,10 @@ export default {
 			caption: "项目团队",
       		title: "项目团队表格视图",
 		},
+		listview: {
+			caption: "项目团队",
+      		title: "项目团队列表视图",
+		},
 		maingridview_editrow: {
 			caption: "项目团队",
       		title: "项目团队表格视图",
@@ -85,6 +89,16 @@ export default {
 			tip: "保存行",
 		},
 	},
+	listviewtoolbar_toolbar: {
+		deuiaction3_managermember: {
+			caption: "团队管理",
+			tip: "团队管理",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
 	maingridviewtoolbar_toolbar: {
 		deuiaction3_managermember: {
 			caption: "团队管理",
@@ -101,6 +115,11 @@ export default {
 		deuiaction4: {
 			caption: "过滤",
 			tip: "过滤",
+		},
+	},
+	projectteampc_list: {
+		nodata: "",
+		uiactions: {
 		},
 	},
 };

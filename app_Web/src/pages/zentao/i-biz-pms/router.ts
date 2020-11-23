@@ -687,6 +687,39 @@ const router = new Router({
                     component: () => import('@pages/zentao/doc-lib-product-tree-view/doc-lib-product-tree-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/projectteams/:projectteam?/listview/:listview?',
+                    meta: {
+                        caption: 'entities.projectteam.views.listview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-users',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'projectteams', parameterName: 'projectteam' },
+                            { pathName: 'listview', parameterName: 'listview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-team-list-view/project-team-list-view.vue'),
+                },
+                {
+                    path: 'projectteams/:projectteam?/listview/:listview?',
+                    meta: {
+                        caption: 'entities.projectteam.views.listview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-users',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projectteams', parameterName: 'projectteam' },
+                            { pathName: 'listview', parameterName: 'listview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-team-list-view/project-team-list-view.vue'),
+                },
+                {
                     path: 'productsums/:productsum?/storyhourssumgridview/:storyhourssumgridview?',
                     meta: {
                         caption: 'entities.productsum.views.storyhourssumgridview.caption',
@@ -6114,39 +6147,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/module-pickup-view/module-pickup-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/projectteams/:projectteam?/maingridview/:maingridview?',
-                    meta: {
-                        caption: 'entities.projectteam.views.maingridview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-users',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'projectteams', parameterName: 'projectteam' },
-                            { pathName: 'maingridview', parameterName: 'maingridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/project-team-main-grid-view/project-team-main-grid-view.vue'),
-                },
-                {
-                    path: 'projectteams/:projectteam?/maingridview/:maingridview?',
-                    meta: {
-                        caption: 'entities.projectteam.views.maingridview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-users',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projectteams', parameterName: 'projectteam' },
-                            { pathName: 'maingridview', parameterName: 'maingridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/project-team-main-grid-view/project-team-main-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/maininfoview9/:maininfoview9?',

@@ -166,6 +166,11 @@ export class MobMainDataEditModel {
                 dataType: 'SMCODELIST',
             },
             {
+                name: 'mailtopk',
+                prop: 'mailtopk',
+                dataType: 'SMCODELIST',
+            },
+            {
                 name: 'project',
                 prop: 'project',
                 dataType: 'PICKUP',

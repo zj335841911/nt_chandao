@@ -65,7 +65,7 @@ export default {
     noticeusers: "消息通知用户",
     progressrate: "进度",
     delay: "延期",
-    mailtopk: "属性",
+    mailtopk: "抄送给",
     mailtoconact: "联系人",
   },
 	views: {
@@ -308,6 +308,7 @@ export default {
 			deadline: '截止日期', 
 			desc: '任务描述', 
 			mailto: '抄送给', 
+			mailtopk: '抄送给', 
 			id: '编号', 
 		},
 		uiactions: {
@@ -397,6 +398,7 @@ export default {
 			status: '任务状态', 
 			pri: '优先级', 
 			mailto: '抄送给', 
+			mailtopk: '抄送给', 
 			eststarted: '预计开始', 
 			deadline: '截止日期', 
 			estimate: '最初预计', 

@@ -116315,7 +116315,7 @@ CREATE TABLE `T_SYS_UPDATE_LOG`(
 | ASSIGNEDDATE        | 指派日期  | DATETIME      |   -1   | &nbsp; |
 | ESTSTARTED        | 预计开始  | DATETIME      |   -1   | &nbsp; |
 | REALSTARTED        | 实际开始  | DATETIME      |   -1   | &nbsp; |
-| MAILTOPK        | 属性  | VARCHAR      |   200   | &nbsp; |
+| MAILTOPK        | 抄送给  | VARCHAR      |   200   | &nbsp; |
 | PARENT        | 父任务  |       |   8   | &nbsp; |
 | STORYVERSION        | 需求版本  | INTEGER      |   6   | &nbsp; |
 | MODULENAME        | 所属模块  | VARCHAR      |   60   | &nbsp; |

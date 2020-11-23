@@ -2687,6 +2687,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "FileListView9",
             "viewtag": "9ed41cee96088630f3d4b0a91e705930"
         },
+        "projectteamlistview": {
+            "title": "项目团队列表视图",
+            "caption": "项目团队",
+            "viewtype": "DELISTVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProjectTeamListView",
+            "viewtag": "a03214a97c7b57f1681defbdecd07f9d"
+        },
         "ibzcaseinfoeditview9": {
             "title": "用例库用例编辑视图（基本信息）",
             "caption": "基本信息",

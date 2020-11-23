@@ -156,6 +156,11 @@ export class MobMainModel {
                 dataType: 'SMCODELIST',
             },
             {
+                name: 'mailtopk',
+                prop: 'mailtopk',
+                dataType: 'SMCODELIST',
+            },
+            {
                 name: 'keywords',
                 prop: 'keywords',
                 dataType: 'TEXT',
