@@ -567,7 +567,6 @@ export const viewstate: any = {
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 'db750bbb894c25f38ca2741f234df3c6',
                 'c8171c13c1ba215f65c8587df1d98ba5',
-                'c4099c98661bbfac92a0e718c183e718',
                 '0f3dff62ef8bcb1662cc82e57a34c56b',
                 '0846a45e5ffdd4d8f857575cfa955dce',
                 '8c8adbf0a7db27078e01a8b32716fa71',
@@ -575,6 +574,7 @@ export const viewstate: any = {
                 'CC49500F-030F-458F-82DF-F88F6973DF64',
                 'D1283E46-401A-4CFD-A7A1-BF5B90197463',
                 '7f0821e7efe42bbf91090b525b05c96d',
+                'b9e8e61038ab3fcb99e9ff5ab0888fa3',
                 '4fcd2a15ff88a97425e1ab1cadc5eb9f',
                 '7c79a923d0cdd1a5bc41a34367809077',
                 '8ca39819b87c5e3e8669fcd7409cf9a2',
@@ -846,15 +846,6 @@ export const viewstate: any = {
             viewtag: '2e47613b1ffa6c0d31c513a4492013f6',
             viewmodule: 'zentao',
             viewname: 'DocLibCustomDocLibChildTreeView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
-            viewtag: '2fe124188a5da06e3e641c7e1e1e76d6',
-            viewmodule: 'ibizplugin',
-            viewname: 'IBIZProPluginEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -3567,6 +3558,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b9e8e61038ab3fcb99e9ff5ab0888fa3',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryUsr3TabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'c8171c13c1ba215f65c8587df1d98ba5',
+            ],
+        },
+        {
             viewtag: 'b9e94e3713c82ebab002631bda872b94',
             viewmodule: 'zentao',
             viewname: 'StoryPlanSubGridView',
@@ -3751,16 +3752,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e00040c0d616f2f1c0ad4b36c9e920b5',
-            ],
-        },
-        {
-            viewtag: 'c4099c98661bbfac92a0e718c183e718',
-            viewmodule: 'ibizplugin',
-            viewname: 'IBIZProPluginGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '2fe124188a5da06e3e641c7e1e1e76d6',
             ],
         },
         {

@@ -1,0 +1,39 @@
+<div class="tabviewpanel">
+    <tabs
+        :value="activatedTabViewPanel"
+        :animated="false"
+        class="tabexppanel"
+        name="usr3tabexpviewtabexppanel"
+        @on-click="tabPanelClick($event)"
+    >
+        <tab-pane
+            :index="0"
+            name="tabviewpanel"
+            tab="usr3tabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel'].visible"
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '插件管理'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel"
+    name="tabviewpanel"  
+    ref="tabviewpanel"
+    :expActive="activatedTabViewPanel === 'tabviewpanel'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel>
+        </tab-pane>
+    </tabs>
+</div>

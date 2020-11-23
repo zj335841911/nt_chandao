@@ -1991,20 +1991,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-report-edit-view-project/test-report-edit-view-project.vue'),
                 },
                 {
-                    path: 'ibizproplugins/:ibizproplugin?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.ibizproplugin.views.editview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibizproplugins', parameterName: 'ibizproplugin' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibizplugin/ibizpro-plugin-edit-view/ibizpro-plugin-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/bugkanbanview/:bugkanbanview?',
                     meta: {
                         caption: 'entities.bug.views.bugkanbanview.caption',
@@ -12401,6 +12387,20 @@ const router = new Router({
                     component: () => import('@pages/ungroup/test-portal-view/test-portal-view.vue'),
                 },
                 {
+                    path: 'ibzmyterritories/:ibzmyterritory?/usr3tabexpview/:usr3tabexpview?',
+                    meta: {
+                        caption: 'entities.ibzmyterritory.views.usr3tabexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'usr3tabexpview', parameterName: 'usr3tabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-my-territory-usr3-tab-exp-view/ibz-my-territory-usr3-tab-exp-view.vue'),
+                },
+                {
                     path: 'todos/:todo?/gridview9/:gridview9?',
                     meta: {
                         caption: 'entities.todo.views.gridview9.caption',
@@ -15120,20 +15120,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/case-to-bug-edit-view/case-to-bug-edit-view.vue'),
-                },
-                {
-                    path: 'ibizproplugins/:ibizproplugin?/gridview/:gridview?',
-                    meta: {
-                        caption: 'entities.ibizproplugin.views.gridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibizproplugins', parameterName: 'ibizproplugin' },
-                            { pathName: 'gridview', parameterName: 'gridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibizplugin/ibizpro-plugin-grid-view/ibizpro-plugin-grid-view.vue'),
                 },
                 {
                     path: 'doclibs/:doclib?/projecttreeview/:projecttreeview?',

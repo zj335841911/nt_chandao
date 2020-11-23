@@ -3031,14 +3031,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainMyNewGridView",
             "viewtag": "b137ebd68f63e15d9233d1092e565d15"
         },
-        "ibzmyterritoryusr2tabexpview": {
-            "title": "我的地盘分页导航视图",
-            "caption": "我的地盘",
-            "viewtype": "DETABEXPVIEW",
-            "viewmodule": "ibiz",
-            "viewname": "IbzMyTerritoryUsr2TabExpView",
-            "viewtag": "b14a0fc88fe6d5ae34629b422dd7a5f7"
-        },
         "companyeditview": {
             "title": "公司编辑视图",
             "caption": "公司信息",
@@ -3166,6 +3158,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryMPickupView",
             "viewtag": "b9bdfc0e33d333ade00934745d9dc0ad"
+        },
+        "ibzmyterritoryusr3tabexpview": {
+            "title": "我的地盘分页导航视图",
+            "caption": "我的地盘",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryUsr3TabExpView",
+            "viewtag": "b9e8e61038ab3fcb99e9ff5ab0888fa3"
         },
         "storyplansubgridview": {
             "title": "story表格视图",

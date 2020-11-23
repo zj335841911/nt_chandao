@@ -70,7 +70,7 @@ export default {
 			caption: "用户汇总表",
       		title: "我的地盘树导航视图",
 		},
-		usr2tabexpview: {
+		usr3tabexpview: {
 			caption: "我的地盘",
       		title: "我的地盘分页导航视图",
 		},

@@ -302,7 +302,7 @@ export default class ZentaoModel {
                 	textcls: '',
                 	appfunctag: 'PluginManagement',
                 	appfuncyype: 'APPVIEW',
-                	viewname: 'ibizpro-plugin-grid-view',
+                	viewname: 'ibz-my-territory-usr3-tab-exp-view',
                 	authtag:'Web-zentao-menuitem17',
                 }
                 ,
@@ -551,12 +551,12 @@ export default class ZentaoModel {
             appfunctag: 'PluginManagement',
             appfuncyype: 'APPVIEW',
             openmode: '',
-            codename: 'ibizproplugingridview',
+            codename: 'ibzmyterritoryusr3tabexpview',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/ibizproplugins/:ibizproplugin?/gridview/:gridview?',
+            routepath: '/ibizpms/:ibizpms?/ibzmyterritories/:ibzmyterritory?/usr3tabexpview/:usr3tabexpview?',
             parameters: [
-                { pathName: 'ibizproplugins', parameterName: 'ibizproplugin' },
-                { pathName: 'gridview', parameterName: 'gridview' },
+                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                { pathName: 'usr3tabexpview', parameterName: 'usr3tabexpview' },
             ],
         },
         {
