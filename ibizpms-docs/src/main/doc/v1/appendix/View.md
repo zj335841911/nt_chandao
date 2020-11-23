@@ -586,6 +586,7 @@ SRFNAVPARAM.project=%project%|
 |-|添加备注|DEOPTVIEW|&nbsp;|
 |-|暂停任务|DEOPTVIEW|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
+|-|我的地盘分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|公司编辑视图|DEEDITVIEW|&nbsp;|
 |-|bug选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|

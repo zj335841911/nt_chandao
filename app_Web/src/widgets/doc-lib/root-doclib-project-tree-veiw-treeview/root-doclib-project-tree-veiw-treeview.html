@@ -37,7 +37,7 @@
                         <Icon type="md-folder" color="rgb(255, 202, 40)" size="20" /><a>{{ item.text }}</a>
                     </span>
                 </div>
-                <div v-if="item.curData.copyActionModel">
+                <div v-if="item.curData && item.curData.copyActionModel">
                 </div>
             </div>
         </template>

@@ -3031,6 +3031,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainMyNewGridView",
             "viewtag": "b137ebd68f63e15d9233d1092e565d15"
         },
+        "ibzmyterritoryusr2tabexpview": {
+            "title": "我的地盘分页导航视图",
+            "caption": "我的地盘",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryUsr2TabExpView",
+            "viewtag": "b14a0fc88fe6d5ae34629b422dd7a5f7"
+        },
         "companyeditview": {
             "title": "公司编辑视图",
             "caption": "公司信息",
