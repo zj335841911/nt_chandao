@@ -85,7 +85,9 @@ export default class WFDynaExpGridViewEngine extends GridViewEngine {
      */
     public selectionChange(args: any[]): void {
         if (this.view) {
-            this.view.selectedData = args;
+            if(this.view.hasOwnProperty('selectedData')){
+                this.view.selectedData = args;
+            }
             this.view.$emit('viewdataschange', args);
         }
         const state = args.length > 0 && !Object.is(args[0].srfkey, '') ? false : true;

@@ -942,6 +942,44 @@ export class GridControlBase extends MDControlBase {
     }
 
     /**
+     * 工作流提交
+     *
+     * @param {*} [data={}]
+     * @param {*} [localdata={}]
+     * @returns {Promise<any>}
+     * @memberof ${srfclassname('${ctrl.codeName}')}Base
+     */
+    public async submitbatch(data: any,localdata:any): Promise<any> {
+        return new Promise((resolve: any, reject: any) => {
+        const _this: any = this;
+        const arg: any = data;
+        const result: Promise<any> = this.service.submitbatch(_this.WFSubmitAction, JSON.parse(JSON.stringify(this.context)),arg,localdata,this.showBusyIndicator);
+        result.then((response: any) => {
+            if (!response || response.status !== 200) {
+                if(response.data){
+                    this.$Notice.error({ title: '', desc: (this.$t('app.formpage.workflow.submiterror') as string) + ', ' + response.data.message });
+                }
+                return;
+            }
+            this.$Notice.info({ title: '', desc: (this.$t('app.formpage.workflow.submitsuccess') as string) });
+            resolve(response);
+        }).catch((response: any) => {
+            if (response && response.status && response.data) {
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+                reject(response);
+                return;
+            }
+            if (!response || !response.status || !response.data) {
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
+                reject(response);
+                return;
+            }
+            reject(response);
+        });
+        })
+    }
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal

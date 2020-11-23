@@ -216,6 +216,9 @@ export default class MainInfoModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
     ]
   }
 

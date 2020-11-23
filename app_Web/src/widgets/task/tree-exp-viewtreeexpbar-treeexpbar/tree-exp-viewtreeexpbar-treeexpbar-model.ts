@@ -216,6 +216,9 @@ export default class TreeExpViewtreeexpbarModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
     ]
   }
 

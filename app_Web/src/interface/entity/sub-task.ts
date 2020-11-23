@@ -541,4 +541,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     mailtoconact?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    statusorder?: any;
 }

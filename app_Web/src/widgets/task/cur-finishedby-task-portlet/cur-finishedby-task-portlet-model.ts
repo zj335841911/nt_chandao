@@ -216,6 +216,9 @@ export default class CurFinishedbyTaskModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
     ]
   }
 

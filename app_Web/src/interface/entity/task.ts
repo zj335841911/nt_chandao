@@ -541,4 +541,12 @@ export interface Task {
      * @memberof Task
      */
     mailtoconact?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    statusorder?: any;
 }

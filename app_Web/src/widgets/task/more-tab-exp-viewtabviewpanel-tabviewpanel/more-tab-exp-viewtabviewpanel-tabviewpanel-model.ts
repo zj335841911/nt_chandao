@@ -216,6 +216,9 @@ export default class MoreTabExpViewtabviewpanelModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
     ]
   }
 

@@ -216,6 +216,9 @@ export default class WorkInfoModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
     ]
   }
 

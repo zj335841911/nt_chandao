@@ -216,6 +216,9 @@ export default class TaskTreeModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
     ]
   }
 

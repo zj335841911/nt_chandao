@@ -216,6 +216,9 @@ export default class ToolbarModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
     ]
   }
 

@@ -216,6 +216,9 @@ export default class GroupTreeExpViewtreeexpbarModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
     ]
   }
 

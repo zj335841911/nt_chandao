@@ -251,4 +251,11 @@ export default {
         or: 'Or',
         imgMsg1: 'Select from stock',
     },
+    appAfterTime:{
+        minutesAgo: 'minutes ago',
+        hoursAgo: 'hours ago',
+        dayAgo: 'days ago',
+        monthsAgo: 'months ago',
+        yearsAgo: 'years ago'
+    }
 };

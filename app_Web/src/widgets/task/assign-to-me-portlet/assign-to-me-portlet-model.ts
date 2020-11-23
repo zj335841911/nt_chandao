@@ -216,6 +216,9 @@ export default class AssignToMeModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'statusorder',
+      },
     ]
   }
 
