@@ -442,15 +442,7 @@
     :disabled="detailsModel.mailtopk.disabled"
     :error="detailsModel.mailtopk.error" 
     :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.mailtopk"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.mailtopk" 
-    :itemParam="{}"/>
+        
 </app-form-item>
 
 
