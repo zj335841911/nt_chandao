@@ -2256,7 +2256,6 @@
                 "id": "1",
                 "label": "1",
                 "text": "1",
-                "iconcls":"fa fa-square-o",
                 "class":"text-red-border-color",
                 "data":"",
                 "codename":"Item_1",
