@@ -137,8 +137,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     @Transactional
     public Story get(Long key) {
-        Story tempET = new Story();
-        tempET.set("id", key);
         Story et = getById(key);
         if (et == null) {
             et = new Story();
