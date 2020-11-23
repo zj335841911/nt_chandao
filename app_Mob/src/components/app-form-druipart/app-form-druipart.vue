@@ -373,6 +373,7 @@ export default class AppFormDRUIPart extends Vue {
                 }
             }
         });
+        this.refreshDRUIPart();
     }
 
     /**

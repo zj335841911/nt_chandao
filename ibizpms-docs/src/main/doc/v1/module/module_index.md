@@ -667,10 +667,16 @@ hide members
 
 package iBiz插件模块 {
 
+class 关键字 {
+}
+
 class 消息 {
 }
 
 class 系统插件 {
+}
+
+class 标签 {
 }
 
 

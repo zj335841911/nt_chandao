@@ -6414,6 +6414,23 @@ FROM `zt_history` t1
 
 ```
 
+# **关键字**(IBIZPRO_KEYWORD)
+
+### 数据查询(DEFAULT)<div id="IBIZProKeyword_Default"></div>
+```sql
+SELECT
+t1.`ID`
+FROM `T_IBIZPRO_KEYWORD` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IBIZProKeyword_View"></div>
+```sql
+SELECT
+t1.`ID`
+FROM `T_IBIZPRO_KEYWORD` t1 
+
+```
+
 # **消息**(IBIZPRO_MESSAGE)
 
 ### 数据查询(DEFAULT)<div id="IBIZProMessage_Default"></div>
@@ -6503,6 +6520,23 @@ t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
 t1.`VERSION`
 FROM `T_IBIZPRO_PLUGIN` t1 
+
+```
+
+# **标签**(IBIZPRO_TAG)
+
+### 数据查询(DEFAULT)<div id="IBIZProTag_Default"></div>
+```sql
+SELECT
+t1.`ID`
+FROM `T_IBIZPRO_TAG` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IBIZProTag_View"></div>
+```sql
+SELECT
+t1.`ID`
+FROM `T_IBIZPRO_TAG` t1 
 
 ```
 

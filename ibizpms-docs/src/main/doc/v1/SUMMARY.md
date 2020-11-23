@@ -220,9 +220,13 @@
 
   * [iBiz插件模块](module/ibizplugin.md) 
 
+    * [关键字](module/ibizplugin/IBIZProKeyword.md) 
+
     * [消息](module/ibizplugin/IBIZProMessage.md) 
 
     * [系统插件](module/ibizplugin/IBIZProPlugin.md) 
+
+    * [标签](module/ibizplugin/IBIZProTag.md) 
 
   * [iBiz系统模型](module/ibizsysmodel.md) 
 

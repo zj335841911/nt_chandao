@@ -1,11 +1,8 @@
 <template>
 <div>
   <div class="app-quick-group">
-    <div :class="{'quick-group-tab':true,'app-seleted-item':isSelectedItem(item) || item.childSelected}" v-for="(item,index) in showItems" :key="index">
-      <div
-        :style="{color:item.color}"
-        @click="handleClick(item)"
-      >
+    <div :class="{'quick-group-tab':true,'app-seleted-item':isSelectedItem(item) || item.childSelected}" v-for="(item,index) in showItems" :key="index" @click="handleClick(item)">
+      <div :style="{color:item.color}">
         <ion-icon v-if=" item.iconcls && !Object.is(item.iconcls, '')" :name="item.iconcls"></ion-icon>
         <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
         <span v-if="item.selectChildLabel" class="app-quick-item-label">{{item.selectChildLabel}}</span>
