@@ -1,6 +1,6 @@
 # 插件管理
 
-我的地盘分页导航视图(IbzMyTerritoryUsr3TabExpView)
+管理(IbzMyTerritoryUsr3TabExpView)
 
 {% plantuml %}
 

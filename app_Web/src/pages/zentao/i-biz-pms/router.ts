@@ -1991,6 +1991,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-report-edit-view-project/test-report-edit-view-project.vue'),
                 },
                 {
+                    path: 'ibizproplugins/:ibizproplugin?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibizproplugin.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibizproplugins', parameterName: 'ibizproplugin' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizplugin/ibizpro-plugin-edit-view/ibizpro-plugin-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/bugkanbanview/:bugkanbanview?',
                     meta: {
                         caption: 'entities.bug.views.bugkanbanview.caption',
@@ -15120,6 +15134,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/case-to-bug-edit-view/case-to-bug-edit-view.vue'),
+                },
+                {
+                    path: 'ibizproplugins/:ibizproplugin?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.ibizproplugin.views.gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibizproplugins', parameterName: 'ibizproplugin' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizplugin/ibizpro-plugin-grid-view/ibizpro-plugin-grid-view.vue'),
                 },
                 {
                     path: 'doclibs/:doclib?/projecttreeview/:projecttreeview?',

@@ -602,7 +602,7 @@ SRFNAVPARAM.project=%project%|
 |-|Bug统计表格视图（Bug指派表）|DEGRIDVIEW|&nbsp;|
 |-|产品计划编辑视图|DEEDITVIEW|&nbsp;|
 |-|关联需求|DEMPICKUPVIEW|&nbsp;|
-|-|我的地盘分页导航视图|DETABEXPVIEW|&nbsp;|
+|-|管理|DETABEXPVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试报告编辑视图（历史记录）|DEEDITVIEW|&nbsp;|
 |-|任务编辑视图（日历航显示）|DEEDITVIEW|&nbsp;|

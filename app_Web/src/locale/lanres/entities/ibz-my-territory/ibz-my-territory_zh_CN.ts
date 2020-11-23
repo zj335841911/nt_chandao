@@ -72,7 +72,7 @@ export default {
 		},
 		usr3tabexpview: {
 			caption: "我的地盘",
-      		title: "我的地盘分页导航视图",
+      		title: "管理",
 		},
 		testtreeexpview: {
 			caption: "测试统计",

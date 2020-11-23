@@ -3160,7 +3160,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "b9bdfc0e33d333ade00934745d9dc0ad"
         },
         "ibzmyterritoryusr3tabexpview": {
-            "title": "我的地盘分页导航视图",
+            "title": "管理",
             "caption": "我的地盘",
             "viewtype": "DETABEXPVIEW",
             "viewmodule": "ibiz",

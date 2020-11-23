@@ -852,6 +852,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '2fe124188a5da06e3e641c7e1e1e76d6',
+            viewmodule: 'ibizplugin',
+            viewname: 'IBIZProPluginEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '300e4e1f02be8e316e1e76b49c5c5ccc',
             viewmodule: 'zentao',
             viewname: 'StoryKanbanView',
@@ -3564,6 +3573,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'c4099c98661bbfac92a0e718c183e718',
             ],
         },
         {
@@ -3751,6 +3761,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e00040c0d616f2f1c0ad4b36c9e920b5',
+            ],
+        },
+        {
+            viewtag: 'c4099c98661bbfac92a0e718c183e718',
+            viewmodule: 'ibizplugin',
+            viewname: 'IBIZProPluginGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '2fe124188a5da06e3e641c7e1e1e76d6',
             ],
         },
         {
