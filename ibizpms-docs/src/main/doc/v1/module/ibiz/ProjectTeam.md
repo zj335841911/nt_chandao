@@ -1015,7 +1015,7 @@ FROM
 - MYSQL5
 ```SQL
 SELECT
-	t1.*,
+	t1.account,t1.consumed1,t1.days,t1.estimate1,t1.hours,t1.id,t1.join,t1.left1,t1.limited,t1.order,t1.role,t1.root,(t1.days*t1.hours)as total,t1.type,(select t.realname from zt_user t where t.account=t1.account)as username from zt_team t1,
 	(
 SELECT
 	count( t2.id ) 
