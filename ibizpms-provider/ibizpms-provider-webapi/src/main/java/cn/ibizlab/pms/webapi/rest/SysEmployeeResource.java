@@ -47,6 +47,7 @@ public class SysEmployeeResource {
     @Lazy
     public SysEmployeeMapping sysemployeeMapping;
 
+    @PreAuthorize("hasPermission(this.sysemployeeMapping.toDomain(#sysemployeedto),'pms-SysEmployee-Create')")
     @ApiOperation(value = "新建人员", tags = {"人员" },  notes = "新建人员")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysemployees")
     public ResponseEntity<SysEmployeeDTO> create(@Validated @RequestBody SysEmployeeDTO sysemployeedto) {
@@ -56,6 +57,7 @@ public class SysEmployeeResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
+    @PreAuthorize("hasPermission(this.sysemployeeMapping.toDomain(#sysemployeedtos),'pms-SysEmployee-Create')")
     @ApiOperation(value = "批量新建人员", tags = {"人员" },  notes = "批量新建人员")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysemployees/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<SysEmployeeDTO> sysemployeedtos) {
@@ -64,6 +66,7 @@ public class SysEmployeeResource {
     }
 
     @VersionCheck(entity = "sysemployee" , versionfield = "updatedate")
+    @PreAuthorize("hasPermission(this.sysemployeeService.get(#sysemployee_id),'pms-SysEmployee-Update')")
     @ApiOperation(value = "更新人员", tags = {"人员" },  notes = "更新人员")
 	@RequestMapping(method = RequestMethod.PUT, value = "/sysemployees/{sysemployee_id}")
     public ResponseEntity<SysEmployeeDTO> update(@PathVariable("sysemployee_id") String sysemployee_id, @RequestBody SysEmployeeDTO sysemployeedto) {
@@ -74,6 +77,7 @@ public class SysEmployeeResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
+    @PreAuthorize("hasPermission(this.sysemployeeService.getSysemployeeByEntities(this.sysemployeeMapping.toDomain(#sysemployeedtos)),'pms-SysEmployee-Update')")
     @ApiOperation(value = "批量更新人员", tags = {"人员" },  notes = "批量更新人员")
 	@RequestMapping(method = RequestMethod.PUT, value = "/sysemployees/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<SysEmployeeDTO> sysemployeedtos) {
@@ -81,12 +85,14 @@ public class SysEmployeeResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasPermission(this.sysemployeeService.get(#sysemployee_id),'pms-SysEmployee-Remove')")
     @ApiOperation(value = "删除人员", tags = {"人员" },  notes = "删除人员")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/sysemployees/{sysemployee_id}")
     public ResponseEntity<Boolean> remove(@PathVariable("sysemployee_id") String sysemployee_id) {
          return ResponseEntity.status(HttpStatus.OK).body(sysemployeeService.remove(sysemployee_id));
     }
 
+    @PreAuthorize("hasPermission(this.sysemployeeService.getSysemployeeByIds(#ids),'pms-SysEmployee-Remove')")
     @ApiOperation(value = "批量删除人员", tags = {"人员" },  notes = "批量删除人员")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/sysemployees/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<String> ids) {
@@ -94,6 +100,7 @@ public class SysEmployeeResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PostAuthorize("hasPermission(this.sysemployeeMapping.toDomain(returnObject.body),'pms-SysEmployee-Get')")
     @ApiOperation(value = "获取人员", tags = {"人员" },  notes = "获取人员")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysemployees/{sysemployee_id}")
     public ResponseEntity<SysEmployeeDTO> get(@PathVariable("sysemployee_id") String sysemployee_id) {
@@ -114,12 +121,14 @@ public class SysEmployeeResource {
         return  ResponseEntity.status(HttpStatus.OK).body(sysemployeeService.checkKey(sysemployeeMapping.toDomain(sysemployeedto)));
     }
 
+    @PreAuthorize("hasPermission(this.sysemployeeMapping.toDomain(#sysemployeedto),'pms-SysEmployee-Save')")
     @ApiOperation(value = "保存人员", tags = {"人员" },  notes = "保存人员")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysemployees/save")
     public ResponseEntity<Boolean> save(@RequestBody SysEmployeeDTO sysemployeedto) {
         return ResponseEntity.status(HttpStatus.OK).body(sysemployeeService.save(sysemployeeMapping.toDomain(sysemployeedto)));
     }
 
+    @PreAuthorize("hasPermission(this.sysemployeeMapping.toDomain(#sysemployeedtos),'pms-SysEmployee-Save')")
     @ApiOperation(value = "批量保存人员", tags = {"人员" },  notes = "批量保存人员")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysemployees/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<SysEmployeeDTO> sysemployeedtos) {
@@ -127,6 +136,7 @@ public class SysEmployeeResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchBugUser-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "获取Bug用户", tags = {"人员" } ,notes = "获取Bug用户")
     @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchbuguser")
 	public ResponseEntity<List<SysEmployeeDTO>> fetchBugUser(SysEmployeeSearchContext context) {
@@ -139,6 +149,7 @@ public class SysEmployeeResource {
                 .body(list);
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchBugUser-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "查询Bug用户", tags = {"人员" } ,notes = "查询Bug用户")
     @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchbuguser")
 	public ResponseEntity<Page<SysEmployeeDTO>> searchBugUser(@RequestBody SysEmployeeSearchContext context) {
@@ -147,6 +158,7 @@ public class SysEmployeeResource {
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchContActList-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "获取联系人用户", tags = {"人员" } ,notes = "获取联系人用户")
     @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchcontactlist")
 	public ResponseEntity<List<SysEmployeeDTO>> fetchContActList(SysEmployeeSearchContext context) {
@@ -159,6 +171,7 @@ public class SysEmployeeResource {
                 .body(list);
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchContActList-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "查询联系人用户", tags = {"人员" } ,notes = "查询联系人用户")
     @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchcontactlist")
 	public ResponseEntity<Page<SysEmployeeDTO>> searchContActList(@RequestBody SysEmployeeSearchContext context) {
@@ -167,6 +180,7 @@ public class SysEmployeeResource {
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchDefault-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "获取数据集", tags = {"人员" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchdefault")
 	public ResponseEntity<List<SysEmployeeDTO>> fetchDefault(SysEmployeeSearchContext context) {
@@ -179,6 +193,7 @@ public class SysEmployeeResource {
                 .body(list);
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchDefault-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "查询数据集", tags = {"人员" } ,notes = "查询数据集")
     @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchdefault")
 	public ResponseEntity<Page<SysEmployeeDTO>> searchDefault(@RequestBody SysEmployeeSearchContext context) {
@@ -187,6 +202,7 @@ public class SysEmployeeResource {
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProjectTeamM-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "获取项目团队管理", tags = {"人员" } ,notes = "获取项目团队管理")
     @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchprojectteamm")
 	public ResponseEntity<List<SysEmployeeDTO>> fetchProjectTeamM(SysEmployeeSearchContext context) {
@@ -199,6 +215,7 @@ public class SysEmployeeResource {
                 .body(list);
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProjectTeamM-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "查询项目团队管理", tags = {"人员" } ,notes = "查询项目团队管理")
     @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchprojectteamm")
 	public ResponseEntity<Page<SysEmployeeDTO>> searchProjectTeamM(@RequestBody SysEmployeeSearchContext context) {
@@ -207,6 +224,7 @@ public class SysEmployeeResource {
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProjectTeamTaskUserTemp-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "获取项目团队成员(临时)", tags = {"人员" } ,notes = "获取项目团队成员(临时)")
     @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchprojectteamtaskusertemp")
 	public ResponseEntity<List<SysEmployeeDTO>> fetchProjectTeamTaskUserTemp(SysEmployeeSearchContext context) {
@@ -219,6 +237,7 @@ public class SysEmployeeResource {
                 .body(list);
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProjectTeamTaskUserTemp-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "查询项目团队成员(临时)", tags = {"人员" } ,notes = "查询项目团队成员(临时)")
     @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchprojectteamtaskusertemp")
 	public ResponseEntity<Page<SysEmployeeDTO>> searchProjectTeamTaskUserTemp(@RequestBody SysEmployeeSearchContext context) {
@@ -227,6 +246,7 @@ public class SysEmployeeResource {
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProjectTeamUser-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "获取项目团队成员", tags = {"人员" } ,notes = "获取项目团队成员")
     @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchprojectteamuser")
 	public ResponseEntity<List<SysEmployeeDTO>> fetchProjectTeamUser(SysEmployeeSearchContext context) {
@@ -239,6 +259,7 @@ public class SysEmployeeResource {
                 .body(list);
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProjectTeamUser-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "查询项目团队成员", tags = {"人员" } ,notes = "查询项目团队成员")
     @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchprojectteamuser")
 	public ResponseEntity<Page<SysEmployeeDTO>> searchProjectTeamUser(@RequestBody SysEmployeeSearchContext context) {
@@ -247,6 +268,7 @@ public class SysEmployeeResource {
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProjectTeamUserTask-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "获取项目团队成员", tags = {"人员" } ,notes = "获取项目团队成员")
     @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchprojectteamusertask")
 	public ResponseEntity<List<SysEmployeeDTO>> fetchProjectTeamUserTask(SysEmployeeSearchContext context) {
@@ -259,6 +281,7 @@ public class SysEmployeeResource {
                 .body(list);
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProjectTeamUserTask-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "查询项目团队成员", tags = {"人员" } ,notes = "查询项目团队成员")
     @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchprojectteamusertask")
 	public ResponseEntity<Page<SysEmployeeDTO>> searchProjectTeamUserTask(@RequestBody SysEmployeeSearchContext context) {
@@ -267,6 +290,7 @@ public class SysEmployeeResource {
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProjectteamPk-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "获取项目团队成员选择", tags = {"人员" } ,notes = "获取项目团队成员选择")
     @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchprojectteampk")
 	public ResponseEntity<List<SysEmployeeDTO>> fetchProjectteamPk(SysEmployeeSearchContext context) {
@@ -279,6 +303,7 @@ public class SysEmployeeResource {
                 .body(list);
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchProjectteamPk-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "查询项目团队成员选择", tags = {"人员" } ,notes = "查询项目团队成员选择")
     @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchprojectteampk")
 	public ResponseEntity<Page<SysEmployeeDTO>> searchProjectteamPk(@RequestBody SysEmployeeSearchContext context) {
@@ -287,6 +312,7 @@ public class SysEmployeeResource {
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchTaskMTeam-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "获取任务多人团队", tags = {"人员" } ,notes = "获取任务多人团队")
     @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchtaskmteam")
 	public ResponseEntity<List<SysEmployeeDTO>> fetchTaskMTeam(SysEmployeeSearchContext context) {
@@ -299,6 +325,7 @@ public class SysEmployeeResource {
                 .body(list);
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchTaskMTeam-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "查询任务多人团队", tags = {"人员" } ,notes = "查询任务多人团队")
     @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchtaskmteam")
 	public ResponseEntity<Page<SysEmployeeDTO>> searchTaskMTeam(@RequestBody SysEmployeeSearchContext context) {
@@ -307,6 +334,7 @@ public class SysEmployeeResource {
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchTaskTeam-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "获取数据查询2", tags = {"人员" } ,notes = "获取数据查询2")
     @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchtaskteam")
 	public ResponseEntity<List<SysEmployeeDTO>> fetchTaskTeam(SysEmployeeSearchContext context) {
@@ -319,6 +347,7 @@ public class SysEmployeeResource {
                 .body(list);
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysEmployee-searchTaskTeam-all') and hasPermission(#context,'pms-SysEmployee-Get')")
 	@ApiOperation(value = "查询数据查询2", tags = {"人员" } ,notes = "查询数据查询2")
     @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchtaskteam")
 	public ResponseEntity<Page<SysEmployeeDTO>> searchTaskTeam(@RequestBody SysEmployeeSearchContext context) {

@@ -607,6 +607,14 @@ public class TaskDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String mailtoconact;
 
+    /**
+     * 属性 [STATUSORDER]
+     *
+     */
+    @JSONField(name = "statusorder")
+    @JsonProperty("statusorder")
+    private Integer statusorder;
+
 
     /**
      * 设置 [CANCELEDBY]

@@ -4586,9 +4586,10 @@ POST
 | 63 | delay | String | 允许 | 延期 |
 | 64 | mailtopk | String | 允许 | 抄送给 |
 | 65 | mailtoconact | String | 允许 | 联系人 |
-| 66 | ibztaskestimates | List<[IBZTaskEstimateDTO}](#IBZTaskEstimateDTO})> | 允许 | 任务预计 |
-| 67 | ibztaskteams | List<[IBZTaskTeamDTO}](#IBZTaskTeamDTO})> | 允许 | 任务团队 |
-| 68 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 66 | statusorder | Integer | 允许 | 属性 |
+| 67 | ibztaskestimates | List<[IBZTaskEstimateDTO}](#IBZTaskEstimateDTO})> | 允许 | 任务预计 |
+| 68 | ibztaskteams | List<[IBZTaskTeamDTO}](#IBZTaskTeamDTO})> | 允许 | 任务团队 |
+| 69 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBZTaskEstimateDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

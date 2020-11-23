@@ -96,6 +96,7 @@
 | 65 | [延期](#属性-延期（DELAY）) | DELAY | 文本，可指定长度 | 否 | 是 | 是 |
 | 66 | [抄送给](#属性-抄送给（MAILTOPK）) | MAILTOPK | 多项选择(文本值) | 否 | 是 | 是 |
 | 67 | [联系人](#属性-联系人（MAILTOCONACT）) | MAILTOCONACT | 文本，可指定长度 | 否 | 是 | 是 |
+| 68 | [属性](#属性-属性（STATUSORDER）) | STATUSORDER | 整型 | 否 | 是 | 是 |
 
 ### 属性-由谁取消（CANCELEDBY）
 #### 属性说明
@@ -2992,6 +2993,49 @@ String
 
 - 取值范围/公式
 无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
+| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-属性（STATUSORDER）
+#### 属性说明
+属性
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end
+```
 
 - 数据格式
 无
@@ -6721,6 +6765,7 @@ t31.`NAME` AS `PROJECTNAME`,
 t1.`REALSTARTED`,
 t1.`STATUS`,
 (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
 t1.`STORY`,
 t21.`TITLE` AS `STORYNAME`,
 t1.`STORYVERSION`,
@@ -6861,6 +6906,7 @@ t31.`NAME` AS `PROJECTNAME`,
 t1.`REALSTARTED`,
 t1.`STATUS`,
 (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
 t1.`STORY`,
 t21.`TITLE` AS `STORYNAME`,
 t1.`STORYVERSION`,
@@ -7404,6 +7450,7 @@ t31.`NAME` AS `PROJECTNAME`,
 t1.`REALSTARTED`,
 t1.`STATUS`,
 (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
 t1.`STORY`,
 t21.`TITLE` AS `STORYNAME`,
 t1.`STORYVERSION`,
