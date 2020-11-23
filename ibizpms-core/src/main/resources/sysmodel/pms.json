@@ -32943,7 +32943,7 @@
     {
     "fieldname":"MAILTOPK" ,
     "codename":"Mailtopk",
-    "field_logic_name":"属性",
+    "field_logic_name":"抄送给",
     "entity_name":"Task",
     "field_type":"SMCODELIST",
     "nullable":1,
