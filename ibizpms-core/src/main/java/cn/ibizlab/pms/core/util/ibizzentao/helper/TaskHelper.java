@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.lang.reflect.Field;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1393,11 +1394,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         double teamLeft = 0d;
         double taskLeft = 0d;
         Timestamp nowDate = ZTDateUtil.now();
-        String sql = String.format("select * from zt_taskestimate where task = %1$s order by date desc,id desc LIMIT 0,1", old.getId());
-        List<JSONObject> list = taskEstimateService.select(sql, null);
+        List<TaskEstimate> list = taskEstimateHelper.list(new QueryWrapper<TaskEstimate>().eq("task",old.getId()).orderByDesc(FIELD_DATE,FIELD_ID));
         Timestamp lastDate = null;
         if (list.size() > 0) {
-            lastDate = list.get(0).getTimestamp(FIELD_DATE);
+            lastDate = list.get(0).getDate();
         }
         Long actionid = 0L;
         boolean isNew = false;
@@ -1436,7 +1436,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             teamHelper.update(team, new QueryWrapper<Team>().eq(FIELD_ROOT, old.getId()).eq(FIELD_TYPE, StaticDict.Team__type.TASK.getValue()).eq(FIELD_ACCOUNT, AuthenticationUser.getAuthenticationUser().getUsername()));
         } else {
             if (!isNew) {
-                teamLeft = list.get(0).getDoubleValue(StaticDict.ProjectTimeType.LEFT.getValue());
+                teamLeft = list.get(0).getLeft();
             }
 
         }
@@ -1478,7 +1478,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             updateParentStatus(task, task.getParent(), true);
         }
         if (old.getStory() != null && old.getStory() != 0L) {
-            storyHelper.setStage(et.getZtstory());
+            storyHelper.setStage(old.getZtstory());
         }
         return task;
     }
