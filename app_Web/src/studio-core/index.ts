@@ -84,6 +84,7 @@ import { ViewConfigActions } from './components/view-config-actions/view-config-
 import HtmlContainer from './components/html-container/html-container.vue';
 import { ViewQuickGroupTab } from './components/view-quick-group-tab/view-quick-group-tab';
 import AppAfterTime from './components/app-after-time/app-after-time.vue';
+import AppUserSpan  from './components/app-user-span/app-user-span.vue';
 // 组件 End
 // 服务 Start
 import { acc } from './message-center/app-communications-center';
@@ -137,6 +138,7 @@ export const StudioCore = {
         v.component('html-container', HtmlContainer);
         v.component('view-quick-group-tab', ViewQuickGroupTab);
         v.component('app-after-time', AppAfterTime);
+        v.component('app-user-span', AppUserSpan);
         // 注册指令
         v.directive('notification-signal', NotificationSignal);
     },
