@@ -1451,6 +1451,16 @@ export default {
 			tip: "Filter",
 		},
 	},
+	productstagekanbanviewtoolbar_toolbar: {
+		deuiaction1_create: {
+			caption: "新建需求",
+			tip: "新建需求",
+		},
+		deuiaction1_refresh: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
 	releasesubgridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "关联需求",
