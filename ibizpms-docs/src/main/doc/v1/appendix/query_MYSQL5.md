@@ -12546,9 +12546,9 @@ WHERE
 	) AS consumed1 
 FROM
 	zt_team t1 
-WHERE
-	t1.type = 'project' 
-	AND t1.root = 1
+	
+WHERE t1.type = 'project' 
+
 ```
 ### 默认（全部数据）(VIEW)<div id="ProjectTeam_View"></div>
 ```sql
