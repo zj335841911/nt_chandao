@@ -122,7 +122,7 @@ export class ProjectTeamPcPanelBase extends PanelControlBase {
 ,
         rawitem3: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem3', panel: this })
 ,
-        estimate: new PanelFieldModel({ caption: '最迟预计', itemType: 'FIELD',visible: true, disabled: false, name: 'estimate', panel: this })
+        estimate: new PanelFieldModel({ caption: '最初预计', itemType: 'FIELD',visible: true, disabled: false, name: 'estimate', panel: this })
 ,
         button1: new PanelButtonModel({ caption: '移除', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'RemoveMember',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__PROJT_TM_BUT',visible: true,disabled: false} })
 ,
