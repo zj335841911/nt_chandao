@@ -16,6 +16,21 @@
                         
                         </i-col>
                                 
+                        <i-col v-show="detailsModel.rawitem5.visible"  :md="{ span: 24, offset: 0 }" style="color:rgba(203, 195, 195, 1)" class="app-layoutpanel-rowitem team-wszrole">
+                            <app-rawitem
+                            :viewparams="viewparams" 
+                            :context="context"
+                            contentStyle="team-wszrole"
+                            sizeStyle=""
+                            contentType="RAW"
+                            :htmlContent='``'
+                        >
+                                未设置角色
+                        </app-rawitem>
+                        
+                        
+                        </i-col>
+                                
                         <i-col v-show="detailsModel.role.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
                             <div class="item-field">
                             
@@ -32,7 +47,22 @@
                     </row>
                 </i-col>
                         
-                <i-col v-show="detailsModel.join.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                <i-col v-show="detailsModel.rawitem4.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                    <app-rawitem
+                    :viewparams="viewparams" 
+                    :context="context"
+                    contentStyle=""
+                    sizeStyle=""
+                    contentType="RAW"
+                    :htmlContent='``'
+                >
+                        加盟日
+                </app-rawitem>
+                
+                
+                </i-col>
+                        
+                <i-col v-show="detailsModel.join.visible"  :xs="{ span: 19, offset: 0 }" :sm="{ span: 19, offset: 0 }" :md="{ span: 19, offset: 0 }" :lg="{ span: 19, offset: 0 }" style="" class="app-layoutpanel-field">
                     <div class="item-field">
                     
                     <div class="item-field-content">
