@@ -1116,7 +1116,7 @@ export default class CaseMobMDViewBase extends Vue {
      *
      * @memberof CaseMobMDViewBase
      */
-    public quickGroupData:any ={"n_status1_eq":"storychange"};
+    public quickGroupData:any ={};
 
     /**
      * 快速分组是否有抛值

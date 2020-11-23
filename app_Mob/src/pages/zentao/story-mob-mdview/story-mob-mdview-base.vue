@@ -1210,7 +1210,7 @@ export default class StoryMobMDViewBase extends Vue {
      *
      * @memberof StoryMobMDViewBase
      */
-    public quickGroupData:any ={"n_status_eq":"closed"};
+    public quickGroupData:any ={"n_stage_noteq":"closed"};
 
     /**
      * 快速分组是否有抛值

@@ -1220,7 +1220,7 @@ export default class TestTaskMobMDViewBase extends Vue {
      *
      * @memberof TestTaskMobMDViewBase
      */
-    public quickGroupData:any ={"n_status_eq":"done"};
+    public quickGroupData:any ={};
 
     /**
      * 快速分组是否有抛值
