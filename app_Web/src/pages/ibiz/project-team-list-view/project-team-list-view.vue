@@ -20,3 +20,6 @@ import view_list from '@widgets/project-team/project-team-pc-list/project-team-p
 @VueLifeCycleProcessing()
 export default class ProjectTeamListView extends ProjectTeamListViewBase {}
 </script>
+<style lang="less">
+@import './project-team-list-view.less';
+</style>

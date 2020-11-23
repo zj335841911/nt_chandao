@@ -20,3 +20,6 @@ import { ProjectTeamPcPanelBase } from './project-team-pc-panel-base';
 @VueLifeCycleProcessing()
 export default class ProjectTeamPcPanel extends ProjectTeamPcPanelBase {}
 </script>
+<style lang="less">
+@import './project-team-pc-panel.less';
+</style>
