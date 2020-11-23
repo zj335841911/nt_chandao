@@ -112,9 +112,15 @@ export class ProjectTeamPcPanelBase extends PanelControlBase {
 ,
         join: new PanelFieldModel({ caption: '加盟日', itemType: 'FIELD',visible: true, disabled: false, name: 'join', panel: this })
 ,
+        rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem1', panel: this })
+,
         consumed: new PanelFieldModel({ caption: '消耗', itemType: 'FIELD',visible: true, disabled: false, name: 'consumed', panel: this })
 ,
+        rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem2', panel: this })
+,
         left: new PanelFieldModel({ caption: '剩余工时', itemType: 'FIELD',visible: true, disabled: false, name: 'left', panel: this })
+,
+        rawitem3: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem3', panel: this })
 ,
         estimate: new PanelFieldModel({ caption: '最迟预计', itemType: 'FIELD',visible: true, disabled: false, name: 'estimate', panel: this })
 ,
@@ -135,6 +141,9 @@ export class ProjectTeamPcPanelBase extends PanelControlBase {
      */
     public panelLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
 
 
 

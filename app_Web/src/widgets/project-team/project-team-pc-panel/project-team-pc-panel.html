@@ -1,6 +1,6 @@
 <div class="panel-container" style="">
     <row class="app-layoutpanel" style="height:100%;">
-                <i-col v-show="detailsModel.container1.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-container">
+                <i-col v-show="detailsModel.container1.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
             <row style="height:100%;">
                         <i-col v-show="detailsModel.container2.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container team-fontsize">
                     <row style="height:100%;">
@@ -46,7 +46,22 @@
                 
                 </i-col>
                         
-                <i-col v-show="detailsModel.consumed.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 8, offset: 0 }" style="" class="app-layoutpanel-field">
+                <i-col v-show="detailsModel.rawitem1.visible"  :xs="{ span: 2, offset: 0 }" :sm="{ span: 2, offset: 0 }" :md="{ span: 2, offset: 0 }" :lg="{ span: 2, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                    <app-rawitem
+                    :viewparams="viewparams" 
+                    :context="context"
+                    contentStyle=""
+                    sizeStyle=""
+                    contentType="RAW"
+                    :htmlContent='``'
+                >
+                        消耗
+                </app-rawitem>
+                
+                
+                </i-col>
+                        
+                <i-col v-show="detailsModel.consumed.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-field">
                     <div class="item-field">
                     
                     <div class="item-field-content">
@@ -60,7 +75,22 @@
                 
                 </i-col>
                         
-                <i-col v-show="detailsModel.left.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 8, offset: 0 }" style="" class="app-layoutpanel-field">
+                <i-col v-show="detailsModel.rawitem2.visible"  :xs="{ span: 2, offset: 0 }" :sm="{ span: 2, offset: 0 }" :md="{ span: 2, offset: 0 }" :lg="{ span: 2, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                    <app-rawitem
+                    :viewparams="viewparams" 
+                    :context="context"
+                    contentStyle=""
+                    sizeStyle=""
+                    contentType="RAW"
+                    :htmlContent='``'
+                >
+                        剩余工时
+                </app-rawitem>
+                
+                
+                </i-col>
+                        
+                <i-col v-show="detailsModel.left.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-field">
                     <div class="item-field">
                     
                     <div class="item-field-content">
@@ -74,7 +104,22 @@
                 
                 </i-col>
                         
-                <i-col v-show="detailsModel.estimate.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 8, offset: 0 }" style="" class="app-layoutpanel-field">
+                <i-col v-show="detailsModel.rawitem3.visible"  :xs="{ span: 2, offset: 0 }" :sm="{ span: 2, offset: 0 }" :md="{ span: 2, offset: 0 }" :lg="{ span: 2, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                    <app-rawitem
+                    :viewparams="viewparams" 
+                    :context="context"
+                    contentStyle=""
+                    sizeStyle=""
+                    contentType="RAW"
+                    :htmlContent='``'
+                >
+                        最迟预计
+                </app-rawitem>
+                
+                
+                </i-col>
+                        
+                <i-col v-show="detailsModel.estimate.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-field">
                     <div class="item-field">
                     
                     <div class="item-field-content">
