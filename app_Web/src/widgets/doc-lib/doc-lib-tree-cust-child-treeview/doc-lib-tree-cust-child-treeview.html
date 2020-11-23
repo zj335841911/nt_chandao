@@ -4,8 +4,8 @@
             <template v-for="(item,index) in breadcrumbs">
                 <BreadcrumbItem :key="index">
                     <Icon v-if="index === 0" @click="handleLink(item)" type="md-folder" size="25" color="rgb(255, 202, 40)" />
-                    <a v-else-if="index < breadcrumbs.length-1" @click="handleLink(item)" >{{ item.curData.name }}</a>
-                    <span v-else >{{ item.curData.name }}</span>
+                    <a v-else-if="index < breadcrumbs.length-1" @click="handleLink(item)" >{{ item.text }}</a>
+                    <span v-else >{{ item.text }}</span>
                 </BreadcrumbItem>
             </template>
         </Breadcrumb>
@@ -23,7 +23,7 @@
                 </div>
                 <div>
                     <a @click="openNode(item)">
-                        <span>{{ item.curData.name }}</span>
+                        <span>{{ item.text }}</span>
                     </a>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div :key="index" class="list-item">
                 <div>
                     <span @click="openNode(item)">
-                        <Icon type="md-folder" color="rgb(255, 202, 40)" size="20" /><a>{{ item.curData.name }}</a>
+                        <Icon type="md-folder" color="rgb(255, 202, 40)" size="20" /><a>{{ item.text }}</a>
                     </span>
                 </div>
                 <div v-if="item.curData.copyActionModel">
