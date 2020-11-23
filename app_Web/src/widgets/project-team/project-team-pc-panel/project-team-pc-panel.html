@@ -81,9 +81,9 @@
                 
                 </i-col>
                         
-                <i-col v-show="detailsModel.button1.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 8, offset: 16 }" style="" class="app-layoutpanel-button">
+                <i-col v-show="detailsModel.button1.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 4, offset: 20 }" style="" class="app-layoutpanel-button">
                     <i-button :disabled="detailsModel.button1.disabled" type="primary" long @click="uiAction(null, 'RemoveMember', $event)" >
-                    <span>移除</span>
+                    <i class="fa fa-unlink"></i>
                 </i-button>
                 
                 
