@@ -4,13 +4,15 @@
             <row style="height:100%;">
                         
                 <i-col v-show="detailsModel.account.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field team-fontsize">
-                    <icon-codelist :value="row.account" 
-                	tag="UserRealName" 
-                	codelistType="DYNAMIC" 
-                 renderMode="STR"
-                 valueSeparator=","
-                 textSeparator=",">
-                </icon-codelist>
+                    <div class="item-field">
+                    
+                    <div class="item-field-content">
+                    
+                <app-span :value="data.account" name="account" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  tag='UserRealName' codelistType='DYNAMIC' style=""> </app-span> 
+                
+                    </div>
+                </div>
+                
                 
                 </i-col>
                         
