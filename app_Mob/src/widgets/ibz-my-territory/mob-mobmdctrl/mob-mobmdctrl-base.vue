@@ -730,7 +730,7 @@ export default class MobBase extends Vue implements ControlInterface {
         Object.assign(data, parentdata);
         let tempViewParams:any = parentdata.viewparams?parentdata.viewparams:{};
         Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
-        Object.assign(data,{viewparams:tempViewParams});
+        Object.assign(data,tempViewParams);
         const response: any = await this.service.search(this.fetchAction, this.context, data, isloadding);
         this.bottomLoadding = false;
         if (!response || response.status !== 200) {

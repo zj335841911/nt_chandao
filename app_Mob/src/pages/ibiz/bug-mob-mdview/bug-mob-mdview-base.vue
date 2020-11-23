@@ -1263,7 +1263,7 @@ export default class BugMobMDViewBase extends Vue {
     public quickGroupValueChange($event:any) {
         if($event){
             this.quickGroupData = $event.data;
-            this.engine.onViewEvent('mdctrl','viewload',$event.data);
+            this.engine.onViewEvent('mdctrl','viewload',JSON.parse(JSON.stringify($event.data)));
         }
     }
 

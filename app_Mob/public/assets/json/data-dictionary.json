@@ -2249,7 +2249,6 @@
                 "value": 1,
                 "isValueNumber":true,
                 
-                "iconcls":"fa fa-square-o",
                 "className":"text-red-border-color",
                 "disabled": false
             }
