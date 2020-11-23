@@ -497,6 +497,15 @@ export default class AppFormDRUIPart extends Vue {
             this.partViewEvent(action, data, count);
         }, 30);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof AppFormDRUIPart
+     */
+    public activated() {
+        this.refreshDRUIPart();
+    }
 }
 </script>
 
