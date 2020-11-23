@@ -16,6 +16,20 @@
                         
                         </i-col>
                                 
+                        <i-col v-show="detailsModel.role.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                            <div class="item-field">
+                            
+                            <div class="item-field-content">
+                            
+                        <app-span :value="data.role" name="role" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+                        > </app-span> 
+                        
+                            </div>
+                        </div>
+                        
+                        
+                        </i-col>
+                                
                         <i-col v-show="detailsModel.rawitem5.visible"  :md="{ span: 24, offset: 0 }" style="color:rgba(203, 195, 195, 1)" class="app-layoutpanel-rowitem team-wszrole">
                             <app-rawitem
                             :viewparams="viewparams" 
@@ -27,20 +41,6 @@
                         >
                                 未设置角色
                         </app-rawitem>
-                        
-                        
-                        </i-col>
-                                
-                        <i-col v-show="detailsModel.role.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
-                            <div class="item-field">
-                            
-                            <div class="item-field-content">
-                            
-                        <app-span :value="data.role" name="role" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
-                        > </app-span> 
-                        
-                            </div>
-                        </div>
                         
                         
                         </i-col>

@@ -106,9 +106,9 @@ export class ProjectTeamPcPanelBase extends PanelControlBase {
     public detailsModel: any = {
         account: new PanelFieldModel({ caption: '用户名', itemType: 'FIELD',visible: true, disabled: false, name: 'account', panel: this })
 ,
-        rawitem5: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: false, disabled: false, name: 'rawitem5', panel: this })
-,
         role: new PanelFieldModel({ caption: '角色', itemType: 'FIELD',visible: false, disabled: false, name: 'role', panel: this })
+,
+        rawitem5: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: false, disabled: false, name: 'rawitem5', panel: this })
 ,
         container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
 ,
@@ -149,19 +149,19 @@ export class ProjectTeamPcPanelBase extends PanelControlBase {
         if (Object.is(name, '') || Object.is(name, 'role')) {
             let ret = false;
             const _role = this.data.role;
-            if (this.$verify.testCond(_role, 'ISNULL', '')) {
+            if (this.$verify.testCond(_role, 'ISNOTNULL', '')) {
                 ret = true;
             }
-            this.detailsModel.rawitem5.setVisible(ret);
+            this.detailsModel.role.setVisible(ret);
         }
 
         if (Object.is(name, '') || Object.is(name, 'role')) {
             let ret = false;
             const _role = this.data.role;
-            if (this.$verify.testCond(_role, 'ISNOTNULL', '')) {
+            if (this.$verify.testCond(_role, 'ISNULL', '')) {
                 ret = true;
             }
-            this.detailsModel.role.setVisible(ret);
+            this.detailsModel.rawitem5.setVisible(ret);
         }
 
 
