@@ -457,6 +457,7 @@ LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID
 WHERE t1.DELETED = '0' 
 ( t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_BUG"}')} ) 
 t1.deadline is not null and t1.deadline <> '0000-00-00' 
+t1.assigneddate is not null and t1.assigneddate <> '0000-00-00 00:00:00' 
 
 ```
 ### 版本关联Bug（已解决）(BuildBugs)<div id="Bug_BuildBugs"></div>
@@ -14910,6 +14911,7 @@ WHERE t1.DELETED = '0'
 ( t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} ) 
 t1.estStarted is not null and t1.estStarted <> '0000-00-00' and t1.estStarted <> '1970-01-01' 
 t1.parent >= 0 
+t1.assigneddate is not null and t1.assigneddate <> '0000-00-00 00:00:00' 
 
 ```
 ### Bug相关任务(BugTask)<div id="Task_BugTask"></div>

@@ -436,6 +436,7 @@
 					 WHERE 	t1.DELETED = '0'
 						 AND ( t1.`ASSIGNEDTO` =  #{srf.sessioncontext.srfloginname} )
 						 AND t1.deadline is not null and t1.deadline <> '0000-00-00'
+						 AND t1.assigneddate is not null and t1.assigneddate <> '0000-00-00 00:00:00'
 			]]>
     </sql>
     <!--数据查询[BuildBugs]-->
