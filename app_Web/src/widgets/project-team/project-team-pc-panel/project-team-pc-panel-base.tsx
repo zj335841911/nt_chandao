@@ -108,6 +108,8 @@ export class ProjectTeamPcPanelBase extends PanelControlBase {
 ,
         role: new PanelFieldModel({ caption: '角色', itemType: 'FIELD',visible: true, disabled: false, name: 'role', panel: this })
 ,
+        container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
+,
         join: new PanelFieldModel({ caption: '加盟日', itemType: 'FIELD',visible: true, disabled: false, name: 'join', panel: this })
 ,
         consumed: new PanelFieldModel({ caption: '消耗', itemType: 'FIELD',visible: true, disabled: false, name: 'consumed', panel: this })
@@ -133,6 +135,7 @@ export class ProjectTeamPcPanelBase extends PanelControlBase {
      */
     public panelLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
 
 
 
