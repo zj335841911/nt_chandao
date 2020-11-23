@@ -55,7 +55,7 @@ export default class MyWorkPCModel {
                   },
                   {
                     name:'start',
-                    prop:'deadline'
+                    prop:'assigneddate'
                   },
                   {
                     name:'end',
@@ -75,7 +75,7 @@ export default class MyWorkPCModel {
                   },
                   {
                     name:'start',
-                    prop:'eststarted'
+                    prop:'assigneddate'
                   },
                   {
                     name:'end',
