@@ -304,6 +304,7 @@
 |-|文档库树导航视图（自定义文档库）|DETREEEXPVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW9|&nbsp;|
 |-|文档库树视图（自定义文档库-子目录）|DETREEVIEW|&nbsp;|
+|-|关键字编辑视图|DEEDITVIEW|&nbsp;|
 |-|系统插件编辑视图|DEEDITVIEW|&nbsp;|
 |-|需求看板视图|DEKANBANVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
@@ -422,6 +423,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品模块表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试用例|DEGRIDVIEW|&nbsp;|
+|-|标签编辑视图|DEEDITVIEW|&nbsp;|
 |-|文档库树视图（产品）|DETREEVIEW|&nbsp;|
 |-|版本编辑视图|DEEDITVIEW|&nbsp;|
 |-|文档库分类编辑视图|DEEDITVIEW|&nbsp;|
@@ -518,6 +520,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试用例图表视图（执行结果）|DECHARTVIEW9|&nbsp;|
 |-|产品计划表格视图（项目）|DEGRIDVIEW9|&nbsp;|
 |-|指派|DEOPTVIEW|&nbsp;|
+|-|关键字表格视图|DEGRIDVIEW|&nbsp;|
 |-|添加待办|DEEDITVIEW|&nbsp;|
 |-|需求|DEEDITVIEW|&nbsp;|
 |-|测试用例图表视图（模块）|DECHARTVIEW9|&nbsp;|
@@ -697,6 +700,7 @@ SRFNAVPARAM.project=%project%|
 |-|Bug编辑视图（日历导航）|DEEDITVIEW|&nbsp;|
 |-|测试用例表格视图（关联用例）|DEGRIDVIEW|&nbsp;|
 |-|需求编辑视图|DEEDITVIEW|&nbsp;|
+|-|标签表格视图|DEGRIDVIEW|&nbsp;|
 |-|部门选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|需求激活|DEOPTVIEW|&nbsp;|
 |-|关闭Bug|DEOPTVIEW|&nbsp;|

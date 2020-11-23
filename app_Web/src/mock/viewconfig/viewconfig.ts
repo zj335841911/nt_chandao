@@ -783,6 +783,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DocLibCustomDocLibChildTreeView",
             "viewtag": "2e47613b1ffa6c0d31c513a4492013f6"
         },
+        "ibizprokeywordeditview": {
+            "title": "关键字编辑视图",
+            "caption": "关键字",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "IBIZProKeywordEditView",
+            "viewtag": "2f5aac4204863167d65dd820720f621f"
+        },
         "ibizproplugineditview": {
             "title": "系统插件编辑视图",
             "caption": "系统插件",
@@ -1719,6 +1727,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseBatchNewGridView",
             "viewtag": "66769499a681f12bd2ebff8859f1d4ea"
         },
+        "ibizprotageditview": {
+            "title": "标签编辑视图",
+            "caption": "标签",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "IBIZProTagEditView",
+            "viewtag": "66ea594caa3b4caf0a9e6944eec6d80c"
+        },
         "doclibproducttreeview": {
             "title": "文档库树视图（产品）",
             "caption": "产品",
@@ -2486,6 +2502,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryAssignToView",
             "viewtag": "90d6a9dc6032a7a7e19fee6ac22fccc0"
+        },
+        "ibizprokeywordgridview": {
+            "title": "关键字表格视图",
+            "caption": "关键字",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "IBIZProKeywordGridView",
+            "viewtag": "910a15d245455b5b6c4dc58fd36aa315"
         },
         "todotodocreateview": {
             "title": "添加待办",
@@ -3918,6 +3942,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryEditView_StoryChange",
             "viewtag": "e54598b1e6d38d7c6ce8231b531b46bd"
+        },
+        "ibizprotaggridview": {
+            "title": "标签表格视图",
+            "caption": "标签",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "IBIZProTagGridView",
+            "viewtag": "e5e537e1d8092dbfa419c892762f34fe"
         },
         "deptpickupgridview": {
             "title": "部门选择表格视图",

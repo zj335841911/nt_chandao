@@ -70,6 +70,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('ibzproproduct', () => import('@/service/ibzpro-product/ibzpro-product-service'));
         this.allEntityService.set('casestep', () => import('@/service/case-step/case-step-service'));
         this.allEntityService.set('dept', () => import('@/service/dept/dept-service'));
+        this.allEntityService.set('ibizprotag', () => import('@/service/ibizpro-tag/ibizpro-tag-service'));
         this.allEntityService.set('company', () => import('@/service/company/company-service'));
         this.allEntityService.set('ibzcasestep', () => import('@/service/ibzcase-step/ibzcase-step-service'));
         this.allEntityService.set('taskestimate', () => import('@/service/task-estimate/task-estimate-service'));
@@ -87,6 +88,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('productmodule', () => import('@/service/product-module/product-module-service'));
         this.allEntityService.set('module', () => import('@/service/module/module-service'));
         this.allEntityService.set('testmodule', () => import('@/service/test-module/test-module-service'));
+        this.allEntityService.set('ibizprokeyword', () => import('@/service/ibizpro-keyword/ibizpro-keyword-service'));
         this.allEntityService.set('doclibmodule', () => import('@/service/doc-lib-module/doc-lib-module-service'));
         this.allEntityService.set('productlife', () => import('@/service/product-life/product-life-service'));
         this.allEntityService.set('usercontact', () => import('@/service/user-contact/user-contact-service'));

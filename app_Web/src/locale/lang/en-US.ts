@@ -31,6 +31,7 @@ import group_en_US from '@locale/lanres/entities/group/group_en_US';
 import ibzproproduct_en_US from '@locale/lanres/entities/ibzpro-product/ibzpro-product_en_US';
 import casestep_en_US from '@locale/lanres/entities/case-step/case-step_en_US';
 import dept_en_US from '@locale/lanres/entities/dept/dept_en_US';
+import ibizprotag_en_US from '@locale/lanres/entities/ibizpro-tag/ibizpro-tag_en_US';
 import company_en_US from '@locale/lanres/entities/company/company_en_US';
 import ibzcasestep_en_US from '@locale/lanres/entities/ibzcase-step/ibzcase-step_en_US';
 import taskestimate_en_US from '@locale/lanres/entities/task-estimate/task-estimate_en_US';
@@ -48,6 +49,7 @@ import doclib_en_US from '@locale/lanres/entities/doc-lib/doc-lib_en_US';
 import productmodule_en_US from '@locale/lanres/entities/product-module/product-module_en_US';
 import module_en_US from '@locale/lanres/entities/module/module_en_US';
 import testmodule_en_US from '@locale/lanres/entities/test-module/test-module_en_US';
+import ibizprokeyword_en_US from '@locale/lanres/entities/ibizpro-keyword/ibizpro-keyword_en_US';
 import doclibmodule_en_US from '@locale/lanres/entities/doc-lib-module/doc-lib-module_en_US';
 import productlife_en_US from '@locale/lanres/entities/product-life/product-life_en_US';
 import usercontact_en_US from '@locale/lanres/entities/user-contact/user-contact_en_US';
@@ -369,6 +371,7 @@ const data: any = {
         ibzproproduct: ibzproproduct_en_US,
         casestep: casestep_en_US,
         dept: dept_en_US,
+        ibizprotag: ibizprotag_en_US,
         company: company_en_US,
         ibzcasestep: ibzcasestep_en_US,
         taskestimate: taskestimate_en_US,
@@ -386,6 +389,7 @@ const data: any = {
         productmodule: productmodule_en_US,
         module: module_en_US,
         testmodule: testmodule_en_US,
+        ibizprokeyword: ibizprokeyword_en_US,
         doclibmodule: doclibmodule_en_US,
         productlife: productlife_en_US,
         usercontact: usercontact_en_US,

@@ -70,6 +70,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('ibzproproduct', () => import('@/authservice/ibzpro-product/ibzpro-product-auth-service'));
         this.allAuthService.set('casestep', () => import('@/authservice/case-step/case-step-auth-service'));
         this.allAuthService.set('dept', () => import('@/authservice/dept/dept-auth-service'));
+        this.allAuthService.set('ibizprotag', () => import('@/authservice/ibizpro-tag/ibizpro-tag-auth-service'));
         this.allAuthService.set('company', () => import('@/authservice/company/company-auth-service'));
         this.allAuthService.set('ibzcasestep', () => import('@/authservice/ibzcase-step/ibzcase-step-auth-service'));
         this.allAuthService.set('taskestimate', () => import('@/authservice/task-estimate/task-estimate-auth-service'));
@@ -87,6 +88,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('productmodule', () => import('@/authservice/product-module/product-module-auth-service'));
         this.allAuthService.set('module', () => import('@/authservice/module/module-auth-service'));
         this.allAuthService.set('testmodule', () => import('@/authservice/test-module/test-module-auth-service'));
+        this.allAuthService.set('ibizprokeyword', () => import('@/authservice/ibizpro-keyword/ibizpro-keyword-auth-service'));
         this.allAuthService.set('doclibmodule', () => import('@/authservice/doc-lib-module/doc-lib-module-auth-service'));
         this.allAuthService.set('productlife', () => import('@/authservice/product-life/product-life-auth-service'));
         this.allAuthService.set('usercontact', () => import('@/authservice/user-contact/user-contact-auth-service'));

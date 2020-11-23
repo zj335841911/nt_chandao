@@ -969,6 +969,16 @@
         "viewtag": "2e47613b1ffa6c0d31c513a4492013f6",
         "memo": ""
     },
+    "ibizprokeywordeditview": {
+        "title": "关键字编辑视图",
+        "caption": "关键字",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "IBIZProKeywordEditView",
+        "viewfilename": "ibizpro-keyword-edit-view",
+        "viewtag": "2f5aac4204863167d65dd820720f621f",
+        "memo": ""
+    },
     "ibizproplugineditview": {
         "title": "系统插件编辑视图",
         "caption": "系统插件",
@@ -2139,6 +2149,16 @@
         "viewtag": "66769499a681f12bd2ebff8859f1d4ea",
         "memo": ""
     },
+    "ibizprotageditview": {
+        "title": "标签编辑视图",
+        "caption": "标签",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "IBIZProTagEditView",
+        "viewfilename": "ibizpro-tag-edit-view",
+        "viewtag": "66ea594caa3b4caf0a9e6944eec6d80c",
+        "memo": ""
+    },
     "doclibproducttreeview": {
         "title": "文档库树视图（产品）",
         "caption": "产品",
@@ -3097,6 +3117,16 @@
         "viewname": "StoryAssignToView",
         "viewfilename": "story-assign-to-view",
         "viewtag": "90d6a9dc6032a7a7e19fee6ac22fccc0",
+        "memo": ""
+    },
+    "ibizprokeywordgridview": {
+        "title": "关键字表格视图",
+        "caption": "关键字",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "IBIZProKeywordGridView",
+        "viewfilename": "ibizpro-keyword-grid-view",
+        "viewtag": "910a15d245455b5b6c4dc58fd36aa315",
         "memo": ""
     },
     "todotodocreateview": {
@@ -4887,6 +4917,16 @@
         "viewname": "StoryEditView_StoryChange",
         "viewfilename": "story-edit-view-story-change",
         "viewtag": "e54598b1e6d38d7c6ce8231b531b46bd",
+        "memo": ""
+    },
+    "ibizprotaggridview": {
+        "title": "标签表格视图",
+        "caption": "标签",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "IBIZProTagGridView",
+        "viewfilename": "ibizpro-tag-grid-view",
+        "viewtag": "e5e537e1d8092dbfa419c892762f34fe",
         "memo": ""
     },
     "deptpickupgridview": {

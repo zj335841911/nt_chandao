@@ -131,6 +131,10 @@ zuul:
       path: /depts/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibizpro_tag:
+      path: /ibizprotags/**
+      serviceId: ${ibiz.ref.service.pmspro-pluginserviceapi:pmspro-pluginserviceapi}
+      stripPrefix: false
     zt_company:
       path: /companies/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -198,6 +202,10 @@ zuul:
     ibz_testmodule:
       path: /testmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibizpro_keyword:
+      path: /ibizprokeywords/**
+      serviceId: ${ibiz.ref.service.pmspro-pluginserviceapi:pmspro-pluginserviceapi}
       stripPrefix: false
     ibz_doclibmodule:
       path: /doclibmodules/**

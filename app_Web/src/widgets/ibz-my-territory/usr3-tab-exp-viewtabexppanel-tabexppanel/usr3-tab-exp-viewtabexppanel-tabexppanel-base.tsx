@@ -75,7 +75,9 @@ export class Usr3TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @memberof Usr3TabExpViewtabexppanelBase
      */
     protected isInit: any = {
-        tabviewpanel:  true ,
+        tabviewpanel3:  true ,
+        tabviewpanel2:  false ,
+        tabviewpanel:  false ,
     }
 
     /**
@@ -85,7 +87,7 @@ export class Usr3TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @type {string}
      * @memberof Usr3TabExpViewtabexppanelBase
      */
-    protected activatedTabViewPanel: string = 'tabviewpanel';
+    protected activatedTabViewPanel: string = 'tabviewpanel3';
 
     /**
      * 实体权限服务对象
@@ -103,7 +105,7 @@ export class Usr3TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @type {*}
      * @memberof Usr3TabExpViewtabexppanelBase
      */
-    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visible: true,disabled: false}};
+    protected authResourceObject:any = {'tabviewpanel3':{resourcetag:null,visible: true,disabled: false},'tabviewpanel2':{resourcetag:null,visible: true,disabled: false},'tabviewpanel':{resourcetag:null,visible: true,disabled: false}};
 
     /**
      * 组件创建完毕

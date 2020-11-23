@@ -852,6 +852,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '2f5aac4204863167d65dd820720f621f',
+            viewmodule: 'zentao',
+            viewname: 'IBIZProKeywordEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '2fe124188a5da06e3e641c7e1e1e76d6',
             viewmodule: 'ibizplugin',
             viewname: 'IBIZProPluginEditView',
@@ -1875,6 +1884,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '66ea594caa3b4caf0a9e6944eec6d80c',
+            viewmodule: 'zentao',
+            viewname: 'IBIZProTagEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '686d79c8c3e4e2aaaa43edcfb6caf39c',
             viewmodule: 'zentao',
             viewname: 'DocLibProductTreeView',
@@ -2794,6 +2812,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '910a15d245455b5b6c4dc58fd36aa315',
+            viewmodule: 'zentao',
+            viewname: 'IBIZProKeywordGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '2f5aac4204863167d65dd820720f621f',
+            ],
+        },
+        {
             viewtag: '927d6e92ed15eeb2397da22824122b27',
             viewmodule: 'zentao',
             viewname: 'TodoTodoCreateView',
@@ -3573,6 +3601,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'e5e537e1d8092dbfa419c892762f34fe',
+                '910a15d245455b5b6c4dc58fd36aa315',
                 'c4099c98661bbfac92a0e718c183e718',
             ],
         },
@@ -4432,6 +4462,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: 'e5e537e1d8092dbfa419c892762f34fe',
+            viewmodule: 'zentao',
+            viewname: 'IBIZProTagGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '66ea594caa3b4caf0a9e6944eec6d80c',
             ],
         },
         {
