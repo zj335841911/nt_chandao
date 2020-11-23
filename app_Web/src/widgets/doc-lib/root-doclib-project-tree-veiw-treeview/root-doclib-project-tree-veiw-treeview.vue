@@ -20,3 +20,6 @@ import { RootDoclibProjectTreeVeiwTreeBase } from './root-doclib-project-tree-ve
 @VueLifeCycleProcessing()
 export default class RootDoclibProjectTreeVeiwTree extends RootDoclibProjectTreeVeiwTreeBase {}
 </script>
+<style lang="less">
+@import './root-doclib-project-tree-veiw-treeview.less';
+</style>

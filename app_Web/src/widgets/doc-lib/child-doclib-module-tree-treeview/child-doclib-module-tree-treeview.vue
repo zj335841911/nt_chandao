@@ -20,3 +20,6 @@ import { ChildDoclibModuleTreeTreeBase } from './child-doclib-module-tree-treevi
 @VueLifeCycleProcessing()
 export default class ChildDoclibModuleTreeTree extends ChildDoclibModuleTreeTreeBase {}
 </script>
+<style lang="less">
+@import './child-doclib-module-tree-treeview.less';
+</style>

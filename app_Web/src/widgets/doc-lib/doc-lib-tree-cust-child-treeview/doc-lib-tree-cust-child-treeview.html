@@ -1,55 +1,45 @@
-<div class="design-tree-container">
-    <context-menu-container>
-        <el-tree
-            v-if="inited"
-            ref="tree"
-            class="design-tree"
-            node-key="id"
-            lazy
-            :show-checkbox="!isSingleSelect"
-            :check-on-click-node="!isSingleSelect"
-            :default-expanded-keys="expandedKeys"
-            :props="{
-                label: 'text',
-                isLeaf: 'leaf',
-                children: 'children'
-            }"
-            :load="load.bind(_self)"
-            :highlight-current="true"
-            :expand-on-click-node="false"
-            @check="onCheck.apply(_self, arguments)"
-            @current-change="selectionChange.apply(_self, arguments)"
-            :filter-node-method="filterNode"
-            :empty-text="$t('entities.doclib.doclibtreecustchild_treeview.nodata')"
-        >
-            <template slot-scope="{ node, data }">
-                <context-menu
-                    :ref="data.id"
-                    :isBlocked="true"
-                    :contextMenuStyle="{width: '100%'}"
-                    :data="node"
-                    :renderContent="($event) => renderContextMenu($event)"
-                    @showContext="showContext(data,$event)"
-                >
-                    <tooltip transfer style="width: 100%;" max-width="2000" placement="right">
-                        <div class="tree-node" @dblclick="doDefaultAction(node)">
-                            <span class="icon">
-                                <i v-if="data.iconcls && !Object.is(data.iconcls, '')" :class="data.iconcls"></i>
-                                <img v-else-if="data.icon && !Object.is(data.icon, '')" :src="data.icon">
-                                <icon v-else-if="isOutputIconDefault" type="ios-paper-outline"></icon>&nbsp;
-                            </span>
-                            <span class="text">
-                                <span v-if="data.html" v-html="data.html"></span>
-                                <span v-else>{{ data.isUseLangRes ? $t(data.text) : data.text }}</span>
-                            </span>
-                        </div>
-                        <template slot="content">
-                            <span v-if="data.html" v-html="data.html"></span>
-                            <span v-else>{{ data.isUseLangRes ? $t(data.text) : data.text }}</span>
-                        </template>
-                    </tooltip>
-                </context-menu>
+<div class="documents-library">
+    <div class="documents-library-operation">
+        <Breadcrumb separator=">">
+            <template v-for="(item,index) in breadcrumbs">
+                <BreadcrumbItem :key="index">
+                    <Icon v-if="index === 0" @click="handleLink(item)" type="md-folder" size="25" color="rgb(255, 202, 40)" />
+                    <a v-else-if="index < breadcrumbs.length-1" @click="handleLink(item)" >{{ item.curData.name }}</a>
+                    <span v-else >{{ item.curData.name }}</span>
+                </BreadcrumbItem>
             </template>
-        </el-tree>
-    </context-menu-container>
+        </Breadcrumb>
+        <ButtonGroup>
+            <Button icon="md-apps" @click="modalityChange('chart')"></Button>
+            <Button icon="md-menu" @click="modalityChange('list')"></Button>
+        </ButtonGroup>
+    </div>
+    <div v-show="Object.is(modality, 'chart')" class="documents-library-chart">
+        <template v-for="(item,index) in items">
+            <div :key="index" class="chart-item">
+                <div @dblclick="openNode(item)">
+                    <Icon v-if="!item.leaf" type="md-folder" size="70" color="rgb(255, 202, 40)"/>
+                    <Icon v-else type="md-document" size="70" color="darkgrey"/>
+                </div>
+                <div>
+                    <a @click="openNode(item)">
+                        <span>{{ item.curData.name }}</span>
+                    </a>
+                </div>
+            </div>
+        </template>
+    </div>
+    <div v-show="Object.is(modality, 'list')" class="documents-library-list">
+        <template v-for="(item,index) in items">
+            <div :key="index" class="list-item">
+                <div>
+                    <span @click="openNode(item)">
+                        <Icon type="md-folder" color="rgb(255, 202, 40)" size="20" /><a>{{ item.curData.name }}</a>
+                    </span>
+                </div>
+                <div v-if="item.curData.copyActionModel">
+                </div>
+            </div>
+        </template>
+    </div>
 </div>

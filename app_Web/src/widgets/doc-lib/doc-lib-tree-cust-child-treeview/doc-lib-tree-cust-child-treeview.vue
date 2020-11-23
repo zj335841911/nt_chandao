@@ -20,3 +20,6 @@ import { DocLibTreeCustChildTreeBase } from './doc-lib-tree-cust-child-treeview-
 @VueLifeCycleProcessing()
 export default class DocLibTreeCustChildTree extends DocLibTreeCustChildTreeBase {}
 </script>
+<style lang="less">
+@import './doc-lib-tree-cust-child-treeview.less';
+</style>
