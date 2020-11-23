@@ -1497,6 +1497,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
     @Transactional(rollbackFor = Exception.class)
     public Task confirmStoryChange(Task et) {
+        et = this.get(et.getId());
         Task task = new Task();
         task.setId(et.getId());
         task.setStoryversion(storyService.get(et.getStory()).getVersion());
