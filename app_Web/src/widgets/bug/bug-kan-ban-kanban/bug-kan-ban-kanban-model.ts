@@ -101,6 +101,9 @@ export default class BugKanBanModel {
 				dataType: 'NSCODELIST',
 			},
 			{
+				name: 'confirmed',
+			},
+			{
 				name: 'plan',
 				prop: 'plan',
 				dataType: 'PICKUP',
@@ -124,6 +127,9 @@ export default class BugKanBanModel {
 				name: 'case',
 				prop: 'ibizcase',
 				dataType: 'PICKUP',
+			},
+			{
+				name: 'isfavorites',
 			},
 			{
 				name: 'deadline',

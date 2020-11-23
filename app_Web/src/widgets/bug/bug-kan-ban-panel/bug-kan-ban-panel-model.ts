@@ -46,6 +46,14 @@ export default class BugKanBanModel {
         prop: 'project'
       },
       {
+        name: 'confirmed',
+        prop: 'confirmed'
+      },
+      {
+        name: 'isfavorites',
+        prop: 'isfavorites'
+      },
+      {
         name: 'module',
         prop: 'module'
       },

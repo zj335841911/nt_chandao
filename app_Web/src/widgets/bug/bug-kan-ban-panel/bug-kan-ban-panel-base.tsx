@@ -132,6 +132,10 @@ export class BugKanBanPanelBase extends PanelControlBase {
 ,
         project: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'project', panel: this })
 ,
+        confirmed: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'confirmed', panel: this })
+,
+        isfavorites: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'isfavorites', panel: this })
+,
         module: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'module', panel: this })
 ,
         srfkey: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'srfkey', panel: this })
@@ -172,6 +176,8 @@ export class BugKanBanPanelBase extends PanelControlBase {
             }
             this.detailsModel.rawitem2.setVisible(ret);
         }
+
+
 
 
 

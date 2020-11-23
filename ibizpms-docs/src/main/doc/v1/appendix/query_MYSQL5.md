@@ -4010,6 +4010,7 @@ WHERE NOT(EXISTS(SELECT * FROM zt_testrun t41
  WHERE 
  t1.ID = t41.`CASE`  AND  ( t41.`task` = ${srfwebcontext('task','{"defname":"TASK","dename":"ZT_TESTRUN"}')} ) )) 
 t1.DELETED = '0' 
+t1.product in (select tt.product from zt_testtask t left join zt_projectproduct tt on tt.project = t.project where t.id = ${srfwebcontext('task','{"defname":"TASK","dename":"ZT_TESTRUN"}')}) 
 
 ```
 ### 测试单关联用例（项目关联）(NotCurTestTaskProject)<div id="Case_NotCurTestTaskProject"></div>
@@ -4074,6 +4075,7 @@ WHERE NOT(EXISTS(SELECT * FROM zt_testrun t41
  WHERE 
  t1.ID = t41.`CASE`  AND  ( t41.`task` = ${srfwebcontext('task','{"defname":"TASK","dename":"ZT_TESTRUN"}')} ) )) 
 t1.DELETED = '0' 
+t1.product in (select tt.product from zt_testtask t left join zt_projectproduct tt on tt.project = t.project where t.id = ${srfwebcontext('task','{"defname":"TASK","dename":"ZT_TESTRUN"}')}) 
 
 ```
 ### 测试报告关联用例(RePortCase)<div id="Case_RePortCase"></div>

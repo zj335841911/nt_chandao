@@ -1,11 +1,4 @@
 <studio-view viewName="bugbugkanbanview" viewTitle="Bug看板视图" class='dekanbanview bug-bug-kanban-view'>
-    <template slot="title">
-    <span class="caption-image">
-            <i class="
-    fa fa-bug    "></i>
-        </span>
-    <span class="caption-info">{{viewCaption}}</span>
-    </template>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"></view-toolbar>
     </template>
