@@ -6,6 +6,7 @@
 					display: flex;
 					flex-wrap: wrap;
 					>.app-list-item{
+                        border-bottom: none;
 						width: 25%;
 						>.panel-container{
 							>.app-layoutpanel{
@@ -18,7 +19,16 @@
 									width: 90%;
 									>.ivu-row{
 										>.app-layoutpanel-field{
-											margin-bottom: 5px;
+                                            margin-bottom: 5px;
+                                            >.item-field{
+												>.item-field-content{
+													>span{
+														overflow: hidden;
+														text-overflow:ellipsis; white-space: nowrap;
+														display: block;
+													}
+												}
+											}
 										}
 									}
 								}
