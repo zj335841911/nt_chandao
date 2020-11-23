@@ -4,12 +4,12 @@
         <template v-if="!ifEmpty">
             <template v-for="(item, index) in items">
                 <div class="codelist-item" :key="index">
-                    <span v-if="index != 0">{{ textSeparator }}</span>
                     <i v-if="item.iconcls" :class="item.iconcls"></i>
                     <img v-if="item.icon" :src="getIcon(item.icon)" />
                     <span :class="item.class" :style="{ color: item.color }">
                         {{ isUseLangres ? $t(item.text) : item.text }}
                     </span>
+                    <span v-if="index != items.length-1">{{ textSeparator }}</span>
                </div>
             </template>
         </template>
@@ -349,11 +349,13 @@ export default class CodeList extends Vue {
 
 <style lang="less">
 .codelist {
+    display: flex;
     white-space: nowrap;
     text-overflow: ellipsis;
     word-break: break-all;
     overflow: hidden;
     .codelist-item{
+        padding: 0px 3px;
         display: flex;
         align-items: center;
         max-height: 32px;
