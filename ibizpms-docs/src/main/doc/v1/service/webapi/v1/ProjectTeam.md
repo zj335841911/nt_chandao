@@ -582,7 +582,8 @@ POST
 | 13 | total | Integer | 允许 | 总计可用 |
 | 14 | root | Long | 允许 | 项目编号 |
 | 15 | username | String | 允许 | 用户 |
-| 16 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 16 | taskcnt | Integer | 允许 | 任务数 |
+| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectTeamSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

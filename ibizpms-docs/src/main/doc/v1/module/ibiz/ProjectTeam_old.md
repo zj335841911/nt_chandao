@@ -27,6 +27,7 @@ hide members
 |总计可用|TOTAL|INT|&nbsp;|
 |项目编号|ROOT|PICKUP|&nbsp;|
 |用户|USERNAME|TEXT|&nbsp;|
+|任务数|TASKCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -46,6 +47,7 @@ hide members
 |总计可用|默认规则|默认规则|
 |项目编号|默认规则|默认规则|
 |用户|默认规则|内容长度必须小于等于[200]|
+|任务数|默认规则|默认规则|
 
 ## 状态控制
 

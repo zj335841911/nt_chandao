@@ -15,7 +15,6 @@ export default {
     join: "加盟日",
     hours: "可用工时/天",
     left: "预计剩余",
-    taskcnt: "任务数",
   },
 	views: {
 		gridview9: {

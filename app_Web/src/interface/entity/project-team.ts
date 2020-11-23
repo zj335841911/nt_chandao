@@ -125,4 +125,12 @@ export interface ProjectTeam {
      * @memberof ProjectTeam
      */
     username?: any;
+
+    /**
+     * 任务数
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    taskcnt?: any;
 }
