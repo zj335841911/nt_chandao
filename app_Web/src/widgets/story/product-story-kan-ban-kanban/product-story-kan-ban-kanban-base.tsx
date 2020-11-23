@@ -700,7 +700,7 @@ export class ProductStoryKanBanKanbanBase extends MainControlBase {
         if(evt && evt.added && evt.added.element) {
             let item: any = JSON.parse(JSON.stringify(evt.added.element));
             if(this.getUpdateView(name)) {
-                const view: any = { ...this.getUpdateView(name) };
+                const view: any = this.getUpdateView(name);
                 const _context: any = JSON.parse(JSON.stringify(this.context));
                 const _param: any = JSON.parse(JSON.stringify(this.viewparams));
                 Object.assign(_context, { story: item.srfkey });
@@ -738,6 +738,8 @@ export class ProductStoryKanBanKanbanBase extends MainControlBase {
                     title: this.$t('entities.story.views.mainview.title'),
                     placement:'DRAWER_TOP'
                 };
+            default:
+                return null;
         }
     }
 
