@@ -1,0 +1,94 @@
+<div class="panel-container" style="">
+    <row class="app-layoutpanel" style="height:100%;">
+                <i-col v-show="detailsModel.container1.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 8, offset: 0 }" style="" class="app-layoutpanel-container">
+            <row style="height:100%;">
+                        
+                <i-col v-show="detailsModel.account.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                    <div class="item-field">
+                    
+                    <div class="item-field-content">
+                    
+                <app-span :value="data.account" name="account" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  tag='UserRealName' codelistType='DYNAMIC' style=""> </app-span> 
+                
+                    </div>
+                </div>
+                
+                
+                </i-col>
+                        
+                <i-col v-show="detailsModel.role.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                    <div class="item-field">
+                    
+                    <div class="item-field-content">
+                    
+                <app-span :value="data.role" name="role" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""> </app-span> 
+                
+                    </div>
+                </div>
+                
+                
+                </i-col>
+                        
+                <i-col v-show="detailsModel.join.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
+                    <div class="item-field">
+                    
+                    <div class="item-field-content">
+                    
+                <app-span :value="data.join" name="join" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""> </app-span> 
+                
+                    </div>
+                </div>
+                
+                
+                </i-col>
+                        
+                <i-col v-show="detailsModel.consumed.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 8, offset: 0 }" style="" class="app-layoutpanel-field">
+                    <div class="item-field">
+                    
+                    <div class="item-field-content">
+                    
+                <app-span :value="data.consumed" name="consumed" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""> </app-span> 
+                
+                    </div>
+                </div>
+                
+                
+                </i-col>
+                        
+                <i-col v-show="detailsModel.left.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 8, offset: 0 }" style="" class="app-layoutpanel-field">
+                    <div class="item-field">
+                    
+                    <div class="item-field-content">
+                    
+                <app-span :value="data.left" name="left" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""> </app-span> 
+                
+                    </div>
+                </div>
+                
+                
+                </i-col>
+                        
+                <i-col v-show="detailsModel.estimate.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 8, offset: 0 }" style="" class="app-layoutpanel-field">
+                    <div class="item-field">
+                    
+                    <div class="item-field-content">
+                    
+                <app-span :value="data.estimate" name="estimate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style=""> </app-span> 
+                
+                    </div>
+                </div>
+                
+                
+                </i-col>
+                        
+                <i-col v-show="detailsModel.button1.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 8, offset: 16 }" style="" class="app-layoutpanel-button">
+                    <i-button :disabled="detailsModel.button1.disabled" type="primary" long @click="uiAction(null, 'RemoveMember', $event)" >
+                    <span>移除</span>
+                </i-button>
+                
+                
+                </i-col>
+            </row>
+        </i-col>
+    </row>
+</div>
