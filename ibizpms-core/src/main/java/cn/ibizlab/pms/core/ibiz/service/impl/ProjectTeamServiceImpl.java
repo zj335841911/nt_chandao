@@ -231,6 +231,15 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
         return new PageImpl<ProjectTeam>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 数据查询
+     */
+    @Override
+    public Page<ProjectTeam> searchTaskCntEstimateConsumedLeft(ProjectTeamSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectTeam> pages=baseMapper.searchTaskCntEstimateConsumedLeft(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProjectTeam>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

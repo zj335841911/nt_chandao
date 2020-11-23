@@ -5731,6 +5731,32 @@ WHERE t1.DELETED = '0'
 ( t1.`ORGID` =  ${srfsessioncontext('SRFORGID','{"defname":"ORGID","dename":"ZT_DOCLIB"}')} ) 
 
 ```
+### 根目录(RootModuleMuLu)<div id="DocLib_RootModuleMuLu"></div>
+```sql
+SELECT
+t1.`ACL`,
+t1.`DELETED`,
+'doc' AS `DOCLIBTYPE`,
+t1.`GROUPS`,
+t1.`ID`,
+0 AS `ISFAVOURITES`,
+t1.`MAIN`,
+t1.`MDEPTID`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`ORGID`,
+t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TYPE`
+FROM `zt_doclib` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+
+WHERE t1.DELETED = '0' 
+
+```
 ### 默认（全部数据）(VIEW)<div id="DocLib_View"></div>
 ```sql
 SELECT
@@ -12460,6 +12486,70 @@ FROM
 WHERE 	
 ( t1.`TYPE` = 'project' ) 
 
+```
+### 数据查询(TaskCntEstimateConsumedLeft)<div id="ProjectTeam_TaskCntEstimateConsumedLeft"></div>
+```sql
+SELECT
+	t1.*,
+	(
+SELECT
+	count( t2.id ) 
+FROM
+	zt_task t2 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND (
+	t2.assignedTo = t1.account 
+	OR t2.finishedBy = t1.account 
+	OR t2.id IN ( SELECT t.root FROM zt_team t WHERE t.type = 'task' AND t.account = t1.account ) 
+	) 
+	) AS taskcnt,
+	(
+SELECT
+	sum( CASE WHEN tt.LEFT IS NOT NULL THEN tt.LEFT ELSE t2.LEFT END ) 
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS left1,
+	(
+SELECT
+	sum( CASE WHEN tt.estimate IS NOT NULL THEN tt.estimate ELSE t2.estimate END ) 
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS estimate1,
+	(
+SELECT
+	sum( CASE WHEN tt.consumed IS NOT NULL THEN tt.consumed ELSE t2.consumed END ) 
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS consumed1 
+FROM
+	zt_team t1 
+WHERE
+	t1.type = 'project' 
+	AND t1.root = 1
 ```
 ### 默认（全部数据）(VIEW)<div id="ProjectTeam_View"></div>
 ```sql

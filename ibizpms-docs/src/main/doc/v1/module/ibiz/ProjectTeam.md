@@ -884,7 +884,8 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 2 | [行编辑查询](#数据查询-行编辑查询（RowEditDefault）) | RowEditDefault | 否 |
-| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [数据查询](#数据查询-数据查询（TaskCntEstimateConsumedLeft）) | TaskCntEstimateConsumedLeft | 否 |
+| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -1000,6 +1001,81 @@ FROM
 	where t1.id = #{srf.datacontext.dept} and t2.account is not null and t2.account not in (select  t.account from zt_team t where t.root = #{srf.datacontext.root} and t.type = 'project')
 	) t1
 ```
+### 数据查询-数据查询（TaskCntEstimateConsumedLeft）
+#### 说明
+数据查询
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.*,
+	(
+SELECT
+	count( t2.id ) 
+FROM
+	zt_task t2 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND (
+	t2.assignedTo = t1.account 
+	OR t2.finishedBy = t1.account 
+	OR t2.id IN ( SELECT t.root FROM zt_team t WHERE t.type = 'task' AND t.account = t1.account ) 
+	) 
+	) AS taskcnt,
+	(
+SELECT
+	sum( CASE WHEN tt.LEFT IS NOT NULL THEN tt.LEFT ELSE t2.LEFT END ) 
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS left1,
+	(
+SELECT
+	sum( CASE WHEN tt.estimate IS NOT NULL THEN tt.estimate ELSE t2.estimate END ) 
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS estimate1,
+	(
+SELECT
+	sum( CASE WHEN tt.consumed IS NOT NULL THEN tt.consumed ELSE t2.consumed END ) 
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS consumed1 
+FROM
+	zt_team t1 
+WHERE
+	t1.type = 'project' 
+	AND t1.root = 1
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -1038,6 +1114,7 @@ FROM `zt_team` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [行编辑查询](#数据集合-行编辑查询（RowEditDefault）) | RowEditDefault | 否 |
+| 3 | [数据查询](#数据集合-数据查询（TaskCntEstimateConsumedLeft）) | TaskCntEstimateConsumedLeft | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -1067,6 +1144,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [行编辑查询（RowEditDefault）](#数据查询-行编辑查询（RowEditDefault）) |
+### 数据集合-数据查询（TaskCntEstimateConsumedLeft）
+#### 说明
+数据查询
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [数据查询（TaskCntEstimateConsumedLeft）](#数据查询-数据查询（TaskCntEstimateConsumedLeft）) |
 
 ## 数据导入
 无

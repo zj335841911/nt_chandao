@@ -108,6 +108,7 @@ hide members
 |ByProjectNotFiles|项目文件库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_ByProjectNotFiles))|否|&nbsp;|
 |CurDocLib|所属文档库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_CurDocLib))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_Default))|否|&nbsp;|
+|RootModuleMuLu|根目录([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_RootModuleMuLu))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_View))|否|&nbsp;|
 
 * **数据集合**

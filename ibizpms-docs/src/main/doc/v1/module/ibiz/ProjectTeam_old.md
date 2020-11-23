@@ -91,6 +91,7 @@ hide footbox
 | --------  | --------   | --------   | ----- |
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProjectTeam_Default))|否|&nbsp;|
 |RowEditDefault|行编辑查询([MYSQL5](../../appendix/query_MYSQL5.md#ProjectTeam_RowEditDefault))|否|&nbsp;|
+|TaskCntEstimateConsumedLeft|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#ProjectTeam_TaskCntEstimateConsumedLeft))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProjectTeam_View))|否|&nbsp;|
 
 * **数据集合**
@@ -99,6 +100,7 @@ hide footbox
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |RowEditDefault|行编辑查询|RowEditDefault|否|&nbsp;|
+|TaskCntEstimateConsumedLeft|数据查询|TaskCntEstimateConsumedLeft|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

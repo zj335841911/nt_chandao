@@ -1230,7 +1230,8 @@ Save
 | 5 | [项目文件库](#数据查询-项目文件库（ByProjectNotFiles）) | ByProjectNotFiles | 否 |
 | 6 | [所属文档库](#数据查询-所属文档库（CurDocLib）) | CurDocLib | 否 |
 | 7 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 8 | [根目录](#数据查询-根目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-自定义文档库（ByCustom）
 #### 说明
@@ -1491,6 +1492,41 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 ### 数据查询-DEFAULT（Default）
 #### 说明
 DEFAULT
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACL`,
+t1.`DELETED`,
+'doc' AS `DOCLIBTYPE`,
+t1.`GROUPS`,
+t1.`ID`,
+0 AS `ISFAVOURITES`,
+t1.`MAIN`,
+t1.`MDEPTID`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`ORGID`,
+t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TYPE`
+FROM `zt_doclib` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+
+```
+### 数据查询-根目录（RootModuleMuLu）
+#### 说明
+根目录
 
 - 默认查询
 否

@@ -147,6 +147,12 @@
 						 AND ( t1.`ORGID` =  #{srf.sessioncontext.srforgid} )
 			]]>
     </sql>
+    <!--数据查询[RootModuleMuLu]-->
+    <sql id="RootModuleMuLu" databaseId="mysql">
+		<![CDATA[ SELECT t1.`ACL`, t1.`DELETED`, 'doc' AS `DOCLIBTYPE`, t1.`GROUPS`, t1.`ID`, 0 AS `ISFAVOURITES`, t1.`MAIN`, t1.`MDEPTID`, t1.`NAME`, t1.`ORDER`, t1.`ORGID`, t1.`PRODUCT`, t21.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t11.`NAME` AS `PROJECTNAME`, t1.`TYPE` FROM `zt_doclib` t1  LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID  LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID  
+					 WHERE 	t1.DELETED = '0'
+			]]>
+    </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ACL`, t1.`COLLECTOR`, t1.`DELETED`, 'doc' AS `DOCLIBTYPE`, t1.`GROUPS`, t1.`ID`, 0 AS `ISFAVOURITES`, t1.`MAIN`, t1.`MDEPTID`, t1.`NAME`, t1.`ORDER`, t1.`ORGID`, t1.`PRODUCT`, t21.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t11.`NAME` AS `PROJECTNAME`, t1.`TYPE`, t1.`USERS` FROM `zt_doclib` t1  LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID  LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID  
