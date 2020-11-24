@@ -96,6 +96,11 @@ export default class CompleteFormModel {
         dataType: 'TEXT',
       },
       {
+        name: 'assignedtozj',
+        prop: 'assignedtozj',
+        dataType: 'TEXT',
+      },
+      {
         name: 'finisheddate',
         prop: 'finisheddate',
         dataType: 'DATE',

@@ -242,6 +242,47 @@
 </i-col>
 <i-col
     class="form-layout-container"
+    v-show="detailsModel.assignedtozj.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="assignedtozj"
+    :itemRules="this.rules().assignedtozj"
+    class=""
+
+    :caption="$t('entities.task.completeform_form.details.assignedtozj')"
+    uiStyle="DEFAULT"
+    :labelWidth="100"
+    :isShowCaption="true"
+    :error="detailsModel.assignedtozj.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list 
+    v-model="data.assignedtozj"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext='{ ID:"%id%", PROJECT:"%project%", MULTIPLE:"%multiple%" }' 
+    :localParam='{ id:"%id%", project:"%project%", multiple:"%multiple%" }' 
+    :disabled="detailsModel.assignedtozj.disabled"
+    valueType="string"
+    tag="UserRealNameTaskMTeam"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.finisheddate.visible"
     :style="{}"
     
