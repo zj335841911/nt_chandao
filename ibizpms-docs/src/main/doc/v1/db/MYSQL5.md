@@ -118533,6 +118533,7 @@ CREATE TABLE `T_SYS_UPDATE_LOG`(
 | LEFT        | 预计剩余  | DOUBLE      |   -1   | &nbsp; |
 | CLOSEDREASON        | 关闭原因  | VARCHAR      |   30   | &nbsp; |
 | CLOSEDBY        | 由谁关闭  | VARCHAR      |   30   | &nbsp; |
+| MYCONSUMED        | 之前消耗  | DOUBLE      |   -1   | &nbsp; |
 | NAME        | 任务名称  | VARCHAR      |   255   | &nbsp; |
 | TASKTYPE        | 任务类型  | VARCHAR      |   200   | &nbsp; |
 

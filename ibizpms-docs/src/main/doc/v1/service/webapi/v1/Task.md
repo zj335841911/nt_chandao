@@ -4587,9 +4587,12 @@ POST
 | 64 | mailtopk | String | 允许 | 抄送给 |
 | 65 | mailtoconact | String | 允许 | 联系人 |
 | 66 | statusorder | Integer | 允许 | 排序 |
-| 67 | ibztaskestimates | List<[IBZTaskEstimateDTO}](#IBZTaskEstimateDTO})> | 允许 | 任务预计 |
-| 68 | ibztaskteams | List<[IBZTaskTeamDTO}](#IBZTaskTeamDTO})> | 允许 | 任务团队 |
-| 69 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 67 | myconsumed | Double | 允许 | 之前消耗 |
+| 68 | mytotaltime | Double | 允许 | 我的总消耗 |
+| 69 | assignedtozj | String | 允许 | 转交给 |
+| 70 | ibztaskestimates | List<[IBZTaskEstimateDTO}](#IBZTaskEstimateDTO})> | 允许 | 任务预计 |
+| 71 | ibztaskteams | List<[IBZTaskTeamDTO}](#IBZTaskTeamDTO})> | 允许 | 任务团队 |
+| 72 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBZTaskEstimateDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

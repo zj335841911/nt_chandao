@@ -219,6 +219,15 @@ export default class ToolbarModel {
       {
         name: 'statusorder',
       },
+      {
+        name: 'myconsumed',
+      },
+      {
+        name: 'mytotaltime',
+      },
+      {
+        name: 'assignedtozj',
+      },
     ]
   }
 

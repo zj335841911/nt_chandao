@@ -61,8 +61,8 @@ export default class CompleteFormModel {
         dataType: 'FLOAT',
       },
       {
-        name: 'consumed1',
-        prop: 'consumed',
+        name: 'myconsumed',
+        prop: 'myconsumed',
         dataType: 'FLOAT',
       },
       {
@@ -78,6 +78,11 @@ export default class CompleteFormModel {
       {
         name: 'currentconsumed',
         prop: 'currentconsumed',
+        dataType: 'FLOAT',
+      },
+      {
+        name: 'mytotaltime',
+        prop: 'mytotaltime',
         dataType: 'FLOAT',
       },
       {

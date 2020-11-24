@@ -549,4 +549,28 @@ export interface Task {
      * @memberof Task
      */
     statusorder?: any;
+
+    /**
+     * 之前消耗
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    myconsumed?: any;
+
+    /**
+     * 我的总消耗
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    mytotaltime?: any;
+
+    /**
+     * 转交给
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    assignedtozj?: any;
 }

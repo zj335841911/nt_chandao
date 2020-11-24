@@ -219,6 +219,15 @@ export default class TreeExpViewtreeexpbarModel {
       {
         name: 'statusorder',
       },
+      {
+        name: 'myconsumed',
+      },
+      {
+        name: 'mytotaltime',
+      },
+      {
+        name: 'assignedtozj',
+      },
     ]
   }
 

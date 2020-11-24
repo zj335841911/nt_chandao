@@ -549,4 +549,28 @@ export interface SubTask {
      * @memberof SubTask
      */
     statusorder?: any;
+
+    /**
+     * 之前消耗
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    myconsumed?: any;
+
+    /**
+     * 我的总消耗
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    mytotaltime?: any;
+
+    /**
+     * 转交给
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    assignedtozj?: any;
 }

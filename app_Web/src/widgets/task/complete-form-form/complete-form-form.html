@@ -72,7 +72,7 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.consumed1.visible"
+    v-show="detailsModel.myconsumed.visible"
     :style="{}"
     
     
@@ -80,20 +80,20 @@
     
 >
     <app-form-item
-    name="consumed1"
-    :itemRules="this.rules().consumed1"
+    name="myconsumed"
+    :itemRules="this.rules().myconsumed"
     class=""
 
-    :caption="$t('entities.task.completeform_form.details.consumed1')"
+    :caption="$t('entities.task.completeform_form.details.myconsumed')"
     uiStyle="DEFAULT"
     :labelWidth="100"
     :isShowCaption="true"
-    :error="detailsModel.consumed1.error"
+    :error="detailsModel.myconsumed.error"
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
     
-<app-span name='consumed1' :value="data.consumed1" dataType="FLOAT" unitName="小时"     :precision="2"
+<app-span name='myconsumed' :value="data.myconsumed" dataType="FLOAT"     :precision="2"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
@@ -133,6 +133,37 @@
    
   style="">
 </input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.mytotaltime.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="mytotaltime"
+    :itemRules="this.rules().mytotaltime"
+    class=""
+
+    :caption="$t('entities.task.completeform_form.details.mytotaltime')"
+    uiStyle="DEFAULT"
+    :labelWidth="100"
+    :isShowCaption="true"
+    :error="detailsModel.mytotaltime.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-span name='mytotaltime' :value="data.mytotaltime" dataType="FLOAT"     :precision="2"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
 </app-form-item>
 

@@ -103,10 +103,11 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         consumed: null,
-        consumed1: null,
+        myconsumed: null,
         id: null,
         project: null,
         currentconsumed: null,
+        mytotaltime: null,
         totaltime: null,
         assignedto: null,
         finisheddate: null,
@@ -264,8 +265,8 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        consumed1: new FormItemModel({
-    caption: '之前消耗', detailType: 'FORMITEM', name: 'consumed1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        myconsumed: new FormItemModel({
+    caption: '之前消耗', detailType: 'FORMITEM', name: 'myconsumed', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -292,8 +293,15 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        mytotaltime: new FormItemModel({
+    caption: '我的总消耗', detailType: 'FORMITEM', name: 'mytotaltime', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         totaltime: new FormItemModel({
-    caption: '我的总消耗', detailType: 'FORMITEM', name: 'totaltime', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '总计耗时', detailType: 'FORMITEM', name: 'totaltime', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -352,6 +360,7 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
+
 
 
 

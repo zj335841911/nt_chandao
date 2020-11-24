@@ -90,6 +90,9 @@ hide members
 |抄送给|MAILTOPK|SMCODELIST|&nbsp;|
 |联系人|MAILTOCONACT|TEXT|&nbsp;|
 |排序|STATUSORDER|INT|&nbsp;|
+|之前消耗|MYCONSUMED|FLOAT|&nbsp;|
+|我的总消耗|MYTOTALTIME|FLOAT|&nbsp;完成界面，临时界面属性|
+|转交给|ASSIGNEDTOZJ|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -170,6 +173,9 @@ hide members
 |抄送给|默认规则|内容长度必须小于等于[200]|
 |联系人|默认规则|内容长度必须小于等于[100]|
 |排序|默认规则|默认规则|
+|之前消耗|默认规则|默认规则|
+|我的总消耗|默认规则|默认规则|
+|转交给|默认规则|内容长度必须小于等于[30]|
 
 ## 状态控制
 

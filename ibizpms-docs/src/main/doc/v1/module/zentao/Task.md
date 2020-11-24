@@ -97,6 +97,9 @@
 | 66 | [抄送给](#属性-抄送给（MAILTOPK）) | MAILTOPK | 多项选择(文本值) | 否 | 是 | 是 |
 | 67 | [联系人](#属性-联系人（MAILTOCONACT）) | MAILTOCONACT | 文本，可指定长度 | 否 | 是 | 是 |
 | 68 | [排序](#属性-排序（STATUSORDER）) | STATUSORDER | 整型 | 否 | 是 | 是 |
+| 69 | [之前消耗](#属性-之前消耗（MYCONSUMED）) | MYCONSUMED | 浮点 | 否 | 是 | 是 |
+| 70 | [我的总消耗](#属性-我的总消耗（MYTOTALTIME）) | MYTOTALTIME | 浮点 | 否 | 是 | 是 |
+| 71 | [转交给](#属性-转交给（ASSIGNEDTOZJ）) | ASSIGNEDTOZJ | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-由谁取消（CANCELEDBY）
 #### 属性说明
@@ -3036,6 +3039,134 @@ Integer
 ```SQL
 case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end
 ```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
+| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-之前消耗（MYCONSUMED）
+#### 属性说明
+之前消耗
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+浮点
+
+- Java类型
+Double
+
+- 是否允许为空
+是
+
+- 默认值
+| 项目 | 说明 |
+| ---- | ---- |
+| 类型 |  |
+| 值 | 0 |
+
+- 取值范围/公式
+```SQL
+t1.CONSUMED
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
+| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-我的总消耗（MYTOTALTIME）
+#### 属性说明
+完成界面，临时界面属性
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+浮点
+
+- Java类型
+Double
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
+| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-转交给（ASSIGNEDTOZJ）
+#### 属性说明
+转交给
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
 
 - 数据格式
 无
@@ -6758,6 +6889,7 @@ t1.`MODULE`,
 t11.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
 ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.CONSUMED AS `MYCONSUMED`,
 t1.`NAME`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
@@ -6901,6 +7033,7 @@ t1.`MODULE`,
 t11.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
 ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.CONSUMED AS `MYCONSUMED`,
 t1.`NAME`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
@@ -7457,6 +7590,7 @@ t1.`MODULE`,
 t11.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
 ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.CONSUMED AS `MYCONSUMED`,
 t1.`NAME`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,

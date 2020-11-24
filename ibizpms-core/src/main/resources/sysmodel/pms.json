@@ -33096,6 +33096,48 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"MYCONSUMED" ,
+    "codename":"Myconsumed",
+    "field_logic_name":"之前消耗",
+    "entity_name":"Task",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"FLOAT",
+    "expression":"t1.CONSUMED",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"MYTOTALTIME" ,
+    "codename":"Mytotaltime",
+    "field_logic_name":"我的总消耗",
+    "entity_name":"Task",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"FLOAT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ASSIGNEDTOZJ" ,
+    "codename":"AssignedToZj",
+    "field_logic_name":"转交给",
+    "entity_name":"Task",
+    "field_type":"TEXT",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":30,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
