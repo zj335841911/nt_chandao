@@ -1199,7 +1199,7 @@ POST
 /stories/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3066,7 +3066,7 @@ POST
 /products/{product_id}/stories/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |

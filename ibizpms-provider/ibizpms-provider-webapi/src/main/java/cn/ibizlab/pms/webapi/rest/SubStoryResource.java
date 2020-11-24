@@ -732,8 +732,8 @@ public class SubStoryResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"需求" } ,notes = "获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/substories/fetchdefault")
-	public ResponseEntity<List<SubStoryDTO>> fetchDefault(StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/substories/fetchdefault")
+	public ResponseEntity<List<SubStoryDTO>> fetchDefault(@RequestBody StorySearchContext context) {
         Page<Story> domains = storyService.searchDefault(context) ;
         List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -1816,8 +1816,8 @@ public class SubStoryResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all')")
 	@ApiOperation(value = "根据需求获取DEFAULT", tags = {"需求" } ,notes = "根据需求获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchdefault")
-	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryDefaultByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/fetchdefault")
+	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryDefaultByStory(@PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
         context.setN_parent_eq(story_id);
         Page<Story> domains = storyService.searchDefault(context) ;
         List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
@@ -2916,8 +2916,8 @@ public class SubStoryResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all')")
 	@ApiOperation(value = "根据产品需求获取DEFAULT", tags = {"需求" } ,notes = "根据产品需求获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchdefault")
-	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryDefaultByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/fetchdefault")
+	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryDefaultByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody StorySearchContext context) {
         context.setN_parent_eq(story_id);
         Page<Story> domains = storyService.searchDefault(context) ;
         List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());

@@ -2854,11 +2854,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchdefault`,tempData,isloading);
         return res;
     }
 
