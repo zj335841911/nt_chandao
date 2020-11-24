@@ -59,6 +59,11 @@ export default class BugKanBanModel {
         prop: 'closedby'
       },
       {
+        name: 'resolution',
+        codelist:{tag:'Bug__resolution',codelistType:'STATIC'},
+        prop: 'resolution'
+      },
+      {
         name: 'assignedto',
         codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
         prop: 'assignedto'

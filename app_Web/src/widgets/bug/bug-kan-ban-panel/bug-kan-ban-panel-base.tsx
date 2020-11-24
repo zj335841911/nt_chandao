@@ -148,6 +148,12 @@ export class BugKanBanPanelBase extends PanelControlBase {
 ,
         container7: new PanelContainerModel({ caption: '已关闭状态', itemType: 'CONTAINER',visible: false, disabled: false, name: 'container7', panel: this })
 ,
+        rawitem10: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem10', panel: this })
+,
+        resolution: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'resolution', panel: this })
+,
+        container9: new PanelContainerModel({ caption: '解决方案', itemType: 'CONTAINER',visible: false, disabled: false, name: 'container9', panel: this })
+,
         rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: false, disabled: false, name: 'rawitem2', panel: this })
 ,
         container3: new PanelContainerModel({ caption: '动态内容', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container3', panel: this })
@@ -249,6 +255,17 @@ export class BugKanBanPanelBase extends PanelControlBase {
                 ret = true;
             }
             this.detailsModel.container7.setVisible(ret);
+        }
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'status')) {
+            let ret = false;
+            const _status = this.data.status;
+            if (this.$verify.testCond(_status, 'IN', '('resolved','closed')')) {
+                ret = true;
+            }
+            this.detailsModel.container9.setVisible(ret);
         }
 
         if (Object.is(name, '') || Object.is(name, 'deadline')) {
