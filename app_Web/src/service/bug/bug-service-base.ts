@@ -1653,26 +1653,26 @@ export default class BugServiceBase extends EntityService {
     public async FetchBuildOpenBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildopenbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildopenbugs`,tempData,isloading);
             return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildopenbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/projects/${context.project}/bugs/fetchbuildopenbugs`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildopenbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/bugs/fetchbuildopenbugs`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildopenbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/bugs/fetchbuildopenbugs`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchbuildopenbugs`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchbuildopenbugs`,tempData,isloading);
         return res;
     }
 
