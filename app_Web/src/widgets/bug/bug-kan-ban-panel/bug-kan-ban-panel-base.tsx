@@ -198,7 +198,7 @@ export class BugKanBanPanelBase extends PanelControlBase {
         if (Object.is(name, '') || Object.is(name, 'delay')) {
             let ret = false;
             const _delay = this.data.delay;
-            if (this.$verify.testCond(_delay, 'NOTEQ', '''')) {
+            if (this.$verify.testCond(_delay, 'ISNULL', '')) {
                 ret = true;
             }
             this.detailsModel.delay.setVisible(ret);
@@ -220,7 +220,7 @@ export class BugKanBanPanelBase extends PanelControlBase {
         if (Object.is(name, '') || Object.is(name, 'status')) {
             let ret = false;
             const _status = this.data.status;
-            if (this.$verify.testCond(_status, 'NOTEQ', '''')) {
+            if (this.$verify.testCond(_status, 'ISNULL', '')) {
                 ret = true;
             }
             this.detailsModel.delayresolve.setVisible(ret);
