@@ -43,6 +43,41 @@
         </tab-pane>
         <tab-pane
             :index="1"
+            name="tabviewpanel4"
+            tab="testtabexpviewtabexppanel"
+            class=""
+            v-if="authResourceObject['tabviewpanel4'].visible"
+            :label="(h) =>{
+                return h('div', [
+                    h('i',{
+                        class:'fa fa-trello',
+                        style:{
+                            'margin-right' : '2px'
+                        }
+                    }),
+                    h('span', '看板'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel4 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel4"
+    name="tabviewpanel4"  
+    ref="tabviewpanel4"
+    :expActive="activatedTabViewPanel === 'tabviewpanel4'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel4>
+        </tab-pane>
+        <tab-pane
+            :index="2"
             name="tabviewpanel3"
             tab="testtabexpviewtabexppanel"
             class=""
@@ -77,7 +112,7 @@
 </view_tabviewpanel3>
         </tab-pane>
         <tab-pane
-            :index="2"
+            :index="3"
             name="tabviewpanel2"
             tab="testtabexpviewtabexppanel"
             class=""
