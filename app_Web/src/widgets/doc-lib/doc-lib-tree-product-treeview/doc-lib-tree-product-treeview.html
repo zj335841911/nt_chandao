@@ -17,14 +17,25 @@
     <div v-show="Object.is(modality, 'chart')" class="documents-library-chart">
         <template v-for="(item,index) in items">
             <div :key="index" class="chart-item">
-                <div @dblclick="openNode(item)">
-                    <Icon v-if="!item.leaf" type="md-folder" size="70" color="rgb(255, 202, 40)"/>
-                    <Icon v-else type="md-document" size="70" color="darkgrey"/>
+                <div>
+                    <Icon
+                        @dblclick="openNode(item)"
+                        v-if="Object.is(item.nodeType,'STATIC') || (item.curData && (Object.is(item.curData.doclibtype,'doc') || Object.is(item.curData.docqtype,'module')))"
+                        type="md-folder" size="70" color="rgb(255, 202, 40)" />
+                    <Icon
+                        v-if="item.curData && (Object.is(item.curData.doclibtype,'file') || Object.is(item.curData.docqtype,'doc'))"
+                        type="md-document" size="70" color="darkgrey" />
                 </div>
                 <div>
-                    <a @click="openNode(item)">
+                    <a
+                        v-if="Object.is(item.nodeType,'STATIC') || (item.curData && (Object.is(item.curData.doclibtype,'doc') || Object.is(item.curData.docqtype,'module')))" 
+                        @click="openNode(item)">
                         <span>{{ item.text }}</span>
                     </a>
+                    <span
+                        v-if="item.curData && (Object.is(item.curData.doclibtype,'file') || Object.is(item.curData.docqtype,'doc'))">
+                        {{ item.text }}
+                    </span>
                 </div>
             </div>
         </template>
@@ -33,8 +44,13 @@
         <template v-for="(item,index) in items">
             <div :key="index" class="list-item">
                 <div>
-                    <span @click="openNode(item)">
+                    <span
+                        v-if="Object.is(item.nodeType,'STATIC') || (item.curData && (Object.is(item.curData.doclibtype,'doc') || Object.is(item.curData.docqtype,'module')))"
+                        @click="openNode(item)">
                         <Icon type="md-folder" color="rgb(255, 202, 40)" size="20" /><a>{{ item.text }}</a>
+                    </span>
+                    <span v-if="item.curData && (Object.is(item.curData.doclibtype,'file') || Object.is(item.curData.docqtype,'doc'))">
+                        <Icon type="md-document" color="darkgrey" size="20" />{{ item.text }}
                     </span>
                 </div>
                 <div v-if="item.curData && item.curData.copyActionModel">
