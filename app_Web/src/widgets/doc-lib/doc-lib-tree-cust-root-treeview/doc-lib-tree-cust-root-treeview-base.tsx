@@ -643,7 +643,7 @@ export class DocLibTreeCustRootTreeBase extends MainControlBase {
                 }
                 if (Object.is('load', action)) {
                     this.breadcrumbs.splice(1);
-                    this.model = 'chart';
+                    this.mode = 'chart';
                     this.load();
                 }
                 if (Object.is('filter', action)) {
