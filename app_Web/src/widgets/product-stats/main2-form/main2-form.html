@@ -671,50 +671,6 @@
     <row>
         <i-col
     class="form-layout-container"
-    v-show="detailsModel.rawitem4.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 16, offset: 0 }"
->
-    <app-rawitem
-    :viewparams="viewparams" 
-    :context="context"
-    contentStyle=""
-    sizeStyle=""
-    contentType="RAW"
-    :htmlContent='``'
-
->
-        <div style="margin-top: 6px;"><Icon type="md-alert" color="red"/>&nbsp;已延期&nbsp;<b>{{data.postponedprojectcnt ? data.postponedprojectcnt : 0}}</b></div>
-</app-rawitem>
-
-</i-col>
-<i-col
-    class="form-layout-container"
-    v-show="detailsModel.rawitem7.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 8, offset: 0 }"
-    :xl="{ span: 8, offset: 0 }"
->
-    <app-rawitem
-    :viewparams="viewparams" 
-    :context="context"
-    contentStyle=""
-    sizeStyle=""
-    contentType="RAW"
-    :htmlContent='``'
-
->
-        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;所有项目&nbsp;:&nbsp;{{data.resprojectcnt ? data.resprojectcnt : 0}}</div>
-</app-rawitem>
-
-</i-col>
-<i-col
-    class="form-layout-container"
     v-show="detailsModel.grouppanel4.visible"
     :style="{}"
     
@@ -745,6 +701,28 @@
     ></app-form-group-data-panel>
     <row>
         <i-col
+    class="form-layout-container"
+    v-show="detailsModel.rawitem4.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 16, offset: 0 }"
+>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    :htmlContent='``'
+
+>
+        <div style="margin-top: 6px;"><Icon type="md-alert" color="red"/>&nbsp;已延期&nbsp;<b>{{data.postponedprojectcnt ? data.postponedprojectcnt : 0}}</b></div>
+</app-rawitem>
+
+</i-col>
+<i-col
     class="form-layout-container"
     v-show="detailsModel.formitemex2.visible"
     :style="{}"
@@ -803,12 +781,65 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.rawitem8.visible"
+    v-show="detailsModel.grouppanel10.visible"
     :style="{}"
     
     
     :lg="{ span: 8, offset: 0 }"
     :xl="{ span: 8, offset: 0 }"
+>
+    <app-form-group
+    :model="detailsModel.grouppanel10"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.grouppanel10.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.productstats.main2_form.details.grouppanel10')"
+    :isShowCaption="false"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="true"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel10"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.rawitem7.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    :htmlContent='``'
+
+>
+        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;所有项目&nbsp;:&nbsp;{{data.resprojectcnt ? data.resprojectcnt : 0}}</div>
+</app-rawitem>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.rawitem8.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
 >
     <app-rawitem
     :viewparams="viewparams" 
@@ -821,6 +852,11 @@
 >
         <div style="margin-top: 6px;padding-left: 20px;">&nbsp;进行中&nbsp;:&nbsp;{{data.undoneresprojectcnt ? data.undoneresprojectcnt : 0}}</div>
 </app-rawitem>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
     

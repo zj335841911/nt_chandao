@@ -97,11 +97,6 @@ export default class Main2Model {
         name: 'formitemex1',
       },
       {
-        name: 'postponedprojectcnt',
-        prop: 'postponedprojectcnt',
-        dataType: 'INT',
-      },
-      {
         name: 'custom3',
         prop: 'resprojectcnt',
         dataType: 'INT',
@@ -113,6 +108,11 @@ export default class Main2Model {
       },
       {
         name: 'formitemex2',
+      },
+      {
+        name: 'postponedprojectcnt',
+        prop: 'postponedprojectcnt',
+        dataType: 'INT',
       },
       {
         name: 'custom5',

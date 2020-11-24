@@ -242,10 +242,10 @@ export class Main2EditFormBase extends EditFormControlBase {
         custom1: null,
         custom2: null,
         formitemex1: null,
-        postponedprojectcnt: null,
         custom3: null,
         custom4: null,
         formitemex2: null,
+        postponedprojectcnt: null,
         custom5: null,
         custom6: null,
         formitemex3: null,
@@ -358,8 +358,6 @@ export class Main2EditFormBase extends EditFormControlBase {
 
         rawitem4: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem4', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        rawitem7: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem7', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
         button2: new FormButtonModel({
     caption: '创建项目', detailType: 'BUTTON', name: 'button2', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
     disabled: false,
@@ -376,7 +374,11 @@ export class Main2EditFormBase extends EditFormControlBase {
 
         grouppanel4: new FormGroupPanelModel({ caption: '', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
 
+        rawitem7: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem7', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         rawitem8: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem8', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel10: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel10', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel9: new FormGroupPanelModel({ caption: '项目', detailType: 'GROUPPANEL', name: 'grouppanel9', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
 
@@ -529,13 +531,6 @@ export class Main2EditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        postponedprojectcnt: new FormItemModel({
-    caption: '已延期', detailType: 'FORMITEM', name: 'postponedprojectcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
         custom3: new FormItemModel({
     caption: '关联项目数', detailType: 'FORMITEM', name: 'custom3', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -552,6 +547,13 @@ export class Main2EditFormBase extends EditFormControlBase {
 
         formitemex2: new FormItemModel({
     caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: false, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        postponedprojectcnt: new FormItemModel({
+    caption: '已延期', detailType: 'FORMITEM', name: 'postponedprojectcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -684,7 +686,6 @@ export class Main2EditFormBase extends EditFormControlBase {
             this.detailsModel.rawitem4.setVisible(ret);
         }
 
-
         if (Object.is(name, '') || Object.is(name, 'resprojectcnt')) {
             let ret = false;
             const _resprojectcnt = this.data.resprojectcnt;
@@ -693,6 +694,8 @@ export class Main2EditFormBase extends EditFormControlBase {
             }
             this.detailsModel.button2.setVisible(ret);
         }
+
+
 
 
 
@@ -749,7 +752,6 @@ export class Main2EditFormBase extends EditFormControlBase {
 
 
 
-
         if (Object.is(name, '') || Object.is(name, 'resprojectcnt')) {
             let ret = false;
             const _resprojectcnt = this.data.resprojectcnt;
@@ -758,6 +760,7 @@ export class Main2EditFormBase extends EditFormControlBase {
             }
             this.detailsModel.formitemex2.setVisible(ret);
         }
+
 
 
 
