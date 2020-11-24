@@ -262,7 +262,7 @@ export class BugKanBanPanelBase extends PanelControlBase {
         if (Object.is(name, '') || Object.is(name, 'status')) {
             let ret = false;
             const _status = this.data.status;
-            if (this.$verify.testCond(_status, 'IN', '('resolved','closed')')) {
+            if (this.$verify.testCond(_status, 'NOTEQ', 'active')) {
                 ret = true;
             }
             this.detailsModel.container9.setVisible(ret);
