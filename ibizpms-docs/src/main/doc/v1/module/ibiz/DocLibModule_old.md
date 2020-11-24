@@ -59,8 +59,8 @@ hide members
 
 |查询类型||是否已收藏|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
 | --------   || --------   | ------------|------------|------------|------------|
-|Value||Value2| 允许|  | 不允许 | SRFUR__DOCLIBMODULE_NFAVOUR_BUT<br> |
 |Value||Value2| 允许|  | 不允许 | SRFUR__DOCLIBMODULE_FAVOUR_BUT<br> |
+|Value||Value2| 允许|  | 不允许 | SRFUR__DOCLIBMODULE_NFAVOUR_BUT<br> |
 
 查询类型
 
