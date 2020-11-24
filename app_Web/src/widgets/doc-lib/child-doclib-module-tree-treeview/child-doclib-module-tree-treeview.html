@@ -54,67 +54,14 @@
                 </div>
                 <div v-if="item.curData && item.curData.copyActionModel">
                     <a 
+                        v-for="(actionModel,i) in item.curData.copyActionModel"
+                        :key="i"
                         class="list-row-action" 
-                        @click="onAction(item,'deuiaction1')" 
-                        v-show="item.curData.copyActionModel['deuiaction1'].visible"
-                        :disabled="item.curData.copyActionModel['deuiaction1'].disabled">
-                        <i class='fa fa-edit'></i>
-                    </a>
-                    <a 
-                        class="list-row-action" 
-                        @click="onAction(item,'deuiaction2')" 
-                        v-show="item.curData.copyActionModel['deuiaction2'].visible"
-                        :disabled="item.curData.copyActionModel['deuiaction2'].disabled">
-                        <i class='fa fa-star-o'></i>
-                    </a>
-                    <a 
-                        class="list-row-action" 
-                        @click="onAction(item,'deuiaction3')" 
-                        v-show="item.curData.copyActionModel['deuiaction3'].visible"
-                        :disabled="item.curData.copyActionModel['deuiaction3'].disabled">
-                        <i class='fa fa-star'></i>
-                    </a>
-                    <a 
-                        class="list-row-action" 
-                        @click="onAction(item,'deuiaction1')" 
-                        v-show="item.curData.copyActionModel['deuiaction1'].visible"
-                        :disabled="item.curData.copyActionModel['deuiaction1'].disabled">
-                        <i class='fa fa-edit'></i>
-                    </a>
-                    <a 
-                        class="list-row-action" 
-                        @click="onAction(item,'deuiaction2')" 
-                        v-show="item.curData.copyActionModel['deuiaction2'].visible"
-                        :disabled="item.curData.copyActionModel['deuiaction2'].disabled">
-                        <i class='fa fa-star-o'></i>
-                    </a>
-                    <a 
-                        class="list-row-action" 
-                        @click="onAction(item,'deuiaction3')" 
-                        v-show="item.curData.copyActionModel['deuiaction3'].visible"
-                        :disabled="item.curData.copyActionModel['deuiaction3'].disabled">
-                        <i class='fa fa-star'></i>
-                    </a>
-                    <a 
-                        class="list-row-action" 
-                        @click="onAction(item,'deuiaction1')" 
-                        v-show="item.curData.copyActionModel['deuiaction1'].visible"
-                        :disabled="item.curData.copyActionModel['deuiaction1'].disabled">
-                        <i class='fa fa-edit'></i>
-                    </a>
-                    <a 
-                        class="list-row-action" 
-                        @click="onAction(item,'deuiaction2')" 
-                        v-show="item.curData.copyActionModel['deuiaction2'].visible"
-                        :disabled="item.curData.copyActionModel['deuiaction2'].disabled">
-                        <i class='fa fa-star-o'></i>
-                    </a>
-                    <a 
-                        class="list-row-action" 
-                        @click="onAction(item,'deuiaction3')" 
-                        v-show="item.curData.copyActionModel['deuiaction3'].visible"
-                        :disabled="item.curData.copyActionModel['deuiaction3'].disabled">
-                        <i class='fa fa-star'></i>
+                        @click="onAction(item,actionModel.ctrlname,actionModel.name)" 
+                        v-show="actionModel.visible"
+                        :disabled="actionModel.disabled">
+                        <i v-if="actionModel.imgclass" :class="actionModel.imgclass"></i>
+                        <span>{{ actionModel.caption }}</span>
                     </a>
                 </div>
             </div>

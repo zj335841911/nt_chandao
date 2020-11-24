@@ -319,10 +319,10 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      * @memberof DocLibTreeProductBase
      */
      public actionModel: any = {
-        docLib_deuiaction1: {name:'deuiaction1',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'EditDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
-        docLib_deuiaction2: {name:'deuiaction2',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
-        docLib_deuiaction3: {name:'deuiaction3',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visible: true, disabled: false},
-        docLib_deuiaction4: {name:'deuiaction4',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visible: true, disabled: false},
+        docLib_deuiaction1: {ctrlname: 'doclib_cm',name:'deuiaction1',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'EditDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
+        docLib_deuiaction2: {ctrlname: 'doclib_cm',name:'deuiaction2',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
+        docLib_deuiaction3: {ctrlname: 'doclib_cm',name:'deuiaction3',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
+        docLib_deuiaction4: {ctrlname: 'doclib_cm',name:'deuiaction4',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
     }
 
     /**
@@ -533,19 +533,19 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      * @memberof DocLibTreeProductBase
      */
     public async getNodeState(node: any) {
-        this.copyActionModel = {};
+        let copyActionModel = {};
         const tags: string[] = node.id.split(';');
         Object.values(this.actionModel).forEach((item:any) =>{
             if(Object.is(item.nodeOwner,tags[0])){
-                this.copyActionModel[item.name] = item;
+                copyActionModel[item.name] = item;
             }
         })
-        if(Object.keys(this.copyActionModel).length === 0){
+        if(Object.keys(copyActionModel).length === 0){
             return;
         }
         const result = await this.computeNodeState(node,node.nodeType,node.appEntityName)
         if(Object.values(result).length>0){
-            node.curData.copyActionModel = JSON.parse(JSON.stringify(this.copyActionModel));
+            node.curData.copyActionModel = JSON.parse(JSON.stringify(copyActionModel));
         }
     }
 
@@ -585,10 +585,10 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      * @param {*} tag 触发行为标识
      * @memberof DocLibTreeProductBase
      */
-    public onAction(item: any,tag: string) {
+    public onAction(item: any,ctrlname: string,tag: string) {
         let _this:any = this;
         this.currentselectedNode = JSON.parse(JSON.stringify(item));
-        if (_this.doclib_cm_click && _this.doclib_cm_click instanceof Function) {
+        if (Object.is('doclib_cm',ctrlname) && _this.doclib_cm_click && _this.doclib_cm_click instanceof Function) {
             _this.doclib_cm_click({ tag: tag });
         }           
     }
