@@ -118,6 +118,12 @@ export default {
 		uiactions: {
 		},
 	},
+	editviewmaintoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	usr2gridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
@@ -126,12 +132,6 @@ export default {
 		deuiaction3: {
 			caption: "保存行",
 			tip: "保存行",
-		},
-	},
-	editviewmaintoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 	editviewtoolbar_toolbar: {

@@ -249,6 +249,12 @@ export default {
 			root: "默认根节点",
 		},
 		uiactions: {
+        doclibmodule_edit: "编辑",
+        doclibmodule_favorite: "收藏",
+        doclibmodule_nfavorite: "取消收藏",
+        doc_edit: "编辑",
+        doc_collect: "收藏",
+        doc_uncollect: "取消收藏",
 		},
 	},
 	doclibtreeproject_treeview: {
@@ -297,6 +303,9 @@ export default {
 			root: "默认根节点",
 		},
 		uiactions: {
+        doc_edit: "编辑",
+        doc_collect: "收藏",
+        doc_uncollect: "取消收藏",
         doclibmodule_edit: "编辑",
         doclibmodule_favorite: "收藏",
         doclibmodule_nfavorite: "取消收藏",

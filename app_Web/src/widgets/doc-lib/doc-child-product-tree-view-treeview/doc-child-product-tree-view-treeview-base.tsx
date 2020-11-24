@@ -4,6 +4,7 @@ import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import DocLibService from '@/service/doc-lib/doc-lib-service';
 import DocChildProductTreeViewService from './doc-child-product-tree-view-treeview-service';
+import DocUIService from '@/uiservice/doc/doc-ui-service';
 import DocLibModuleUIService from '@/uiservice/doc-lib-module/doc-lib-module-ui-service';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
 
@@ -67,6 +68,25 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
     public appUIService: DocLibUIService = new DocLibUIService(this.$store);
 
     /**
+     * zimuludoc_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof DocChildProductTreeViewTreeBase
+     */
+    public zimuludoc_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.zimuludoc_cm_deuiaction1_click(null, 'zimuludoc_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.zimuludoc_cm_deuiaction2_click(null, 'zimuludoc_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction3')) {
+            this.zimuludoc_cm_deuiaction3_click(null, 'zimuludoc_cm', $event2);
+        }
+    }
+
+    /**
      * childmodule_cm 部件 click 事件
      *
      * @param {*} [args={}]
@@ -83,6 +103,93 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
         if (Object.is($event.tag, 'deuiaction3')) {
             this.childmodule_cm_deuiaction3_click(null, 'childmodule_cm', $event2);
         }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public zimuludoc_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_Edit(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public zimuludoc_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_Collect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public zimuludoc_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_UnCollect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -288,6 +395,9 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
      * @memberof DocChildProductTreeViewBase
      */
      public actionModel: any = {
+        ZiMuluDoc_deuiaction1: {name:'deuiaction1',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
+        ZiMuluDoc_deuiaction2: {name:'deuiaction2',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false},
+        ZiMuluDoc_deuiaction3: {name:'deuiaction3',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false},
         ChildModule_deuiaction1: {name:'deuiaction1',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
         ChildModule_deuiaction2: {name:'deuiaction2',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false},
         ChildModule_deuiaction3: {name:'deuiaction3',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false},
@@ -556,6 +666,9 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
     public onAction(item: any,tag: string) {
         let _this:any = this;
         this.currentselectedNode = JSON.parse(JSON.stringify(item));
+        if (_this.zimuludoc_cm_click && _this.zimuludoc_cm_click instanceof Function) {
+            _this.zimuludoc_cm_click({ tag: tag });
+        }           
         if (_this.childmodule_cm_click && _this.childmodule_cm_click instanceof Function) {
             _this.childmodule_cm_click({ tag: tag });
         }           
