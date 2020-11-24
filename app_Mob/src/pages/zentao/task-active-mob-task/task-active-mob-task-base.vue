@@ -28,7 +28,7 @@
             updateAction="Activate"
             removeAction="Remove"
             loaddraftAction="GetDraft"
-            loadAction="Get"
+            loadAction="GetTeamUserLeftActivity"
             createAction="Activate"
             WFSubmitAction=""
             WFStartAction=""
