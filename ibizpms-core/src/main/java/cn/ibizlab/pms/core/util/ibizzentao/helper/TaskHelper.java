@@ -148,6 +148,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
 
         if (StringUtils.compare(multiple, StaticDict.YesNo.ITEM_1.getValue()) == 0 && taskTeams != null && !taskTeams.isEmpty()) {
+            int i = taskTeams.size();
             for (TaskTeam taskTeam : taskTeams) {
                 if (taskTeam.getAccount() == null || "".equals(taskTeam.getAccount())) {
                     continue;
@@ -162,7 +163,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 team.setLeft(taskTeam.getEstimate());
                 team.setDays(0);
                 team.setHours(0.0);
+                team.setOrder(i);
                 teamHelper.create(team);
+                i--;
             }
             this.internalUpdate(et);
 
