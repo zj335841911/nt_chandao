@@ -164,7 +164,7 @@ export class BugKanBanKanbanBase extends MainControlBase {
      * @type {boolean}
      * @memberof BugKanBanBase
      */
-    public isEnablePagingBar: boolean = false;;
+    public isEnablePagingBar: boolean = true;;
 
     /**
      * 总条数
@@ -203,7 +203,7 @@ export class BugKanBanKanbanBase extends MainControlBase {
      * @type {number}
      * @memberof BugKanBanBase
      */
-    public limit: number = 1000;
+    public limit: number = 100;
 
     /**
      * 排序方向
@@ -272,11 +272,6 @@ export class BugKanBanKanbanBase extends MainControlBase {
      *  @memberof BugKanBanBase
      */    
     public afterMounted(){
-        this.$el.addEventListener('scroll', ()=> {
-            if( this.$el.scrollTop +  this.$el.clientHeight  >=  this.$el.scrollHeight) {
-                this.loadMore();
-            }
-        })
     }
 
     /**
