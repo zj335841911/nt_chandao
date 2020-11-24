@@ -829,19 +829,19 @@ export class DocLibTreeCustRootTreeBase extends MainControlBase {
      * @memberof DocLibTreeCustRootBase
      */
     public async getNodeState(node: any) {
-        let copyActionModel = {};
+        this.copyActionModel = {};
         const tags: string[] = node.id.split(';');
         Object.values(this.actionModel).forEach((item:any) =>{
             if(Object.is(item.nodeOwner,tags[0])){
-                copyActionModel[item.name] = item;
+                this.copyActionModel[item.name] = item;
             }
         })
-        if(Object.keys(copyActionModel).length === 0){
+        if(Object.keys(this.copyActionModel).length === 0){
             return;
         }
         const result = await this.computeNodeState(node,node.nodeType,node.appEntityName)
         if(Object.values(result).length>0){
-            node.curData.copyActionModel = JSON.parse(JSON.stringify(copyActionModel));
+            node.curData.copyActionModel = JSON.parse(JSON.stringify(this.copyActionModel));
         }
     }
 
