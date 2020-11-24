@@ -483,7 +483,7 @@
     :model="detailsModel.grouppanel8"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=""
+    class=" group-projectstats"
     :uiActionGroup="detailsModel.grouppanel8.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.productstats.main2_form.details.grouppanel8')"
@@ -519,7 +519,7 @@
     :htmlContent='``'
 
 >
-        <div style="margin-top: 46px;padding-left: 20px;">&nbsp;所有计划&nbsp;<b>{{data.productplancnt ? data.productplancnt : 0}}</b></div>
+        <div style="margin-top: 46px;padding-left: 20px;">&nbsp;所有计划&nbsp;:&nbsp;<b>{{data.productplancnt ?  data.productplancnt : 0}}</b></div>
 </app-rawitem>
 
 </i-col>
@@ -629,7 +629,7 @@
     :htmlContent='``'
 
 >
-        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;未过期&nbsp;<b>{{data.unendproductplancnt ? data.unendproductplancnt : 0}}</b></div>
+        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;未过期&nbsp;:&nbsp;<b>{{data.unendproductplancnt ?  data.unendproductplancnt : 0}}</b></div>
 </app-rawitem>
 
 </i-col>
@@ -651,7 +651,7 @@
     :model="detailsModel.grouppanel9"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=""
+    class=" group-projectstats"
     :uiActionGroup="detailsModel.grouppanel9.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.productstats.main2_form.details.grouppanel9')"
@@ -709,7 +709,7 @@
     :htmlContent='``'
 
 >
-        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;所有项目&nbsp;<b>{{data.resprojectcnt ? data.resprojectcnt : 0}}</b></div>
+        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;所有项目&nbsp;:&nbsp;<b>{{data.resprojectcnt ?  data.resprojectcnt : 0}}</b></div>
 </app-rawitem>
 
 </i-col>
@@ -819,7 +819,7 @@
     :htmlContent='``'
 
 >
-        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;进行中&nbsp;<b>{{data.undoneresprojectcnt ? data.undoneresprojectcnt : 0}}</b></div>
+        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;进行中&nbsp;:&nbsp;<b>{{data.undoneresprojectcnt ?  data.undoneresprojectcnt : 0}}</b></div>
 </app-rawitem>
 
 </i-col>
@@ -841,7 +841,7 @@
     :model="detailsModel.grouppanel11"
     layoutType="TABLE_24COL"
     titleStyle=""
-    class=""
+    class=" group-projectstats"
     :uiActionGroup="detailsModel.grouppanel11.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.productstats.main2_form.details.grouppanel11')"
@@ -877,7 +877,7 @@
     :htmlContent='``'
 
 >
-        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;所有发布&nbsp;<b>{{data.releasecnt ? data.releasecnt : 0}}</b></div>
+        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;所有发布&nbsp;:&nbsp;<b>{{data.releasecnt ?  data.releasecnt : 0}}</b></div>
 </app-rawitem>
 
 </i-col>
@@ -987,7 +987,7 @@
     :htmlContent='``'
 
 >
-        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;维护中&nbsp;<b>{{data.normalreleasecnt ? data.normalreleasecnt : 0}}</b></div>
+        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;维护中&nbsp;:&nbsp;<b>{{data.normalreleasecnt ?  data.normalreleasecnt : 0}}</b></div>
 </app-rawitem>
 
 </i-col>
