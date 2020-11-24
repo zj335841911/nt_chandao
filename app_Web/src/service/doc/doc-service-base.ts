@@ -268,7 +268,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/docs/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -326,7 +326,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchDocLibDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchdoclibdoc`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/docs/fetchdoclibdoc`,tempData,isloading);
         return res;
     }
 
@@ -355,7 +355,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchDocModuleDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchdocmoduledoc`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/docs/fetchdocmoduledoc`,tempData,isloading);
         return res;
     }
 
@@ -442,7 +442,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchMyFavourite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchmyfavourite`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/docs/fetchmyfavourite`,tempData,isloading);
         return res;
     }
 

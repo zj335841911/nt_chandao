@@ -301,7 +301,7 @@ POST
 /docs/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -373,7 +373,7 @@ POST
 /docs/fetchdoclibdoc
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -409,7 +409,7 @@ POST
 /docs/fetchdocmoduledoc
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -517,7 +517,7 @@ POST
 /docs/fetchmyfavourite
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
