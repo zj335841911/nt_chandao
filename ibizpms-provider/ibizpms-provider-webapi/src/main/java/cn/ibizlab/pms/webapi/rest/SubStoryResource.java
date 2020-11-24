@@ -1775,7 +1775,7 @@ public class SubStoryResource {
         context.setN_parent_eq(story_id);
         Page<Story> domains = storyService.searchByModule(context) ;
         List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
-	    return ResponseEntity.status(HttpStatus.CREATED)
+	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
                 .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
                 .header("x-total", String.valueOf(domains.getTotalElements()))
@@ -1788,7 +1788,7 @@ public class SubStoryResource {
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryByModuleByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
         context.setN_parent_eq(story_id);
         Page<Story> domains = storyService.searchByModule(context) ;
-	    return ResponseEntity.status(HttpStatus.CREATED)
+	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all')")
@@ -1936,7 +1936,7 @@ public class SubStoryResource {
         context.setN_parent_eq(story_id);
         Page<Story> domains = storyService.searchParentDefault(context) ;
         List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
-	    return ResponseEntity.status(HttpStatus.CREATED)
+	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
                 .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
                 .header("x-total", String.valueOf(domains.getTotalElements()))
@@ -1949,7 +1949,7 @@ public class SubStoryResource {
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryParentDefaultByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
         context.setN_parent_eq(story_id);
         Page<Story> domains = storyService.searchParentDefault(context) ;
-	    return ResponseEntity.status(HttpStatus.CREATED)
+	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefaultQ-all')")
@@ -2875,7 +2875,7 @@ public class SubStoryResource {
         context.setN_parent_eq(story_id);
         Page<Story> domains = storyService.searchByModule(context) ;
         List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
-	    return ResponseEntity.status(HttpStatus.CREATED)
+	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
                 .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
                 .header("x-total", String.valueOf(domains.getTotalElements()))
@@ -2888,7 +2888,7 @@ public class SubStoryResource {
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryByModuleByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
         context.setN_parent_eq(story_id);
         Page<Story> domains = storyService.searchByModule(context) ;
-	    return ResponseEntity.status(HttpStatus.CREATED)
+	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all')")
@@ -3036,7 +3036,7 @@ public class SubStoryResource {
         context.setN_parent_eq(story_id);
         Page<Story> domains = storyService.searchParentDefault(context) ;
         List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
-	    return ResponseEntity.status(HttpStatus.CREATED)
+	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
                 .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
                 .header("x-total", String.valueOf(domains.getTotalElements()))
@@ -3049,7 +3049,7 @@ public class SubStoryResource {
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryParentDefaultByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
         context.setN_parent_eq(story_id);
         Page<Story> domains = storyService.searchParentDefault(context) ;
-	    return ResponseEntity.status(HttpStatus.CREATED)
+	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefaultQ-all')")
