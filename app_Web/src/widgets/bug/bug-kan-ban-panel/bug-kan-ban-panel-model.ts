@@ -42,6 +42,7 @@ export default class BugKanBanModel {
       },
       {
         name: 'resolvedby',
+        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
         prop: 'resolvedby'
       },
       {
@@ -54,6 +55,7 @@ export default class BugKanBanModel {
       },
       {
         name: 'closedby',
+        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
         prop: 'closedby'
       },
       {

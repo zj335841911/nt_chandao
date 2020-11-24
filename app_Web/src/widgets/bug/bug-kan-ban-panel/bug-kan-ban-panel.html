@@ -93,7 +93,7 @@
                                 <i-col v-show="detailsModel.container4.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
                             <row style="height:100%;">
                                         
-                                <i-col v-show="detailsModel.rawitem5.visible"  :md="{ span: 6, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                                <i-col v-show="detailsModel.rawitem5.visible"  :md="{ span: 4, offset: 0 }" :lg="{ span: 4, offset: 0 }" style="" class="app-layoutpanel-rowitem">
                                     <app-rawitem
                                     :viewparams="viewparams" 
                                     :context="context"
@@ -102,13 +102,13 @@
                                     contentType="RAW"
                                     :htmlContent='``'
                                 >
-                                        截至日期
+                                        截止日期
                                 </app-rawitem>
                                 
                                 
                                 </i-col>
                                         
-                                <i-col v-show="detailsModel.deadline.visible"  :md="{ span: 6, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-field">
+                                <i-col v-show="detailsModel.deadline.visible"  :md="{ span: 8, offset: 0 }" :lg="{ span: 8, offset: 0 }" style="" class="app-layoutpanel-field">
                                     <div class="item-field">
                                     
                                     <div class="item-field-content">
@@ -189,7 +189,7 @@
                                     
                                     <div class="item-field-content">
                                     
-                                <app-span :value="data.resolvedby" name="resolvedby" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+                                <app-span :value="data.resolvedby" name="resolvedby" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  tag='UserRealName' codelistType='DYNAMIC'   style=""
                                 > </app-span> 
                                 
                                     </div>
@@ -265,7 +265,7 @@
                                     
                                     <div class="item-field-content">
                                     
-                                <app-span :value="data.closedby" name="closedby" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+                                <app-span :value="data.closedby" name="closedby" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  tag='UserRealName' codelistType='DYNAMIC'   style=""
                                 > </app-span> 
                                 
                                     </div>
