@@ -1,8 +1,9 @@
 <template>
   <div class="container">
     <div  class="onecontent" ref="onecontent">   
-      <div v-for="item in items" :key="item.id" class="oneitem" ref="oneitem">
-            <div class="header"><span>{{item.date}}</span> <span>{{item.method}}</span></div>
+      <div v-for="(item,index2) in items" :key="item.id" class="oneitem" ref="oneitem">
+            <template v-if="index2 < 3 || isShow">
+                <div class="header"><span>{{item.date}}</span> <span>{{item.method}}</span></div>
             <div v-if="item.item.length > 0" class="footer">
               <div v-for="(detail,index) in item.item" :key="index">
                 <span>{{$t('by')}} </span>
@@ -51,6 +52,7 @@
                   </span>
                 </span>
             </div>
+            </template>
       </div>
     </div>
     <div class="loadMorebutton" v-if="items.length > 3" ref="loadMore">
@@ -139,7 +141,6 @@ export default class APPHistoryList extends Vue {
             this.text = '暂无更多记录';
         }
         this.handler();
-        this.setHeight();
     }
 
     /**
@@ -296,21 +297,6 @@ export default class APPHistoryList extends Vue {
     public loadMore(): void {
         this.isShow = !this.isShow;
         this.text = this.isShow ? '收起' : '查看更多记录';
-        let ele: any = document.querySelector('.onecontent');
-        let ite: any = document.querySelectorAll('.oneitem');
-        this.startHeig = 0;
-        this.endHeig = 0;
-        for (let i = 0; i < this.num; i++) {
-            if (ite[i] != undefined) {
-                this.startHeig += ite[i].offsetHeight;
-            }
-        }
-        for (let i = 0; i <= ite.length; i++) {
-            if (ite[i] != undefined) {
-                this.endHeig += ite[i].offsetHeight;
-            }
-        }
-        ele.style.height = this.isShow ? this.endHeig + 'px' : + this.startHeig + 'px';
     }
 
     /**
@@ -334,34 +320,7 @@ export default class APPHistoryList extends Vue {
         this.userData = await this.codeListService.getItems("UserRealName");
     }
 
-    /**
-     * 设置初始高度
-     *
-     * @returns {void}
-     * @memberof APPHistoryList
-     */
-    public setHeight() {
-        let ele: any = document.querySelector('.onecontent');
-        let ite: any = this.$refs.oneitem;
-        if (ite !== undefined) {
-            for (let i: any = 0; i < this.num; i++) {
-                if (ite[i] !== undefined) {
-                    this.startHeig += ite[i].offsetHeight;
-                }
-            }
-        }
-        if (ele && ele.style) {
-            ele.style.height = this.startHeig + 'px';
-        }
-        const userAgent: string = navigator.userAgent;
-        let isIOS = (userAgent: string) => /iphone/i.test(userAgent) || /ipod/i.test(userAgent) || /iPad/i.test(userAgent);
-        if (isIOS(userAgent)) {
-            let loadMore: any = this.$refs.loadMore;
-            if (loadMore) {
-                loadMore.style.marginBottom = "10px";
-            }
-        }
-    }
+  
 
     /**
      * 生命周期mounted
@@ -370,7 +329,6 @@ export default class APPHistoryList extends Vue {
      * @memberof APPHistoryList
      */
     public mounted() {
-        this.setHeight();
     }
 
 }
