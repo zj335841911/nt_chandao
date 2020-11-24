@@ -98,16 +98,16 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         et.setStage(et.getProject() != null && et.getProject() > 0 ? StaticDict.Story__stage.PROJECTED.getValue() : et.getPlan() != null && !"".equals(et.getPlan()) && !"0".equals(et.getPlan()) ? StaticDict.Story__stage.PLANNED.getValue() : StaticDict.Story__stage.WAIT.getValue());
         String files = et.getFiles();//获取需求附件
         String noticeusers = et.getNoticeusers();//获取需求的消息通知用户
+        StorySpec storySpec = new StorySpec();
+        storySpec.setTitle(et.getTitle());//将需求的需求名称给到需求描述对象的“需求名称”字段
+        storySpec.setSpec(et.getSpec());//将需求的需求描述给到需求描述对象的“需求描述”字段    可同上合并
+        storySpec.setVerify(et.getVerify());//将需求的验收标准给到需求描述对象的“验收标准”字段  可同上合并
         super.create(et);//调用父类的create（）
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.STORY.getValue(), files, String.valueOf(et.getVersion()));//更新附件
         fileHelper.saveUpload(StaticDict.Action__object_type.STORY.getValue(), et.getId(), "", "", "");
 
         //storyspec create
-        StorySpec storySpec = new StorySpec();
         storySpec.setStory(et.getId());//将需求的编号值给到需求描述对象的“需求”字段
-        storySpec.setTitle(et.getTitle());//将需求的需求名称给到需求描述对象的“需求名称”字段
-        storySpec.setSpec(et.getSpec());//将需求的需求描述给到需求描述对象的“需求描述”字段    可同上合并
-        storySpec.setVerify(et.getVerify());//将需求的验收标准给到需求描述对象的“验收标准”字段  可同上合并
         storySpec.setVersion(1);//需求描述对象的版本号设置为1
         storySpecHelper.create(storySpec);
 
