@@ -5729,7 +5729,7 @@ POST
 | 63 | delay | String | 允许 | 延期 |
 | 64 | mailtopk | String | 允许 | 抄送给 |
 | 65 | mailtoconact | String | 允许 | 联系人 |
-| 66 | statusorder | Integer | 允许 | 属性 |
+| 66 | statusorder | Integer | 允许 | 排序 |
 | 67 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskSearchContext

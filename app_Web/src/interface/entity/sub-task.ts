@@ -543,7 +543,7 @@ export interface SubTask {
     mailtoconact?: any;
 
     /**
-     * 属性
+     * 排序
      *
      * @returns {*}
      * @memberof SubTask

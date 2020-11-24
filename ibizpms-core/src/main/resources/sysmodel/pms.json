@@ -33086,7 +33086,7 @@
     {
     "fieldname":"STATUSORDER" ,
     "codename":"Statusorder",
-    "field_logic_name":"属性",
+    "field_logic_name":"排序",
     "entity_name":"Task",
     "field_type":"INT",
     "nullable":1,

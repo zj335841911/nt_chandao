@@ -538,7 +538,7 @@ public class Task extends EntityMP implements Serializable {
     @JsonProperty("mailtoconact")
     private String mailtoconact;
     /**
-     * 属性
+     * 排序
      */
     @TableField(exist = false)
     @JSONField(name = "statusorder")

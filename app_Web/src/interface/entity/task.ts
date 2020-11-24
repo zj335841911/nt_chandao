@@ -543,7 +543,7 @@ export interface Task {
     mailtoconact?: any;
 
     /**
-     * 属性
+     * 排序
      *
      * @returns {*}
      * @memberof Task

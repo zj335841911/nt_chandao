@@ -96,7 +96,7 @@
 | 65 | [延期](#属性-延期（DELAY）) | DELAY | 文本，可指定长度 | 否 | 是 | 是 |
 | 66 | [抄送给](#属性-抄送给（MAILTOPK）) | MAILTOPK | 多项选择(文本值) | 否 | 是 | 是 |
 | 67 | [联系人](#属性-联系人（MAILTOCONACT）) | MAILTOCONACT | 文本，可指定长度 | 否 | 是 | 是 |
-| 68 | [属性](#属性-属性（STATUSORDER）) | STATUSORDER | 整型 | 否 | 是 | 是 |
+| 68 | [排序](#属性-排序（STATUSORDER）) | STATUSORDER | 整型 | 否 | 是 | 是 |
 
 ### 属性-由谁取消（CANCELEDBY）
 #### 属性说明
@@ -3010,9 +3010,9 @@ String
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
-### 属性-属性（STATUSORDER）
+### 属性-排序（STATUSORDER）
 #### 属性说明
-属性
+排序
 
 - 是否是主键
 否
