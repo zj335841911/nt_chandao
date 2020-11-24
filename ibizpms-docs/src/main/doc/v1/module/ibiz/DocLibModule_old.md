@@ -65,10 +65,44 @@ hide members
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|取消收藏|实体处理逻辑|&nbsp;|
+|收藏|实体处理逻辑|&nbsp;|
 |重建模块路径|实体处理逻辑|&nbsp;|
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
+* 文档库收藏 (DocLibModuleFavorite)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+文档库分类 -> 文档库分类: 准备参数
+文档库分类 -> 收藏: 收藏
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|准备参数 |
+|2|收藏 |
+<center>文档库收藏</center>
+* 文档库取消收藏 (DoclibModuleNFavorite)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+文档库分类 -> 文档库分类: 取消收藏
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|取消收藏 |
+<center>文档库取消收藏</center>
 * 重建模块路径 (FixPath)
   
    

@@ -120,6 +120,28 @@ public class DocLibModuleResource {
         return  ResponseEntity.status(HttpStatus.OK).body(doclibmoduleService.checkKey(doclibmoduleMapping.toDomain(doclibmoduledto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-DocLibModuleNFavorite-all')")
+    @ApiOperation(value = "取消收藏", tags = {"文档库分类" },  notes = "取消收藏")
+	@RequestMapping(method = RequestMethod.POST, value = "/doclibmodules/{doclibmodule_id}/doclibmodulenfavorite")
+    public ResponseEntity<DocLibModuleDTO> docLibModuleNFavorite(@PathVariable("doclibmodule_id") Long doclibmodule_id, @RequestBody DocLibModuleDTO doclibmoduledto) {
+        DocLibModule domain = doclibmoduleMapping.toDomain(doclibmoduledto);
+        domain.setId(doclibmodule_id);
+        domain = doclibmoduleService.docLibModuleNFavorite(domain);
+        doclibmoduledto = doclibmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(doclibmoduledto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-DoclibModuleFavorite-all')")
+    @ApiOperation(value = "收藏", tags = {"文档库分类" },  notes = "收藏")
+	@RequestMapping(method = RequestMethod.POST, value = "/doclibmodules/{doclibmodule_id}/doclibmodulefavorite")
+    public ResponseEntity<DocLibModuleDTO> doclibModuleFavorite(@PathVariable("doclibmodule_id") Long doclibmodule_id, @RequestBody DocLibModuleDTO doclibmoduledto) {
+        DocLibModule domain = doclibmoduleMapping.toDomain(doclibmoduledto);
+        domain.setId(doclibmodule_id);
+        domain = doclibmoduleService.doclibModuleFavorite(domain);
+        doclibmoduledto = doclibmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(doclibmoduledto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-Fix-all')")
     @ApiOperation(value = "重建模块路径", tags = {"文档库分类" },  notes = "重建模块路径")
 	@RequestMapping(method = RequestMethod.POST, value = "/doclibmodules/{doclibmodule_id}/fix")

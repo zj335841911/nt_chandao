@@ -155,6 +155,34 @@ export default class DocLibModuleServiceBase extends EntityService {
     }
 
     /**
+     * DocLibModuleNFavorite接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async DocLibModuleNFavorite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/doclibmodulenfavorite`,data,isloading);
+            return res;
+    }
+
+    /**
+     * DoclibModuleFavorite接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async DoclibModuleFavorite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/doclibmodulefavorite`,data,isloading);
+            return res;
+    }
+
+    /**
      * Fix接口方法
      *
      * @param {*} [context={}]

@@ -748,8 +748,10 @@ String
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [重建模块路径](#实体行为-重建模块路径（Fix）) | Fix | 实体处理逻辑 | 后台 |
-| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 7 | [取消收藏](#实体行为-取消收藏（DocLibModuleNFavorite）) | DocLibModuleNFavorite | 实体处理逻辑 | 后台 |
+| 8 | [收藏](#实体行为-收藏（DoclibModuleFavorite）) | DoclibModuleFavorite | 实体处理逻辑 | 后台 |
+| 9 | [重建模块路径](#实体行为-重建模块路径（Fix）) | Fix | 实体处理逻辑 | 后台 |
+| 10 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -827,6 +829,30 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-取消收藏（DocLibModuleNFavorite）
+#### 说明
+取消收藏
+
+- 行为类型
+实体处理逻辑
+
+- 行为持有者
+后台
+
+#### 逻辑附加
+无
+### 实体行为-收藏（DoclibModuleFavorite）
+#### 说明
+收藏
+
+- 行为类型
+实体处理逻辑
+
+- 行为持有者
+后台
+
+#### 逻辑附加
+无
 ### 实体行为-重建模块路径（Fix）
 #### 说明
 重建模块路径
@@ -855,8 +881,35 @@ Save
 ## 逻辑处理
 | 序号 | 逻辑 | 逻辑名 | 逻辑持有者 |
 | ---- | ---- | ---- | ---- |
-| 1 | [重建模块路径](#逻辑处理-重建模块路径（FixPath）) | FixPath | 后台 |
+| 1 | [文档库收藏](#逻辑处理-文档库收藏（DocLibModuleFavorite）) | DocLibModuleFavorite | 后台 |
+| 2 | [文档库取消收藏](#逻辑处理-文档库取消收藏（DoclibModuleNFavorite）) | DoclibModuleNFavorite | 后台 |
+| 3 | [重建模块路径](#逻辑处理-重建模块路径（FixPath）) | FixPath | 后台 |
 
+### 逻辑处理-文档库收藏（DocLibModuleFavorite）
+#### 说明
+文档库收藏
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 收藏 | Deaction1 | 实体行为 |
+| 2 | 开始 | Begin | 开始 |
+| 3 | 准备参数 | Prepareparam1 | 准备参数 |
+### 逻辑处理-文档库取消收藏（DoclibModuleNFavorite）
+#### 说明
+文档库取消收藏
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 开始 | Begin | 开始 |
+| 2 | 取消收藏 | Rawsqlcall1 | 直接SQL调用 |
 ### 逻辑处理-重建模块路径（FixPath）
 #### 说明
 重建模块路径

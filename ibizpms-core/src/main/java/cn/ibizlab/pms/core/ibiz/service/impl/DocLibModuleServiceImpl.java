@@ -58,6 +58,14 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleFixPathLogic fixpathLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleDoclibModuleNFavoriteLogic doclibmodulenfavoriteLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleDocLibModuleFavoriteLogic doclibmodulefavoriteLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -134,6 +142,20 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     public boolean checkKey(DocLibModule et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
+    @Override
+    @Transactional
+    public DocLibModule docLibModuleNFavorite(DocLibModule et) {
+        doclibmodulenfavoriteLogic.execute(et);
+         return et;
+    }
+
+    @Override
+    @Transactional
+    public DocLibModule doclibModuleFavorite(DocLibModule et) {
+        doclibmodulefavoriteLogic.execute(et);
+         return et;
+    }
+
     @Override
     @Transactional
     public DocLibModule fix(DocLibModule et) {
