@@ -64,10 +64,10 @@ export default class TreeDocLibModel {
         name: 'modulename',
       },
       {
-        name: 'isfavorite',
+        name: 'docqtype',
       },
       {
-        name: 'docqtype',
+        name: 'isfavourites',
       },
     ]
   }

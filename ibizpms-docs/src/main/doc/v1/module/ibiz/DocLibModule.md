@@ -37,8 +37,8 @@
 | 14 | [id](#属性-id（PARENT）) | PARENT | 外键值 | 否 | 是 | 是 |
 | 15 | [所属文档库](#属性-所属文档库（DOCLIBNAME）) | DOCLIBNAME | 外键值文本 | 否 | 是 | 是 |
 | 16 | [上级模块](#属性-上级模块（MODULENAME）) | MODULENAME | 外键值文本 | 否 | 是 | 是 |
-| 17 | [是否收藏](#属性-是否收藏（ISFAVORITE）) | ISFAVORITE | 文本，可指定长度 | 否 | 是 | 是 |
-| 18 | [查询类型](#属性-查询类型（DOCQTYPE）) | DOCQTYPE | 文本，可指定长度 | 否 | 是 | 是 |
+| 17 | [查询类型](#属性-查询类型（DOCQTYPE）) | DOCQTYPE | 文本，可指定长度 | 否 | 是 | 是 |
+| 18 | [是否已收藏](#属性-是否已收藏（ISFAVOURITES）) | ISFAVOURITES | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-叶子模块（ISLEAF）
 #### 属性说明
@@ -737,49 +737,6 @@ String
 | 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
-### 属性-是否收藏（ISFAVORITE）
-#### 属性说明
-是否收藏
-
-- 是否是主键
-否
-
-- 属性类型
-逻辑字段[来自计算式]
-
-- 数据类型
-文本，可指定长度
-
-- Java类型
-String
-
-- 是否允许为空
-是
-
-- 默认值
-无
-
-- 取值范围/公式
-```SQL
-0
-```
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-无
-
-#### 关系属性
-| 项目 | 说明 |
-| ---- | ---- |
-| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
-| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
-| 关系类型 | 关系实体 1:N 当前实体 |
-
 ### 属性-查询类型（DOCQTYPE）
 #### 属性说明
 查询类型
@@ -821,9 +778,52 @@ String
 | 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-是否已收藏（ISFAVOURITES）
+#### 属性说明
+是否已收藏
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
-| 序号 | 状态名称 | [查询类型](#属性-查询类型（DOCQTYPE）)<br>（DOCQTYPE） | [是否收藏](#属性-是否收藏（ISFAVORITE）)<br>（ISFAVORITE） | 默认 |
+| 序号 | 状态名称 | [查询类型](#属性-查询类型（DOCQTYPE）)<br>（DOCQTYPE） | [是否已收藏](#属性-是否已收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 默认 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | [模块_未收藏](#业务状态-模块_未收藏（module_0）) | module_0 |  |  | 否 |
 | 2 | [模块_已收藏](#业务状态-模块_已收藏（module_1）) | module_1 |  |  | 否 |
@@ -838,7 +838,7 @@ String
 | 属性名 | 状态值 |
 | ---- | ---- |
 | [查询类型](#属性-查询类型（DOCQTYPE）)<br>（DOCQTYPE） | module_0 |
-| [是否收藏](#属性-是否收藏（ISFAVORITE）)<br>（ISFAVORITE） |  |
+| [是否已收藏](#属性-是否已收藏（ISFAVOURITES）)<br>（ISFAVOURITES） |  |
 
 
 - 流程相关状态
@@ -851,6 +851,9 @@ String
 #### 操作权限控制
 允许模式：拒绝
 拒绝提示信息：无
+| 序号 | 操作权限 |
+| ---- | ---- |
+| 1 | [取消收藏文档库分类](#操作权限-取消收藏文档库分类（SRFUR__DOCLIBMODULE_NFAVOUR_BUT）)<br>（SRFUR__DOCLIBMODULE_NFAVOUR_BUT） |
 ### 业务状态-模块_已收藏（module_1）
 #### 状态说明
 模块_已收藏
@@ -862,7 +865,7 @@ String
 | 属性名 | 状态值 |
 | ---- | ---- |
 | [查询类型](#属性-查询类型（DOCQTYPE）)<br>（DOCQTYPE） | module_1 |
-| [是否收藏](#属性-是否收藏（ISFAVORITE）)<br>（ISFAVORITE） |  |
+| [是否已收藏](#属性-是否已收藏（ISFAVOURITES）)<br>（ISFAVOURITES） |  |
 
 
 - 流程相关状态
@@ -875,6 +878,9 @@ String
 #### 操作权限控制
 允许模式：拒绝
 拒绝提示信息：无
+| 序号 | 操作权限 |
+| ---- | ---- |
+| 1 | [收藏文档库分类](#操作权限-收藏文档库分类（SRFUR__DOCLIBMODULE_FAVOUR_BUT）)<br>（SRFUR__DOCLIBMODULE_FAVOUR_BUT） |
 
 ## 实体行为
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
@@ -1215,7 +1221,7 @@ t1.`DELETED`,
 t11.`NAME` AS `DOCLIBNAME`,
 t1.`GRADE`,
 t1.`ID`,
-0 AS `ISFAVORITE`,
+0 AS `ISFAVOURITES`,
 (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
 t21.`NAME` AS `MODULENAME`,
 t1.`NAME`,
@@ -1427,7 +1433,7 @@ t1.`DELETED`,
 t11.`NAME` AS `DOCLIBNAME`,
 t1.`GRADE`,
 t1.`ID`,
-0 AS `ISFAVORITE`,
+0 AS `ISFAVOURITES`,
 (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
 t21.`NAME` AS `MODULENAME`,
 t1.`NAME`,

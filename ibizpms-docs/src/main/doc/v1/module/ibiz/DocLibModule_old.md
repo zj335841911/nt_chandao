@@ -30,8 +30,8 @@ hide members
 |id|PARENT|PICKUP|&nbsp;|
 |所属文档库|DOCLIBNAME|PICKUPTEXT|&nbsp;|
 |上级模块|MODULENAME|PICKUPTEXT|&nbsp;|
-|是否收藏|ISFAVORITE|TEXT|&nbsp;|
 |查询类型|DOCQTYPE|TEXT|&nbsp;|
+|是否已收藏|ISFAVOURITES|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -52,19 +52,19 @@ hide members
 |id|默认规则|默认规则|
 |所属文档库|默认规则|内容长度必须小于等于[60]|
 |上级模块|默认规则|内容长度必须小于等于[60]|
-|是否收藏|默认规则|内容长度必须小于等于[200]|
 |查询类型|默认规则|内容长度必须小于等于[100]|
+|是否已收藏|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 
-|查询类型||是否收藏|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
+|查询类型||是否已收藏|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
 | --------   || --------   | ------------|------------|------------|------------|
-|Value||Value2| 允许|  | 不允许 |  |
-|Value||Value2| 允许|  | 不允许 |  |
+|Value||Value2| 允许|  | 不允许 | SRFUR__DOCLIBMODULE_NFAVOUR_BUT<br> |
+|Value||Value2| 允许|  | 不允许 | SRFUR__DOCLIBMODULE_FAVOUR_BUT<br> |
 
 查询类型
 
-是否收藏
+是否已收藏
 
 
 ## 行为

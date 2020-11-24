@@ -216,10 +216,18 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).finish(et);
     }
 
-        @Override
+    @Override
     @Transactional
     public Task getNextTeamUser(Task et) {
-  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).getNextTeamUser(et);
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Task getTeamUserLeftActivity(Task et) {
+        //自定义代码
+        return et;
     }
 
         @Override

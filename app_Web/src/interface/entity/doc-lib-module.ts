@@ -135,18 +135,18 @@ export interface DocLibModule {
     modulename?: any;
 
     /**
-     * 是否收藏
-     *
-     * @returns {*}
-     * @memberof DocLibModule
-     */
-    isfavorite?: any;
-
-    /**
      * 查询类型
      *
      * @returns {*}
      * @memberof DocLibModule
      */
     docqtype?: any;
+
+    /**
+     * 是否已收藏
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    isfavourites?: any;
 }

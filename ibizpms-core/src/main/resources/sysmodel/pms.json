@@ -6261,21 +6261,6 @@
     "major_field":0
     },
     {
-    "fieldname":"ISFAVORITE" ,
-    "codename":"Isfavorite",
-    "field_logic_name":"是否收藏",
-    "entity_name":"DocLibModule",
-    "field_type":"TEXT",
-    "nullable":1,
-    "physical_field":0,
-    "data_type":"VARCHAR",
-    "data_length":200,
-    "expression":"0",
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
     "fieldname":"DOCQTYPE" ,
     "codename":"Docqtype",
     "field_logic_name":"查询类型",
@@ -6285,6 +6270,21 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ISFAVOURITES" ,
+    "codename":"Isfavourites",
+    "field_logic_name":"是否已收藏",
+    "entity_name":"DocLibModule",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"0",
     "key_field":0,
     "show_order":1000,
     "major_field":0

@@ -60,7 +60,7 @@ export default class DocLibModuleUIServiceBase extends UIService {
      * 
      * @memberof  DocLibModuleUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['docqtype','isfavorite'];
+    public mainStateFields:Array<any> = ['docqtype','isfavourites'];
 
     /**
      * 主状态集合Map
@@ -159,8 +159,8 @@ export default class DocLibModuleUIServiceBase extends UIService {
      * @memberof  DocLibModuleUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('module_0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
-        this.allDeMainStateOPPrivsMap.set('module_1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
+        this.allDeMainStateOPPrivsMap.set('module_0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIBMODULE_NFAVOUR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('module_1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIBMODULE_FAVOUR_BUT':0,}));
     }
 
     /**

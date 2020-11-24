@@ -289,8 +289,8 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
      */
      public actionModel: any = {
         rootModule_deuiaction1: {name:'deuiaction1',nodeOwner:'rootModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
-        rootModule_deuiaction2: {name:'deuiaction2',nodeOwner:'rootModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
-        rootModule_deuiaction3: {name:'deuiaction3',nodeOwner:'rootModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
+        rootModule_deuiaction2: {name:'deuiaction2',nodeOwner:'rootModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false},
+        rootModule_deuiaction3: {name:'deuiaction3',nodeOwner:'rootModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false},
     }
 
     /**

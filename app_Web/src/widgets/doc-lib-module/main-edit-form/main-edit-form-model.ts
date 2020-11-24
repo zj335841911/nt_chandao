@@ -56,11 +56,6 @@ export default class MainEditModel {
         dataType: 'ACID',
       },
       {
-        name: 'isfavorite',
-        prop: 'isfavorite',
-        dataType: 'TEXT',
-      },
-      {
         name: 'name',
         prop: 'name',
         dataType: 'TEXT',
@@ -73,6 +68,11 @@ export default class MainEditModel {
       {
         name: 'docqtype',
         prop: 'docqtype',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'isfavourites',
+        prop: 'isfavourites',
         dataType: 'TEXT',
       },
       {

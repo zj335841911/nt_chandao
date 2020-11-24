@@ -220,8 +220,19 @@ public class SubTaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftActivity-all')")
+    @ApiOperation(value = "获取团队成员剩余工时（激活）", tags = {"任务" },  notes = "获取团队成员剩余工时（激活）")
+	@RequestMapping(method = RequestMethod.PUT, value = "/subtasks/{subtask_id}/getteamuserleftactivity")
+    public ResponseEntity<SubTaskDTO> getTeamUserLeftActivity(@PathVariable("subtask_id") Long subtask_id, @RequestBody SubTaskDTO subtaskdto) {
+        Task domain = subtaskMapping.toDomain(subtaskdto);
+        domain.setId(subtask_id);
+        domain = taskService.getTeamUserLeftActivity(domain);
+        subtaskdto = subtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftStart-all')")
-    @ApiOperation(value = "获取下一个团队成员(完成)", tags = {"任务" },  notes = "获取下一个团队成员(完成)")
+    @ApiOperation(value = "获取团队成员剩余工时（开始或继续）", tags = {"任务" },  notes = "获取团队成员剩余工时（开始或继续）")
 	@RequestMapping(method = RequestMethod.PUT, value = "/subtasks/{subtask_id}/getteamuserleftstart")
     public ResponseEntity<SubTaskDTO> getTeamUserLeftStart(@PathVariable("subtask_id") Long subtask_id, @RequestBody SubTaskDTO subtaskdto) {
         Task domain = subtaskMapping.toDomain(subtaskdto);
@@ -865,6 +876,17 @@ public class SubTaskResource {
         Task domain = subtaskMapping.toDomain(subtaskdto);
         domain.setParent(task_id);
         domain = taskService.getNextTeamUser(domain) ;
+        subtaskdto = subtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftActivity-all')")
+    @ApiOperation(value = "根据任务任务", tags = {"任务" },  notes = "根据任务任务")
+	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}/subtasks/{subtask_id}/getteamuserleftactivity")
+    public ResponseEntity<SubTaskDTO> getTeamUserLeftActivityByTask(@PathVariable("task_id") Long task_id, @PathVariable("subtask_id") Long subtask_id, @RequestBody SubTaskDTO subtaskdto) {
+        Task domain = subtaskMapping.toDomain(subtaskdto);
+        domain.setParent(task_id);
+        domain = taskService.getTeamUserLeftActivity(domain) ;
         subtaskdto = subtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
     }
@@ -1537,6 +1559,17 @@ public class SubTaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftActivity-all')")
+    @ApiOperation(value = "根据需求任务任务", tags = {"任务" },  notes = "根据需求任务任务")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/{task_id}/subtasks/{subtask_id}/getteamuserleftactivity")
+    public ResponseEntity<SubTaskDTO> getTeamUserLeftActivityByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("subtask_id") Long subtask_id, @RequestBody SubTaskDTO subtaskdto) {
+        Task domain = subtaskMapping.toDomain(subtaskdto);
+        domain.setParent(task_id);
+        domain = taskService.getTeamUserLeftActivity(domain) ;
+        subtaskdto = subtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftStart-all')")
     @ApiOperation(value = "根据需求任务任务", tags = {"任务" },  notes = "根据需求任务任务")
 	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/{task_id}/subtasks/{subtask_id}/getteamuserleftstart")
@@ -2205,6 +2238,17 @@ public class SubTaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftActivity-all')")
+    @ApiOperation(value = "根据项目任务任务", tags = {"任务" },  notes = "根据项目任务任务")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}/subtasks/{subtask_id}/getteamuserleftactivity")
+    public ResponseEntity<SubTaskDTO> getTeamUserLeftActivityByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("subtask_id") Long subtask_id, @RequestBody SubTaskDTO subtaskdto) {
+        Task domain = subtaskMapping.toDomain(subtaskdto);
+        domain.setParent(task_id);
+        domain = taskService.getTeamUserLeftActivity(domain) ;
+        subtaskdto = subtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftStart-all')")
     @ApiOperation(value = "根据项目任务任务", tags = {"任务" },  notes = "根据项目任务任务")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}/subtasks/{subtask_id}/getteamuserleftstart")
@@ -2869,6 +2913,17 @@ public class SubTaskResource {
         Task domain = subtaskMapping.toDomain(subtaskdto);
         domain.setParent(task_id);
         domain = taskService.getNextTeamUser(domain) ;
+        subtaskdto = subtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftActivity-all')")
+    @ApiOperation(value = "根据产品需求任务任务", tags = {"任务" },  notes = "根据产品需求任务任务")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/{subtask_id}/getteamuserleftactivity")
+    public ResponseEntity<SubTaskDTO> getTeamUserLeftActivityByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("subtask_id") Long subtask_id, @RequestBody SubTaskDTO subtaskdto) {
+        Task domain = subtaskMapping.toDomain(subtaskdto);
+        domain.setParent(task_id);
+        domain = taskService.getTeamUserLeftActivity(domain) ;
         subtaskdto = subtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
     }

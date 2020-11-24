@@ -232,8 +232,19 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftActivity-all')")
+    @ApiOperation(value = "获取团队成员剩余工时（激活）", tags = {"任务" },  notes = "获取团队成员剩余工时（激活）")
+	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}/getteamuserleftactivity")
+    public ResponseEntity<TaskDTO> getTeamUserLeftActivity(@PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.getTeamUserLeftActivity(domain);
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftStart-all')")
-    @ApiOperation(value = "获取下一个团队成员(完成)", tags = {"任务" },  notes = "获取下一个团队成员(完成)")
+    @ApiOperation(value = "获取团队成员剩余工时（开始或继续）", tags = {"任务" },  notes = "获取团队成员剩余工时（开始或继续）")
 	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}/getteamuserleftstart")
     public ResponseEntity<TaskDTO> getTeamUserLeftStart(@PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
         Task domain = taskMapping.toDomain(taskdto);
@@ -877,6 +888,17 @@ public class TaskResource {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
         domain = taskService.getNextTeamUser(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftActivity-all')")
+    @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/{task_id}/getteamuserleftactivity")
+    public ResponseEntity<TaskDTO> getTeamUserLeftActivityByStory(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setStory(story_id);
+        domain = taskService.getTeamUserLeftActivity(domain) ;
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
@@ -1549,6 +1571,17 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftActivity-all')")
+    @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}/getteamuserleftactivity")
+    public ResponseEntity<TaskDTO> getTeamUserLeftActivityByProject(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setProject(project_id);
+        domain = taskService.getTeamUserLeftActivity(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftStart-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}/getteamuserleftstart")
@@ -2213,6 +2246,17 @@ public class TaskResource {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
         domain = taskService.getNextTeamUser(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-GetTeamUserLeftActivity-all')")
+    @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/getteamuserleftactivity")
+    public ResponseEntity<TaskDTO> getTeamUserLeftActivityByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setStory(story_id);
+        domain = taskService.getTeamUserLeftActivity(domain) ;
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }

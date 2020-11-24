@@ -93,10 +93,10 @@ export class MainEditEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         id: null,
-        isfavorite: null,
         name: null,
         doclibname: null,
         docqtype: null,
+        isfavourites: null,
         root: null,
         doclibmodule: null,
     };
@@ -208,13 +208,6 @@ export class MainEditEditFormBase extends EditFormControlBase {
     enableCond: 0,
 }),
 
-        isfavorite: new FormItemModel({
-    caption: '是否收藏', detailType: 'FORMITEM', name: 'isfavorite', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
         name: new FormItemModel({
     caption: '名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:true,
@@ -231,6 +224,13 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
         docqtype: new FormItemModel({
     caption: '查询类型', detailType: 'FORMITEM', name: 'docqtype', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        isfavourites: new FormItemModel({
+    caption: '是否已收藏', detailType: 'FORMITEM', name: 'isfavourites', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

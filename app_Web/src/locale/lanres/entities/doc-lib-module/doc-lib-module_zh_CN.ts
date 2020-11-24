@@ -16,8 +16,8 @@ export default {
     parent: "id",
     doclibname: "所属文档库",
     modulename: "上级模块",
-    isfavorite: "是否收藏",
     docqtype: "查询类型",
+    isfavourites: "是否已收藏",
   },
 	views: {
 		mpickupview: {
@@ -72,10 +72,10 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			id: "id", 
-			isfavorite: "是否收藏", 
 			name: "名称", 
 			doclibname: "所属文档库", 
 			docqtype: "查询类型", 
+			isfavourites: "是否已收藏", 
 			root: "编号", 
 		},
 		uiactions: {

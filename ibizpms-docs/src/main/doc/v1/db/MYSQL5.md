@@ -19299,6 +19299,7 @@ CREATE TABLE `zt_doclib`(
 | DOCLIBNAME        | 所属文档库  | VARCHAR      |   60   | &nbsp; |
 | SHORT        | 简称  | VARCHAR      |   30   | &nbsp; |
 | COLLECTOR        | collector  | CLOB      |   65,535   | &nbsp; |
+| ISFAVOURITES        | 是否已收藏  | VARCHAR      |   200   | &nbsp; |
 | GRADE        | grade  | INTEGER      |   -1   | &nbsp; |
 | BRANCH        | branch  | INTEGER      |   -1   | &nbsp; |
 | PARENT        | id  |       |   20   | &nbsp; |
@@ -19312,7 +19313,6 @@ CREATE TABLE `zt_doclib`(
 | PATH        | path  | VARCHAR      |   255   | &nbsp; |
 | OWNER        | owner  | VARCHAR      |   30   | &nbsp; |
 | ROOT        | 编号  |       |   8   | &nbsp; |
-| ISFAVORITE        | 是否收藏  | VARCHAR      |   200   | &nbsp; |
 
 
 

@@ -64,10 +64,10 @@ export default class TreeExpViewtreeexpbarModel {
         name: 'modulename',
       },
       {
-        name: 'isfavorite',
+        name: 'docqtype',
       },
       {
-        name: 'docqtype',
+        name: 'isfavourites',
       },
     ]
   }
