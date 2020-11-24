@@ -171,8 +171,8 @@ public class TestSuiteResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-searchPublicTestSuite-all')")
 	@ApiOperation(value = "获取公开套件", tags = {"测试套件" } ,notes = "获取公开套件")
-    @RequestMapping(method= RequestMethod.GET , value="/testsuites/fetchpublictestsuite")
-	public ResponseEntity<List<TestSuiteDTO>> fetchPublicTestSuite(TestSuiteSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/testsuites/fetchpublictestsuite")
+	public ResponseEntity<List<TestSuiteDTO>> fetchPublicTestSuite(@RequestBody TestSuiteSearchContext context) {
         Page<TestSuite> domains = testsuiteService.searchPublicTestSuite(context) ;
         List<TestSuiteDTO> list = testsuiteMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -335,8 +335,8 @@ public class TestSuiteResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-searchPublicTestSuite-all')")
 	@ApiOperation(value = "根据产品获取公开套件", tags = {"测试套件" } ,notes = "根据产品获取公开套件")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testsuites/fetchpublictestsuite")
-	public ResponseEntity<List<TestSuiteDTO>> fetchTestSuitePublicTestSuiteByProduct(@PathVariable("product_id") Long product_id,TestSuiteSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testsuites/fetchpublictestsuite")
+	public ResponseEntity<List<TestSuiteDTO>> fetchTestSuitePublicTestSuiteByProduct(@PathVariable("product_id") Long product_id,@RequestBody TestSuiteSearchContext context) {
         context.setN_product_eq(product_id);
         Page<TestSuite> domains = testsuiteService.searchPublicTestSuite(context) ;
         List<TestSuiteDTO> list = testsuiteMapping.toDto(domains.getContent());

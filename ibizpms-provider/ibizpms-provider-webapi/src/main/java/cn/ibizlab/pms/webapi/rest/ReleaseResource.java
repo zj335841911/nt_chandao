@@ -258,8 +258,8 @@ public class ReleaseResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"发布" } ,notes = "获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/releases/fetchdefault")
-	public ResponseEntity<List<ReleaseDTO>> fetchDefault(ReleaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/releases/fetchdefault")
+	public ResponseEntity<List<ReleaseDTO>> fetchDefault(@RequestBody ReleaseSearchContext context) {
         Page<Release> domains = releaseService.searchDefault(context) ;
         List<ReleaseDTO> list = releaseMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -530,8 +530,8 @@ public class ReleaseResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"发布" } ,notes = "根据产品获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/releases/fetchdefault")
-	public ResponseEntity<List<ReleaseDTO>> fetchReleaseDefaultByProduct(@PathVariable("product_id") Long product_id,ReleaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/releases/fetchdefault")
+	public ResponseEntity<List<ReleaseDTO>> fetchReleaseDefaultByProduct(@PathVariable("product_id") Long product_id,@RequestBody ReleaseSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Release> domains = releaseService.searchDefault(context) ;
         List<ReleaseDTO> list = releaseMapping.toDto(domains.getContent());

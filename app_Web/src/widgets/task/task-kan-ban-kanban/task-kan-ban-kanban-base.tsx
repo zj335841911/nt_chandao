@@ -164,7 +164,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * @type {boolean}
      * @memberof TaskKanBanBase
      */
-    public isEnablePagingBar: boolean = false;;
+    public isEnablePagingBar: boolean = true;;
 
     /**
      * 总条数
@@ -203,7 +203,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * @type {number}
      * @memberof TaskKanBanBase
      */
-    public limit: number = 1000;
+    public limit: number = 100;
 
     /**
      * 排序方向
@@ -211,7 +211,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * @type {string}
      * @memberof TaskKanBanBase
      */    
-    public sortDir:string = '';
+    public sortDir:string = 'desc';
 
     /**
      * 排序字段
@@ -219,7 +219,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * @type {string}
      * @memberof TaskKanBanBase
      */    
-    public sortField: string = '';
+    public sortField: string = 'id';
 
     /**
      * 是否分组
@@ -272,11 +272,6 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      *  @memberof TaskKanBanBase
      */    
     public afterMounted(){
-        this.$el.addEventListener('scroll', ()=> {
-            if( this.$el.scrollTop +  this.$el.clientHeight  >=  this.$el.scrollHeight) {
-                this.loadMore();
-            }
-        })
     }
 
     /**
