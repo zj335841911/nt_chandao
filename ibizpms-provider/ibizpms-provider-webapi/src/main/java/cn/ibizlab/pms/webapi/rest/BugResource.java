@@ -908,8 +908,8 @@ public class BugResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "获取发布关联Bug（已解决）")
-    @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchreleasebugs")
-	public ResponseEntity<List<BugDTO>> fetchReleaseBugs(BugSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/bugs/fetchreleasebugs")
+	public ResponseEntity<List<BugDTO>> fetchReleaseBugs(@RequestBody BugSearchContext context) {
         Page<Bug> domains = bugService.searchReleaseBugs(context) ;
         List<BugDTO> list = bugMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -1920,8 +1920,8 @@ public class BugResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据产品获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品获取发布关联Bug（已解决）")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchreleasebugs")
-	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProduct(@PathVariable("product_id") Long product_id,BugSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/fetchreleasebugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProduct(@PathVariable("product_id") Long product_id,@RequestBody BugSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Bug> domains = bugService.searchReleaseBugs(context) ;
         List<BugDTO> list = bugMapping.toDto(domains.getContent());
@@ -2936,8 +2936,8 @@ public class BugResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据需求获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据需求获取发布关联Bug（已解决）")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/bugs/fetchreleasebugs")
-	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByStory(@PathVariable("story_id") Long story_id,BugSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/bugs/fetchreleasebugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByStory(@PathVariable("story_id") Long story_id,@RequestBody BugSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Bug> domains = bugService.searchReleaseBugs(context) ;
         List<BugDTO> list = bugMapping.toDto(domains.getContent());
@@ -3952,8 +3952,8 @@ public class BugResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据项目获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据项目获取发布关联Bug（已解决）")
-    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchreleasebugs")
-	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProject(@PathVariable("project_id") Long project_id,BugSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/bugs/fetchreleasebugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProject(@PathVariable("project_id") Long project_id,@RequestBody BugSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Bug> domains = bugService.searchReleaseBugs(context) ;
         List<BugDTO> list = bugMapping.toDto(domains.getContent());
@@ -4968,8 +4968,8 @@ public class BugResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchReleaseBugs-all')")
 	@ApiOperation(value = "根据产品需求获取发布关联Bug（已解决）", tags = {"Bug" } ,notes = "根据产品需求获取发布关联Bug（已解决）")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/bugs/fetchreleasebugs")
-	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,BugSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/bugs/fetchreleasebugs")
+	public ResponseEntity<List<BugDTO>> fetchBugReleaseBugsByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody BugSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Bug> domains = bugService.searchReleaseBugs(context) ;
         List<BugDTO> list = bugMapping.toDto(domains.getContent());

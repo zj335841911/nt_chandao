@@ -128,13 +128,6 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     }
     @Override
     @Transactional
-    public ProjectTeam getProjectDays(ProjectTeam et) {
-        getprojectdaysLogic.execute(et);
-         return et;
-    }
-
-    @Override
-    @Transactional
     public ProjectTeam getUserRole(ProjectTeam et) {
         //自定义代码
         return et;

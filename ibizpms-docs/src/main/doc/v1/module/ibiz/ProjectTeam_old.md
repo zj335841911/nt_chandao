@@ -63,7 +63,6 @@ hide members
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
-|获取项目的可用工日|实体处理逻辑|&nbsp;|
 |获取成员角色|用户自定义|&nbsp;根据成员获取成员的角色信息|
 |Save|内置方法|&nbsp;|
 

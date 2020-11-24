@@ -744,9 +744,8 @@ Integer
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [获取项目的可用工日](#实体行为-获取项目的可用工日（GetProjectDays）) | getProjectDays | 实体处理逻辑 | 后台 |
-| 8 | [获取成员角色](#实体行为-获取成员角色（GetUserRole）) | GetUserRole | 用户自定义 | 后台及前台 |
-| 9 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 7 | [获取成员角色](#实体行为-获取成员角色（GetUserRole）) | GetUserRole | 用户自定义 | 后台及前台 |
+| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -819,18 +818,6 @@ CheckKey
 
 - 行为持有者
 后台及前台
-
-#### 逻辑附加
-无
-### 实体行为-获取项目的可用工日（GetProjectDays）
-#### 说明
-获取项目的可用工日
-
-- 行为类型
-实体处理逻辑
-
-- 行为持有者
-后台
 
 #### 逻辑附加
 无
