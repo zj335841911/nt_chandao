@@ -114,6 +114,9 @@ export default class TaskKanBanModel {
 				name: 'left',
 			},
 			{
+				name: 'isfavorites',
+			},
+			{
 				name: 'deadline',
 				prop: 'deadline',
 				dataType: 'DATE',
