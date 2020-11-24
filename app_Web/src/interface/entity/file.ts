@@ -109,4 +109,12 @@ export interface File {
      * @memberof File
      */
     strsize?: any;
+
+    /**
+     * 文档类型
+     *
+     * @returns {*}
+     * @memberof File
+     */
+    doclibtype?: any;
 }

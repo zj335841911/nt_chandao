@@ -1279,6 +1279,16 @@ export default {
 			tip: "过滤",
 		},
 	},
+	bugkanbanviewtoolbar_toolbar: {
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+	},
 	usr2gridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "保存",
@@ -1385,16 +1395,6 @@ export default {
 		deuiaction4: {
 			caption: "过滤",
 			tip: "过滤",
-		},
-	},
-	bugkanbanviewtoolbar_toolbar: {
-		deuiaction3_create: {
-			caption: "新建",
-			tip: "新建",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
 		},
 	},
 	testbugsgridviewtoolbar_toolbar: {

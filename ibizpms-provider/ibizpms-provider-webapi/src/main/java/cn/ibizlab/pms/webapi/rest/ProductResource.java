@@ -280,8 +280,8 @@ public class ProductResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCurUer-all') and hasPermission(#context,'pms-Product-Get')")
 	@ApiOperation(value = "获取当前用户", tags = {"产品" } ,notes = "获取当前用户")
-    @RequestMapping(method= RequestMethod.GET , value="/products/fetchcuruer")
-	public ResponseEntity<List<ProductDTO>> fetchCurUer(ProductSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/fetchcuruer")
+	public ResponseEntity<List<ProductDTO>> fetchCurUer(@RequestBody ProductSearchContext context) {
         Page<Product> domains = productService.searchCurUer(context) ;
         List<ProductDTO> list = productMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
