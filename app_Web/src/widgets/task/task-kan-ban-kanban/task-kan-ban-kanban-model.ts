@@ -115,6 +115,8 @@ export default class TaskKanBanModel {
 			},
 			{
 				name: 'isfavorites',
+				prop: 'isfavorites',
+				dataType: 'TEXT',
 			},
 			{
 				name: 'deadline',
