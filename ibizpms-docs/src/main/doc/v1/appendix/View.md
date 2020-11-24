@@ -283,6 +283,7 @@
 |-|用户联系方式树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|关联Bug|DEMPICKUPVIEW|&nbsp;|
 |-|任务|DEEDITVIEW|&nbsp;|
+|-|文档库分类数据多项选择视图|DEMPICKUPVIEW|&nbsp;|
 |-|文档库树导航视图（产品文档库）|DETREEEXPVIEW|&nbsp;|
 |-|项目团队表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目统计编辑视图|DEEDITVIEW|&nbsp;|
@@ -292,6 +293,7 @@
 |-|关联需求|DEMPICKUPVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目相关成员编辑视图（相关成员）|DEEDITVIEW9|&nbsp;|
+|-|doclib数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|模块|DEEDITVIEW|&nbsp;|
 |-|测试结果多表单编辑视图|DEMEDITVIEW9|&nbsp;|
 |-|执行|DEOPTVIEW|&nbsp;|
@@ -386,11 +388,13 @@ SRFNAVPARAM.project=%project%|
 |-|project表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品模块表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试版本分页导航视图|DETABEXPVIEW|&nbsp;|
+|-|文档库分类数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|产品表格视图|DEGRIDVIEW|&nbsp;过滤条件在视图参数中指定|
 |-|需求编辑视图|DEEDITVIEW9|&nbsp;|
 |-|需求|DEEDITVIEW|&nbsp;|
 |-|需求|DEEDITVIEW|&nbsp;|
 |-|子计划|DEEDITVIEW|&nbsp;|
+|-|doclib选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|组织权限|DETABEXPVIEW|&nbsp;|
 |-|需求|DEPICKUPGRIDVIEW|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
@@ -480,6 +484,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试用例表格视图|DEGRIDVIEW9|&nbsp;|
 |-|完成|DEOPTVIEW|&nbsp;|
 |-|用例库用例步骤表格视图（主数据）|DEGRIDVIEW9|&nbsp;|
+|-|文档库分类表格视图|DEGRIDVIEW|&nbsp;|
 |-|版本表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug表格视图|DEGRIDVIEW9|&nbsp;|
 |-|产品计划表格视图|DEGRIDVIEW|&nbsp;|
@@ -562,6 +567,7 @@ SRFNAVPARAM.project=%project%|
 |-|task表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试模块树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|需求|DEPICKUPGRIDVIEW|&nbsp;用于【项目】关联【需求】，显示项目下的所有需求。|
+|-|文档库分类选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务树导航视图（分组树）|DETREEEXPVIEW|&nbsp;|
 |-|部门编辑视图|DEEDITVIEW|&nbsp;|
@@ -572,6 +578,7 @@ SRFNAVPARAM.project=%project%|
 |-|关联需求|DEMPICKUPVIEW|&nbsp;|
 |-|项目表格视图|DEGRIDVIEW9|&nbsp;过滤条件在视图参数中指定|
 |-|Bug统计表格视图（Bug完成表）|DEGRIDVIEW|&nbsp;|
+|-|文档库分类编辑视图|DEEDITVIEW2|&nbsp;|
 |-|取消任务|DEOPTVIEW|&nbsp;|
 |-|需求模块|DEOPTVIEW|&nbsp;|
 |-|关联需求|DEEDITVIEW9|&nbsp;|
@@ -677,6 +684,7 @@ SRFNAVPARAM.project=%project%|
 |-|公司编辑视图|DEEDITVIEW9|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|文档库树视图（自定义文档库）|DETREEVIEW|&nbsp;|
+|-|文档库分类数据重定向视图|DEREDIRECTVIEW|&nbsp;|
 |-|首页|DEPORTALVIEW|&nbsp;|
 |-|系统更新功能编辑视图|DEEDITVIEW|&nbsp;|
 |-|Bug实体表格视图(项目遗留得Bug)|DEGRIDVIEW|&nbsp;|

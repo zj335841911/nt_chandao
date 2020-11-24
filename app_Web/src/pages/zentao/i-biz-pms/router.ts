@@ -3207,6 +3207,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-result-test-task-medit-view9/test-result-test-task-medit-view9.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/pickupgridview/:pickupgridview?',
+                    meta: {
+                        caption: 'entities.doclib.views.pickupgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-pickup-grid-view/doc-lib-pickup-grid-view.vue'),
+                },
+                {
                     path: 'projects/:project?/testreports/:testreport?/dashboardview/:dashboardview?',
                     meta: {
                         caption: 'entities.testreport.views.dashboardview.caption',
@@ -9341,6 +9355,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-story-tree-exp-view/product-story-tree-exp-view.vue'),
+                },
+                {
+                    path: 'doclibs/:doclib?/pickupview/:pickupview?',
+                    meta: {
+                        caption: 'entities.doclib.views.pickupview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'pickupview', parameterName: 'pickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-pickup-view/doc-lib-pickup-view.vue'),
                 },
                 {
                     path: 'projects/:project?/maintabexpview/:maintabexpview?',

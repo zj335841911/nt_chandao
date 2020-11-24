@@ -51,14 +51,34 @@ export default class MainEditModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
+      },
+      {
+        name: 'isfavorite',
+        prop: 'isfavorite',
+        dataType: 'TEXT',
+      },
+      {
         name: 'name',
         prop: 'name',
         dataType: 'TEXT',
       },
       {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
+        name: 'doclibname',
+        prop: 'doclibname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'docqtype',
+        prop: 'docqtype',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'root',
+        prop: 'root',
+        dataType: 'PICKUP',
       },
       {
         name: 'doclibmodule',

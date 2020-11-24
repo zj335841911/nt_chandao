@@ -120,13 +120,23 @@ export class BugKanBanPanelBase extends PanelControlBase {
 ,
         assignedto: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'assignedto', panel: this })
 ,
-        deadline: new PanelFieldModel({ caption: '截止日期', itemType: 'FIELD',visible: true, disabled: false, name: 'deadline', panel: this })
+        container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
+,
+        rawitem5: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem5', panel: this })
+,
+        deadline: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'deadline', panel: this })
+,
+        delay: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'delay', panel: this })
+,
+        container4: new PanelContainerModel({ caption: '激活状态', itemType: 'CONTAINER',visible: false, disabled: false, name: 'container4', panel: this })
+,
+        container6: new PanelContainerModel({ caption: '已解决状态', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container6', panel: this })
+,
+        container7: new PanelContainerModel({ caption: '已关闭状态', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container7', panel: this })
 ,
         rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: false, disabled: false, name: 'rawitem2', panel: this })
 ,
         container3: new PanelContainerModel({ caption: '动态内容', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container3', panel: this })
-,
-        container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
 ,
         product: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'product', panel: this })
 ,
@@ -168,6 +178,20 @@ export class BugKanBanPanelBase extends PanelControlBase {
 
 
 
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'status')) {
+            let ret = false;
+            const _status = this.data.status;
+            if (this.$verify.testCond(_status, 'EQ', 'active')) {
+                ret = true;
+            }
+            this.detailsModel.container4.setVisible(ret);
+        }
+
+
+
         if (Object.is(name, '') || Object.is(name, 'deadline')) {
             let ret = false;
             const _deadline = this.data.deadline;
@@ -176,7 +200,6 @@ export class BugKanBanPanelBase extends PanelControlBase {
             }
             this.detailsModel.rawitem2.setVisible(ret);
         }
-
 
 
 

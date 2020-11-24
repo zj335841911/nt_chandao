@@ -38,6 +38,10 @@ export default {
 			caption: "产品文档库",
       		title: "文档库树导航视图（产品文档库）",
 		},
+		pickupview: {
+			caption: "文档库",
+      		title: "doclib数据选择视图",
+		},
 		customtreeexpview: {
 			caption: "自定义文档库",
       		title: "文档库树导航视图（自定义文档库）",
@@ -53,6 +57,10 @@ export default {
 		productgridexpview: {
 			caption: "产品文档库导航视图",
       		title: "文档库表格导航视图（产品文档库导航视图）",
+		},
+		pickupgridview: {
+			caption: "文档库",
+      		title: "doclib选择表格视图",
 		},
 		gridview: {
 			caption: "文档库",
@@ -171,6 +179,13 @@ export default {
 			doclib_weihufenlei: "维护分类",
 			doclib_collect: "收藏",
 			doclib_uncollect: "取消收藏",
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+		},
+		uiactions: {
 		},
 	},
 	usr2editviewtoolbar_toolbar: {

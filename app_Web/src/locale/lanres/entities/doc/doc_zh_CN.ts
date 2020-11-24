@@ -109,52 +109,6 @@ export default {
       		title: "doc表格视图",
 		},
 	},
-	main_form: {
-		details: {
-			group1: "doc基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "文档编号", 
-			srfmajortext: "文档标题", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			projectname: "所属项目", 
-			productname: "所属产品", 
-			libname: "所属文档库", 
-			modulename: "模块分类", 
-			addeddate: "添加时间", 
-			editedby: "由谁更新", 
-			editeddate: "更新时间", 
-			id: "文档编号", 
-			product: "所属产品", 
-			project: "所属项目", 
-		},
-		uiactions: {
-		},
-	},
-	mainbody_form: {
-		details: {
-			druipart1: "", 
-			grouppanel1: "附件", 
-			group1: "文档基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "文档编号", 
-			srfmajortext: "文档标题", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			id: "", 
-			title: "", 
-			version: "", 
-			content: "", 
-		},
-		uiactions: {
-		},
-	},
 	createeditform_form: {
 		details: {
 			formpage1: "基本信息", 
@@ -177,6 +131,27 @@ export default {
 			files: "附件", 
 			acl: "权限", 
 			id: "文档编号", 
+		},
+		uiactions: {
+		},
+	},
+	mainbody_form: {
+		details: {
+			druipart1: "", 
+			grouppanel1: "附件", 
+			group1: "文档基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "文档编号", 
+			srfmajortext: "文档标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			id: "", 
+			title: "", 
+			version: "", 
+			content: "", 
 		},
 		uiactions: {
 		},
@@ -210,6 +185,31 @@ export default {
 			srfsourcekey: "", 
 			keywords: "", 
 			id: "文档编号", 
+		},
+		uiactions: {
+		},
+	},
+	main_form: {
+		details: {
+			group1: "doc基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "文档编号", 
+			srfmajortext: "文档标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			projectname: "所属项目", 
+			productname: "所属产品", 
+			libname: "所属文档库", 
+			modulename: "模块分类", 
+			addeddate: "添加时间", 
+			editedby: "由谁更新", 
+			editeddate: "更新时间", 
+			id: "文档编号", 
+			product: "所属产品", 
+			project: "所属项目", 
 		},
 		uiactions: {
 		},
@@ -254,6 +254,25 @@ export default {
 		uiactions: {
 		},
 	},
+	main_grid: {
+		nodata: "",
+		columns: {
+			id: "文档编号",
+			title: "文档标题",
+			addedby: "由谁添加",
+			addeddate: "添加时间",
+			editedby: "由谁更新",
+			editeddate: "更新时间",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			doc_look: "查看",
+			doc_edit: "编辑",
+			doc_delete: "删除",
+			doc_collect: "收藏",
+			doc_uncollect: "取消收藏",
+		},
+	},
 	mydoc_grid: {
 		nodata: "",
 		columns: {
@@ -272,25 +291,6 @@ export default {
 			editeddate: "更新时间",
 		},
 		uiactions: {
-		},
-	},
-	main_grid: {
-		nodata: "",
-		columns: {
-			id: "文档编号",
-			title: "文档标题",
-			addedby: "由谁添加",
-			addeddate: "添加时间",
-			editedby: "由谁更新",
-			editeddate: "更新时间",
-			uagridcolumn1: "操作",
-		},
-		uiactions: {
-			doc_look: "查看",
-			doc_edit: "编辑",
-			doc_delete: "删除",
-			doc_collect: "收藏",
-			doc_uncollect: "取消收藏",
 		},
 	},
 	morerecentupdate_grid: {
@@ -357,6 +357,16 @@ export default {
 			tip: "过滤",
 		},
 	},
+	gridviewlookdoctoolbar_toolbar: {
+		deuiaction7: {
+			caption: "导出",
+			tip: "导出",
+		},
+		deuiaction3_togglefilter: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
 	recentmoregridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "过滤",
@@ -371,16 +381,6 @@ export default {
 	},
 	myfavouritegridviewtoolbar_toolbar: {
 		deuiaction1: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-	},
-	gridviewlookdoctoolbar_toolbar: {
-		deuiaction7: {
-			caption: "导出",
-			tip: "导出",
-		},
-		deuiaction3_togglefilter: {
 			caption: "过滤",
 			tip: "过滤",
 		},

@@ -96,6 +96,15 @@ export default class DocLibUIServiceBase extends UIService {
      * @memberof  DocLibUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('PICKUPVIEW:', {
+            viewname: 'pickupview',
+            srfappde: 'doclibs',
+            component: 'doc-lib-pickup-view',
+            openmode: '',
+            title: '文档库',
+            width: 0,
+            height: 0
+        });
         this.allViewMap.set('MDATAVIEW:', {
             viewname: 'gridview',
             srfappde: 'doclibs',

@@ -129,6 +129,11 @@ export default class BugKanBanModel {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'delay',
+				prop: 'delay',
+				dataType: 'TEXT',
+			},
+			{
 				name: 'isfavorites',
 			},
 			{

@@ -92,8 +92,12 @@ export class MainEditEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        name: null,
         id: null,
+        isfavorite: null,
+        name: null,
+        doclibname: null,
+        docqtype: null,
+        root: null,
         doclibmodule: null,
     };
 
@@ -146,13 +150,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
      * @memberof MainEditEditFormBase
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '文档库分类基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.doclibmodule.mainedit_form', extractMode: 'ITEM', details: [] } }),
-
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
-        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.doclibmodule.mainedit_form', extractMode: 'ITEM', details: [] } }),
-
-        formpage2: new FormPageModel({ caption: '其它', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srforikey: new FormItemModel({
     caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
@@ -203,13 +201,6 @@ export class MainEditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        name: new FormItemModel({
-    caption: '名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:true,
-    disabled: false,
-    enableCond: 3,
-}),
-
         id: new FormItemModel({
     caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -217,26 +208,41 @@ export class MainEditEditFormBase extends EditFormControlBase {
     enableCond: 0,
 }),
 
-        form: new FormTabPanelModel({
-            caption: 'form',
-            detailType: 'TABPANEL',
-            name: 'form',
-            visible: true,
-            isShowCaption: true,
-            form: this,
-            tabPages: [
-                {
-                    name: 'formpage1',
-                    index: 0,
-                    visible: true,
-                },
-                {
-                    name: 'formpage2',
-                    index: 1,
-                    visible: true,
-                },
-            ]
-        }),
+        isfavorite: new FormItemModel({
+    caption: '是否收藏', detailType: 'FORMITEM', name: 'isfavorite', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        name: new FormItemModel({
+    caption: '名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        doclibname: new FormItemModel({
+    caption: '所属文档库', detailType: 'FORMITEM', name: 'doclibname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        docqtype: new FormItemModel({
+    caption: '查询类型', detailType: 'FORMITEM', name: 'docqtype', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        root: new FormItemModel({
+    caption: '编号', detailType: 'FORMITEM', name: 'root', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
     };
 
     /**

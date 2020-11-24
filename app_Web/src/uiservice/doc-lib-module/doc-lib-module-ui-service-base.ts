@@ -96,10 +96,46 @@ export default class DocLibModuleUIServiceBase extends UIService {
      * @memberof  DocLibModuleUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('MPICKUPVIEW:', {
+            viewname: 'mpickupview',
+            srfappde: 'doclibmodules',
+            component: 'doc-lib-module-mpickup-view',
+            openmode: '',
+            title: '文档库分类',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('PICKUPVIEW:', {
+            viewname: 'pickupview',
+            srfappde: 'doclibmodules',
+            component: 'doc-lib-module-pickup-view',
+            openmode: '',
+            title: '文档库分类',
+            width: 0,
+            height: 0
+        });
         this.allViewMap.set('EDITVIEW:', {
             viewname: 'editview',
             srfappde: 'doclibmodules',
             component: 'doc-lib-module-edit-view',
+            openmode: '',
+            title: '文档库分类',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'doclibmodules',
+            component: 'doc-lib-module-grid-view',
+            openmode: '',
+            title: '文档库分类',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('REDIRECTVIEW:', {
+            viewname: 'redirectview',
+            srfappde: 'doclibmodules',
+            component: 'doc-lib-module-redirect-view',
             openmode: '',
             title: '文档库分类',
             width: 0,

@@ -38,6 +38,10 @@ export default class BugKanBanModel {
         prop: 'deadline'
       },
       {
+        name: 'delay',
+        prop: 'delay'
+      },
+      {
         name: 'product',
         prop: 'product'
       },

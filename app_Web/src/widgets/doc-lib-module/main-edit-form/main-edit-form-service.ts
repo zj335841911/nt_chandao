@@ -3,6 +3,7 @@ import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import DocLibModuleService from '@/service/doc-lib-module/doc-lib-module-service';
 import MainEditModel from './main-edit-form-model';
+import DocLibService from '@/service/doc-lib/doc-lib-service';
 
 
 /**
@@ -41,6 +42,14 @@ export default class MainEditService extends ControlService {
         super(opts);
         this.model = new MainEditModel();
     }
+
+    /**
+     * 文档库服务对象
+     *
+     * @type {DocLibService}
+     * @memberof MainEditService
+     */
+    public doclibService: DocLibService = new DocLibService();
 
     /**
      * 远端数据
@@ -91,6 +100,9 @@ export default class MainEditService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
+        if (Object.is(serviceName, 'DocLibService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.doclibService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'doclib');
+        }
 
         return Promise.reject([])
     }

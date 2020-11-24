@@ -739,6 +739,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '25452e386e72c70f03641cc650c1b979',
+            viewmodule: 'zentao',
+            viewname: 'DocLibPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '55bd8c58b38da929d22edff6aa724ca0',
+            ],
+        },
+        {
             viewtag: '2671388d4c12a6f139e6fd806c524dc7',
             viewmodule: 'zentao',
             viewname: 'ModuleEditView',
@@ -1292,6 +1302,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '25452e386e72c70f03641cc650c1b979',
             ],
         },
         {
@@ -1603,6 +1614,18 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '55bd8c58b38da929d22edff6aa724ca0',
+            viewmodule: 'zentao',
+            viewname: 'DocLibPickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a501a42f3adfa826e382e4cbc134a4fc',
+                'f7e64f3828c862a4bce56437e1e51069',
+                '73fbcf0e3685096f63587bcff234f958',
             ],
         },
         {
