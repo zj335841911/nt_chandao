@@ -524,7 +524,7 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
      * @type {string}
      * @memberof DocLibTreeProjectBase
      */
-    public modality: string = 'chart';
+    public model: string = 'chart';
 
     /**
      * 树节点上下文菜单集合
@@ -567,7 +567,7 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
                 }
                 if (Object.is('load', action)) {
                     this.breadcrumbs.splice(1);
-                    this.modality = 'chart';
+                    this.model = 'chart';
                     this.load();
                 }
                 if (Object.is('filter', action)) {
@@ -715,11 +715,11 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
     /**
      * 切换展现形式
      * 
-     * @param modality 展现形式
+     * @param model 展现形式
      * @memberof DocLibTreeProjectBase
      */
-    public modalityChange(modality: string) {
-        this.modality = modality;
+    public modelChange(model: string) {
+        this.model = model;
     }
 
     /**
