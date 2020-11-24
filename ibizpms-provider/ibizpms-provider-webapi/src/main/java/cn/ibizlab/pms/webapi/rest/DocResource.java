@@ -203,8 +203,8 @@ public class DocResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"文档" } ,notes = "获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/docs/fetchdefault")
-	public ResponseEntity<List<DocDTO>> fetchDefault(DocSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/docs/fetchdefault")
+	public ResponseEntity<List<DocDTO>> fetchDefault(@RequestBody DocSearchContext context) {
         Page<Doc> domains = docService.searchDefault(context) ;
         List<DocDTO> list = docMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -247,8 +247,8 @@ public class DocResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchDocLibDoc-all')")
 	@ApiOperation(value = "获取文档库文档", tags = {"文档" } ,notes = "获取文档库文档")
-    @RequestMapping(method= RequestMethod.GET , value="/docs/fetchdoclibdoc")
-	public ResponseEntity<List<DocDTO>> fetchDocLibDoc(DocSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/docs/fetchdoclibdoc")
+	public ResponseEntity<List<DocDTO>> fetchDocLibDoc(@RequestBody DocSearchContext context) {
         Page<Doc> domains = docService.searchDocLibDoc(context) ;
         List<DocDTO> list = docMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -269,8 +269,8 @@ public class DocResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchDocModuleDoc-all')")
 	@ApiOperation(value = "获取文档库分类文档", tags = {"文档" } ,notes = "获取文档库分类文档")
-    @RequestMapping(method= RequestMethod.GET , value="/docs/fetchdocmoduledoc")
-	public ResponseEntity<List<DocDTO>> fetchDocModuleDoc(DocSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/docs/fetchdocmoduledoc")
+	public ResponseEntity<List<DocDTO>> fetchDocModuleDoc(@RequestBody DocSearchContext context) {
         Page<Doc> domains = docService.searchDocModuleDoc(context) ;
         List<DocDTO> list = docMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -335,8 +335,8 @@ public class DocResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchMyFavourite-all')")
 	@ApiOperation(value = "获取我的收藏", tags = {"文档" } ,notes = "获取我的收藏")
-    @RequestMapping(method= RequestMethod.GET , value="/docs/fetchmyfavourite")
-	public ResponseEntity<List<DocDTO>> fetchMyFavourite(DocSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/docs/fetchmyfavourite")
+	public ResponseEntity<List<DocDTO>> fetchMyFavourite(@RequestBody DocSearchContext context) {
         Page<Doc> domains = docService.searchMyFavourite(context) ;
         List<DocDTO> list = docMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)

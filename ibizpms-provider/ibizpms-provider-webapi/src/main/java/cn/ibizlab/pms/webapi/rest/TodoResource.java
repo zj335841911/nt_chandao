@@ -214,8 +214,8 @@ public class TodoResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"待办" } ,notes = "获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/todos/fetchdefault")
-	public ResponseEntity<List<TodoDTO>> fetchDefault(TodoSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/todos/fetchdefault")
+	public ResponseEntity<List<TodoDTO>> fetchDefault(@RequestBody TodoSearchContext context) {
         Page<Todo> domains = todoService.searchDefault(context) ;
         List<TodoDTO> list = todoMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)

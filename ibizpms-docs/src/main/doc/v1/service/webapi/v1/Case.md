@@ -565,7 +565,7 @@ POST
 /cases/fetchcursuite
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -601,7 +601,7 @@ POST
 /cases/fetchcurtesttask
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -637,7 +637,7 @@ POST
 /cases/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -781,7 +781,7 @@ POST
 /cases/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -817,7 +817,7 @@ POST
 /cases/fetchnotcurtestsuite
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -853,7 +853,7 @@ POST
 /cases/fetchnotcurtesttask
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -925,7 +925,7 @@ POST
 /cases/fetchreportcase
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -997,7 +997,7 @@ POST
 /cases/fetchreportcase_project
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1836,7 +1836,7 @@ POST
 /products/{product_id}/cases/fetchcursuite
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1874,7 +1874,7 @@ POST
 /products/{product_id}/cases/fetchcurtesttask
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1912,7 +1912,7 @@ POST
 /products/{product_id}/cases/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2064,7 +2064,7 @@ POST
 /products/{product_id}/cases/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2102,7 +2102,7 @@ POST
 /products/{product_id}/cases/fetchnotcurtestsuite
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2140,7 +2140,7 @@ POST
 /products/{product_id}/cases/fetchnotcurtesttask
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2216,7 +2216,7 @@ POST
 /products/{product_id}/cases/fetchreportcase
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2292,7 +2292,7 @@ POST
 /products/{product_id}/cases/fetchreportcase_project
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3145,7 +3145,7 @@ POST
 /stories/{story_id}/cases/fetchcursuite
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3183,7 +3183,7 @@ POST
 /stories/{story_id}/cases/fetchcurtesttask
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3221,7 +3221,7 @@ POST
 /stories/{story_id}/cases/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3373,7 +3373,7 @@ POST
 /stories/{story_id}/cases/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3411,7 +3411,7 @@ POST
 /stories/{story_id}/cases/fetchnotcurtestsuite
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3449,7 +3449,7 @@ POST
 /stories/{story_id}/cases/fetchnotcurtesttask
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3525,7 +3525,7 @@ POST
 /stories/{story_id}/cases/fetchreportcase
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3601,7 +3601,7 @@ POST
 /stories/{story_id}/cases/fetchreportcase_project
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4454,7 +4454,7 @@ POST
 /products/{product_id}/stories/{story_id}/cases/fetchcursuite
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4492,7 +4492,7 @@ POST
 /products/{product_id}/stories/{story_id}/cases/fetchcurtesttask
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4530,7 +4530,7 @@ POST
 /products/{product_id}/stories/{story_id}/cases/fetchdefault
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4682,7 +4682,7 @@ POST
 /products/{product_id}/stories/{story_id}/cases/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4720,7 +4720,7 @@ POST
 /products/{product_id}/stories/{story_id}/cases/fetchnotcurtestsuite
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4758,7 +4758,7 @@ POST
 /products/{product_id}/stories/{story_id}/cases/fetchnotcurtesttask
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4834,7 +4834,7 @@ POST
 /products/{product_id}/stories/{story_id}/cases/fetchreportcase
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4910,7 +4910,7 @@ POST
 /products/{product_id}/stories/{story_id}/cases/fetchreportcase_project
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |

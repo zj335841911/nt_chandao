@@ -214,8 +214,8 @@ public class BuildResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"版本" } ,notes = "获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/builds/fetchdefault")
-	public ResponseEntity<List<BuildDTO>> fetchDefault(BuildSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/builds/fetchdefault")
+	public ResponseEntity<List<BuildDTO>> fetchDefault(@RequestBody BuildSearchContext context) {
         Page<Build> domains = buildService.searchDefault(context) ;
         List<BuildDTO> list = buildMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -258,8 +258,8 @@ public class BuildResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchTestRounds-all')")
 	@ApiOperation(value = "获取测试轮次", tags = {"版本" } ,notes = "获取测试轮次")
-    @RequestMapping(method= RequestMethod.GET , value="/builds/fetchtestrounds")
-	public ResponseEntity<List<BuildDTO>> fetchTestRounds(BuildSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/builds/fetchtestrounds")
+	public ResponseEntity<List<BuildDTO>> fetchTestRounds(@RequestBody BuildSearchContext context) {
         Page<Build> domains = buildService.searchTestRounds(context) ;
         List<BuildDTO> list = buildMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -488,8 +488,8 @@ public class BuildResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"版本" } ,notes = "根据产品获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/builds/fetchdefault")
-	public ResponseEntity<List<BuildDTO>> fetchBuildDefaultByProduct(@PathVariable("product_id") Long product_id,BuildSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/builds/fetchdefault")
+	public ResponseEntity<List<BuildDTO>> fetchBuildDefaultByProduct(@PathVariable("product_id") Long product_id,@RequestBody BuildSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Build> domains = buildService.searchDefault(context) ;
         List<BuildDTO> list = buildMapping.toDto(domains.getContent());
@@ -534,8 +534,8 @@ public class BuildResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchTestRounds-all')")
 	@ApiOperation(value = "根据产品获取测试轮次", tags = {"版本" } ,notes = "根据产品获取测试轮次")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/builds/fetchtestrounds")
-	public ResponseEntity<List<BuildDTO>> fetchBuildTestRoundsByProduct(@PathVariable("product_id") Long product_id,BuildSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/builds/fetchtestrounds")
+	public ResponseEntity<List<BuildDTO>> fetchBuildTestRoundsByProduct(@PathVariable("product_id") Long product_id,@RequestBody BuildSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Build> domains = buildService.searchTestRounds(context) ;
         List<BuildDTO> list = buildMapping.toDto(domains.getContent());
@@ -765,8 +765,8 @@ public class BuildResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchDefault-all')")
 	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"版本" } ,notes = "根据项目获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/builds/fetchdefault")
-	public ResponseEntity<List<BuildDTO>> fetchBuildDefaultByProject(@PathVariable("project_id") Long project_id,BuildSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/builds/fetchdefault")
+	public ResponseEntity<List<BuildDTO>> fetchBuildDefaultByProject(@PathVariable("project_id") Long project_id,@RequestBody BuildSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Build> domains = buildService.searchDefault(context) ;
         List<BuildDTO> list = buildMapping.toDto(domains.getContent());
@@ -811,8 +811,8 @@ public class BuildResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchTestRounds-all')")
 	@ApiOperation(value = "根据项目获取测试轮次", tags = {"版本" } ,notes = "根据项目获取测试轮次")
-    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/builds/fetchtestrounds")
-	public ResponseEntity<List<BuildDTO>> fetchBuildTestRoundsByProject(@PathVariable("project_id") Long project_id,BuildSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/builds/fetchtestrounds")
+	public ResponseEntity<List<BuildDTO>> fetchBuildTestRoundsByProject(@PathVariable("project_id") Long project_id,@RequestBody BuildSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Build> domains = buildService.searchTestRounds(context) ;
         List<BuildDTO> list = buildMapping.toDto(domains.getContent());

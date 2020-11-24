@@ -258,8 +258,8 @@ public class ProductPlanResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchDefaultParent-all')")
 	@ApiOperation(value = "获取默认查询", tags = {"产品计划" } ,notes = "获取默认查询")
-    @RequestMapping(method= RequestMethod.GET , value="/productplans/fetchdefaultparent")
-	public ResponseEntity<List<ProductPlanDTO>> fetchDefaultParent(ProductPlanSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/productplans/fetchdefaultparent")
+	public ResponseEntity<List<ProductPlanDTO>> fetchDefaultParent(@RequestBody ProductPlanSearchContext context) {
         Page<ProductPlan> domains = productplanService.searchDefaultParent(context) ;
         List<ProductPlanDTO> list = productplanMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -554,8 +554,8 @@ public class ProductPlanResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchDefaultParent-all')")
 	@ApiOperation(value = "根据产品获取默认查询", tags = {"产品计划" } ,notes = "根据产品获取默认查询")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/fetchdefaultparent")
-	public ResponseEntity<List<ProductPlanDTO>> fetchProductPlanDefaultParentByProduct(@PathVariable("product_id") Long product_id,ProductPlanSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/fetchdefaultparent")
+	public ResponseEntity<List<ProductPlanDTO>> fetchProductPlanDefaultParentByProduct(@PathVariable("product_id") Long product_id,@RequestBody ProductPlanSearchContext context) {
         context.setN_product_eq(product_id);
         Page<ProductPlan> domains = productplanService.searchDefaultParent(context) ;
         List<ProductPlanDTO> list = productplanMapping.toDto(domains.getContent());

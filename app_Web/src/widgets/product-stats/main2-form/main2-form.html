@@ -503,33 +503,24 @@
     <row>
         <i-col
     class="form-layout-container"
-    v-show="detailsModel.productplancnt.visible"
+    v-show="detailsModel.rawitem5.visible"
     :style="{}"
     
     
     :lg="{ span: 8, offset: 16 }"
     :xl="{ span: 8, offset: 16 }"
 >
-    <app-form-item
-    name="productplancnt"
-    :itemRules="this.rules().productplancnt"
-    class=""
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    :htmlContent='``'
 
-    :caption="$t('entities.productstats.main2_form.details.productplancnt')"
-    uiStyle="DEFAULT"
-    :labelWidth="70"
-    :isShowCaption="true"
-    :error="detailsModel.productplancnt.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
 >
-    
-<app-span name='productplancnt' :value="data.productplancnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
->  
-</app-span>
-
-</app-form-item>
+        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;所有计划&nbsp;<b>{{data.productplancnt ? data.productplancnt : 0}}</b></div>
+</app-rawitem>
 
 </i-col>
 <i-col
@@ -622,33 +613,24 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.unendproductplancnt.visible"
+    v-show="detailsModel.rawitem6.visible"
     :style="{}"
     
     
     :lg="{ span: 8, offset: 0 }"
     :xl="{ span: 8, offset: 0 }"
 >
-    <app-form-item
-    name="unendproductplancnt"
-    :itemRules="this.rules().unendproductplancnt"
-    class=""
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    :htmlContent='``'
 
-    :caption="$t('entities.productstats.main2_form.details.unendproductplancnt')"
-    uiStyle="DEFAULT"
-    :labelWidth="70"
-    :isShowCaption="true"
-    :error="detailsModel.unendproductplancnt.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
 >
-    
-<app-span name='unendproductplancnt' :value="data.unendproductplancnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
->  
-</app-span>
-
-</app-form-item>
+        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;未过期&nbsp;<b>{{data.unendproductplancnt ? data.unendproductplancnt : 0}}</b></div>
+</app-rawitem>
 
 </i-col>
     
@@ -711,33 +693,24 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.resprojectcnt.visible"
+    v-show="detailsModel.rawitem7.visible"
     :style="{}"
     
     
-    :lg="{ span: 8, offset: 16 }"
+    :lg="{ span: 8, offset: 0 }"
     :xl="{ span: 8, offset: 0 }"
 >
-    <app-form-item
-    name="resprojectcnt"
-    :itemRules="this.rules().resprojectcnt"
-    class=""
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    :htmlContent='``'
 
-    :caption="$t('entities.productstats.main2_form.details.resprojectcnt')"
-    uiStyle="DEFAULT"
-    :labelWidth="70"
-    :isShowCaption="true"
-    :error="detailsModel.resprojectcnt.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
 >
-    
-<app-span name='resprojectcnt' :value="data.resprojectcnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
->  
-</app-span>
-
-</app-form-item>
+        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;所有项目&nbsp;<b>{{data.resprojectcnt ? data.resprojectcnt : 0}}</b></div>
+</app-rawitem>
 
 </i-col>
 <i-col
@@ -830,33 +803,24 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.undoneresprojectcnt.visible"
+    v-show="detailsModel.rawitem8.visible"
     :style="{}"
     
     
     :lg="{ span: 8, offset: 0 }"
     :xl="{ span: 8, offset: 0 }"
 >
-    <app-form-item
-    name="undoneresprojectcnt"
-    :itemRules="this.rules().undoneresprojectcnt"
-    class=""
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    :htmlContent='``'
 
-    :caption="$t('entities.productstats.main2_form.details.undoneresprojectcnt')"
-    uiStyle="DEFAULT"
-    :labelWidth="70"
-    :isShowCaption="true"
-    :error="detailsModel.undoneresprojectcnt.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
 >
-    
-<app-span name='undoneresprojectcnt' :value="data.undoneresprojectcnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
->  
-</app-span>
-
-</app-form-item>
+        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;进行中&nbsp;<b>{{data.undoneresprojectcnt ? data.undoneresprojectcnt : 0}}</b></div>
+</app-rawitem>
 
 </i-col>
     
@@ -897,33 +861,24 @@
     <row>
         <i-col
     class="form-layout-container"
-    v-show="detailsModel.releasecnt.visible"
+    v-show="detailsModel.rawitem9.visible"
     :style="{}"
     
     
     :lg="{ span: 8, offset: 16 }"
     :xl="{ span: 8, offset: 16 }"
 >
-    <app-form-item
-    name="releasecnt"
-    :itemRules="this.rules().releasecnt"
-    class=""
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    :htmlContent='``'
 
-    :caption="$t('entities.productstats.main2_form.details.releasecnt')"
-    uiStyle="DEFAULT"
-    :labelWidth="70"
-    :isShowCaption="true"
-    :error="detailsModel.releasecnt.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
 >
-    
-<app-span name='releasecnt' :value="data.releasecnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
->  
-</app-span>
-
-</app-form-item>
+        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;所有发布&nbsp;<b>{{data.releasecnt ? data.releasecnt : 0}}</b></div>
+</app-rawitem>
 
 </i-col>
 <i-col
@@ -1016,33 +971,24 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.normalreleasecnt.visible"
+    v-show="detailsModel.rawitem10.visible"
     :style="{}"
     
     
     :lg="{ span: 8, offset: 0 }"
     :xl="{ span: 8, offset: 0 }"
 >
-    <app-form-item
-    name="normalreleasecnt"
-    :itemRules="this.rules().normalreleasecnt"
-    class=""
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    :htmlContent='``'
 
-    :caption="$t('entities.productstats.main2_form.details.normalreleasecnt')"
-    uiStyle="DEFAULT"
-    :labelWidth="70"
-    :isShowCaption="true"
-    :error="detailsModel.normalreleasecnt.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
 >
-    
-<app-span name='normalreleasecnt' :value="data.normalreleasecnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
->  
-</app-span>
-
-</app-form-item>
+        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;维护中&nbsp;<b>{{data.normalreleasecnt ? data.normalreleasecnt : 0}}</b></div>
+</app-rawitem>
 
 </i-col>
     

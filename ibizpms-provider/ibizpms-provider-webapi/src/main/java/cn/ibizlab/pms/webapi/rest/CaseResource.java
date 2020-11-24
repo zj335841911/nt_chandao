@@ -364,8 +364,8 @@ public class CaseResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurSuite-all')")
 	@ApiOperation(value = "获取套件关联用例", tags = {"测试用例" } ,notes = "获取套件关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchcursuite")
-	public ResponseEntity<List<CaseDTO>> fetchCurSuite(CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/cases/fetchcursuite")
+	public ResponseEntity<List<CaseDTO>> fetchCurSuite(@RequestBody CaseSearchContext context) {
         Page<Case> domains = caseService.searchCurSuite(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -386,8 +386,8 @@ public class CaseResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurTestTask-all')")
 	@ApiOperation(value = "获取测试单关联用例", tags = {"测试用例" } ,notes = "获取测试单关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchcurtesttask")
-	public ResponseEntity<List<CaseDTO>> fetchCurTestTask(CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/cases/fetchcurtesttask")
+	public ResponseEntity<List<CaseDTO>> fetchCurTestTask(@RequestBody CaseSearchContext context) {
         Page<Case> domains = caseService.searchCurTestTask(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -408,8 +408,8 @@ public class CaseResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"测试用例" } ,notes = "获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchdefault")
-	public ResponseEntity<List<CaseDTO>> fetchDefault(CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/cases/fetchdefault")
+	public ResponseEntity<List<CaseDTO>> fetchDefault(@RequestBody CaseSearchContext context) {
         Page<Case> domains = caseService.searchDefault(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -496,8 +496,8 @@ public class CaseResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchMyFavorites-all')")
 	@ApiOperation(value = "获取我的收藏", tags = {"测试用例" } ,notes = "获取我的收藏")
-    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchmyfavorites")
-	public ResponseEntity<List<CaseDTO>> fetchMyFavorites(CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/cases/fetchmyfavorites")
+	public ResponseEntity<List<CaseDTO>> fetchMyFavorites(@RequestBody CaseSearchContext context) {
         Page<Case> domains = caseService.searchMyFavorites(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -518,8 +518,8 @@ public class CaseResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchNotCurTestSuite-all')")
 	@ApiOperation(value = "获取套件关联用例", tags = {"测试用例" } ,notes = "获取套件关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchnotcurtestsuite")
-	public ResponseEntity<List<CaseDTO>> fetchNotCurTestSuite(CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/cases/fetchnotcurtestsuite")
+	public ResponseEntity<List<CaseDTO>> fetchNotCurTestSuite(@RequestBody CaseSearchContext context) {
         Page<Case> domains = caseService.searchNotCurTestSuite(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -540,8 +540,8 @@ public class CaseResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchNotCurTestTask-all')")
 	@ApiOperation(value = "获取测试单关联用例", tags = {"测试用例" } ,notes = "获取测试单关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchnotcurtesttask")
-	public ResponseEntity<List<CaseDTO>> fetchNotCurTestTask(CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/cases/fetchnotcurtesttask")
+	public ResponseEntity<List<CaseDTO>> fetchNotCurTestTask(@RequestBody CaseSearchContext context) {
         Page<Case> domains = caseService.searchNotCurTestTask(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -584,8 +584,8 @@ public class CaseResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase-all')")
 	@ApiOperation(value = "获取测试报告关联用例", tags = {"测试用例" } ,notes = "获取测试报告关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchreportcase")
-	public ResponseEntity<List<CaseDTO>> fetchRePortCase(CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/cases/fetchreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchRePortCase(@RequestBody CaseSearchContext context) {
         Page<Case> domains = caseService.searchRePortCase(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -628,8 +628,8 @@ public class CaseResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase_Project-all')")
 	@ApiOperation(value = "获取项目报告关联用例-关联用例", tags = {"测试用例" } ,notes = "获取项目报告关联用例-关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchreportcase_project")
-	public ResponseEntity<List<CaseDTO>> fetchRePortCase_Project(CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/cases/fetchreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchRePortCase_Project(@RequestBody CaseSearchContext context) {
         Page<Case> domains = caseService.searchRePortCase_Project(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -1112,8 +1112,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurSuite-all')")
 	@ApiOperation(value = "根据产品获取套件关联用例", tags = {"测试用例" } ,notes = "根据产品获取套件关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchcursuite")
-	public ResponseEntity<List<CaseDTO>> fetchCaseCurSuiteByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/fetchcursuite")
+	public ResponseEntity<List<CaseDTO>> fetchCaseCurSuiteByProduct(@PathVariable("product_id") Long product_id,@RequestBody CaseSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Case> domains = caseService.searchCurSuite(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -1135,8 +1135,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurTestTask-all')")
 	@ApiOperation(value = "根据产品获取测试单关联用例", tags = {"测试用例" } ,notes = "根据产品获取测试单关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchcurtesttask")
-	public ResponseEntity<List<CaseDTO>> fetchCaseCurTestTaskByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/fetchcurtesttask")
+	public ResponseEntity<List<CaseDTO>> fetchCaseCurTestTaskByProduct(@PathVariable("product_id") Long product_id,@RequestBody CaseSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Case> domains = caseService.searchCurTestTask(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -1158,8 +1158,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"测试用例" } ,notes = "根据产品获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchdefault")
-	public ResponseEntity<List<CaseDTO>> fetchCaseDefaultByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/fetchdefault")
+	public ResponseEntity<List<CaseDTO>> fetchCaseDefaultByProduct(@PathVariable("product_id") Long product_id,@RequestBody CaseSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Case> domains = caseService.searchDefault(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -1250,8 +1250,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchMyFavorites-all')")
 	@ApiOperation(value = "根据产品获取我的收藏", tags = {"测试用例" } ,notes = "根据产品获取我的收藏")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchmyfavorites")
-	public ResponseEntity<List<CaseDTO>> fetchCaseMyFavoritesByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/fetchmyfavorites")
+	public ResponseEntity<List<CaseDTO>> fetchCaseMyFavoritesByProduct(@PathVariable("product_id") Long product_id,@RequestBody CaseSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Case> domains = caseService.searchMyFavorites(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -1273,8 +1273,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchNotCurTestSuite-all')")
 	@ApiOperation(value = "根据产品获取套件关联用例", tags = {"测试用例" } ,notes = "根据产品获取套件关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchnotcurtestsuite")
-	public ResponseEntity<List<CaseDTO>> fetchCaseNotCurTestSuiteByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/fetchnotcurtestsuite")
+	public ResponseEntity<List<CaseDTO>> fetchCaseNotCurTestSuiteByProduct(@PathVariable("product_id") Long product_id,@RequestBody CaseSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Case> domains = caseService.searchNotCurTestSuite(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -1296,8 +1296,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchNotCurTestTask-all')")
 	@ApiOperation(value = "根据产品获取测试单关联用例", tags = {"测试用例" } ,notes = "根据产品获取测试单关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchnotcurtesttask")
-	public ResponseEntity<List<CaseDTO>> fetchCaseNotCurTestTaskByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/fetchnotcurtesttask")
+	public ResponseEntity<List<CaseDTO>> fetchCaseNotCurTestTaskByProduct(@PathVariable("product_id") Long product_id,@RequestBody CaseSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Case> domains = caseService.searchNotCurTestTask(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -1342,8 +1342,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase-all')")
 	@ApiOperation(value = "根据产品获取测试报告关联用例", tags = {"测试用例" } ,notes = "根据产品获取测试报告关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchreportcase")
-	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCaseByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/fetchreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCaseByProduct(@PathVariable("product_id") Long product_id,@RequestBody CaseSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Case> domains = caseService.searchRePortCase(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -1388,8 +1388,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase_Project-all')")
 	@ApiOperation(value = "根据产品获取项目报告关联用例-关联用例", tags = {"测试用例" } ,notes = "根据产品获取项目报告关联用例-关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchreportcase_project")
-	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCase_ProjectByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/fetchreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCase_ProjectByProduct(@PathVariable("product_id") Long product_id,@RequestBody CaseSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Case> domains = caseService.searchRePortCase_Project(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -1878,8 +1878,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurSuite-all')")
 	@ApiOperation(value = "根据需求获取套件关联用例", tags = {"测试用例" } ,notes = "根据需求获取套件关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchcursuite")
-	public ResponseEntity<List<CaseDTO>> fetchCaseCurSuiteByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/fetchcursuite")
+	public ResponseEntity<List<CaseDTO>> fetchCaseCurSuiteByStory(@PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchCurSuite(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -1901,8 +1901,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurTestTask-all')")
 	@ApiOperation(value = "根据需求获取测试单关联用例", tags = {"测试用例" } ,notes = "根据需求获取测试单关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchcurtesttask")
-	public ResponseEntity<List<CaseDTO>> fetchCaseCurTestTaskByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/fetchcurtesttask")
+	public ResponseEntity<List<CaseDTO>> fetchCaseCurTestTaskByStory(@PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchCurTestTask(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -1924,8 +1924,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchDefault-all')")
 	@ApiOperation(value = "根据需求获取DEFAULT", tags = {"测试用例" } ,notes = "根据需求获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchdefault")
-	public ResponseEntity<List<CaseDTO>> fetchCaseDefaultByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/fetchdefault")
+	public ResponseEntity<List<CaseDTO>> fetchCaseDefaultByStory(@PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchDefault(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -2016,8 +2016,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchMyFavorites-all')")
 	@ApiOperation(value = "根据需求获取我的收藏", tags = {"测试用例" } ,notes = "根据需求获取我的收藏")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchmyfavorites")
-	public ResponseEntity<List<CaseDTO>> fetchCaseMyFavoritesByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/fetchmyfavorites")
+	public ResponseEntity<List<CaseDTO>> fetchCaseMyFavoritesByStory(@PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchMyFavorites(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -2039,8 +2039,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchNotCurTestSuite-all')")
 	@ApiOperation(value = "根据需求获取套件关联用例", tags = {"测试用例" } ,notes = "根据需求获取套件关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchnotcurtestsuite")
-	public ResponseEntity<List<CaseDTO>> fetchCaseNotCurTestSuiteByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/fetchnotcurtestsuite")
+	public ResponseEntity<List<CaseDTO>> fetchCaseNotCurTestSuiteByStory(@PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchNotCurTestSuite(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -2062,8 +2062,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchNotCurTestTask-all')")
 	@ApiOperation(value = "根据需求获取测试单关联用例", tags = {"测试用例" } ,notes = "根据需求获取测试单关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchnotcurtesttask")
-	public ResponseEntity<List<CaseDTO>> fetchCaseNotCurTestTaskByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/fetchnotcurtesttask")
+	public ResponseEntity<List<CaseDTO>> fetchCaseNotCurTestTaskByStory(@PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchNotCurTestTask(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -2108,8 +2108,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase-all')")
 	@ApiOperation(value = "根据需求获取测试报告关联用例", tags = {"测试用例" } ,notes = "根据需求获取测试报告关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchreportcase")
-	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCaseByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/fetchreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCaseByStory(@PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchRePortCase(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -2154,8 +2154,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase_Project-all')")
 	@ApiOperation(value = "根据需求获取项目报告关联用例-关联用例", tags = {"测试用例" } ,notes = "根据需求获取项目报告关联用例-关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchreportcase_project")
-	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCase_ProjectByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/fetchreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCase_ProjectByStory(@PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchRePortCase_Project(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -2644,8 +2644,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurSuite-all')")
 	@ApiOperation(value = "根据产品需求获取套件关联用例", tags = {"测试用例" } ,notes = "根据产品需求获取套件关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchcursuite")
-	public ResponseEntity<List<CaseDTO>> fetchCaseCurSuiteByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/fetchcursuite")
+	public ResponseEntity<List<CaseDTO>> fetchCaseCurSuiteByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchCurSuite(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -2667,8 +2667,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurTestTask-all')")
 	@ApiOperation(value = "根据产品需求获取测试单关联用例", tags = {"测试用例" } ,notes = "根据产品需求获取测试单关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchcurtesttask")
-	public ResponseEntity<List<CaseDTO>> fetchCaseCurTestTaskByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/fetchcurtesttask")
+	public ResponseEntity<List<CaseDTO>> fetchCaseCurTestTaskByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchCurTestTask(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -2690,8 +2690,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchDefault-all')")
 	@ApiOperation(value = "根据产品需求获取DEFAULT", tags = {"测试用例" } ,notes = "根据产品需求获取DEFAULT")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchdefault")
-	public ResponseEntity<List<CaseDTO>> fetchCaseDefaultByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/fetchdefault")
+	public ResponseEntity<List<CaseDTO>> fetchCaseDefaultByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchDefault(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -2782,8 +2782,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchMyFavorites-all')")
 	@ApiOperation(value = "根据产品需求获取我的收藏", tags = {"测试用例" } ,notes = "根据产品需求获取我的收藏")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchmyfavorites")
-	public ResponseEntity<List<CaseDTO>> fetchCaseMyFavoritesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/fetchmyfavorites")
+	public ResponseEntity<List<CaseDTO>> fetchCaseMyFavoritesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchMyFavorites(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -2805,8 +2805,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchNotCurTestSuite-all')")
 	@ApiOperation(value = "根据产品需求获取套件关联用例", tags = {"测试用例" } ,notes = "根据产品需求获取套件关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchnotcurtestsuite")
-	public ResponseEntity<List<CaseDTO>> fetchCaseNotCurTestSuiteByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/fetchnotcurtestsuite")
+	public ResponseEntity<List<CaseDTO>> fetchCaseNotCurTestSuiteByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchNotCurTestSuite(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -2828,8 +2828,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchNotCurTestTask-all')")
 	@ApiOperation(value = "根据产品需求获取测试单关联用例", tags = {"测试用例" } ,notes = "根据产品需求获取测试单关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchnotcurtesttask")
-	public ResponseEntity<List<CaseDTO>> fetchCaseNotCurTestTaskByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/fetchnotcurtesttask")
+	public ResponseEntity<List<CaseDTO>> fetchCaseNotCurTestTaskByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchNotCurTestTask(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -2874,8 +2874,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase-all')")
 	@ApiOperation(value = "根据产品需求获取测试报告关联用例", tags = {"测试用例" } ,notes = "根据产品需求获取测试报告关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchreportcase")
-	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/fetchreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchRePortCase(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -2920,8 +2920,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase_Project-all')")
 	@ApiOperation(value = "根据产品需求获取项目报告关联用例-关联用例", tags = {"测试用例" } ,notes = "根据产品需求获取项目报告关联用例-关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchreportcase_project")
-	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCase_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/fetchreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCase_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchRePortCase_Project(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());

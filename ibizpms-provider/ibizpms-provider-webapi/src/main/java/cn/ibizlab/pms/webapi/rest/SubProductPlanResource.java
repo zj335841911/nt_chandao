@@ -278,8 +278,8 @@ public class SubProductPlanResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchDefaultParent-all')")
 	@ApiOperation(value = "根据产品计划获取默认查询", tags = {"产品计划" } ,notes = "根据产品计划获取默认查询")
-    @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/subproductplans/fetchdefaultparent")
-	public ResponseEntity<List<SubProductPlanDTO>> fetchSubProductPlanDefaultParentByProductPlan(@PathVariable("productplan_id") Long productplan_id,ProductPlanSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/subproductplans/fetchdefaultparent")
+	public ResponseEntity<List<SubProductPlanDTO>> fetchSubProductPlanDefaultParentByProductPlan(@PathVariable("productplan_id") Long productplan_id,@RequestBody ProductPlanSearchContext context) {
         context.setN_parent_eq(productplan_id);
         Page<ProductPlan> domains = productplanService.searchDefaultParent(context) ;
         List<SubProductPlanDTO> list = subproductplanMapping.toDto(domains.getContent());
@@ -576,8 +576,8 @@ public class SubProductPlanResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-searchDefaultParent-all')")
 	@ApiOperation(value = "根据产品产品计划获取默认查询", tags = {"产品计划" } ,notes = "根据产品产品计划获取默认查询")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/subproductplans/fetchdefaultparent")
-	public ResponseEntity<List<SubProductPlanDTO>> fetchSubProductPlanDefaultParentByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id,ProductPlanSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/subproductplans/fetchdefaultparent")
+	public ResponseEntity<List<SubProductPlanDTO>> fetchSubProductPlanDefaultParentByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id,@RequestBody ProductPlanSearchContext context) {
         context.setN_parent_eq(productplan_id);
         Page<ProductPlan> domains = productplanService.searchDefaultParent(context) ;
         List<SubProductPlanDTO> list = subproductplanMapping.toDto(domains.getContent());
