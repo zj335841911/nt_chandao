@@ -240,6 +240,9 @@ export class Usr3MobMPickupBuildCreateBugViewpickupviewpanelModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'delayresolve',
+      },
     ]
   }
 

@@ -240,6 +240,9 @@ export class MyBugMobModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'delayresolve',
+      },
     ]
   }
 

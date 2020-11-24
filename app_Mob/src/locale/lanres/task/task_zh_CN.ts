@@ -67,7 +67,10 @@ export default {
     delay: "延期",
     mailtopk: "抄送给",
     mailtoconact: "联系人",
-    statusorder: "属性",
+    statusorder: "排序",
+    myconsumed: "之前消耗",
+    mytotaltime: "我的总消耗",
+    assignedtozj: "转交给",
   },
 	views: {
 		mobmdview: {
