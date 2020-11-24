@@ -8,6 +8,7 @@ export default {
     id: "编号",
     name: "名称",
     finishedby: "完成者",
+    taskefficient: "效率",
   },
 	views: {
 		userfinishtasksumgridview: {

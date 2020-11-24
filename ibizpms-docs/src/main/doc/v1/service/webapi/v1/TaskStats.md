@@ -269,7 +269,8 @@ POST
 | 6 | id | Long | 允许 | 编号 |
 | 7 | name | String | 允许 | 名称 |
 | 8 | finishedby | String | 允许 | 完成者 |
-| 9 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 9 | taskefficient | String | 允许 | 效率 |
+| 10 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

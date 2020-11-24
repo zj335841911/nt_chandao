@@ -24,6 +24,7 @@
 | 6 | [编号](#属性-编号（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 是 |
 | 7 | [名称](#属性-名称（NAME）) | NAME | 文本，可指定长度 | 否 | 否 | 是 |
 | 8 | [完成者](#属性-完成者（FINISHEDBY）) | FINISHEDBY | 文本，可指定长度 | 否 | 否 | 是 |
+| 9 | [效率](#属性-效率（TASKEFFICIENT）) | TASKEFFICIENT | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-项目名称（PROJECTNAME）
 #### 属性说明
@@ -333,6 +334,45 @@ String
 #### 关系属性
 无
 
+### 属性-效率（TASKEFFICIENT）
+#### 属性说明
+效率
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -472,6 +512,7 @@ Save
 SELECT
 t1.`ID`,
 t1.`NAME`,
+0 AS `TASKEFFICIENT`,
 0 AS `TOTALCONSUMED`,
 0 AS `TOTALESTIMATE`,
 0 AS `TOTALLEFT`
@@ -565,6 +606,7 @@ WHERE
 SELECT
 t1.`ID`,
 t1.`NAME`,
+0 AS `TASKEFFICIENT`,
 0 AS `TOTALCONSUMED`,
 0 AS `TOTALESTIMATE`,
 0 AS `TOTALLEFT`

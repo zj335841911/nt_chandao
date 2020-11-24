@@ -100,6 +100,13 @@ public class TaskStats extends EntityMP implements Serializable {
     @JSONField(name = "finishedby")
     @JsonProperty("finishedby")
     private String finishedby;
+    /**
+     * 效率
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskefficient")
+    @JsonProperty("taskefficient")
+    private String taskefficient;
 
 
 

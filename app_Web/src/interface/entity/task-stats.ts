@@ -69,4 +69,12 @@ export interface TaskStats {
      * @memberof TaskStats
      */
     finishedby?: any;
+
+    /**
+     * 效率
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskefficient?: any;
 }
