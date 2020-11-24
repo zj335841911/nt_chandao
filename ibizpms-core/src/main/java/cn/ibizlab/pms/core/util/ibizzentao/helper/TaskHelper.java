@@ -647,7 +647,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
     public Task getNextTeamUser(Task et) {
         et = this.getById(et.getId());
-        List<Team> teamList = teamHelper.list(new QueryWrapper<Team>().eq(FIELD_ROOT, et.getId()).eq(FIELD_TYPE, StaticDict.Team__type.TASK.getValue()));
+        List<Team> teamList = teamHelper.list(new QueryWrapper<Team>().eq(FIELD_ROOT, et.getId()).eq(FIELD_TYPE, StaticDict.Team__type.TASK.getValue()).orderByAsc(" `order` "));
         if (teamList.size() == 0) {
             et.setAssignedtozj(et.getOpenedby());
             et.setAssignedto(et.getOpenedby());
@@ -1236,11 +1236,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         newTask.setConsumed(et.getTotaltime() != null ? et.getTotaltime() : (et.getConsumed() + et.getCurrentconsumed()));
         newTask.setCurrentconsumed(et.getCurrentconsumed());
         newTask.setFiles(et.getFiles());
-        if (et.getAssignedto() == null || "".equals(et.getAssignedto())) {
-            newTask.setAssignedto(old.getOpenedby());
-        } else {
-            newTask.setAssignedto(et.getAssignedto());
-        }
+
         double consumed = 0;
         if (teams.size() == 0) {
             newTask.setLeft(0d);
@@ -1251,7 +1247,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             if (consumed < 0) {
                 throw new RuntimeException("总计消耗必须大于原消耗");
             }
-
+            if (et.getAssignedto() == null || "".equals(et.getAssignedto())) {
+                newTask.setAssignedto(old.getOpenedby());
+            } else {
+                newTask.setAssignedto(et.getAssignedto());
+            }
 
         } else {
             for (Team team : teams) {
@@ -1262,6 +1262,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                     }
                     break;
                 }
+            }
+            if (et.getAssignedtozj() == null || "".equals(et.getAssignedtozj())) {
+                //  newTask.setAssignedto(old.getOpenedby());
+            } else {
+                newTask.setAssignedto(et.getAssignedtozj());
             }
         }
 
