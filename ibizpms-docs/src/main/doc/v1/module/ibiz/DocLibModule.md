@@ -825,8 +825,8 @@ String
 ## 业务状态
 | 序号 | 状态名称 | [查询类型](#属性-查询类型（DOCQTYPE）)<br>（DOCQTYPE） | [是否已收藏](#属性-是否已收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 默认 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | [模块_未收藏](#业务状态-模块_未收藏（module_0）) | module_0 |  |  | 否 |
-| 2 | [模块_已收藏](#业务状态-模块_已收藏（module_1）) | module_1 |  |  | 否 |
+| 1 | [模块_未收藏](#业务状态-模块_未收藏（module_0）) | module | 0 |  | 否 |
+| 2 | [模块_已收藏](#业务状态-模块_已收藏（module_1）) | module | 1 |  | 否 |
 ### 业务状态-模块_未收藏（module_0）
 #### 状态说明
 模块_未收藏
@@ -837,8 +837,8 @@ String
 - 状态值
 | 属性名 | 状态值 |
 | ---- | ---- |
-| [查询类型](#属性-查询类型（DOCQTYPE）)<br>（DOCQTYPE） | module_0 |
-| [是否已收藏](#属性-是否已收藏（ISFAVOURITES）)<br>（ISFAVOURITES） |  |
+| [查询类型](#属性-查询类型（DOCQTYPE）)<br>（DOCQTYPE） | module |
+| [是否已收藏](#属性-是否已收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 0 |
 
 
 - 流程相关状态
@@ -864,8 +864,8 @@ String
 - 状态值
 | 属性名 | 状态值 |
 | ---- | ---- |
-| [查询类型](#属性-查询类型（DOCQTYPE）)<br>（DOCQTYPE） | module_1 |
-| [是否已收藏](#属性-是否已收藏（ISFAVOURITES）)<br>（ISFAVOURITES） |  |
+| [查询类型](#属性-查询类型（DOCQTYPE）)<br>（DOCQTYPE） | module |
+| [是否已收藏](#属性-是否已收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 1 |
 
 
 - 流程相关状态

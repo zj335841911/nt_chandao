@@ -26,7 +26,7 @@
             $doclibmoduleremove__msdenytemp:DocLibModule();
             $doclibmoduleremove__msdenydefault:DocLibModule();
             eval($doclibmoduleremove__msdenytemp==doclibmoduleremove__msdenytemp && $doclibmoduleremove__msdenydefault==doclibmoduleremove__msdenydefault);
-                eval((RuleUtils.test($doclibmoduleremove__msdenytemp.get("DOCQTYPE"),"EQ","module_0")))
+                eval((RuleUtils.test($doclibmoduleremove__msdenytemp.get("DOCQTYPE"),"EQ","module"))&&(RuleUtils.test($doclibmoduleremove__msdenytemp.get("ISFAVOURITES"),"EQ","0")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -35,7 +35,7 @@
             $doclibmoduleremove__msdenytemp:DocLibModule();
             $doclibmoduleremove__msdenydefault:DocLibModule();
             eval($doclibmoduleremove__msdenytemp==doclibmoduleremove__msdenytemp && $doclibmoduleremove__msdenydefault==doclibmoduleremove__msdenydefault);
-                eval((RuleUtils.test($doclibmoduleremove__msdenytemp.get("DOCQTYPE"),"EQ","module_1")))
+                eval((RuleUtils.test($doclibmoduleremove__msdenytemp.get("DOCQTYPE"),"EQ","module"))&&(RuleUtils.test($doclibmoduleremove__msdenytemp.get("ISFAVOURITES"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>

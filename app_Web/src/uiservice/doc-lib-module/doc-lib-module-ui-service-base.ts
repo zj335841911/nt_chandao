@@ -149,8 +149,8 @@ export default class DocLibModuleUIServiceBase extends UIService {
      * @memberof  DocLibModuleUIServiceBase
      */  
     public initDeMainStateMap(){
-        this.allDeMainStateMap.set('module_0','module_0');
-        this.allDeMainStateMap.set('module_1','module_1');
+        this.allDeMainStateMap.set('module__0','module__0');
+        this.allDeMainStateMap.set('module__1','module__1');
     }
 
     /**
@@ -159,8 +159,8 @@ export default class DocLibModuleUIServiceBase extends UIService {
      * @memberof  DocLibModuleUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('module_0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIBMODULE_NFAVOUR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('module_1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIBMODULE_FAVOUR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('module__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIBMODULE_NFAVOUR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('module__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIBMODULE_FAVOUR_BUT':0,}));
     }
 
     /**
