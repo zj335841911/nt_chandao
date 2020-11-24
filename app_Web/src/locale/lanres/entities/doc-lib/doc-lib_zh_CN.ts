@@ -267,9 +267,6 @@ export default {
 			doclib_weihufenlei: "维护分类",
 			doclib_uncollect: "取消收藏",
 			doclib_collect: "收藏",
-			file_look: "查看",
-			file_ibzdownload: "下载",
-			file_delete: "删除",
 		},
 	},
 	rootdoclibprojecttreeveiw_treeview: {
@@ -348,6 +345,9 @@ export default {
 			files: "附件库",
 		},
 		uiactions: {
+			file_look: "查看",
+			file_ibzdownload: "下载",
+			file_delete: "删除",
 			doclib_editdoclib: "编辑",
 			doclib_weihufenlei: "维护分类",
 			doclib_uncollect: "取消收藏",
