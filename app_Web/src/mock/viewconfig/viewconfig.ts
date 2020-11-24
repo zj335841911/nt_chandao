@@ -1175,6 +1175,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskEditView9_Detail",
             "viewtag": "451eacde0c0c638e29bdfc9cbc789c13"
         },
+        "doclibmoduleeditviewmain": {
+            "title": "文档库分类编辑视图",
+            "caption": "文档库分类",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibModuleEditViewMain",
+            "viewtag": "4532f2b69291dd6bbd457b5588ac528b"
+        },
         "casetestmaindashboardview": {
             "title": "功能测试",
             "caption": "功能测试",

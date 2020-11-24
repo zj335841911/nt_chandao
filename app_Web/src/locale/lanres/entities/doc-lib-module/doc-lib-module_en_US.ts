@@ -20,6 +20,10 @@ export default {
     docqtype: "查询类型",
   },
 	views: {
+		editviewmain: {
+			caption: "文档库分类",
+      		title: "文档库分类编辑视图",
+		},
 		editview: {
 			caption: "文档库分类",
       		title: "文档库分类编辑视图",
@@ -31,6 +35,25 @@ export default {
 		treeexpview: {
 			caption: "文档库分类",
       		title: "文档库分类树导航视图",
+		},
+	},
+	mainedit_form: {
+		details: {
+			group1: "文档库分类基本信息", 
+			formpage1: "基本信息", 
+			group2: "操作信息", 
+			formpage2: "其它", 
+			srforikey: "", 
+			srfkey: "id", 
+			srfmajortext: "名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			name: "名称", 
+			id: "id", 
+		},
+		uiactions: {
 		},
 	},
 	main_form: {
@@ -71,6 +94,24 @@ export default {
 		deuiaction3: {
 			caption: "保存行",
 			tip: "保存行",
+		},
+	},
+	editviewmaintoolbar_toolbar: {
+		tbitem3: {
+			caption: "Save",
+			tip: "Save",
+		},
+		tbitem4: {
+			caption: "Save And New",
+			tip: "Save And New",
+		},
+		tbitem5: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+		tbitem7: {
+			caption: "Remove And Close",
+			tip: "Remove And Close Window",
 		},
 	},
 	editviewtoolbar_toolbar: {

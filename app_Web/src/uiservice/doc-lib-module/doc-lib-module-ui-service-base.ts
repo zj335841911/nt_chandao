@@ -229,7 +229,7 @@ export default class DocLibModuleUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'doclibmodules', parameterName: 'doclibmodule' },
-            { pathName: 'editview', parameterName: 'editview' },
+            { pathName: 'editviewmain', parameterName: 'editviewmain' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);

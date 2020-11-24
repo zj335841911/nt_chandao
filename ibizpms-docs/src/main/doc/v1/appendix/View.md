@@ -354,6 +354,7 @@ SRFNAVPARAM.project=%project%|
 |-|Bug的一生|DEEDITVIEW9|&nbsp;|
 |-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试版本编辑视图|DEEDITVIEW9|&nbsp;|
+|-|文档库分类编辑视图|DEEDITVIEW|&nbsp;|
 |-|功能测试|DEPORTALVIEW|&nbsp;|
 |-|需求|DEPICKUPGRIDVIEW|&nbsp;用于【版本】关联【需求】，显示项目下的所有需求。|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|

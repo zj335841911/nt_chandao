@@ -534,7 +534,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '6921cf59868031699419de5fb8e79ced',
+                '4532f2b69291dd6bbd457b5588ac528b',
             ],
         },
         {
@@ -1280,6 +1280,15 @@ export const viewstate: any = {
             viewtag: '451eacde0c0c638e29bdfc9cbc789c13',
             viewmodule: 'zentao',
             viewname: 'TestTaskEditView9_Detail',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '4532f2b69291dd6bbd457b5588ac528b',
+            viewmodule: 'zentao',
+            viewname: 'DocLibModuleEditViewMain',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -2950,7 +2959,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '6921cf59868031699419de5fb8e79ced',
+                '4532f2b69291dd6bbd457b5588ac528b',
             ],
         },
         {
