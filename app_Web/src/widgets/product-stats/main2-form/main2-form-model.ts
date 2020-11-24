@@ -128,6 +128,36 @@ export default class Main2Model {
         name: 'formitemex3',
       },
       {
+        name: 'productplancnt',
+        prop: 'productplancnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'unendproductplancnt',
+        prop: 'unendproductplancnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'resprojectcnt',
+        prop: 'resprojectcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'undoneresprojectcnt',
+        prop: 'undoneresprojectcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'releasecnt',
+        prop: 'releasecnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'normalreleasecnt',
+        prop: 'normalreleasecnt',
+        dataType: 'INT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

@@ -249,6 +249,12 @@ export class Main2EditFormBase extends EditFormControlBase {
         custom5: null,
         custom6: null,
         formitemex3: null,
+        productplancnt: null,
+        unendproductplancnt: null,
+        resprojectcnt: null,
+        undoneresprojectcnt: null,
+        releasecnt: null,
+        normalreleasecnt: null,
         id: null,
         productstats: null,
     };
@@ -399,6 +405,8 @@ export class Main2EditFormBase extends EditFormControlBase {
         grouppanel2: new FormGroupPanelModel({ caption: '产品统计', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
 
         group1: new FormGroupPanelModel({ caption: '统计', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel7: new FormGroupPanelModel({ caption: '隐藏表单项', detailType: 'GROUPPANEL', name: 'grouppanel7', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -570,6 +578,48 @@ export class Main2EditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        productplancnt: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'productplancnt', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        unendproductplancnt: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'unendproductplancnt', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        resprojectcnt: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'resprojectcnt', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        undoneresprojectcnt: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'undoneresprojectcnt', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        releasecnt: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'releasecnt', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        normalreleasecnt: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'normalreleasecnt', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         id: new FormItemModel({
     caption: '产品编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -679,6 +729,7 @@ export class Main2EditFormBase extends EditFormControlBase {
 
 
 
+
         if (Object.is(name, '') || Object.is(name, 'productplancnt')) {
             let ret = false;
             const _productplancnt = this.data.productplancnt;
@@ -710,6 +761,12 @@ export class Main2EditFormBase extends EditFormControlBase {
             }
             this.detailsModel.formitemex3.setVisible(ret);
         }
+
+
+
+
+
+
 
 
     }
