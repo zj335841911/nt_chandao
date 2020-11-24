@@ -43,6 +43,14 @@ export default class ProductStoryKanBanModel {
       {
         name: 'story',
         prop: 'story'
+      },
+      {
+        name: 'isfavorites',
+        prop: 'isfavorites'
+      },
+      {
+        name: 'ischild',
+        prop: 'ischild'
       }
     ]
   }

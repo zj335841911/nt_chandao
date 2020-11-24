@@ -128,6 +128,10 @@ export class StoryKanBanPanelBase extends PanelControlBase {
 ,
         story: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'story', panel: this })
 ,
+        isfavorites: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'isfavorites', panel: this })
+,
+        ischild: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'ischild', panel: this })
+,
         container3: new PanelContainerModel({ caption: '隐藏项', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container3', panel: this })
 ,
     };
@@ -141,6 +145,8 @@ export class StoryKanBanPanelBase extends PanelControlBase {
      */
     public panelLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
 
 
 

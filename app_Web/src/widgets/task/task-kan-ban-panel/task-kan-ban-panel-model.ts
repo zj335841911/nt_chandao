@@ -78,6 +78,14 @@ export default class TaskKanBanModel {
       {
         name: 'isfavorites',
         prop: ' isfavorites'
+      },
+      {
+        name: 'status1',
+        prop: 'status1'
+      },
+      {
+        name: 'tasktype',
+        prop: 'tasktype'
       }
     ]
   }

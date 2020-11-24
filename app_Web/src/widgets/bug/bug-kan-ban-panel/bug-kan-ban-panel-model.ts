@@ -41,13 +41,13 @@ export default class BugKanBanModel {
         prop: 'resolveddate'
       },
       {
+        name: 'delayresolve',
+        prop: 'delayresolve'
+      },
+      {
         name: 'resolvedby',
         codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
         prop: 'resolvedby'
-      },
-      {
-        name: 'delayresolve',
-        prop: 'delayresolve'
       },
       {
         name: 'closeddate',

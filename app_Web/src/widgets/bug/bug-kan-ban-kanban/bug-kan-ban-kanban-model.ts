@@ -69,6 +69,8 @@ export default class BugKanBanModel {
 			},
 			{
 				name: 'confirmed',
+				prop: 'confirmed',
+				dataType: 'NSCODELIST',
 			},
 			{
 				name: 'repo',
@@ -77,6 +79,8 @@ export default class BugKanBanModel {
 			},
 			{
 				name: 'isfavorites',
+				prop: 'isfavorites',
+				dataType: 'TEXT',
 			},
 			{
 				name: 'totask',

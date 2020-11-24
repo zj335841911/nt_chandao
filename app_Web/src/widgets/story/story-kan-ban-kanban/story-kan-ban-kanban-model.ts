@@ -59,12 +59,12 @@ export default class StoryKanBanModel {
 				dataType: 'TEXT',
 			},
 			{
-				name: 'id',
-			},
-			{
 				name: 'product',
 				prop: 'product',
 				dataType: 'PICKUP',
+			},
+			{
+				name: 'id',
 			},
 			{
 				name: 'pri',
@@ -83,6 +83,16 @@ export default class StoryKanBanModel {
 				name: 'duplicatestory',
 				prop: 'duplicatestory',
 				dataType: 'PICKUP',
+			},
+			{
+				name: 'isfavorites',
+				prop: 'isfavorites',
+				dataType: 'TEXT',
+			},
+			{
+				name: 'ischild',
+				prop: 'ischild',
+				dataType: 'TEXT',
 			},
 
 			{

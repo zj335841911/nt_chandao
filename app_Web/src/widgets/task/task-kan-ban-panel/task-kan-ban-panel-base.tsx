@@ -150,6 +150,10 @@ export class TaskKanBanPanelBase extends PanelControlBase {
 ,
         isfavorites: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'isfavorites', panel: this })
 ,
+        status1: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'status1', panel: this })
+,
+        tasktype: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'tasktype', panel: this })
+,
         container5: new PanelContainerModel({ caption: '隐藏项', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container5', panel: this })
 ,
         container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container1', panel: this })
@@ -178,6 +182,8 @@ export class TaskKanBanPanelBase extends PanelControlBase {
             }
             this.detailsModel.rawitem2.setVisible(ret);
         }
+
+
 
 
 
