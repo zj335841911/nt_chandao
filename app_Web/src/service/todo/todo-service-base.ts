@@ -280,7 +280,7 @@ export default class TodoServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/todos/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/todos/fetchdefault`,tempData,isloading);
         return res;
     }
 
