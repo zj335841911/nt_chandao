@@ -8502,21 +8502,21 @@ export default class TaskServiceBase extends EntityService {
     public async FetchByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchbymodule`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/fetchbymodule`,tempData,isloading);
             return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchbymodule`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/fetchbymodule`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchbymodule`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/fetchbymodule`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/tasks/fetchbymodule`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/tasks/fetchbymodule`,tempData,isloading);
         return res;
     }
 
@@ -8726,21 +8726,21 @@ export default class TaskServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/tasks/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/tasks/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -8838,21 +8838,21 @@ export default class TaskServiceBase extends EntityService {
     public async FetchMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchmyfavorites`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchmyfavorites`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchmyfavorites`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/tasks/fetchmyfavorites`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/tasks/fetchmyfavorites`,tempData,isloading);
         return res;
     }
 
@@ -8894,21 +8894,21 @@ export default class TaskServiceBase extends EntityService {
     public async FetchProjectTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchprojecttask`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/fetchprojecttask`,tempData,isloading);
             return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchprojecttask`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/fetchprojecttask`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchprojecttask`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/fetchprojecttask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/tasks/fetchprojecttask`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/tasks/fetchprojecttask`,tempData,isloading);
         return res;
     }
 

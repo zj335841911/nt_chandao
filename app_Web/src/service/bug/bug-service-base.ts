@@ -2693,26 +2693,26 @@ export default class BugServiceBase extends EntityService {
     public async FetchMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchmyfavorites`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchmyfavorites`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/projects/${context.project}/bugs/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchmyfavorites`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/bugs/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchmyfavorites`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/bugs/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchmyfavorites`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchmyfavorites`,tempData,isloading);
         return res;
     }
 
@@ -2823,26 +2823,26 @@ export default class BugServiceBase extends EntityService {
     public async FetchProjectBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchprojectbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/fetchprojectbugs`,tempData,isloading);
             return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchprojectbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/projects/${context.project}/bugs/fetchprojectbugs`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchprojectbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/bugs/fetchprojectbugs`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchprojectbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/bugs/fetchprojectbugs`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchprojectbugs`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchprojectbugs`,tempData,isloading);
         return res;
     }
 
