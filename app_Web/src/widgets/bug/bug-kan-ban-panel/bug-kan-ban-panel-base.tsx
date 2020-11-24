@@ -130,6 +130,8 @@ export class BugKanBanPanelBase extends PanelControlBase {
 ,
         delayresolve: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: false, disabled: false, name: 'delayresolve', panel: this })
 ,
+        container8: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container8', panel: this })
+,
         rawitem7: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem7', panel: this })
 ,
         resolvedby: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'resolvedby', panel: this })
@@ -223,6 +225,7 @@ export class BugKanBanPanelBase extends PanelControlBase {
             }
             this.detailsModel.delayresolve.setVisible(ret);
         }
+
 
 
 

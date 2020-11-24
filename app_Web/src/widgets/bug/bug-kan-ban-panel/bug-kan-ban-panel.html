@@ -108,7 +108,7 @@
                                 
                                 </i-col>
                                         
-                                <i-col v-show="detailsModel.deadline.visible"  :md="{ span: 6, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-field">
+                                <i-col v-show="detailsModel.deadline.visible"  :md="{ span: 5, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="" class="app-layoutpanel-field">
                                     <div class="item-field">
                                     
                                     <div class="item-field-content">
@@ -139,48 +139,52 @@
                         </i-col>
                                 <i-col v-show="detailsModel.container6.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
                             <row style="height:100%;">
+                                        <i-col v-show="detailsModel.container8.visible"  :md="{ span: 16, offset: 0 }" :lg="{ span: 16, offset: 0 }" style="" class="app-layoutpanel-container">
+                                    <row style="height:100%;">
+                                                
+                                        <i-col v-show="detailsModel.rawitem6.visible"  :md="{ span: 6, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                                            <app-rawitem
+                                            :viewparams="viewparams" 
+                                            :context="context"
+                                            contentStyle=""
+                                            sizeStyle=""
+                                            contentType="RAW"
+                                            :htmlContent='``'
+                                        >
+                                                解决日期
+                                        </app-rawitem>
                                         
-                                <i-col v-show="detailsModel.rawitem6.visible"  :md="{ span: 4, offset: 0 }" :lg="{ span: 4, offset: 0 }" style="" class="app-layoutpanel-rowitem">
-                                    <app-rawitem
-                                    :viewparams="viewparams" 
-                                    :context="context"
-                                    contentStyle=""
-                                    sizeStyle=""
-                                    contentType="RAW"
-                                    :htmlContent='``'
-                                >
-                                        解决日期
-                                </app-rawitem>
-                                
-                                
-                                </i-col>
                                         
-                                <i-col v-show="detailsModel.resolveddate.visible"  :md="{ span: 8, offset: 0 }" :lg="{ span: 8, offset: 0 }" style="" class="app-layoutpanel-field">
-                                    <div class="item-field">
-                                    
-                                    <div class="item-field-content">
-                                    
-                                <app-span :value="data.resolveddate" name="resolveddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
-                                > </app-span> 
-                                
-                                    </div>
-                                </div>
-                                
-                                
-                                </i-col>
+                                        </i-col>
+                                                
+                                        <i-col v-show="detailsModel.resolveddate.visible"  :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" style="" class="app-layoutpanel-field">
+                                            <div class="item-field">
+                                            
+                                            <div class="item-field-content">
+                                            
+                                        <app-span :value="data.resolveddate" name="resolveddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+                                        > </app-span> 
                                         
-                                <i-col v-show="detailsModel.delayresolve.visible"  :md="{ span: 4, offset: 0 }" :lg="{ span: 4, offset: 0 }" style="color:rgba(255, 0, 0, 1)" class="app-layoutpanel-field textcenterred">
-                                    <div class="item-field">
-                                    
-                                    <div class="item-field-content">
-                                    
-                                <app-span :value="data.delayresolve" name="delayresolve" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
-                                > </app-span> 
-                                
-                                    </div>
-                                </div>
-                                
-                                
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        </i-col>
+                                                
+                                        <i-col v-show="detailsModel.delayresolve.visible"  :md="{ span: 6, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="color:rgba(255, 0, 0, 1)" class="app-layoutpanel-field textcenterred">
+                                            <div class="item-field">
+                                            
+                                            <div class="item-field-content">
+                                            
+                                        <app-span :value="data.delayresolve" name="delayresolve" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+                                        > </app-span> 
+                                        
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        </i-col>
+                                    </row>
                                 </i-col>
                                         
                                 <i-col v-show="detailsModel.rawitem7.visible"  :md="{ span: 4, offset: 0 }" :lg="{ span: 4, offset: 0 }" style="" class="app-layoutpanel-rowitem">
