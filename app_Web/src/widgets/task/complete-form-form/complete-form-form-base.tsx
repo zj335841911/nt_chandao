@@ -435,7 +435,7 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
 
 
         if (Object.is(name, 'currentconsumed')) {
-            const details: string[] = ['totaltime'];
+            const details: string[] = ['mytotaltime', 'totaltime'];
             this.updateFormItems('CalcTime', this.data, details, true);
         }
     }
