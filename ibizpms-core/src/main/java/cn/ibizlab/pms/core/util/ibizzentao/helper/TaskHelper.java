@@ -454,7 +454,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             task2.setParent(-1L);
             this.internalUpdate(task2);
             updateParentStatus(et, et.getParent(), !changeParent);
-            computeBeginAndEnd(this.get(old.getParent()));
+            computeBeginAndEnd(this.get(et.getParent()));
             if (changeParent) {
                 Task task1 = new Task();
                 task1.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
@@ -649,16 +649,22 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         et = this.getById(et.getId());
         List<Team> teamList = teamHelper.list(new QueryWrapper<Team>().eq(FIELD_ROOT, et.getId()).eq(FIELD_TYPE, StaticDict.Team__type.TASK.getValue()));
         if (teamList.size() == 0) {
+            et.setAssignedtozj(et.getOpenedby());
             et.setAssignedto(et.getOpenedby());
         } else {
+            double myconsumed = 0d;
             int index = -1;
             for (int i = 0; i < teamList.size(); i++) {
                 if (teamList.get(i).getAccount().equals(et.getAssignedto())) {
                     index = i;
+                    myconsumed = teamList.get(i).getConsumed();
                     break;
                 }
             }
+            et.setMyconsumed(myconsumed);
+            et.setMytotaltime(myconsumed);
             if (index == teamList.size() - 1) {
+                et.setAssignedtozj(null);
                 et.setAssignedto(null);
             } else {
                 String next = "";
@@ -668,6 +674,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                         break;
                     }
                 }
+                et.setAssignedtozj(next);
                 et.setAssignedto(next);
             }
         }

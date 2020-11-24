@@ -33,6 +33,7 @@ export default class TaskService extends TaskServiceBase {
      */
     public async CalcTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         data.totaltime = data.consumed + data.currentconsumed;
+        data.mytotaltime = (data.myconsumed != null ? data.myconsumed : data.consumed) + data.currentconsumed;
         return {
             status: 200,
             data
