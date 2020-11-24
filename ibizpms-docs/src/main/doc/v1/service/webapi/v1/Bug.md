@@ -1615,7 +1615,7 @@ POST
 /bugs/fetchreportbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3346,7 +3346,7 @@ POST
 /products/{product_id}/bugs/fetchreportbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5079,7 +5079,7 @@ POST
 /stories/{story_id}/bugs/fetchreportbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -6812,7 +6812,7 @@ POST
 /projects/{project_id}/bugs/fetchreportbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -8545,7 +8545,7 @@ POST
 /products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
