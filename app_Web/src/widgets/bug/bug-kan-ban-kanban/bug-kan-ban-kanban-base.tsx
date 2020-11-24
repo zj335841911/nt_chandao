@@ -211,7 +211,7 @@ export class BugKanBanKanbanBase extends MainControlBase {
      * @type {string}
      * @memberof BugKanBanBase
      */    
-    public sortDir:string = '';
+    public sortDir:string = 'desc';
 
     /**
      * 排序字段
@@ -219,7 +219,7 @@ export class BugKanBanKanbanBase extends MainControlBase {
      * @type {string}
      * @memberof BugKanBanBase
      */    
-    public sortField: string = '';
+    public sortField: string = 'id';
 
     /**
      * 是否分组
