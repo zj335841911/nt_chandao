@@ -132,7 +132,7 @@ export class BugKanBanPanelBase extends PanelControlBase {
 ,
         resolvedby: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'resolvedby', panel: this })
 ,
-        delayresolve: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'delayresolve', panel: this })
+        delayresolve: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: false, disabled: false, name: 'delayresolve', panel: this })
 ,
         container6: new PanelContainerModel({ caption: '已解决状态', itemType: 'CONTAINER',visible: false, disabled: false, name: 'container6', panel: this })
 ,
@@ -198,7 +198,7 @@ export class BugKanBanPanelBase extends PanelControlBase {
         if (Object.is(name, '') || Object.is(name, 'delay')) {
             let ret = false;
             const _delay = this.data.delay;
-            if (this.$verify.testCond(_delay, 'ISNULL', '')) {
+            if (this.$verify.testCond(_delay, 'NOTEQ', '''')) {
                 ret = true;
             }
             this.detailsModel.delay.setVisible(ret);
@@ -217,6 +217,14 @@ export class BugKanBanPanelBase extends PanelControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'status')) {
+            let ret = false;
+            const _status = this.data.status;
+            if (this.$verify.testCond(_status, 'NOTEQ', '''')) {
+                ret = true;
+            }
+            this.detailsModel.delayresolve.setVisible(ret);
+        }
 
         if (Object.is(name, '') || Object.is(name, 'status')) {
             let ret = false;
