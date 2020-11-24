@@ -26,7 +26,7 @@
                                 </div>
                                 <div v-if="isEdit && !(Object.is(item[groupfield],'group') && Object.is(col.name,'expect'))" class="table-td-edit">
                                     <slot v-if="refreshSelect" :name="col.name" :row="item" :$index="index" :column="col">
-                                        <i-input class="table-edit-input" v-model="item[col.name]" @on-change="onEditChange(item, col.name,index)" placeholder="分组名称"></i-input>
+                                        <i-input class="table-edit-input" v-model="item[col.name]" @on-change="onEditChange(item, col.name,index)"></i-input>
                                     </slot>
                                     <el-select class="table-edit-group" v-if="groupfield && i === 0" size="small" clearable v-model="item[groupfield]" @change="onEditChange(item, groupfield,index)">
                                         <template v-for="(option, n) of groupItems">
