@@ -10,21 +10,20 @@
             </template>
         </Breadcrumb>
         <ButtonGroup>
-            <Button icon="md-apps" @click="modalityChange('chart')"></Button>
-            <Button icon="md-menu" @click="modalityChange('list')"></Button>
+            <Button icon="md-apps" @click="modelChange('chart')"></Button>
+            <Button icon="md-menu" @click="modelChange('list')"></Button>
         </ButtonGroup>
     </div>
-    <div v-show="Object.is(modality, 'chart')" class="documents-library-chart">
+    <div v-show="Object.is(model, 'chart')" class="documents-library-chart">
         <template v-for="(item,index) in items">
             <div :key="index" class="chart-item">
-                <div>
-                    <Icon
-                        @dblclick="openNode(item)"
-                        v-if="Object.is(item.nodeType,'STATIC') || (item.curData && (Object.is(item.curData.doclibtype,'doc') || Object.is(item.curData.docqtype,'module')))"
-                        type="md-folder" size="70" color="rgb(255, 202, 40)" />
-                    <Icon
-                        v-if="item.curData && (Object.is(item.curData.doclibtype,'file') || Object.is(item.curData.docqtype,'doc'))"
-                        type="md-document" size="70" color="darkgrey" />
+                <div 
+                    v-if="Object.is(item.nodeType,'STATIC') || (item.curData && (Object.is(item.curData.doclibtype,'doc') || Object.is(item.curData.docqtype,'module')))"
+                    @dblclick="openNode(item)">
+                    <Icon type="md-folder" size="70" color="rgb(255, 202, 40)" />
+                </div> 
+                <div v-if="item.curData && (Object.is(item.curData.doclibtype,'file') || Object.is(item.curData.docqtype,'doc'))"> 
+                    <Icon type="md-document" size="70" color="darkgrey" />
                 </div>
                 <div>
                     <a
@@ -40,7 +39,7 @@
             </div>
         </template>
     </div>
-    <div v-show="Object.is(modality, 'list')" class="documents-library-list">
+    <div v-show="Object.is(model, 'list')" class="documents-library-list">
         <template v-for="(item,index) in items">
             <div :key="index" class="list-item">
                 <div>
