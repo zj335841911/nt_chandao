@@ -4,7 +4,6 @@ import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import DocLibService from '@/service/doc-lib/doc-lib-service';
 import ProjectDocLibTreeService from './project-doc-lib-tree-treeview-service';
-import FileUIService from '@/uiservice/file/file-ui-service';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
 
 /**
@@ -132,8 +131,8 @@ export class ProjectDocLibTreeTreeBase extends MainControlBase {
           datas = [params];
         }
         // 界面行为
-        const curUIService:FileUIService  = new FileUIService();
-        curUIService.File_Look(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_EditCustomDocLib(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -161,8 +160,7 @@ export class ProjectDocLibTreeTreeBase extends MainControlBase {
           datas = [params];
         }
         // 界面行为
-        const curUIService:FileUIService  = new FileUIService();
-        curUIService.File_ibzdownload(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -190,8 +188,8 @@ export class ProjectDocLibTreeTreeBase extends MainControlBase {
           datas = [params];
         }
         // 界面行为
-        const curUIService:FileUIService  = new FileUIService();
-        curUIService.File_delete(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -308,6 +306,32 @@ export class ProjectDocLibTreeTreeBase extends MainControlBase {
         // 界面行为
         const curUIService:DocLibUIService  = new DocLibUIService();
         curUIService.DocLib_Collect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 刷新
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof DocLibProjectTreeExpViewBase
+     */
+    public RefreshAll(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        if (xData && xData.refresh_all && xData.refresh_all instanceof Function) {
+            xData.refresh_all();
+            return;
+        }
+        const _this: any = this;
+        if (_this.refresh_all && _this.refresh_all instanceof Function) {
+            _this.refresh_all();
+            return;
+        }
+        if (_this.engine) {
+            _this.engine.load();
+        }
     }
 
 
@@ -511,9 +535,9 @@ export class ProjectDocLibTreeTreeBase extends MainControlBase {
         DocLib_deuiaction2: {name:'deuiaction2',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
         DocLib_deuiaction3: {name:'deuiaction3',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visible: true, disabled: false},
         DocLib_deuiaction4: {name:'deuiaction4',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visible: true, disabled: false},
-        Files_deuiaction1: {name:'deuiaction1',nodeOwner:'Files',type: 'DEUIACTION', tag: 'Look', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
-        Files_deuiaction2: {name:'deuiaction2',nodeOwner:'Files',type: 'DEUIACTION', tag: 'ibzdownload', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
-        Files_deuiaction3: {name:'deuiaction3',nodeOwner:'Files',type: 'DEUIACTION', tag: 'delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__FILE_DELETE_BUT', visible: true, disabled: false},
+        Files_deuiaction1: {name:'deuiaction1',nodeOwner:'Files',type: 'DEUIACTION', tag: 'EditCustomDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
+        Files_deuiaction2: {name:'deuiaction2',nodeOwner:'Files',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visible: true, disabled: false},
+        Files_deuiaction3: {name:'deuiaction3',nodeOwner:'Files',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
     }
 
     /**
@@ -961,15 +985,15 @@ export class ProjectDocLibTreeTreeBase extends MainControlBase {
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1" v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         
-                        
+                        编辑
                     </dropdown-item>
                             <dropdown-item name="deuiaction2" v-show={this.copyActionModel['deuiaction2']?.visible} disabled={this.copyActionModel['deuiaction2']?.disabled}>
-                        <i class="fa fa-download"></i>
-                        
+                        <i class="fa fa-refresh"></i>
+                        刷新
                     </dropdown-item>
                             <dropdown-item name="deuiaction3" v-show={this.copyActionModel['deuiaction3']?.visible} disabled={this.copyActionModel['deuiaction3']?.disabled}>
-                        <i class="fa fa-remove"></i>
-                        
+                        <i class="fa fa-lock"></i>
+                        维护分类
                     </dropdown-item>
                 </dropdown-menu>
             </dropdown>

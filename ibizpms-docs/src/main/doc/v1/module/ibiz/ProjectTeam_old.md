@@ -67,6 +67,18 @@ hide members
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
+* 获取项目的可用工日 (GetProjectDays)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+<center>获取项目的可用工日</center>
 * 获取成员角色 (GetUserRole)
   
    
