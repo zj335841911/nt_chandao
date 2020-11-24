@@ -679,19 +679,19 @@ export class Main2EditFormBase extends EditFormControlBase {
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'postponedprojectcnt')) {
+        if (Object.is(name, '') || Object.is(name, 'resprojectcnt')) {
             let ret = false;
-            const _postponedprojectcnt = this.data.postponedprojectcnt;
-            if (this.$verify.testCond(_postponedprojectcnt, 'NOTEQ', '0')) {
+            const _resprojectcnt = this.data.resprojectcnt;
+            if (this.$verify.testCond(_resprojectcnt, 'NOTEQ', '0')) {
                 ret = true;
             }
             this.detailsModel.rawitem4.setVisible(ret);
         }
 
-        if (Object.is(name, '') || Object.is(name, 'postponedprojectcnt')) {
+        if (Object.is(name, '') || Object.is(name, 'resprojectcnt')) {
             let ret = false;
-            const _postponedprojectcnt = this.data.postponedprojectcnt;
-            if (this.$verify.testCond(_postponedprojectcnt, 'EQ', '0')) {
+            const _resprojectcnt = this.data.resprojectcnt;
+            if (this.$verify.testCond(_resprojectcnt, 'EQ', '0')) {
                 ret = true;
             }
             this.detailsModel.rawitem11.setVisible(ret);
