@@ -312,6 +312,13 @@ export default {
 			files: "附件库",
 		},
 		uiactions: {
+        doclibmodule_edit: "编辑",
+        doclibmodule_favorite: "收藏",
+        doclibmodule_nfavorite: "取消收藏",
+        doclib_editdoclib: "编辑",
+        doclib_weihufenlei: "维护分类",
+        doclib_uncollect: "取消收藏",
+        doclib_collect: "收藏",
 		},
 	},
 	looproductdoclibtree_treeview: {
