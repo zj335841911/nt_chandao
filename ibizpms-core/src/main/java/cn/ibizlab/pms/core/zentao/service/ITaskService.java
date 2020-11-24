@@ -53,6 +53,7 @@ public interface ITaskService extends IService<Task> {
     Task editEstimate(Task et);
     Task finish(Task et);
     Task getNextTeamUser(Task et);
+    Task getTeamUserLeftStart(Task et);
     Task getUsernames(Task et);
     Task otherUpdate(Task et);
     Task pause(Task et);

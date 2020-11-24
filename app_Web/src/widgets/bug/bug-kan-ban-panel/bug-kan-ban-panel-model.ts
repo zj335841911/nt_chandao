@@ -42,6 +42,26 @@ export default class BugKanBanModel {
         prop: 'delay'
       },
       {
+        name: 'resolveddate',
+        prop: 'resolveddate'
+      },
+      {
+        name: 'resolvedby',
+        prop: 'resolvedby'
+      },
+      {
+        name: 'delayresolve',
+        prop: 'delayresolve'
+      },
+      {
+        name: 'closeddate',
+        prop: 'closeddate'
+      },
+      {
+        name: 'closedby',
+        prop: 'closedby'
+      },
+      {
         name: 'product',
         prop: 'product'
       },

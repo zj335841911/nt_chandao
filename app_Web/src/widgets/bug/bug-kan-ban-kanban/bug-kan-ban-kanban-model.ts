@@ -15,9 +15,78 @@ export default class BugKanBanModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'closedby',
+				prop: 'closedby',
+				dataType: 'SSCODELIST',
+			},
+			{
+				name: 'tostory',
+				prop: 'tostory',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'closeddate',
+				prop: 'closeddate',
+				dataType: 'DATETIME',
+			},
+			{
+				name: 'srfmstag',
+			},
+			{
+				name: 'srfkey',
+				prop: 'id',
+				dataType: 'ACID',
+			},
+			{
+				name: 'srfmajortext',
+				prop: 'title',
+				dataType: 'TEXT',
+			},
+			{
+				name: 'duplicatebug',
+				prop: 'duplicatebug',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'id',
+				prop: 'id',
+				dataType: 'ACID',
+			},
+			{
+				name: 'assignedto',
+				prop: 'assignedto',
+				dataType: 'TEXT',
+			},
+			{
+				name: 'story',
+				prop: 'story',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'title',
+				prop: 'title',
+				dataType: 'TEXT',
+			},
+			{
+				name: 'confirmed',
+			},
+			{
+				name: 'repo',
+				prop: 'repo',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'isfavorites',
+			},
+			{
 				name: 'totask',
 				prop: 'totask',
 				dataType: 'PICKUP',
+			},
+			{
+				name: 'delayresolve',
+				prop: 'delayresolve',
+				dataType: 'TEXT',
 			},
 			{
 				name: 'module',
@@ -40,30 +109,7 @@ export default class BugKanBanModel {
 				dataType: 'PICKUP',
 			},
 			{
-				name: 'tostory',
-				prop: 'tostory',
-				dataType: 'PICKUP',
-			},
-			{
 				name: 'severity',
-			},
-			{
-				name: 'srfmstag',
-			},
-			{
-				name: 'srfmajortext',
-				prop: 'title',
-				dataType: 'TEXT',
-			},
-			{
-				name: 'srfkey',
-				prop: 'id',
-				dataType: 'ACID',
-			},
-			{
-				name: 'duplicatebug',
-				prop: 'duplicatebug',
-				dataType: 'PICKUP',
 			},
 			{
 				name: 'product',
@@ -71,29 +117,9 @@ export default class BugKanBanModel {
 				dataType: 'PICKUP',
 			},
 			{
-				name: 'id',
-				prop: 'id',
-				dataType: 'ACID',
-			},
-			{
-				name: 'story',
-				prop: 'story',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'assignedto',
-				prop: 'assignedto',
-				dataType: 'TEXT',
-			},
-			{
 				name: 'project',
 				prop: 'project',
 				dataType: 'PICKUP',
-			},
-			{
-				name: 'title',
-				prop: 'title',
-				dataType: 'TEXT',
 			},
 			{
 				name: 'pri',
@@ -101,17 +127,19 @@ export default class BugKanBanModel {
 				dataType: 'NSCODELIST',
 			},
 			{
-				name: 'confirmed',
-			},
-			{
 				name: 'plan',
 				prop: 'plan',
 				dataType: 'PICKUP',
 			},
 			{
-				name: 'repo',
-				prop: 'repo',
-				dataType: 'PICKUP',
+				name: 'resolvedby',
+				prop: 'resolvedby',
+				dataType: 'SSCODELIST',
+			},
+			{
+				name: 'resolveddate',
+				prop: 'resolveddate',
+				dataType: 'DATETIME',
 			},
 			{
 				name: 'entry',
@@ -132,9 +160,6 @@ export default class BugKanBanModel {
 				name: 'delay',
 				prop: 'delay',
 				dataType: 'TEXT',
-			},
-			{
-				name: 'isfavorites',
 			},
 			{
 				name: 'deadline',

@@ -130,9 +130,27 @@ export class BugKanBanPanelBase extends PanelControlBase {
 ,
         container4: new PanelContainerModel({ caption: '激活状态', itemType: 'CONTAINER',visible: false, disabled: false, name: 'container4', panel: this })
 ,
-        container6: new PanelContainerModel({ caption: '已解决状态', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container6', panel: this })
+        rawitem6: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem6', panel: this })
 ,
-        container7: new PanelContainerModel({ caption: '已关闭状态', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container7', panel: this })
+        resolveddate: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'resolveddate', panel: this })
+,
+        rawitem7: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem7', panel: this })
+,
+        resolvedby: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'resolvedby', panel: this })
+,
+        delayresolve: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'delayresolve', panel: this })
+,
+        container6: new PanelContainerModel({ caption: '已解决状态', itemType: 'CONTAINER',visible: false, disabled: false, name: 'container6', panel: this })
+,
+        rawitem8: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem8', panel: this })
+,
+        closeddate: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'closeddate', panel: this })
+,
+        rawitem9: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem9', panel: this })
+,
+        closedby: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'closedby', panel: this })
+,
+        container7: new PanelContainerModel({ caption: '已关闭状态', itemType: 'CONTAINER',visible: false, disabled: false, name: 'container7', panel: this })
 ,
         rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: false, disabled: false, name: 'rawitem2', panel: this })
 ,
@@ -191,6 +209,31 @@ export class BugKanBanPanelBase extends PanelControlBase {
         }
 
 
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'status')) {
+            let ret = false;
+            const _status = this.data.status;
+            if (this.$verify.testCond(_status, 'EQ', 'resolved')) {
+                ret = true;
+            }
+            this.detailsModel.container6.setVisible(ret);
+        }
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'status')) {
+            let ret = false;
+            const _status = this.data.status;
+            if (this.$verify.testCond(_status, 'EQ', 'closed')) {
+                ret = true;
+            }
+            this.detailsModel.container7.setVisible(ret);
+        }
 
         if (Object.is(name, '') || Object.is(name, 'deadline')) {
             let ret = false;

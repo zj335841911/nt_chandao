@@ -60,6 +60,14 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleUpdate__MSDenyLogic update__msdenyLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleRemove__MSDenyLogic remove__msdenyLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleDoclibModuleNFavoriteLogic doclibmodulenfavoriteLogic;
 
     @Autowired
@@ -109,6 +117,8 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public boolean remove(Long key) {
+        DocLibModule et = new DocLibModule();
+        et.set("id", key);
         boolean result = removeById(key);
         return result;
     }

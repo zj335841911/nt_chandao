@@ -726,6 +726,48 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * GetTeamUserLeftStart接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async GetTeamUserLeftStart(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.task && context.subtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}/getteamuserleftstart`,data,isloading);
+            
+            return res;
+        }
+        if(context.project && context.task && context.subtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/getteamuserleftstart`,data,isloading);
+            
+            return res;
+        }
+        if(context.story && context.task && context.subtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}/getteamuserleftstart`,data,isloading);
+            
+            return res;
+        }
+        if(context.task && context.subtask){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/tasks/${context.task}/subtasks/${context.subtask}/getteamuserleftstart`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().put(`/subtasks/${context.subtask}/getteamuserleftstart`,data,isloading);
+            return res;
+    }
+
+    /**
      * GetUsernames接口方法
      *
      * @param {*} [context={}]

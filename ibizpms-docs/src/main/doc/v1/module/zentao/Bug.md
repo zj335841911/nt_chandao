@@ -6208,7 +6208,23 @@ t1.`TOTASK`,
 t1.`TYPE`,
 t1.`V1`,
 t1.`V2`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
+(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs, 
+( CASE WHEN t1.deadline IS NULL 
+			OR t1.deadline = '0000-00-00' 
+			OR t1.deadline = '1970-01-01' THEN
+				'' 
+				WHEN t1.`status` = 'active' 
+				AND t1.deadline < DATE_FORMAT( now(), '%y-%m-%d' ) THEN
+					CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, now()), '天' ) ELSE '' 
+			END ) AS `DELAY`, 
+( CASE WHEN t1.deadline IS NULL 
+			OR t1.deadline = '0000-00-00' 
+			OR t1.deadline = '1970-01-01' THEN
+				'' 
+				WHEN t1.`status` = 'resolved' 
+				AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN
+					CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE '' 
+			END ) AS `DELAYRESOLVE`
 FROM `zt_bug` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID 
