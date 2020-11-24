@@ -324,8 +324,8 @@ public class ProjectResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchCurProduct-all') and hasPermission(#context,'pms-Project-Get')")
 	@ApiOperation(value = "获取当前项目", tags = {"项目" } ,notes = "获取当前项目")
-    @RequestMapping(method= RequestMethod.GET , value="/projects/fetchcurproduct")
-	public ResponseEntity<List<ProjectDTO>> fetchCurProduct(ProjectSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/projects/fetchcurproduct")
+	public ResponseEntity<List<ProjectDTO>> fetchCurProduct(@RequestBody ProjectSearchContext context) {
         Page<Project> domains = projectService.searchCurProduct(context) ;
         List<ProjectDTO> list = projectMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -434,8 +434,8 @@ public class ProjectResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchMyProject-all') and hasPermission(#context,'pms-Project-Get')")
 	@ApiOperation(value = "获取我的项目", tags = {"项目" } ,notes = "获取我的项目")
-    @RequestMapping(method= RequestMethod.GET , value="/projects/fetchmyproject")
-	public ResponseEntity<List<ProjectDTO>> fetchMyProject(ProjectSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/projects/fetchmyproject")
+	public ResponseEntity<List<ProjectDTO>> fetchMyProject(@RequestBody ProjectSearchContext context) {
         Page<Project> domains = projectService.searchMyProject(context) ;
         List<ProjectDTO> list = projectMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)

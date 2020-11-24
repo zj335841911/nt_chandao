@@ -1868,7 +1868,7 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":200,
-    "expression":"0",
+    "expression":"( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '0000-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END )",
     "key_field":0,
     "show_order":1000,
     "major_field":0

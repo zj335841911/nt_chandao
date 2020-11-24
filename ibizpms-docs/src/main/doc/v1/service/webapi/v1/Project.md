@@ -510,7 +510,7 @@ POST
 /projects/fetchcurproduct
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -690,7 +690,7 @@ POST
 /projects/fetchmyproject
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
