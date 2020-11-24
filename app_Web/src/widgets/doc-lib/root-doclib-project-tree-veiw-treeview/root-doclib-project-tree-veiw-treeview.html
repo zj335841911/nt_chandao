@@ -53,13 +53,15 @@
                     </span>
                 </div>
                 <div v-if="item.curData && item.curData.copyActionModel">
-                    <a v-for="(actionModel,i) in item.curData.copyActionModel"
+                    <a 
+                        v-for="(actionModel,i) in item.curData.copyActionModel"
+                        :key="i"
                         class="list-row-action" 
                         @click="onAction(item,actionModel.ctrlname,actionModel.name)" 
                         v-show="actionModel.visible"
                         :disabled="actionModel.disabled">
                         <i v-if="actionModel.imgclass" :class="actionModel.imgclass"></i>
-                        <span>{{ actionModel.caption }}</apan>
+                        <span>{{ actionModel.caption }}</span>
                     </a>
                 </div>
             </div>
