@@ -19311,6 +19311,7 @@ CREATE TABLE `zt_doclib`(
 | PATH        | path  | VARCHAR      |   255   | &nbsp; |
 | OWNER        | owner  | VARCHAR      |   30   | &nbsp; |
 | ROOT        | 编号  |       |   8   | &nbsp; |
+| ISFAVORITE        | 是否收藏  | VARCHAR      |   200   | &nbsp; |
 
 
 

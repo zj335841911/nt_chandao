@@ -37,6 +37,7 @@
 | 14 | [id](#属性-id（PARENT）) | PARENT | 外键值 | 否 | 是 | 是 |
 | 15 | [所属文档库](#属性-所属文档库（DOCLIBNAME）) | DOCLIBNAME | 外键值文本 | 否 | 是 | 是 |
 | 16 | [上级模块](#属性-上级模块（MODULENAME）) | MODULENAME | 外键值文本 | 否 | 是 | 是 |
+| 17 | [是否收藏](#属性-是否收藏（ISFAVORITE）) | ISFAVORITE | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-叶子模块（ISLEAF）
 #### 属性说明
@@ -735,6 +736,49 @@ String
 | 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-是否收藏（ISFAVORITE）
+#### 属性说明
+是否收藏
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -1041,6 +1085,7 @@ t1.`DELETED`,
 t11.`NAME` AS `DOCLIBNAME`,
 t1.`GRADE`,
 t1.`ID`,
+0 AS `ISFAVORITE`,
 (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
 t21.`NAME` AS `MODULENAME`,
 t1.`NAME`,
@@ -1247,6 +1292,7 @@ t1.`DELETED`,
 t11.`NAME` AS `DOCLIBNAME`,
 t1.`GRADE`,
 t1.`ID`,
+0 AS `ISFAVORITE`,
 (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
 t21.`NAME` AS `MODULENAME`,
 t1.`NAME`,

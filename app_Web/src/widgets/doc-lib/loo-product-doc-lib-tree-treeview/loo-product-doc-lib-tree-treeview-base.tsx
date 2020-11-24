@@ -1040,16 +1040,16 @@ export class LooProductDocLibTreeTreeBase extends MainControlBase {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.childdoclibmodule_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1" v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                        <i class="fa fa-edit"></i>
                         
-                        编辑
                     </dropdown-item>
                             <dropdown-item name="deuiaction2" v-show={this.copyActionModel['deuiaction2']?.visible} disabled={this.copyActionModel['deuiaction2']?.disabled}>
+                        <i class="fa fa-star-o"></i>
                         
-                        收藏
                     </dropdown-item>
                             <dropdown-item name="deuiaction3" v-show={this.copyActionModel['deuiaction3']?.visible} disabled={this.copyActionModel['deuiaction3']?.disabled}>
+                        <i class="fa fa-star"></i>
                         
-                        取消收藏
                     </dropdown-item>
                 </dropdown-menu>
             </dropdown>
@@ -1100,16 +1100,16 @@ export class LooProductDocLibTreeTreeBase extends MainControlBase {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.doclibmodule_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1" v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                        <i class="fa fa-edit"></i>
                         
-                        编辑
                     </dropdown-item>
                             <dropdown-item name="deuiaction2" v-show={this.copyActionModel['deuiaction2']?.visible} disabled={this.copyActionModel['deuiaction2']?.disabled}>
+                        <i class="fa fa-star-o"></i>
                         
-                        收藏
                     </dropdown-item>
                             <dropdown-item name="deuiaction3" v-show={this.copyActionModel['deuiaction3']?.visible} disabled={this.copyActionModel['deuiaction3']?.disabled}>
+                        <i class="fa fa-star"></i>
                         
-                        取消收藏
                     </dropdown-item>
                 </dropdown-menu>
             </dropdown>

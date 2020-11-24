@@ -16,6 +16,7 @@ export default {
     parent: "id",
     doclibname: "所属文档库",
     modulename: "上级模块",
+    isfavorite: "是否收藏",
   },
 	views: {
 		editview: {

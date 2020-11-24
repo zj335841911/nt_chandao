@@ -173,6 +173,11 @@
        }
         ,
        {
+            "unirescode":"DOCLIBMODULE_FAVOUR_BUT",
+            "uniresname":"收藏文档库分类"
+       }
+        ,
+       {
             "unirescode":"BUILD_EDIT_BUT",
             "uniresname":"项目版本编辑"
        }
@@ -320,6 +325,11 @@
        {
             "unirescode":"BUILD_LINK_BUT",
             "uniresname":"项目版本关联Bug（需求）"
+       }
+        ,
+       {
+            "unirescode":"DOCLIBMODULE_NFAVOUR_BUT",
+            "uniresname":"取消收藏文档库分类"
        }
         ,
        {

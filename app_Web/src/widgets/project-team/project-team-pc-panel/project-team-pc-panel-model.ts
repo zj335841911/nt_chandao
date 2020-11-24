@@ -28,6 +28,18 @@ export default class ProjectTeamPcModel {
         prop: 'join'
       },
       {
+        name: 'days',
+        prop: 'days'
+      },
+      {
+        name: 'hours',
+        prop: 'hours'
+      },
+      {
+        name: 'total',
+        prop: 'total'
+      },
+      {
         name: 'consumed',
         prop: 'consumed'
       },

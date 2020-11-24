@@ -116,6 +116,22 @@ export class ProjectTeamPcPanelBase extends PanelControlBase {
 ,
         join: new PanelFieldModel({ caption: '加盟日', itemType: 'FIELD',visible: true, disabled: false, name: 'join', panel: this })
 ,
+        rawitem6: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem6', panel: this })
+,
+        days: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'days', panel: this })
+,
+        container4: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container4', panel: this })
+,
+        rawitem7: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem7', panel: this })
+,
+        hours: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'hours', panel: this })
+,
+        rawitem8: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem8', panel: this })
+,
+        total: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'total', panel: this })
+,
+        container5: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container5', panel: this })
+,
         rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem1', panel: this })
 ,
         consumed: new PanelFieldModel({ caption: '消耗', itemType: 'FIELD',visible: true, disabled: false, name: 'consumed', panel: this })
@@ -165,6 +181,14 @@ export class ProjectTeamPcPanelBase extends PanelControlBase {
             }
             this.detailsModel.rawitem5.setVisible(ret);
         }
+
+
+
+
+
+
+
+
 
 
 

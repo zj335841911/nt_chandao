@@ -46,34 +46,129 @@
                         </i-col>
                     </row>
                 </i-col>
+                        <i-col v-show="detailsModel.container4.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
+                    <row style="height:100%;">
+                                
+                        <i-col v-show="detailsModel.rawitem4.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                            <app-rawitem
+                            :viewparams="viewparams" 
+                            :context="context"
+                            contentStyle=""
+                            sizeStyle=""
+                            contentType="RAW"
+                            :htmlContent='``'
+                        >
+                                加盟日
+                        </app-rawitem>
                         
-                <i-col v-show="detailsModel.rawitem4.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="" class="app-layoutpanel-rowitem">
-                    <app-rawitem
-                    :viewparams="viewparams" 
-                    :context="context"
-                    contentStyle=""
-                    sizeStyle=""
-                    contentType="RAW"
-                    :htmlContent='``'
-                >
-                        加盟日
-                </app-rawitem>
-                
-                
+                        
+                        </i-col>
+                                
+                        <i-col v-show="detailsModel.join.visible"  :xs="{ span: 9, offset: 0 }" :sm="{ span: 9, offset: 0 }" :md="{ span: 9, offset: 0 }" :lg="{ span: 9, offset: 0 }" style="" class="app-layoutpanel-field">
+                            <div class="item-field">
+                            
+                            <div class="item-field-content">
+                            
+                        <app-span :value="data.join" name="join" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+                        > </app-span> 
+                        
+                            </div>
+                        </div>
+                        
+                        
+                        </i-col>
+                                
+                        <i-col v-show="detailsModel.rawitem6.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 4, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                            <app-rawitem
+                            :viewparams="viewparams" 
+                            :context="context"
+                            contentStyle=""
+                            sizeStyle=""
+                            contentType="RAW"
+                            :htmlContent='``'
+                        >
+                                可用工日
+                        </app-rawitem>
+                        
+                        
+                        </i-col>
+                                
+                        <i-col v-show="detailsModel.days.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-field">
+                            <div class="item-field">
+                            
+                            <div class="item-field-content">
+                            
+                        <app-span :value="data.days" name="days" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+                        > </app-span> 
+                        
+                            </div>
+                        </div>
+                        
+                        
+                        </i-col>
+                    </row>
                 </i-col>
+                        <i-col v-show="detailsModel.container5.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
+                    <row style="height:100%;">
+                                
+                        <i-col v-show="detailsModel.rawitem7.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 5, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                            <app-rawitem
+                            :viewparams="viewparams" 
+                            :context="context"
+                            contentStyle=""
+                            sizeStyle=""
+                            contentType="RAW"
+                            :htmlContent='``'
+                        >
+                                可用工时/天
+                        </app-rawitem>
                         
-                <i-col v-show="detailsModel.join.visible"  :xs="{ span: 19, offset: 0 }" :sm="{ span: 19, offset: 0 }" :md="{ span: 19, offset: 0 }" :lg="{ span: 19, offset: 0 }" style="" class="app-layoutpanel-field">
-                    <div class="item-field">
-                    
-                    <div class="item-field-content">
-                    
-                <app-span :value="data.join" name="join" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
-                > </app-span> 
-                
-                    </div>
-                </div>
-                
-                
+                        
+                        </i-col>
+                                
+                        <i-col v-show="detailsModel.hours.visible"  :xs="{ span: 9, offset: 0 }" :sm="{ span: 9, offset: 0 }" :md="{ span: 9, offset: 0 }" :lg="{ span: 9, offset: 0 }" style="" class="app-layoutpanel-field">
+                            <div class="item-field">
+                            
+                            <div class="item-field-content">
+                            
+                        <app-span :value="data.hours" name="hours" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+                        > </app-span> 
+                        
+                            </div>
+                        </div>
+                        
+                        
+                        </i-col>
+                                
+                        <i-col v-show="detailsModel.rawitem8.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 4, offset: 0 }" style="" class="app-layoutpanel-rowitem">
+                            <app-rawitem
+                            :viewparams="viewparams" 
+                            :context="context"
+                            contentStyle=""
+                            sizeStyle=""
+                            contentType="RAW"
+                            :htmlContent='``'
+                        >
+                                总计
+                        </app-rawitem>
+                        
+                        
+                        </i-col>
+                                
+                        <i-col v-show="detailsModel.total.visible"  :xs="{ span: 6, offset: 0 }" :sm="{ span: 6, offset: 0 }" :md="{ span: 6, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-field">
+                            <div class="item-field">
+                            
+                            <div class="item-field-content">
+                            
+                        <app-span :value="data.total" name="total" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+                        > </app-span> 
+                        
+                            </div>
+                        </div>
+                        
+                        
+                        </i-col>
+                    </row>
                 </i-col>
                         
                 <i-col v-show="detailsModel.rawitem1.visible"  :xs="{ span: 2, offset: 0 }" :sm="{ span: 3, offset: 0 }" :md="{ span: 3, offset: 0 }" :lg="{ span: 3, offset: 0 }" style="" class="app-layoutpanel-rowitem">

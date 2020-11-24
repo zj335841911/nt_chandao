@@ -133,4 +133,12 @@ export interface DocLibModule {
      * @memberof DocLibModule
      */
     modulename?: any;
+
+    /**
+     * 是否收藏
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    isfavorite?: any;
 }
