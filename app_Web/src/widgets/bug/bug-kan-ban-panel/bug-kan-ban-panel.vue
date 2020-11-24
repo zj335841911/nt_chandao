@@ -20,3 +20,6 @@ import { BugKanBanPanelBase } from './bug-kan-ban-panel-base';
 @VueLifeCycleProcessing()
 export default class BugKanBanPanel extends BugKanBanPanelBase {}
 </script>
+<style lang="less">
+@import './bug-kan-ban-panel.less';
+</style>
