@@ -523,12 +523,12 @@ export default class SubProductPlanServiceBase extends EntityService {
     public async FetchDefaultParent(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/subproductplans/fetchdefaultparent`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/fetchdefaultparent`,tempData,isloading);
             return res;
         }
         if(context.productplan && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/subproductplans/fetchdefaultparent`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/fetchdefaultparent`,tempData,isloading);
             return res;
         }
     }

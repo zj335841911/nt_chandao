@@ -364,8 +364,8 @@ public class CaseResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurSuite-all')")
 	@ApiOperation(value = "获取套件关联用例", tags = {"测试用例" } ,notes = "获取套件关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchcursuite")
-	public ResponseEntity<List<CaseDTO>> fetchCurSuite(CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/cases/fetchcursuite")
+	public ResponseEntity<List<CaseDTO>> fetchCurSuite(@RequestBody CaseSearchContext context) {
         Page<Case> domains = caseService.searchCurSuite(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -1112,8 +1112,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurSuite-all')")
 	@ApiOperation(value = "根据产品获取套件关联用例", tags = {"测试用例" } ,notes = "根据产品获取套件关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchcursuite")
-	public ResponseEntity<List<CaseDTO>> fetchCaseCurSuiteByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/fetchcursuite")
+	public ResponseEntity<List<CaseDTO>> fetchCaseCurSuiteByProduct(@PathVariable("product_id") Long product_id,@RequestBody CaseSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Case> domains = caseService.searchCurSuite(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -1878,8 +1878,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurSuite-all')")
 	@ApiOperation(value = "根据需求获取套件关联用例", tags = {"测试用例" } ,notes = "根据需求获取套件关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchcursuite")
-	public ResponseEntity<List<CaseDTO>> fetchCaseCurSuiteByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/fetchcursuite")
+	public ResponseEntity<List<CaseDTO>> fetchCaseCurSuiteByStory(@PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchCurSuite(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
@@ -2644,8 +2644,8 @@ public class CaseResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurSuite-all')")
 	@ApiOperation(value = "根据产品需求获取套件关联用例", tags = {"测试用例" } ,notes = "根据产品需求获取套件关联用例")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchcursuite")
-	public ResponseEntity<List<CaseDTO>> fetchCaseCurSuiteByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/fetchcursuite")
+	public ResponseEntity<List<CaseDTO>> fetchCaseCurSuiteByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,@RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchCurSuite(context) ;
         List<CaseDTO> list = caseMapping.toDto(domains.getContent());
