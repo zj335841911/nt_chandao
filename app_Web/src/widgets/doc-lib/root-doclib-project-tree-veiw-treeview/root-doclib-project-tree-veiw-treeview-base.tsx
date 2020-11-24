@@ -501,15 +501,15 @@ export class RootDoclibProjectTreeVeiwTreeBase extends MainControlBase {
      * @memberof RootDoclibProjectTreeVeiwBase
      */
      public actionModel: any = {
-        DoclibChildModule_deuiaction1: {name:'deuiaction1',nodeOwner:'DoclibChildModule',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
-        DoclibChildModule_deuiaction2: {name:'deuiaction2',nodeOwner:'DoclibChildModule',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false},
-        DoclibChildModule_deuiaction3: {name:'deuiaction3',nodeOwner:'DoclibChildModule',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false},
-        docLIbRoot_deuiaction1: {name:'deuiaction1',nodeOwner:'docLIbRoot',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
-        docLIbRoot_deuiaction2: {name:'deuiaction2',nodeOwner:'docLIbRoot',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false},
-        docLIbRoot_deuiaction3: {name:'deuiaction3',nodeOwner:'docLIbRoot',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false},
-        rootdoc_deuiaction1: {name:'deuiaction1',nodeOwner:'rootdoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
-        rootdoc_deuiaction2: {name:'deuiaction2',nodeOwner:'rootdoc',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false},
-        rootdoc_deuiaction3: {name:'deuiaction3',nodeOwner:'rootdoc',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false},
+        DoclibChildModule_deuiaction1: {ctrlname: 'doclibchildmodule_cm',name:'deuiaction1',nodeOwner:'DoclibChildModule',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
+        DoclibChildModule_deuiaction2: {ctrlname: 'doclibchildmodule_cm',name:'deuiaction2',nodeOwner:'DoclibChildModule',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
+        DoclibChildModule_deuiaction3: {ctrlname: 'doclibchildmodule_cm',name:'deuiaction3',nodeOwner:'DoclibChildModule',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
+        docLIbRoot_deuiaction1: {ctrlname: 'doclibroot_cm',name:'deuiaction1',nodeOwner:'docLIbRoot',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
+        docLIbRoot_deuiaction2: {ctrlname: 'doclibroot_cm',name:'deuiaction2',nodeOwner:'docLIbRoot',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
+        docLIbRoot_deuiaction3: {ctrlname: 'doclibroot_cm',name:'deuiaction3',nodeOwner:'docLIbRoot',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
+        rootdoc_deuiaction1: {ctrlname: 'rootdoc_cm',name:'deuiaction1',nodeOwner:'rootdoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
+        rootdoc_deuiaction2: {ctrlname: 'rootdoc_cm',name:'deuiaction2',nodeOwner:'rootdoc',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
+        rootdoc_deuiaction3: {ctrlname: 'rootdoc_cm',name:'deuiaction3',nodeOwner:'rootdoc',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
     }
 
     /**
@@ -720,19 +720,19 @@ export class RootDoclibProjectTreeVeiwTreeBase extends MainControlBase {
      * @memberof RootDoclibProjectTreeVeiwBase
      */
     public async getNodeState(node: any) {
-        this.copyActionModel = {};
+        let copyActionModel = {};
         const tags: string[] = node.id.split(';');
         Object.values(this.actionModel).forEach((item:any) =>{
             if(Object.is(item.nodeOwner,tags[0])){
-                this.copyActionModel[item.name] = item;
+                copyActionModel[item.name] = item;
             }
         })
-        if(Object.keys(this.copyActionModel).length === 0){
+        if(Object.keys(copyActionModel).length === 0){
             return;
         }
         const result = await this.computeNodeState(node,node.nodeType,node.appEntityName)
         if(Object.values(result).length>0){
-            node.curData.copyActionModel = JSON.parse(JSON.stringify(this.copyActionModel));
+            node.curData.copyActionModel = JSON.parse(JSON.stringify(copyActionModel));
         }
     }
 
@@ -772,16 +772,16 @@ export class RootDoclibProjectTreeVeiwTreeBase extends MainControlBase {
      * @param {*} tag 触发行为标识
      * @memberof RootDoclibProjectTreeVeiwBase
      */
-    public onAction(item: any,tag: string) {
+    public onAction(item: any,ctrlname: string,tag: string) {
         let _this:any = this;
         this.currentselectedNode = JSON.parse(JSON.stringify(item));
-        if (_this.doclibchildmodule_cm_click && _this.doclibchildmodule_cm_click instanceof Function) {
+        if (Object.is('doclibchildmodule_cm',ctrlname) && _this.doclibchildmodule_cm_click && _this.doclibchildmodule_cm_click instanceof Function) {
             _this.doclibchildmodule_cm_click({ tag: tag });
         }           
-        if (_this.doclibroot_cm_click && _this.doclibroot_cm_click instanceof Function) {
+        if (Object.is('doclibroot_cm',ctrlname) && _this.doclibroot_cm_click && _this.doclibroot_cm_click instanceof Function) {
             _this.doclibroot_cm_click({ tag: tag });
         }           
-        if (_this.rootdoc_cm_click && _this.rootdoc_cm_click instanceof Function) {
+        if (Object.is('rootdoc_cm',ctrlname) && _this.rootdoc_cm_click && _this.rootdoc_cm_click instanceof Function) {
             _this.rootdoc_cm_click({ tag: tag });
         }           
     }

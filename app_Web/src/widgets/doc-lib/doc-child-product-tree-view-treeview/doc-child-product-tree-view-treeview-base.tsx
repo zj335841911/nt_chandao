@@ -395,12 +395,12 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
      * @memberof DocChildProductTreeViewBase
      */
      public actionModel: any = {
-        ZiMuluDoc_deuiaction1: {name:'deuiaction1',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
-        ZiMuluDoc_deuiaction2: {name:'deuiaction2',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false},
-        ZiMuluDoc_deuiaction3: {name:'deuiaction3',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false},
-        ChildModule_deuiaction1: {name:'deuiaction1',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
-        ChildModule_deuiaction2: {name:'deuiaction2',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false},
-        ChildModule_deuiaction3: {name:'deuiaction3',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false},
+        ZiMuluDoc_deuiaction1: {ctrlname: 'zimuludoc_cm',name:'deuiaction1',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
+        ZiMuluDoc_deuiaction2: {ctrlname: 'zimuludoc_cm',name:'deuiaction2',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
+        ZiMuluDoc_deuiaction3: {ctrlname: 'zimuludoc_cm',name:'deuiaction3',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
+        ChildModule_deuiaction1: {ctrlname: 'childmodule_cm',name:'deuiaction1',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
+        ChildModule_deuiaction2: {ctrlname: 'childmodule_cm',name:'deuiaction2',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
+        ChildModule_deuiaction3: {ctrlname: 'childmodule_cm',name:'deuiaction3',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
     }
 
     /**
@@ -611,19 +611,19 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
      * @memberof DocChildProductTreeViewBase
      */
     public async getNodeState(node: any) {
-        this.copyActionModel = {};
+        let copyActionModel = {};
         const tags: string[] = node.id.split(';');
         Object.values(this.actionModel).forEach((item:any) =>{
             if(Object.is(item.nodeOwner,tags[0])){
-                this.copyActionModel[item.name] = item;
+                copyActionModel[item.name] = item;
             }
         })
-        if(Object.keys(this.copyActionModel).length === 0){
+        if(Object.keys(copyActionModel).length === 0){
             return;
         }
         const result = await this.computeNodeState(node,node.nodeType,node.appEntityName)
         if(Object.values(result).length>0){
-            node.curData.copyActionModel = JSON.parse(JSON.stringify(this.copyActionModel));
+            node.curData.copyActionModel = JSON.parse(JSON.stringify(copyActionModel));
         }
     }
 
@@ -663,13 +663,13 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
      * @param {*} tag 触发行为标识
      * @memberof DocChildProductTreeViewBase
      */
-    public onAction(item: any,tag: string) {
+    public onAction(item: any,ctrlname: string,tag: string) {
         let _this:any = this;
         this.currentselectedNode = JSON.parse(JSON.stringify(item));
-        if (_this.zimuludoc_cm_click && _this.zimuludoc_cm_click instanceof Function) {
+        if (Object.is('zimuludoc_cm',ctrlname) && _this.zimuludoc_cm_click && _this.zimuludoc_cm_click instanceof Function) {
             _this.zimuludoc_cm_click({ tag: tag });
         }           
-        if (_this.childmodule_cm_click && _this.childmodule_cm_click instanceof Function) {
+        if (Object.is('childmodule_cm',ctrlname) && _this.childmodule_cm_click && _this.childmodule_cm_click instanceof Function) {
             _this.childmodule_cm_click({ tag: tag });
         }           
     }
