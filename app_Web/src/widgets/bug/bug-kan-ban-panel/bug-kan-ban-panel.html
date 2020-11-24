@@ -88,33 +88,7 @@
                 
                 
                 </i-col>
-                        <i-col v-show="detailsModel.container2.visible"  :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" style="" class="app-layoutpanel-container">
-                    <row style="height:100%;">
-                                
-                        <i-col v-show="detailsModel.button1.visible"  :md="{ span: 3, offset: 0 }" :lg="{ span: 3, offset: 0 }" style="" class="app-layoutpanel-button">
-                            <i-button :disabled="detailsModel.button1.disabled" type="primary" long @click="uiAction(null, 'AssingToBug', $event)"  style="height: 24px;">
-                            <i class="fa fa-hand-o-right"></i>
-                        </i-button>
-                        
-                        
-                        </i-col>
-                                
-                        <i-col v-show="detailsModel.assignedto.visible"  :md="{ span: 14, offset: 1 }" :lg="{ span: 14, offset: 1 }" style="" class="app-layoutpanel-field">
-                            <div class="item-field">
-                            
-                            <div class="item-field-content">
-                            
-                        <app-span :value="data.assignedto" name="assignedto" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  tag='UserRealName' codelistType='DYNAMIC'   style=""
-                        > </app-span> 
-                        
-                            </div>
-                        </div>
-                        
-                        
-                        </i-col>
-                    </row>
-                </i-col>
-                        <i-col v-show="detailsModel.container3.visible"  :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" style="" class="app-layoutpanel-container">
+                        <i-col v-show="detailsModel.container3.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
                     <row style="height:100%;">
                                 <i-col v-show="detailsModel.container4.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
                             <row style="height:100%;">
@@ -312,6 +286,32 @@
                             :htmlContent='``'
                         >
                         </app-rawitem>
+                        
+                        
+                        </i-col>
+                    </row>
+                </i-col>
+                        <i-col v-show="detailsModel.container2.visible"  :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" style="" class="app-layoutpanel-container">
+                    <row style="height:100%;">
+                                
+                        <i-col v-show="detailsModel.button1.visible"  :md="{ span: 3, offset: 0 }" :lg="{ span: 3, offset: 0 }" style="" class="app-layoutpanel-button">
+                            <i-button :disabled="detailsModel.button1.disabled" type="primary" long @click="uiAction(null, 'AssingToBug', $event)"  style="height: 24px;">
+                            <i class="fa fa-hand-o-right"></i>
+                        </i-button>
+                        
+                        
+                        </i-col>
+                                
+                        <i-col v-show="detailsModel.assignedto.visible"  :md="{ span: 14, offset: 1 }" :lg="{ span: 14, offset: 1 }" style="" class="app-layoutpanel-field">
+                            <div class="item-field">
+                            
+                            <div class="item-field-content">
+                            
+                        <app-span :value="data.assignedto" name="assignedto" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  tag='UserRealName' codelistType='DYNAMIC'   style=""
+                        > </app-span> 
+                        
+                            </div>
+                        </div>
                         
                         
                         </i-col>

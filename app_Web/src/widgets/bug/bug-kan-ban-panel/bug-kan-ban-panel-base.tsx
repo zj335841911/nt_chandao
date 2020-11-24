@@ -116,17 +116,11 @@ export class BugKanBanPanelBase extends PanelControlBase {
 ,
         rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem1', panel: this })
 ,
-        button1: new PanelButtonModel({ caption: '指派', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'AssingToBug',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__BUG_ASSIGNTO_BUT',visible: true,disabled: false} })
-,
-        assignedto: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'assignedto', panel: this })
-,
-        container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
-,
         rawitem5: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem5', panel: this })
 ,
         deadline: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'deadline', panel: this })
 ,
-        delay: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'delay', panel: this })
+        delay: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: false, disabled: false, name: 'delay', panel: this })
 ,
         container4: new PanelContainerModel({ caption: '激活状态', itemType: 'CONTAINER',visible: false, disabled: false, name: 'container4', panel: this })
 ,
@@ -155,6 +149,12 @@ export class BugKanBanPanelBase extends PanelControlBase {
         rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: false, disabled: false, name: 'rawitem2', panel: this })
 ,
         container3: new PanelContainerModel({ caption: '动态内容', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container3', panel: this })
+,
+        button1: new PanelButtonModel({ caption: '指派', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'AssingToBug',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__BUG_ASSIGNTO_BUT',visible: true,disabled: false} })
+,
+        assignedto: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'assignedto', panel: this })
+,
+        container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
 ,
         product: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'product', panel: this })
 ,
@@ -195,9 +195,14 @@ export class BugKanBanPanelBase extends PanelControlBase {
 
 
 
-
-
-
+        if (Object.is(name, '') || Object.is(name, 'delay')) {
+            let ret = false;
+            const _delay = this.data.delay;
+            if (this.$verify.testCond(_delay, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.delay.setVisible(ret);
+        }
 
         if (Object.is(name, '') || Object.is(name, 'status')) {
             let ret = false;
@@ -243,6 +248,9 @@ export class BugKanBanPanelBase extends PanelControlBase {
             }
             this.detailsModel.rawitem2.setVisible(ret);
         }
+
+
+
 
 
 

@@ -29,11 +29,6 @@ export default class BugKanBanModel {
         prop: 'pri'
       },
       {
-        name: 'assignedto',
-        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
-        prop: 'assignedto'
-      },
-      {
         name: 'deadline',
         prop: 'deadline'
       },
@@ -60,6 +55,11 @@ export default class BugKanBanModel {
       {
         name: 'closedby',
         prop: 'closedby'
+      },
+      {
+        name: 'assignedto',
+        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
+        prop: 'assignedto'
       },
       {
         name: 'product',
