@@ -1458,26 +1458,26 @@ export default class BugServiceBase extends EntityService {
     public async FetchBugsByBuild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbugsbybuild`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/fetchbugsbybuild`,tempData,isloading);
             return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbugsbybuild`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/projects/${context.project}/bugs/fetchbugsbybuild`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbugsbybuild`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/bugs/fetchbugsbybuild`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbugsbybuild`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/bugs/fetchbugsbybuild`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchbugsbybuild`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchbugsbybuild`,tempData,isloading);
         return res;
     }
 
@@ -1588,26 +1588,26 @@ export default class BugServiceBase extends EntityService {
     public async FetchBuildLinkResolvedBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
             return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/projects/${context.project}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
         return res;
     }
 
@@ -2563,26 +2563,26 @@ export default class BugServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/projects/${context.project}/bugs/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/bugs/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchdefault`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/bugs/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -2953,26 +2953,26 @@ export default class BugServiceBase extends EntityService {
     public async FetchReleaseLeftBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/fetchreleaseleftbugs`,tempData,isloading);
             return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/projects/${context.project}/bugs/fetchreleaseleftbugs`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/bugs/fetchreleaseleftbugs`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchreleaseleftbugs`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/bugs/fetchreleaseleftbugs`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchreleaseleftbugs`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchreleaseleftbugs`,tempData,isloading);
         return res;
     }
 

@@ -20,6 +20,13 @@ public class ProjectTeamGetProjectDaysLogicImpl implements IProjectTeamGetProjec
     @Autowired
     private KieContainer kieContainer;
 
+    @Autowired
+    private cn.ibizlab.pms.core.zentao.service.IProjectService projectservice;
+
+    public cn.ibizlab.pms.core.zentao.service.IProjectService getProjectService() {
+        return this.projectservice;
+    }
+
 
     @Autowired
     private cn.ibizlab.pms.core.ibiz.service.IProjectTeamService iBzSysDefaultService;
@@ -34,8 +41,12 @@ public class ProjectTeamGetProjectDaysLogicImpl implements IProjectTeamGetProjec
         KieSession kieSession = null;
         try {
             kieSession = kieContainer.newKieSession();
+            cn.ibizlab.pms.core.zentao.domain.Project projectteamgetprojectdaysproject = new cn.ibizlab.pms.core.zentao.domain.Project();
+            kieSession.insert(projectteamgetprojectdaysproject); 
+            kieSession.setGlobal("projectteamgetprojectdaysproject", projectteamgetprojectdaysproject);
             kieSession.insert(et); 
             kieSession.setGlobal("projectteamgetprojectdaysdefault", et);
+            kieSession.setGlobal("projectservice", projectservice);
             kieSession.setGlobal("iBzSysProjectteamDefaultService", iBzSysDefaultService);
             kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
             kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.projectteamgetprojectdays");

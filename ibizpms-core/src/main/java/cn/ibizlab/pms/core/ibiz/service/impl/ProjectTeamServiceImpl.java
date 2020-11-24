@@ -54,7 +54,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectTeamGetUserRoleLogic getuserroleLogic;
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectTeamGetProjectDaysLogic getprojectdaysLogic;
 
     protected int batchSize = 500;
 
@@ -118,6 +118,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
 
     @Override
     public ProjectTeam getDraft(ProjectTeam et) {
+        getprojectdaysLogic.execute(et);
         return et;
     }
 
@@ -127,8 +128,14 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     }
     @Override
     @Transactional
+    public ProjectTeam getProjectDays(ProjectTeam et) {
+        getprojectdaysLogic.execute(et);
+         return et;
+    }
+
+    @Override
+    @Transactional
     public ProjectTeam getUserRole(ProjectTeam et) {
-        getuserroleLogic.execute(et);
         //自定义代码
         return et;
     }

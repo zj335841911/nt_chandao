@@ -63,6 +63,7 @@ hide members
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|获取项目的可用工日|实体处理逻辑|&nbsp;|
 |获取成员角色|用户自定义|&nbsp;根据成员获取成员的角色信息|
 |Save|内置方法|&nbsp;|
 
@@ -74,10 +75,17 @@ hide members
 {% plantuml %}
 hide footbox
 
+项目团队 -> 项目: 获取项目详情
+项目团队 -> 项目团队: 设置项目参数
+项目 -> 项目团队: 回填
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
+|1|获取项目详情 |
+|1|开始 | 
+|2|设置项目参数 |
+|3|回填 |
 <center>获取项目的可用工日</center>
 * 获取成员角色 (GetUserRole)
   

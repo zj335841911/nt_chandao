@@ -744,8 +744,9 @@ Integer
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [获取成员角色](#实体行为-获取成员角色（GetUserRole）) | GetUserRole | 用户自定义 | 后台及前台 |
-| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 7 | [获取项目的可用工日](#实体行为-获取项目的可用工日（GetProjectDays）) | getProjectDays | 实体处理逻辑 | 后台 |
+| 8 | [获取成员角色](#实体行为-获取成员角色（GetUserRole）) | GetUserRole | 用户自定义 | 后台及前台 |
+| 9 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -806,7 +807,9 @@ GetDraft
 后台及前台
 
 #### 逻辑附加
-无
+| 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
+| ---- | ---- | ---- | ---- | ---- |
+| 1 | [获取项目的可用工日<br>（GetProjectDays）](#逻辑处理-获取项目的可用工日（GetProjectDays）) | 执行之后 | 是 |  |
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -816,6 +819,18 @@ CheckKey
 
 - 行为持有者
 后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-获取项目的可用工日（GetProjectDays）
+#### 说明
+获取项目的可用工日
+
+- 行为类型
+实体处理逻辑
+
+- 行为持有者
+后台
 
 #### 逻辑附加
 无
@@ -830,9 +845,7 @@ CheckKey
 后台及前台
 
 #### 逻辑附加
-| 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
-| ---- | ---- | ---- | ---- | ---- |
-| 1 | [获取成员角色<br>（GetUserRole）](#逻辑处理-获取成员角色（GetUserRole）) | 执行之前 | 是 |  |
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -862,7 +875,10 @@ Save
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
 | ---- | ---- | ---- | ---- |
-| 1 | 开始 | Begin | 开始 |
+| 1 | 获取项目详情 | Deaction1 | 实体行为 |
+| 2 | 设置项目参数 | Prepareparam1 | 准备参数 |
+| 3 | 回填 | Prepareparam2 | 准备参数 |
+| 4 | 开始 | Begin | 开始 |
 ### 逻辑处理-获取成员角色（GetUserRole）
 #### 说明
 获取成员角色

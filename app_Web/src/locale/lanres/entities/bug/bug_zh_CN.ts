@@ -691,6 +691,7 @@ export default {
 			openedbuild: "影响版本", 
 			resolvedby: "由谁解决", 
 			resolveddate: "于", 
+			delayresolve: "", 
 			resolvedbuild: "解决版本", 
 			resolution: "解决方案", 
 			closedby: "由谁关闭", 

@@ -81,6 +81,11 @@ export default class DashboardBugLifeModel {
         dataType: 'DATETIME',
       },
       {
+        name: 'delayresolve',
+        prop: 'delayresolve',
+        dataType: 'TEXT',
+      },
+      {
         name: 'resolvedbuild',
         prop: 'resolvedbuild',
         dataType: 'SSCODELIST',
