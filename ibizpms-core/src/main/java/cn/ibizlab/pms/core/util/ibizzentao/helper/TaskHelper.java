@@ -1236,6 +1236,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         newTask.setConsumed(et.getTotaltime() != null ? et.getTotaltime() : (et.getConsumed() + et.getCurrentconsumed()));
         newTask.setCurrentconsumed(et.getCurrentconsumed());
         newTask.setFiles(et.getFiles());
+        if (et.getAssignedto() == null || "".equals(et.getAssignedto())) {
+            newTask.setAssignedto(old.getOpenedby());
+        } else {
+            newTask.setAssignedto(et.getAssignedto());
+        }
         double consumed = 0;
         if (teams.size() == 0) {
             newTask.setLeft(0d);
@@ -1247,11 +1252,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 throw new RuntimeException("总计消耗必须大于原消耗");
             }
 
-            if (et.getAssignedto() == null || "".equals(et.getAssignedto())) {
-                newTask.setAssignedto(old.getOpenedby());
-            } else {
-                newTask.setAssignedto(et.getAssignedto());
-            }
+
         } else {
             for (Team team : teams) {
                 if (team.getAccount().equals(AuthenticationUser.getAuthenticationUser().getUsername())) {
