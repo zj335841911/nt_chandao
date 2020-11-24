@@ -3797,6 +3797,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-my-territory-stats-tab-exp-view/ibz-my-territory-stats-tab-exp-view.vue'),
                 },
                 {
+                    path: 'doclibmodules/:doclibmodule?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.doclibmodule.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibmodules', parameterName: 'doclibmodule' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-module-edit-view/doc-lib-module-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplancreateview/:subplancreateview?',
                     meta: {
                         caption: 'entities.subproductplan.views.subplancreateview.caption',
@@ -3840,20 +3854,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-plan-sub-plan-create-view/product-plan-sub-plan-create-view.vue'),
-                },
-                {
-                    path: 'doclibmodules/:doclibmodule?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.doclibmodule.views.editview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'doclibmodules', parameterName: 'doclibmodule' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/doc-lib-module-edit-view/doc-lib-module-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/buildsubgridview_done/:buildsubgridview_done?',
