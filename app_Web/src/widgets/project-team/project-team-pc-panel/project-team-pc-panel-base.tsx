@@ -128,8 +128,6 @@ export class ProjectTeamPcPanelBase extends PanelControlBase {
 ,
         estimate: new PanelFieldModel({ caption: '最初预计', itemType: 'FIELD',visible: true, disabled: false, name: 'estimate', panel: this })
 ,
-        button2: new PanelButtonModel({ caption: '', itemType: 'BUTTON',visible: true, disabled: false, name: 'button2', panel: this })
-,
         button1: new PanelButtonModel({ caption: '移除', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'RemoveMember',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__PROJT_TM_BUT',visible: true,disabled: false} })
 ,
         container3: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container3', panel: this })
@@ -167,7 +165,6 @@ export class ProjectTeamPcPanelBase extends PanelControlBase {
             }
             this.detailsModel.rawitem5.setVisible(ret);
         }
-
 
 
 
