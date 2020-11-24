@@ -310,7 +310,7 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      * @type {string}
      * @memberof DocLibTreeProductBase
      */
-    public model: string = 'chart';
+    public mode: string = 'chart';
 
     /**
      * 树节点上下文菜单集合
@@ -498,8 +498,8 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      * @param model 展现形式
      * @memberof DocLibTreeProductBase
      */
-    public modelChange(model: string) {
-        this.model = model;
+    public modeChange(mode: string) {
+        this.mode = mode;
     }
 
     /**

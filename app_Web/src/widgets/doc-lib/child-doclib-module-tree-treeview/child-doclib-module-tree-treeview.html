@@ -10,11 +10,11 @@
             </template>
         </Breadcrumb>
         <ButtonGroup>
-            <Button icon="md-apps" @click="modelChange('chart')"></Button>
-            <Button icon="md-menu" @click="modelChange('list')"></Button>
+            <Button icon="md-apps" :class="Object.is(mode,'chart') ? 'button-active-background' : ''" @click="modeChange('chart')"></Button>
+            <Button icon="md-menu" :class="Object.is(mode,'list') ? 'button-active-background' : ''" @click="modeChange('list')"></Button>
         </ButtonGroup>
     </div>
-    <div v-show="Object.is(model, 'chart')" class="documents-library-chart">
+    <div v-show="Object.is(mode, 'chart')" class="documents-library-chart">
         <template v-for="(item,index) in items">
             <div :key="index" class="chart-item">
                 <div 
@@ -39,7 +39,7 @@
             </div>
         </template>
     </div>
-    <div v-show="Object.is(model, 'list')" class="documents-library-list">
+    <div v-show="Object.is(mode, 'list')" class="documents-library-list">
         <template v-for="(item,index) in items">
             <div :key="index" class="list-item">
                 <div>

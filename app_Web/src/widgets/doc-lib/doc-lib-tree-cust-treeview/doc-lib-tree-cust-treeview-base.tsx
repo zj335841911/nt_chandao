@@ -736,7 +736,7 @@ export class DocLibTreeCustTreeBase extends MainControlBase {
      * @type {string}
      * @memberof DocLibTreeCustBase
      */
-    public model: string = 'chart';
+    public mode: string = 'chart';
 
     /**
      * 树节点上下文菜单集合
@@ -936,8 +936,8 @@ export class DocLibTreeCustTreeBase extends MainControlBase {
      * @param model 展现形式
      * @memberof DocLibTreeCustBase
      */
-    public modelChange(model: string) {
-        this.model = model;
+    public modeChange(mode: string) {
+        this.mode = mode;
     }
 
     /**

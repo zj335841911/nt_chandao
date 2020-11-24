@@ -492,7 +492,7 @@ export class RootDoclibProjectTreeVeiwTreeBase extends MainControlBase {
      * @type {string}
      * @memberof RootDoclibProjectTreeVeiwBase
      */
-    public model: string = 'chart';
+    public mode: string = 'chart';
 
     /**
      * 树节点上下文菜单集合
@@ -685,8 +685,8 @@ export class RootDoclibProjectTreeVeiwTreeBase extends MainControlBase {
      * @param model 展现形式
      * @memberof RootDoclibProjectTreeVeiwBase
      */
-    public modelChange(model: string) {
-        this.model = model;
+    public modeChange(mode: string) {
+        this.mode = mode;
     }
 
     /**

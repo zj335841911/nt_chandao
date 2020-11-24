@@ -386,7 +386,7 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
      * @type {string}
      * @memberof DocChildProductTreeViewBase
      */
-    public model: string = 'chart';
+    public mode: string = 'chart';
 
     /**
      * 树节点上下文菜单集合
@@ -576,8 +576,8 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
      * @param model 展现形式
      * @memberof DocChildProductTreeViewBase
      */
-    public modelChange(model: string) {
-        this.model = model;
+    public modeChange(mode: string) {
+        this.mode = mode;
     }
 
     /**
