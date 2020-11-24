@@ -356,7 +356,7 @@ export class Main2EditFormBase extends EditFormControlBase {
 
         grouppanel8: new FormGroupPanelModel({ caption: '计划', detailType: 'GROUPPANEL', name: 'grouppanel8', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productstats.main2_form', extractMode: 'ITEM', details: [] } }),
 
-        rawitem4: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem4', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        rawitem4: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem4', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         rawitem7: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem7', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -675,6 +675,14 @@ export class Main2EditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'postponedprojectcnt')) {
+            let ret = false;
+            const _postponedprojectcnt = this.data.postponedprojectcnt;
+            if (this.$verify.testCond(_postponedprojectcnt, 'NOTEQ', '0')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem4.setVisible(ret);
+        }
 
 
         if (Object.is(name, '') || Object.is(name, 'resprojectcnt')) {
