@@ -75,6 +75,7 @@ export default {
     noticeusers: "消息通知用户",
     mailtopk: "抄送给",
     mailtoconact: "联系人",
+    delayresolve: "延期解决",
   },
 	views: {
 		plansubgridview: {

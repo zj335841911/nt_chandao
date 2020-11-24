@@ -240,6 +240,9 @@ export default class CurUserResolveBugModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'delayresolve',
+      },
     ]
   }
 

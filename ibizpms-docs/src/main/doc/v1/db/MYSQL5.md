@@ -3426,6 +3426,7 @@ CREATE TABLE `zt_branch`(
 | ASSIGNEDDATE        | 指派日期  | DATETIME      |   -1   | &nbsp; |
 | RESOLVEDDATE        | 解决日期  | DATETIME      |   -1   | &nbsp; |
 | ISFAVORITES        | 是否收藏  | VARCHAR      |   200   | &nbsp; |
+| DELAYRESOLVE        | 延期解决  | VARCHAR      |   200   | &nbsp; |
 | CASEVERSION        | 用例版本  | INTEGER      |   6   | &nbsp; |
 | V1        | v1  | VARCHAR      |   40   | &nbsp; |
 | MAILTOPK        | 抄送给  | VARCHAR      |   65,535   | &nbsp; |

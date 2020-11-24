@@ -105,6 +105,7 @@ hide members
 |消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 |抄送给|MAILTOPK|SMCODELIST|&nbsp;|
 |联系人|MAILTOCONACT|TEXT|&nbsp;|
+|延期解决|DELAYRESOLVE|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -184,6 +185,7 @@ hide members
 |消息通知用户|默认规则|内容长度必须小于等于[100]|
 |抄送给|默认规则|内容长度必须小于等于[65535]|
 |联系人|默认规则|内容长度必须小于等于[100]|
+|延期解决|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 

@@ -240,6 +240,9 @@ export default class BugSeverity_ProjectModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'delayresolve',
+      },
     ]
   }
 

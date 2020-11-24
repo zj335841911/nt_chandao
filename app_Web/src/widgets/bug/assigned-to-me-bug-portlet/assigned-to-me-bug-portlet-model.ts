@@ -240,6 +240,9 @@ export default class AssignedToMeBugModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'delayresolve',
+      },
     ]
   }
 
