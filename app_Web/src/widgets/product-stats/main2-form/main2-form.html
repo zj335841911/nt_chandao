@@ -671,6 +671,28 @@
     <row>
         <i-col
     class="form-layout-container"
+    v-show="detailsModel.rawitem7.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 8, offset: 16 }"
+    :xl="{ span: 8, offset: 16 }"
+>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    :htmlContent='``'
+
+>
+        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;所有项目&nbsp;:&nbsp;{{data.resprojectcnt ? data.resprojectcnt : 0}}</div>
+</app-rawitem>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.grouppanel4.visible"
     :style="{}"
     
@@ -811,28 +833,6 @@
     ></app-form-group-data-panel>
     <row>
         <i-col
-    class="form-layout-container"
-    v-show="detailsModel.rawitem7.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-rawitem
-    :viewparams="viewparams" 
-    :context="context"
-    contentStyle=""
-    sizeStyle=""
-    contentType="RAW"
-    :htmlContent='``'
-
->
-        <div style="margin-top: 6px;padding-left: 20px;">&nbsp;所有项目&nbsp;:&nbsp;{{data.resprojectcnt ? data.resprojectcnt : 0}}</div>
-</app-rawitem>
-
-</i-col>
-<i-col
     class="form-layout-container"
     v-show="detailsModel.rawitem8.visible"
     :style="{}"
