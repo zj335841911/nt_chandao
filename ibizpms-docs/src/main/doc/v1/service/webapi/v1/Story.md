@@ -1091,7 +1091,7 @@ POST
 /stories/fetchbuildstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1307,7 +1307,7 @@ POST
 /stories/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1487,7 +1487,7 @@ POST
 /stories/fetchprojectstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1559,7 +1559,7 @@ POST
 /stories/fetchreleasestories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1595,7 +1595,7 @@ POST
 /stories/fetchreportstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2952,7 +2952,7 @@ POST
 /products/{product_id}/stories/fetchbuildstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3180,7 +3180,7 @@ POST
 /products/{product_id}/stories/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3370,7 +3370,7 @@ POST
 /products/{product_id}/stories/fetchprojectstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3446,7 +3446,7 @@ POST
 /products/{product_id}/stories/fetchreleasestories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3484,7 +3484,7 @@ POST
 /products/{product_id}/stories/fetchreportstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |

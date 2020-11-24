@@ -181,8 +181,8 @@ public class DocLibResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProduct-all') and hasPermission(#context,'pms-DocLib-Get')")
 	@ApiOperation(value = "获取产品文档库", tags = {"文档库" } ,notes = "获取产品文档库")
-    @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchbyproduct")
-	public ResponseEntity<List<DocLibDTO>> fetchByProduct(DocLibSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/doclibs/fetchbyproduct")
+	public ResponseEntity<List<DocLibDTO>> fetchByProduct(@RequestBody DocLibSearchContext context) {
         Page<DocLib> domains = doclibService.searchByProduct(context) ;
         List<DocLibDTO> list = doclibMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -225,8 +225,8 @@ public class DocLibResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProject-all') and hasPermission(#context,'pms-DocLib-Get')")
 	@ApiOperation(value = "获取项目文件库", tags = {"文档库" } ,notes = "获取项目文件库")
-    @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchbyproject")
-	public ResponseEntity<List<DocLibDTO>> fetchByProject(DocLibSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/doclibs/fetchbyproject")
+	public ResponseEntity<List<DocLibDTO>> fetchByProject(@RequestBody DocLibSearchContext context) {
         Page<DocLib> domains = doclibService.searchByProject(context) ;
         List<DocLibDTO> list = doclibMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)

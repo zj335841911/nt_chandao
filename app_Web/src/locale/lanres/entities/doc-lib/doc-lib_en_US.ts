@@ -274,6 +274,9 @@ export default {
 			root: "默认根节点",
 		},
 		uiactions: {
+        doclibmodule_edit: "编辑",
+        doclibmodule_favorite: "收藏",
+        doclibmodule_nfavorite: "取消收藏",
         doc_edit: "编辑",
         doc_collect: "收藏",
         doc_uncollect: "取消收藏",
@@ -323,9 +326,6 @@ export default {
 			files: "附件库",
 		},
 		uiactions: {
-        file_look: "查看",
-        file_ibzdownload: "下载",
-        file_delete: "删除",
         doclib_editdoclib: "编辑",
         doclib_weihufenlei: "维护分类",
         doclib_uncollect: "取消收藏",

@@ -181,8 +181,8 @@ public class DocResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchChildDocLibDoc-all')")
 	@ApiOperation(value = "获取文档库文档（子库）", tags = {"文档" } ,notes = "获取文档库文档（子库）")
-    @RequestMapping(method= RequestMethod.GET , value="/docs/fetchchilddoclibdoc")
-	public ResponseEntity<List<DocDTO>> fetchChildDocLibDoc(DocSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/docs/fetchchilddoclibdoc")
+	public ResponseEntity<List<DocDTO>> fetchChildDocLibDoc(@RequestBody DocSearchContext context) {
         Page<Doc> domains = docService.searchChildDocLibDoc(context) ;
         List<DocDTO> list = docMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)

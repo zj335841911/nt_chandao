@@ -666,8 +666,8 @@ public class StoryResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all')")
 	@ApiOperation(value = "获取获取版本相关需求", tags = {"需求" } ,notes = "获取获取版本相关需求")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/fetchbuildstories")
-	public ResponseEntity<List<StoryDTO>> fetchBuildStories(StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/fetchbuildstories")
+	public ResponseEntity<List<StoryDTO>> fetchBuildStories(@RequestBody StorySearchContext context) {
         Page<Story> domains = storyService.searchBuildStories(context) ;
         List<StoryDTO> list = storyMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -798,8 +798,8 @@ public class StoryResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyFavorites-all')")
 	@ApiOperation(value = "获取我的收藏", tags = {"需求" } ,notes = "获取我的收藏")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/fetchmyfavorites")
-	public ResponseEntity<List<StoryDTO>> fetchMyFavorites(StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/fetchmyfavorites")
+	public ResponseEntity<List<StoryDTO>> fetchMyFavorites(@RequestBody StorySearchContext context) {
         Page<Story> domains = storyService.searchMyFavorites(context) ;
         List<StoryDTO> list = storyMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -908,8 +908,8 @@ public class StoryResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectStories-all')")
 	@ApiOperation(value = "获取项目相关需求", tags = {"需求" } ,notes = "获取项目相关需求")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/fetchprojectstories")
-	public ResponseEntity<List<StoryDTO>> fetchProjectStories(StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/fetchprojectstories")
+	public ResponseEntity<List<StoryDTO>> fetchProjectStories(@RequestBody StorySearchContext context) {
         Page<Story> domains = storyService.searchProjectStories(context) ;
         List<StoryDTO> list = storyMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -952,8 +952,8 @@ public class StoryResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseStories-all')")
 	@ApiOperation(value = "获取获取产品发布相关需求", tags = {"需求" } ,notes = "获取获取产品发布相关需求")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/fetchreleasestories")
-	public ResponseEntity<List<StoryDTO>> fetchReleaseStories(StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/fetchreleasestories")
+	public ResponseEntity<List<StoryDTO>> fetchReleaseStories(@RequestBody StorySearchContext context) {
         Page<Story> domains = storyService.searchReleaseStories(context) ;
         List<StoryDTO> list = storyMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -974,8 +974,8 @@ public class StoryResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReportStories-all')")
 	@ApiOperation(value = "获取通过模块查询", tags = {"需求" } ,notes = "获取通过模块查询")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/fetchreportstories")
-	public ResponseEntity<List<StoryDTO>> fetchReportStories(StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/fetchreportstories")
+	public ResponseEntity<List<StoryDTO>> fetchReportStories(@RequestBody StorySearchContext context) {
         Page<Story> domains = storyService.searchReportStories(context) ;
         List<StoryDTO> list = storyMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
@@ -1747,8 +1747,8 @@ public class StoryResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildStories-all')")
 	@ApiOperation(value = "根据产品获取获取版本相关需求", tags = {"需求" } ,notes = "根据产品获取获取版本相关需求")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/fetchbuildstories")
-	public ResponseEntity<List<StoryDTO>> fetchStoryBuildStoriesByProduct(@PathVariable("product_id") Long product_id,StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/fetchbuildstories")
+	public ResponseEntity<List<StoryDTO>> fetchStoryBuildStoriesByProduct(@PathVariable("product_id") Long product_id,@RequestBody StorySearchContext context) {
         context.setN_product_eq(product_id);
         Page<Story> domains = storyService.searchBuildStories(context) ;
         List<StoryDTO> list = storyMapping.toDto(domains.getContent());
@@ -1885,8 +1885,8 @@ public class StoryResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchMyFavorites-all')")
 	@ApiOperation(value = "根据产品获取我的收藏", tags = {"需求" } ,notes = "根据产品获取我的收藏")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/fetchmyfavorites")
-	public ResponseEntity<List<StoryDTO>> fetchStoryMyFavoritesByProduct(@PathVariable("product_id") Long product_id,StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/fetchmyfavorites")
+	public ResponseEntity<List<StoryDTO>> fetchStoryMyFavoritesByProduct(@PathVariable("product_id") Long product_id,@RequestBody StorySearchContext context) {
         context.setN_product_eq(product_id);
         Page<Story> domains = storyService.searchMyFavorites(context) ;
         List<StoryDTO> list = storyMapping.toDto(domains.getContent());
@@ -2000,8 +2000,8 @@ public class StoryResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectStories-all')")
 	@ApiOperation(value = "根据产品获取项目相关需求", tags = {"需求" } ,notes = "根据产品获取项目相关需求")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/fetchprojectstories")
-	public ResponseEntity<List<StoryDTO>> fetchStoryProjectStoriesByProduct(@PathVariable("product_id") Long product_id,StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/fetchprojectstories")
+	public ResponseEntity<List<StoryDTO>> fetchStoryProjectStoriesByProduct(@PathVariable("product_id") Long product_id,@RequestBody StorySearchContext context) {
         context.setN_product_eq(product_id);
         Page<Story> domains = storyService.searchProjectStories(context) ;
         List<StoryDTO> list = storyMapping.toDto(domains.getContent());
@@ -2046,8 +2046,8 @@ public class StoryResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReleaseStories-all')")
 	@ApiOperation(value = "根据产品获取获取产品发布相关需求", tags = {"需求" } ,notes = "根据产品获取获取产品发布相关需求")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/fetchreleasestories")
-	public ResponseEntity<List<StoryDTO>> fetchStoryReleaseStoriesByProduct(@PathVariable("product_id") Long product_id,StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/fetchreleasestories")
+	public ResponseEntity<List<StoryDTO>> fetchStoryReleaseStoriesByProduct(@PathVariable("product_id") Long product_id,@RequestBody StorySearchContext context) {
         context.setN_product_eq(product_id);
         Page<Story> domains = storyService.searchReleaseStories(context) ;
         List<StoryDTO> list = storyMapping.toDto(domains.getContent());
@@ -2069,8 +2069,8 @@ public class StoryResource {
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchReportStories-all')")
 	@ApiOperation(value = "根据产品获取通过模块查询", tags = {"需求" } ,notes = "根据产品获取通过模块查询")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/fetchreportstories")
-	public ResponseEntity<List<StoryDTO>> fetchStoryReportStoriesByProduct(@PathVariable("product_id") Long product_id,StorySearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/fetchreportstories")
+	public ResponseEntity<List<StoryDTO>> fetchStoryReportStoriesByProduct(@PathVariable("product_id") Long product_id,@RequestBody StorySearchContext context) {
         context.setN_product_eq(product_id);
         Page<Story> domains = storyService.searchReportStories(context) ;
         List<StoryDTO> list = storyMapping.toDto(domains.getContent());

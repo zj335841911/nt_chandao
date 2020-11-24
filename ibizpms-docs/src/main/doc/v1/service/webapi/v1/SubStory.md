@@ -1091,7 +1091,7 @@ POST
 /substories/fetchbuildstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1307,7 +1307,7 @@ POST
 /substories/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1487,7 +1487,7 @@ POST
 /substories/fetchprojectstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1559,7 +1559,7 @@ POST
 /substories/fetchreleasestories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1595,7 +1595,7 @@ POST
 /substories/fetchreportstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2952,7 +2952,7 @@ POST
 /stories/{story_id}/substories/fetchbuildstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3180,7 +3180,7 @@ POST
 /stories/{story_id}/substories/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3370,7 +3370,7 @@ POST
 /stories/{story_id}/substories/fetchprojectstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3446,7 +3446,7 @@ POST
 /stories/{story_id}/substories/fetchreleasestories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3484,7 +3484,7 @@ POST
 /stories/{story_id}/substories/fetchreportstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4853,7 +4853,7 @@ POST
 /products/{product_id}/stories/{story_id}/substories/fetchbuildstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5081,7 +5081,7 @@ POST
 /products/{product_id}/stories/{story_id}/substories/fetchmyfavorites
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5271,7 +5271,7 @@ POST
 /products/{product_id}/stories/{story_id}/substories/fetchprojectstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5347,7 +5347,7 @@ POST
 /products/{product_id}/stories/{story_id}/substories/fetchreleasestories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -5385,7 +5385,7 @@ POST
 /products/{product_id}/stories/{story_id}/substories/fetchreportstories
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |

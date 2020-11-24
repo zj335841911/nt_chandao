@@ -239,7 +239,7 @@ export default class DocLibServiceBase extends EntityService {
      */
     public async FetchByProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/doclibs/fetchbyproduct`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/doclibs/fetchbyproduct`,tempData,isloading);
         return res;
     }
 
@@ -297,7 +297,7 @@ export default class DocLibServiceBase extends EntityService {
      */
     public async FetchByProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/doclibs/fetchbyproject`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/doclibs/fetchbyproject`,tempData,isloading);
         return res;
     }
 

@@ -239,7 +239,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchChildDocLibDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchchilddoclibdoc`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/docs/fetchchilddoclibdoc`,tempData,isloading);
         return res;
     }
 

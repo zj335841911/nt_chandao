@@ -1590,16 +1590,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchBuildStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchbuildstories`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchbuildstories`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchbuildstories`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchbuildstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchbuildstories`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/substories/fetchbuildstories`,tempData,isloading);
         return res;
     }
 
@@ -1872,16 +1872,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchmyfavorites`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchmyfavorites`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchmyfavorites`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/substories/fetchmyfavorites`,tempData,isloading);
         return res;
     }
 
@@ -2107,16 +2107,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchProjectStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchprojectstories`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchprojectstories`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchprojectstories`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchprojectstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchprojectstories`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/substories/fetchprojectstories`,tempData,isloading);
         return res;
     }
 
@@ -2201,16 +2201,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchReleaseStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchreleasestories`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchreleasestories`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchreleasestories`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchreleasestories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchreleasestories`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/substories/fetchreleasestories`,tempData,isloading);
         return res;
     }
 
@@ -2248,16 +2248,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchReportStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchreportstories`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchreportstories`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchreportstories`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchreportstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchreportstories`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/substories/fetchreportstories`,tempData,isloading);
         return res;
     }
 

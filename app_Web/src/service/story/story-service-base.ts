@@ -2740,11 +2740,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchBuildStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchbuildstories`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchbuildstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchbuildstories`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchbuildstories`,tempData,isloading);
         return res;
     }
 
@@ -2968,11 +2968,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchmyfavorites`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchmyfavorites`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchmyfavorites`,tempData,isloading);
         return res;
     }
 
@@ -3158,11 +3158,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchProjectStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchprojectstories`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchprojectstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchprojectstories`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchprojectstories`,tempData,isloading);
         return res;
     }
 
@@ -3234,11 +3234,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchReleaseStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchreleasestories`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchreleasestories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchreleasestories`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchreleasestories`,tempData,isloading);
         return res;
     }
 
@@ -3272,11 +3272,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchReportStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchreportstories`,tempData,isloading);
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchreportstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchreportstories`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchreportstories`,tempData,isloading);
         return res;
     }
 
