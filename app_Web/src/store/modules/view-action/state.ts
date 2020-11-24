@@ -534,7 +534,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '6921cf59868031699419de5fb8e79ced',
             ],
         },
         {
