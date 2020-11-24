@@ -15,9 +15,9 @@ export default class TaskKanBanModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'module',
-				prop: 'module',
-				dataType: 'PICKUP',
+				name: 'tasktype',
+				prop: 'tasktype',
+				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'desc',
@@ -30,14 +30,9 @@ export default class TaskKanBanModel {
 				dataType: 'PICKUP',
 			},
 			{
-				name: 'status',
-				prop: 'status',
+				name: 'status1',
+				prop: 'status1',
 				dataType: 'SSCODELIST',
-			},
-			{
-				name: 'parent',
-				prop: 'parent',
-				dataType: 'PICKUP',
 			},
 			{
 				name: 'type',
@@ -53,27 +48,17 @@ export default class TaskKanBanModel {
 				dataType: 'FLOAT',
 			},
 			{
-				name: 'srfmajortext',
-				prop: 'name',
-				dataType: 'TEXT',
-			},
-			{
 				name: 'srfkey',
 				prop: 'id',
 				dataType: 'ACID',
 			},
 			{
+				name: 'srfmajortext',
+				prop: 'name',
+				dataType: 'TEXT',
+			},
+			{
 				name: 'id',
-			},
-			{
-				name: 'mailto',
-				prop: 'mailto',
-				dataType: 'SMCODELIST',
-			},
-			{
-				name: 'project',
-				prop: 'project',
-				dataType: 'PICKUP',
 			},
 			{
 				name: 'assignedto',
@@ -86,19 +71,9 @@ export default class TaskKanBanModel {
 				dataType: 'PICKUP',
 			},
 			{
-				name: 'pri',
-				prop: 'pri',
-				dataType: 'NSCODELIST',
-			},
-			{
 				name: 'consumed',
 				prop: 'consumed',
 				dataType: 'FLOAT',
-			},
-			{
-				name: 'color',
-				prop: 'color',
-				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'name',
@@ -106,17 +81,52 @@ export default class TaskKanBanModel {
 				dataType: 'TEXT',
 			},
 			{
+				name: 'left',
+			},
+			{
 				name: 'eststarted',
 				prop: 'eststarted',
 				dataType: 'DATE',
 			},
 			{
-				name: 'left',
-			},
-			{
 				name: 'isfavorites',
 				prop: 'isfavorites',
 				dataType: 'TEXT',
+			},
+			{
+				name: 'module',
+				prop: 'module',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'status',
+				prop: 'status',
+				dataType: 'SSCODELIST',
+			},
+			{
+				name: 'parent',
+				prop: 'parent',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'mailto',
+				prop: 'mailto',
+				dataType: 'SMCODELIST',
+			},
+			{
+				name: 'project',
+				prop: 'project',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'pri',
+				prop: 'pri',
+				dataType: 'NSCODELIST',
+			},
+			{
+				name: 'color',
+				prop: 'color',
+				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'deadline',
