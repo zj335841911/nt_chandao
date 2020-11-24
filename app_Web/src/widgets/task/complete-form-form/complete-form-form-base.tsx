@@ -103,6 +103,7 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         consumed: null,
+        consumed1: null,
         id: null,
         project: null,
         currentconsumed: null,
@@ -257,7 +258,14 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
 }),
 
         consumed: new FormItemModel({
-    caption: '之前消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '任务总计消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        consumed1: new FormItemModel({
+    caption: '之前消耗', detailType: 'FORMITEM', name: 'consumed1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -285,14 +293,14 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
 }),
 
         totaltime: new FormItemModel({
-    caption: '总计耗时', detailType: 'FORMITEM', name: 'totaltime', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '我的总消耗', detailType: 'FORMITEM', name: 'totaltime', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
         assignedto: new FormItemModel({
-    caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '转交给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -344,6 +352,7 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
+
 
 
 

@@ -282,9 +282,6 @@ export default {
 			doclibmodule_edit: "编辑",
 			doclibmodule_favorite: "收藏",
 			doclibmodule_nfavorite: "取消收藏",
-			doc_edit: "编辑",
-			doc_collect: "收藏",
-			doc_uncollect: "取消收藏",
 		},
 	},
 	doclibtreeproduct_treeview: {

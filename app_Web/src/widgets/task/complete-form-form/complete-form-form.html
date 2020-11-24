@@ -72,6 +72,37 @@
 </i-col>
 <i-col
     class="form-layout-container"
+    v-show="detailsModel.consumed1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="consumed1"
+    :itemRules="this.rules().consumed1"
+    class=""
+
+    :caption="$t('entities.task.completeform_form.details.consumed1')"
+    uiStyle="DEFAULT"
+    :labelWidth="100"
+    :isShowCaption="true"
+    :error="detailsModel.consumed1.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-span name='consumed1' :value="data.consumed1" dataType="FLOAT" unitName="小时"     :precision="2"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.currentconsumed.visible"
     :style="{}"
     

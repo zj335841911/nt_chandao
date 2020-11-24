@@ -61,6 +61,11 @@ export default class CompleteFormModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'consumed1',
+        prop: 'consumed',
+        dataType: 'FLOAT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
