@@ -23,7 +23,7 @@ export default {
 			finishedby: "完成者",
 			totalestimate: "预计总工时",
 			totalconsumed: "消耗总工时",
-			totalleft: "剩余总工时",
+			taskefficient: "效率",
 		},
 		uiactions: {
 		},

@@ -143,7 +143,7 @@ export class Main2GridBase extends GridControlBase {
         },
         {
             name: 'pri',
-            label: '级别',
+            label: 'P',
             langtag: 'entities.bug.main2_grid.columns.pri',
             show: true,
             unit: 'PX',

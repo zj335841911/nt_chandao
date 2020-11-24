@@ -31,6 +31,7 @@ hide members
 |所属文档库|DOCLIBNAME|PICKUPTEXT|&nbsp;|
 |上级模块|MODULENAME|PICKUPTEXT|&nbsp;|
 |是否收藏|ISFAVORITE|TEXT|&nbsp;|
+|查询类型|DOCQTYPE|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -52,6 +53,7 @@ hide members
 |所属文档库|默认规则|内容长度必须小于等于[60]|
 |上级模块|默认规则|内容长度必须小于等于[60]|
 |是否收藏|默认规则|内容长度必须小于等于[200]|
+|查询类型|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

@@ -73,15 +73,15 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('totalleft')">
-                <el-table-column show-overflow-tooltip :prop="'totalleft'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.totalleft')" :width="150"  :align="'center'">
+            <template v-if="getColumnState('taskefficient')">
+                <el-table-column show-overflow-tooltip :prop="'taskefficient'" :label="$t('entities.taskstats.userfinishtasksum_grid.columns.taskefficient')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.taskstats.userfinishtasksum_grid.columns.totalleft')}}
+                        {{$t('entities.taskstats.userfinishtasksum_grid.columns.taskefficient')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <span>{{row.totalleft}}</span>
+                            <span>{{row.taskefficient}}</span>
                     </template>
                 </el-table-column>
             </template>

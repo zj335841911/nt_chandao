@@ -66,6 +66,9 @@ export default class TreeDocLibModel {
       {
         name: 'isfavorite',
       },
+      {
+        name: 'docqtype',
+      },
     ]
   }
 

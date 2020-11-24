@@ -162,9 +162,9 @@ export class UserFinishTaskSumGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'totalleft',
-            label: '剩余总工时',
-            langtag: 'entities.taskstats.userfinishtasksum_grid.columns.totalleft',
+            name: 'taskefficient',
+            label: '效率',
+            langtag: 'entities.taskstats.userfinishtasksum_grid.columns.taskefficient',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -275,7 +275,7 @@ export class UserFinishTaskSumGridBase extends GridControlBase {
         'finishedby':false,
         'totalestimate':false,
         'totalconsumed':false,
-        'totalleft':false,
+        'taskefficient':false,
     };
 
     /**
@@ -371,7 +371,7 @@ export class UserFinishTaskSumGridBase extends GridControlBase {
     * @memberof UserFinishTaskSumBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['projectname','finishedby','totalestimate','totalconsumed','totalleft'];
+        let allColumns:Array<any> = ['projectname','finishedby','totalestimate','totalconsumed','taskefficient'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -454,7 +454,7 @@ export class UserFinishTaskSumGridBase extends GridControlBase {
                 finishedby:'',
                 totalestimate:'',
                 totalconsumed:'',
-                totalleft:'',
+                taskefficient:'',
                 children: children
             }
             groupTree.push(tree);
@@ -483,7 +483,7 @@ export class UserFinishTaskSumGridBase extends GridControlBase {
             finishedby:'',
             totalestimate:'',
             totalconsumed:'',
-            totalleft:'',
+            taskefficient:'',
             children: child
         }
         if(child && child.length > 0){
@@ -548,7 +548,7 @@ export class UserFinishTaskSumGridBase extends GridControlBase {
                 finishedby:'',
                 totalestimate:'',
                 totalconsumed:'',
-                totalleft:'',
+                taskefficient:'',
                 children: children,
             }
             groupTree.push(tree);

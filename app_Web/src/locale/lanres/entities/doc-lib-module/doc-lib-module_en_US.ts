@@ -17,6 +17,7 @@ export default {
     doclibname: "所属文档库",
     modulename: "上级模块",
     isfavorite: "是否收藏",
+    docqtype: "查询类型",
   },
 	views: {
 		editview: {

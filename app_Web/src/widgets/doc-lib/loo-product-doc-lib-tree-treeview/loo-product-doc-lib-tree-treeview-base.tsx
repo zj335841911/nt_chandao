@@ -4,7 +4,6 @@ import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import DocLibService from '@/service/doc-lib/doc-lib-service';
 import LooProductDocLibTreeService from './loo-product-doc-lib-tree-treeview-service';
-import DocLibModuleUIService from '@/uiservice/doc-lib-module/doc-lib-module-ui-service';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
 
 /**
@@ -67,25 +66,6 @@ export class LooProductDocLibTreeTreeBase extends MainControlBase {
     public appUIService: DocLibUIService = new DocLibUIService(this.$store);
 
     /**
-     * childdoclibmodule_cm 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof LooProductDocLibTreeTreeBase
-     */
-    public childdoclibmodule_cm_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.childdoclibmodule_cm_deuiaction1_click(null, 'childdoclibmodule_cm', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.childdoclibmodule_cm_deuiaction2_click(null, 'childdoclibmodule_cm', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction3')) {
-            this.childdoclibmodule_cm_deuiaction3_click(null, 'childdoclibmodule_cm', $event2);
-        }
-    }
-
-    /**
      * doclib_cm 部件 click 事件
      *
      * @param {*} [args={}]
@@ -105,112 +85,6 @@ export class LooProductDocLibTreeTreeBase extends MainControlBase {
         if (Object.is($event.tag, 'deuiaction4')) {
             this.doclib_cm_deuiaction4_click(null, 'doclib_cm', $event2);
         }
-    }
-
-    /**
-     * doclibmodule_cm 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof LooProductDocLibTreeTreeBase
-     */
-    public doclibmodule_cm_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.doclibmodule_cm_deuiaction1_click(null, 'doclibmodule_cm', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.doclibmodule_cm_deuiaction2_click(null, 'doclibmodule_cm', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction3')) {
-            this.doclibmodule_cm_deuiaction3_click(null, 'doclibmodule_cm', $event2);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public doclibmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_edit(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public doclibmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_Favorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public doclibmodule_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_NFavorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -327,93 +201,6 @@ export class LooProductDocLibTreeTreeBase extends MainControlBase {
         // 界面行为
         const curUIService:DocLibUIService  = new DocLibUIService();
         curUIService.DocLib_Collect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public childdoclibmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_edit(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public childdoclibmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_Favorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public childdoclibmodule_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_NFavorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
 
@@ -613,16 +400,10 @@ export class LooProductDocLibTreeTreeBase extends MainControlBase {
      * @memberof LooProductDocLibTreeBase
      */
      public actionModel: any = {
-        ChildDocLibModule_deuiaction1: {name:'deuiaction1',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
-        ChildDocLibModule_deuiaction2: {name:'deuiaction2',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
-        ChildDocLibModule_deuiaction3: {name:'deuiaction3',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
         DocLib_deuiaction1: {name:'deuiaction1',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'EditDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
         DocLib_deuiaction2: {name:'deuiaction2',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
         DocLib_deuiaction3: {name:'deuiaction3',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visible: true, disabled: false},
         DocLib_deuiaction4: {name:'deuiaction4',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visible: true, disabled: false},
-        DoclibModule_deuiaction1: {name:'deuiaction1',nodeOwner:'DoclibModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
-        DoclibModule_deuiaction2: {name:'deuiaction2',nodeOwner:'DoclibModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
-        DoclibModule_deuiaction3: {name:'deuiaction3',nodeOwner:'DoclibModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
     }
 
     /**
@@ -1015,45 +796,11 @@ export class LooProductDocLibTreeTreeBase extends MainControlBase {
             const data: any = JSON.parse(JSON.stringify(node.data));
             this.currentselectedNode = { ...data };
             const tags: string[] = data.id.split(';');
-            if (tags[0] === "ChildDocLibModule") {
-                content = this.renderContextMenuChilddoclibmodule();
-            }
             if (tags[0] === "DocLib") {
                 content = this.renderContextMenuDoclib();
             }
-            if (tags[0] === "DoclibModule") {
-                content = this.renderContextMenuDoclibmodule();
-            }
         }
         return content;
-    }
-
-    /**
-     * 绘制ChildDocLibModule类型右键菜单
-     *
-     * @param {*} node
-     * @returns
-     * @memberof LooProductDocLibTreeBase
-     */
-    public renderContextMenuChilddoclibmodule() {
-        return (
-            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.childdoclibmodule_cm_click({tag: $event})}>
-                <dropdown-menu slot="list">
-                            <dropdown-item name="deuiaction1" v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
-                        <i class="fa fa-edit"></i>
-                        
-                    </dropdown-item>
-                            <dropdown-item name="deuiaction2" v-show={this.copyActionModel['deuiaction2']?.visible} disabled={this.copyActionModel['deuiaction2']?.disabled}>
-                        <i class="fa fa-star-o"></i>
-                        
-                    </dropdown-item>
-                            <dropdown-item name="deuiaction3" v-show={this.copyActionModel['deuiaction3']?.visible} disabled={this.copyActionModel['deuiaction3']?.disabled}>
-                        <i class="fa fa-star"></i>
-                        
-                    </dropdown-item>
-                </dropdown-menu>
-            </dropdown>
-        );
     }
 
     /**
@@ -1081,34 +828,6 @@ export class LooProductDocLibTreeTreeBase extends MainControlBase {
                     </dropdown-item>
                             <dropdown-item name="deuiaction4" v-show={this.copyActionModel['deuiaction4']?.visible} disabled={this.copyActionModel['deuiaction4']?.disabled}>
                         <i class="fa fa-star-o"></i>
-                        
-                    </dropdown-item>
-                </dropdown-menu>
-            </dropdown>
-        );
-    }
-
-    /**
-     * 绘制DoclibModule类型右键菜单
-     *
-     * @param {*} node
-     * @returns
-     * @memberof LooProductDocLibTreeBase
-     */
-    public renderContextMenuDoclibmodule() {
-        return (
-            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.doclibmodule_cm_click({tag: $event})}>
-                <dropdown-menu slot="list">
-                            <dropdown-item name="deuiaction1" v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
-                        <i class="fa fa-edit"></i>
-                        
-                    </dropdown-item>
-                            <dropdown-item name="deuiaction2" v-show={this.copyActionModel['deuiaction2']?.visible} disabled={this.copyActionModel['deuiaction2']?.disabled}>
-                        <i class="fa fa-star-o"></i>
-                        
-                    </dropdown-item>
-                            <dropdown-item name="deuiaction3" v-show={this.copyActionModel['deuiaction3']?.visible} disabled={this.copyActionModel['deuiaction3']?.disabled}>
-                        <i class="fa fa-star"></i>
                         
                     </dropdown-item>
                 </dropdown-menu>

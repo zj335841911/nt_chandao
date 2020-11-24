@@ -944,66 +944,84 @@ SELECT
 	t1.`GRADE`,
 	t1.`ID`,
 	CONCAT(
-	'/',
- case when	(
-SELECT
-	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
-FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'story' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) is not null then (
-SELECT
-	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
-FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'story' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) else t1.`name` end
-	) AS `NAME`,
-(CONCAT_ws(
-	'',
- case when	(
-SELECT
-	GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
-FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'story' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) is not null then (
-SELECT
-	GROUP_CONCAT( tt.`ORDER` SEPARATOR '-' ) 
-FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'story' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) else t1.`ORDER` end)) as ORDERPK,
-	t1.`ORDER`,
-	t1.`OWNER`,
-	case when t1.`PARENT` = 0 then null else t1.parent end as parent ,
-	t11.`NAME` AS `PARENTNAME`,
-	t1.`PATH`,
-	t1.`ROOT`,
-	t1.`SHORT`,
-	t1.`TYPE` 
-FROM
-	`zt_module` t1
+		'/',
+	CASE
+			
+			WHEN (
+			SELECT
+				GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+			FROM
+				zt_module tt 
+			WHERE
+				FIND_IN_SET( tt.id, t1.path ) 
+				AND tt.type = 'story' 
+			GROUP BY
+				tt.root 
+				LIMIT 0,
+				1 
+				) IS NOT NULL THEN
+				(
+				SELECT
+					GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+				FROM
+					zt_module tt 
+				WHERE
+					FIND_IN_SET( tt.id, t1.path ) 
+					AND tt.type = 'story' 
+				GROUP BY
+					tt.root 
+					LIMIT 0,
+					1 
+				) ELSE t1.`name` 
+			END 
+			) AS `NAME`,
+			(
+				CONCAT_ws(
+					'',
+				CASE
+						
+						WHEN (
+						SELECT
+							GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
+						FROM
+							zt_module tt 
+						WHERE
+							FIND_IN_SET( tt.id, t1.path ) 
+							AND tt.type = 'story' 
+						GROUP BY
+							tt.root 
+							LIMIT 0,
+							1 
+							) IS NOT NULL THEN
+							(
+							SELECT
+								GROUP_CONCAT( tt.`ORDER` SEPARATOR '-' ) 
+							FROM
+								zt_module tt 
+							WHERE
+								FIND_IN_SET( tt.id, t1.path ) 
+								AND tt.type = 'story' 
+							GROUP BY
+								tt.root 
+								LIMIT 0,
+								1 
+							) ELSE t1.`ORDER` 
+						END 
+						)) AS ORDERPK,
+					t1.`ORDER`,
+					t1.`OWNER`,
+				CASE
+						
+						WHEN t1.`PARENT` = 0 THEN
+						NULL ELSE t1.parent 
+					END AS parent,
+					t11.`NAME` AS `PARENTNAME`,
+					t1.`PATH`,
+					t1.`ROOT`,
+					t1.`SHORT`,
+					t1.`TYPE` 
+				FROM
+				`zt_module` t1
 	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
 ```
 ### 数据查询-数据查询（BugModuleCodeList）
@@ -1032,7 +1050,7 @@ SELECT
 	t1.`PATH`,
 	t1.`ROOT`,
 	t1.`SHORT`,
-	t1.`TYPE` 
+	t1.`TYPE`
 FROM
 	`zt_module` t1
 	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
@@ -1083,44 +1101,61 @@ LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
 #### SQL
 - MYSQL5
 ```SQL
-select t1.* from (select '0' as DELETED, 0 as ID,'/' as name,0 as PARENT,',0,' as path, ${srfdatacontext('doclib','{"defname":"ROOT","dename":"ZT_MODULE"}')} as root,'doc' as type UNION
-
 SELECT
-	t1.`DELETED`,
-	t1.`ID`,
-	CONCAT(
-	'/',
- case when	(
-SELECT
-	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+	t1.* 
 FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'doc' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) is not null then (
-SELECT
-	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
-FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'doc' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) else t1.`name` end
-	) AS `NAME`,
-	t1.`PARENT`,
-	t1.`PATH`,
-	t1.`ROOT`,
-	t1.`TYPE` 
-FROM
-	`zt_module` t1
-	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID) t1
+	(
+	SELECT
+		'0' AS DELETED,
+		0 AS ID,
+		'/' AS NAME,
+		0 AS PARENT,
+		',0,' AS path,
+		$ { srfdatacontext ( 'doclib', '{"defname":"ROOT","dename":"ZT_MODULE"}' )} AS root,
+		'doc' AS type UNION
+	SELECT
+		t1.`DELETED`,
+		t1.`ID`,
+		CONCAT(
+			'/',
+		CASE
+				
+				WHEN (
+				SELECT
+					GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+				FROM
+					zt_module tt 
+				WHERE
+					FIND_IN_SET( tt.id, t1.path ) 
+					AND tt.type = 'doc' 
+				GROUP BY
+					tt.root 
+					LIMIT 0,
+					1 
+					) IS NOT NULL THEN
+					(
+					SELECT
+						GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+					FROM
+						zt_module tt 
+					WHERE
+						FIND_IN_SET( tt.id, t1.path ) 
+						AND tt.type = 'doc' 
+					GROUP BY
+						tt.root 
+						LIMIT 0,
+						1 
+					) ELSE t1.`name` 
+				END 
+				) AS `NAME`,
+				t1.`PARENT`,
+				t1.`PATH`,
+				t1.`ROOT`,
+				t1.`TYPE` 
+			FROM
+				`zt_module` t1
+			LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID 
+	) t1
 ```
 ### 数据查询-产品线（Line）
 #### 说明

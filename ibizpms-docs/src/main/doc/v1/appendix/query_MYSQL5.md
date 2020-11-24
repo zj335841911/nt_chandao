@@ -5870,7 +5870,8 @@ t1.`PARENT`,
 t1.`PATH`,
 t1.`ROOT`,
 t1.`SHORT`,
-t1.`TYPE`
+t1.`TYPE`, 
+'module' AS `DOCQTYPE`  
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -5896,7 +5897,8 @@ t1.`PARENT`,
 t1.`PATH`,
 t1.`ROOT`,
 t1.`SHORT`,
-t1.`TYPE`
+t1.`TYPE`, 
+'module' AS `DOCQTYPE`  
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -5949,7 +5951,8 @@ t1.`PARENT`,
 t1.`PATH`,
 t1.`ROOT`,
 t1.`SHORT`,
-t1.`TYPE`
+t1.`TYPE`, 
+'module' AS `DOCQTYPE`  
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -5975,7 +5978,8 @@ t1.`PARENT`,
 t1.`PATH`,
 t1.`ROOT`,
 t1.`SHORT`,
-t1.`TYPE`
+t1.`TYPE`, 
+'module' AS `DOCQTYPE`  
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -6002,7 +6006,8 @@ t1.`PARENT`,
 t1.`PATH`,
 t1.`ROOT`,
 t1.`SHORT`,
-'module'  as `TYPE`
+'module'  as `TYPE`,
+'module' AS `DOCQTYPE`  
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -6028,7 +6033,8 @@ t1.`PARENT`,
 t1.`PATH`,
 t1.`ROOT`,
 t1.`SHORT`,
-t1.`TYPE`
+t1.`TYPE`, 
+'module' AS `DOCQTYPE`  
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -6055,7 +6061,8 @@ t1.`PARENT`,
 t1.`PATH`,
 t1.`ROOT`,
 t1.`SHORT`,
-t1.`TYPE`
+t1.`TYPE`,
+'module' AS `DOCQTYPE`  
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -7896,66 +7903,84 @@ SELECT
 	t1.`GRADE`,
 	t1.`ID`,
 	CONCAT(
-	'/',
- case when	(
-SELECT
-	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
-FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'story' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) is not null then (
-SELECT
-	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
-FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'story' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) else t1.`name` end
-	) AS `NAME`,
-(CONCAT_ws(
-	'',
- case when	(
-SELECT
-	GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
-FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'story' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) is not null then (
-SELECT
-	GROUP_CONCAT( tt.`ORDER` SEPARATOR '-' ) 
-FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'story' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) else t1.`ORDER` end)) as ORDERPK,
-	t1.`ORDER`,
-	t1.`OWNER`,
-	case when t1.`PARENT` = 0 then null else t1.parent end as parent ,
-	t11.`NAME` AS `PARENTNAME`,
-	t1.`PATH`,
-	t1.`ROOT`,
-	t1.`SHORT`,
-	t1.`TYPE` 
-FROM
-	`zt_module` t1
+		'/',
+	CASE
+			
+			WHEN (
+			SELECT
+				GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+			FROM
+				zt_module tt 
+			WHERE
+				FIND_IN_SET( tt.id, t1.path ) 
+				AND tt.type = 'story' 
+			GROUP BY
+				tt.root 
+				LIMIT 0,
+				1 
+				) IS NOT NULL THEN
+				(
+				SELECT
+					GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+				FROM
+					zt_module tt 
+				WHERE
+					FIND_IN_SET( tt.id, t1.path ) 
+					AND tt.type = 'story' 
+				GROUP BY
+					tt.root 
+					LIMIT 0,
+					1 
+				) ELSE t1.`name` 
+			END 
+			) AS `NAME`,
+			(
+				CONCAT_ws(
+					'',
+				CASE
+						
+						WHEN (
+						SELECT
+							GROUP_CONCAT( tt.`order` SEPARATOR '-' ) 
+						FROM
+							zt_module tt 
+						WHERE
+							FIND_IN_SET( tt.id, t1.path ) 
+							AND tt.type = 'story' 
+						GROUP BY
+							tt.root 
+							LIMIT 0,
+							1 
+							) IS NOT NULL THEN
+							(
+							SELECT
+								GROUP_CONCAT( tt.`ORDER` SEPARATOR '-' ) 
+							FROM
+								zt_module tt 
+							WHERE
+								FIND_IN_SET( tt.id, t1.path ) 
+								AND tt.type = 'story' 
+							GROUP BY
+								tt.root 
+								LIMIT 0,
+								1 
+							) ELSE t1.`ORDER` 
+						END 
+						)) AS ORDERPK,
+					t1.`ORDER`,
+					t1.`OWNER`,
+				CASE
+						
+						WHEN t1.`PARENT` = 0 THEN
+						NULL ELSE t1.parent 
+					END AS parent,
+					t11.`NAME` AS `PARENTNAME`,
+					t1.`PATH`,
+					t1.`ROOT`,
+					t1.`SHORT`,
+					t1.`TYPE` 
+				FROM
+				`zt_module` t1
 	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
 WHERE t1.DELETED = '0' 
 t1.type = 'story' 
@@ -7976,7 +8001,7 @@ SELECT
 	t1.`PATH`,
 	t1.`ROOT`,
 	t1.`SHORT`,
-	t1.`TYPE` 
+	t1.`TYPE`
 FROM
 	`zt_module` t1
 	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
@@ -8010,44 +8035,61 @@ WHERE t1.DELETED = '0'
 ```
 ### 文档目录查询(DocModule)<div id="Module_DocModule"></div>
 ```sql
-select t1.* from (select '0' as DELETED, 0 as ID,'/' as name,0 as PARENT,',0,' as path, ${srfdatacontext('doclib','{"defname":"ROOT","dename":"ZT_MODULE"}')} as root,'doc' as type UNION
-
 SELECT
-	t1.`DELETED`,
-	t1.`ID`,
-	CONCAT(
-	'/',
- case when	(
-SELECT
-	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+	t1.* 
 FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'doc' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) is not null then (
-SELECT
-	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
-FROM
-	zt_module tt 
-WHERE
-	FIND_IN_SET( tt.id, t1.path ) 
-	AND tt.type = 'doc' 
-GROUP BY
-	tt.root 
-	LIMIT 0,1
-	) else t1.`name` end
-	) AS `NAME`,
-	t1.`PARENT`,
-	t1.`PATH`,
-	t1.`ROOT`,
-	t1.`TYPE` 
-FROM
-	`zt_module` t1
-	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID) t1
+	(
+	SELECT
+		'0' AS DELETED,
+		0 AS ID,
+		'/' AS NAME,
+		0 AS PARENT,
+		',0,' AS path,
+		$ { srfdatacontext ( 'doclib', '{"defname":"ROOT","dename":"ZT_MODULE"}' )} AS root,
+		'doc' AS type UNION
+	SELECT
+		t1.`DELETED`,
+		t1.`ID`,
+		CONCAT(
+			'/',
+		CASE
+				
+				WHEN (
+				SELECT
+					GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+				FROM
+					zt_module tt 
+				WHERE
+					FIND_IN_SET( tt.id, t1.path ) 
+					AND tt.type = 'doc' 
+				GROUP BY
+					tt.root 
+					LIMIT 0,
+					1 
+					) IS NOT NULL THEN
+					(
+					SELECT
+						GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+					FROM
+						zt_module tt 
+					WHERE
+						FIND_IN_SET( tt.id, t1.path ) 
+						AND tt.type = 'doc' 
+					GROUP BY
+						tt.root 
+						LIMIT 0,
+						1 
+					) ELSE t1.`name` 
+				END 
+				) AS `NAME`,
+				t1.`PARENT`,
+				t1.`PATH`,
+				t1.`ROOT`,
+				t1.`TYPE` 
+			FROM
+				`zt_module` t1
+			LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID 
+	) t1
 WHERE t1.DELETED = '0' 
 ( t1.`TYPE` = 'doc'  AND  t1.`ROOT` =  ${srfdatacontext('doclib','{"defname":"ROOT","dename":"ZT_MODULE"}')} ) 
 
@@ -15990,62 +16032,58 @@ FROM `zt_task` t1
 ### 用户完成任务统计(UserFinishTaskSum)<div id="TaskStats_UserFinishTaskSum"></div>
 ```sql
 SELECT
-	t1.id as `PROJECT`,
-	t1.`name` as `PROJECTNAME`,
-	t2.account as `FINISHEDBY`,
-	t2.`TOTALESTIMATE`,
-	t2.`TOTALCONSUMED`,
-	t2.`TOTALLEFT` 
+	t1.project,
+	t2.`name` as PROJECTNAME,
+	t1.finishedBy,
+	sum( t1.estimate ) AS TOTALESTIMATE,
+	sum( t1.consumed ) AS TOTALCONSUMED,
+	CASE WHEN sum( t1.consumed ) <= sum( t1.estimate ) THEN
+		'100.00%' ELSE CONCAT ( FORMAT(( sum( t1.estimate ) / sum( t1.consumed )) * 100, 2 ), '%' ) 
+	END AS TASKEFFICIENT
 FROM
-	zt_project t1
-	JOIN (
-	SELECT
-		t1.project,
-		t1.account,
-		sum( t1.estimate ) AS `TOTALESTIMATE`,
-		sum( t1.consumed ) AS `TOTALCONSUMED`,
-		sum( t1.`left` ) AS `TOTALLEFT` 
-	FROM
-		((
-			SELECT
-				t1.project,
-				t2.account,
-				t2.`left` + t2.consumed AS estimate,
-				t2.consumed,
-				t2.`left` 
-			FROM
-				(
-				SELECT
-					t1.id,
-					t1.project 
-				FROM
-					zt_task t1 
-				WHERE
-					t1.deleted = '0' 
-					AND t1.parent <> - 1 
-				AND t1.id IN ( SELECT DISTINCT root FROM zt_team WHERE type = 'task' )) t1
-				JOIN zt_taskestimate t2 ON t1.id = t2.task 
-				) UNION
-			(
-			SELECT
-				t1.project,
-				t1.finishedBy AS account,
-				t1.estimate,
-				t1.consumed,
-				t1.`left` 
-			FROM
-				zt_task t1 
-			WHERE
-				t1.deleted = '0' 
-				AND t1.parent <> - 1 
-				AND t1.finishedBy <> '' 
-			AND t1.id NOT IN ( SELECT DISTINCT root FROM zt_team WHERE type = 'task' ))) t1 
-	GROUP BY
-		t1.project,
-		t1.account 
-	) t2 ON t1.id = t2.project 
+	((
+		SELECT
+			t1.project,
+			t1.finishedBy,
+			t1.estimate,
+			CASE WHEN t2.consumed IS NULL THEN
+				t1.consumed ELSE t2.consumed 
+			END AS consumed 
+		FROM
+			zt_task t1
+			LEFT JOIN zt_taskestimate t2 ON t1.id = t2.task 
+		WHERE
+			t1.deleted = '0' 
+			AND t1.parent <> - 1 
+			AND t1.`status` IN ( 'done', 'closed' ) 
+			AND t1.finishedBy <> '' 
+			AND t1.id NOT IN ( SELECT t1.id FROM zt_team t1 WHERE t1.type = 'task' ) 
+			) UNION
+		(
+		SELECT
+			t1.project,
+			t2.account AS finishedBy,
+			t2.estimate,
+			CASE WHEN t3.consumed IS NULL THEN
+				t2.consumed ELSE t3.consumed 
+			END AS consumed 
+		FROM
+			zt_task t1
+			JOIN zt_team t2 ON t2.type = 'task' 
+			AND t1.id = t2.root
+			LEFT JOIN zt_taskestimate t3 ON t1.id = t3.task 
+			AND t2.account = t3.account 
+		WHERE
+			t1.deleted = '0' 
+			AND t1.parent <> - 1 
+		AND t1.`status` IN ( 'done', 'closed' )) 
+	) t1
+	JOIN zt_project t2 ON t1.project = t2.id 
 WHERE
-	deleted = '0'
+	t2.deleted = '0' 
+GROUP BY
+	t1.project,
+	t1.finishedBy
 ```
 ### 默认（全部数据）(VIEW)<div id="TaskStats_View"></div>
 ```sql

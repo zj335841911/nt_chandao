@@ -47,9 +47,9 @@ export default class UserFinishTaskSumModel {
           dataType: 'INT',
         },
         {
-          name: 'totalleft',
-          prop: 'totalleft',
-          dataType: 'INT',
+          name: 'taskefficient',
+          prop: 'taskefficient',
+          dataType: 'TEXT',
         },
         {
           name: 'srfmajortext',

@@ -1165,7 +1165,7 @@ export default {
 		nodata: "",
 		columns: {
 			id: "ID",
-			pri: "级别",
+			pri: "P",
 			title: "Bug标题",
 			status: "状态",
 		},

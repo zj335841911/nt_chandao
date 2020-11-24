@@ -141,4 +141,12 @@ export interface DocLibModule {
      * @memberof DocLibModule
      */
     isfavorite?: any;
+
+    /**
+     * 查询类型
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    docqtype?: any;
 }
