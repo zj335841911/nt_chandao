@@ -1,4 +1,11 @@
 <studio-view viewName="bugbugkanbanview" viewTitle="Bug看板视图" class='dekanbanview bug-bug-kanban-view'>
+    <template slot="quickGroupSearch">
+        <app-quick-group
+            :items="quickGroupModel"
+            
+            @valuechange="quickGroupValueChange($event)"
+        ></app-quick-group>
+    </template>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"></view-toolbar>
     </template>
