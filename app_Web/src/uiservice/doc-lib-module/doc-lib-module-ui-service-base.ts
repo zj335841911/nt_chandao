@@ -212,6 +212,9 @@ export default class DocLibModuleUIServiceBase extends UIService {
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '收藏成功！' });
                 const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
@@ -338,6 +341,9 @@ export default class DocLibModuleUIServiceBase extends UIService {
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功！' });
                 const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
