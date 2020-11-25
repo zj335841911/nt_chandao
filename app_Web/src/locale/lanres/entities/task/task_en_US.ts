@@ -866,7 +866,6 @@ export default {
 			projectname: "所属项目",
     },
 		uiactions: {
-        task_assigntask: "指派",
         task_confirmstorychange: "确认",
         task_mstarttaskdash1: "开始",
         task_starttask: "开始",
@@ -878,6 +877,7 @@ export default {
         copy: "Copy",
         task_taskfavorites: "收藏",
         task_tasknfavorites: "取消收藏",
+        task_assigntask: "指派",
         task_checkforward: "转交",
         task_forward: "转交",
 		},
