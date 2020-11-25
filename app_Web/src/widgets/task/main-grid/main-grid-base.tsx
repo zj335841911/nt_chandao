@@ -554,14 +554,6 @@ export class MainGridBase extends GridControlBase {
             unit: 'PX',
             isEnableRowEdit: false,
         },
-        {
-            name: 'assignedtozj',
-            label: '转交给',
-            langtag: 'entities.task.main_grid.columns.assignedtozj',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
     ]
 
     /**
@@ -610,7 +602,6 @@ export class MainGridBase extends GridControlBase {
         'progressrate':false,
         'deadline':false,
         'uagridcolumn1':false,
-        'assignedtozj':false,
     };
 
     /**

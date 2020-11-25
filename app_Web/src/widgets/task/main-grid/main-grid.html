@@ -250,22 +250,6 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('assignedtozj')">
-                <el-table-column show-overflow-tooltip :prop="'assignedtozj'" :label="$t('entities.task.main_grid.columns.assignedtozj')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.assignedtozj')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <template >
-                                <a v-show="row.CheckForward.visible" :disabled="row.CheckForward.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'CheckForward', $event)">
-            <codelist :value="row.assignedtozj" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
-                                </a>
-                        </template>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>
