@@ -264,27 +264,27 @@ export default class DocChildProductTreeViewService extends ControlService {
     @Errorlog
     public async fillRootNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充子目录文档
-            let ZimuludocRsNavContext:any = {};
-            let ZimuludocRsNavParams:any = {};
-            let ZimuludocRsParams:any = {};
-			await this.fillZimuludocNodes(context, filter, list ,ZimuludocRsNavContext,ZimuludocRsNavParams,ZimuludocRsParams);
 			// 填充子目录文档库分类
             let ChildmoduleRsNavContext:any = {};
             let ChildmoduleRsNavParams:any = {};
             let ChildmoduleRsParams:any = {};
 			await this.fillChildmoduleNodes(context, filter, list ,ChildmoduleRsNavContext,ChildmoduleRsNavParams,ChildmoduleRsParams);
+			// 填充子目录文档
+            let ZimuludocRsNavContext:any = {};
+            let ZimuludocRsNavParams:any = {};
+            let ZimuludocRsParams:any = {};
+			await this.fillZimuludocNodes(context, filter, list ,ZimuludocRsNavContext,ZimuludocRsNavParams,ZimuludocRsParams);
 		} else {
-			// 填充子目录文档
-            let ZimuludocRsNavContext:any = {};
-            let ZimuludocRsNavParams:any = {};
-            let ZimuludocRsParams:any = {};
-			await this.fillZimuludocNodes(context, filter, list ,ZimuludocRsNavContext,ZimuludocRsNavParams,ZimuludocRsParams);
 			// 填充子目录文档库分类
             let ChildmoduleRsNavContext:any = {};
             let ChildmoduleRsNavParams:any = {};
             let ChildmoduleRsParams:any = {};
 			await this.fillChildmoduleNodes(context, filter, list ,ChildmoduleRsNavContext,ChildmoduleRsNavParams,ChildmoduleRsParams);
+			// 填充子目录文档
+            let ZimuludocRsNavContext:any = {};
+            let ZimuludocRsNavParams:any = {};
+            let ZimuludocRsParams:any = {};
+			await this.fillZimuludocNodes(context, filter, list ,ZimuludocRsNavContext,ZimuludocRsNavParams,ZimuludocRsParams);
 		}
 	}
 
