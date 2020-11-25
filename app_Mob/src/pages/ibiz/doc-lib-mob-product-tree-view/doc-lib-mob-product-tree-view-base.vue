@@ -169,7 +169,7 @@ export default class DocLibMobProductTreeViewBase extends Vue {
      * @type {*}
      * @memberof DocLibMobProductTreeViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'product': '%product%' };
 
     /**
      * 视图模型数据
