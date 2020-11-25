@@ -239,7 +239,7 @@
     :isEmptyCaption="false">
         <app-mob-span  
     codeListType="STATIC" 
-    tag="Bug__severity_mob"
+    tag="Bug__severity"
     :isCache="false" 
     v-if="data.severity"
     :navigateContext ='{ } '
