@@ -48,7 +48,11 @@
      * @memberof AppDateTimePicker
      */
     @Prop() public value?: string;
-
+    @Watch("value")
+    public on_value_change(newVal:string,oldVal:any){
+      let event = {detail:{value:newVal}};
+      this.valueChange(event);
+    }
     /**
      * 当前选中值
      * @memberof AppDateTimePicker
@@ -63,10 +67,15 @@
     protected currentDate: any = new Date().getFullYear();
 
     /**
-     * 当前选中值
+     * 最小值
      * @memberof AppDateTimePicker
      */
     public min: any = this.currentDate - 100;
+
+    /**
+     * 最大值
+     * @memberof AppDateTimePicker
+     */
     public max: any = this.currentDate + 100;
 
     /**
@@ -93,6 +102,10 @@
      */
     public valueChange(event: any) {
       this.curValue = moment(event.detail.value).format(this.displayFormat);
+      if(Object.is('Invalid date',this.curValue)){
+        this.curValue = null;
+        
+      }
       this.$emit('change', this.curValue);
     }
 
