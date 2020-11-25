@@ -2440,7 +2440,8 @@ t11.`NAME` AS `PROJECTNAME`,
 t1.`TITLE`,
 t1.`TYPE`,
 t1.`VERSION`,
-t1.`VIEWS`
+t1.`VIEWS`, 
+'doc' AS `DOCQTYPE` 
 FROM `zt_doc` t1 
 LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
 LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
