@@ -75,15 +75,15 @@
                         ]}"
                                         valueitem="srfkey"
                                     >
-            <span v-if="row.tasktype === ‘10’">
+            <span v-if="row.tasktype === '10'">
             	<span title="多人任务" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">多人</span>
             	<span>{{row.name}}</span>
             </span>
-            <span v-if="row.tasktype === ‘20’">
+            <span v-if="row.tasktype === '20'">
             	<span title="父任务" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">父</span>
             	<span>{{row.name}}</span>
             </span>
-            <span v-if="row.tasktype === ‘30’">
+            <span v-if="row.tasktype === '30'">
             	<span title="既不是父任务也不是子任务也不是多人任务" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">子</span>
             	<span>{{row.name}}</span>
             </span>
