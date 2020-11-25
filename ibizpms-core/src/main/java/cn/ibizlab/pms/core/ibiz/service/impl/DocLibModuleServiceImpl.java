@@ -68,6 +68,10 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleCurUserIsFLogic curuserisfLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleDoclibModuleNFavoriteLogic doclibmodulenfavoriteLogic;
 
     @Autowired
@@ -132,6 +136,8 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public DocLibModule get(Long key) {
+        DocLibModule tempET = new DocLibModule();
+        tempET.set("id", key);
         DocLibModule et = getById(key);
         if (et == null) {
             et = new DocLibModule();
@@ -139,6 +145,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         }
         else {
         }
+        curuserisfLogic.execute(et);
         return et;
     }
 
