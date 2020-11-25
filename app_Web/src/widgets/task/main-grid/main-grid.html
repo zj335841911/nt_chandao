@@ -110,7 +110,7 @@
                                             </a>
                                         </span>
                                         <span v-else>
-                                            <a v-show="row.AssignTask.visible" :disabled="row.AssignTask.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'ForwardAssign', $event)">
+                                            <a v-show="row.AssignTask.visible" :disabled="row.AssignTask.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'CheckForward', $event)">
                         <codelist :value="row.assignedto" tag="UserRealNameW" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                                             </a>
                                         </span></span>
