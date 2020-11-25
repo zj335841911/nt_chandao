@@ -14,15 +14,18 @@
             <Button icon="md-menu" :class="Object.is(mode,'list') ? 'button-active-background' : ''" @click="modeChange('list')"></Button>
         </ButtonGroup>
     </div>
-    <div v-show="Object.is(mode, 'chart')" class="documents-library-chart">
+    <div v-show="Object.is(mode, 'chart')" class="documents-library-chart" >
         <template v-for="(item,index) in items">
-            <div :key="index" class="chart-item">
-                <div 
+            <div :key="index" :class="['chart-item','chart-item-'+index]" @mouseleave="hideToolBar(index)">
+                <div
+                    @mouseover="showToolBar(index)"
                     v-if="Object.is(item.nodeType,'STATIC') || (item.curData && (Object.is(item.curData.doclibtype,'doc') || Object.is(item.curData.docqtype,'module')))"
                     @dblclick="openNode(item)">
                     <Icon type="md-folder" size="70" color="rgb(255, 202, 40)" />
                 </div> 
-                <div v-if="item.curData && (Object.is(item.curData.doclibtype,'file') || Object.is(item.curData.docqtype,'doc'))"> 
+                <div 
+                    @mouseover="showToolBar(index)"
+                    v-if="item.curData && (Object.is(item.curData.doclibtype,'file') || Object.is(item.curData.docqtype,'doc'))"> 
                     <Icon type="md-document" size="70" color="darkgrey" />
                 </div>
                 <div>
@@ -35,6 +38,20 @@
                         v-if="item.curData && (Object.is(item.curData.doclibtype,'file') || Object.is(item.curData.docqtype,'doc'))">
                         {{ item.text }}
                     </span>
+                </div>
+                <div :class="['chart-item-operate','chart-item-operate-'+index]">
+                    <div v-if="item.curData && item.curData.copyActionModel">
+                        <a 
+                            v-for="(actionModel,i) in item.curData.copyActionModel"
+                            :key="i"
+                            class="chart-item-action" 
+                            @click="onAction(item,actionModel.ctrlname,actionModel.name)" 
+                            v-show="actionModel.visible"
+                            :disabled="actionModel.disabled">
+                            <i v-if="actionModel.imgclass" :class="actionModel.imgclass"></i>
+                            <span>{{ actionModel.caption }}</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </template>
@@ -56,7 +73,7 @@
                     <a 
                         v-for="(actionModel,i) in item.curData.copyActionModel"
                         :key="i"
-                        class="list-row-action" 
+                        class="list-item-action" 
                         @click="onAction(item,actionModel.ctrlname,actionModel.name)" 
                         v-show="actionModel.visible"
                         :disabled="actionModel.disabled">

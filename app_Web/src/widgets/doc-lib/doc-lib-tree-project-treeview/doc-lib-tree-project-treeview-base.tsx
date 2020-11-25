@@ -799,6 +799,32 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
     }
 
     /**
+     * 图表模式下工具栏的显示
+     *
+     * @param {*} index 工具栏标识
+     * @memberof DocLibTreeProjectBase
+     */
+    public showToolBar(index: number){
+        let el: any = this.$el.getElementsByClassName('chart-item-operate-'+index)[0];
+        if (el) {
+            el.style.display = 'block'; 
+        }
+    }
+
+    /**
+     * 图表模式下工具栏的隐藏
+     *
+     * @param {*} index 工具栏标识
+     * @memberof DocLibTreeProjectBase
+     */
+    public hideToolBar(index: number){
+        let el: any = this.$el.getElementsByClassName('chart-item-operate-'+index)[0];
+        if (el) {
+            el.style.display = 'none'; 
+        }
+    }
+
+    /**
      * 工具栏触发行为
      *
      * @param {*} item 触发行为文件对象
