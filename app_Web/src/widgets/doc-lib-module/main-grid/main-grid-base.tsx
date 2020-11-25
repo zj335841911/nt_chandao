@@ -409,9 +409,6 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public createDefault(row: any){                    
-        if (row.hasOwnProperty('parent')) {
-            row['parent'] = this.viewparams['srfparentkey'];
-        }
         if (row.hasOwnProperty('type')) {
             row['type'] = 'doc';
         }
