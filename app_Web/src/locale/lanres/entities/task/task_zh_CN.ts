@@ -866,7 +866,6 @@ export default {
 			projectname: "所属项目",
     },
 		uiactions: {
-			task_assigntask: "指派",
 			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
