@@ -7001,7 +7001,7 @@ export class TaskServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/tasks/fetchbymodule`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/tasks/fetchbymodule`,tempData,isloading);
         return res;
     }
 
@@ -7121,7 +7121,7 @@ export class TaskServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/tasks/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/tasks/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -7181,7 +7181,7 @@ export class TaskServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/tasks/fetchmyfavorites`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/tasks/fetchmyfavorites`,tempData,isloading);
         return res;
     }
 
@@ -7211,7 +7211,7 @@ export class TaskServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/tasks/fetchprojecttask`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/tasks/fetchprojecttask`,tempData,isloading);
         return res;
     }
 

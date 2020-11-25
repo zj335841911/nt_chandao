@@ -2651,7 +2651,7 @@ export class StoryServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchbuildstories`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchbuildstories`,tempData,isloading);
         return res;
     }
 
@@ -2671,7 +2671,7 @@ export class StoryServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchbymodule`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchbymodule`,tempData,isloading);
         return res;
     }
 
@@ -2711,7 +2711,7 @@ export class StoryServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -2771,7 +2771,7 @@ export class StoryServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchmyfavorites`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchmyfavorites`,tempData,isloading);
         return res;
     }
 
@@ -2811,7 +2811,7 @@ export class StoryServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchparentdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchparentdefault`,tempData,isloading);
         return res;
     }
 
@@ -2871,7 +2871,7 @@ export class StoryServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchprojectstories`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchprojectstories`,tempData,isloading);
         return res;
     }
 
@@ -2911,7 +2911,7 @@ export class StoryServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchreleasestories`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchreleasestories`,tempData,isloading);
         return res;
     }
 
@@ -2931,7 +2931,7 @@ export class StoryServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchreportstories`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/stories/fetchreportstories`,tempData,isloading);
         return res;
     }
 

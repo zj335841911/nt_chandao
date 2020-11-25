@@ -2009,7 +2009,7 @@ export class CaseServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchcursuite`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/cases/fetchcursuite`,tempData,isloading);
         return res;
     }
 
@@ -2039,7 +2039,7 @@ export class CaseServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchcurtesttask`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/cases/fetchcurtesttask`,tempData,isloading);
         return res;
     }
 
@@ -2069,7 +2069,7 @@ export class CaseServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/cases/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -2189,7 +2189,7 @@ export class CaseServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchmyfavorites`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/cases/fetchmyfavorites`,tempData,isloading);
         return res;
     }
 
@@ -2219,7 +2219,7 @@ export class CaseServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchnotcurtestsuite`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/cases/fetchnotcurtestsuite`,tempData,isloading);
         return res;
     }
 
@@ -2249,7 +2249,7 @@ export class CaseServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchnotcurtesttask`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/cases/fetchnotcurtesttask`,tempData,isloading);
         return res;
     }
 
@@ -2309,7 +2309,7 @@ export class CaseServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchreportcase`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/cases/fetchreportcase`,tempData,isloading);
         return res;
     }
 
@@ -2369,7 +2369,7 @@ export class CaseServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchreportcase_project`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/cases/fetchreportcase_project`,tempData,isloading);
         return res;
     }
 

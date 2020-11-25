@@ -282,7 +282,7 @@ export class BranchServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/branches/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/branches/fetchdefault`,tempData,isloading);
         return res;
     }
 }

@@ -465,7 +465,7 @@ export class ProjectServiceBase extends EntityService {
      */
     public async FetchCurProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projects/fetchcurproduct`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/projects/fetchcurproduct`,tempData,isloading);
         return res;
     }
 
@@ -480,7 +480,7 @@ export class ProjectServiceBase extends EntityService {
      */
     public async FetchCurUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projects/fetchcuruser`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/projects/fetchcuruser`,tempData,isloading);
         return res;
     }
 
@@ -525,7 +525,7 @@ export class ProjectServiceBase extends EntityService {
      */
     public async FetchInvolvedProject_StoryTaskBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projects/fetchinvolvedproject_storytaskbug`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/projects/fetchinvolvedproject_storytaskbug`,tempData,isloading);
         return res;
     }
 
@@ -540,7 +540,7 @@ export class ProjectServiceBase extends EntityService {
      */
     public async FetchMyProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projects/fetchmyproject`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/projects/fetchmyproject`,tempData,isloading);
         return res;
     }
 

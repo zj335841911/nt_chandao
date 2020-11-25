@@ -435,7 +435,7 @@ export class BuildServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/builds/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/builds/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -485,7 +485,7 @@ export class BuildServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/builds/fetchtestrounds`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/builds/fetchtestrounds`,tempData,isloading);
         return res;
     }
 

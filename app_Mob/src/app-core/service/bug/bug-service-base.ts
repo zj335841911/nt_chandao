@@ -1416,7 +1416,7 @@ export class BugServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchbugsbybuild`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchbugsbybuild`,tempData,isloading);
         return res;
     }
 
@@ -1451,7 +1451,7 @@ export class BugServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchbuildbugs`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchbuildbugs`,tempData,isloading);
         return res;
     }
 
@@ -1486,7 +1486,7 @@ export class BugServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchbuildlinkresolvedbugs`,tempData,isloading);
         return res;
     }
 
@@ -1521,7 +1521,7 @@ export class BugServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchbuildopenbugs`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchbuildopenbugs`,tempData,isloading);
         return res;
     }
 
@@ -2011,7 +2011,7 @@ export class BugServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -2081,7 +2081,7 @@ export class BugServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchmyfavorites`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchmyfavorites`,tempData,isloading);
         return res;
     }
 
@@ -2151,7 +2151,7 @@ export class BugServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchprojectbugs`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchprojectbugs`,tempData,isloading);
         return res;
     }
 
@@ -2186,7 +2186,7 @@ export class BugServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchreleasebugs`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchreleasebugs`,tempData,isloading);
         return res;
     }
 
@@ -2221,7 +2221,7 @@ export class BugServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchreleaseleftbugs`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchreleaseleftbugs`,tempData,isloading);
         return res;
     }
 
@@ -2326,7 +2326,7 @@ export class BugServiceBase extends EntityService {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugs/fetchreportbugs`,tempData,isloading);
+        let res:any = Http.getInstance().post(`/bugs/fetchreportbugs`,tempData,isloading);
         return res;
     }
 
