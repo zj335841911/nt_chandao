@@ -122,12 +122,22 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'assignedto1',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
           name: 'srfmstag',
         },
         {
           name: 'estimate',
           prop: 'estimate',
           dataType: 'FLOAT',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'name',
+          dataType: 'TEXT',
         },
         {
           name: 'srfkey',
@@ -139,11 +149,6 @@ export default class MainModel {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'name',
-          dataType: 'TEXT',
         },
         {
           name: 'id',
