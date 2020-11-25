@@ -205,7 +205,7 @@ export default class DocLibModuleUIServiceBase extends UIService {
         
         const backend = () => {
             const curService:DocLibModuleService =  new DocLibModuleService();
-            curService.DoclibModuleFavorite(context,data, true).then((response: any) => {
+            curService.Collect(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
@@ -331,7 +331,7 @@ export default class DocLibModuleUIServiceBase extends UIService {
         
         const backend = () => {
             const curService:DocLibModuleService =  new DocLibModuleService();
-            curService.DocLibModuleNFavorite(context,data, true).then((response: any) => {
+            curService.UnCollect(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
