@@ -61,7 +61,23 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-                                  <span><span v-if="row.tasktype === 10">
+                                  <span><template v-slot="{row,column,$index}">
+              <app-column-link
+                    deKeyField="task"
+                     :context="JSON.parse(JSON.stringify(context))"
+                     :viewparams="JSON.parse(JSON.stringify(viewparams))"
+                     :data="row"
+                     :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        { pathName: 'stories', parameterName: 'story' },
+                        ]
+                        ,parameters: [
+                        { pathName: 'tasks', parameterName: 'task' },
+                        { pathName: 'maindashboardview', parameterName: 'maindashboardview' }
+                        ]}"
+                                        valueitem="srfkey"
+                                    >
+            
+            <span v-if="row.tasktype === 10">
             	<span title="多人任务" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">多人</span>
             	<span>{{row.name}}</span>
             </span>
@@ -72,7 +88,9 @@
             <span v-if="row.tasktype === 30">
             	<span title="子任务" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">子</span>
             	<span>{{row.name}}</span>
-            </span></span>
+            </span>
+            </app-column-link>
+            </template></span>
                         </template>
                     </template>
                 </el-table-column>

@@ -136,6 +136,18 @@ hide footbox
 |0|开始 | 
 |1|获取正文信息 |
 <center>根据版本更新正文信息</center>
+* 当前是否收藏文档 (CurUserIsF)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+<center>当前是否收藏文档</center>
 
 ## 查询集合
 
