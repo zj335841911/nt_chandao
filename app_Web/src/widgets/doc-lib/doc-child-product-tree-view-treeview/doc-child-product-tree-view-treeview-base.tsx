@@ -495,6 +495,14 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
     public mode: string = 'chart';
 
     /**
+     * 当前文件夹
+     *
+     * @type {*}
+     * @memberofDocChildProductTreeViewBase
+     */
+    public currentNode = {};
+
+    /**
      * 树节点上下文菜单集合
      *
      * @type {string[]}
@@ -578,7 +586,8 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
      * @memberof DocChildProductTreeViewBase
      */
     public refresh(): void {
-        this.load();
+        const node = this.currentNode;
+        this.load(node);
     }
 
     /**
@@ -589,6 +598,7 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
      */
     public async load(node: any = {}, resolve?: any) {
         this.items = [];
+        this.currentNode = node;
         if (node.data && node.data.children) {
             return;
         }
