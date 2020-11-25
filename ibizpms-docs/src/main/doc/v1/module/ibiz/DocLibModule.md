@@ -1048,6 +1048,7 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | 查询是否收藏 | Rawsqlcall1 | 直接SQL调用 |
 | 2 | 开始 | Begin | 开始 |
+| 3 | 设置查询类型 | Rawsqlcall2 | 直接SQL调用 |
 ### 逻辑处理-文档库收藏（DocLibModuleFavorite）
 #### 说明
 文档库收藏

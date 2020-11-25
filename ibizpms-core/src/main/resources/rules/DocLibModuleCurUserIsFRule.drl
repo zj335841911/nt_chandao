@@ -38,3 +38,20 @@ ruleflow-group "doclibmodulecuruserisfbegin"
     then
     end
 
+//逻辑处理节点[设置查询类型]
+rule "rawsqlcall2"
+ruleflow-group "doclibmodulecuruserisfrawsqlcall2"
+    when
+    then
+    Map param = null;
+    String strSql="select 'module' as `DOCQTYPE` from dual";
+    java.util.List<JSONObject> entities=iBzSysDoclibmoduleDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            doclibmodulecuruserisfdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(doclibmodulecuruserisfdefault);//更新fact中变量值
+    end
+
