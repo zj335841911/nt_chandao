@@ -179,7 +179,7 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:DocUIService  = new DocUIService();
-        curUIService.Doc_Collect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        curUIService.Doc_OnlyCollectDoc(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -208,7 +208,7 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:DocUIService  = new DocUIService();
-        curUIService.Doc_UnCollect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        curUIService.Doc_OnlyUnCollectDoc(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -353,7 +353,7 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:DocUIService  = new DocUIService();
-        curUIService.Doc_Collect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        curUIService.Doc_OnlyCollectDoc(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -382,7 +382,7 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:DocUIService  = new DocUIService();
-        curUIService.Doc_UnCollect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        curUIService.Doc_OnlyUnCollectDoc(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
 
@@ -510,14 +510,14 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
      */
      public actionModel: any = {
         ZiMuluDoc_deuiaction1: {ctrlname: 'zimuludoc_cm',name:'deuiaction1',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        ZiMuluDoc_deuiaction2: {ctrlname: 'zimuludoc_cm',name:'deuiaction2',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        ZiMuluDoc_deuiaction3: {ctrlname: 'zimuludoc_cm',name:'deuiaction3',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
+        ZiMuluDoc_deuiaction2: {ctrlname: 'zimuludoc_cm',name:'deuiaction2',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
+        ZiMuluDoc_deuiaction3: {ctrlname: 'zimuludoc_cm',name:'deuiaction3',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
         ChildModule_deuiaction1: {ctrlname: 'childmodule_cm',name:'deuiaction1',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
         ChildModule_deuiaction2: {ctrlname: 'childmodule_cm',name:'deuiaction2',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
         ChildModule_deuiaction3: {ctrlname: 'childmodule_cm',name:'deuiaction3',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
         childModuleDoc_deuiaction1: {ctrlname: 'childmoduledoc_cm',name:'deuiaction1',nodeOwner:'childModuleDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        childModuleDoc_deuiaction2: {ctrlname: 'childmoduledoc_cm',name:'deuiaction2',nodeOwner:'childModuleDoc',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        childModuleDoc_deuiaction3: {ctrlname: 'childmoduledoc_cm',name:'deuiaction3',nodeOwner:'childModuleDoc',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
+        childModuleDoc_deuiaction2: {ctrlname: 'childmoduledoc_cm',name:'deuiaction2',nodeOwner:'childModuleDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
+        childModuleDoc_deuiaction3: {ctrlname: 'childmoduledoc_cm',name:'deuiaction3',nodeOwner:'childModuleDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
     }
 
     /**

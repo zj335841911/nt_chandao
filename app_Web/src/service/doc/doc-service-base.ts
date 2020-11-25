@@ -198,6 +198,34 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
+     * OnlyCollectDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async OnlyCollectDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/docs/${context.doc}/onlycollectdoc`,data,isloading);
+            return res;
+    }
+
+    /**
+     * OnlyUnCollectDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async OnlyUnCollectDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/docs/${context.doc}/onlyuncollectdoc`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
