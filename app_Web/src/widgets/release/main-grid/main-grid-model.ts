@@ -87,6 +87,11 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'marker',
+          prop: 'marker',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'branch',
           prop: 'branch',
           dataType: 'PICKUP',
