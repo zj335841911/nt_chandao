@@ -187,7 +187,17 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data format="YYYY-MM-DD" :data="row.deadline"></app-format-data>
+                        <template >
+                                  <span><template  v-slot="{row,column,$index}">
+                                    <span v-if="row.delay">
+                                        <app-format-data format="YYYY-MM-DD" :data="row.deadline" :style="color:red"></app-format-data>
+                                     <span>{{row.delay}}</span>
+                                    </span>
+                                    <span v-else>
+                                        <app-format-data format="YYYY-MM-DD" :data="row.deadline"></app-format-data>
+                                    </span>
+                                </template></span>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
