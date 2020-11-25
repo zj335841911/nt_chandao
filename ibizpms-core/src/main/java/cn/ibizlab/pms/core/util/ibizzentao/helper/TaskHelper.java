@@ -1256,7 +1256,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         } else {
             for (Team team : teams) {
                 if (team.getAccount().equals(AuthenticationUser.getAuthenticationUser().getUsername())) {
-                    consumed = et.getConsumed() - team.getConsumed();
+                    consumed = et.getMyconsumed() - team.getConsumed();
                     if (consumed < 0) {
                         throw new RuntimeException("总计消耗必须大于原消耗");
                     }
