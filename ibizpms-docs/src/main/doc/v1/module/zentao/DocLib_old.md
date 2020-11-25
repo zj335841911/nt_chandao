@@ -95,7 +95,18 @@ hide members
 |取消收藏|用户自定义|&nbsp;|
 
 ## 处理逻辑
-无
+* 当前是否收藏文档库 (CurUserIsF)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+<center>当前是否收藏文档库</center>
 
 ## 查询集合
 
