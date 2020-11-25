@@ -111,7 +111,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('deadline')">
-                <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.task.main_grid.columns.deadline')" :width="120"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.task.main_grid.columns.deadline')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.task.main_grid.columns.deadline')}}
