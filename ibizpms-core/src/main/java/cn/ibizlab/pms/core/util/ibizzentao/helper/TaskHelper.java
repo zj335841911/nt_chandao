@@ -1263,9 +1263,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                     break;
                 }
             }
-            if (et.getAssignedtozj() == null || "".equals(et.getAssignedtozj())) {
-                //  newTask.setAssignedto(old.getOpenedby());
-            } else {
+            if (!(et.getAssignedtozj() == null || "".equals(et.getAssignedtozj()))) {
                 newTask.setAssignedto(et.getAssignedtozj());
             }
         }
