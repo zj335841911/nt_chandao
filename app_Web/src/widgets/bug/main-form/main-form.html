@@ -509,7 +509,8 @@
     v-model="data.title"  
     @enter="onEnter($event)"
     :data="data"
-    :disabled="detailsModel.title.disabled" 
+    :disabled="detailsModel.title.disabled"
+    :formState="formState"
     color="color"
     style=""
     @colorChange="(val) => {onFormItemValueChange(val)}">

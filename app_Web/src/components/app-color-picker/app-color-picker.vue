@@ -142,6 +142,7 @@ export default class AppColorPicker extends Vue {
         }
         this.colorValue = this.data[this.color];
         this.curVal = this.value;
+        this.handleInputColor(this.colorValue);
     }
 
     /**
