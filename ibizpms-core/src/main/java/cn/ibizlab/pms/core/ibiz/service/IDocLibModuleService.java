@@ -44,11 +44,13 @@ public interface IDocLibModuleService extends IService<DocLibModule> {
     DocLibModule get(Long key);
     DocLibModule getDraft(DocLibModule et);
     boolean checkKey(DocLibModule et);
+    DocLibModule collect(DocLibModule et);
     DocLibModule docLibModuleNFavorite(DocLibModule et);
     DocLibModule doclibModuleFavorite(DocLibModule et);
     DocLibModule fix(DocLibModule et);
     boolean save(DocLibModule et);
     void saveBatch(List<DocLibModule> list);
+    DocLibModule unCollect(DocLibModule et);
     Page<DocLibModule> searchAllDocLibModule_Custom(DocLibModuleSearchContext context);
     Page<DocLibModule> searchAllDoclibModule(DocLibModuleSearchContext context);
     Page<DocLibModule> searchChildModuleByParent(DocLibModuleSearchContext context);

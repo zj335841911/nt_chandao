@@ -891,10 +891,12 @@ String
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [取消收藏](#实体行为-取消收藏（DocLibModuleNFavorite）) | DocLibModuleNFavorite | 实体处理逻辑 | 后台 |
-| 8 | [收藏](#实体行为-收藏（DoclibModuleFavorite）) | DoclibModuleFavorite | 实体处理逻辑 | 后台 |
-| 9 | [重建模块路径](#实体行为-重建模块路径（Fix）) | Fix | 实体处理逻辑 | 后台 |
-| 10 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 7 | [收藏](#实体行为-收藏（Collect）) | Collect | 用户自定义 | 后台及前台 |
+| 8 | [取消收藏](#实体行为-取消收藏（DocLibModuleNFavorite）) | DocLibModuleNFavorite | 实体处理逻辑 | 后台 |
+| 9 | [收藏](#实体行为-收藏（DoclibModuleFavorite）) | DoclibModuleFavorite | 实体处理逻辑 | 后台 |
+| 10 | [重建模块路径](#实体行为-重建模块路径（Fix）) | Fix | 实体处理逻辑 | 后台 |
+| 11 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 12 | [取消收藏](#实体行为-取消收藏（UnCollect）) | UnCollect | 用户自定义 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -977,6 +979,18 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-收藏（Collect）
+#### 说明
+收藏
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
 ### 实体行为-取消收藏（DocLibModuleNFavorite）
 #### 说明
 取消收藏
@@ -1019,6 +1033,18 @@ Save
 
 - 行为类型
 内置方法
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-取消收藏（UnCollect）
+#### 说明
+取消收藏
+
+- 行为类型
+用户自定义
 
 - 行为持有者
 后台及前台

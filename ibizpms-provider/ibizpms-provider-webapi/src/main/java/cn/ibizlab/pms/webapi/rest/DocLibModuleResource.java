@@ -120,6 +120,17 @@ public class DocLibModuleResource {
         return  ResponseEntity.status(HttpStatus.OK).body(doclibmoduleService.checkKey(doclibmoduleMapping.toDomain(doclibmoduledto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-Collect-all')")
+    @ApiOperation(value = "收藏", tags = {"文档库分类" },  notes = "收藏")
+	@RequestMapping(method = RequestMethod.POST, value = "/doclibmodules/{doclibmodule_id}/collect")
+    public ResponseEntity<DocLibModuleDTO> collect(@PathVariable("doclibmodule_id") Long doclibmodule_id, @RequestBody DocLibModuleDTO doclibmoduledto) {
+        DocLibModule domain = doclibmoduleMapping.toDomain(doclibmoduledto);
+        domain.setId(doclibmodule_id);
+        domain = doclibmoduleService.collect(domain);
+        doclibmoduledto = doclibmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(doclibmoduledto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-DocLibModuleNFavorite-all')")
     @ApiOperation(value = "取消收藏", tags = {"文档库分类" },  notes = "取消收藏")
 	@RequestMapping(method = RequestMethod.POST, value = "/doclibmodules/{doclibmodule_id}/doclibmodulenfavorite")
@@ -166,6 +177,17 @@ public class DocLibModuleResource {
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<DocLibModuleDTO> doclibmoduledtos) {
         doclibmoduleService.saveBatch(doclibmoduleMapping.toDomain(doclibmoduledtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-UnCollect-all')")
+    @ApiOperation(value = "取消收藏", tags = {"文档库分类" },  notes = "取消收藏")
+	@RequestMapping(method = RequestMethod.POST, value = "/doclibmodules/{doclibmodule_id}/uncollect")
+    public ResponseEntity<DocLibModuleDTO> unCollect(@PathVariable("doclibmodule_id") Long doclibmodule_id, @RequestBody DocLibModuleDTO doclibmoduledto) {
+        DocLibModule domain = doclibmoduleMapping.toDomain(doclibmoduledto);
+        domain.setId(doclibmodule_id);
+        domain = doclibmoduleService.unCollect(domain);
+        doclibmoduledto = doclibmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(doclibmoduledto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-searchAllDocLibModule_Custom-all')")
