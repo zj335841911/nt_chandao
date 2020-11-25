@@ -47,6 +47,8 @@ public interface IDocService extends IService<Doc> {
     boolean checkKey(Doc et);
     Doc collect(Doc et);
     Doc getDocStatus(Doc et);
+    Doc onlyCollectDoc(Doc et);
+    Doc onlyUnCollectDoc(Doc et);
     boolean save(Doc et);
     void saveBatch(List<Doc> list);
     Doc unCollect(Doc et);

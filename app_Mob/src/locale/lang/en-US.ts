@@ -8,6 +8,7 @@ import projectteam_en_US from '@locale/lanres/project-team/project-team_en_US';
 import build_en_US from '@locale/lanres/build/build_en_US';
 import task_en_US from '@locale/lanres/task/task_en_US';
 import taskestimate_en_US from '@locale/lanres/task-estimate/task-estimate_en_US';
+import ibzdoc_en_US from '@locale/lanres/ibz-doc/ibz-doc_en_US';
 import systeammember_en_US from '@locale/lanres/sys-team-member/sys-team-member_en_US';
 import module_en_US from '@locale/lanres/module/module_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
@@ -27,13 +28,17 @@ import story_en_US from '@locale/lanres/story/story_en_US';
 import ibzmyterritory_en_US from '@locale/lanres/ibz-my-territory/ibz-my-territory_en_US';
 import case_en_US from '@locale/lanres/case/case_en_US';
 import testmodule_en_US from '@locale/lanres/test-module/test-module_en_US';
+import doclibmodule_en_US from '@locale/lanres/doc-lib-module/doc-lib-module_en_US';
 import sysupdatefeatures_en_US from '@locale/lanres/sys-update-features/sys-update-features_en_US';
+import doccontent_en_US from '@locale/lanres/doc-content/doc-content_en_US';
 import productplan_en_US from '@locale/lanres/product-plan/product-plan_en_US';
 import ibztaskestimate_en_US from '@locale/lanres/ibz-taskestimate/ibz-taskestimate_en_US';
 import projectstats_en_US from '@locale/lanres/project-stats/project-stats_en_US';
 import sysemployee_en_US from '@locale/lanres/sys-employee/sys-employee_en_US';
 import ibztaskteam_en_US from '@locale/lanres/ibztaskteam/ibztaskteam_en_US';
+import doclib_en_US from '@locale/lanres/doc-lib/doc-lib_en_US';
 import sysupdatelog_en_US from '@locale/lanres/sys-update-log/sys-update-log_en_US';
+import doc_en_US from '@locale/lanres/doc/doc_en_US';
 import systeam_en_US from '@locale/lanres/sys-team/sys-team_en_US';
 import bug_en_US from '@locale/lanres/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/project-module/project-module_en_US';
@@ -188,6 +193,7 @@ export default {
     build: build_en_US,
     task: task_en_US,
     taskestimate: taskestimate_en_US,
+    ibzdoc: ibzdoc_en_US,
     systeammember: systeammember_en_US,
     module: module_en_US,
     product: product_en_US,
@@ -207,13 +213,17 @@ export default {
     ibzmyterritory: ibzmyterritory_en_US,
     case: case_en_US,
     testmodule: testmodule_en_US,
+    doclibmodule: doclibmodule_en_US,
     sysupdatefeatures: sysupdatefeatures_en_US,
+    doccontent: doccontent_en_US,
     productplan: productplan_en_US,
     ibztaskestimate: ibztaskestimate_en_US,
     projectstats: projectstats_en_US,
     sysemployee: sysemployee_en_US,
     ibztaskteam: ibztaskteam_en_US,
+    doclib: doclib_en_US,
     sysupdatelog: sysupdatelog_en_US,
+    doc: doc_en_US,
     systeam: systeam_en_US,
     bug: bug_en_US,
     projectmodule: projectmodule_en_US,

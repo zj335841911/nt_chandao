@@ -47,6 +47,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
         this.entityConfigs.push({ name: 'build', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'task', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'taskestimate', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'ibzdoc', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'systeammember', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'module', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'product', keyPath: 'srfsessionkey' });
@@ -66,13 +67,17 @@ export class IndexedDBService extends IndexedDBServiceBase {
         this.entityConfigs.push({ name: 'ibzmyterritory', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'case', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'testmodule', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'doclibmodule', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'sysupdatefeatures', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'doccontent', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'productplan', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'ibztaskestimate', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'projectstats', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'sysemployee', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'ibztaskteam', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'doclib', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'sysupdatelog', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'doc', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'systeam', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'bug', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'projectmodule', keyPath: 'srfsessionkey' });

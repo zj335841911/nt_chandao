@@ -16,6 +16,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '02782347d5218671bacac4c3b853f82f',
+            viewmodule: 'ibiz',
+            viewname: 'DocLibMobProductTreeView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '04397afc992f5947c2d1b4250af66e37',
             viewmodule: 'zentao',
             viewname: 'StoryNewMobEditView',
@@ -111,8 +120,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '7862eff0b9a271764fccf722121c6b66',
+                '02782347d5218671bacac4c3b853f82f',
                 'b5a98ab9e5bc86d5b61c77273225f276',
-                '58f89fab47964b5ad5b6b0f2021b188b',
                 '4ad2fc1ff781083ad939783813464b1a',
             ],
         },
@@ -1559,6 +1568,15 @@ export const viewstate: any = {
                 '2b6e052f3fa1629c2d2ac11a1823d95d',
                 'cacf8bf823f555d6b1952c3aeddf8223',
                 '04397afc992f5947c2d1b4250af66e37',
+            ],
+        },
+        {
+            viewtag: 'b876878a52eca4c8f8ddf2b32fdf1bd2',
+            viewmodule: 'ibiz',
+            viewname: 'DocLibMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

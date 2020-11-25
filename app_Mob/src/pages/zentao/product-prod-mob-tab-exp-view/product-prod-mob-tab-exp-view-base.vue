@@ -25,9 +25,10 @@
                             <ion-segment-button value="tabviewpanel4">
                             <ion-badge color="danger">{{counter.counterData.releasecnt?counter.counterData.releasecnt:''}}</ion-badge>
                             发布</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel5">
-                            <ion-badge color="danger">{{counter.counterData.relatedbugcnt?counter.counterData.relatedbugcnt:''}}</ion-badge>
-                            Bug</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel6">
+                              <ion-icon name="folder"></ion-icon>
+                            
+                            文档</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>

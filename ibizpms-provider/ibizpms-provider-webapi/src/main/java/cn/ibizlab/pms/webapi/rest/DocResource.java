@@ -153,6 +153,28 @@ public class DocResource {
         return ResponseEntity.status(HttpStatus.OK).body(docdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-OnlyCollectDoc-all')")
+    @ApiOperation(value = "仅收藏文档", tags = {"文档" },  notes = "仅收藏文档")
+	@RequestMapping(method = RequestMethod.POST, value = "/docs/{doc_id}/onlycollectdoc")
+    public ResponseEntity<DocDTO> onlyCollectDoc(@PathVariable("doc_id") Long doc_id, @RequestBody DocDTO docdto) {
+        Doc domain = docMapping.toDomain(docdto);
+        domain.setId(doc_id);
+        domain = docService.onlyCollectDoc(domain);
+        docdto = docMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(docdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-OnlyUnCollectDoc-all')")
+    @ApiOperation(value = "仅取消收藏文档", tags = {"文档" },  notes = "仅取消收藏文档")
+	@RequestMapping(method = RequestMethod.POST, value = "/docs/{doc_id}/onlyuncollectdoc")
+    public ResponseEntity<DocDTO> onlyUnCollectDoc(@PathVariable("doc_id") Long doc_id, @RequestBody DocDTO docdto) {
+        Doc domain = docMapping.toDomain(docdto);
+        domain.setId(doc_id);
+        domain = docService.onlyUnCollectDoc(domain);
+        docdto = docMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(docdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-Save-all')")
     @ApiOperation(value = "保存文档", tags = {"文档" },  notes = "保存文档")
 	@RequestMapping(method = RequestMethod.POST, value = "/docs/save")

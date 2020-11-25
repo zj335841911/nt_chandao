@@ -5,6 +5,7 @@
 | 视图编号        | 视图        |    视图类型   |  备注  |
 | -------- | --------   |------------| --------- | 
 |-|测试用例移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|文档库移动端树视图（产品）|DEMOBTREEVIEW|&nbsp;|
 |-|需求移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|我的地盘移动端日历视图|DEMOBCALENDARVIEW|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
@@ -143,6 +144,7 @@
 |-|产品计划分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|附件移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|文档库移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|需求模块移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|Bug移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|任务预计移动端多数据视图|DEMOBMDVIEW|&nbsp;|

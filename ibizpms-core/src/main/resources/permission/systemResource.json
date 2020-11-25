@@ -799,6 +799,14 @@
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
+    "dename":"IBzDoc",
+    "delogicname":"文档",
+    "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
+    "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
+     }
+    ,    {
     "dename":"SysTeamMember",
     "delogicname":"组成员",
     "sysmoudle":{"id":"OU","name":"ou组织用户管理模块"},
@@ -951,12 +959,28 @@
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
+    "dename":"DocLibModule",
+    "delogicname":"文档库分类",
+    "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
+    "dedataset":[{"id":"AllDocLibModule_Custom" , "name":"自定义文档库的模块"},{"id":"AllDoclibModule" , "name":"所有文档库模块"},{"id":"ChildModuleByParent" , "name":"子模块目录"},{"id":"Default" , "name":"数据集"},{"id":"ParentModule" , "name":"父集合"},{"id":"RootModuleMuLu" , "name":"所有根模块目录"},{"id":"RootModuleMuLuByRoot" , "name":"根模块目录"},{"id":"RootModuleMuLuBysrfparentkey" , "name":"根模块目录动态"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Collect" , "name":"收藏" , "type":"USERCUSTOM" },{"id":"DocLibModuleNFavorite" , "name":"取消收藏" , "type":"DELOGIC" },{"id":"DoclibModuleFavorite" , "name":"收藏" , "type":"DELOGIC" },{"id":"Fix" , "name":"重建模块路径" , "type":"DELOGIC" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"UnCollect" , "name":"取消收藏" , "type":"USERCUSTOM" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
     "dename":"SysUpdateFeatures",
     "delogicname":"系统更新功能",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
     "dedataset":[{"id":"Default" , "name":"数据集"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
+     }
+    ,    {
+    "dename":"DocContent",
+    "delogicname":"文档内容",
+    "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
+    "dedataset":[{"id":"CurVersion" , "name":"当前版本"},{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
     "dename":"ProductPlan",
@@ -983,12 +1007,28 @@
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"curorg","name":"当前单位"},{"id":"porg","name":"上级单位"},{"id":"sorg","name":"下级单位"} , {"id":"createman","name":"创建人"}]
      }
     ,    {
+    "dename":"DocLib",
+    "delogicname":"文档库",
+    "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
+    "dedataset":[{"id":"ByCustom" , "name":"自定义文档库"},{"id":"ByProduct" , "name":"产品文档库"},{"id":"ByProductNotFiles" , "name":"产品文档库"},{"id":"ByProject" , "name":"项目文件库"},{"id":"ByProjectNotFiles" , "name":"项目文件库"},{"id":"CurDocLib" , "name":"所属文档库"},{"id":"Default" , "name":"DEFAULT"},{"id":"RootModuleMuLu" , "name":"根目录"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Collect" , "name":"收藏" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"UnCollect" , "name":"取消收藏" , "type":"USERCUSTOM" }],
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"curorg","name":"当前单位"},{"id":"porg","name":"上级单位"},{"id":"sorg","name":"下级单位"} , {"id":"curorgdept","name":"当前部门"},{"id":"porgdept","name":"上级部门"},{"id":"sorgdept","name":"下级部门"} ]
+     }
+    ,    {
     "dename":"SysUpdateLog",
     "delogicname":"更新日志",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
     "dedataset":[{"id":"Default" , "name":"数据集"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"GetLastUpdateInfo" , "name":"获取最新更新信息" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
+     }
+    ,    {
+    "dename":"Doc",
+    "delogicname":"文档",
+    "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
+    "dedataset":[{"id":"ChildDocLibDoc" , "name":"文档库文档（子库）"},{"id":"Default" , "name":"DEFAULT"},{"id":"DocLibAndDoc" , "name":"文档库文档"},{"id":"DocLibDoc" , "name":"文档库文档"},{"id":"DocModuleDoc" , "name":"文档库分类文档"},{"id":"DocStatus" , "name":"文档统计"},{"id":"ModuleDocChild" , "name":"文件夹文档（子目录）"},{"id":"MyFavourite" , "name":"我的收藏"},{"id":"NotRootDoc" , "name":"子目录文档"},{"id":"RootDoc" , "name":"根目录文档"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"ByVersionUpdateContext" , "name":"根据版本更新正文信息" , "type":"USERCUSTOM" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Collect" , "name":"收藏" , "type":"USERCUSTOM" },{"id":"GetDocStatus" , "name":"行为" , "type":"USERCUSTOM" },{"id":"OnlyCollectDoc" , "name":"仅收藏文档" , "type":"USERCUSTOM" },{"id":"OnlyUnCollectDoc" , "name":"仅取消收藏文档" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"UnCollect" , "name":"取消收藏" , "type":"USERCUSTOM" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
     "dename":"SysTeam",
@@ -1103,14 +1143,6 @@
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
-    "dename":"DocContent",
-    "delogicname":"文档内容",
-    "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
-    "dedataset":[{"id":"CurVersion" , "name":"当前版本"},{"id":"Default" , "name":"DEFAULT"}],
-    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
-    "datascope":[{"id":"all","name":"全部数据"}]
-     }
-    ,    {
     "dename":"UserTpl",
     "delogicname":"用户模板",
     "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
@@ -1215,27 +1247,11 @@
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
-    "dename":"DocLib",
-    "delogicname":"文档库",
-    "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
-    "dedataset":[{"id":"ByCustom" , "name":"自定义文档库"},{"id":"ByProduct" , "name":"产品文档库"},{"id":"ByProductNotFiles" , "name":"产品文档库"},{"id":"ByProject" , "name":"项目文件库"},{"id":"ByProjectNotFiles" , "name":"项目文件库"},{"id":"CurDocLib" , "name":"所属文档库"},{"id":"Default" , "name":"DEFAULT"},{"id":"RootModuleMuLu" , "name":"根目录"}],
-    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Collect" , "name":"收藏" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"UnCollect" , "name":"取消收藏" , "type":"USERCUSTOM" }],
-    "datascope":[{"id":"all","name":"全部数据"}, {"id":"curorg","name":"当前单位"},{"id":"porg","name":"上级单位"},{"id":"sorg","name":"下级单位"} , {"id":"curorgdept","name":"当前部门"},{"id":"porgdept","name":"上级部门"},{"id":"sorgdept","name":"下级部门"} ]
-     }
-    ,    {
     "dename":"IBIZProKeyword",
     "delogicname":"关键字",
     "sysmoudle":{"id":"IBIZPLUGIN","name":"iBiz插件模块"},
     "dedataset":[{"id":"Default" , "name":"数据集"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
-    "datascope":[{"id":"all","name":"全部数据"}]
-     }
-    ,    {
-    "dename":"DocLibModule",
-    "delogicname":"文档库分类",
-    "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
-    "dedataset":[{"id":"AllDocLibModule_Custom" , "name":"自定义文档库的模块"},{"id":"AllDoclibModule" , "name":"所有文档库模块"},{"id":"ChildModuleByParent" , "name":"子模块目录"},{"id":"Default" , "name":"数据集"},{"id":"ParentModule" , "name":"父集合"},{"id":"RootModuleMuLu" , "name":"所有根模块目录"},{"id":"RootModuleMuLuByRoot" , "name":"根模块目录"},{"id":"RootModuleMuLuBysrfparentkey" , "name":"根模块目录动态"}],
-    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Collect" , "name":"收藏" , "type":"USERCUSTOM" },{"id":"DocLibModuleNFavorite" , "name":"取消收藏" , "type":"DELOGIC" },{"id":"DoclibModuleFavorite" , "name":"收藏" , "type":"DELOGIC" },{"id":"Fix" , "name":"重建模块路径" , "type":"DELOGIC" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"UnCollect" , "name":"取消收藏" , "type":"USERCUSTOM" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
@@ -1285,22 +1301,6 @@
     "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
-     }
-    ,    {
-    "dename":"Doc",
-    "delogicname":"文档",
-    "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
-    "dedataset":[{"id":"ChildDocLibDoc" , "name":"文档库文档（子库）"},{"id":"Default" , "name":"DEFAULT"},{"id":"DocLibAndDoc" , "name":"文档库文档"},{"id":"DocLibDoc" , "name":"文档库文档"},{"id":"DocModuleDoc" , "name":"文档库分类文档"},{"id":"DocStatus" , "name":"文档统计"},{"id":"ModuleDocChild" , "name":"文件夹文档（子目录）"},{"id":"MyFavourite" , "name":"我的收藏"},{"id":"NotRootDoc" , "name":"子目录文档"},{"id":"RootDoc" , "name":"根目录文档"}],
-    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"ByVersionUpdateContext" , "name":"根据版本更新正文信息" , "type":"USERCUSTOM" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Collect" , "name":"收藏" , "type":"USERCUSTOM" },{"id":"GetDocStatus" , "name":"行为" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"UnCollect" , "name":"取消收藏" , "type":"USERCUSTOM" }],
-    "datascope":[{"id":"all","name":"全部数据"}]
-     }
-    ,    {
-    "dename":"IBzDoc",
-    "delogicname":"文档",
-    "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
-    "dedataset":[{"id":"Default" , "name":"DEFAULT"}],
-    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
-    "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
      }
     ,    {
     "dename":"PSSysApp",

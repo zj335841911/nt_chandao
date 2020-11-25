@@ -1701,8 +1701,10 @@ Integer
 | 7 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 8 | [收藏](#实体行为-收藏（Collect）) | Collect | 用户自定义 | 后台 |
 | 9 | [行为](#实体行为-行为（GetDocStatus）) | GetDocStatus | 用户自定义 | 后台及前台 |
-| 10 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 11 | [取消收藏](#实体行为-取消收藏（UnCollect）) | UnCollect | 用户自定义 | 后台 |
+| 10 | [仅收藏文档](#实体行为-仅收藏文档（OnlyCollectDoc）) | OnlyCollectDoc | 用户自定义 | 后台及前台 |
+| 11 | [仅取消收藏文档](#实体行为-仅取消收藏文档（OnlyUnCollectDoc）) | OnlyUnCollectDoc | 用户自定义 | 后台及前台 |
+| 12 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 13 | [取消收藏](#实体行为-取消收藏（UnCollect）) | UnCollect | 用户自定义 | 后台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -1805,6 +1807,30 @@ CheckKey
 ### 实体行为-行为（GetDocStatus）
 #### 说明
 行为
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-仅收藏文档（OnlyCollectDoc）
+#### 说明
+仅收藏文档
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-仅取消收藏文档（OnlyUnCollectDoc）
+#### 说明
+仅取消收藏文档
 
 - 行为类型
 用户自定义

@@ -1943,6 +1943,20 @@ const router = new Router({
                     component: () => import('@pages/ou/sys-employee-tree-mob-pickup-view/sys-employee-tree-mob-pickup-view.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/mobproducttreeview',
+                    name: 'doclib_mobproducttreeview',
+                    meta: {
+                        caption: 'doclib.views.mobproducttreeview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'mobproducttreeview', parameterName: 'mobproducttreeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/doc-lib-mob-product-tree-view/doc-lib-mob-product-tree-view.vue'),
+                },
+                {
                     path: 'actions/:action?/mobmapview',
                     name: 'action_mobmapview',
                     meta: {

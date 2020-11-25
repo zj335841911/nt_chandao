@@ -15,9 +15,24 @@ export class MobListModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'addeddate',
+			},
+			{
 				name: 'title',
 				prop: 'title',
 				dataType: 'TEXT',
+			},
+			{
+				name: 'size',
+			},
+			{
+				name: 'strsize',
+			},
+			{
+				name: 'addedby',
+			},
+			{
+				name: 'extension',
 			},
 			{
 				name: 'srfkey',

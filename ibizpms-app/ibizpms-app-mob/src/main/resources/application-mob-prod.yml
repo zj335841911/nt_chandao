@@ -47,6 +47,10 @@ zuul:
       path: /taskestimates/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_doc:
+      path: /ibzdocs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     sys_teammember:
       path: /systeammembers/**
       serviceId: ${ibiz.ref.service.ibzou-api:ibzou-api}
@@ -123,8 +127,16 @@ zuul:
       path: /testmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_doclibmodule:
+      path: /doclibmodules/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     sys_update_features:
       path: /sysupdatefeatures/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    zt_doccontent:
+      path: /doccontents/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_productplan:
@@ -147,8 +159,16 @@ zuul:
       path: /ibztaskteams/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    zt_doclib:
+      path: /doclibs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     sys_update_log:
       path: /sysupdatelogs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    zt_doc:
+      path: /docs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     sys_team:

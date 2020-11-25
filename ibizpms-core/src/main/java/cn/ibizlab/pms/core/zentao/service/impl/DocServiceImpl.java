@@ -152,6 +152,20 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
 
     @Override
     @Transactional
+    public Doc onlyCollectDoc(Doc et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Doc onlyUnCollectDoc(Doc et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(Doc et) {
         if (!saveOrUpdate(et)) {
             return false;
