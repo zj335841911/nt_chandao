@@ -104,7 +104,16 @@
                     <template v-slot="{row,column,$index}">
                         <template >
                                 <a v-show="row.AssignTask.visible" :disabled="row.AssignTask.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'AssignTask', $event)">
-            <codelist :value="row.assignedto" tag="UserRealNameW" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                                  <span><span v-if="row.tasktype != '10'">
+                                            <a v-show="row.AssignTask.visible" :disabled="row.AssignTask.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'AssignTask', $event)">
+                        <codelist :value="row.assignedto" tag="UserRealNameW" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                                            </a>
+                                        </span>
+                                        <span v-else>
+                                            <a v-show="row.AssignTask.visible" :disabled="row.AssignTask.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'CheckForward', $event)">
+                        <codelist :value="row.assignedto" tag="UserRealNameW" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                                            </a>
+                                        </span></span>
                                 </a>
                         </template>
                     </template>

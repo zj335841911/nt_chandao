@@ -878,6 +878,8 @@ export default {
 			copy: "拷贝",
 			task_taskfavorites: "收藏",
 			task_tasknfavorites: "取消收藏",
+			task_checkforward: "转交",
+			task_forward: "转交",
 		},
 	},
 	pivottable_grid: {

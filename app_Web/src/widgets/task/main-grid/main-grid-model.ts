@@ -102,18 +102,13 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
+          name: 'assignedtozj',
+          prop: 'assignedtozj',
+          dataType: 'TEXT',
         },
         {
           name: 'tasktype',
           prop: 'tasktype',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'finishedby',
-          prop: 'finishedby',
           dataType: 'SSCODELIST',
         },
         {
@@ -122,19 +117,9 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'status1',
           prop: 'status1',
           dataType: 'SSCODELIST',
-        },
-        {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
         },
         {
           name: 'srfmstag',
@@ -145,9 +130,10 @@ export default class MainModel {
           dataType: 'FLOAT',
         },
         {
-          name: 'srfmajortext',
-          prop: 'name',
-          dataType: 'TEXT',
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
         },
         {
           name: 'srfdataaccaction',
@@ -155,10 +141,9 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
+          name: 'srfmajortext',
+          prop: 'name',
+          dataType: 'TEXT',
         },
         {
           name: 'id',
@@ -166,24 +151,14 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'assignedto',
           prop: 'assignedto',
           dataType: 'TEXT',
         },
         {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
+          name: 'story',
+          prop: 'story',
+          dataType: 'PICKUP',
         },
         {
           name: 'consumed',
@@ -201,11 +176,6 @@ export default class MainModel {
           dataType: 'FLOAT',
         },
         {
-          name: 'delay',
-          prop: 'delay',
-          dataType: 'TEXT',
-        },
-        {
           name: 'isfavorites',
           prop: 'isfavorites',
           dataType: 'TEXT',
@@ -213,6 +183,41 @@ export default class MainModel {
         {
           name: 'progressrate',
           prop: 'progressrate',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'finishedby',
+          prop: 'finishedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'delay',
+          prop: 'delay',
           dataType: 'TEXT',
         },
         {
