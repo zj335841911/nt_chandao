@@ -353,6 +353,34 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_tasktype_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_AssignTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_assignedtozj_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -818,6 +846,9 @@ export class MainGridBase extends GridControlBase {
         }
         if(Object.is('TaskNFavorites', tag)) {
             this.grid_uagridcolumn1_u9190267_click(row, tag, $event);
+        }
+        if(Object.is('AssignTask', tag)) {
+            this.grid_tasktype_click(row, tag, $event);
         }
         if(Object.is('CheckForward', tag)) {
             this.grid_assignedtozj_click(row, tag, $event);
