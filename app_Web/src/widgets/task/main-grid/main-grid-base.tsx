@@ -422,7 +422,7 @@ export class MainGridBase extends GridControlBase {
         Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', target: 'SINGLEKEY'},
         TaskFavorites: { name: 'TaskFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', target: 'SINGLEKEY'},
         TaskNFavorites: { name: 'TaskNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', target: 'SINGLEKEY'},
-        CheckForward: { name: 'CheckForward',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_FORWARD_BUT', target: 'SINGLEKEY'},
+        CheckForward: { name: 'CheckForward',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'},
         Forward: { name: 'Forward',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FORWARD_BUT', target: 'SINGLEKEY'}
     };
 
