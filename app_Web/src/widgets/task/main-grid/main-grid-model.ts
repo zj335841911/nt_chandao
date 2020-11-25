@@ -122,11 +122,6 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'assignedto1',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
           name: 'srfmstag',
         },
         {
