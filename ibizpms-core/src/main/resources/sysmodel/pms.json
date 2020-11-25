@@ -5413,7 +5413,7 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":200,
-    "expression":"0",
+    "expression":"( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END )",
     "key_field":0,
     "show_order":1000,
     "major_field":0
@@ -5932,7 +5932,7 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":200,
-    "expression":"0",
+    "expression":"( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END )",
     "key_field":0,
     "show_order":1000,
     "major_field":0
@@ -6284,7 +6284,7 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":200,
-    "expression":"0",
+    "expression":"( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END )",
     "key_field":0,
     "show_order":1000,
     "major_field":0

@@ -770,7 +770,7 @@ String
 
 - 取值范围/公式
 ```SQL
-0
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END )
 ```
 
 - 数据格式
@@ -1311,7 +1311,7 @@ t1.`DELETED`,
 'doc' AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
-0 AS `ISFAVOURITES`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
 t1.`NAME`,
@@ -1567,7 +1567,7 @@ t1.`DELETED`,
 'doc' AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
-0 AS `ISFAVOURITES`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
 t1.`NAME`,
@@ -1636,7 +1636,7 @@ t1.`DELETED`,
 'doc' AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
-0 AS `ISFAVOURITES`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
 t1.`NAME`,

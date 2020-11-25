@@ -1239,7 +1239,7 @@ String
 
 - 取值范围/公式
 ```SQL
-0
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END )
 ```
 
 - 数据格式
@@ -2304,7 +2304,7 @@ t1.`EDITEDBY`,
 t1.`EDITEDDATE`,
 t1.`GROUPS`,
 t1.`ID`,
-( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`KEYWORDS`,
 t1.`LIB`,
 t31.`NAME` AS `LIBNAME`,
@@ -2466,8 +2466,7 @@ t11.`NAME` AS `PROJECTNAME`,
 t1.`TITLE`,
 t1.`TYPE`,
 t1.`VERSION`,
-t1.`VIEWS`, 
-'doc' AS `DOCQTYPE` 
+t1.`VIEWS`
 FROM `zt_doc` t1 
 LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
 LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
@@ -2499,7 +2498,7 @@ t1.`EDITEDBY`,
 t1.`EDITEDDATE`,
 t1.`GROUPS`,
 t1.`ID`,
-0 AS `ISFAVOURITES`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`KEYWORDS`,
 t1.`LIB`,
 t31.`NAME` AS `LIBNAME`,
