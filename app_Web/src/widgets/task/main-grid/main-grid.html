@@ -93,6 +93,26 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('deadline')">
+                <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.task.main_grid.columns.deadline')" :width="120"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.task.main_grid.columns.deadline')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+                                  <span><span v-if="row.delay" style="color:red">
+            	<app-format-data format="YYYY-MM-DD" :data="row.deadline"></app-format-data> <span>{{ row.delay }}</span>
+            </span>
+            <span v-else>
+            	<app-format-data format="YYYY-MM-DD" :data="row.deadline"></app-format-data>
+            </span>
+            </span>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('assignedto')">
                 <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.task.main_grid.columns.assignedto')" :width="110"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -176,26 +196,6 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                             <span>{{row.progressrate}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('deadline')">
-                <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.task.main_grid.columns.deadline')" :width="120"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.task.main_grid.columns.deadline')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <template >
-                                  <span><span v-if="row.delay" style="color:red">
-            	<app-format-data format="YYYY-MM-DD" :data="row.deadline"></app-format-data> <span>{{ row.delay }}</span>
-            </span>
-            <span v-else>
-            	<app-format-data format="YYYY-MM-DD" :data="row.deadline"></app-format-data>
-            </span>
-            </span>
-                        </template>
                     </template>
                 </el-table-column>
             </template>
