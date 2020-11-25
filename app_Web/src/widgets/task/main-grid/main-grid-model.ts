@@ -201,6 +201,11 @@ export default class MainModel {
           dataType: 'FLOAT',
         },
         {
+          name: 'delay',
+          prop: 'delay',
+          dataType: 'TEXT',
+        },
+        {
           name: 'isfavorites',
           prop: 'isfavorites',
           dataType: 'TEXT',
