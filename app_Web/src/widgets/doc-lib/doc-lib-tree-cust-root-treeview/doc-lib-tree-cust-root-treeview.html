@@ -16,15 +16,13 @@
     </div>
     <div v-show="Object.is(mode, 'chart')" class="documents-library-chart" >
         <template v-for="(item,index) in items">
-            <div :key="index" :class="['chart-item','chart-item-'+index]" @mouseleave="hideToolBar(index)">
+            <div :key="index" :class="['chart-item','chart-item-'+index]" @mouseleave="hideToolBar(index)" @mouseover="showToolBar(index)">
                 <div
-                    @mouseover="showToolBar(index)"
                     v-if="Object.is(item.nodeType,'STATIC') || (item.curData && (Object.is(item.curData.doclibtype,'doc') || Object.is(item.curData.docqtype,'module')))"
                     @dblclick="openNode(item)">
                     <Icon type="md-folder" size="70" color="rgb(255, 202, 40)" />
                 </div> 
                 <div 
-                    @mouseover="showToolBar(index)"
                     v-if="item.curData && (Object.is(item.curData.doclibtype,'file') || Object.is(item.curData.docqtype,'doc'))"> 
                     <Icon type="md-document" size="70" color="darkgrey" />
                 </div>
