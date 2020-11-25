@@ -5,17 +5,16 @@
         <ion-icon class="doc" v-if="item.extension == 'doc' || item.extension == 'docx'" name="file-word-o"></ion-icon> 
         <ion-icon class="txt" v-else-if="item.extension == 'txt'" name="file-text-o"></ion-icon> 
         <ion-icon class="pdf" v-else-if="item.extension == 'pdf'" name="file-pdf-o"></ion-icon> 
-        <ion-icon class="zip" v-else-if="item.extension == 'zip' || item.extension == 'rar'" name="file-archive-o"></ion-icon> 
+        <ion-icon class="zip" v-else-if="item.extension == 'zip'" name="file-archive-o"></ion-icon> 
+        <ion-icon class="rar" v-else-if="item.extension == 'rar'" name="file-archive-o"></ion-icon> 
         <ion-icon class="xls" v-else-if="item.extension == 'xls' || item.extension == 'xlsx'" name="file-excel-o"></ion-icon> 
         <ion-icon class="ppt" v-else-if="item.extension == 'pptx' || item.extension == 'ppt'" name="file-powerpoint-o"></ion-icon> 
         <ion-icon class="mp4" v-else-if="item.extension == 'mp4'" name="file-video-o"></ion-icon> 
         <img @click.stop="openImages(getImage(item))" v-else-if="isImages(item)" :src="getImage(item)" alt="">
         <ion-icon class="txt" v-else name="file-o"></ion-icon> 
-      
       </div>
       <div class="file_info_content">
         <div class="file_name"> <strong>{{ item.srfmajortext }}</strong></div>
-        
         <div class="file_footer">
             <div class="file_size">{{item.strsize}}</div>
             <div class="file_size">|</div>
