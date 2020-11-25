@@ -184,7 +184,7 @@ export default class AppMpicker extends Vue {
                             [this.deKeyField]: item[this.deKeyField],
                         };
                         if(item['color'] && this.isExistParam('color')){
-                            Object.assign(singleParam,{'background':item['color']});
+                            Object.assign(singleParam,{'color':item['color']});
                         }
                         this.items.push(singleParam);
                     }
