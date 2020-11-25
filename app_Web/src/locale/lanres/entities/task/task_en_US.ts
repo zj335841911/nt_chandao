@@ -847,6 +847,7 @@ export default {
 			progressrate: "%",
 			deadline: "截止日期",
 			uagridcolumn1: "操作",
+			assignedtozj: "转交给",
 		},
     exportColumns: {
 			id: "ID",
