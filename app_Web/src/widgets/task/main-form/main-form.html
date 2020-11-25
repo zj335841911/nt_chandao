@@ -421,6 +421,47 @@
 </i-col>
 <i-col
     class="form-layout-container"
+    v-show="detailsModel.color.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 0 }"
+>
+    <app-form-item
+    name="color"
+    :itemRules="this.rules().color"
+    class=""
+
+    :caption="$t('entities.task.main_form.details.color')"
+    uiStyle="DEFAULT"
+    :labelWidth="5"
+    :isShowCaption="true"
+    :error="detailsModel.color.error"
+    :isEmptyCaption="true"
+    labelPos="LEFT"
+>
+    
+<dropdown-list 
+    v-model="data.color"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.color.disabled"
+    valueType="string"
+    tag="Task__color"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.pri.visible"
     :style="{}"
     
@@ -467,7 +508,7 @@
     
     
     :lg="{ span: 4, offset: 0 }"
-    :xl="{ span: 5, offset: 0 }"
+    :xl="{ span: 4, offset: 0 }"
 >
     <app-form-item
     name="estimate"
@@ -476,7 +517,7 @@
 
     :caption="$t('entities.task.main_form.details.estimate')"
     uiStyle="DEFAULT"
-    :labelWidth="70"
+    :labelWidth="50"
     :isShowCaption="true"
     :error="detailsModel.estimate.error"
     :isEmptyCaption="false"

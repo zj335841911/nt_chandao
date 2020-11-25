@@ -114,6 +114,7 @@ export class MainEditFormBase extends EditFormControlBase {
         usernames: null,
         storyname: null,
         name: null,
+        color: null,
         pri: null,
         estimate: null,
         desc: null,
@@ -370,6 +371,13 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        color: new FormItemModel({
+    caption: '', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         pri: new FormItemModel({
     caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -527,6 +535,7 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.assignedto.setDisabled(!ret);
         }
+
 
 
 

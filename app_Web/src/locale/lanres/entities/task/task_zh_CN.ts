@@ -489,6 +489,7 @@ export default {
 			usernames: "团队用户", 
 			storyname: "相关需求", 
 			name: "任务名称", 
+			color: "", 
 			pri: "优先级", 
 			estimate: "预计", 
 			desc: "任务描述", 
