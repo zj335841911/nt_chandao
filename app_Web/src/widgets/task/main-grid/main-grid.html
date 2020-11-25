@@ -61,8 +61,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-                                  <span><template v-slot="{row,column,$index}">
-              <app-column-link
+                                  <span> <app-column-link
                     deKeyField="task"
                      :context="JSON.parse(JSON.stringify(context))"
                      :viewparams="JSON.parse(JSON.stringify(viewparams))"
@@ -76,7 +75,6 @@
                         ]}"
                                         valueitem="srfkey"
                                     >
-            
             <span v-if="row.tasktype === 10">
             	<span title="多人任务" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">多人</span>
             	<span>{{row.name}}</span>
@@ -89,8 +87,7 @@
             	<span title="子任务" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">子</span>
             	<span>{{row.name}}</span>
             </span>
-            </app-column-link>
-            </template></span>
+            </app-column-link></span>
                         </template>
                     </template>
                 </el-table-column>
