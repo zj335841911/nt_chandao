@@ -61,6 +61,10 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IDocLibCurUserIsFLogic curuserisfLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -99,6 +103,8 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Override
     @Transactional
     public DocLib get(Long key) {
+        DocLib tempET = new DocLib();
+        tempET.set("id", key);
         DocLib et = getById(key);
         if (et == null) {
             et = new DocLib();
@@ -106,6 +112,7 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
         }
         else {
         }
+        curuserisfLogic.execute(et);
         return et;
     }
 

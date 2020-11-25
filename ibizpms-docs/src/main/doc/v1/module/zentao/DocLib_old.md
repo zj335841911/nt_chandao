@@ -102,10 +102,13 @@ hide members
 {% plantuml %}
 hide footbox
 
+文档库 -> 文档库: 设置是否收藏
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
+|0|开始 | 
+|1|设置是否收藏 |
 <center>当前是否收藏文档库</center>
 
 ## 查询集合
