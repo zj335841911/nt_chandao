@@ -82,6 +82,21 @@ hide members
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
+* 当前是否收藏文档库分类 (CurUserIsF)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+文档库分类 -> 文档库分类: 查询是否收藏
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|查询是否收藏 |
+<center>当前是否收藏文档库分类</center>
 * 文档库收藏 (DocLibModuleFavorite)
   
    

@@ -1027,12 +1027,25 @@ Save
 ## 逻辑处理
 | 序号 | 逻辑 | 逻辑名 | 逻辑持有者 |
 | ---- | ---- | ---- | ---- |
-| 1 | [文档库收藏](#逻辑处理-文档库收藏（DocLibModuleFavorite）) | DocLibModuleFavorite | 后台 |
-| 2 | [文档库取消收藏](#逻辑处理-文档库取消收藏（DoclibModuleNFavorite）) | DoclibModuleNFavorite | 后台 |
-| 3 | [重建模块路径](#逻辑处理-重建模块路径（FixPath）) | FixPath | 后台 |
-| 4 | [行为[Update]主状态拒绝逻辑](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | Update__MSDeny | 后台 |
-| 5 | [行为[Remove]主状态拒绝逻辑](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | Remove__MSDeny | 后台 |
+| 1 | [当前是否收藏文档库分类](#逻辑处理-当前是否收藏文档库分类（CurUserIsF）) | CurUserIsF | 后台 |
+| 2 | [文档库收藏](#逻辑处理-文档库收藏（DocLibModuleFavorite）) | DocLibModuleFavorite | 后台 |
+| 3 | [文档库取消收藏](#逻辑处理-文档库取消收藏（DoclibModuleNFavorite）) | DoclibModuleNFavorite | 后台 |
+| 4 | [重建模块路径](#逻辑处理-重建模块路径（FixPath）) | FixPath | 后台 |
+| 5 | [行为[Update]主状态拒绝逻辑](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | Update__MSDeny | 后台 |
+| 6 | [行为[Remove]主状态拒绝逻辑](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | Remove__MSDeny | 后台 |
 
+### 逻辑处理-当前是否收藏文档库分类（CurUserIsF）
+#### 说明
+当前是否收藏文档库分类
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 查询是否收藏 | Rawsqlcall1 | 直接SQL调用 |
+| 2 | 开始 | Begin | 开始 |
 ### 逻辑处理-文档库收藏（DocLibModuleFavorite）
 #### 说明
 文档库收藏

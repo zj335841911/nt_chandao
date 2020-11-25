@@ -143,10 +143,13 @@ hide footbox
 {% plantuml %}
 hide footbox
 
+文档 -> 文档: 查询是否收藏
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
+|0|开始 | 
+|1|查询是否收藏 |
 <center>当前是否收藏文档</center>
 
 ## 查询集合
