@@ -210,7 +210,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @type {string[]}
      * @memberof DocLibTreeProductMobBase
      */
-    public treeNav :any= [{id:"#",text:"文档库节点树（产品-移动端）"}];
+    public treeNav :any= [{id:"#",text:"文档"}];
 
     /**
      * 获取多项数据
