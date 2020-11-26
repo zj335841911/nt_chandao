@@ -129,6 +129,9 @@ export default class TaskKanBanModel {
 				dataType: 'SSCODELIST',
 			},
 			{
+				name: 'delay',
+			},
+			{
 				name: 'deadline',
 				prop: 'deadline',
 				dataType: 'DATE',
