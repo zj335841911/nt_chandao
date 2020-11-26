@@ -311,6 +311,7 @@ export default {
 			title: "Bug标题", 
 			steps: "重现步骤", 
 			comment: "备注", 
+			color: "标题颜色", 
 			files: "附件", 
 			product: "所属产品", 
 			productname: "产品", 

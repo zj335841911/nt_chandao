@@ -106,6 +106,7 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         title: null,
         steps: null,
         comment: null,
+        color: null,
         files: null,
         product: null,
         productname: null,
@@ -306,6 +307,13 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
 
         comment: new FormItemModel({
     caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -618,6 +626,7 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
+
 
 
 

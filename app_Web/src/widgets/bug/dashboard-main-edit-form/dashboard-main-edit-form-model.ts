@@ -76,6 +76,11 @@ export default class DashboardMainEditModel {
         dataType: 'HTMLTEXT',
       },
       {
+        name: 'color',
+        prop: 'color',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'files',
         prop: 'files',
         dataType: 'TEXT',

@@ -153,6 +153,11 @@
        }
         ,
        {
+            "unirescode":"DOCLIB_EDIT_BUT",
+            "uniresname":"文档库编辑"
+       }
+        ,
+       {
             "unirescode":"LIB_EDIT_BUT",
             "uniresname":"用例库编辑"
        }
@@ -428,6 +433,11 @@
        }
         ,
        {
+            "unirescode":"DOCLIBMODULE_EDIT_BUT",
+            "uniresname":"文档库分类编辑"
+       }
+        ,
+       {
             "unirescode":"BUG_RESOLVE_BUT",
             "uniresname":"Bug解决"
        }
@@ -555,6 +565,11 @@
        {
             "unirescode":"BUG_EDIT_BUT",
             "uniresname":"Bug编辑"
+       }
+        ,
+       {
+            "unirescode":"DOC_EDIT_BUT",
+            "uniresname":"文档编辑"
        }
         ,
        {
