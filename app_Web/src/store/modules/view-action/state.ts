@@ -162,8 +162,6 @@ export const viewstate: any = {
                 '13ee26e3aef1942ab979bab497a318b1',
                 'f0c5e57e6807ba57c5bfee086c302361',
                 'c468f1ff894437a6de5b9496f0f8b92e',
-                'f7e64f3828c862a4bce56437e1e51069',
-                '73fbcf0e3685096f63587bcff234f958',
             ],
         },
         {
@@ -2458,8 +2456,6 @@ export const viewstate: any = {
                 '13ee26e3aef1942ab979bab497a318b1',
                 'f0c5e57e6807ba57c5bfee086c302361',
                 'c468f1ff894437a6de5b9496f0f8b92e',
-                'f7e64f3828c862a4bce56437e1e51069',
-                '73fbcf0e3685096f63587bcff234f958',
             ],
         },
         {

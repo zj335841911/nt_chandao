@@ -116,11 +116,6 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
-        name: 'color',
-        prop: 'color',
-        dataType: 'SSCODELIST',
-      },
-      {
         name: 'pri',
         prop: 'pri',
         dataType: 'NSCODELIST',
@@ -129,6 +124,11 @@ export default class MainModel {
         name: 'estimate',
         prop: 'estimate',
         dataType: 'FLOAT',
+      },
+      {
+        name: 'color',
+        prop: 'color',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'desc',

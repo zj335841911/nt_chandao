@@ -249,14 +249,14 @@ export default {
 			root: "默认根节点",
 		},
 		uiactions: {
-			doc_edit: "编辑",
-			doc_delete: "删除",
-			doc_onlycollectdoc: "收藏",
-			doc_onlyuncollectdoc: "取消收藏",
 			doclibmodule_edit: "编辑",
 			doclibmodule_weihufenlei: "维护分类",
 			doclibmodule_favorite: "收藏",
 			doclibmodule_nfavorite: "取消收藏",
+			doc_edit: "编辑",
+			doc_delete: "删除",
+			doc_onlycollectdoc: "收藏",
+			doc_onlyuncollectdoc: "取消收藏",
 		},
 	},
 	doclibtreeproject_treeview: {
@@ -305,8 +305,6 @@ export default {
 		},
 		uiactions: {
 			refreshall: "刷新",
-			doclib_editcustomdoclib: "编辑",
-			doclib_weihufenlei: "维护分类",
 		},
 	},
 	doclibchildtreeview_treeview: {
@@ -381,10 +379,6 @@ export default {
 			files: "附件库",
 		},
 		uiactions: {
-			doclib_editdoclib: "编辑",
-			doclib_weihufenlei: "维护分类",
-			doclib_uncollect: "取消收藏",
-			doclib_collect: "收藏",
 		},
 	},
 	looproductdoclibtree_treeview: {
