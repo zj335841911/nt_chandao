@@ -111,6 +111,11 @@ export default class Main_ReportSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'branch',
           prop: 'branch',
           dataType: 'PICKUP',
