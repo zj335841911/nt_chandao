@@ -20,10 +20,13 @@
 
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_BRANCH_ZT_PRODUCT_PRODUCT] -->
 	 <select id="selectByProduct" resultMap="BranchResultMap">
+	select * from (
          select t1.* from (
                 <include refid="Default" />
 			 ) t1
 			 where  product=#{id}
+		 )t1
+		 order by `order`    
      </select>
 
     <!--数据集合[CurProduct]-->
@@ -37,11 +40,14 @@
 
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.BranchSearchContext"  resultMap="BranchResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="Default" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by `order`    
      </select>
 
     <!--数据查询[CurProduct]-->
@@ -55,7 +61,6 @@
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ SELECT t1.`DELETED`, t1.`ID`, t1.`NAME`, t1.`ORDER`, t1.`PRODUCT` FROM `zt_branch` t1  
 					 WHERE 	t1.DELETED = '0'
-						 AND ORDER BY t1.`order`
 			]]>
     </sql>
     <!--数据查询[DefaultBranch]-->

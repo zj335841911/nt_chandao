@@ -238,6 +238,11 @@
        }
         ,
        {
+            "unirescode":"MAINTENANCE",
+            "uniresname":"维护分类"
+       }
+        ,
+       {
             "unirescode":"CASE_DELETE_BUT",
             "uniresname":"测试用例删除"
        }
