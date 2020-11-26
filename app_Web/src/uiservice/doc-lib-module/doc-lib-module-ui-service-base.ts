@@ -310,8 +310,8 @@ export default class DocLibModuleUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{PROJECT:"%project%",SRFROOT:"%doclib%",SRFPARENT:"%module%",PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%",project:"%project%",srfparent:"%module%",srfroot:"%doclib%"});
+        Object.assign(context,{PROJECT:"%project%",SRFROOT:"%doclib%",SRFPARENT:"%id%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%",srfparent:"%id%",srfroot:"%doclib%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { doclibmodule: '%doclibmodule%' });
