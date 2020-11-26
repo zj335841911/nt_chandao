@@ -323,6 +323,11 @@
        }
         ,
        {
+            "unirescode":"FILE_DOWNLOAD_BUT",
+            "uniresname":"附件下载"
+       }
+        ,
+       {
             "unirescode":"CASE_NFAVOR_BUT",
             "uniresname":"用例待收藏"
        }
@@ -345,6 +350,11 @@
        {
             "unirescode":"CASE_RESULT_BUT",
             "uniresname":"测试用例结果"
+       }
+        ,
+       {
+            "unirescode":"DOC_DELETE_BUT",
+            "uniresname":"文档删除"
        }
         ,
        {
