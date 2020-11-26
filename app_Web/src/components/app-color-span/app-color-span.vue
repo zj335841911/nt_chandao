@@ -1,8 +1,13 @@
 <template>
     <div class="app-color-span">
-        <span v-if="mode==='mode1'" :style="{ color:textColor }">{{ text }}</span>
+        <span v-if="color" :style="{ color:textColor }">{{ text ? text : '---' }}</span>
         <template v-else>
-            <span v-for="(textItem,index) of dataValue" :key="index" class="text-color" :style="{ backgroundColor:textItem.color }">{{ textItem.srfmajortext }}</span>
+            <template v-if="dataValue && dataValue.length > 0">
+                <span v-for="(textItem,index) of dataValue" :key="index" class="text-color" :style="{ backgroundColor:textItem.color }">
+                {{ textItem.srfmajortext ? textItem.srfmajortext : '---'}}
+                </span>
+            </template>
+            <span v-else>---</span>
         </template>
     </div>
 </template>
@@ -79,7 +84,6 @@ export default class AppColorSpan extends Vue {
      */
     @Prop() public viewparams!: any;
 
-
     /**
      * 颜色标识
      * 
@@ -87,14 +91,6 @@ export default class AppColorSpan extends Vue {
      * @memberof AppColorSpan
      */
     @Prop() color:any;
-
-     /**
-     * 模式
-     * 
-     * @type {*}
-     * @memberof AppColorSpan
-     */
-    @Prop({default:'mode1'}) mode:any;
 
     /**
      * 颜色
@@ -137,11 +133,9 @@ export default class AppColorSpan extends Vue {
      * @memberof AppColorSpan
      */
     public load(){
-        if(this.mode == 'mode1'){
+        if(this.color){
             this.text = this.value;
-            if(this.color){
-                this.textColor = this.data[this.color];
-            }
+            this.textColor = this.data[this.color];
         }else{
             this.dataValue = JSON.parse(this.value);
         }
