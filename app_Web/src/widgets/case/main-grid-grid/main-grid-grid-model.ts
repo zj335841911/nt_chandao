@@ -231,6 +231,11 @@ export default class MainGridModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'branch',
           prop: 'branch',
           dataType: 'PICKUP',

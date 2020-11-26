@@ -544,11 +544,11 @@ export class Main_EditRowGridBase extends GridControlBase {
         if (row.hasOwnProperty('limited')) {
             row['limited'] = 'no';
         }
-        if (row.hasOwnProperty('days')) {
-            row['days'] = 45;
-        }
         if (row.hasOwnProperty('hours')) {
             row['hours'] = 7;
+        }
+        if (row.hasOwnProperty('join')) {
+            row['join'] = this.$util.dateFormat(new Date());
         }
     }
 
@@ -559,6 +559,9 @@ export class Main_EditRowGridBase extends GridControlBase {
      * @memberof Main_EditRowBase
      */
     public updateDefault(row: any){                    
+        if (row.hasOwnProperty('join') && !row.join && row.hasUpdated) {
+            row['join'] = this.$util.dateFormat(new Date());
+        }
     }
 
     /**

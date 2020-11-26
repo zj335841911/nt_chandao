@@ -368,6 +368,16 @@ export default class DocLibTreeProductService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
+
+            if (Object.is(filter.strNodeType, this.TREENODE_DOCLIBMODULE)) {
+                Object.assign(searchFilter, { n_module_eq: filter.nodeid });
+            }
+
+
+            if (Object.is(filter.strNodeType, this.TREENODE_CHILDDOCLIBMODULE)) {
+                Object.assign(searchFilter, { n_module_eq: filter.nodeid });
+            }
+
             Object.assign(searchFilter, { total: false });
             let bFirst: boolean = true;
             let records: any[] = [];
@@ -441,13 +451,13 @@ export default class DocLibTreeProductService extends ControlService {
             }
             const _appEntityService: any = this.docService;
             let list: any[] = [];
-            if (_appEntityService['FetchDocModuleDoc'] && _appEntityService['FetchDocModuleDoc'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchDocModuleDoc'](context, searchFilter, false);
+            if (_appEntityService['FetchDefault'] && _appEntityService['FetchDefault'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchDefault'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchDocModuleDoc数据集异常!');
+                        console.error('查询FetchDefault数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -459,7 +469,7 @@ export default class DocLibTreeProductService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchDocModuleDoc数据集异常!');
+                        console.error('查询FetchDefault数据集异常!');
                 });
             }
         })
@@ -709,6 +719,11 @@ export default class DocLibTreeProductService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
 
+            if (Object.is(filter.strNodeType, this.TREENODE_CHILDDOCLIBMODULE)) {
+                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
+            }
+
+
             if (Object.is(filter.strNodeType, this.TREENODE_DOCLIBMODULE)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
@@ -723,12 +738,12 @@ export default class DocLibTreeProductService extends ControlService {
                         let treeNode: any = {};
                         // 整理context
                         let strId: string = entity.id;
-                        let strText: string = entity.title;
-                        Object.assign(treeNode,{srfparentdename:'Doc',srfparentkey:entity.id});
+                        let strText: string = entity.name;
+                        Object.assign(treeNode,{srfparentdename:'DocLibModule',srfparentkey:entity.id});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
-                        Object.assign(tempContext,{srfparentdename:'Doc',srfparentkey:entity.id,doc:strId})
+                        Object.assign(tempContext,{srfparentdename:'DocLibModule',srfparentkey:entity.id,doclibmodule:strId})
                         Object.assign(treeNode,{srfappctx:tempContext});
-                        Object.assign(treeNode,{'doc':strId});
+                        Object.assign(treeNode,{'doclibmodule':strId});
                         Object.assign(treeNode, { srfkey: strId });
                         Object.assign(treeNode, { text: strText, srfmajortext: strText });
                         let strNodeId: string = 'ChildDocLibModule';
@@ -740,7 +755,7 @@ export default class DocLibTreeProductService extends ControlService {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"doc" });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"doclibmodule" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -784,15 +799,15 @@ export default class DocLibTreeProductService extends ControlService {
             if(context && context.srfparentkey){
                 Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
             }
-            const _appEntityService: any = this.docService;
+            const _appEntityService: any = this.doclibmoduleService;
             let list: any[] = [];
-            if (_appEntityService['FetchDocLibAndDoc'] && _appEntityService['FetchDocLibAndDoc'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchDocLibAndDoc'](context, searchFilter, false);
+            if (_appEntityService['FetchAllDoclibModule'] && _appEntityService['FetchAllDoclibModule'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchAllDoclibModule'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchDocLibAndDoc数据集异常!');
+                        console.error('查询FetchAllDoclibModule数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -804,7 +819,7 @@ export default class DocLibTreeProductService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchDocLibAndDoc数据集异常!');
+                        console.error('查询FetchAllDoclibModule数据集异常!');
                 });
             }
         })
@@ -1097,13 +1112,13 @@ export default class DocLibTreeProductService extends ControlService {
             }
             const _appEntityService: any = this.docService;
             let list: any[] = [];
-            if (_appEntityService['FetchDocLibDoc'] && _appEntityService['FetchDocLibDoc'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchDocLibDoc'](context, searchFilter, false);
+            if (_appEntityService['FetchRootDoc'] && _appEntityService['FetchRootDoc'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchRootDoc'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchDocLibDoc数据集异常!');
+                        console.error('查询FetchRootDoc数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -1115,7 +1130,7 @@ export default class DocLibTreeProductService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchDocLibDoc数据集异常!');
+                        console.error('查询FetchRootDoc数据集异常!');
                 });
             }
         })
