@@ -186,6 +186,11 @@ export default class TreeMainModel {
           dataType: 'LONGTEXT',
         },
         {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'branch',
           prop: 'branch',
           dataType: 'PICKUP',
