@@ -466,6 +466,7 @@ export default {
 			id: "", 
 			title: "", 
 			version: "", 
+			color: "标题颜色", 
 			formitem: "版本号", 
 			spec: "需求描述", 
 			verify: "验收标准", 

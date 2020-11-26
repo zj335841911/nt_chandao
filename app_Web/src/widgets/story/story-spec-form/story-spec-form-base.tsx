@@ -115,6 +115,7 @@ export class StorySpecEditFormBase extends EditFormControlBase {
         id: null,
         title: null,
         version: null,
+        color: null,
         formitem: null,
         spec: null,
         verify: null,
@@ -256,6 +257,13 @@ export class StorySpecEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         formitem: new FormItemModel({
     caption: '版本号', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -323,6 +331,7 @@ export class StorySpecEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.version.setVisible(ret);
         }
+
 
 
 
