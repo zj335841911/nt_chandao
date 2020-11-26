@@ -78,6 +78,9 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
         if (Object.is($event.tag, 'deuiaction1')) {
             this.doc_cm_deuiaction1_click(null, 'doc_cm', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction4')) {
+            this.doc_cm_deuiaction4_click(null, 'doc_cm', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.doc_cm_deuiaction2_click(null, 'doc_cm', $event2);
         }
@@ -96,6 +99,9 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
     public childdoclib_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
             this.childdoclib_cm_deuiaction1_click(null, 'childdoclib_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction4')) {
+            this.childdoclib_cm_deuiaction4_click(null, 'childdoclib_cm', $event2);
         }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.childdoclib_cm_deuiaction2_click(null, 'childdoclib_cm', $event2);
@@ -154,6 +160,35 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
         // 界面行为
         const curUIService:DocUIService  = new DocUIService();
         curUIService.Doc_Edit(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public doc_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_Delete(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -367,6 +402,35 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public childdoclib_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_Delete(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public childdoclib_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
@@ -542,9 +606,11 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
      */
      public actionModel: any = {
         doc_deuiaction1: {ctrlname: 'doc_cm',name:'deuiaction1',nodeOwner:'doc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
+        doc_deuiaction4: {ctrlname: 'doc_cm',name:'deuiaction4',nodeOwner:'doc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: ''},
         doc_deuiaction2: {ctrlname: 'doc_cm',name:'deuiaction2',nodeOwner:'doc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
         doc_deuiaction3: {ctrlname: 'doc_cm',name:'deuiaction3',nodeOwner:'doc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
         ChildDoclib_deuiaction1: {ctrlname: 'childdoclib_cm',name:'deuiaction1',nodeOwner:'ChildDoclib',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
+        ChildDoclib_deuiaction4: {ctrlname: 'childdoclib_cm',name:'deuiaction4',nodeOwner:'ChildDoclib',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: ''},
         ChildDoclib_deuiaction2: {ctrlname: 'childdoclib_cm',name:'deuiaction2',nodeOwner:'ChildDoclib',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
         ChildDoclib_deuiaction3: {ctrlname: 'childdoclib_cm',name:'deuiaction3',nodeOwner:'ChildDoclib',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
         rootModule_deuiaction1: {ctrlname: 'rootmodule_cm',name:'deuiaction1',nodeOwner:'rootModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},

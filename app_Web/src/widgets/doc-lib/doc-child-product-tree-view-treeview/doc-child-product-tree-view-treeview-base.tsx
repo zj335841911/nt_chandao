@@ -78,6 +78,9 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
         if (Object.is($event.tag, 'deuiaction1')) {
             this.zimuludoc_cm_deuiaction1_click(null, 'zimuludoc_cm', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction4')) {
+            this.zimuludoc_cm_deuiaction4_click(null, 'zimuludoc_cm', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.zimuludoc_cm_deuiaction2_click(null, 'zimuludoc_cm', $event2);
         }
@@ -119,6 +122,9 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
         if (Object.is($event.tag, 'deuiaction1')) {
             this.childmoduledoc_cm_deuiaction1_click(null, 'childmoduledoc_cm', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction4')) {
+            this.childmoduledoc_cm_deuiaction4_click(null, 'childmoduledoc_cm', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.childmoduledoc_cm_deuiaction2_click(null, 'childmoduledoc_cm', $event2);
         }
@@ -154,6 +160,35 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
         // 界面行为
         const curUIService:DocUIService  = new DocUIService();
         curUIService.Doc_Edit(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public zimuludoc_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_Delete(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -367,6 +402,35 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public childmoduledoc_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_Delete(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public childmoduledoc_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
@@ -542,6 +606,7 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
      */
      public actionModel: any = {
         ZiMuluDoc_deuiaction1: {ctrlname: 'zimuludoc_cm',name:'deuiaction1',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
+        ZiMuluDoc_deuiaction4: {ctrlname: 'zimuludoc_cm',name:'deuiaction4',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: ''},
         ZiMuluDoc_deuiaction2: {ctrlname: 'zimuludoc_cm',name:'deuiaction2',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
         ZiMuluDoc_deuiaction3: {ctrlname: 'zimuludoc_cm',name:'deuiaction3',nodeOwner:'ZiMuluDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
         ChildModule_deuiaction1: {ctrlname: 'childmodule_cm',name:'deuiaction1',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
@@ -549,6 +614,7 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
         ChildModule_deuiaction2: {ctrlname: 'childmodule_cm',name:'deuiaction2',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
         ChildModule_deuiaction3: {ctrlname: 'childmodule_cm',name:'deuiaction3',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
         childModuleDoc_deuiaction1: {ctrlname: 'childmoduledoc_cm',name:'deuiaction1',nodeOwner:'childModuleDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
+        childModuleDoc_deuiaction4: {ctrlname: 'childmoduledoc_cm',name:'deuiaction4',nodeOwner:'childModuleDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: ''},
         childModuleDoc_deuiaction2: {ctrlname: 'childmoduledoc_cm',name:'deuiaction2',nodeOwner:'childModuleDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
         childModuleDoc_deuiaction3: {ctrlname: 'childmoduledoc_cm',name:'deuiaction3',nodeOwner:'childModuleDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
     }
