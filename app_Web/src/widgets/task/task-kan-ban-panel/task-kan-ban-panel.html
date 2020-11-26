@@ -30,6 +30,38 @@
                 
                 
                 </i-col>
+                        <i-col v-show="detailsModel.container4.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-container">
+                    <row style="height:100%;">
+                                
+                        <i-col v-show="detailsModel.deadline.visible"  :md="{ span: 10, offset: 0 }" :lg="{ span: 10, offset: 0 }" style="" class="app-layoutpanel-field">
+                            <div class="item-field">
+                            
+                            <div class="item-field-content">
+                            
+                        <app-span :value="data.deadline" name="deadline" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+                        > </app-span> 
+                        
+                            </div>
+                        </div>
+                        
+                        
+                        </i-col>
+                                
+                        <i-col v-show="detailsModel.delay.visible"  :md="{ span: 24, offset: 0 }" :lg="{ span: 8, offset: 0 }" style="color:rgba(255, 0, 0, 1)" class="app-layoutpanel-field textcenterred">
+                            <div class="item-field">
+                            
+                            <div class="item-field-content">
+                            
+                        <app-span :value="data.delay" name="delay" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+                        > </app-span> 
+                        
+                            </div>
+                        </div>
+                        
+                        
+                        </i-col>
+                    </row>
+                </i-col>
                         <i-col v-show="detailsModel.container2.visible"  :md="{ span: 20, offset: 0 }" :lg="{ span: 20, offset: 0 }" style="" class="app-layoutpanel-container">
                     <row style="height:100%;">
                                 
@@ -61,38 +93,6 @@
                         </div>
                         
                         
-                        </i-col>
-                                <i-col v-show="detailsModel.container4.visible"  :md="{ span: 6, offset: 0 }" :lg="{ span: 6, offset: 0 }" style="" class="app-layoutpanel-container">
-                            <row style="height:100%;">
-                                        
-                                <i-col v-show="detailsModel.deadline.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-field">
-                                    <div class="item-field">
-                                    
-                                    <div class="item-field-content">
-                                    
-                                <app-span :value="data.deadline" name="deadline" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
-                                > </app-span> 
-                                
-                                    </div>
-                                </div>
-                                
-                                
-                                </i-col>
-                                        
-                                <i-col v-show="detailsModel.rawitem2.visible"  :md="{ span: 24, offset: 0 }" style="" class="app-layoutpanel-rowitem">
-                                    <app-rawitem
-                                    :viewparams="viewparams" 
-                                    :context="context"
-                                    contentStyle=""
-                                    sizeStyle=""
-                                    contentType="HTML"
-                                    :htmlContent='`<p><span style="color: red;">延期</span></p>`'
-                                >
-                                </app-rawitem>
-                                
-                                
-                                </i-col>
-                            </row>
                         </i-col>
                     </row>
                 </i-col>

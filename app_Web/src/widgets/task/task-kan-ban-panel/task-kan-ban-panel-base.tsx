@@ -136,17 +136,17 @@ export class TaskKanBanPanelBase extends PanelControlBase {
 ,
         rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem1', panel: this })
 ,
-        button1: new PanelButtonModel({ caption: '指派', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'AssignTask',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__TASK_ASSIGN_BUT',visible: true,disabled: false} })
+        deadline: new PanelFieldModel({ caption: '截止日期', itemType: 'FIELD',visible: true, disabled: false, name: 'deadline', panel: this })
+,
+        delay: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: false, disabled: false, name: 'delay', panel: this })
+,
+        container4: new PanelContainerModel({ caption: '动态内容', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container4', panel: this })
+,
+        button1: new PanelButtonModel({ caption: '指派', itemType: 'BUTTON',visible: false, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'AssignTask',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__TASK_ASSIGN_BUT',visible: true,disabled: false} })
 ,
         button2: new PanelButtonModel({ caption: '转交', itemType: 'BUTTON',visible: false, disabled: false, name: 'button2', panel: this, uiaction: { type: 'DEUIACTION', tag: 'Forward',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_FORWARD_BUT',visible: true,disabled: false} })
 ,
         assignedto: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'assignedto', panel: this })
-,
-        deadline: new PanelFieldModel({ caption: '截止日期', itemType: 'FIELD',visible: true, disabled: false, name: 'deadline', panel: this })
-,
-        rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: false, disabled: false, name: 'rawitem2', panel: this })
-,
-        container4: new PanelContainerModel({ caption: '动态内容', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container4', panel: this })
 ,
         container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
 ,
@@ -202,6 +202,25 @@ export class TaskKanBanPanelBase extends PanelControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'delay')) {
+            let ret = false;
+            const _delay = this.data.delay;
+            if (this.$verify.testCond(_delay, 'ISNOTNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.delay.setVisible(ret);
+        }
+
+
+        if (Object.is(name, '') || Object.is(name, 'tasktype')) {
+            let ret = false;
+            const _tasktype = this.data.tasktype;
+            if (this.$verify.testCond(_tasktype, 'NOTEQ', '10')) {
+                ret = true;
+            }
+            this.detailsModel.button1.setVisible(ret);
+        }
+
         if (Object.is(name, '') || Object.is(name, 'tasktype')) {
             let ret = false;
             const _tasktype = this.data.tasktype;
@@ -209,17 +228,6 @@ export class TaskKanBanPanelBase extends PanelControlBase {
                 ret = true;
             }
             this.detailsModel.button2.setVisible(ret);
-        }
-
-
-
-        if (Object.is(name, '') || Object.is(name, 'deadline')) {
-            let ret = false;
-            const _deadline = this.data.deadline;
-            if (this.$verify.testCond(_deadline, 'LT', '%SRFCURDATA%')) {
-                ret = true;
-            }
-            this.detailsModel.rawitem2.setVisible(ret);
         }
 
 

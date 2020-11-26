@@ -20,3 +20,6 @@ import { TaskKanBanPanelBase } from './task-kan-ban-panel-base';
 @VueLifeCycleProcessing()
 export default class TaskKanBanPanel extends TaskKanBanPanelBase {}
 </script>
+<style lang="less">
+@import './task-kan-ban-panel.less';
+</style>
