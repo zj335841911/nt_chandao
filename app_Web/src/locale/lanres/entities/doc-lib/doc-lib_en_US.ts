@@ -367,9 +367,7 @@ export default {
 			all: "所有文档库",
 		},
 		uiactions: {
-        doclib_editcustomdoclib: "编辑",
         refreshall: "刷新",
-        doclib_weihufenlei: "维护分类",
 		},
 	},
 	projectdoclibtree_treeview: {
@@ -388,10 +386,6 @@ export default {
 			allproduct: "所有产品",
 		},
 		uiactions: {
-        doclib_editdoclib: "编辑",
-        doclib_weihufenlei: "维护分类",
-        doclib_uncollect: "取消收藏",
-        doclib_collect: "收藏",
 		},
 	},
 	doclibtreecustchild_treeview: {

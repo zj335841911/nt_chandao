@@ -66,25 +66,6 @@ export class ProductLeftDocLibTreeTreeBase extends MainControlBase {
     public appUIService: DocLibUIService = new DocLibUIService(this.$store);
 
     /**
-     * doclib_cm 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof ProductLeftDocLibTreeTreeBase
-     */
-    public doclib_cm_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.doclib_cm_deuiaction1_click(null, 'doclib_cm', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.doclib_cm_deuiaction2_click(null, 'doclib_cm', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction3')) {
-            this.doclib_cm_deuiaction3_click(null, 'doclib_cm', $event2);
-        }
-    }
-
-    /**
      * all_cm 部件 click 事件
      *
      * @param {*} [args={}]
@@ -95,92 +76,6 @@ export class ProductLeftDocLibTreeTreeBase extends MainControlBase {
         if (Object.is($event.tag, 'deuiaction1')) {
             this.all_cm_deuiaction1_click(null, 'all_cm', $event2);
         }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public doclib_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_EditCustomDocLib(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public doclib_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public doclib_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -434,9 +329,6 @@ export class ProductLeftDocLibTreeTreeBase extends MainControlBase {
      * @memberof ProductLeftDocLibTreeBase
      */
      public actionModel: any = {
-        DocLib_deuiaction1: {name:'deuiaction1',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'EditCustomDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_EDIT_BUT', visible: true, disabled: false},
-        DocLib_deuiaction2: {name:'deuiaction2',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visible: true, disabled: false},
-        DocLib_deuiaction3: {name:'deuiaction3',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false},
         ALL_deuiaction1: {name:'deuiaction1',nodeOwner:'ALL',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visible: true, disabled: false},
     }
 
@@ -830,42 +722,11 @@ export class ProductLeftDocLibTreeTreeBase extends MainControlBase {
             const data: any = JSON.parse(JSON.stringify(node.data));
             this.currentselectedNode = { ...data };
             const tags: string[] = data.id.split(';');
-            if (tags[0] === "DocLib") {
-                content = this.renderContextMenuDoclib();
-            }
             if (tags[0] === "ALL") {
                 content = this.renderContextMenuAll();
             }
         }
         return content;
-    }
-
-    /**
-     * 绘制DocLib类型右键菜单
-     *
-     * @param {*} node
-     * @returns
-     * @memberof ProductLeftDocLibTreeBase
-     */
-    public renderContextMenuDoclib() {
-        return (
-            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.doclib_cm_click({tag: $event})}>
-                <dropdown-menu slot="list">
-                            <dropdown-item name="deuiaction1" v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
-                        <i class="fa fa-edit"></i>
-                        编辑
-                    </dropdown-item>
-                            <dropdown-item name="deuiaction2" v-show={this.copyActionModel['deuiaction2']?.visible} disabled={this.copyActionModel['deuiaction2']?.disabled}>
-                        <i class="fa fa-refresh"></i>
-                        刷新
-                    </dropdown-item>
-                            <dropdown-item name="deuiaction3" v-show={this.copyActionModel['deuiaction3']?.visible} disabled={this.copyActionModel['deuiaction3']?.disabled}>
-                        <i class="fa fa-lock"></i>
-                        维护分类
-                    </dropdown-item>
-                </dropdown-menu>
-            </dropdown>
-        );
     }
 
     /**
