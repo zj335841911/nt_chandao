@@ -344,10 +344,10 @@ export default class DocLibModuleUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'doc-lib-module-tree-exp-view', 
+                viewname: 'doc-lib-module-child-wei-hui-tree-exp-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.doclibmodule.views.treeexpview.title'),
+                title: actionContext.$t('entities.doclibmodule.views.childweihuitreeexpview.title'),
             };
             openPopupModal(view, data);
     }

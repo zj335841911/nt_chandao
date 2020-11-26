@@ -1261,6 +1261,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-case-main-edit-view9/ibz-case-main-edit-view9.vue'),
                 },
                 {
+                    path: 'doclibmodules/:doclibmodule?/childweihuitreeexpview/:childweihuitreeexpview?',
+                    meta: {
+                        caption: 'entities.doclibmodule.views.childweihuitreeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibmodules', parameterName: 'doclibmodule' },
+                            { pathName: 'childweihuitreeexpview', parameterName: 'childweihuitreeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/doc-lib-module-child-wei-hui-tree-exp-view/doc-lib-module-child-wei-hui-tree-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/typetaskgroupgridview/:typetaskgroupgridview?',
                     meta: {
                         caption: 'entities.task.views.typetaskgroupgridview.caption',

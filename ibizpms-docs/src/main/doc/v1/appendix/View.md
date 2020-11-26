@@ -264,6 +264,7 @@
 |-|计划|DEEDITVIEW|&nbsp;|
 |-|相关Bug|DEGRIDVIEW9|&nbsp;|
 |-|计划详情|DEEDITVIEW|&nbsp;|
+|-|文档库分类树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|产品测试数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|项目实体表格视图(参与项目)|DEGRIDVIEW|&nbsp;|
 |-|项目分页导航视图（测试）|DETABEXPVIEW|&nbsp;|

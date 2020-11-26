@@ -390,7 +390,7 @@ export const viewstate: any = {
             refviews: [
                 '4532f2b69291dd6bbd457b5588ac528b',
                 'b6e02216d1e5c69d79b32342d8b67c7a',
-                'f7e64f3828c862a4bce56437e1e51069',
+                '1877f0428a710631da1becb3931873a0',
             ],
         },
         {
@@ -480,6 +480,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1877f0428a710631da1becb3931873a0',
+            viewmodule: 'ibiz',
+            viewname: 'DocLibModuleChildWeiHuiTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f3b0810b31f6ce2c9e2eac61e3ba941d',
+            ],
+        },
+        {
             viewtag: '19641dcdbd1f1973c9693859003e1f60',
             viewmodule: 'zentao',
             viewname: 'ProjectTestTabExpView',
@@ -540,7 +550,7 @@ export const viewstate: any = {
             refviews: [
                 '4532f2b69291dd6bbd457b5588ac528b',
                 'b6e02216d1e5c69d79b32342d8b67c7a',
-                'f7e64f3828c862a4bce56437e1e51069',
+                '1877f0428a710631da1becb3931873a0',
             ],
         },
         {
@@ -872,7 +882,7 @@ export const viewstate: any = {
             refviews: [
                 '4532f2b69291dd6bbd457b5588ac528b',
                 'b6e02216d1e5c69d79b32342d8b67c7a',
-                'f7e64f3828c862a4bce56437e1e51069',
+                '1877f0428a710631da1becb3931873a0',
             ],
         },
         {
@@ -1947,8 +1957,9 @@ export const viewstate: any = {
             refviews: [
                 '4532f2b69291dd6bbd457b5588ac528b',
                 'b6e02216d1e5c69d79b32342d8b67c7a',
-                '73fbcf0e3685096f63587bcff234f958',
                 'f7e64f3828c862a4bce56437e1e51069',
+                '73fbcf0e3685096f63587bcff234f958',
+                '1877f0428a710631da1becb3931873a0',
             ],
         },
         {
@@ -1988,7 +1999,7 @@ export const viewstate: any = {
             refviews: [
                 '4532f2b69291dd6bbd457b5588ac528b',
                 'b6e02216d1e5c69d79b32342d8b67c7a',
-                'f7e64f3828c862a4bce56437e1e51069',
+                '1877f0428a710631da1becb3931873a0',
             ],
         },
         {
@@ -2999,7 +3010,7 @@ export const viewstate: any = {
             refviews: [
                 '4532f2b69291dd6bbd457b5588ac528b',
                 'b6e02216d1e5c69d79b32342d8b67c7a',
-                'f7e64f3828c862a4bce56437e1e51069',
+                '1877f0428a710631da1becb3931873a0',
             ],
         },
         {
@@ -3877,6 +3888,7 @@ export const viewstate: any = {
             refviews: [
                 '4532f2b69291dd6bbd457b5588ac528b',
                 'b6e02216d1e5c69d79b32342d8b67c7a',
+                '1877f0428a710631da1becb3931873a0',
                 'f7e64f3828c862a4bce56437e1e51069',
                 '73fbcf0e3685096f63587bcff234f958',
             ],
@@ -4297,8 +4309,9 @@ export const viewstate: any = {
             refviews: [
                 '4532f2b69291dd6bbd457b5588ac528b',
                 'b6e02216d1e5c69d79b32342d8b67c7a',
-                '73fbcf0e3685096f63587bcff234f958',
                 'f7e64f3828c862a4bce56437e1e51069',
+                '73fbcf0e3685096f63587bcff234f958',
+                '1877f0428a710631da1becb3931873a0',
             ],
         },
         {
@@ -4835,7 +4848,7 @@ export const viewstate: any = {
             refviews: [
                 '4532f2b69291dd6bbd457b5588ac528b',
                 'b6e02216d1e5c69d79b32342d8b67c7a',
-                'f7e64f3828c862a4bce56437e1e51069',
+                '1877f0428a710631da1becb3931873a0',
             ],
         },
         {

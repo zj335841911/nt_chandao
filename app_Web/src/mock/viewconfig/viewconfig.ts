@@ -455,6 +455,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductPlanMainEditView",
             "viewtag": "17831eefddbb65ba3bda7534b8ef8d09"
         },
+        "doclibmodulechildweihuitreeexpview": {
+            "title": "文档库分类树导航视图",
+            "caption": "文档库分类实体树导航视图",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "DocLibModuleChildWeiHuiTreeExpView",
+            "viewtag": "1877f0428a710631da1becb3931873a0"
+        },
         "producttestdashboardview": {
             "title": "产品测试数据看板视图",
             "caption": "产品",
