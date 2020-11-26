@@ -253,6 +253,7 @@ export default {
 			doc_onlycollectdoc: "收藏",
 			doc_onlyuncollectdoc: "取消收藏",
 			doclibmodule_edit: "编辑",
+			doclibmodule_weihufenlei: "维护分类",
 			doclibmodule_favorite: "收藏",
 			doclibmodule_nfavorite: "取消收藏",
 		},
@@ -274,6 +275,7 @@ export default {
 			doc_onlycollectdoc: "收藏",
 			doc_onlyuncollectdoc: "取消收藏",
 			doclibmodule_edit: "编辑",
+			doclibmodule_weihufenlei: "维护分类",
 			doclibmodule_favorite: "收藏",
 			doclibmodule_nfavorite: "取消收藏",
 		},
@@ -284,6 +286,7 @@ export default {
 		},
 		uiactions: {
 			doclibmodule_edit: "编辑",
+			doclibmodule_weihufenlei: "维护分类",
 			doclibmodule_favorite: "收藏",
 			doclibmodule_nfavorite: "取消收藏",
 			doc_edit: "编辑",
@@ -312,6 +315,7 @@ export default {
 			doc_onlycollectdoc: "收藏",
 			doc_onlyuncollectdoc: "取消收藏",
 			doclibmodule_edit: "编辑",
+			doclibmodule_weihufenlei: "维护分类",
 			doclibmodule_favorite: "收藏",
 			doclibmodule_nfavorite: "取消收藏",
 		},
@@ -325,6 +329,7 @@ export default {
 			doc_onlycollectdoc: "收藏",
 			doc_onlyuncollectdoc: "取消收藏",
 			doclibmodule_edit: "编辑",
+			doclibmodule_weihufenlei: "维护分类",
 			doclibmodule_favorite: "收藏",
 			doclibmodule_nfavorite: "取消收藏",
 		},
@@ -388,6 +393,7 @@ export default {
 		},
 		uiactions: {
 			doclibmodule_edit: "编辑",
+			doclibmodule_weihufenlei: "维护分类",
 			doclibmodule_favorite: "收藏",
 			doclibmodule_nfavorite: "取消收藏",
 			doc_edit: "编辑",
@@ -401,6 +407,7 @@ export default {
 		},
 		uiactions: {
 			doclibmodule_edit: "编辑",
+			doclibmodule_weihufenlei: "维护分类",
 			doclibmodule_favorite: "收藏",
 			doclibmodule_nfavorite: "取消收藏",
 			doc_edit: "编辑",
@@ -414,6 +421,7 @@ export default {
 		},
 		uiactions: {
 			doclibmodule_edit: "编辑",
+			doclibmodule_weihufenlei: "维护分类",
 			doclibmodule_favorite: "收藏",
 			doclibmodule_nfavorite: "取消收藏",
 			doc_edit: "编辑",

@@ -64,11 +64,8 @@ hide members
 
 |文件库类型||是否收藏|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
 | --------   || --------   | ------------|------------|------------|------------|
-|Value||Value2| 允许|  | 不允许 |  |
-|Value||Value2| 允许|  | 不允许 | FILE<br> |
 |Value||Value2| 允许|  | 不允许 | SRFUR__DOCLIB_NFAVOUR_BUT<br>FILE<br> |
 |Value||Value2| 允许|  | 不允许 | FILE<br>SRFUR__DOCLIB_FAVOUR_BUT<br> |
-|Value||Value2| 允许|  | 不允许 | DOC<br> |
 |Value||Value2| 允许|  | 不允许 | DOC<br>SRFUR__DOCLIB_NFAVOUR_BUT<br>SRFUR__DOCLIB_FAVOUR_BUT<br> |
 |Value||Value2| 允许|  | 不允许 | SRFUR__DOCLIB_FAVOUR_BUT<br>DOC<br>SRFUR__DOCLIB_NFAVOUR_BUT<br> |
 

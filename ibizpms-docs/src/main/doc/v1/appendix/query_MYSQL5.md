@@ -274,6 +274,7 @@ t1.`PRODUCT`
 FROM `zt_branch` t1 
 
 WHERE t1.DELETED = '0' 
+ORDER BY t1.`order` 
 
 ```
 ### DefaultBranch(DefaultBranch)<div id="Branch_DefaultBranch"></div>
