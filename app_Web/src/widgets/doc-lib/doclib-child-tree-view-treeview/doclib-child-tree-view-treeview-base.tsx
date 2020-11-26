@@ -549,8 +549,8 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
         ChildDoclib_deuiaction3: {ctrlname: 'childdoclib_cm',name:'deuiaction3',nodeOwner:'ChildDoclib',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
         rootModule_deuiaction1: {ctrlname: 'rootmodule_cm',name:'deuiaction1',nodeOwner:'rootModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
         rootModule_deuiaction4: {ctrlname: 'rootmodule_cm',name:'deuiaction4',nodeOwner:'rootModule',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
-        rootModule_deuiaction2: {ctrlname: 'rootmodule_cm',name:'deuiaction2',nodeOwner:'rootModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        rootModule_deuiaction3: {ctrlname: 'rootmodule_cm',name:'deuiaction3',nodeOwner:'rootModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
+        rootModule_deuiaction2: {ctrlname: 'rootmodule_cm',name:'deuiaction2',nodeOwner:'rootModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
+        rootModule_deuiaction3: {ctrlname: 'rootmodule_cm',name:'deuiaction3',nodeOwner:'rootModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
     }
 
     /**

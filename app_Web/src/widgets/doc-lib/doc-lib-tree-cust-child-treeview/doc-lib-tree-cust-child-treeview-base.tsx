@@ -440,8 +440,8 @@ export class DocLibTreeCustChildTreeBase extends MainControlBase {
         Doc_deuiaction3: {ctrlname: 'doc_cm',name:'deuiaction3',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
         Module_deuiaction1: {ctrlname: 'module_cm',name:'deuiaction1',nodeOwner:'Module',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
         Module_deuiaction4: {ctrlname: 'module_cm',name:'deuiaction4',nodeOwner:'Module',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
-        Module_deuiaction2: {ctrlname: 'module_cm',name:'deuiaction2',nodeOwner:'Module',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        Module_deuiaction3: {ctrlname: 'module_cm',name:'deuiaction3',nodeOwner:'Module',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
+        Module_deuiaction2: {ctrlname: 'module_cm',name:'deuiaction2',nodeOwner:'Module',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
+        Module_deuiaction3: {ctrlname: 'module_cm',name:'deuiaction3',nodeOwner:'Module',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
     }
 
     /**
