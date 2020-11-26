@@ -26,7 +26,7 @@
 			 ) t1
 			 where  product=#{id}
 		 )t1
-		 order by `order`    
+		 order by `order`  asc  
      </select>
 
     <!--数据集合[CurProduct]-->
@@ -47,7 +47,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 order by `order`    
+		 order by `order`  asc  
      </select>
 
     <!--数据查询[CurProduct]-->
