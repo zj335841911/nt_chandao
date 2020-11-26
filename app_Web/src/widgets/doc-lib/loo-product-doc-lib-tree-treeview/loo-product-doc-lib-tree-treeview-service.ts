@@ -702,6 +702,7 @@ export default class LooProductDocLibTreeService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
+
             if (Object.is(filter.strNodeType, this.TREENODE_PRODUCT)) {
                 Object.assign(searchFilter, { n_product_eq: filter.nodeid });
             }
@@ -854,6 +855,7 @@ export default class LooProductDocLibTreeService extends ControlService {
             if (Object.is(filter.strNodeType, this.TREENODE_CHILDDOCLIBMODULE)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
+
 
             if (Object.is(filter.strNodeType, this.TREENODE_DOCLIBMODULE)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });

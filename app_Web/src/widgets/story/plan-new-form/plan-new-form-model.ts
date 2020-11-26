@@ -131,6 +131,11 @@ export default class PlanNewModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'color',
+        prop: 'color',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'spec',
         prop: 'spec',
         dataType: 'TEXT',

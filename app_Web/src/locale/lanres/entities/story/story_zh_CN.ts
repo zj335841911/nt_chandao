@@ -677,6 +677,7 @@ export default {
 			title: "需求名称", 
 			pri: "优先级", 
 			estimate: "预计", 
+			color: "标题颜色", 
 			spec: "需求描述", 
 			verify: "验收标准", 
 			files: "附件", 
