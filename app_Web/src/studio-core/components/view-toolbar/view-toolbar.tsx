@@ -126,8 +126,10 @@ export class ViewToolbar extends Vue {
     protected renderMenuItem(item: ToolbarItem): any {
         return (
             <dropdownItem name={item.name} title={item.tooltip}>
-                <menu-icon item={item} />
-                {item.caption}
+                <span on-click={(e: any) => this.itemClick({ tag: item.name }, e)}>
+                    <menu-icon item={item} />
+                    {item.caption}
+                </span>
             </dropdownItem>
         );
     }
