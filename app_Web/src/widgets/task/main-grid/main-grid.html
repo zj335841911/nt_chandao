@@ -84,7 +84,7 @@
             	<span :style="{'color':row.color}"> {{row.name}}</span>
             </span>
             <span v-else-if="row.tasktype === '30'">
-            	<span>{{row.name}}</span>
+            	<span :style="{'color':row.color}">{{row.name}}</span>
             </span>
             <span v-else>
               <span title="子任务" style="color: #3c4353;background-color: #ddd;border-radius: 9px;padding: 3px 5px;display: inline-block;line-height: 1;vertical-align: middle">子</span>
