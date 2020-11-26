@@ -105,6 +105,7 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         assignedto: null,
         neednotreview: null,
         title: null,
+        color: null,
         pri: null,
         estimate: null,
         spec: null,
@@ -313,6 +314,13 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         pri: new FormItemModel({
     caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -444,6 +452,7 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.assignedto.setDisabled(!ret);
         }
+
 
 
 

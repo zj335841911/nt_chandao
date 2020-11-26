@@ -428,6 +428,7 @@ export default {
 			assignedto: "由谁评审", 
 			neednotreview: "", 
 			title: "需求名称", 
+			color: "标题颜色", 
 			pri: "优先级", 
 			estimate: "预计", 
 			spec: "需求描述", 

@@ -12584,7 +12584,7 @@ FROM
 	SELECT
 	t1.`ACCOUNT`,
 	0 AS `CONSUMED`,
-	45 AS `DAYS`,
+	((select tt.days from zt_project tt where tt.id = #{srf.datacontext.root})) AS `DAYS`,
 	0 AS `ESTIMATE`,
 	7 AS `HOURS`,
 	null as `ID`,
@@ -12606,7 +12606,7 @@ FROM
 	SELECT
 	t2.`ACCOUNT`,
 	0 AS `CONSUMED`,
-	45 AS `DAYS`,
+	((select tt.days from zt_project tt where tt.id = #{srf.datacontext.root})) AS `DAYS`,
 	0 AS `ESTIMATE`,
 	7 AS `HOURS`,
 	null as `ID`,

@@ -116,6 +116,11 @@ export default class Main_NewModeModel {
         dataType: 'TEXT',
       },
       {
+        name: 'color',
+        prop: 'color',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'pri',
         prop: 'pri',
         dataType: 'NSCODELIST',
