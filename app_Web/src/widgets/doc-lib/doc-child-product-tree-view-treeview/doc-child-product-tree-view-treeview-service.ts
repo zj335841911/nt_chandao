@@ -367,13 +367,13 @@ export default class DocChildProductTreeViewService extends ControlService {
             }
             const _appEntityService: any = this.docService;
             let list: any[] = [];
-            if (_appEntityService['FetchDocModuleDoc'] && _appEntityService['FetchDocModuleDoc'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchDocModuleDoc'](context, searchFilter, false);
+            if (_appEntityService['FetchModuleDocChild'] && _appEntityService['FetchModuleDocChild'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchModuleDocChild'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchDocModuleDoc数据集异常!');
+                        console.error('查询FetchModuleDocChild数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -385,7 +385,7 @@ export default class DocChildProductTreeViewService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchDocModuleDoc数据集异常!');
+                        console.error('查询FetchModuleDocChild数据集异常!');
                 });
             }
         })
