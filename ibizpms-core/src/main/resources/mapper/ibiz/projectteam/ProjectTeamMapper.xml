@@ -55,11 +55,14 @@
 
     <!--数据集合[TaskCntEstimateConsumedLeft]-->
 	 <select id="searchTaskCntEstimateConsumedLeft"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProjectTeamSearchContext"  resultMap="ProjectTeamResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="TaskCntEstimateConsumedLeft" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by `order`  asc  
      </select>
 
     <!--数据查询[Default]-->
