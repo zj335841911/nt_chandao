@@ -1278,23 +1278,25 @@ export class GridControlBase extends MDControlBase {
             this.stopRowClick = false;
             return;
         }
-        this.selections = [];
+        if(this.isSingleSelect){
+            this.selections = [];
+        }
         // 已选中则删除，没选中则添加
         let selectIndex = this.selections.findIndex((item: any) => {
             return Object.is(item[this.appDeName], $event[this.appDeName]);
         });
-        if (Object.is(selectIndex, -1)) {
+        if (Object.is(selectIndex,-1)){
             this.selections.push(JSON.parse(JSON.stringify($event)));
-            const refs: any = this.$refs;
-            if (refs.multipleTable) {
-                refs.multipleTable.clearSelection();
-                refs.multipleTable.toggleRowSelection($event);
-            }
         } else {
-            this.selections.splice(selectIndex, 1);
-            const refs: any = this.$refs;
-            if (refs.multipleTable) {
+            this.selections.splice(selectIndex,1);
+        }
+        const refs: any = this.$refs;
+        if (refs.multipleTable) {
+            if(this.isSingleSelect){
                 refs.multipleTable.clearSelection();
+                refs.multipleTable.setCurrentRow($event);
+            }else{
+                  refs.multipleTable.toggleRowSelection($event); 
             }
         }
         this.$emit('selectionchange', this.selections);

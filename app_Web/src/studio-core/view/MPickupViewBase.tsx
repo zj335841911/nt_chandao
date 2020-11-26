@@ -1,4 +1,5 @@
 import { PickupViewBase } from './PickupViewBase';
+import { Vue, Emit, Prop, Watch } from 'vue-property-decorator';
 
 /**
  * 多项数据选择视图基类
@@ -32,6 +33,7 @@ export class MPickupViewBase extends PickupViewBase {
      * @param {*} oldVal
      * @memberof MPickupViewBase
      */
+    @Watch('viewparam', { immediate: true, deep: true })
     protected viewParamChange(newVal: any, oldVal: any): void {
         if (this.viewparams.selectedData) {
             this.selectedData = JSON.stringify(this.viewparams.selectedData);
