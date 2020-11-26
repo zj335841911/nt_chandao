@@ -16,6 +16,7 @@ export default class GlobalUiServiceConstructor extends ServiceConstructorBase {
      * @memberof GlobalUiServiceConstructor
      */
     protected init(): void {
+        this.allService.set('file_ui_action', () => import('@/ui-service/file/file-ui-action'));
         this.allService.set('projectteam_ui_action', () => import('@/ui-service/project-team/project-team-ui-action'));
         this.allService.set('build_ui_action', () => import('@/ui-service/build/build-ui-action'));
         this.allService.set('task_ui_action', () => import('@/ui-service/task/task-ui-action'));
@@ -26,7 +27,10 @@ export default class GlobalUiServiceConstructor extends ServiceConstructorBase {
         this.allService.set('todo_ui_action', () => import('@/ui-service/todo/todo-ui-action'));
         this.allService.set('story_ui_action', () => import('@/ui-service/story/story-ui-action'));
         this.allService.set('case_ui_action', () => import('@/ui-service/case/case-ui-action'));
+        this.allService.set('doclibmodule_ui_action', () => import('@/ui-service/doc-lib-module/doc-lib-module-ui-action'));
         this.allService.set('productplan_ui_action', () => import('@/ui-service/product-plan/product-plan-ui-action'));
+        this.allService.set('doclib_ui_action', () => import('@/ui-service/doc-lib/doc-lib-ui-action'));
+        this.allService.set('doc_ui_action', () => import('@/ui-service/doc/doc-ui-action'));
         this.allService.set('bug_ui_action', () => import('@/ui-service/bug/bug-ui-action'));
         this.allService.set('testtask_ui_action', () => import('@/ui-service/test-task/test-task-ui-action'));
         this.allService.set('testsuite_ui_action', () => import('@/ui-service/test-suite/test-suite-ui-action'));

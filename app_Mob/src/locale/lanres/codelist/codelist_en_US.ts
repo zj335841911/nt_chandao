@@ -667,6 +667,15 @@ export default {
         'EXPIREDBUG': '过期Bug',
         empty: '',
     },
+    Story__color: {
+        '#3da7f5': '#3da7f5',
+        '#75c941': '#75c941',
+        '#2dbdb2': '#2dbdb2',
+        '#797ec9': '#797ec9',
+        '#ffaf38': '#ffaf38',
+        '#ff4e3e': '#ff4e3e',
+        empty: '',
+    },
     Bug__severity_mob: {
         '1': '1',
         '2': '2',
