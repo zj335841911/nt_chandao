@@ -1207,12 +1207,12 @@ export default class DocLibTreeProjectService extends ControlService {
                         let treeNode: any = {};
                         // 整理context
                         let strId: string = entity.id;
-                        let strText: string = entity.name;
-                        Object.assign(treeNode,{srfparentdename:'DocLibModule',srfparentkey:entity.id});
+                        let strText: string = entity.title;
+                        Object.assign(treeNode,{srfparentdename:'Doc',srfparentkey:entity.id});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
-                        Object.assign(tempContext,{srfparentdename:'DocLibModule',srfparentkey:entity.id,doclibmodule:strId})
+                        Object.assign(tempContext,{srfparentdename:'Doc',srfparentkey:entity.id,doc:strId})
                         Object.assign(treeNode,{srfappctx:tempContext});
-                        Object.assign(treeNode,{'doclibmodule':strId});
+                        Object.assign(treeNode,{'doc':strId});
                         Object.assign(treeNode, { srfkey: strId });
                         Object.assign(treeNode, { text: strText, srfmajortext: strText });
                         let strNodeId: string = 'ModuleDoc';
@@ -1224,7 +1224,7 @@ export default class DocLibTreeProjectService extends ControlService {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"doclibmodule" });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"doc" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1268,7 +1268,7 @@ export default class DocLibTreeProjectService extends ControlService {
             if(context && context.srfparentkey){
                 Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
             }
-            const _appEntityService: any = this.doclibmoduleService;
+            const _appEntityService: any = this.docService;
             let list: any[] = [];
             if (_appEntityService['FetchDefault'] && _appEntityService['FetchDefault'] instanceof Function) {
                 const response: Promise<any> = _appEntityService['FetchDefault'](context, searchFilter, false);

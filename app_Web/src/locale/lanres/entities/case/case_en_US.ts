@@ -375,6 +375,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			title: "用例标题", 
+			color: "标题颜色", 
 			precondition: "前置条件", 
 			comment: "备注", 
 			files: "附件", 
