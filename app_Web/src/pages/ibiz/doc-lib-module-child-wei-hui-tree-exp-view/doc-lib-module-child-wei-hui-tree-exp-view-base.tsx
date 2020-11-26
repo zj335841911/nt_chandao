@@ -73,9 +73,9 @@ export class DocLibModuleChildWeiHuiTreeExpViewBase extends TreeExpViewBase {
             isRawValue: false,
             value: 'srfroot',
         },
-        'SRFPARENT': {
+        'SRFPARENTKEY': {
             isRawValue: false,
-            value: 'srfparent',
+            value: 'srfparentkey',
         }
     };
 
