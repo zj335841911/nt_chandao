@@ -530,6 +530,7 @@ export default {
 			story: "相关需求", 
 			id: "", 
 			name: "", 
+			color: "标题颜色", 
 			desc: "任务描述", 
 		},
 		uiactions: {
