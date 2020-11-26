@@ -302,6 +302,7 @@ export class Main_EditRowGridBase extends GridControlBase {
           hours: new FormItemModel(),
           role: new FormItemModel(),
           account: new FormItemModel(),
+          join: new FormItemModel(),
           srfkey: new FormItemModel(),
         }
     }
@@ -393,6 +394,10 @@ export class Main_EditRowGridBase extends GridControlBase {
         account: [
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'change' },
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'blur' },
+        ],
+        join: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '加盟日 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '加盟日 值不能为空', trigger: 'blur' },
         ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },

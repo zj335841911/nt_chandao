@@ -710,7 +710,7 @@ export default class DocLibTreeProductService extends ControlService {
             let searchFilter: any = {};
 
             if (Object.is(filter.strNodeType, this.TREENODE_DOCLIBMODULE)) {
-                Object.assign(searchFilter, { n_module_eq: filter.nodeid });
+                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 
             Object.assign(searchFilter, { total: false });
@@ -1019,6 +1019,7 @@ export default class DocLibTreeProductService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
+
             if (Object.is(filter.strNodeType, this.TREENODE_DOCLIB)) {
                 Object.assign(searchFilter, { n_lib_eq: filter.nodeid });
             }
@@ -1156,6 +1157,7 @@ export default class DocLibTreeProductService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
+
             if (Object.is(filter.strNodeType, this.TREENODE_DOCLIB)) {
                 Object.assign(searchFilter, { n_root_eq: filter.nodeid });
             }
