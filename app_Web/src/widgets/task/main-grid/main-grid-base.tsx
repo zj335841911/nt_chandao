@@ -441,7 +441,7 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainGridBase
      */
-    public minorSortDir: string = 'DESC';
+    public minorSortDir: string = 'ASC';
 
     /**
      * 排序字段
@@ -449,7 +449,7 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainGridBase
      */
-    public minorSortPSDEF: string = 'id';
+    public minorSortPSDEF: string = 'statusorder';
 
     /**
      * 所有列成员
