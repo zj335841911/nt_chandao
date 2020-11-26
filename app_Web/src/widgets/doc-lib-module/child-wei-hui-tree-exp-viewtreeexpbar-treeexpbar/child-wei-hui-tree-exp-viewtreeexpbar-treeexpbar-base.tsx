@@ -118,7 +118,7 @@ export class ChildWeiHuiTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarCo
         if (Object.is(expmode, 'ALLMODULE')) {
             return {  
                 viewname: 'doc-lib-module-usr2-grid-view', 
-                parentdata: {"srfparentdefname":"n_parent_eq"},
+                parentdata: {},
                 deKeyField:'doclibmodule'
 			};
         }

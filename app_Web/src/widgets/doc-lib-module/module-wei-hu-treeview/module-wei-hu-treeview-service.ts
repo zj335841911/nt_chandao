@@ -441,7 +441,7 @@ export default class ModuleWeiHuService extends ControlService {
 
             Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
-            Object.assign(treeNode, { navfilter: "n_parent_eq" });
+            Object.assign(treeNode, {navigateParams: {n_root_eq:"%srfroot%",n_parent_eq:"%srfparent%"} });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             Object.assign(treeNode, { nodeType: "STATIC" });
