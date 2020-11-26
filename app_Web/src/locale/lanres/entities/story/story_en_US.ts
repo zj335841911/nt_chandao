@@ -717,6 +717,7 @@ export default {
 			title: "需求名称", 
 			pri: "优先级", 
 			estimate: "预计", 
+			color: "标题颜色", 
 			spec: "需求描述", 
 			verify: "验收标准", 
 			files: "附件", 
@@ -853,6 +854,7 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
+			color: "标题颜色",
     },
 		uiactions: {
         story_changestorydetail: "变更",
@@ -893,6 +895,7 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
+			color: "标题颜色",
     },
 		uiactions: {
         story_unlinkstory: "移除关联",
@@ -943,6 +946,7 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
+			color: "标题颜色",
     },
 		uiactions: {
         story_breakdowntasks: "分解任务",
@@ -976,6 +980,7 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
+			color: "标题颜色",
     },
 		uiactions: {
         story_buildunlinkstory: "解绑需求",
@@ -1034,6 +1039,7 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
+			color: "标题颜色",
     },
 		uiactions: {
         story_assignto: "指派",
@@ -1074,6 +1080,7 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
+			color: "标题颜色",
     },
 		uiactions: {
         story_releaseunlinkstory: "移除关联",
@@ -1109,6 +1116,7 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
+			color: "标题颜色",
     },
 		uiactions: {
         story_changestorydetail: "变更",
@@ -1162,6 +1170,7 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
+			color: "标题颜色",
     },
 		uiactions: {
         story_changestorydetail: "变更",
@@ -1203,6 +1212,7 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
+			color: "标题颜色",
     },
 		uiactions: {
         story_assignto: "指派",
@@ -1238,6 +1248,7 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
+			color: "标题颜色",
     },
 		uiactions: {
         story_changestorydetail: "变更",

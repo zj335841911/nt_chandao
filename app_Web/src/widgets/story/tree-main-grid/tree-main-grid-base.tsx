@@ -640,6 +640,12 @@ export class TreeMainGridBase extends GridControlBase {
             langtag: 'entities.story.treemain_grid.exportColumns.ischild',
             show: true,
         },
+        {
+            name: 'color',
+            label: '标题颜色',
+            langtag: 'entities.story.treemain_grid.exportColumns.color',
+            show: true,
+        },
     ]
 
     /**
@@ -696,6 +702,14 @@ export class TreeMainGridBase extends GridControlBase {
             {
                 name: 'stage',
                 srfkey: 'Story__stage',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'color',
+                srfkey: 'Story__color',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',

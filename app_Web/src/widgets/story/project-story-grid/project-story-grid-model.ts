@@ -88,6 +88,11 @@ export default class ProjectStoryModel {
           prop: 'ischild',
           dataType: 'TEXT',
         },
+        {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
+        },
       ]
     }else{
 		  return [
