@@ -295,6 +295,7 @@ export default class ModuleWeiHuService extends ControlService {
                         Object.assign(treeNode, { id: strNodeId });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
                         Object.assign(treeNode, { leaf: false });
+                        Object.assign(treeNode, { navfilter: "n_parent_eq" });
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
@@ -344,13 +345,13 @@ export default class ModuleWeiHuService extends ControlService {
             }
             const _appEntityService: any = this.appEntityService;
             let list: any[] = [];
-            if (_appEntityService['FetchDefault'] && _appEntityService['FetchDefault'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchDefault'](context, searchFilter, false);
+            if (_appEntityService['FetchAllDoclibModule'] && _appEntityService['FetchAllDoclibModule'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchAllDoclibModule'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchDefault数据集异常!');
+                        console.error('查询FetchAllDoclibModule数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -362,7 +363,7 @@ export default class ModuleWeiHuService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchDefault数据集异常!');
+                        console.error('查询FetchAllDoclibModule数据集异常!');
                 });
             }
         })
@@ -431,7 +432,7 @@ export default class ModuleWeiHuService extends ControlService {
 
             Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
-            Object.assign(treeNode, {navigateParams: {n_root_eq:"%srfroot%",n_parent_eq:"0"} });
+            Object.assign(treeNode, {navigateParams: {n_root_eq:"%srfroot%",n_parent_eq:"%srfparent%"} });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             Object.assign(treeNode, { nodeType: "STATIC" });
