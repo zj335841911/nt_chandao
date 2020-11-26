@@ -120802,7 +120802,7 @@ CREATE TABLE `zt_taskestimate`(
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
-| APPTASKID        | 第三方应用待办标识  | VARCHAR      |   100   | &nbsp; |
+| APPTASKID        | 第三方应用待办标识  | VARCHAR      |   100   | &nbsp; |
 | TASKMSGRECORDNAME        | 待办消息记录名称  | VARCHAR      |   200   | &nbsp; |
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |

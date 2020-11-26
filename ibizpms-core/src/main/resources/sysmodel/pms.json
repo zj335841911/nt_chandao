@@ -33504,7 +33504,7 @@
     {
     "fieldname":"APPTASKID" ,
     "codename":"Apptaskid",
-    "field_logic_name":"第三方应用待办标识",
+    "field_logic_name":"第三方应用待办标识",
     "entity_name":"TaskMsgRecord",
     "field_type":"TEXT",
     "nullable":1,
