@@ -336,6 +336,7 @@ export default {
 			reviewedby: "由谁评审", 
 			neednotreview: "", 
 			title: "需求名称", 
+			color: "标题颜色", 
 			spec: "需求描述", 
 			verify: "验收标准", 
 			comment: "备注", 

@@ -68,24 +68,24 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
     public appUIService: DocLibUIService = new DocLibUIService(this.$store);
 
     /**
-     * childdoclib_cm 部件 click 事件
+     * childmodule_cm 部件 click 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
      * @memberof DoclibChildTreeViewTreeBase
      */
-    public childdoclib_cm_click($event: any, $event2?: any) {
+    public childmodule_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
-            this.childdoclib_cm_deuiaction1_click(null, 'childdoclib_cm', $event2);
+            this.childmodule_cm_deuiaction1_click(null, 'childmodule_cm', $event2);
         }
         if (Object.is($event.tag, 'deuiaction4')) {
-            this.childdoclib_cm_deuiaction4_click(null, 'childdoclib_cm', $event2);
+            this.childmodule_cm_deuiaction4_click(null, 'childmodule_cm', $event2);
         }
         if (Object.is($event.tag, 'deuiaction2')) {
-            this.childdoclib_cm_deuiaction2_click(null, 'childdoclib_cm', $event2);
+            this.childmodule_cm_deuiaction2_click(null, 'childmodule_cm', $event2);
         }
         if (Object.is($event.tag, 'deuiaction3')) {
-            this.childdoclib_cm_deuiaction3_click(null, 'childdoclib_cm', $event2);
+            this.childmodule_cm_deuiaction3_click(null, 'childmodule_cm', $event2);
         }
     }
 
@@ -395,7 +395,7 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public childdoclib_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+    public childmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -424,7 +424,7 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public childdoclib_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+    public childmodule_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -453,7 +453,7 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public childdoclib_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+    public childmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -482,7 +482,7 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public childdoclib_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
+    public childmodule_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -743,10 +743,10 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
      * @memberof DoclibChildTreeViewBase
      */
      public actionModel: any = {
-        ChildDoclib_deuiaction1: {ctrlname: 'childdoclib_cm',name:'deuiaction1',nodeOwner:'ChildDoclib',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        ChildDoclib_deuiaction4: {ctrlname: 'childdoclib_cm',name:'deuiaction4',nodeOwner:'ChildDoclib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
-        ChildDoclib_deuiaction2: {ctrlname: 'childdoclib_cm',name:'deuiaction2',nodeOwner:'ChildDoclib',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        ChildDoclib_deuiaction3: {ctrlname: 'childdoclib_cm',name:'deuiaction3',nodeOwner:'ChildDoclib',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
+        ChildModule_deuiaction1: {ctrlname: 'childmodule_cm',name:'deuiaction1',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
+        ChildModule_deuiaction4: {ctrlname: 'childmodule_cm',name:'deuiaction4',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
+        ChildModule_deuiaction2: {ctrlname: 'childmodule_cm',name:'deuiaction2',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
+        ChildModule_deuiaction3: {ctrlname: 'childmodule_cm',name:'deuiaction3',nodeOwner:'ChildModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
         RootModule_deuiaction1: {ctrlname: 'rootmodule_cm',name:'deuiaction1',nodeOwner:'RootModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
         RootModule_deuiaction4: {ctrlname: 'rootmodule_cm',name:'deuiaction4',nodeOwner:'RootModule',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
         RootModule_deuiaction2: {ctrlname: 'rootmodule_cm',name:'deuiaction2',nodeOwner:'RootModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
@@ -1052,8 +1052,8 @@ export class DoclibChildTreeViewTreeBase extends MainControlBase {
     public onAction(item: any,ctrlname: string,tag: string) {
         let _this:any = this;
         this.currentselectedNode = JSON.parse(JSON.stringify(item));
-        if (Object.is('childdoclib_cm',ctrlname) && _this.childdoclib_cm_click && _this.childdoclib_cm_click instanceof Function) {
-            _this.childdoclib_cm_click({ tag: tag });
+        if (Object.is('childmodule_cm',ctrlname) && _this.childmodule_cm_click && _this.childmodule_cm_click instanceof Function) {
+            _this.childmodule_cm_click({ tag: tag });
         }           
         if (Object.is('rootmodule_cm',ctrlname) && _this.rootmodule_cm_click && _this.rootmodule_cm_click instanceof Function) {
             _this.rootmodule_cm_click({ tag: tag });

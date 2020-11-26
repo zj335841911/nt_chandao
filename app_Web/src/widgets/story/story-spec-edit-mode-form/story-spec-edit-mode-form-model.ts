@@ -91,6 +91,11 @@ export default class StorySpec_EditModeModel {
         dataType: 'TEXT',
       },
       {
+        name: 'color',
+        prop: 'color',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'spec',
         prop: 'spec',
         dataType: 'TEXT',

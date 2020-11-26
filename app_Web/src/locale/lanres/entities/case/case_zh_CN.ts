@@ -455,6 +455,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			title: "用例标题", 
+			color: "标题颜色", 
 			id: "用例编号", 
 		},
 		uiactions: {
