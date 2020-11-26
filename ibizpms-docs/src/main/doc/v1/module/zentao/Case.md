@@ -7542,4 +7542,5 @@ DEFAULT
 | 13 | S | [用例步骤集合（CASESTEPS）](#属性-用例步骤集合（CASESTEPS）) |  |
 | 14 | 测试用例结果 | [测试用例结果（LASTRUNRESULT1）](#属性-测试用例结果（LASTRUNRESULT1）) |  |
 | 15 | 是否收藏 | [是否收藏（ISFAVORITES）](#属性-是否收藏（ISFAVORITES）) |  |
+| 16 | 标题颜色 | [标题颜色（COLOR）](#属性-标题颜色（COLOR）) |  |
 

@@ -703,6 +703,12 @@ export class TestMainGridGridBase extends GridControlBase {
             langtag: 'entities.case.testmaingrid_grid.exportColumns.isfavorites',
             show: true,
         },
+        {
+            name: 'color',
+            label: '标题颜色',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.color',
+            show: true,
+        },
     ]
 
     /**
@@ -775,6 +781,14 @@ export class TestMainGridGridBase extends GridControlBase {
             {
                 name: 'lastrunresult1',
                 srfkey: 'Testcase__result',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'color',
+                srfkey: 'Testcase__color',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',

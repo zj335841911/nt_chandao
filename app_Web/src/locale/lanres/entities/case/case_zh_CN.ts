@@ -595,6 +595,7 @@ export default {
 			casesteps: "S",
 			lastrunresult1: "测试用例结果",
 			isfavorites: "是否收藏",
+			color: "标题颜色",
     },
 		uiactions: {
 			case_edits: "概况",
@@ -675,6 +676,7 @@ export default {
 			casesteps: "S",
 			lastrunresult1: "测试用例结果",
 			isfavorites: "是否收藏",
+			color: "标题颜色",
     },
 		uiactions: {
 			case_confirmstorychange: "确认",
@@ -729,6 +731,7 @@ export default {
 			casesteps: "S",
 			lastrunresult1: "测试用例结果",
 			isfavorites: "是否收藏",
+			color: "标题颜色",
     },
 		uiactions: {
 			case_unlinksuitecase: "移除",

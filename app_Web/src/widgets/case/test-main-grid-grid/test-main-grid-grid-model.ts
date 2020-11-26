@@ -98,6 +98,11 @@ export default class TestMainGridModel {
           prop: 'isfavorites',
           dataType: 'TEXT',
         },
+        {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
+        },
       ]
     }else{
 		  return [
