@@ -159,7 +159,7 @@ export class DocLibLGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         Look: { name: 'Look',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        ibzdownload: { name: 'ibzdownload',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        ibzdownload: { name: 'ibzdownload',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__FILE_DOWNLOAD_BUT', actiontarget: 'SINGLEKEY'},
         delete: { name: 'delete',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__FILE_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 

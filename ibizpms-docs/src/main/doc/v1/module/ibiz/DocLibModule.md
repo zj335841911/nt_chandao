@@ -853,7 +853,7 @@ String
 拒绝提示信息：无
 | 序号 | 操作权限 |
 | ---- | ---- |
-| 1 | [收藏文档库分类](#操作权限-收藏文档库分类（SRFUR__DOCLIBMODULE_FAVOUR_BUT）)<br>（SRFUR__DOCLIBMODULE_FAVOUR_BUT） |
+| 1 | [取消收藏文档库分类](#操作权限-取消收藏文档库分类（SRFUR__DOCLIBMODULE_NFAVOUR_BUT）)<br>（SRFUR__DOCLIBMODULE_NFAVOUR_BUT） |
 ### 业务状态-模块_已收藏（module_1）
 #### 状态说明
 模块_已收藏
@@ -880,7 +880,7 @@ String
 拒绝提示信息：无
 | 序号 | 操作权限 |
 | ---- | ---- |
-| 1 | [取消收藏文档库分类](#操作权限-取消收藏文档库分类（SRFUR__DOCLIBMODULE_NFAVOUR_BUT）)<br>（SRFUR__DOCLIBMODULE_NFAVOUR_BUT） |
+| 1 | [收藏文档库分类](#操作权限-收藏文档库分类（SRFUR__DOCLIBMODULE_FAVOUR_BUT）)<br>（SRFUR__DOCLIBMODULE_FAVOUR_BUT） |
 
 ## 实体行为
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |

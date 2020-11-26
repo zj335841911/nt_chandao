@@ -434,9 +434,9 @@ export class ProjectLeftDocLibTreeTreeBase extends MainControlBase {
      * @memberof ProjectLeftDocLibTreeBase
      */
      public actionModel: any = {
-        Doclib_deuiaction1: {name:'deuiaction1',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'EditCustomDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
+        Doclib_deuiaction1: {name:'deuiaction1',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'EditCustomDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_EDIT_BUT', visible: true, disabled: false},
         Doclib_deuiaction2: {name:'deuiaction2',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visible: true, disabled: false},
-        Doclib_deuiaction3: {name:'deuiaction3',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'DOC', visible: true, disabled: false},
+        Doclib_deuiaction3: {name:'deuiaction3',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false},
         ALL_deuiaction1: {name:'deuiaction1',nodeOwner:'ALL',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visible: true, disabled: false},
     }
 
@@ -852,7 +852,7 @@ export class ProjectLeftDocLibTreeTreeBase extends MainControlBase {
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.doclib_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1" v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
-                        
+                        <i class="fa fa-edit"></i>
                         编辑
                     </dropdown-item>
                             <dropdown-item name="deuiaction2" v-show={this.copyActionModel['deuiaction2']?.visible} disabled={this.copyActionModel['deuiaction2']?.disabled}>
