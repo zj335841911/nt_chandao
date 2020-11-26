@@ -345,6 +345,10 @@ export default {
 			files: "附件库",
 		},
 		uiactions: {
+        doc_edit: "编辑",
+        doc_delete: "删除",
+        doc_onlycollectdoc: "收藏",
+        doc_onlyuncollectdoc: "取消收藏",
         file_look: "查看",
         file_ibzdownload: "下载",
         file_delete: "删除",
@@ -352,6 +356,10 @@ export default {
         doclib_weihufenlei: "维护分类",
         doclib_uncollect: "取消收藏",
         doclib_collect: "收藏",
+        doclibmodule_edit: "编辑",
+        doclibmodule_weihufenlei: "维护分类",
+        doclibmodule_favorite: "收藏",
+        doclibmodule_nfavorite: "取消收藏",
 		},
 	},
 	productleftdoclibtree_treeview: {

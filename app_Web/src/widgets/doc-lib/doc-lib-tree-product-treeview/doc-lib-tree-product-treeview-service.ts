@@ -5,8 +5,8 @@ import DocLibService from '@/service/doc-lib/doc-lib-service';
 import DocLibTreeProductModel from './doc-lib-tree-product-treeview-model';
 import CodeListService from '@service/app/codelist-service';
 import i18n from '@/locale';
-import FileService from '@service/file/file-service';
 import DocService from '@service/doc/doc-service';
+import FileService from '@service/file/file-service';
 import DocLibModuleService from '@service/doc-lib-module/doc-lib-module-service';
 
 
@@ -58,20 +58,20 @@ export default class DocLibTreeProductService extends ControlService {
 
 
     /**
-     * 附件服务对象
-     *
-     * @type {FileService}
-     * @memberof DocLibTreeProductService
-     */
-    public fileService: FileService = new FileService({ $store: this.getStore() });
-
-    /**
      * 文档服务对象
      *
      * @type {DocService}
      * @memberof DocLibTreeProductService
      */
     public docService: DocService = new DocService({ $store: this.getStore() });
+
+    /**
+     * 附件服务对象
+     *
+     * @type {FileService}
+     * @memberof DocLibTreeProductService
+     */
+    public fileService: FileService = new FileService({ $store: this.getStore() });
 
     /**
      * 文档库分类服务对象
@@ -98,6 +98,15 @@ export default class DocLibTreeProductService extends ControlService {
      * @memberof DocLibTreeProductService
      */
 	public TREENODE_ROOT: string = 'ROOT';
+
+    /**
+     * 分类下文档节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof DocLibTreeProductService
+     */
+	public TREENODE_MODULEDOC: string = 'ModuleDoc';
 
     /**
      * 附件节点分隔符号
@@ -136,22 +145,22 @@ export default class DocLibTreeProductService extends ControlService {
 	public TREENODE_DOCLIB: string = 'docLib';
 
     /**
-     * 文档节点分隔符号
+     * 文档库下文档节点分隔符号
      *
      * @public
      * @type {string}
      * @memberof DocLibTreeProductService
      */
-	public TREENODE_DOC: string = 'Doc';
+	public TREENODE_DOCLIBDOC: string = 'DocLibDoc';
 
     /**
-     * 文档分类跟模块节点分隔符号
+     * 文档库根模块节点分隔符号
      *
      * @public
      * @type {string}
      * @memberof DocLibTreeProductService
      */
-	public TREENODE_MODULE: string = 'Module';
+	public TREENODE_DOCLIBMODULE: string = 'DocLibModule';
 
     /**
      * 获取节点数据
@@ -231,6 +240,10 @@ export default class DocLibTreeProductService extends ControlService {
             await this.fillRootNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
+        if (Object.is(strNodeType, this.TREENODE_MODULEDOC)) {
+            await this.fillModuledocNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         if (Object.is(strNodeType, this.TREENODE_FILE)) {
             await this.fillFileNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
@@ -247,12 +260,12 @@ export default class DocLibTreeProductService extends ControlService {
             await this.fillDoclibNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
-        if (Object.is(strNodeType, this.TREENODE_DOC)) {
-            await this.fillDocNodeChilds(context,filter, list);
+        if (Object.is(strNodeType, this.TREENODE_DOCLIBDOC)) {
+            await this.fillDoclibdocNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
-        if (Object.is(strNodeType, this.TREENODE_MODULE)) {
-            await this.fillModuleNodeChilds(context,filter, list);
+        if (Object.is(strNodeType, this.TREENODE_DOCLIBMODULE)) {
+            await this.fillDoclibmoduleNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         return Promise.resolve({ status: 500, data: { title: '失败', message: `树节点${strTreeNodeId}标识无效` } });
@@ -333,6 +346,139 @@ export default class DocLibTreeProductService extends ControlService {
             let FilesRsNavParams:any = {};
             let FilesRsParams:any = {};
 			await this.fillFilesNodes(context, filter, list ,FilesRsNavContext,FilesRsNavParams,FilesRsParams);
+		}
+	}
+
+    /**
+     * 填充 树视图节点[分类下文档]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof DocLibTreeProductService
+     */
+    @Errorlog
+    public fillModuledocNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let searchFilter: any = {};
+            Object.assign(searchFilter, { total: false });
+            let bFirst: boolean = true;
+            let records: any[] = [];
+            try {
+                this.searchModuledoc(context, searchFilter, filter).then((records:any) =>{
+                    if(records && records.length >0){
+                        records.forEach((entity: any) => {
+                        let treeNode: any = {};
+                        // 整理context
+                        let strId: string = entity.id;
+                        let strText: string = entity.title;
+                        Object.assign(treeNode,{srfparentdename:'Doc',srfparentkey:entity.id});
+                        let tempContext:any = JSON.parse(JSON.stringify(context));
+                        Object.assign(tempContext,{srfparentdename:'Doc',srfparentkey:entity.id,doc:strId})
+                        Object.assign(treeNode,{srfappctx:tempContext});
+                        Object.assign(treeNode,{'doc':strId});
+                        Object.assign(treeNode, { srfkey: strId });
+                        Object.assign(treeNode, { text: strText, srfmajortext: strText });
+                        let strNodeId: string = 'ModuleDoc';
+                        strNodeId += this.TREENODE_SEPARATOR;
+                        strNodeId += strId;
+                        Object.assign(treeNode, { id: strNodeId });
+                        Object.assign(treeNode, { expanded: filter.isautoexpand });
+                        Object.assign(treeNode, { leaf: true });
+                        Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, { nodeid: treeNode.srfkey });
+                        Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"doc" });
+                        list.push(treeNode);
+                        resolve(list);
+                        bFirst = false;
+                    });
+                    }else{
+                        resolve(list);
+                    }
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        });
+
+	}
+
+    /**
+     * 获取查询集合
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} searchFilter
+     * @param {*} filter
+     * @returns {any[]}
+     * @memberof TestEnetityDatasService
+     */
+    @Errorlog
+    public searchModuledoc(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        return new Promise((resolve:any,reject:any) =>{
+            if(filter.viewparams){
+                Object.assign(searchFilter,filter.viewparams);
+            }
+            if(!searchFilter.page){
+                Object.assign(searchFilter,{page:0});
+            }
+            if(!searchFilter.size){
+                Object.assign(searchFilter,{size:1000});
+            }
+            if(context && context.srfparentdename){
+                Object.assign(searchFilter,{srfparentdename:JSON.parse(JSON.stringify(context)).srfparentdename});
+            }
+            if(context && context.srfparentkey){
+                Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
+            }
+            const _appEntityService: any = this.docService;
+            let list: any[] = [];
+            if (_appEntityService['FetchDocModuleDoc'] && _appEntityService['FetchDocModuleDoc'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchDocModuleDoc'](context, searchFilter, false);
+                response.then((response: any) => {
+                    if (!response.status || response.status !== 200) {
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchDocModuleDoc数据集异常!');
+                    }
+                    const data: any = response.data;
+                    if (Object.keys(data).length > 0) {
+                        list = JSON.parse(JSON.stringify(data));
+                        resolve(list);
+                    } else {
+                        resolve([]);
+                    }
+                }).catch((response: any) => {
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchDocModuleDoc数据集异常!');
+                });
+            }
+        })
+    }
+
+    /**
+     * 填充 树视图节点[分类下文档]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof DocLibTreeProductService
+     */
+    @Errorlog
+    public async fillModuledocNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
 		}
 	}
 
@@ -563,7 +709,7 @@ export default class DocLibTreeProductService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
 
-            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
+            if (Object.is(filter.strNodeType, this.TREENODE_DOCLIBMODULE)) {
                 Object.assign(searchFilter, { n_module_eq: filter.nodeid });
             }
 
@@ -590,7 +736,7 @@ export default class DocLibTreeProductService extends ControlService {
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
-                        Object.assign(treeNode, { leaf: true });
+                        Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
@@ -677,7 +823,27 @@ export default class DocLibTreeProductService extends ControlService {
     @Errorlog
     public async fillChilddoclibmoduleNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+			// 填充文档库子模块
+            let ChilddoclibmoduleRsNavContext:any = {};
+            let ChilddoclibmoduleRsNavParams:any = {};
+            let ChilddoclibmoduleRsParams:any = {};
+			await this.fillChilddoclibmoduleNodes(context, filter, list ,ChilddoclibmoduleRsNavContext,ChilddoclibmoduleRsNavParams,ChilddoclibmoduleRsParams);
+			// 填充分类下文档
+            let ModuledocRsNavContext:any = {};
+            let ModuledocRsNavParams:any = {};
+            let ModuledocRsParams:any = {};
+			await this.fillModuledocNodes(context, filter, list ,ModuledocRsNavContext,ModuledocRsNavParams,ModuledocRsParams);
 		} else {
+			// 填充文档库子模块
+            let ChilddoclibmoduleRsNavContext:any = {};
+            let ChilddoclibmoduleRsNavParams:any = {};
+            let ChilddoclibmoduleRsParams:any = {};
+			await this.fillChilddoclibmoduleNodes(context, filter, list ,ChilddoclibmoduleRsNavContext,ChilddoclibmoduleRsNavParams,ChilddoclibmoduleRsParams);
+			// 填充分类下文档
+            let ModuledocRsNavContext:any = {};
+            let ModuledocRsNavParams:any = {};
+            let ModuledocRsParams:any = {};
+			await this.fillModuledocNodes(context, filter, list ,ModuledocRsNavContext,ModuledocRsNavParams,ModuledocRsParams);
 		}
 	}
 
@@ -810,32 +976,32 @@ export default class DocLibTreeProductService extends ControlService {
     @Errorlog
     public async fillDoclibNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充文档
-            let DocRsNavContext:any = {};
-            let DocRsNavParams:any = {};
-            let DocRsParams:any = {};
-			await this.fillDocNodes(context, filter, list ,DocRsNavContext,DocRsNavParams,DocRsParams);
-			// 填充文档分类跟模块
-            let ModuleRsNavContext:any = {};
-            let ModuleRsNavParams:any = {};
-            let ModuleRsParams:any = {};
-			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
+			// 填充文档库根模块
+            let DoclibmoduleRsNavContext:any = {};
+            let DoclibmoduleRsNavParams:any = {};
+            let DoclibmoduleRsParams:any = {};
+			await this.fillDoclibmoduleNodes(context, filter, list ,DoclibmoduleRsNavContext,DoclibmoduleRsNavParams,DoclibmoduleRsParams);
+			// 填充文档库下文档
+            let DoclibdocRsNavContext:any = {};
+            let DoclibdocRsNavParams:any = {};
+            let DoclibdocRsParams:any = {};
+			await this.fillDoclibdocNodes(context, filter, list ,DoclibdocRsNavContext,DoclibdocRsNavParams,DoclibdocRsParams);
 		} else {
-			// 填充文档
-            let DocRsNavContext:any = {};
-            let DocRsNavParams:any = {};
-            let DocRsParams:any = {};
-			await this.fillDocNodes(context, filter, list ,DocRsNavContext,DocRsNavParams,DocRsParams);
-			// 填充文档分类跟模块
-            let ModuleRsNavContext:any = {};
-            let ModuleRsNavParams:any = {};
-            let ModuleRsParams:any = {};
-			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
+			// 填充文档库根模块
+            let DoclibmoduleRsNavContext:any = {};
+            let DoclibmoduleRsNavParams:any = {};
+            let DoclibmoduleRsParams:any = {};
+			await this.fillDoclibmoduleNodes(context, filter, list ,DoclibmoduleRsNavContext,DoclibmoduleRsNavParams,DoclibmoduleRsParams);
+			// 填充文档库下文档
+            let DoclibdocRsNavContext:any = {};
+            let DoclibdocRsNavParams:any = {};
+            let DoclibdocRsParams:any = {};
+			await this.fillDoclibdocNodes(context, filter, list ,DoclibdocRsNavContext,DoclibdocRsNavParams,DoclibdocRsParams);
 		}
 	}
 
     /**
-     * 填充 树视图节点[文档]
+     * 填充 树视图节点[文档库下文档]
      *
      * @public
      * @param {any{}} context     
@@ -848,7 +1014,7 @@ export default class DocLibTreeProductService extends ControlService {
      * @memberof DocLibTreeProductService
      */
     @Errorlog
-    public fillDocNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+    public fillDoclibdocNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
         context = this.handleResNavContext(context,filter,rsNavContext);
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
@@ -861,7 +1027,7 @@ export default class DocLibTreeProductService extends ControlService {
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
-                this.searchDoc(context, searchFilter, filter).then((records:any) =>{
+                this.searchDoclibdoc(context, searchFilter, filter).then((records:any) =>{
                     if(records && records.length >0){
                         records.forEach((entity: any) => {
                         let treeNode: any = {};
@@ -875,7 +1041,7 @@ export default class DocLibTreeProductService extends ControlService {
                         Object.assign(treeNode,{'doc':strId});
                         Object.assign(treeNode, { srfkey: strId });
                         Object.assign(treeNode, { text: strText, srfmajortext: strText });
-                        let strNodeId: string = 'Doc';
+                        let strNodeId: string = 'DocLibDoc';
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
@@ -911,7 +1077,7 @@ export default class DocLibTreeProductService extends ControlService {
      * @memberof TestEnetityDatasService
      */
     @Errorlog
-    public searchDoc(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public searchDoclibdoc(context:any={}, searchFilter: any, filter: any): Promise<any> {
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -955,7 +1121,7 @@ export default class DocLibTreeProductService extends ControlService {
     }
 
     /**
-     * 填充 树视图节点[文档]子节点
+     * 填充 树视图节点[文档库下文档]子节点
      *
      * @public
      * @param {any{}} context         
@@ -965,14 +1131,14 @@ export default class DocLibTreeProductService extends ControlService {
      * @memberof DocLibTreeProductService
      */
     @Errorlog
-    public async fillDocNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+    public async fillDoclibdocNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}
 	}
 
     /**
-     * 填充 树视图节点[文档分类跟模块]
+     * 填充 树视图节点[文档库根模块]
      *
      * @public
      * @param {any{}} context     
@@ -985,7 +1151,7 @@ export default class DocLibTreeProductService extends ControlService {
      * @memberof DocLibTreeProductService
      */
     @Errorlog
-    public fillModuleNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+    public fillDoclibmoduleNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
         context = this.handleResNavContext(context,filter,rsNavContext);
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
@@ -998,7 +1164,7 @@ export default class DocLibTreeProductService extends ControlService {
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
-                this.searchModule(context, searchFilter, filter).then((records:any) =>{
+                this.searchDoclibmodule(context, searchFilter, filter).then((records:any) =>{
                     if(records && records.length >0){
                         records.forEach((entity: any) => {
                         let treeNode: any = {};
@@ -1012,7 +1178,7 @@ export default class DocLibTreeProductService extends ControlService {
                         Object.assign(treeNode,{'doclibmodule':strId});
                         Object.assign(treeNode, { srfkey: strId });
                         Object.assign(treeNode, { text: strText, srfmajortext: strText });
-                        let strNodeId: string = 'Module';
+                        let strNodeId: string = 'DocLibModule';
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
@@ -1048,7 +1214,7 @@ export default class DocLibTreeProductService extends ControlService {
      * @memberof TestEnetityDatasService
      */
     @Errorlog
-    public searchModule(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public searchDoclibmodule(context:any={}, searchFilter: any, filter: any): Promise<any> {
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -1092,7 +1258,7 @@ export default class DocLibTreeProductService extends ControlService {
     }
 
     /**
-     * 填充 树视图节点[文档分类跟模块]子节点
+     * 填充 树视图节点[文档库根模块]子节点
      *
      * @public
      * @param {any{}} context         
@@ -1102,19 +1268,29 @@ export default class DocLibTreeProductService extends ControlService {
      * @memberof DocLibTreeProductService
      */
     @Errorlog
-    public async fillModuleNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+    public async fillDoclibmoduleNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 			// 填充文档库子模块
             let ChilddoclibmoduleRsNavContext:any = {};
             let ChilddoclibmoduleRsNavParams:any = {};
             let ChilddoclibmoduleRsParams:any = {};
 			await this.fillChilddoclibmoduleNodes(context, filter, list ,ChilddoclibmoduleRsNavContext,ChilddoclibmoduleRsNavParams,ChilddoclibmoduleRsParams);
+			// 填充分类下文档
+            let ModuledocRsNavContext:any = {};
+            let ModuledocRsNavParams:any = {};
+            let ModuledocRsParams:any = {};
+			await this.fillModuledocNodes(context, filter, list ,ModuledocRsNavContext,ModuledocRsNavParams,ModuledocRsParams);
 		} else {
 			// 填充文档库子模块
             let ChilddoclibmoduleRsNavContext:any = {};
             let ChilddoclibmoduleRsNavParams:any = {};
             let ChilddoclibmoduleRsParams:any = {};
 			await this.fillChilddoclibmoduleNodes(context, filter, list ,ChilddoclibmoduleRsNavContext,ChilddoclibmoduleRsNavParams,ChilddoclibmoduleRsParams);
+			// 填充分类下文档
+            let ModuledocRsNavContext:any = {};
+            let ModuledocRsNavParams:any = {};
+            let ModuledocRsParams:any = {};
+			await this.fillModuledocNodes(context, filter, list ,ModuledocRsNavContext,ModuledocRsNavParams,ModuledocRsParams);
 		}
 	}
 
