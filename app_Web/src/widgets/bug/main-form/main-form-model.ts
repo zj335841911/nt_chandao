@@ -126,11 +126,6 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
-        name: 'color',
-        prop: 'color',
-        dataType: 'SSCODELIST',
-      },
-      {
         name: 'severity',
         prop: 'severity',
         dataType: 'NSCODELIST',
@@ -139,6 +134,11 @@ export default class MainModel {
         name: 'pri',
         prop: 'pri',
         dataType: 'NSCODELIST',
+      },
+      {
+        name: 'color',
+        prop: 'color',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'steps',
