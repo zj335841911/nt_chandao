@@ -269,6 +269,7 @@ export default {
 			id: "", 
 			title: "", 
 			version: "", 
+			color: "标题颜色", 
 			precondition: "前置条件", 
 		},
 		uiactions: {
