@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -354,13 +355,21 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     public Project manageMembers(Project et) {
         List<ProjectTeam> list = et.getProjectteam();
         teamHelper.remove(new QueryWrapper<Team>().eq(FIELD_TYPE,StaticDict.Action__object_type.PROJECT.getValue()).eq(FIELD_ROOT, et.getId()));
+        int i = 1;
+        List<String> accounts = new ArrayList<>();
         for(ProjectTeam projectTeam : list) {
+            if(accounts.size() > 0 && accounts.contains(projectTeam.getAccount())) {
+                continue;
+            }
             projectTeam.setType(StaticDict.Action__object_type.PROJECT.getValue());
             Team team = new Team();
             CachedBeanCopier.copy(projectTeam, team);
             team.setId(null);
-            team.setJoin(ZTDateUtil.now());
+            team.setOrder(i);
+            team.setJoin(team.getJoin() != null ? team.getJoin() : ZTDateUtil.now());
+            accounts.add(team.getAccount());
             teamHelper.create(team);
+            i ++;
         }
         return et;
     }
