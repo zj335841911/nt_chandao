@@ -85,6 +85,7 @@ import AppRawItem from './components/app-rawitem/app-rawitem.vue';
 import AppMarkdownParser from './components/app-markdown-parser/app-markdown-parser.vue';
 import AppFormatHtml  from './components/app-format-html/app-format-html.vue';
 import AppColorPicker from './components/app-color-picker/app-color-picker.vue';
+import AppColorSpan from './components/app-color-span/app-color-span.vue';
 
 // 全局挂载UI实体服务注册中心
 window['uiServiceRegister'] = uiServiceRegister;
@@ -190,5 +191,6 @@ export const AppComponents = {
         v.component('app-markdown-parser', AppMarkdownParser);
         v.component('app-format-html', AppFormatHtml);
         v.component('app-color-picker', AppColorPicker);
+        v.component('app-color-span', AppColorSpan);
     },
 };

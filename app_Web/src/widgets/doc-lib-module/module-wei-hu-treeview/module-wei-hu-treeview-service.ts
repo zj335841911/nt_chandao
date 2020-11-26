@@ -345,13 +345,13 @@ export default class ModuleWeiHuService extends ControlService {
             }
             const _appEntityService: any = this.appEntityService;
             let list: any[] = [];
-            if (_appEntityService['FetchChildModuleByParent'] && _appEntityService['FetchChildModuleByParent'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchChildModuleByParent'](context, searchFilter, false);
+            if (_appEntityService['FetchChildModuleByRealParent'] && _appEntityService['FetchChildModuleByRealParent'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchChildModuleByRealParent'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchChildModuleByParent数据集异常!');
+                        console.error('查询FetchChildModuleByRealParent数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -363,7 +363,7 @@ export default class ModuleWeiHuService extends ControlService {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchChildModuleByParent数据集异常!');
+                        console.error('查询FetchChildModuleByRealParent数据集异常!');
                 });
             }
         })
@@ -432,7 +432,7 @@ export default class ModuleWeiHuService extends ControlService {
 
             Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
-            Object.assign(treeNode, {navigateParams: {n_root_eq:"%srfroot%",n_parent_eq:"%srfparentkey%"} });
+            Object.assign(treeNode, {navigateParams: {n_root_eq:"%srfroot%",n_parent_eq:"%srfparent%"} });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             Object.assign(treeNode, { nodeType: "STATIC" });

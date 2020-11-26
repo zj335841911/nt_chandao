@@ -5934,6 +5934,34 @@ t1.type = 'doc'
 t1.parent = ${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} 
 
 ```
+### 文档库分类子模块(ChildModuleByRealParent)<div id="DocLibModule_ChildModuleByRealParent"></div>
+```sql
+SELECT
+t1.`BRANCH`,
+t1.`DELETED`,
+t11.`NAME` AS `DOCLIBNAME`,
+t1.`GRADE`,
+t1.`ID`,
+(CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
+t21.`NAME` AS `MODULENAME`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`OWNER`,
+t1.`PARENT`,
+t1.`PATH`,
+t1.`ROOT`,
+t1.`SHORT`,
+t1.`TYPE`, 
+'module' AS `DOCQTYPE`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`
+FROM `zt_module` t1 
+LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
+LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
+WHERE t1.deleted = '0' 
+t1.type = 'doc' 
+t1.parent = ${srfdatacontext('srfparent','{"defname":"ROOT","dename":"ZT_MODULE"}')} 
+
+```
 ### 数据查询(DEFAULT)<div id="DocLibModule_Default"></div>
 ```sql
 SELECT
