@@ -340,6 +340,15 @@ export default {
         'story': '软件需求',
         empty: '',
     },
+    Testcase__color: {
+        '#3da7f5': '#3da7f5',
+        '#75c941': '#75c941',
+        '#2dbdb2': '#2dbdb2',
+        '#797ec9': '#797ec9',
+        '#ffaf38': '#ffaf38',
+        '#ff4e3e': '#ff4e3e',
+        empty: '',
+    },
     BeginendDropList: {
         '600': '06:00',
         '610': '06:10',

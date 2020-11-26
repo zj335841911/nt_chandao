@@ -5,6 +5,7 @@
             ref="pickupview"
             viewDefaultUsage="includedView"
             :is="view.viewname" 
+            :isChildView="true"
             :_context="JSON.stringify(_context)"
             :_viewparams="JSON.stringify(_viewparams)"
             :isSingleSelect="isSingleSelect"

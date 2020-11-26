@@ -323,7 +323,8 @@ export class DocLibTreeProductMobService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchChilddoclibmodule(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchChilddoclibmodule(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -526,7 +527,8 @@ export class DocLibTreeProductMobService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchFile(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchFile(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -657,7 +659,8 @@ export class DocLibTreeProductMobService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchDoclib(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchDoclib(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -812,7 +815,8 @@ export class DocLibTreeProductMobService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchModule(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchModule(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
@@ -1033,7 +1037,8 @@ export class DocLibTreeProductMobService extends TreeViewServiceBase {
      * @returns {any[]}
      * @memberof TestEnetityDatasService
      */
-    public searchDoc(context:any={}, searchFilter: any, filter: any): Promise<any> {
+    public async searchDoc(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        await this.onBeforeAction();
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
