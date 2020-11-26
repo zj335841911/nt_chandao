@@ -16,7 +16,9 @@ import { ionicInitialize } from '../../../ionic-initialize';
 import { ibizMobileComponentsInitialize } from '../../../ibiz-mobile-components-initialize';
 ionicInitialize({ mode: 'ios' });
 ibizMobileComponentsInitialize();
+import { Lazyload } from 'vant';
 
+Vue.use(Lazyload);
 import VueAMap from "vue-amap";
 Vue.use(VueAMap);
 VueAMap.initAMapApiLoader({
