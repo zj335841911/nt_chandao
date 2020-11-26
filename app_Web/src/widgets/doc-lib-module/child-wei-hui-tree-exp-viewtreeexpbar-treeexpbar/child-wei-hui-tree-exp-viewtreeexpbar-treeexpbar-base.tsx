@@ -108,14 +108,21 @@ export class ChildWeiHuiTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarCo
         if (!expmode) {
             expmode = '';
         }
-        if (Object.is(expmode, 'ALLMODULE')) {
+        if (Object.is(expmode, 'MODULE')) {
             return {  
                 viewname: 'doc-lib-module-usr2-grid-view', 
-                parentdata: {},
+                parentdata: {"srfparentdefname":"n_parent_eq"},
                 deKeyField:'doclibmodule'
 			};
         }
-        if (Object.is(expmode, 'CHILDMODULE')) {
+        if (Object.is(expmode, 'ALLMODULE')) {
+            return {  
+                viewname: 'doc-lib-module-usr2-grid-view', 
+                parentdata: {"srfparentdefname":"n_parent_eq"},
+                deKeyField:'doclibmodule'
+			};
+        }
+        if (Object.is(expmode, 'CHILEMODULE')) {
             return {  
                 viewname: 'doc-lib-module-usr2-grid-view', 
                 parentdata: {"srfparentdefname":"n_parent_eq"},
