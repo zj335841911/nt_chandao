@@ -92,12 +92,13 @@
     :isEmptyCaption="true"
     labelPos="LEFT"
 >
-    
-<app-span name='title' :value="data.title" dataType="TEXT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
->  
-</app-span>
-
+    <app-color-span
+    :value="data.title"
+    name="title"
+    :data="data"
+    color="color"
+    >
+</app-color-span>
 </app-form-item>
 
 </i-col>

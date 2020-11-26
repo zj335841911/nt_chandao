@@ -284,6 +284,7 @@ export default {
 			id: "", 
 			title: "", 
 			steps: "", 
+			color: "标题颜色", 
 		},
 		uiactions: {
 		},
