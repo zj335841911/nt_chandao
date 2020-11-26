@@ -8,10 +8,10 @@
                 :codelistType="codelistType" 
                 :renderMode="renderMode" 
                 :valueSeparator="valueSeparator" 
-                :textSeparator="textSeparator">
-            </codelist>
+                :textSeparator="textSeparator"
+            ></codelist>
             <codelist 
-                v-else 
+                v-else
                 :value="value"  
                 :tag="tag" 
                 :codelistType="codelistType" 
@@ -105,7 +105,7 @@ export default class AppUserSpan extends Vue{
     public flag:boolean = false;
 
     /**
-     * 生命周期
+     * VUE 生命周期
      * 
      * @memberof AppUserSpan
      */
@@ -113,7 +113,28 @@ export default class AppUserSpan extends Vue{
         if(this.context && this.value){
             if(Object.is(this.value,this.context.srfloginname)){
                 this.flag = true;
+            }else{
+                this.flag = false;
             }
+        }else{
+            this.flag = false;
+        }
+    }
+
+    /**
+     * VUE 生命周期
+     * 
+     * @memberof AppUserSpan
+     */
+    public updated(){
+        if(this.context && this.value){
+            if(Object.is(this.value,this.context.srfloginname)){
+                this.flag = true;
+            }else{
+                this.flag = false;
+            }
+        }else{
+            this.flag = false;
         }
     }
 
