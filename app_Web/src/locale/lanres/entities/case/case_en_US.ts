@@ -242,6 +242,7 @@ export default {
 			storyname: "需求名称", 
 			title: "用例标题", 
 			pri: "优先级", 
+			color: "标题颜色", 
 			precondition: "前置条件", 
 			keywords: "关键词", 
 			id: "用例编号", 

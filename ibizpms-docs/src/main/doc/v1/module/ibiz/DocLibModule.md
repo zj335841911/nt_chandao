@@ -1204,8 +1204,7 @@ t1.`ROOT`,
 t1.`SHORT`,
 t1.`TYPE`, 
 'module' AS `DOCQTYPE`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVOURITES from T_IBZ_FAVORITES t where t.TYPE = 'module' and t.ACCOUNT = 
-#{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVOURITES`
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -1241,8 +1240,7 @@ t1.`ROOT`,
 t1.`SHORT`,
 t1.`TYPE`, 
 'module' AS `DOCQTYPE`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVOURITES from T_IBZ_FAVORITES t where t.TYPE = 'module' and t.ACCOUNT = 
-#{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVOURITES`
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -1313,7 +1311,7 @@ t1.`ROOT`,
 t1.`SHORT`,
 t1.`TYPE`, 
 'module' AS `DOCQTYPE`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVOURITES from T_IBZ_FAVORITES t where t.TYPE = 'module' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVOURITES` 
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -1349,7 +1347,7 @@ t1.`ROOT`,
 t1.`SHORT`,
 t1.`TYPE`, 
 'module' AS `DOCQTYPE`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVOURITES from T_IBZ_FAVORITES t where t.TYPE = 'module' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVOURITES` 
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -1385,7 +1383,7 @@ t1.`ROOT`,
 t1.`SHORT`,
 'module'  as `TYPE`,
 'module' AS `DOCQTYPE`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVOURITES from T_IBZ_FAVORITES t where t.TYPE = 'module' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVOURITES`
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -1421,8 +1419,7 @@ t1.`ROOT`,
 t1.`SHORT`,
 t1.`TYPE`, 
 'module' AS `DOCQTYPE`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVOURITES from T_IBZ_FAVORITES t where t.TYPE = 'module' and t.ACCOUNT =
- #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVOURITES`  
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -1458,7 +1455,7 @@ t1.`ROOT`,
 t1.`SHORT`,
 t1.`TYPE`,
 'module' AS `DOCQTYPE`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVOURITES from T_IBZ_FAVORITES t where t.TYPE = 'module' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVOURITES`
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 

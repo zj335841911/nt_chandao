@@ -112,6 +112,7 @@ export class MainNewEditFormBase extends EditFormControlBase {
         storyname: null,
         title: null,
         pri: null,
+        color: null,
         precondition: null,
         keywords: null,
         id: null,
@@ -311,6 +312,13 @@ export class MainNewEditFormBase extends EditFormControlBase {
 
         pri: new FormItemModel({
     caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
