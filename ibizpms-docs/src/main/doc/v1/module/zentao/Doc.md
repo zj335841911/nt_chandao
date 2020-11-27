@@ -57,6 +57,7 @@
 | 32 | [最近添加数量](#属性-最近添加数量（RECENTADDCNT）) | RECENTADDCNT | 整型 | 否 | 是 | 是 |
 | 33 | [我的文档数量](#属性-我的文档数量（MYDOCCNT）) | MYDOCCNT | 整型 | 否 | 是 | 是 |
 | 34 | [我的收藏数量](#属性-我的收藏数量（MYFAVOURITECNT）) | MYFAVOURITECNT | 整型 | 否 | 是 | 是 |
+| 35 | [文档数](#属性-文档数（DOCCNT）) | DOCCNT | 整型 | 否 | 是 | 是 |
 
 ### 属性-分组（GROUPS）
 #### 属性说明
@@ -1504,6 +1505,47 @@ Integer
 | 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-文档数（DOCCNT）
+#### 属性说明
+文档数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [文档查询类型](#属性-文档查询类型（DOCQTYPE）)<br>（DOCQTYPE） | [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 默认 |
@@ -2086,6 +2128,7 @@ t2.product as `PRODUCT`,
 t1.`name` as `TITLE`,
 'module' as `TYPE`,
 1 as `VERSION`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) as doccnt,
 '' as `VIEWS`, 'module' as DOCQTYPE from zt_module t1 
 LEFT JOIN zt_doclib t2 on t2.id = t1.root
 where t1.deleted = '0' and t1.type = 'doc'  and t1.parent =  (case when ${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} is null then '0' else 
@@ -2114,6 +2157,7 @@ t11.`NAME` AS `PROJECTNAME`,
 t1.`TITLE`,
 t1.`TYPE`,
 t1.`VERSION`,
+0 as doccnt,
 t1.`VIEWS`,
 'doc' as DOCQTYPE
 FROM `zt_doc` t1 

@@ -20,6 +20,8 @@ export default {
     orgId: "组织标识",
     mdeptId: "部门标识",
     root: "Root",
+    modulecnt: "文件夹数",
+    openedDate: "创建时间",
   },
 	views: {
 		mobproducttreeview: {

@@ -5177,6 +5177,7 @@ t2.product as `PRODUCT`,
 t1.`name` as `TITLE`,
 'module' as `TYPE`,
 1 as `VERSION`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) as doccnt,
 '' as `VIEWS`, 'module' as DOCQTYPE from zt_module t1 
 LEFT JOIN zt_doclib t2 on t2.id = t1.root
 where t1.deleted = '0' and t1.type = 'doc'  and t1.parent =  (case when ${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} is null then '0' else 
@@ -5205,6 +5206,7 @@ t11.`NAME` AS `PROJECTNAME`,
 t1.`TITLE`,
 t1.`TYPE`,
 t1.`VERSION`,
+0 as doccnt,
 t1.`VIEWS`,
 'doc' as DOCQTYPE
 FROM `zt_doc` t1 

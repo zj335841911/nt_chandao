@@ -50,6 +50,7 @@ hide members
 |最近添加数量|RECENTADDCNT|INT|&nbsp;|
 |我的文档数量|MYDOCCNT|INT|&nbsp;|
 |我的收藏数量|MYFAVOURITECNT|INT|&nbsp;|
+|文档数|DOCCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -88,6 +89,7 @@ hide members
 |最近添加数量|默认规则|默认规则|
 |我的文档数量|默认规则|默认规则|
 |我的收藏数量|默认规则|默认规则|
+|文档数|默认规则|默认规则|
 
 ## 状态控制
 

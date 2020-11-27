@@ -75,6 +75,12 @@ export class DocLibTreeProductMobModel {
       {
         name: 'root',
       },
+      {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
     ]
   }
 

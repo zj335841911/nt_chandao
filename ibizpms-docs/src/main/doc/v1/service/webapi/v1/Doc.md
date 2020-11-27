@@ -733,7 +733,8 @@ POST
 | 32 | recentaddcnt | Integer | 允许 | 最近添加数量 |
 | 33 | mydoccnt | Integer | 允许 | 我的文档数量 |
 | 34 | myfavouritecnt | Integer | 允许 | 我的收藏数量 |
-| 35 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 35 | doccnt | Integer | 允许 | 文档数 |
+| 36 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DocSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

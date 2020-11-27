@@ -726,22 +726,12 @@ export class DocLibTreeProductMobService extends TreeViewServiceBase {
      */
     public async fillDoclibNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充文档
-            let DocRsNavContext:any = {};
-            let DocRsNavParams:any = {};
-            let DocRsParams:any = {};
-			await this.fillDocNodes(context, filter, list ,DocRsNavContext,DocRsNavParams,DocRsParams);
 			// 填充文档分类跟模块
             let ModuleRsNavContext:any = {};
             let ModuleRsNavParams:any = {};
             let ModuleRsParams:any = {};
 			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
 		} else {
-			// 填充文档
-            let DocRsNavContext:any = {};
-            let DocRsNavParams:any = {};
-            let DocRsParams:any = {};
-			await this.fillDocNodes(context, filter, list ,DocRsNavContext,DocRsNavParams,DocRsParams);
 			// 填充文档分类跟模块
             let ModuleRsNavContext:any = {};
             let ModuleRsNavParams:any = {};
@@ -997,10 +987,6 @@ export class DocLibTreeProductMobService extends TreeViewServiceBase {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
-            if (Object.is(filter.strNodeType, this.TREENODE_DOCLIB)) {
-                Object.assign(searchFilter, { n_lib_eq: filter.nodeid });
-            }
-
             Object.assign(searchFilter, { total: false });
             Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
