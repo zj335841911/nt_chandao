@@ -32,6 +32,10 @@ export default {
 			caption: "文档库",
       		title: "文档库树视图",
 		},
+		undoneprojecttreeexpview: {
+			caption: "未完成项目",
+      		title: "文档库树导航视图",
+		},
 		treeview: {
 			caption: "文档库",
       		title: "文档库树视图",
@@ -228,13 +232,13 @@ export default {
 			tip: "创建文档",
 		},
 	},
-	undoneprojectgridviewtoolbar_toolbar: {
+	gridviewtoolbar_toolbar: {
 		deuiaction1_togglefilter: {
 			caption: "过滤",
 			tip: "过滤",
 		},
 	},
-	gridviewtoolbar_toolbar: {
+	undoneprojectgridviewtoolbar_toolbar: {
 		deuiaction1_togglefilter: {
 			caption: "过滤",
 			tip: "过滤",
@@ -376,6 +380,15 @@ export default {
 		nodes: {
 			root: "默认根节点",
 			allproject: "所有项目",
+			files: "附件库",
+		},
+		uiactions: {
+		},
+	},
+	undoneprojectdoclibtree_treeview: {
+		nodes: {
+			allundoneproject: "所有项目",
+			root: "默认根节点",
 			files: "附件库",
 		},
 		uiactions: {

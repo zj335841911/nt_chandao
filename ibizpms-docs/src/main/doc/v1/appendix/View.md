@@ -260,6 +260,7 @@
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|项目编辑视图（团队管理）|DEEDITVIEW|&nbsp;|
+|-|文档库树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|部门数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|计划|DEEDITVIEW|&nbsp;|
 |-|相关Bug|DEGRIDVIEW9|&nbsp;|

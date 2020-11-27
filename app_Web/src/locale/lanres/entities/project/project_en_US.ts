@@ -100,10 +100,6 @@ export default {
 			caption: "项目",
       		title: "项目",
 		},
-		moreundoneprojectgridview9: {
-			caption: "未完成项目",
-      		title: "项目表格视图",
-		},
 		mainmygridview: {
 			caption: "项目",
       		title: "项目",
@@ -651,8 +647,6 @@ export default {
 			caption: "取消置顶",
 			tip: "取消置顶",
 		},
-	},
-	moreundoneprojectgridview9toolbar_toolbar: {
 	},
 	moreundoneprogridviewtoolbar_toolbar: {
 		deuiaction1: {

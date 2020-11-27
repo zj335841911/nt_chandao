@@ -423,6 +423,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectMGEditView",
             "viewtag": "15859f5ecc4a3f3e02dac44d1de521af"
         },
+        "doclibundoneprojecttreeexpview": {
+            "title": "文档库树导航视图",
+            "caption": "未完成项目",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibUnDoneProjectTreeExpView",
+            "viewtag": "15ba586aa7dcfe6e62e768dd06f77415"
+        },
         "deptpickupview": {
             "title": "部门数据选择视图",
             "caption": "部门",
@@ -870,14 +878,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseGridView9_My",
             "viewtag": "326af0ddc7ead19a61f479dddf7b1e3a"
-        },
-        "projectmoreundoneprojectgridview9": {
-            "title": "项目表格视图",
-            "caption": "未完成项目",
-            "viewtype": "DEGRIDVIEW9",
-            "viewmodule": "zentao",
-            "viewname": "ProjectMoreUndoneProjectGridView9",
-            "viewtag": "33bc8b8e9d75db2fb1bf2723dbff55b0"
         },
         "casegridview9_storyaffect": {
             "title": "相关用例",
