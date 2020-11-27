@@ -71,6 +71,11 @@ export default class ForwardModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
+      },
+      {
         name: 'multiple',
         prop: 'multiple',
         dataType: 'TEXT',
@@ -84,11 +89,6 @@ export default class ForwardModel {
         name: 'comment',
         prop: 'comment',
         dataType: 'HTMLTEXT',
-      },
-      {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
       },
       {
         name: 'task',

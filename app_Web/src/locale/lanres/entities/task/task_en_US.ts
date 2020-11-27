@@ -553,10 +553,10 @@ export default {
 			project: "所属项目", 
 			assignedto: "转交给", 
 			left: "预计剩余", 
+			id: "编号", 
 			multiple: "多人任务", 
 			noticeusers: "消息通知用户", 
 			comment: "备注", 
-			id: "编号", 
 		},
 		uiactions: {
 		},
