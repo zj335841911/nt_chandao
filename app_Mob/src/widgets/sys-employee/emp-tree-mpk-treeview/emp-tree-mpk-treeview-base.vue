@@ -54,6 +54,8 @@
                 </ion-item>
             </template>
         </ion-radio-group>
+        <app-mob-context-menu :value="contextMenuShowStatus" @change="(val)=>{this.contextMenuShowStatus=val}">
+        </app-mob-context-menu>
     </div>
 </template>
 <script lang='ts'>
