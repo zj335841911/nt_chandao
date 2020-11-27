@@ -404,8 +404,8 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
                 let tempContext:any = Util.deepCopy(this.context);
                 tempContext[appEntityName] = node.srfkey;
                 let targetData = await service.Get(tempContext,{}, false);
-                let uiservice:any = await new UIService().getService(appEntityName);
-                let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
+                let uiservice:any = await this.globaluiservice.getService(appEntityName);
+                this.$viewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
                 return this.copyActionModel;
             }else{
                 console.warn("获取数据异常");

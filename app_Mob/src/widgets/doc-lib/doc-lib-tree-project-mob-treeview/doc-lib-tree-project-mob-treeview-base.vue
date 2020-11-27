@@ -57,76 +57,76 @@
          <div slot="content" >
             <div v-if="activeNode == 'ChildDocLibModule'">
                                     
-                        <div class="context-menu-item" name='deuiaction1'  @click="childdoclibmodule_cm_click({tag: 'deuiaction1'})">
+                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled"  @click="childdoclibmodule_cm_click({tag: 'deuiaction1'}),contextMenuShowStatus=false">
                                     <ion-icon name="star"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2'  @click="childdoclibmodule_cm_click({tag: 'deuiaction2'})">
+                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled"  @click="childdoclibmodule_cm_click({tag: 'deuiaction2'}),contextMenuShowStatus=false">
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
             </div>
             <div v-if="activeNode == 'DocLib'">
                                     
-                        <div class="context-menu-item" name='deuiaction1'  @click="doclib_cm_click({tag: 'deuiaction1'})">
+                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled"  @click="doclib_cm_click({tag: 'deuiaction1'}),contextMenuShowStatus=false">
                                     <ion-icon name="star"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2'  @click="doclib_cm_click({tag: 'deuiaction2'})">
+                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled"  @click="doclib_cm_click({tag: 'deuiaction2'}),contextMenuShowStatus=false">
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
             </div>
             <div v-if="activeNode == 'DocLibDoc'">
                                     
-                        <div class="context-menu-item" name='deuiaction1'  @click="doclibdoc_cm_click({tag: 'deuiaction1'})">
+                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled"  @click="doclibdoc_cm_click({tag: 'deuiaction1'}),contextMenuShowStatus=false">
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2'  @click="doclibdoc_cm_click({tag: 'deuiaction2'})">
+                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled"  @click="doclibdoc_cm_click({tag: 'deuiaction2'}),contextMenuShowStatus=false">
                                     <ion-icon name="star"></ion-icon>
                             
                         </div>
             </div>
             <div v-if="activeNode == 'RootDocLibModule'">
                                     
-                        <div class="context-menu-item" name='deuiaction1'  @click="rootdoclibmodule_cm_click({tag: 'deuiaction1'})">
+                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled"  @click="rootdoclibmodule_cm_click({tag: 'deuiaction1'}),contextMenuShowStatus=false">
                                     <ion-icon name="star"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2'  @click="rootdoclibmodule_cm_click({tag: 'deuiaction2'})">
+                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled"  @click="rootdoclibmodule_cm_click({tag: 'deuiaction2'}),contextMenuShowStatus=false">
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
             </div>
             <div v-if="activeNode == 'File'">
                                     
-                        <div class="context-menu-item" name='deuiaction1'  @click="file_cm_click({tag: 'deuiaction1'})">
+                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled"  @click="file_cm_click({tag: 'deuiaction1'}),contextMenuShowStatus=false">
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2'  @click="file_cm_click({tag: 'deuiaction2'})">
+                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled"  @click="file_cm_click({tag: 'deuiaction2'}),contextMenuShowStatus=false">
                                     <ion-icon name="download"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction3'  @click="file_cm_click({tag: 'deuiaction3'})">
+                        <div class="context-menu-item" name='deuiaction3' v-show="this.copyActionModel['deuiaction3'].visabled"  @click="file_cm_click({tag: 'deuiaction3'}),contextMenuShowStatus=false">
                                     <ion-icon name="remove"></ion-icon>
                             
                         </div>
             </div>
             <div v-if="activeNode == 'ModuleDoc'">
                                     
-                        <div class="context-menu-item" name='deuiaction1'  @click="moduledoc_cm_click({tag: 'deuiaction1'})">
+                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled"  @click="moduledoc_cm_click({tag: 'deuiaction1'}),contextMenuShowStatus=false">
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2'  @click="moduledoc_cm_click({tag: 'deuiaction2'})">
+                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled"  @click="moduledoc_cm_click({tag: 'deuiaction2'}),contextMenuShowStatus=false">
                                     <ion-icon name="star"></ion-icon>
                             
                         </div>
@@ -1010,8 +1010,8 @@ export default class DocLibTreeProjectMobBase extends Vue implements ControlInte
                 let tempContext:any = Util.deepCopy(this.context);
                 tempContext[appEntityName] = node.srfkey;
                 let targetData = await service.Get(tempContext,{}, false);
-                let uiservice:any = await new UIService().getService(appEntityName);
-                let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
+                let uiservice:any = await this.globaluiservice.getService(appEntityName);
+                this.$viewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
                 return this.copyActionModel;
             }else{
                 console.warn("获取数据异常");
