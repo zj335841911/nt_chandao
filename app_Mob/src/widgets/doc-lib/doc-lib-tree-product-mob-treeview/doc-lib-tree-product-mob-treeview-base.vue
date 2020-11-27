@@ -54,7 +54,7 @@
         <!-- 树视图 -->
         <app-pms-upload-list v-if="valueNodes.length>0  && isList" :isCurData="true" :isEnableDelete="false" :isEnableDownload="false" :items="valueNodes"></app-pms-upload-list>
         <app-mob-context-menu :value="contextMenuShowStatus" @change="(val)=>{this.contextMenuShowStatus=val}">
-
+            <template slot ="content" v-html="renderContextMenuDoc()"></template>
         </app-mob-context-menu>
     </div>
 </template>
@@ -1399,10 +1399,8 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      */
     public renderContextMenu(node: any) {
         let content;
-        if (node && node.data) {
-            const data: any = JSON.parse(JSON.stringify(node.data));
-            this.currentselectedNode = { ...data };
-            const tags: string[] = data.id.split(';');
+        if (node) {
+            const tags: string[] = node.id.split(';');
             if (tags[0] === "ChildDocLibModule") {
                 content = this.renderContextMenuChilddoclibmodule();
             }
@@ -1423,26 +1421,34 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     }
 
     /**
+     * 菜单显示状态
+     *
+     * @param {*} node
+     * @returns
+     * @memberof DocLibTreeProductMobBase
+     */
+    public contextMenuShowStatus = false;
+    
+
+    /**
      * 绘制ChildDocLibModule类型长按菜单
      *
      * @returns
      * @memberof DocLibTreeProductMobBase
      */
     public renderContextMenuChilddoclibmodule() {
-        return (
-            <template slot ="content">
-                            
-                    <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+        return (`
+            
+                    <div class="context-menu-item" name='deuiaction1' >
                                 <ion-icon name="star-outline"></ion-icon>
                         
                     </div>
-                        
-                    <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                    
+                    <div class="context-menu-item" name='deuiaction2' >
                                 <ion-icon name="star"></ion-icon>
                         
                     </div>
-            </template>
-        );
+        `);
     }
 
     /**
@@ -1452,20 +1458,18 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @memberof DocLibTreeProductMobBase
      */
     public renderContextMenuDoc() {
-        return (
-            <template slot ="content">
-                            
-                    <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+        return (`
+            
+                    <div class="context-menu-item" name='deuiaction1' >
                                 <ion-icon name="star-outline"></ion-icon>
                         
                     </div>
-                        
-                    <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                    
+                    <div class="context-menu-item" name='deuiaction2' >
                                 <ion-icon name="star"></ion-icon>
                         
                     </div>
-            </template>
-        );
+        `);
     }
 
     /**
@@ -1475,20 +1479,18 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @memberof DocLibTreeProductMobBase
      */
     public renderContextMenuDoclib() {
-        return (
-            <template slot ="content">
-                            
-                    <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+        return (`
+            
+                    <div class="context-menu-item" name='deuiaction1' >
                                 <ion-icon name="star"></ion-icon>
                         
                     </div>
-                        
-                    <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                    
+                    <div class="context-menu-item" name='deuiaction2' >
                                 <ion-icon name="star-outline"></ion-icon>
                         
                     </div>
-            </template>
-        );
+        `);
     }
 
     /**
@@ -1498,20 +1500,18 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @memberof DocLibTreeProductMobBase
      */
     public renderContextMenuModule() {
-        return (
-            <template slot ="content">
-                            
-                    <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+        return (`
+            
+                    <div class="context-menu-item" name='deuiaction1' >
                                 <ion-icon name="star"></ion-icon>
                         
                     </div>
-                        
-                    <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                    
+                    <div class="context-menu-item" name='deuiaction2' >
                                 <ion-icon name="star-outline"></ion-icon>
                         
                     </div>
-            </template>
-        );
+        `);
     }
 
     /**
@@ -1521,24 +1521,22 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @memberof DocLibTreeProductMobBase
      */
     public renderContextMenuFile() {
-        return (
-            <template slot ="content">
-                            
-                    <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+        return (`
+            
+                    <div class="context-menu-item" name='deuiaction1' >
                         
                     </div>
-                        
-                    <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                    
+                    <div class="context-menu-item" name='deuiaction2' >
                                 <ion-icon name="download"></ion-icon>
                         
                     </div>
-                        
-                    <div class="context-menu-item" name='deuiaction3' v-show="this.copyActionModel['deuiaction3'].visabled" disabled="this.copyActionModel['deuiaction3'].disabled">
+                    
+                    <div class="context-menu-item" name='deuiaction3' >
                                 <ion-icon name="remove"></ion-icon>
                         
                     </div>
-            </template>
-        );
+        `);
     }
 
     /**

@@ -575,6 +575,21 @@ export class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * FetchUnDoneProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async FetchUnDoneProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projects/fetchundoneproject`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * ReturnEdit接口方法
      *
      * @param {*} [context={}]

@@ -55,7 +55,7 @@
             </template>
         </ion-radio-group>
         <app-mob-context-menu :value="contextMenuShowStatus" @change="(val)=>{this.contextMenuShowStatus=val}">
-
+            <template slot ="content" v-html="renderContextMenuDoc()"></template>
         </app-mob-context-menu>
     </div>
 </template>
@@ -951,13 +951,21 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
      */
     public renderContextMenu(node: any) {
         let content;
-        if (node && node.data) {
-            const data: any = JSON.parse(JSON.stringify(node.data));
-            this.currentselectedNode = { ...data };
-            const tags: string[] = data.id.split(';');
+        if (node) {
+            const tags: string[] = node.id.split(';');
         }
         return content;
     }
+
+    /**
+     * 菜单显示状态
+     *
+     * @param {*} node
+     * @returns
+     * @memberof EmpTreeMpkBase
+     */
+    public contextMenuShowStatus = false;
+    
 
     /**
      * 设置选中高亮
