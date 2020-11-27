@@ -333,6 +333,15 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 树节点上下文菜单集合
+     *
+     * @type {string[]}
+     * @memberof EmpTreeBase
+     */
+     public actionModel: any = {
+    }
+
+    /**
      * 导航点击行为
      *
      * @param {*} newVal

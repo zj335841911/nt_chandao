@@ -624,6 +624,7 @@ SRFNAVPARAM.project=%project%|
 |-|用户年度工作内容统计数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|任务模块树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|产品数据看板视图|DEPORTALVIEW|&nbsp;|
+|-|文档树视图|DETREEVIEW|&nbsp;|
 |-|用户选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|按照计划关联|DEOPTVIEW|&nbsp;|
 |-|模块选择|DEPICKUPGRIDVIEW|&nbsp;|
