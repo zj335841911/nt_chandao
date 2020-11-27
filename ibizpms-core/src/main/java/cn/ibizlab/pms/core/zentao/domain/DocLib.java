@@ -196,6 +196,21 @@ public class DocLib extends EntityMP implements Serializable {
     @JSONField(name = "root")
     @JsonProperty("root")
     private String root;
+    /**
+     * 文件夹数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulecnt")
+    @JsonProperty("modulecnt")
+    private Integer modulecnt;
+    /**
+     * 创建时间
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("openeddate")
+    private Timestamp openeddate;
 
     /**
      * 

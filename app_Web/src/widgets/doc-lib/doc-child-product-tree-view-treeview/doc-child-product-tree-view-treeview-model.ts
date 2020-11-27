@@ -75,6 +75,12 @@ export default class DocChildProductTreeViewModel {
       {
         name: 'root',
       },
+      {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
     ]
   }
 

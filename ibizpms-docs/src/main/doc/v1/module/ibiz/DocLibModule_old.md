@@ -32,6 +32,7 @@ hide members
 |上级模块|MODULENAME|PICKUPTEXT|&nbsp;|
 |查询类型|DOCQTYPE|TEXT|&nbsp;|
 |是否已收藏|ISFAVOURITES|TEXT|&nbsp;|
+|文档数|DOCCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -54,6 +55,7 @@ hide members
 |上级模块|默认规则|内容长度必须小于等于[60]|
 |查询类型|默认规则|内容长度必须小于等于[100]|
 |是否已收藏|默认规则|内容长度必须小于等于[200]|
+|文档数|默认规则|默认规则|
 
 ## 状态控制
 

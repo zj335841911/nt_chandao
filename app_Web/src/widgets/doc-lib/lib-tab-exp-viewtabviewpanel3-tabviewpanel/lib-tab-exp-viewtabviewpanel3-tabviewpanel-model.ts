@@ -75,6 +75,12 @@ export default class LibTabExpViewtabviewpanel3Model {
       {
         name: 'root',
       },
+      {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
     ]
   }
 

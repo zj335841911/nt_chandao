@@ -571,7 +571,9 @@ POST
 | 18 | orgid | String | 允许 | 组织标识 |
 | 19 | mdeptid | String | 允许 | 部门标识 |
 | 20 | root | String | 允许 | Root |
-| 21 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 21 | modulecnt | Integer | 允许 | 文件夹数 |
+| 22 | openeddate | Timestamp | 允许 | 创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DocLibSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

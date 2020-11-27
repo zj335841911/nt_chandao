@@ -662,7 +662,8 @@ POST
 | 16 | modulename | String | 允许 | 上级模块 |
 | 17 | docqtype | String | 允许 | 查询类型 |
 | 18 | isfavourites | String | 允许 | 是否已收藏 |
-| 19 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 19 | doccnt | Integer | 允许 | 文档数 |
+| 20 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DocLibModuleSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

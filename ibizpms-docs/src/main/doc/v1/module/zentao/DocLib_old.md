@@ -35,6 +35,8 @@ hide members
 |组织标识|ORGID|TEXT|&nbsp;|
 |部门标识|MDEPTID|TEXT|&nbsp;|
 |Root|ROOT|TEXT|&nbsp;|
+|文件夹数|MODULECNT|INT|&nbsp;|
+|创建时间|OPENEDDATE|DATETIME|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -59,6 +61,8 @@ hide members
 |组织标识|默认规则|内容长度必须小于等于[100]|
 |部门标识|默认规则|内容长度必须小于等于[100]|
 |Root|默认规则|内容长度必须小于等于[100]|
+|文件夹数|默认规则|默认规则|
+|创建时间|默认规则|默认规则|
 
 ## 状态控制
 

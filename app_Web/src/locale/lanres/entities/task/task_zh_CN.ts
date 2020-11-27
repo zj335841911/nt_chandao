@@ -869,8 +869,8 @@ export default {
 			projectname: "所属项目",
     },
 		uiactions: {
-			task_confirmstorychange: "确认",
 			task_tasktobug: "提缺陷",
+			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
 			task_closetask: "关闭",
@@ -924,8 +924,8 @@ export default {
 		},
 		uiactions: {
 			task_assigntask: "指派",
-			task_confirmstorychange: "确认",
 			task_tasktobug: "提缺陷",
+			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
 			task_closetask: "关闭",
@@ -956,8 +956,8 @@ export default {
 		},
 		uiactions: {
 			task_assigntask: "指派",
-			task_confirmstorychange: "确认",
 			task_tasktobug: "提缺陷",
+			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
 			task_closetask: "关闭",
@@ -987,8 +987,8 @@ export default {
 		},
 		uiactions: {
 			task_assigntask: "指派",
-			task_confirmstorychange: "确认",
 			task_tasktobug: "提缺陷",
+			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
 			task_closetask: "关闭",
@@ -1018,8 +1018,8 @@ export default {
 		},
 		uiactions: {
 			task_assigntask: "指派",
-			task_confirmstorychange: "确认",
 			task_tasktobug: "提缺陷",
+			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
 			task_closetask: "关闭",
@@ -1049,8 +1049,8 @@ export default {
 		},
 		uiactions: {
 			task_assigntask: "指派",
-			task_confirmstorychange: "确认",
 			task_tasktobug: "提缺陷",
+			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
 			task_closetask: "关闭",
@@ -1110,8 +1110,8 @@ export default {
     },
 		uiactions: {
 			task_assigntask: "指派",
-			task_confirmstorychange: "确认",
 			task_tasktobug: "提缺陷",
+			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
 			task_closetask: "关闭",
@@ -1190,8 +1190,8 @@ export default {
     },
 		uiactions: {
 			task_assigntask: "指派",
-			task_confirmstorychange: "确认",
 			task_tasktobug: "提缺陷",
+			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
 			task_closetask: "关闭",

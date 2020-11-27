@@ -109,6 +109,7 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
         title: null,
         severity: null,
         pri: null,
+        color: null,
         steps: null,
         mailtopk: null,
         storyname: null,
@@ -377,6 +378,13 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         steps: new FormItemModel({
     caption: '重现步骤', detailType: 'FORMITEM', name: 'steps', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -499,6 +507,7 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
+
 
 
 

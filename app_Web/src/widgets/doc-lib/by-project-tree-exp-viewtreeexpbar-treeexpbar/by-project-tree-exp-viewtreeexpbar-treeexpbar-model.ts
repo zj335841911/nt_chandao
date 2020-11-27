@@ -75,6 +75,12 @@ export default class ByProjectTreeExpViewtreeexpbarModel {
       {
         name: 'root',
       },
+      {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
     ]
   }
 

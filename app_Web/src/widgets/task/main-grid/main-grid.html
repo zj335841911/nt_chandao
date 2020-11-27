@@ -244,13 +244,13 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <a v-show="scope.row.confirmStoryChange.visible" :disabled="scope.row.confirmStoryChange.disabled" @click="uiAction(scope.row, 'confirmStoryChange', $event)" :title="$t('entities.task.main_grid.uiactions.task_confirmstorychange')">
-                                <i class="fa fa-search"></i>
-                                
-                            </a>
-                            <divider v-show="scope.row.TaskToBug.visible" type="vertical"></divider>
                             <a v-show="scope.row.TaskToBug.visible" :disabled="scope.row.TaskToBug.disabled" @click="uiAction(scope.row, 'TaskToBug', $event)" :title="$t('entities.task.main_grid.uiactions.task_tasktobug')">
                                 <i class="fa fa-bug"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.confirmStoryChange.visible" type="vertical"></divider>
+                            <a v-show="scope.row.confirmStoryChange.visible" :disabled="scope.row.confirmStoryChange.disabled" @click="uiAction(scope.row, 'confirmStoryChange', $event)" :title="$t('entities.task.main_grid.uiactions.task_confirmstorychange')">
+                                <i class="fa fa-search"></i>
                                 
                             </a>
                             <divider v-show="scope.row.MStartTaskDash1.visible" type="vertical"></divider>

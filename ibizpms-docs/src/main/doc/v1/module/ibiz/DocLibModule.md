@@ -39,6 +39,7 @@
 | 16 | [上级模块](#属性-上级模块（MODULENAME）) | MODULENAME | 外键值文本 | 否 | 是 | 是 |
 | 17 | [查询类型](#属性-查询类型（DOCQTYPE）) | DOCQTYPE | 文本，可指定长度 | 否 | 是 | 是 |
 | 18 | [是否已收藏](#属性-是否已收藏（ISFAVOURITES）) | ISFAVOURITES | 文本，可指定长度 | 否 | 是 | 是 |
+| 19 | [文档数](#属性-文档数（DOCCNT）) | DOCCNT | 整型 | 否 | 是 | 是 |
 
 ### 属性-叶子模块（ISLEAF）
 #### 属性说明
@@ -821,6 +822,49 @@ String
 | 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-文档数（DOCCNT）
+#### 属性说明
+文档数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id)
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [查询类型](#属性-查询类型（DOCQTYPE）)<br>（DOCQTYPE） | [是否已收藏](#属性-是否已收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 默认 |
@@ -1299,6 +1343,7 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 SELECT
 t1.`BRANCH`,
 t1.`DELETED`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) AS `DOCCNT`,
 t11.`NAME` AS `DOCLIBNAME`,
 t1.`GRADE`,
 t1.`ID`,
@@ -1452,7 +1497,8 @@ t1.`ROOT`,
 t1.`SHORT`,
 'module'  as `TYPE`,
 'module' AS `DOCQTYPE`,
-( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) as doccnt
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -1548,6 +1594,7 @@ SELECT
 t1.`BRANCH`,
 t1.`COLLECTOR`,
 t1.`DELETED`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) AS `DOCCNT`,
 t11.`NAME` AS `DOCLIBNAME`,
 t1.`GRADE`,
 t1.`ID`,

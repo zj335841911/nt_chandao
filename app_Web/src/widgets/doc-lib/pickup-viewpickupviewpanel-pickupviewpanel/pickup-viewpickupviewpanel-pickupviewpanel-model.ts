@@ -75,6 +75,12 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'root',
       },
+      {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
     ]
   }
 

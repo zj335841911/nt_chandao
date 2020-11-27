@@ -75,6 +75,12 @@ export default class DocLibTreeProjectModel {
       {
         name: 'root',
       },
+      {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
     ]
   }
 

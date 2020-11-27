@@ -6014,6 +6014,34 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"MODULECNT" ,
+    "codename":"Modulecnt",
+    "field_logic_name":"文件夹数",
+    "entity_name":"DocLib",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id)",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"OPENEDDATE" ,
+    "codename":"OpenedDate",
+    "field_logic_name":"创建时间",
+    "entity_name":"DocLib",
+    "field_type":"DATETIME",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"DATETIME",
+    "expression":"(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created')",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -6321,6 +6349,20 @@
     "data_type":"VARCHAR",
     "data_length":200,
     "expression":"( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END )",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"DOCCNT" ,
+    "codename":"Doccnt",
+    "field_logic_name":"文档数",
+    "entity_name":"DocLibModule",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id)",
     "key_field":0,
     "show_order":1000,
     "major_field":0
