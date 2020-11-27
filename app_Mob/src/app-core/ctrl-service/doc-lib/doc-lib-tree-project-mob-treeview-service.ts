@@ -562,7 +562,7 @@ export class DocLibTreeProjectMobService extends TreeViewServiceBase {
             let searchFilter: any = {};
 
             if (Object.is(filter.strNodeType, this.TREENODE_FILES)) {
-                Object.assign(searchFilter, { n_product_eq: filter.nodeid });
+                Object.assign(searchFilter, { n_project_eq: filter.nodeid });
             }
 
             Object.assign(searchFilter, { total: false });
@@ -641,13 +641,13 @@ export class DocLibTreeProjectMobService extends TreeViewServiceBase {
             }
             const _appEntityService: any = this.fileService;
             let list: any[] = [];
-            if (_appEntityService['FetchProductDocLibFile'] && _appEntityService['FetchProductDocLibFile'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchProductDocLibFile'](context, searchFilter, false);
+            if (_appEntityService['FetchDocLibFile'] && _appEntityService['FetchDocLibFile'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchDocLibFile'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchProductDocLibFile数据集异常!');
+                        console.error('查询FetchDocLibFile数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -659,7 +659,7 @@ export class DocLibTreeProjectMobService extends TreeViewServiceBase {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchProductDocLibFile数据集异常!');
+                        console.error('查询FetchDocLibFile数据集异常!');
                 });
             }
         })
