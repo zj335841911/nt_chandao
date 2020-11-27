@@ -6,6 +6,7 @@ import view_tabviewpanel4 from '@widgets/project/mob-tab-exp-viewtabviewpanel4-t
 import view_tabviewpanel5 from '@widgets/project/mob-tab-exp-viewtabviewpanel5-tabviewpanel/mob-tab-exp-viewtabviewpanel5-tabviewpanel.vue';
 import view_tabviewpanel6 from '@widgets/project/mob-tab-exp-viewtabviewpanel6-tabviewpanel/mob-tab-exp-viewtabviewpanel6-tabviewpanel.vue';
 import view_tabviewpanel3 from '@widgets/project/mob-tab-exp-viewtabviewpanel3-tabviewpanel/mob-tab-exp-viewtabviewpanel3-tabviewpanel.vue';
+import view_tabviewpanel7 from '@widgets/project/mob-tab-exp-viewtabviewpanel7-tabviewpanel/mob-tab-exp-viewtabviewpanel7-tabviewpanel.vue';
 
  
 @Component({
@@ -15,6 +16,7 @@ import view_tabviewpanel3 from '@widgets/project/mob-tab-exp-viewtabviewpanel3-t
         view_tabviewpanel5, 
         view_tabviewpanel6, 
         view_tabviewpanel3, 
+        view_tabviewpanel7, 
          
     }
 })
