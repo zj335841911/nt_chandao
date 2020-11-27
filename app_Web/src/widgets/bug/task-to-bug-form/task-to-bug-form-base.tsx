@@ -140,6 +140,20 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
+            projectname: [
+                {
+                    required: this.detailsModel.projectname.required,
+                    type: 'string',
+                    message: '项目 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.projectname.required,
+                    type: 'string',
+                    message: '项目 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
             openedbuild: [
                 {
                     required: this.detailsModel.openedbuild.required,
@@ -288,7 +302,7 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
 
         projectname: new FormItemModel({
     caption: '项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
@@ -537,7 +551,7 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
      */
     public createDefault() {                    
         if (this.data.hasOwnProperty('branch')) {
-            this.data['branch'] = this.viewparams['branch'];
+            this.data['branch'] = this.viewparams['branchname'];
         }
         if (this.data.hasOwnProperty('product')) {
             this.data['product'] = this.viewparams['product'];
@@ -567,7 +581,7 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
             this.data['steps'] = this.viewparams['precondition'];
         }
         if (this.data.hasOwnProperty('storyname')) {
-            this.data['storyname'] = this.viewparams['story'];
+            this.data['storyname'] = this.viewparams['storyname'];
         }
         if (this.data.hasOwnProperty('taskname')) {
             this.data['taskname'] = this.viewparams['taskname'];

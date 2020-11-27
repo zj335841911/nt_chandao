@@ -74,11 +74,15 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
 	 * @memberof BugTaskToBugEditViewBase
 	 */
     protected customViewNavContexts: any = {
+        'BRANCHNAME': {
+            isRawValue: false,
+            value: 'branch',
+        },
         'ASSIGNEDTO': {
             isRawValue: false,
             value: 'assignedto',
         },
-        'STORY': {
+        'STORYNAME': {
             isRawValue: false,
             value: 'story',
         },
@@ -97,10 +101,6 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
         'PROJECTNAME': {
             isRawValue: false,
             value: 'projectname',
-        },
-        'BRANCH': {
-            isRawValue: false,
-            value: 'branch',
         },
         'TITLE': {
             isRawValue: false,
@@ -124,10 +124,6 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
             isRawValue: false,
             value: 'assignedto',
         },
-        'story': {
-            isRawValue: false,
-            value: 'story',
-        },
         'module': {
             isRawValue: false,
             value: 'module',
@@ -136,13 +132,17 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
             isRawValue: false,
             value: 'title',
         },
-        'branch': {
-            isRawValue: false,
-            value: 'branch',
-        },
         'projectname': {
             isRawValue: false,
             value: 'projectname',
+        },
+        'storyname': {
+            isRawValue: false,
+            value: 'story',
+        },
+        'branchname': {
+            isRawValue: false,
+            value: 'branch',
         },
         'taskname': {
             isRawValue: false,
