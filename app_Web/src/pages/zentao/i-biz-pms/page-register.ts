@@ -288,7 +288,6 @@ export const PageComponents = {
         Vue.component('task-pivot-table-view', () => import('@pages/zentao/task-pivot-table-view/task-pivot-table-view.vue'));
         Vue.component('test-task-my-dgrid-view', () => import('@pages/zentao/test-task-my-dgrid-view/test-task-my-dgrid-view.vue'));
         Vue.component('release-edit-view', () => import('@pages/zentao/release-edit-view/release-edit-view.vue'));
-        Vue.component('doc-more-recent-update-tree-view', () => import('@pages/zentao/doc-more-recent-update-tree-view/doc-more-recent-update-tree-view.vue'));
         Vue.component('product-main-tab-exp-view', () => import('@pages/zentao/product-main-tab-exp-view/product-main-tab-exp-view.vue'));
         Vue.component('task-calendar-edit-view', () => import('@pages/zentao/task-calendar-edit-view/task-calendar-edit-view.vue'));
         Vue.component('test-result-medit-view9', () => import('@pages/zentao/test-result-medit-view9/test-result-medit-view9.vue'));
