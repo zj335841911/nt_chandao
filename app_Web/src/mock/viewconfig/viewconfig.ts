@@ -1591,6 +1591,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DocLibGridView",
             "viewtag": "599bad7e939d0de2523f0fcf4444f8c7"
         },
+        "bugstorytobugeditview": {
+            "title": "Bug",
+            "caption": "Bug",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugStoryTOBugEditView",
+            "viewtag": "5a62e423ec79ab9e8e3f26802cc5e68c"
+        },
         "projectpickupview": {
             "title": "项目数据选择视图",
             "caption": "项目",

@@ -1979,6 +1979,16 @@
         "viewtag": "599bad7e939d0de2523f0fcf4444f8c7",
         "memo": ""
     },
+    "bugstorytobugeditview": {
+        "title": "Bug",
+        "caption": "Bug",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugStoryTOBugEditView",
+        "viewfilename": "bug-story-tobug-edit-view",
+        "viewtag": "5a62e423ec79ab9e8e3f26802cc5e68c",
+        "memo": "临时充当主信息展示页面"
+    },
     "projectpickupview": {
         "title": "项目数据选择视图",
         "caption": "项目",

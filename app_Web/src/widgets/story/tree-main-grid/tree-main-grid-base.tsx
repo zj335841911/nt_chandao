@@ -102,6 +102,34 @@ export class TreeMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_u818e62a_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_StoryToBug(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_u7b97712_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -355,6 +383,7 @@ export class TreeMainGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         AssignTo: { name: 'AssignTo',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_ASS_BUT', target: 'SINGLEKEY'},
+        StoryToBug: { name: 'StoryToBug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CREATE_BUT', target: 'SINGLEKEY'},
         ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', target: 'SINGLEKEY'},
         ReviewStory: { name: 'ReviewStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', target: 'SINGLEKEY'},
         CloseStory: { name: 'CloseStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', target: 'SINGLEKEY'},
@@ -731,6 +760,9 @@ export class TreeMainGridBase extends GridControlBase {
         $event.stopPropagation();
         if(Object.is('AssignTo', tag)) {
             this.grid_assignedto_click(row, tag, $event);
+        }
+        if(Object.is('StoryToBug', tag)) {
+            this.grid_uagridcolumn1_u818e62a_click(row, tag, $event);
         }
         if(Object.is('ChangeStoryDetail', tag)) {
             this.grid_uagridcolumn1_u7b97712_click(row, tag, $event);

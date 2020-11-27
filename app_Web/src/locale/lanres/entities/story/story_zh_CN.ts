@@ -859,6 +859,7 @@ export default {
 			color: "标题颜色",
     },
 		uiactions: {
+			story_storytobug: "提缺陷",
 			story_changestorydetail: "变更",
 			story_reviewstory: "评审",
 			story_closestory: "关闭",
@@ -1045,6 +1046,7 @@ export default {
     },
 		uiactions: {
 			story_assignto: "指派",
+			story_storytobug: "提缺陷",
 			story_changestorydetail: "变更",
 			story_reviewstory: "评审",
 			story_closestory: "关闭",
@@ -1175,6 +1177,7 @@ export default {
 			color: "标题颜色",
     },
 		uiactions: {
+			story_storytobug: "提缺陷",
 			story_changestorydetail: "变更",
 			story_reviewstory: "评审",
 			story_closestory: "关闭",
@@ -1218,6 +1221,7 @@ export default {
     },
 		uiactions: {
 			story_assignto: "指派",
+			story_storytobug: "提缺陷",
 			story_changestorydetail: "变更",
 			story_reviewstory: "评审",
 			story_closestory: "关闭",
@@ -1253,6 +1257,7 @@ export default {
 			color: "标题颜色",
     },
 		uiactions: {
+			story_storytobug: "提缺陷",
 			story_changestorydetail: "变更",
 			story_reviewstory: "评审",
 			story_closestory: "关闭",
