@@ -518,7 +518,7 @@ String
 
 - 取值范围/公式
 ```SQL
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k')
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end)
 ```
 
 - 数据格式
@@ -734,7 +734,7 @@ t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
 t1.`SIZE`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') AS `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) AS `STRSIZE`,
 t1.`TITLE`
 FROM `zt_file` t1 
 
@@ -763,7 +763,7 @@ t1.`ID`,
 t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') as `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) as `STRSIZE`,
 t1.size,
 CONCAT_WS('',t1.`TITLE`,' [',UPPER(t1.objectType),' #',t1.objectID,']') AS `TITLE`,
 'file' as doclibtype
@@ -793,7 +793,7 @@ t1.`ID`,
 t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') as `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) as `STRSIZE`,
 t1.size,
 CONCAT_WS('',t1.`TITLE`,' [',UPPER(t1.objectType),' #',t1.objectID,']') AS `TITLE`,
 'file' as doclibtype
@@ -824,7 +824,7 @@ t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
 t1.`SIZE`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') AS `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) AS `STRSIZE`,
 t1.`TITLE`
 FROM `zt_file` t1 
 
@@ -854,7 +854,7 @@ t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
 t1.`SIZE`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') AS `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) AS `STRSIZE`,
 t1.`TITLE`
 FROM `zt_file` t1 
 

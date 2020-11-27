@@ -685,7 +685,7 @@ export default class DocUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'myfavouritegridview', parameterName: 'myfavouritegridview' },
+            { pathName: 'moremyfavouritestreeview', parameterName: 'moremyfavouritestreeview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);

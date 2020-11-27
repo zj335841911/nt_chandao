@@ -315,7 +315,7 @@ export default {
 		uiactions: {
 		},
 	},
-	moremyfavourite_grid: {
+	morerecentupdate_grid: {
 		nodata: "",
 		columns: {
 			id: "文档编号",
@@ -334,7 +334,7 @@ export default {
 			doc_uncollect: "取消收藏",
 		},
 	},
-	morerecentupdate_grid: {
+	moremyfavourite_grid: {
 		nodata: "",
 		columns: {
 			id: "文档编号",
@@ -379,12 +379,6 @@ export default {
 			tip: "过滤",
 		},
 	},
-	myfavouritegridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-	},
 	recentmoregridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "过滤",
@@ -392,6 +386,12 @@ export default {
 		},
 	},
 	mymoregridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
+	myfavouritegridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "过滤",
 			tip: "过滤",
@@ -445,10 +445,23 @@ export default {
 			doc_onlyuncollectdoc: "取消收藏",
 		},
 	},
-	tree_treeview: {
+	moremyfavouritestree_treeview: {
 		nodes: {
+			allfavourites: "所有收藏",
+			root: "默认根节点",
 		},
 		uiactions: {
+			doc_edit: "编辑",
+			doc_delete: "删除",
+			doc_onlycollectdoc: "收藏",
+			doc_onlyuncollectdoc: "取消收藏",
+			doclib_editcustomdoclib: "编辑",
+			refreshall: "刷新",
+			doclib_weihufenlei: "维护分类",
+			doclibmodule_edit: "编辑",
+			doclibmodule_weihufenlei: "维护分类",
+			doclibmodule_favorite: "收藏",
+			doclibmodule_nfavorite: "取消收藏",
 		},
 	},
 };
