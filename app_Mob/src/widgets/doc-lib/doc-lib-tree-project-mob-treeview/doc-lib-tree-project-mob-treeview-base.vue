@@ -1,59 +1,58 @@
 <template>
     <div class="app-mob-treeview doclib-tree ">
-        <div class="treeNav">
+     <div class="tree_hearder">
+            <div class="treeNav">
             <template v-for="(item,index) in treeNav">
             <ion-label  :key="item.id" class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated" :class="index+1 < treeNav.length? 'treeNav-active':'' " @click="nav_click(item)">{{item.text}}</ion-label>
             <span class="tree-span" :key="item.id+'span'" v-if="index+1 < treeNav.length">></span>
             </template>
         </div>
+        <div class="list_style">
+            <ion-icon :class="{active:!isList}" class="ios hydrated" name="apps"  @click="()=>{this.isList = false}"></ion-icon>
+            <ion-icon :class="{active:isList}" class="ios hydrated" name="reorder-four" @click="()=>{this.isList = true}"></ion-icon>
+        </div>
+
+        </div>
         <div class="tree-partition" v-if="valueNodes.length > 0" ></div>
         <ion-list>
-        <template v-for="(item ,index) in rootNodes">
-            <ion-item  :key="index" @click="click_node(item)">
+        <template  v-if="isList" >
+            <ion-item  v-for="(item ,index) in rootNodes" :key="index" @click="click_node(item)">
+                <ion-icon class="file_icon" name="folder"></ion-icon>
                 <ion-label>{{item.text}}</ion-label>
                 <ion-icon class="tree-icon" slot="end" name="chevron-forward-outline"></ion-icon>
             </ion-item>
         </template>
+        <template v-else>
+            <ion-row class="file_grid" >
+                <ion-col :size="3" v-for="(item ,index) in rootNodes" :key="index"  >
+                    <div class="node_item" @click="click_node(item)">
+                        <ion-icon class="file_icon_grid" name="folder"></ion-icon>
+                        <div class="text">{{item.text}}</div>
+                    </div>
+                </ion-col>
+                <ion-col  :size="3" v-for="(item ) in valueNodes" :key="item.id" >
+                    <div class="node_item">
+                        <ion-icon class="file_icon_node_grid doc" v-if="getFileType(item) == 'doc' || getFileType(item) == 'docx'" name="file-word-o"></ion-icon> 
+                        <ion-icon class="file_icon_node_grid txt" v-else-if="getFileType(item)== 'txt'" name="file-text-o"></ion-icon> 
+                        <ion-icon class="file_icon_node_grid pdf" v-else-if="getFileType(item) == 'pdf'" name="file-pdf-o"></ion-icon> 
+                        <ion-icon class="file_icon_node_grid zip" v-else-if="getFileType(item) == 'zip'" name="file-archive-o"></ion-icon> 
+                        <ion-icon class="file_icon_node_grid rar" v-else-if="getFileType(item) == 'rar'" name="file-archive-o"></ion-icon> 
+                        <ion-icon class="file_icon_node_grid xls" v-else-if="getFileType(item) == 'xls' || getFileType(item) == 'xlsx'" name="file-excel-o"></ion-icon> 
+                        <ion-icon class="file_icon_node_grid ppt" v-else-if="getFileType(item) == 'pptx' || getFileType(item) == 'ppt'" name="file-powerpoint-o"></ion-icon> 
+                        <ion-icon class="file_icon_node_grid mp4" v-else-if="getFileType(item) == 'mp4'" name="file-video-o"></ion-icon> 
+                        <div class="img_content" v-else-if="isImages(item)">
+                            <img @click.stop="openImages(getImage(item))"  :attempt="1"  v-lazy="getImage(item)" alt="">
+                        </div>
+                        <ion-icon class="file_icon_node_grid txt" v-else name="file-o"></ion-icon> 
+                        <div class="text">{{item.text}}</div>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </template>
        </ion-list>
-        <div class="tree-partition tree-partition-bigger" v-if="rootNodes.length > 0"></div>
+        <div class="tree-partition tree-partition-bigger" v-if="rootNodes.length > 0 && isList"></div>
         <!-- 树视图 -->
-        <ion-list v-if="viewType == 'DEMOBTREEVIEW'">
-        <template v-for="item in valueNodes">
-            <ion-item :key="item.srfkey">
-                <ion-label>{{item.text}}</ion-label>
-            </ion-item>
-        </template>
-       </ion-list>
-       <!-- 树多选 -->
-        <ion-list v-else-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect">
-        <template v-for="item in valueNodes">
-            <ion-item :key="item.srfkey">
-                <ion-checkbox color="secondary" v-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect" :ref="item.srfkey+'checkbox'"  :checked="item.selected" :value="item.srfkey" slot="end" @ionChange="onChecked"></ion-checkbox>
-                <ion-label class="tree_item_label">
-                    <template v-if="item.strIcon != 'default_text'">
-                        <img class="tree_item_img" v-if="item.strIcon" :src="item.strIcon" />
-                        <div v-else class="tree_item_index_text">{{item.text.substring(0,1)}}</div>
-                    </template>
-                    {{item.text}}
-                </ion-label>
-            </ion-item>
-        </template>
-       </ion-list>
-       <!-- 树单选 -->
-        <ion-radio-group v-else-if="viewType == 'DEMOBPICKUPTREEVIEW' && isSingleSelect" :value="selectedValue" >
-            <template v-for="item in valueNodes">
-                <ion-item  :key="item.srfkey"   @click="onSimpleSelChange(item)">
-                    <ion-label class="tree_item_label">
-                        <template v-if="item.strIcon != 'default_text'">
-                            <img class="tree_item_img" v-if="item.strIcon" :src="item.strIcon" />
-                            <div v-else class="tree_item_index_text">{{item.text.substring(0,1)}}</div>
-                        </template>
-                        {{item.text}}
-                    </ion-label>
-                    <ion-radio slot="end" :checked="item.selected" :value="item.srfkey"></ion-radio>
-                </ion-item>
-            </template>
-        </ion-radio-group>
+        <app-pms-upload-list v-if="valueNodes.length>0  && isList" :isCurData="true" :isEnableDelete="false" :isEnableDownload="false" :items="valueNodes"></app-pms-upload-list>
         <app-mob-context-menu :value="contextMenuShowStatus" @change="(val)=>{this.contextMenuShowStatus=val}">
          <div slot="content" >
             <div v-if="activeNode == 'ChildDocLibModule'">
