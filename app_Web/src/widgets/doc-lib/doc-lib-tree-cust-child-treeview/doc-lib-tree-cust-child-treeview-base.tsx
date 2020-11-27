@@ -7,6 +7,7 @@ import DocLibTreeCustChildService from './doc-lib-tree-cust-child-treeview-servi
 import DocLibModuleUIService from '@/uiservice/doc-lib-module/doc-lib-module-ui-service';
 import DocUIService from '@/uiservice/doc/doc-ui-service';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
+import { Environment } from '@/environments/environment';
 
 /**
  * tree部件基类
@@ -501,6 +502,14 @@ export class DocLibTreeCustChildTreeBase extends MainControlBase {
     public curPageItems: any[] = [];
 
     /**
+     * 图片加载路径
+     *
+     * @type {string}
+     * @memberof DocLibTreeCustChildBase
+     */
+    public downloadUrl = Environment.BaseUrl + Environment.ExportFile;
+
+    /**
      * 树节点上下文菜单集合
      *
      * @type {string[]}
@@ -800,19 +809,13 @@ export class DocLibTreeCustChildTreeBase extends MainControlBase {
         if(Object.is(nodeType,"STATIC")){
             return this.copyActionModel;
         }
-        let service:any = await this.appEntityService.getService(appEntityName);
         if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
-            if(service['Get'] && service['Get'] instanceof Function){
-                let tempContext:any = this.$util.deepCopy(this.context);
-                tempContext[appEntityName] = node.srfkey;
-                let targetData = await service.Get(tempContext,{}, false);
-                let uiservice:any = await this.appUIService.getService(appEntityName);
-                let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
-                return this.copyActionModel;
-            }else{
-                console.warn("获取数据异常");
-                return this.copyActionModel;
-            }
+            let tempContext:any = this.$util.deepCopy(this.context);
+            tempContext[appEntityName] = node.srfkey;
+            let targetData = node.curData;
+            let uiservice:any = await this.appUIService.getService(appEntityName);
+            let result: any[] = ViewTool.calcActionItemAuthState(targetData,this.copyActionModel,uiservice);
+            return this.copyActionModel;
         }
     }
 

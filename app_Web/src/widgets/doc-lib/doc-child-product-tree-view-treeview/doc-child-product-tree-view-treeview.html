@@ -36,7 +36,7 @@
                 <div 
                     v-if="item.curData && (Object.is(item.curData.doclibtype,'file') || Object.is(item.curData.docqtype,'doc'))"> 
                     <Icon v-if="!item.curData.pathname" type="md-document" size="70" color="darkgrey" />
-                    <img v-else :src="'app/file/'+item.curData.pathname"/>
+                    <img v-else style="width: 70px;height: 70px;" :src="downloadUrl+'/'+item.curData.id"/>
                 </div>
                 <div>
                     <a
