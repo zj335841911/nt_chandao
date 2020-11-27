@@ -297,6 +297,14 @@ export class MoreMyDocTreeTreeBase extends MainControlBase {
     public items: any[] = [];
 
     /**
+     * 当前文件夹所含文件副本
+     *  
+     * @type {Array<any>}
+     * @memberof MoreMyDocTreeBase
+     */
+    public copyItems: any[] = [];
+
+    /**
      * 面包屑数据(默认第一项为图标)
      * 
      * @type {Array<any>}
@@ -347,7 +355,7 @@ export class MoreMyDocTreeTreeBase extends MainControlBase {
     /**
      * 列表当前页数据
      *
-     * @type {number}
+     * @type {Array<any>}
      * @memberof MoreMyDocTreeBase
      */
     public curPageItems: any[] = [];
@@ -359,10 +367,10 @@ export class MoreMyDocTreeTreeBase extends MainControlBase {
      * @memberof MoreMyDocTreeBase
      */
      public actionModel: any = {
-        Doc_deuiaction1: {ctrlname: 'doc_cm',name:'deuiaction1',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        Doc_deuiaction4: {ctrlname: 'doc_cm',name:'deuiaction4',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: ''},
-        Doc_deuiaction2: {ctrlname: 'doc_cm',name:'deuiaction2',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        Doc_deuiaction3: {ctrlname: 'doc_cm',name:'deuiaction3',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
+        Doc_deuiaction1: {ctrlname: 'doc_cm',name:'deuiaction1',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doc.moremydoctree_treeview.uiactions.doc_edit'},
+        Doc_deuiaction4: {ctrlname: 'doc_cm',name:'deuiaction4',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doc.moremydoctree_treeview.uiactions.doc_delete'},
+        Doc_deuiaction2: {ctrlname: 'doc_cm',name:'deuiaction2',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doc.moremydoctree_treeview.uiactions.doc_onlycollectdoc'},
+        Doc_deuiaction3: {ctrlname: 'doc_cm',name:'deuiaction3',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doc.moremydoctree_treeview.uiactions.doc_onlyuncollectdoc'},
     }
 
     /**
@@ -442,7 +450,7 @@ export class MoreMyDocTreeTreeBase extends MainControlBase {
      * @memberof MoreMyDocTreeBase
      */
     public async load(node: any = {}, resolve?: any) {
-        this.items = [];
+        this.copyItems = [];
         this.currentNode = node;
         if (node.data && node.data.children) {
             return;
@@ -470,12 +478,32 @@ export class MoreMyDocTreeTreeBase extends MainControlBase {
             return;
         }
         const _items = response.data;
-        this.items = [..._items];
+        this.copyItems = [..._items];
         this.totalRecord = _items.length;
+        this.onSearch('');
         if (Object.is(this.mode,'list')) {
             await this.computeCurPageNodeState();
         }
         this.$emit("load", _items);
+    }
+
+    /**
+     * 搜索
+     * 
+     * @param query 搜索值
+     * @memberof MoreMyDocTreeBase
+     */
+    public onSearch(query: string){
+        let items: Array<any> = [];
+        this.items = [];
+        if(this.copyItems && this.copyItems.length > 0){
+            this.copyItems.forEach((item: any)=>{
+                if(item.text.search(query) !== -1){
+                    items.push(item);
+                }
+            })
+        }
+        this.items = [...items];
     }
 
     /**

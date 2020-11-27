@@ -85,6 +85,10 @@ import userCustom_en_US from '@locale/lanres/userCustom/userCustom_en_US';
 
 const data: any = {
     app: {
+        directoryTree:{
+            loading: "Data loading",
+            placeholder: "Filename"
+        },
         commonWords:{
             error: "Error",
             success: "Success",

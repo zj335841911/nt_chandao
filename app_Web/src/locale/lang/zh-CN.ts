@@ -85,6 +85,10 @@ import userCustom_zh_CN from '@locale/lanres/userCustom/userCustom_zh_CN';
 
 const data: any = {
     app: {
+        directoryTree:{
+            loading: "数据加载中",
+            placeholder: "文件名"
+        },
         commonWords:{
             error: "失败",
             success: "成功",
