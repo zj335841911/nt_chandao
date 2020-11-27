@@ -1645,6 +1645,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      */
     public node_touch(item:any){
         this.activeNode  = item.id.split(';')[0];
+        this.currentselectedNode = JSON.parse(JSON.stringify(item));
         this.contextMenuShowStatus = true;
     
     }

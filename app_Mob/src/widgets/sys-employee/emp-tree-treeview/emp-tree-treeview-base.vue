@@ -1039,6 +1039,7 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
      */
     public node_touch(item:any){
         this.activeNode  = item.id.split(';')[0];
+        this.currentselectedNode = JSON.parse(JSON.stringify(item));
         this.contextMenuShowStatus = true;
     
     }
