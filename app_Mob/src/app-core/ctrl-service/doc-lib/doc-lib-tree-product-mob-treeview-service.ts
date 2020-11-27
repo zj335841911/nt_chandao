@@ -270,6 +270,7 @@ export class DocLibTreeProductMobService extends TreeViewServiceBase {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -404,6 +405,10 @@ export class DocLibTreeProductMobService extends TreeViewServiceBase {
             let treeNode: any = {};
             Object.assign(treeNode, { text: '附件库'});
             Object.assign(treeNode, { isUseLangRes: true });
+            if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.getSrfnodefilter().toUpperCase())==-1)
+                    return Promise.reject();
+            }
             Object.assign(treeNode, { isNode: true });
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
@@ -476,6 +481,7 @@ export class DocLibTreeProductMobService extends TreeViewServiceBase {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -609,6 +615,7 @@ export class DocLibTreeProductMobService extends TreeViewServiceBase {
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -766,6 +773,7 @@ export class DocLibTreeProductMobService extends TreeViewServiceBase {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -910,6 +918,10 @@ export class DocLibTreeProductMobService extends TreeViewServiceBase {
             let treeNode: any = {};
             Object.assign(treeNode, { text: '默认根节点'});
             Object.assign(treeNode, { isUseLangRes: true });
+            if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.getSrfnodefilter().toUpperCase())==-1)
+                    return Promise.reject();
+            }
             Object.assign(treeNode, { isNode: true });
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
@@ -990,6 +1002,7 @@ export class DocLibTreeProductMobService extends TreeViewServiceBase {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {

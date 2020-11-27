@@ -1169,11 +1169,12 @@ Save
 | 3 | [文档库分类子模块](#数据查询-文档库分类子模块（ChildModuleByRealParent）) | ChildModuleByRealParent | 否 |
 | 4 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 5 | [数据查询](#数据查询-数据查询（DefaultDoclib）) | DefaultDoclib | 否 |
-| 6 | [父模块](#数据查询-父模块（ParentModule）) | ParentModule | 否 |
-| 7 | [所有根模块目录](#数据查询-所有根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
-| 8 | [根模块目录动态](#数据查询-根模块目录动态（RootModuleMuLuByRoot）) | RootModuleMuLuByRoot | 否 |
-| 9 | [根模块目录动态](#数据查询-根模块目录动态（RootModuleMuLuBysrfparentkey）) | RootModuleMuLuBysrfparentkey | 否 |
-| 10 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 6 | [我的收藏](#数据查询-我的收藏（MyFavourites）) | MyFavourites | 否 |
+| 7 | [父模块](#数据查询-父模块（ParentModule）) | ParentModule | 否 |
+| 8 | [所有根模块目录](#数据查询-所有根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 9 | [根模块目录动态](#数据查询-根模块目录动态（RootModuleMuLuByRoot）) | RootModuleMuLuByRoot | 否 |
+| 10 | [根模块目录动态](#数据查询-根模块目录动态（RootModuleMuLuBysrfparentkey）) | RootModuleMuLuBysrfparentkey | 否 |
+| 11 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（AllDoclibModule_Custom）
 #### 说明
@@ -1351,6 +1352,21 @@ t1.`TYPE`,
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
+
+```
+### 数据查询-我的收藏（MyFavourites）
+#### 说明
+我的收藏
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
 
 ```
 ### 数据查询-父模块（ParentModule）

@@ -1934,9 +1934,10 @@ Save
 | 6 | [文档统计](#数据查询-文档统计（DocStatus）) | DocStatus | 否 |
 | 7 | [文件夹文档（子目录）](#数据查询-文件夹文档（子目录）（ModuleDocChild）) | ModuleDocChild | 否 |
 | 8 | [我的收藏](#数据查询-我的收藏（MyFavourite）) | MyFavourite | 否 |
-| 9 | [子目录文档](#数据查询-子目录文档（NotRootDoc）) | NotRootDoc | 否 |
-| 10 | [根目录文档](#数据查询-根目录文档（RootDoc）) | RootDoc | 否 |
-| 11 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 9 | [我的收藏](#数据查询-我的收藏（MyFavouritesOnlyDoc）) | MyFavouritesOnlyDoc | 否 |
+| 10 | [子目录文档](#数据查询-子目录文档（NotRootDoc）) | NotRootDoc | 否 |
+| 11 | [根目录文档](#数据查询-根目录文档（RootDoc）) | RootDoc | 否 |
+| 12 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-文档库文档（子库）（ChildDocLibDoc）
 #### 说明
@@ -2349,7 +2350,7 @@ FROM
 		NULL AS `addedDate`,
 		NULL AS `editedBy`,
 		NULL AS `editedDate`,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'doclib' as DOCQTYPE
 	FROM
 		zt_doclib t1 
@@ -2363,7 +2364,7 @@ FROM
 		NULL AS `addedDate`,
 		NULL AS `editedBy`,
 		NULL AS `editedDate`,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t2.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'module' as DOCQTYPE 
 	FROM
 		zt_module t2 
@@ -2377,7 +2378,7 @@ FROM
 		t3.addedDate,
 		t3.editedBy,
 		t3.editedDate,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t3.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'doc' as DOCQTYPE 
 	FROM
 		zt_doc t3 
@@ -2385,6 +2386,42 @@ FROM
 		t3.collector LIKE CONCAT_WS( '', '%,', #{srf.sessioncontext.srfloginname}, '%,' ) 
 	AND t3.deleted = '0' 
 	) t1
+```
+### 数据查询-我的收藏（MyFavouritesOnlyDoc）
+#### 说明
+只查询我收藏的文档
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.`ACL`,
+	t1.`ADDEDBY`,
+	t1.`ADDEDDATE`,
+	t1.`DELETED`,
+	'doc' AS `DOCQTYPE`,
+	t1.`EDITEDBY`,
+	t1.`EDITEDDATE`,
+	t1.`GROUPS`,
+	t1.`ID`,
+	1 AS `ISFAVOURITES`,
+	t1.`KEYWORDS`,
+	t1.`LIB`,
+	t1.`MODULE`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`TITLE`,
+	t1.`TYPE`,
+	t1.`VERSION`,
+	t1.`VIEWS` 
+FROM
+	`zt_doc` t1
 ```
 ### 数据查询-子目录文档（NotRootDoc）
 #### 说明
@@ -2532,8 +2569,9 @@ LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID
 | 6 | [文档统计](#数据集合-文档统计（DocStatus）) | DocStatus | 否 |
 | 7 | [文件夹文档（子目录）](#数据集合-文件夹文档（子目录）（ModuleDocChild）) | ModuleDocChild | 否 |
 | 8 | [我的收藏](#数据集合-我的收藏（MyFavourite）) | MyFavourite | 否 |
-| 9 | [子目录文档](#数据集合-子目录文档（NotRootDoc）) | NotRootDoc | 否 |
-| 10 | [根目录文档](#数据集合-根目录文档（RootDoc）) | RootDoc | 否 |
+| 9 | [我的收藏](#数据集合-我的收藏（MyFavouritesOnlyDoc）) | MyFavouritesOnlyDoc | 否 |
+| 10 | [子目录文档](#数据集合-子目录文档（NotRootDoc）) | NotRootDoc | 否 |
+| 11 | [根目录文档](#数据集合-根目录文档（RootDoc）) | RootDoc | 否 |
 
 ### 数据集合-文档库文档（子库）（ChildDocLibDoc）
 #### 说明
@@ -2647,6 +2685,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我的收藏（MyFavourite）](#数据查询-我的收藏（MyFavourite）) |
+### 数据集合-我的收藏（MyFavouritesOnlyDoc）
+#### 说明
+我的收藏
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我的收藏（MyFavouritesOnlyDoc）](#数据查询-我的收藏（MyFavouritesOnlyDoc）) |
 ### 数据集合-子目录文档（NotRootDoc）
 #### 说明
 子目录文档

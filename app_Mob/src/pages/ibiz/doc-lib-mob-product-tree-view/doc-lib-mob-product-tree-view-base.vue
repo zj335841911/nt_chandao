@@ -2,6 +2,7 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtreeview': true, 'doc-lib-mob-product-tree-view': true }">
     
     <ion-header>
+        <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="false"></app-search-history>
 
     
     </ion-header>

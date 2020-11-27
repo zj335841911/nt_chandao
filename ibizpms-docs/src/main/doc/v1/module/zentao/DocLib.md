@@ -1615,7 +1615,8 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 | 5 | [项目文件库](#数据集合-项目文件库（ByProjectNotFiles）) | ByProjectNotFiles | 否 |
 | 6 | [所属文档库](#数据集合-所属文档库（CurDocLib）) | CurDocLib | 否 |
 | 7 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 8 | [根目录](#数据集合-根目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 8 | [我的收藏](#数据集合-我的收藏（MyFavourites）) | MyFavourites | 否 |
+| 9 | [根目录](#数据集合-根目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
 
 ### 数据集合-自定义文档库（ByCustom）
 #### 说明
@@ -1715,6 +1716,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DEFAULT（Default）](#数据查询-DEFAULT（Default）) |
+### 数据集合-我的收藏（MyFavourites）
+#### 说明
+我的收藏
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我的收藏（MyFavourites）](#数据查询-我的收藏（MyFavourites）) |
 ### 数据集合-根目录（RootModuleMuLu）
 #### 说明
 根目录

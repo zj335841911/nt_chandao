@@ -99,6 +99,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[MyFavourites]-->
+	 <select id="searchMyFavourites"  parameterType="cn.ibizlab.pms.core.zentao.filter.DocLibSearchContext"  resultMap="DocLibResultMap">
+         select t1.* from (
+                <include refid="MyFavourites" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[RootModuleMuLu]-->
 	 <select id="searchRootModuleMuLu"  parameterType="cn.ibizlab.pms.core.zentao.filter.DocLibSearchContext"  resultMap="DocLibResultMap">
          select t1.* from (
@@ -159,6 +168,8 @@
     <!--数据查询[MyFavourites]-->
     <sql id="MyFavourites" databaseId="mysql">
 		<![CDATA[ SELECT 	t1.`ACL`, 	t1.`DELETED`, 	'doc' AS `DOCLIBTYPE`, 	t1.`GROUPS`, 	t1.`ID`, 	'1' AS `ISFAVOURITES`, 	t1.`MAIN`, 	t1.`MDEPTID`, 	t1.`NAME`, 	t1.`ORDER`, 	t1.`ORGID`, 	t1.`PRODUCT`, 	t1.`PROJECT`, 	t1.`TYPE`  FROM 	zt_doclib t1
+					 WHERE 	t1.deleted = '0'
+						 AND FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0
 			]]>
     </sql>
     <!--数据查询[RootModuleMuLu]-->

@@ -5404,7 +5404,7 @@ FROM
 		NULL AS `addedDate`,
 		NULL AS `editedBy`,
 		NULL AS `editedDate`,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'doclib' as DOCQTYPE
 	FROM
 		zt_doclib t1 
@@ -5418,7 +5418,7 @@ FROM
 		NULL AS `addedDate`,
 		NULL AS `editedBy`,
 		NULL AS `editedDate`,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t2.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'module' as DOCQTYPE 
 	FROM
 		zt_module t2 
@@ -5432,7 +5432,7 @@ FROM
 		t3.addedDate,
 		t3.editedBy,
 		t3.editedDate,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t3.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'doc' as DOCQTYPE 
 	FROM
 		zt_doc t3 
@@ -5440,6 +5440,34 @@ FROM
 		t3.collector LIKE CONCAT_WS( '', '%,', #{srf.sessioncontext.srfloginname}, '%,' ) 
 	AND t3.deleted = '0' 
 	) t1
+```
+### 我的收藏(MyFavouritesOnlyDoc)<div id="Doc_MyFavouritesOnlyDoc"></div>
+```sql
+SELECT
+	t1.`ACL`,
+	t1.`ADDEDBY`,
+	t1.`ADDEDDATE`,
+	t1.`DELETED`,
+	'doc' AS `DOCQTYPE`,
+	t1.`EDITEDBY`,
+	t1.`EDITEDDATE`,
+	t1.`GROUPS`,
+	t1.`ID`,
+	1 AS `ISFAVOURITES`,
+	t1.`KEYWORDS`,
+	t1.`LIB`,
+	t1.`MODULE`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`TITLE`,
+	t1.`TYPE`,
+	t1.`VERSION`,
+	t1.`VIEWS` 
+FROM
+	`zt_doc` t1
+WHERE t1.deleted = '0' 
+FIND_IN_SET(#{srf.sessioncontext.srfloginname}, t1.collector ) > 0 
+
 ```
 ### 子目录文档(NotRootDoc)<div id="Doc_NotRootDoc"></div>
 ```sql
@@ -5840,6 +5868,9 @@ SELECT
 	t1.`TYPE` 
 FROM
 	zt_doclib t1
+WHERE t1.deleted = '0' 
+FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 
+
 ```
 ### 根目录(RootModuleMuLu)<div id="DocLib_RootModuleMuLu"></div>
 ```sql
@@ -6034,6 +6065,10 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 
 WHERE t1.DELETED = '0' 
 t1.type = 'doc' 
+
+```
+### 我的收藏(MyFavourites)<div id="DocLibModule_MyFavourites"></div>
+```sql
 
 ```
 ### 父模块(ParentModule)<div id="DocLibModule_ParentModule"></div>

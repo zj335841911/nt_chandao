@@ -204,6 +204,7 @@ hide footbox
 |ChildModuleByRealParent|文档库分类子模块([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_ChildModuleByRealParent))|否|&nbsp;文档库分类下维护分类专属|
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_Default))|否|&nbsp;|
 |AllDoclibModule|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_DefaultDoclib))|否|&nbsp;|
+|MyFavourites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_MyFavourites))|否|&nbsp;|
 |ParentModule|父模块([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_ParentModule))|否|&nbsp;|
 |RootModuleMuLu|所有根模块目录([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_RootModuleMuLu))|否|&nbsp;|
 |RootModuleMuLuByRoot|根模块目录动态([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_RootModuleMuLuByRoot))|否|&nbsp;|

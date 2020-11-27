@@ -136,6 +136,7 @@ hide footbox
 |ByProjectNotFiles|项目文件库|ByProjectNotFiles|否|&nbsp;|
 |CurDocLib|所属文档库|CurDocLib|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+|MyFavourites|我的收藏|MyFavourites|否|&nbsp;|
 |RootModuleMuLu|根目录|RootModuleMuLu|否|&nbsp;|
 
 ## 查询模式

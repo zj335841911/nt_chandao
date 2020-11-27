@@ -168,6 +168,7 @@ hide footbox
 |DocStatus|文档统计([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocStatus))|否|&nbsp;|
 |ModuleDocChild|文件夹文档（子目录）([MYSQL5](../../appendix/query_MYSQL5.md#Doc_ModuleDocChild))|否|&nbsp;|
 |MYFAVOURITE|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Doc_MyFavourite))|否|&nbsp;|
+|MyFavouritesOnlyDoc|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Doc_MyFavouritesOnlyDoc))|否|&nbsp;只查询我收藏的文档|
 |NotRootDoc|子目录文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_NotRootDoc))|否|&nbsp;|
 |RootDoc|根目录文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_RootDoc))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Doc_View))|否|&nbsp;|
@@ -184,6 +185,7 @@ hide footbox
 |DocStatus|文档统计|DocStatus|否|&nbsp;|
 |ModuleDocChild|文件夹文档（子目录）|ModuleDocChild|否|&nbsp;|
 |MYFAVOURITE|我的收藏|MYFAVOURITE|否|&nbsp;|
+|MyFavouritesOnlyDoc|我的收藏|MyFavouritesOnlyDoc|否|&nbsp;|
 |NotRootDoc|子目录文档|NotRootDoc|否|&nbsp;|
 |RootDoc|根目录文档|RootDoc|否|&nbsp;|
 
