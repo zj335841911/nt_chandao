@@ -555,7 +555,7 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
             this.data['type'] = 'codeerror';
         }
         if (this.data.hasOwnProperty('title')) {
-            this.data['title'] = this.viewparams['title'];
+            this.data['title'] = this.viewparams['name'];
         }
         if (this.data.hasOwnProperty('severity')) {
             this.data['severity'] = 3;
