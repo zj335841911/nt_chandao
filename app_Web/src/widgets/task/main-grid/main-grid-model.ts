@@ -206,6 +206,11 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'mailto',
+          prop: 'mailto',
+          dataType: 'SMCODELIST',
+        },
+        {
           name: 'project',
           prop: 'project',
           dataType: 'PICKUP',
