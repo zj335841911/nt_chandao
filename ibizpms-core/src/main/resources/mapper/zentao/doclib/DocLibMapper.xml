@@ -156,6 +156,11 @@
 						 AND ( t1.`ORGID` =  #{srf.sessioncontext.srforgid} )
 			]]>
     </sql>
+    <!--数据查询[MyFavourites]-->
+    <sql id="MyFavourites" databaseId="mysql">
+		<![CDATA[ 
+			]]>
+    </sql>
     <!--数据查询[RootModuleMuLu]-->
     <sql id="RootModuleMuLu" databaseId="mysql">
 		<![CDATA[ SELECT t1.`BRANCH`, t1.`DELETED`, t11.`NAME` AS `DOCLIBNAME`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t21.`NAME` AS `MODULENAME`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, 'module'  as `TYPE` FROM `zt_module` t1  LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID  LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID

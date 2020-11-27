@@ -55,7 +55,7 @@
         </template>
     </div>
     <div v-show="Object.is(mode, 'list')" class="documents-library-list">
-        <template v-for="(item,index) in items">
+        <template v-for="(item,index) in curPageItems">
             <div :key="index" class="list-item">
                 <div>
                     <span
@@ -82,4 +82,27 @@
             </div>
         </template>
     </div>
+    <row class="list-pagination" v-show="Object.is(mode,'list') && curPageItems.length > 0">
+        <page class="pull-right" @on-change="pageOnChange($event)" 
+            @on-page-size-change="onPageSizeChange($event)"
+            :total="totalRecord"
+            show-sizer :current="curPage" :page-size="limit"
+            :page-size-opts="[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]" show-elevator show-total>
+            <span>
+                <span class="page-button"><i-button icon="md-refresh" :title="$t('app.gridpage.refresh')" @click="pageRefresh()"></i-button></span>&nbsp;
+                <span>
+                    {{$t('app.gridpage.show')}}&nbsp;
+                    <span>
+                        <template v-if="items.length === 1">
+                        1
+                        </template>
+                        <template v-else>
+                            <span>{{(curPage - 1) * limit + 1}}&nbsp;-&nbsp;{{totalRecord > curPage * limit ? curPage * limit : totalRecord}}</span>
+                        </template>
+                    </span>&nbsp;
+                    {{$t('app.gridpage.records')}}，{{$t('app.gridpage.totle')}}&nbsp;{{totalRecord}}&nbsp;{{$t('app.gridpage.records')}}
+                </span>
+            </span>
+        </page>
+    </row>
 </div>

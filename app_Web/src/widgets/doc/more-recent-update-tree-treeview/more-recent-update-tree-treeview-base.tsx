@@ -321,6 +321,38 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
     public currentNode = {};
 
     /**
+     * 分页条数默认20
+     *
+     * @type {number}
+     * @memberof MoreRecentUpdateTreeBase
+     */
+    public limit: number = 20;
+
+    /**
+     * 总条数默认0
+     *
+     * @type {number}
+     * @memberof MoreRecentUpdateTreeBase
+     */
+    public totalRecord: number = 0;
+
+    /**
+     * 当前页默认1
+     *
+     * @type {number}
+     * @memberof MoreRecentUpdateTreeBase
+     */
+    public curPage: number = 1;
+
+    /**
+     * 列表当前页数据
+     *
+     * @type {number}
+     * @memberof MoreRecentUpdateTreeBase
+     */
+    public curPageItems: any[] = [];
+
+    /**
      * 树节点上下文菜单集合
      *
      * @type {string[]}
@@ -438,8 +470,11 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
             return;
         }
         const _items = response.data;
-        await this.computeAllNodeState(_items);
-        this.items = _items; 
+        this.items = [..._items];
+        this.totalRecord = _items.length;
+        if (Object.is(this.mode,'list')) {
+            await this.computeCurPageNodeState();
+        }
         this.$emit("load", _items);
     }
 
@@ -510,6 +545,25 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
      */
     public modeChange(mode: string) {
         this.mode = mode;
+        if (Object.is(mode,'list')) {
+            this.computeCurPageNodeState();
+        }
+    }
+
+    /**
+     * 计算当前页工具栏状态
+     * 
+     * @memberof MoreRecentUpdateTreeBase
+     */
+    public async computeCurPageNodeState(){
+        this.curPageItems = [];
+        let curPageItems: Array<any> = [];
+        const start = (this.curPage-1) * this.limit;
+        let end = this.curPage * this.limit;
+        end = end > this.items.length ? this.items.length : end;
+        curPageItems = this.items.slice(start,end);
+        await this.computeAllNodeState(curPageItems);
+        this.curPageItems = [...curPageItems];
     }
 
     /**
@@ -524,7 +578,7 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
     }
 
     /**
-     * 计算当前文件夹的所有文件工具栏状态
+     * 计算指定文件的工具栏状态
      * 
      * @memberof MoreRecentUpdateTreeBase
      */
@@ -614,6 +668,47 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
         }
     }
 
+    /**
+     * 页面变化
+     *
+     * @param {*} $event
+     * @returns {void}
+     * @memberof GridControlBase
+     */
+    public pageOnChange($event: any): void {
+        if (!$event || $event === this.curPage) {
+            return;
+        }
+        this.curPage = $event;
+        this.computeCurPageNodeState();
+    }
+
+    /**
+     * 分页条数变化
+     *
+     * @param {*} $event
+     * @returns {void}
+     * @memberof MoreRecentUpdateTreeBase
+     */
+    public onPageSizeChange($event: any): void {
+        if (!$event || $event === this.limit) {
+            return;
+        }
+        this.limit = $event;
+        this.computeCurPageNodeState();
+    }
+
+    /**
+     * 分页刷新
+     *
+     * @memberof GridControlBase
+     */
+    public pageRefresh(): void {
+        const node = this.currentNode;
+        this.load(node);
+        this.computeCurPageNodeState();
+    }
+    
     /**
      * 工具栏触发行为
      *

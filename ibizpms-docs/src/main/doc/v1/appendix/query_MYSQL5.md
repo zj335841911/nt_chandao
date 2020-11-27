@@ -5821,6 +5821,10 @@ WHERE t1.DELETED = '0'
 ( t1.`ORGID` =  ${srfsessioncontext('SRFORGID','{"defname":"ORGID","dename":"ZT_DOCLIB"}')} ) 
 
 ```
+### 我的收藏(MyFavourites)<div id="DocLib_MyFavourites"></div>
+```sql
+
+```
 ### 根目录(RootModuleMuLu)<div id="DocLib_RootModuleMuLu"></div>
 ```sql
 SELECT

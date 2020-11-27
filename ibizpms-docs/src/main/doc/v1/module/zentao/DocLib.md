@@ -1208,8 +1208,9 @@ Save
 | 5 | [项目文件库](#数据查询-项目文件库（ByProjectNotFiles）) | ByProjectNotFiles | 否 |
 | 6 | [所属文档库](#数据查询-所属文档库（CurDocLib）) | CurDocLib | 否 |
 | 7 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 8 | [根目录](#数据查询-根目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
-| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 8 | [我的收藏](#数据查询-我的收藏（MyFavourites）) | MyFavourites | 否 |
+| 9 | [根目录](#数据查询-根目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 10 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-自定义文档库（ByCustom）
 #### 说明
@@ -1500,6 +1501,21 @@ t1.`TYPE`
 FROM `zt_doclib` t1 
 LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
 LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+
+```
+### 数据查询-我的收藏（MyFavourites）
+#### 说明
+我的收藏
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
 
 ```
 ### 数据查询-根目录（RootModuleMuLu）
