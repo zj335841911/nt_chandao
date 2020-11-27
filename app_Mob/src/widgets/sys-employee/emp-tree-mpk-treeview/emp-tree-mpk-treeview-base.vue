@@ -1026,6 +1026,24 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 激活节点
+     *
+     * @memberof EmpTreeMpkBase
+     */
+    public activeNode = "";
+
+    /**
+     * 节点长按
+     *
+     * @memberof EmpTreeMpkBase
+     */
+    public node_touch(item:any){
+        this.activeNode  = item.id.split(';')[0];
+        this.contextMenuShowStatus = true;
+    
+    }
+
+    /**
      * 生命周期
      *
      * @memberof EmpTreeMpkBase

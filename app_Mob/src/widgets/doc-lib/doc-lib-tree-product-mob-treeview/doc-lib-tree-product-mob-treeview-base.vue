@@ -57,76 +57,76 @@
          <div slot="content" >
             <div v-if="activeNode == 'ChildDocLibModule'">
                                     
-                        <div class="context-menu-item" name='deuiaction1'  @click="childdoclibmodule_cm_click({tag: $event})">
+                        <div class="context-menu-item" name='deuiaction1'  @click="childdoclibmodule_cm_click({tag: 'deuiaction1'})">
                                     <ion-icon name="star"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2'  @click="childdoclibmodule_cm_click({tag: $event})">
+                        <div class="context-menu-item" name='deuiaction2'  @click="childdoclibmodule_cm_click({tag: 'deuiaction2'})">
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
             </div>
             <div v-if="activeNode == 'DocLib'">
                                     
-                        <div class="context-menu-item" name='deuiaction1'  @click="doclib_cm_click({tag: $event})">
+                        <div class="context-menu-item" name='deuiaction1'  @click="doclib_cm_click({tag: 'deuiaction1'})">
                                     <ion-icon name="star"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2'  @click="doclib_cm_click({tag: $event})">
+                        <div class="context-menu-item" name='deuiaction2'  @click="doclib_cm_click({tag: 'deuiaction2'})">
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
             </div>
             <div v-if="activeNode == 'DocLibDoc'">
                                     
-                        <div class="context-menu-item" name='deuiaction1'  @click="doclibdoc_cm_click({tag: $event})">
+                        <div class="context-menu-item" name='deuiaction1'  @click="doclibdoc_cm_click({tag: 'deuiaction1'})">
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2'  @click="doclibdoc_cm_click({tag: $event})">
+                        <div class="context-menu-item" name='deuiaction2'  @click="doclibdoc_cm_click({tag: 'deuiaction2'})">
                                     <ion-icon name="star"></ion-icon>
                             
                         </div>
             </div>
             <div v-if="activeNode == 'RootDocLibModule'">
                                     
-                        <div class="context-menu-item" name='deuiaction1'  @click="rootdoclibmodule_cm_click({tag: $event})">
+                        <div class="context-menu-item" name='deuiaction1'  @click="rootdoclibmodule_cm_click({tag: 'deuiaction1'})">
                                     <ion-icon name="star"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2'  @click="rootdoclibmodule_cm_click({tag: $event})">
+                        <div class="context-menu-item" name='deuiaction2'  @click="rootdoclibmodule_cm_click({tag: 'deuiaction2'})">
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
             </div>
             <div v-if="activeNode == 'ModuleDoc'">
                                     
-                        <div class="context-menu-item" name='deuiaction1'  @click="moduledoc_cm_click({tag: $event})">
+                        <div class="context-menu-item" name='deuiaction1'  @click="moduledoc_cm_click({tag: 'deuiaction1'})">
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2'  @click="moduledoc_cm_click({tag: $event})">
+                        <div class="context-menu-item" name='deuiaction2'  @click="moduledoc_cm_click({tag: 'deuiaction2'})">
                                     <ion-icon name="star"></ion-icon>
                             
                         </div>
             </div>
             <div v-if="activeNode == 'File'">
                                     
-                        <div class="context-menu-item" name='deuiaction1'  @click="file_cm_click({tag: $event})">
+                        <div class="context-menu-item" name='deuiaction1'  @click="file_cm_click({tag: 'deuiaction1'})">
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2'  @click="file_cm_click({tag: $event})">
+                        <div class="context-menu-item" name='deuiaction2'  @click="file_cm_click({tag: 'deuiaction2'})">
                                     <ion-icon name="download"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction3'  @click="file_cm_click({tag: $event})">
+                        <div class="context-menu-item" name='deuiaction3'  @click="file_cm_click({tag: 'deuiaction3'})">
                                     <ion-icon name="remove"></ion-icon>
                             
                         </div>
@@ -1629,6 +1629,24 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
             }
         }
         this.$emit('selectchange', this.selectedNodes);
+    }
+
+    /**
+     * 激活节点
+     *
+     * @memberof DocLibTreeProductMobBase
+     */
+    public activeNode = "";
+
+    /**
+     * 节点长按
+     *
+     * @memberof DocLibTreeProductMobBase
+     */
+    public node_touch(item:any){
+        this.activeNode  = item.id.split(';')[0];
+        this.contextMenuShowStatus = true;
+    
     }
 
     /**
