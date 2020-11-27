@@ -68,7 +68,7 @@
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mainview', parameterName: 'mainview' }
             ]}" valueitem="srfkey" @refresh="refresh.apply(_self, arguments)">
-                            <span>{{row.title}}</span>
+                            <span :style="{'color':row.color}">{{row.title}}</span>
                         </app-column-link >
                     </template>
                 </el-table-column>
@@ -178,6 +178,11 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
+                            <a v-show="scope.row.StoryToBug.visible" :disabled="scope.row.StoryToBug.disabled" @click="uiAction(scope.row, 'StoryToBug', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_storytobug')">
+                                 <i class="fa fa-bug"></i>
+
+                            </a>
+                            <divider v-show="scope.row.ChangeStoryDetail.visible" type="vertical"></divider>
                             <a v-show="scope.row.ChangeStoryDetail.visible" :disabled="scope.row.ChangeStoryDetail.disabled" @click="uiAction(scope.row, 'ChangeStoryDetail', $event)" :title="$t('entities.story.treemain_grid.uiactions.story_changestorydetail')">
                                  <i class="fa fa-exchange"></i>
 

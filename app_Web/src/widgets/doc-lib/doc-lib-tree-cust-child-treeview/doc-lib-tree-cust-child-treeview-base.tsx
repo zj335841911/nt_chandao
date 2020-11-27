@@ -7,6 +7,7 @@ import DocLibTreeCustChildService from './doc-lib-tree-cust-child-treeview-servi
 import DocLibModuleUIService from '@/uiservice/doc-lib-module/doc-lib-module-ui-service';
 import DocUIService from '@/uiservice/doc/doc-ui-service';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
+import { Environment } from '@/environments/environment';
 
 /**
  * tree部件基类
@@ -437,6 +438,14 @@ export class DocLibTreeCustChildTreeBase extends MainControlBase {
     public items: any[] = [];
 
     /**
+     * 当前文件夹所含文件副本
+     *  
+     * @type {Array<any>}
+     * @memberof DocLibTreeCustChildBase
+     */
+    public copyItems: any[] = [];
+
+    /**
      * 面包屑数据(默认第一项为图标)
      * 
      * @type {Array<any>}
@@ -461,20 +470,60 @@ export class DocLibTreeCustChildTreeBase extends MainControlBase {
     public currentNode = {};
 
     /**
+     * 分页条数默认20
+     *
+     * @type {number}
+     * @memberof DocLibTreeCustChildBase
+     */
+    public limit: number = 20;
+
+    /**
+     * 总条数默认0
+     *
+     * @type {number}
+     * @memberof DocLibTreeCustChildBase
+     */
+    public totalRecord: number = 0;
+
+    /**
+     * 当前页默认1
+     *
+     * @type {number}
+     * @memberof DocLibTreeCustChildBase
+     */
+    public curPage: number = 1;
+
+    /**
+     * 列表当前页数据
+     *
+     * @type {Array<any>}
+     * @memberof DocLibTreeCustChildBase
+     */
+    public curPageItems: any[] = [];
+
+    /**
+     * 图片加载路径
+     *
+     * @type {string}
+     * @memberof DocLibTreeCustChildBase
+     */
+    public downloadUrl = Environment.BaseUrl + Environment.ExportFile;
+
+    /**
      * 树节点上下文菜单集合
      *
      * @type {string[]}
      * @memberof DocLibTreeCustChildBase
      */
      public actionModel: any = {
-        Doc_deuiaction1: {ctrlname: 'doc_cm',name:'deuiaction1',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        Doc_deuiaction4: {ctrlname: 'doc_cm',name:'deuiaction4',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: ''},
-        Doc_deuiaction2: {ctrlname: 'doc_cm',name:'deuiaction2',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        Doc_deuiaction3: {ctrlname: 'doc_cm',name:'deuiaction3',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
-        Module_deuiaction1: {ctrlname: 'module_cm',name:'deuiaction1',nodeOwner:'Module',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        Module_deuiaction4: {ctrlname: 'module_cm',name:'deuiaction4',nodeOwner:'Module',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
-        Module_deuiaction2: {ctrlname: 'module_cm',name:'deuiaction2',nodeOwner:'Module',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        Module_deuiaction3: {ctrlname: 'module_cm',name:'deuiaction3',nodeOwner:'Module',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
+        Doc_deuiaction1: {ctrlname: 'doc_cm',name:'deuiaction1',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doclib.doclibtreecustchild_treeview.uiactions.doc_edit'},
+        Doc_deuiaction4: {ctrlname: 'doc_cm',name:'deuiaction4',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doclib.doclibtreecustchild_treeview.uiactions.doc_delete'},
+        Doc_deuiaction2: {ctrlname: 'doc_cm',name:'deuiaction2',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.doclibtreecustchild_treeview.uiactions.doc_onlycollectdoc'},
+        Doc_deuiaction3: {ctrlname: 'doc_cm',name:'deuiaction3',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.doclibtreecustchild_treeview.uiactions.doc_onlyuncollectdoc'},
+        Module_deuiaction1: {ctrlname: 'module_cm',name:'deuiaction1',nodeOwner:'Module',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doclib.doclibtreecustchild_treeview.uiactions.doclibmodule_edit'},
+        Module_deuiaction4: {ctrlname: 'module_cm',name:'deuiaction4',nodeOwner:'Module',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: '',title:'entities.doclib.doclibtreecustchild_treeview.uiactions.doclibmodule_weihufenlei'},
+        Module_deuiaction2: {ctrlname: 'module_cm',name:'deuiaction2',nodeOwner:'Module',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.doclibtreecustchild_treeview.uiactions.doclibmodule_favorite'},
+        Module_deuiaction3: {ctrlname: 'module_cm',name:'deuiaction3',nodeOwner:'Module',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.doclibtreecustchild_treeview.uiactions.doclibmodule_nfavorite'},
     }
 
     /**
@@ -554,7 +603,7 @@ export class DocLibTreeCustChildTreeBase extends MainControlBase {
      * @memberof DocLibTreeCustChildBase
      */
     public async load(node: any = {}, resolve?: any) {
-        this.items = [];
+        this.copyItems = [];
         this.currentNode = node;
         if (node.data && node.data.children) {
             return;
@@ -582,9 +631,32 @@ export class DocLibTreeCustChildTreeBase extends MainControlBase {
             return;
         }
         const _items = response.data;
-        await this.computeAllNodeState(_items);
-        this.items = _items; 
+        this.copyItems = [..._items];
+        this.totalRecord = _items.length;
+        this.onSearch('');
+        if (Object.is(this.mode,'list')) {
+            await this.computeCurPageNodeState();
+        }
         this.$emit("load", _items);
+    }
+
+    /**
+     * 搜索
+     * 
+     * @param query 搜索值
+     * @memberof DocLibTreeCustChildBase
+     */
+    public onSearch(query: string){
+        let items: Array<any> = [];
+        this.items = [];
+        if(this.copyItems && this.copyItems.length > 0){
+            this.copyItems.forEach((item: any)=>{
+                if(item.text.search(query) !== -1){
+                    items.push(item);
+                }
+            })
+        }
+        this.items = [...items];
     }
 
     /**
@@ -654,6 +726,25 @@ export class DocLibTreeCustChildTreeBase extends MainControlBase {
      */
     public modeChange(mode: string) {
         this.mode = mode;
+        if (Object.is(mode,'list')) {
+            this.computeCurPageNodeState();
+        }
+    }
+
+    /**
+     * 计算当前页工具栏状态
+     * 
+     * @memberof DocLibTreeCustChildBase
+     */
+    public async computeCurPageNodeState(){
+        this.curPageItems = [];
+        let curPageItems: Array<any> = [];
+        const start = (this.curPage-1) * this.limit;
+        let end = this.curPage * this.limit;
+        end = end > this.items.length ? this.items.length : end;
+        curPageItems = this.items.slice(start,end);
+        await this.computeAllNodeState(curPageItems);
+        this.curPageItems = [...curPageItems];
     }
 
     /**
@@ -668,14 +759,16 @@ export class DocLibTreeCustChildTreeBase extends MainControlBase {
     }
 
     /**
-     * 计算当前文件夹的所有文件工具栏状态
+     * 计算指定文件的工具栏状态
      * 
      * @memberof DocLibTreeCustChildBase
      */
     public async computeAllNodeState(items: Array<any>) {
         if (items && items.length > 0) {
             for (let i=0; i < items.length; i++) {
-                await this.getNodeState(items[i]);
+                if (!items[i].curData || !items[i].curData.copyActionModel) {
+                    await this.getNodeState(items[i]);
+                }
             }
         }
     }
@@ -716,19 +809,13 @@ export class DocLibTreeCustChildTreeBase extends MainControlBase {
         if(Object.is(nodeType,"STATIC")){
             return this.copyActionModel;
         }
-        let service:any = await this.appEntityService.getService(appEntityName);
         if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
-            if(service['Get'] && service['Get'] instanceof Function){
-                let tempContext:any = this.$util.deepCopy(this.context);
-                tempContext[appEntityName] = node.srfkey;
-                let targetData = await service.Get(tempContext,{}, false);
-                let uiservice:any = await this.appUIService.getService(appEntityName);
-                let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
-                return this.copyActionModel;
-            }else{
-                console.warn("获取数据异常");
-                return this.copyActionModel;
-            }
+            let tempContext:any = this.$util.deepCopy(this.context);
+            tempContext[appEntityName] = node.srfkey;
+            let targetData = node.curData;
+            let uiservice:any = await this.appUIService.getService(appEntityName);
+            let result: any[] = ViewTool.calcActionItemAuthState(targetData,this.copyActionModel,uiservice);
+            return this.copyActionModel;
         }
     }
 
@@ -738,7 +825,11 @@ export class DocLibTreeCustChildTreeBase extends MainControlBase {
      * @param {*} index 工具栏标识
      * @memberof DocLibTreeCustChildBase
      */
-    public showToolBar(index: number){
+    public async showToolBar(item: any,index: number){
+        if(!item.curData || !item.curData.copyActionModel){
+            await this.getNodeState(item);
+            this.$forceUpdate();
+        }
         let el: any = this.$el.getElementsByClassName('chart-item-operate-'+index)[0];
         if (el) {
             el.style.display = 'block'; 
@@ -756,6 +847,47 @@ export class DocLibTreeCustChildTreeBase extends MainControlBase {
         if (el) {
             el.style.display = 'none'; 
         }
+    }
+
+    /**
+     * 页面变化
+     *
+     * @param {*} $event
+     * @returns {void}
+     * @memberof GridControlBase
+     */
+    public pageOnChange($event: any): void {
+        if (!$event || $event === this.curPage) {
+            return;
+        }
+        this.curPage = $event;
+        this.computeCurPageNodeState();
+    }
+
+    /**
+     * 分页条数变化
+     *
+     * @param {*} $event
+     * @returns {void}
+     * @memberof DocLibTreeCustChildBase
+     */
+    public onPageSizeChange($event: any): void {
+        if (!$event || $event === this.limit) {
+            return;
+        }
+        this.limit = $event;
+        this.computeCurPageNodeState();
+    }
+
+    /**
+     * 分页刷新
+     *
+     * @memberof GridControlBase
+     */
+    public pageRefresh(): void {
+        const node = this.currentNode;
+        this.load(node);
+        this.computeCurPageNodeState();
     }
 
     /**

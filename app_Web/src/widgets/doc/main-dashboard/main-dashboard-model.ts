@@ -117,6 +117,9 @@ export default class MainModel {
       {
         name: 'myfavouritecnt',
       },
+      {
+        name: 'doccnt',
+      },
     ]
   }
 

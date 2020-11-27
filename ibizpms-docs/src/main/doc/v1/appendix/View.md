@@ -144,6 +144,7 @@
 |-|产品计划分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|附件移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|文档库移动端树视图|DEMOBTREEVIEW|&nbsp;|
 |-|文档库移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|需求模块移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|Bug移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
@@ -260,6 +261,7 @@
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|项目编辑视图（团队管理）|DEEDITVIEW|&nbsp;|
+|-|文档库树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|部门数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|计划|DEEDITVIEW|&nbsp;|
 |-|相关Bug|DEGRIDVIEW9|&nbsp;|
@@ -317,7 +319,6 @@
 |-|测试单表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务编辑视图|DEEDITVIEW9|&nbsp;|
 |-|测试用例表格视图|DEGRIDVIEW9|&nbsp;|
-|-|项目表格视图|DEGRIDVIEW9|&nbsp;|
 |-|相关用例|DEGRIDVIEW9|&nbsp;|
 |-|测试报告分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|用户年度工作内容统计编辑视图（基础信息）|DEEDITVIEW9|&nbsp;|
@@ -408,6 +409,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品需求导航视图|DETREEEXPVIEW|&nbsp;|
 |-|任务表格视图（指派分组）|DEGRIDVIEW|&nbsp;|
 |-|doclib表格视图|DEGRIDVIEW|&nbsp;|
+|-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
 |-|项目数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试单编辑视图|DEEDITVIEW|&nbsp;|
@@ -439,6 +441,7 @@ SRFNAVPARAM.project=%project%|
 |-|文档库树视图（自定义文档库-根目录）|DETREEVIEW|&nbsp;|
 |-|doclib表格视图|DEGRIDVIEW|&nbsp;|
 |-|执行|DEOPTVIEW|&nbsp;|
+|-|文档树视图|DETREEVIEW|&nbsp;|
 |-|产品|DETABEXPVIEW|&nbsp;|
 |-|执行结果|DEEDITVIEW|&nbsp;|
 |-|需求细分|DEGRIDVIEW|&nbsp;|
@@ -624,6 +627,7 @@ SRFNAVPARAM.project=%project%|
 |-|用户年度工作内容统计数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|任务模块树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|产品数据看板视图|DEPORTALVIEW|&nbsp;|
+|-|文档树视图|DETREEVIEW|&nbsp;|
 |-|用户选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|按照计划关联|DEOPTVIEW|&nbsp;|
 |-|模块选择|DEPICKUPGRIDVIEW|&nbsp;|
@@ -655,6 +659,7 @@ SRFNAVPARAM.project=%project%|
 |-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug表格视图|DEGRIDVIEW9|&nbsp;|
 |-|完成任务|DEOPTVIEW|&nbsp;|
+|-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
 |-|关闭|DEOPTVIEW|&nbsp;|
 |-|需求|DEEDITVIEW|&nbsp;|
 |-|模块选择|DEPICKUPVIEW|&nbsp;|
@@ -758,6 +763,7 @@ SRFNAVPARAM.project=%project%|
 |-|项目|DEEDITVIEW|&nbsp;|
 |-|备注|DEEDITVIEW|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
+|-|文档树视图|DETREEVIEW|&nbsp;|
 |-|需求模块表格视图|DEGRIDVIEW|&nbsp;|
 |-|平台选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|usercontact表格视图|DEGRIDVIEW|&nbsp;|

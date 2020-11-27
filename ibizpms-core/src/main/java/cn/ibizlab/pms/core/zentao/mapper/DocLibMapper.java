@@ -26,6 +26,7 @@ public interface DocLibMapper extends BaseMapper<DocLib> {
     Page<DocLib> searchByProjectNotFiles(IPage page, @Param("srf") DocLibSearchContext context, @Param("ew") Wrapper<DocLib> wrapper);
     Page<DocLib> searchCurDocLib(IPage page, @Param("srf") DocLibSearchContext context, @Param("ew") Wrapper<DocLib> wrapper);
     Page<DocLib> searchDefault(IPage page, @Param("srf") DocLibSearchContext context, @Param("ew") Wrapper<DocLib> wrapper);
+    Page<DocLib> searchMyFavourites(IPage page, @Param("srf") DocLibSearchContext context, @Param("ew") Wrapper<DocLib> wrapper);
     Page<DocLib> searchRootModuleMuLu(IPage page, @Param("srf") DocLibSearchContext context, @Param("ew") Wrapper<DocLib> wrapper);
     @Override
     DocLib selectById(Serializable id);

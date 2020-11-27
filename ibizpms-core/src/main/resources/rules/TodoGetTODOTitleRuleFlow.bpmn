@@ -15,7 +15,7 @@
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $todogettodotitledefault:Todo();
             eval($todogettodotitledefault==todogettodotitledefault);
-                eval((RuleUtils.test($todogettodotitledefault.get("TYPE"),"NOTEQ","custom")))
+                eval((RuleUtils.test($todogettodotitledefault.get("type"),"NOTEQ","custom")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>

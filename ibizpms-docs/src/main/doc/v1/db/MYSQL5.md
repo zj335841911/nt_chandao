@@ -18160,8 +18160,10 @@ CREATE TABLE `zt_doccontent`(
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | ORGID        | 组织标识  | VARCHAR      |   100   | &nbsp; |
 | MDEPTID        | 部门标识  | VARCHAR      |   100   | &nbsp; |
+| OPENEDDATE        | 创建时间  | DATETIME      |   -1   | &nbsp; |
 | GROUPS        | 分组  | VARCHAR      |   255   | &nbsp; |
 | ORDER        | 排序  | INTEGER      |   5   | &nbsp; |
+| MODULECNT        | 文件夹数  | INTEGER      |   -1   | &nbsp; |
 | NAME        | 文档库名称  | VARCHAR      |   60   | &nbsp; |
 | USERS        | 用户  | CLOB      |   65,535   | &nbsp; |
 | PRODUCT        | 产品库  |       |   8   | &nbsp; |
@@ -19296,6 +19298,7 @@ CREATE TABLE `zt_doclib`(
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
+| DOCCNT        | 文档数  | INTEGER      |   -1   | &nbsp; |
 | DOCLIBNAME        | 所属文档库  | VARCHAR      |   60   | &nbsp; |
 | SHORT        | 简称  | VARCHAR      |   30   | &nbsp; |
 | COLLECTOR        | collector  | CLOB      |   65,535   | &nbsp; |

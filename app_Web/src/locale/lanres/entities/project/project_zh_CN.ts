@@ -100,10 +100,6 @@ export default {
 			caption: "项目",
       		title: "项目",
 		},
-		moreundoneprojectgridview9: {
-			caption: "未完成项目",
-      		title: "项目表格视图",
-		},
 		mainmygridview: {
 			caption: "项目",
       		title: "项目",
@@ -500,17 +496,6 @@ export default {
 		uiactions: {
 		},
 	},
-	moreundoneproject_grid: {
-		nodata: "",
-		columns: {
-			name: "项目名称",
-			doclibcnt: "文档数量",
-			openedby: "由谁添加",
-			openeddate: "添加时间",
-		},
-		uiactions: {
-		},
-	},
 	main2_grid: {
 		nodata: "",
 		columns: {
@@ -519,6 +504,17 @@ export default {
 			code: "项目代号",
 			status: "项目状态",
 			end: "结束日期",
+		},
+		uiactions: {
+		},
+	},
+	moreundoneproject_grid: {
+		nodata: "",
+		columns: {
+			name: "项目名称",
+			doclibcnt: "文档数量",
+			openedby: "由谁添加",
+			openeddate: "添加时间",
 		},
 		uiactions: {
 		},
@@ -657,8 +653,6 @@ export default {
 			caption: "过滤",
 			tip: "过滤",
 		},
-	},
-	moreundoneprojectgridview9toolbar_toolbar: {
 	},
 	exp_list: {
 		nodata: "",

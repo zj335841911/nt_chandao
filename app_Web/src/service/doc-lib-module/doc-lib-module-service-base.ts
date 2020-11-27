@@ -387,6 +387,35 @@ export default class DocLibModuleServiceBase extends EntityService {
     }
 
     /**
+     * FetchMyFavourites接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async FetchMyFavourites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/doclibmodules/fetchmyfavourites`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchMyFavourites接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async searchMyFavourites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibmodules/searchmyfavourites`,tempData,isloading);
+    }
+
+    /**
      * FetchParentModule接口方法
      *
      * @param {*} [context={}]

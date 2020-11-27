@@ -136,6 +136,20 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
+            prodoctname: [
+                {
+                    required: this.detailsModel.prodoctname.required,
+                    type: 'string',
+                    message: '所属产品 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.prodoctname.required,
+                    type: 'string',
+                    message: '所属产品 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
             title: [
                 {
                     required: this.detailsModel.title.required,
@@ -245,7 +259,7 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
 
         prodoctname: new FormItemModel({
     caption: '所属产品', detailType: 'FORMITEM', name: 'prodoctname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),

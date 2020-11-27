@@ -69,6 +69,9 @@ export default class ModuleWeiHuModel {
       {
         name: 'isfavourites',
       },
+      {
+        name: 'doccnt',
+      },
     ]
   }
 

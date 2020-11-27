@@ -5177,6 +5177,7 @@ t2.product as `PRODUCT`,
 t1.`name` as `TITLE`,
 'module' as `TYPE`,
 1 as `VERSION`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) as doccnt,
 '' as `VIEWS`, 'module' as DOCQTYPE from zt_module t1 
 LEFT JOIN zt_doclib t2 on t2.id = t1.root
 where t1.deleted = '0' and t1.type = 'doc'  and t1.parent =  (case when ${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} is null then '0' else 
@@ -5205,6 +5206,7 @@ t11.`NAME` AS `PROJECTNAME`,
 t1.`TITLE`,
 t1.`TYPE`,
 t1.`VERSION`,
+0 as doccnt,
 t1.`VIEWS`,
 'doc' as DOCQTYPE
 FROM `zt_doc` t1 
@@ -5404,7 +5406,7 @@ FROM
 		NULL AS `addedDate`,
 		NULL AS `editedBy`,
 		NULL AS `editedDate`,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'doclib' as DOCQTYPE
 	FROM
 		zt_doclib t1 
@@ -5418,7 +5420,7 @@ FROM
 		NULL AS `addedDate`,
 		NULL AS `editedBy`,
 		NULL AS `editedDate`,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t2.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'module' as DOCQTYPE 
 	FROM
 		zt_module t2 
@@ -5432,7 +5434,7 @@ FROM
 		t3.addedDate,
 		t3.editedBy,
 		t3.editedDate,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t3.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'doc' as DOCQTYPE 
 	FROM
 		zt_doc t3 
@@ -5440,6 +5442,34 @@ FROM
 		t3.collector LIKE CONCAT_WS( '', '%,', #{srf.sessioncontext.srfloginname}, '%,' ) 
 	AND t3.deleted = '0' 
 	) t1
+```
+### 我的收藏(MyFavouritesOnlyDoc)<div id="Doc_MyFavouritesOnlyDoc"></div>
+```sql
+SELECT
+	t1.`ACL`,
+	t1.`ADDEDBY`,
+	t1.`ADDEDDATE`,
+	t1.`DELETED`,
+	'doc' AS `DOCQTYPE`,
+	t1.`EDITEDBY`,
+	t1.`EDITEDDATE`,
+	t1.`GROUPS`,
+	t1.`ID`,
+	1 AS `ISFAVOURITES`,
+	t1.`KEYWORDS`,
+	t1.`LIB`,
+	t1.`MODULE`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`TITLE`,
+	t1.`TYPE`,
+	t1.`VERSION`,
+	t1.`VIEWS` 
+FROM
+	`zt_doc` t1
+WHERE t1.deleted = '0' 
+FIND_IN_SET(#{srf.sessioncontext.srfloginname}, t1.collector ) > 0 
+
 ```
 ### 子目录文档(NotRootDoc)<div id="Doc_NotRootDoc"></div>
 ```sql
@@ -5598,7 +5628,9 @@ t1.`ID`,
 ( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
+(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id) AS `MODULECNT`,
 t1.`NAME`,
+(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created') AS `OPENEDDATE`,
 t1.`ORDER`,
 t1.`ORGID`,
 t1.`PRODUCT`,
@@ -5670,6 +5702,8 @@ FROM
 		t1.`DELETED`,
 		t1.`GROUPS`,
 		t1.`ID`,
+(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id) as modulecnt,
+(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created') as openedDate,
 		t1.`MAIN`,
 		t1.`NAME`,
 		t1.`ORDER`,
@@ -5805,7 +5839,9 @@ t1.`ID`,
 ( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
+(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id) AS `MODULECNT`,
 t1.`NAME`,
+(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created') AS `OPENEDDATE`,
 t1.`ORDER`,
 t1.`ORGID`,
 t1.`PRODUCT`,
@@ -5819,6 +5855,29 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 
 WHERE t1.DELETED = '0' 
 ( t1.`ORGID` =  ${srfsessioncontext('SRFORGID','{"defname":"ORGID","dename":"ZT_DOCLIB"}')} ) 
+
+```
+### 我的收藏(MyFavourites)<div id="DocLib_MyFavourites"></div>
+```sql
+SELECT
+	t1.`ACL`,
+	t1.`DELETED`,
+	'doc' AS `DOCLIBTYPE`,
+	t1.`GROUPS`,
+	t1.`ID`,
+	'1' AS `ISFAVOURITES`,
+	t1.`MAIN`,
+	t1.`MDEPTID`,
+	t1.`NAME`,
+	t1.`ORDER`,
+	t1.`ORGID`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`TYPE` 
+FROM
+	zt_doclib t1
+WHERE t1.deleted = '0' 
+FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 
 
 ```
 ### 根目录(RootModuleMuLu)<div id="DocLib_RootModuleMuLu"></div>
@@ -5858,7 +5917,9 @@ t1.`ID`,
 ( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
+(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id) AS `MODULECNT`,
 t1.`NAME`,
+(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created') AS `OPENEDDATE`,
 t1.`ORDER`,
 t1.`ORGID`,
 t1.`PRODUCT`,
@@ -5967,6 +6028,7 @@ t1.parent = ${srfdatacontext('srfparent','{"defname":"ROOT","dename":"ZT_MODULE"
 SELECT
 t1.`BRANCH`,
 t1.`DELETED`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) AS `DOCCNT`,
 t11.`NAME` AS `DOCLIBNAME`,
 t1.`GRADE`,
 t1.`ID`,
@@ -6014,6 +6076,30 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 
 WHERE t1.DELETED = '0' 
 t1.type = 'doc' 
+
+```
+### 我的收藏(MyFavourites)<div id="DocLibModule_MyFavourites"></div>
+```sql
+SELECT
+	t1.`BRANCH`,
+	t1.`DELETED`,
+	t1.`GRADE`,
+	t1.`ID`,
+	'module' AS `DOCQTYPE`,
+	1 AS `ISFAVOURITES`,
+	( CASE WHEN EXISTS ( SELECT 1 FROM ZT_MODULE WHERE PARENT = t1.`ID` ) THEN FALSE ELSE TRUE END ) AS `ISLEAF`,
+	t1.`NAME`,
+	t1.`ORDER`,
+	t1.`OWNER`,
+	t1.`PARENT`,
+	t1.`PATH`,
+	t1.`ROOT`,
+	t1.`SHORT`,
+	t1.`TYPE` 
+FROM
+	`zt_module` t1
+WHERE t1.deleted = '0' 
+FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 
 
 ```
 ### 父模块(ParentModule)<div id="DocLibModule_ParentModule"></div>
@@ -6064,7 +6150,8 @@ t1.`ROOT`,
 t1.`SHORT`,
 'module'  as `TYPE`,
 'module' AS `DOCQTYPE`,
-( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) as doccnt
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -6138,6 +6225,7 @@ SELECT
 t1.`BRANCH`,
 t1.`COLLECTOR`,
 t1.`DELETED`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) AS `DOCCNT`,
 t11.`NAME` AS `DOCLIBNAME`,
 t1.`GRADE`,
 t1.`ID`,
@@ -6405,7 +6493,7 @@ t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
 t1.`SIZE`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') AS `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) AS `STRSIZE`,
 t1.`TITLE`
 FROM `zt_file` t1 
 
@@ -6425,7 +6513,7 @@ t1.`ID`,
 t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') as `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) as `STRSIZE`,
 t1.size,
 CONCAT_WS('',t1.`TITLE`,' [',UPPER(t1.objectType),' #',t1.objectID,']') AS `TITLE`,
 'file' as doclibtype
@@ -6447,7 +6535,7 @@ t1.`ID`,
 t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') as `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) as `STRSIZE`,
 t1.size,
 CONCAT_WS('',t1.`TITLE`,' [',UPPER(t1.objectType),' #',t1.objectID,']') AS `TITLE`,
 'file' as doclibtype
@@ -6470,7 +6558,7 @@ t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
 t1.`SIZE`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') AS `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) AS `STRSIZE`,
 t1.`TITLE`
 FROM `zt_file` t1 
 
@@ -6492,7 +6580,7 @@ t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
 t1.`SIZE`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') AS `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) AS `STRSIZE`,
 t1.`TITLE`
 FROM `zt_file` t1 
 
@@ -11667,6 +11755,110 @@ select concat(t1.`name`, '  ' ,t.ACCOUNTS) accounts,t1.id ,t1.`name`  from zt_pr
 WHERE t1.id in ( select tt.project from zt_task tt where tt.deleted = '0' and tt.story = ${srfdatacontext('story','{"defname":"PRODUCT","dename":"ZT_PROJECTPRODUCT"}')} ) 
 
 ```
+### 未完成项目(UnDoneProject)<div id="Project_UnDoneProject"></div>
+```sql
+select t1.* from (SELECT
+t1.MDEPTID,
+t1.orgid,
+t1.`ACL`,
+t1.`BEGIN`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
+t1.`CANCELEDBY`,
+(select count(1) + 1 from zt_doclib where type = 'project' and project = t1.`id`) as `DOCLIBCNT`,
+t1.`CANCELEDDATE`,
+t1.`CATID`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CODE`,
+t1.`DAYS`,
+t1.`DELETED`,
+t1.`END`,
+t1.`ID`,
+t1.`ISCAT`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`OPENEDVERSION`,
+t1.`ORDER`,
+(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE  t1.`ORDER` END) as `ORDER1`,
+	(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END) as `ISTOP`,
+t1.`PARENT`,
+t11.`NAME` AS `PARENTNAME`,
+t1.`PM`,
+t1.`PO`,
+t1.`PRI`,
+t1.`QD`,
+t1.`RD`,
+t1.`STATGE`,
+t1.`STATUS`,
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
+t1.`SUBSTATUS`,
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+t1.`TEAM`,
+(SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
+(SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
+(select sum(days * hours)  from zt_team tt where type = 'project' and root = t1.id) AS `TOTALHOURS`,
+(SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' and `status` in ('doing','wait','pause') AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
+((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
+t1.`TYPE`
+FROM `zt_project` t1 
+left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
+LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+where t1.deleted = '0' and (t1.acl = 'open' or t1.OPENEDBY = #{srf.sessioncontext.srfloginname} or  t1.pm =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} )
+union 
+SELECT
+t1.MDEPTID,
+t1.orgid,
+t1.`ACL`,
+t1.`BEGIN`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
+t1.`CANCELEDBY`,
+(select count(1) + 1 from zt_doclib where type = 'project' and project = t1.`id`) as `DOCLIBCNT`,
+t1.`CANCELEDDATE`,
+t1.`CATID`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CODE`,
+t1.`DAYS`,
+t1.`DELETED`,
+t1.`END`,
+t1.`ID`,
+t1.`ISCAT`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`OPENEDVERSION`,
+t1.`ORDER`,
+(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE  t1.`ORDER` END) as `ORDER1`,
+	(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END) as `ISTOP`,
+t1.`PARENT`,
+t11.`NAME` AS `PARENTNAME`,
+t1.`PM`,
+t1.`PO`,
+t1.`PRI`,
+t1.`QD`,
+t1.`RD`,
+t1.`STATGE`,
+t1.`STATUS`,
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
+t1.`SUBSTATUS`,
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+t1.`TEAM`,
+(SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
+(SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
+(select sum(days * hours)  from zt_team tt where type = 'project' and root = t1.id) AS `TOTALHOURS`,
+(SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' and `status` in ('doing','wait','pause') AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
+((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
+t1.`TYPE`
+FROM `zt_project` t1 
+left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
+LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+where t1.deleted = '0' and t1.acl = 'private' and t1.id in (select t3.root from zt_team t3 where t3.account = #{srf.sessioncontext.srfloginname}  
+and t3.type = 'project')) t1
+WHERE t1.orgid = #{srf.sessioncontext.srforgid} 
+t1.`status` <> 'closed' 
+
+```
 ### 默认（全部数据）(VIEW)<div id="Project_View"></div>
 ```sql
 SELECT
@@ -15244,7 +15436,7 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 LEFT JOIN zt_user t61 on t61.account = t1.assignedTo
 WHERE t1.deleted = '0' 
-t1.project = #{srf.webcontext.project} 
+(t1.project = #{srf.webcontext.project} or t1.project = #{srf.webcontext.curproject}) 
 
 ```
 ### 通过模块查询(ByModule)<div id="Task_ByModule"></div>

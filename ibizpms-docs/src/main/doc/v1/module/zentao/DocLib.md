@@ -42,6 +42,8 @@
 | 18 | [组织标识](#属性-组织标识（ORGID）) | ORGID | 文本，可指定长度 | 否 | 是 | 是 |
 | 19 | [部门标识](#属性-部门标识（MDEPTID）) | MDEPTID | 文本，可指定长度 | 否 | 是 | 是 |
 | 20 | [Root](#属性-Root（ROOT）) | ROOT | 文本，可指定长度 | 否 | 是 | 是 |
+| 21 | [文件夹数](#属性-文件夹数（MODULECNT）) | MODULECNT | 整型 | 否 | 是 | 是 |
+| 22 | [创建时间](#属性-创建时间（OPENEDDATE）) | OPENEDDATE | 日期时间型 | 否 | 是 | 是 |
 
 ### 属性-文档类型（TYPE）
 #### 属性说明
@@ -912,6 +914,92 @@ String
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-文件夹数（MODULECNT）
+#### 属性说明
+文件夹数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id)
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-创建时间（OPENEDDATE）
+#### 属性说明
+创建时间
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+日期时间型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created')
+```
+
+- 数据格式
+yyyy-MM-dd HH:mm:ss
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [文件库类型](#属性-文件库类型（DOCLIBTYPE）)<br>（DOCLIBTYPE） | [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 默认 |
@@ -1208,8 +1296,9 @@ Save
 | 5 | [项目文件库](#数据查询-项目文件库（ByProjectNotFiles）) | ByProjectNotFiles | 否 |
 | 6 | [所属文档库](#数据查询-所属文档库（CurDocLib）) | CurDocLib | 否 |
 | 7 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 8 | [根目录](#数据查询-根目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
-| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 8 | [我的收藏](#数据查询-我的收藏（MyFavourites）) | MyFavourites | 否 |
+| 9 | [根目录](#数据查询-根目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 10 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-自定义文档库（ByCustom）
 #### 说明
@@ -1233,7 +1322,9 @@ t1.`ID`,
 ( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
+(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id) AS `MODULECNT`,
 t1.`NAME`,
+(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created') AS `OPENEDDATE`,
 t1.`ORDER`,
 t1.`ORGID`,
 t1.`PRODUCT`,
@@ -1321,6 +1412,8 @@ FROM
 		t1.`DELETED`,
 		t1.`GROUPS`,
 		t1.`ID`,
+(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id) as modulecnt,
+(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created') as openedDate,
 		t1.`MAIN`,
 		t1.`NAME`,
 		t1.`ORDER`,
@@ -1489,7 +1582,9 @@ t1.`ID`,
 ( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
+(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id) AS `MODULECNT`,
 t1.`NAME`,
+(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created') AS `OPENEDDATE`,
 t1.`ORDER`,
 t1.`ORGID`,
 t1.`PRODUCT`,
@@ -1501,6 +1596,37 @@ FROM `zt_doclib` t1
 LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
 LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
 
+```
+### 数据查询-我的收藏（MyFavourites）
+#### 说明
+我的收藏
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.`ACL`,
+	t1.`DELETED`,
+	'doc' AS `DOCLIBTYPE`,
+	t1.`GROUPS`,
+	t1.`ID`,
+	'1' AS `ISFAVOURITES`,
+	t1.`MAIN`,
+	t1.`MDEPTID`,
+	t1.`NAME`,
+	t1.`ORDER`,
+	t1.`ORGID`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`TYPE` 
+FROM
+	zt_doclib t1
 ```
 ### 数据查询-根目录（RootModuleMuLu）
 #### 说明
@@ -1558,7 +1684,9 @@ t1.`ID`,
 ( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
+(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id) AS `MODULECNT`,
 t1.`NAME`,
+(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created') AS `OPENEDDATE`,
 t1.`ORDER`,
 t1.`ORGID`,
 t1.`PRODUCT`,
@@ -1583,7 +1711,8 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 | 5 | [项目文件库](#数据集合-项目文件库（ByProjectNotFiles）) | ByProjectNotFiles | 否 |
 | 6 | [所属文档库](#数据集合-所属文档库（CurDocLib）) | CurDocLib | 否 |
 | 7 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 8 | [根目录](#数据集合-根目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 8 | [我的收藏](#数据集合-我的收藏（MyFavourites）) | MyFavourites | 否 |
+| 9 | [根目录](#数据集合-根目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
 
 ### 数据集合-自定义文档库（ByCustom）
 #### 说明
@@ -1683,6 +1812,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DEFAULT（Default）](#数据查询-DEFAULT（Default）) |
+### 数据集合-我的收藏（MyFavourites）
+#### 说明
+我的收藏
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我的收藏（MyFavourites）](#数据查询-我的收藏（MyFavourites）) |
 ### 数据集合-根目录（RootModuleMuLu）
 #### 说明
 根目录

@@ -22,7 +22,7 @@
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $useryearworkstatsgetinfodefault:UserYearWorkStats();
             eval($useryearworkstatsgetinfodefault==useryearworkstatsgetinfodefault);
-                eval((RuleUtils.test($useryearworkstatsgetinfodefault.get("JUDGEROLE"),"EQ","po")))
+                eval((RuleUtils.test($useryearworkstatsgetinfodefault.get("judgerole"),"EQ","po")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -30,7 +30,7 @@
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $useryearworkstatsgetinfodefault:UserYearWorkStats();
             eval($useryearworkstatsgetinfodefault==useryearworkstatsgetinfodefault);
-                eval((RuleUtils.test($useryearworkstatsgetinfodefault.get("JUDGEROLE"),"EQ","qa")))
+                eval((RuleUtils.test($useryearworkstatsgetinfodefault.get("judgerole"),"EQ","qa")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -38,7 +38,7 @@
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $useryearworkstatsgetinfodefault:UserYearWorkStats();
             eval($useryearworkstatsgetinfodefault==useryearworkstatsgetinfodefault);
-                eval((RuleUtils.test($useryearworkstatsgetinfodefault.get("JUDGEROLE"),"EQ","dev")))
+                eval((RuleUtils.test($useryearworkstatsgetinfodefault.get("judgerole"),"EQ","dev")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>

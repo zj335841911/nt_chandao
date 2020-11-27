@@ -982,6 +982,7 @@ export const viewstate: any = {
             refviews: [
                 '6a5ac6590255906c36e1cdd50bd0bcab',
                 'e66284928a0154c484670a12704af6b0',
+                'b731c5d991dcb4695d925bb8749fa6fc',
                 '3f8c805b81dddfc3dc5c2c7e04fa68c5',
                 '0741315806513b247c661851d7746f51',
                 '58f89fab47964b5ad5b6b0f2021b188b',
@@ -1568,6 +1569,15 @@ export const viewstate: any = {
                 '2b6e052f3fa1629c2d2ac11a1823d95d',
                 'cacf8bf823f555d6b1952c3aeddf8223',
                 '04397afc992f5947c2d1b4250af66e37',
+            ],
+        },
+        {
+            viewtag: 'b731c5d991dcb4695d925bb8749fa6fc',
+            viewmodule: 'zentao',
+            viewname: 'DocLibProjectDocLibMobTreeView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

@@ -53,6 +53,86 @@
         <div class="tree-partition tree-partition-bigger" v-if="rootNodes.length > 0 && isList"></div>
         <!-- 树视图 -->
         <app-pms-upload-list v-if="valueNodes.length>0  && isList" :isCurData="true" :isEnableDelete="false" :isEnableDownload="false" :items="valueNodes"></app-pms-upload-list>
+        <app-mob-context-menu :value="contextMenuShowStatus" @change="(val)=>{this.contextMenuShowStatus=val}">
+         <div slot="content" >
+            <div v-if="activeNode == 'ChildDocLibModule'">
+                                    
+                        <div class="context-menu-item" name='deuiaction1'  @click="childdoclibmodule_cm_click({tag: 'deuiaction1'})">
+                                    <ion-icon name="star"></ion-icon>
+                            
+                        </div>
+                        
+                        <div class="context-menu-item" name='deuiaction2'  @click="childdoclibmodule_cm_click({tag: 'deuiaction2'})">
+                                    <ion-icon name="star-outline"></ion-icon>
+                            
+                        </div>
+            </div>
+            <div v-if="activeNode == 'DocLib'">
+                                    
+                        <div class="context-menu-item" name='deuiaction1'  @click="doclib_cm_click({tag: 'deuiaction1'})">
+                                    <ion-icon name="star"></ion-icon>
+                            
+                        </div>
+                        
+                        <div class="context-menu-item" name='deuiaction2'  @click="doclib_cm_click({tag: 'deuiaction2'})">
+                                    <ion-icon name="star-outline"></ion-icon>
+                            
+                        </div>
+            </div>
+            <div v-if="activeNode == 'DocLibDoc'">
+                                    
+                        <div class="context-menu-item" name='deuiaction1'  @click="doclibdoc_cm_click({tag: 'deuiaction1'})">
+                                    <ion-icon name="star-outline"></ion-icon>
+                            
+                        </div>
+                        
+                        <div class="context-menu-item" name='deuiaction2'  @click="doclibdoc_cm_click({tag: 'deuiaction2'})">
+                                    <ion-icon name="star"></ion-icon>
+                            
+                        </div>
+            </div>
+            <div v-if="activeNode == 'RootDocLibModule'">
+                                    
+                        <div class="context-menu-item" name='deuiaction1'  @click="rootdoclibmodule_cm_click({tag: 'deuiaction1'})">
+                                    <ion-icon name="star"></ion-icon>
+                            
+                        </div>
+                        
+                        <div class="context-menu-item" name='deuiaction2'  @click="rootdoclibmodule_cm_click({tag: 'deuiaction2'})">
+                                    <ion-icon name="star-outline"></ion-icon>
+                            
+                        </div>
+            </div>
+            <div v-if="activeNode == 'ModuleDoc'">
+                                    
+                        <div class="context-menu-item" name='deuiaction1'  @click="moduledoc_cm_click({tag: 'deuiaction1'})">
+                                    <ion-icon name="star-outline"></ion-icon>
+                            
+                        </div>
+                        
+                        <div class="context-menu-item" name='deuiaction2'  @click="moduledoc_cm_click({tag: 'deuiaction2'})">
+                                    <ion-icon name="star"></ion-icon>
+                            
+                        </div>
+            </div>
+            <div v-if="activeNode == 'File'">
+                                    
+                        <div class="context-menu-item" name='deuiaction1'  @click="file_cm_click({tag: 'deuiaction1'})">
+                            
+                        </div>
+                        
+                        <div class="context-menu-item" name='deuiaction2'  @click="file_cm_click({tag: 'deuiaction2'})">
+                                    <ion-icon name="download"></ion-icon>
+                            
+                        </div>
+                        
+                        <div class="context-menu-item" name='deuiaction3'  @click="file_cm_click({tag: 'deuiaction3'})">
+                                    <ion-icon name="remove"></ion-icon>
+                            
+                        </div>
+            </div>
+        </div>
+        </app-mob-context-menu>
     </div>
 </template>
 <script lang='ts'>
@@ -65,10 +145,10 @@ import DocLibService from '@/app-core/service/doc-lib/doc-lib-service';
 import DocLibTreeProductMobService from '@/app-core/ctrl-service/doc-lib/doc-lib-tree-product-mob-treeview-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
-import DocUIService from '@/ui-service/doc/doc-ui-action';
+import DocLibModuleUIService from '@/ui-service/doc-lib-module/doc-lib-module-ui-action';
 import FileUIService from '@/ui-service/file/file-ui-action';
 import DocLibUIService from '@/ui-service/doc-lib/doc-lib-ui-action';
-import DocLibModuleUIService from '@/ui-service/doc-lib-module/doc-lib-module-ui-action';
+import DocUIService from '@/ui-service/doc/doc-ui-action';
 
 import { Util } from '@ibiz-core/utils'
 
@@ -202,22 +282,6 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     }
 
     /**
-     * doc_cm 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof DocLibTreeProductMob
-     */
-    protected doc_cm_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.doc_cm_deuiaction1_click($event, 'doc_cm', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.doc_cm_deuiaction2_click($event, 'doc_cm', $event2);
-        }
-    }
-
-    /**
      * doclib_cm 部件 click 事件
      *
      * @param {*} [args={}]
@@ -234,18 +298,50 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     }
 
     /**
-     * module_cm 部件 click 事件
+     * doclibdoc_cm 部件 click 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
      * @memberof DocLibTreeProductMob
      */
-    protected module_cm_click($event: any, $event2?: any) {
+    protected doclibdoc_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
-            this.module_cm_deuiaction1_click($event, 'module_cm', $event2);
+            this.doclibdoc_cm_deuiaction1_click($event, 'doclibdoc_cm', $event2);
         }
         if (Object.is($event.tag, 'deuiaction2')) {
-            this.module_cm_deuiaction2_click($event, 'module_cm', $event2);
+            this.doclibdoc_cm_deuiaction2_click($event, 'doclibdoc_cm', $event2);
+        }
+    }
+
+    /**
+     * rootdoclibmodule_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof DocLibTreeProductMob
+     */
+    protected rootdoclibmodule_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.rootdoclibmodule_cm_deuiaction1_click($event, 'rootdoclibmodule_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.rootdoclibmodule_cm_deuiaction2_click($event, 'rootdoclibmodule_cm', $event2);
+        }
+    }
+
+    /**
+     * moduledoc_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof DocLibTreeProductMob
+     */
+    protected moduledoc_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.moduledoc_cm_deuiaction1_click($event, 'moduledoc_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.moduledoc_cm_deuiaction2_click($event, 'moduledoc_cm', $event2);
         }
     }
 
@@ -289,15 +385,15 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        Object.assign(paramJO, {});
+        
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('doc_ui_action');
+        const curUIService: any = await this.globaluiservice.getService('doclibmodule_ui_action');
         if (curUIService) {
-            curUIService.Doc_Collect(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.DocLibModule_NFavorite(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -321,15 +417,15 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        Object.assign(paramJO, {});
+        
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('doc_ui_action');
+        const curUIService: any = await this.globaluiservice.getService('doclibmodule_ui_action');
         if (curUIService) {
-            curUIService.Doc_UnCollect(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.DocLibModule_Favorite(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -503,7 +599,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @returns {Promise<any>}
      * @memberof TreeBase
      */
-    protected async module_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async rootdoclibmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -535,7 +631,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @returns {Promise<any>}
      * @memberof TreeBase
      */
-    protected async module_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async rootdoclibmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -567,7 +663,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @returns {Promise<any>}
      * @memberof TreeBase
      */
-    protected async doc_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async moduledoc_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -599,7 +695,71 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @returns {Promise<any>}
      * @memberof TreeBase
      */
-    protected async doc_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async moduledoc_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        Object.assign(paramJO, {});
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('doc_ui_action');
+        if (curUIService) {
+            curUIService.Doc_UnCollect(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TreeBase
+     */
+    protected async doclibdoc_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        Object.assign(paramJO, {});
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('doc_ui_action');
+        if (curUIService) {
+            curUIService.Doc_Collect(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TreeBase
+     */
+    protected async doclibdoc_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -766,6 +926,97 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
               }
             }
             this.setDefaultSelection(AllnodesArray);
+        }
+    }
+
+    /**
+     * 备份树节点上下文菜单
+     * 
+     * @type any
+     * @memberof MainTreeBase
+     */
+    public copyActionModel:any;
+
+    /**
+     * 树节点上下文菜单集合
+     *
+     * @type {string[]}
+     * @memberof DocLibTreeProductMobBase
+     */
+     public actionModel: any = {
+        ChildDocLibModule_deuiaction1: {name:'deuiaction1',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visabled: true, disabled: false},
+        ChildDocLibModule_deuiaction2: {name:'deuiaction2',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visabled: true, disabled: false},
+        DocLib_deuiaction1: {name:'deuiaction1',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visabled: true, disabled: false},
+        DocLib_deuiaction2: {name:'deuiaction2',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visabled: true, disabled: false},
+        DocLibDoc_deuiaction1: {name:'deuiaction1',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visabled: true, disabled: false},
+        DocLibDoc_deuiaction2: {name:'deuiaction2',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visabled: true, disabled: false},
+        RootDocLibModule_deuiaction1: {name:'deuiaction1',nodeOwner:'RootDocLibModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visabled: true, disabled: false},
+        RootDocLibModule_deuiaction2: {name:'deuiaction2',nodeOwner:'RootDocLibModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visabled: true, disabled: false},
+        ModuleDoc_deuiaction1: {name:'deuiaction1',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visabled: true, disabled: false},
+        ModuleDoc_deuiaction2: {name:'deuiaction2',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visabled: true, disabled: false},
+        File_deuiaction1: {name:'deuiaction1',nodeOwner:'File',type: 'DEUIACTION', tag: 'Look', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visabled: true, disabled: false},
+        File_deuiaction2: {name:'deuiaction2',nodeOwner:'File',type: 'DEUIACTION', tag: 'ibzdownload', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__FILE_DOWNLOAD_BUT', visabled: true, disabled: false},
+        File_deuiaction3: {name:'deuiaction3',nodeOwner:'File',type: 'DEUIACTION', tag: 'delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__FILE_DELETE_BUT', visabled: true, disabled: false},
+    }
+
+    /**
+     * 显示上下文菜单
+     * 
+     * @param data 节点数据
+     * @param event 事件源
+     * @memberof DocLibTreeProductMobBase
+     */
+    public showContext(data:any,event:any){
+        let _this:any = this;
+        this.copyActionModel = {};
+        const tags: string[] = data.id.split(';');
+        Object.values(this.actionModel).forEach((item:any) =>{
+            if(Object.is(item.nodeOwner,tags[0])){
+                this.copyActionModel[item.name] = item;
+            }
+        })
+        if(Object.keys(this.copyActionModel).length === 0){
+            return;
+        }
+        this.computeNodeState(data,data.nodeType,data.appEntityName).then((result:any) => {
+            let flag:boolean = false;
+            if(Object.values(result).length>0){
+                flag =Object.values(result).some((item:any) =>{
+                    return item.visabled === true;
+                })
+            }
+            if(flag){
+                (_this.$refs[data.id] as any).showContextMenu(event.clientX, event.clientY);
+            }
+        });
+    }
+
+    /**
+     * 计算节点右键权限
+     *
+     * @param {*} node 节点数据
+     * @param {*} nodeType 节点类型
+     * @param {*} appEntityName 应用实体名称  
+     * @returns
+     * @memberof DocLibTreeProductMobBase
+     */
+    public async computeNodeState(node:any,nodeType:string,appEntityName:string) {
+        if(Object.is(nodeType,"STATIC")){
+            return this.copyActionModel;
+        }
+        let service:any = await this.appEntityService.getService(appEntityName);
+        if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
+            if(service['Get'] && service['Get'] instanceof Function){
+                let tempContext:any = Util.deepCopy(this.context);
+                tempContext[appEntityName] = node.srfkey;
+                let targetData = await service.Get(tempContext,{}, false);
+                let uiservice:any = await new UIService().getService(appEntityName);
+                let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
+                return this.copyActionModel;
+            }else{
+                console.warn("获取数据异常");
+                return this.copyActionModel;
+            }
         }
     }
 
@@ -1299,91 +1550,14 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     } 
 
     /**
-     * 绘制右击菜单
+     * 菜单显示状态
      *
      * @param {*} node
      * @returns
      * @memberof DocLibTreeProductMobBase
      */
-    public renderContextMenu(node: any) {
-        let content;
-        if (node && node.data) {
-            const data: any = JSON.parse(JSON.stringify(node.data));
-            this.currentselectedNode = { ...data };
-            const tags: string[] = data.id.split(';');
-            if (tags[0] === "ChildDocLibModule") {
-                content = this.renderContextMenuChilddoclibmodule();
-            }
-            if (tags[0] === "Doc") {
-                content = this.renderContextMenuDoc();
-            }
-            if (tags[0] === "docLib") {
-                content = this.renderContextMenuDoclib();
-            }
-            if (tags[0] === "Module") {
-                content = this.renderContextMenuModule();
-            }
-            if (tags[0] === "File") {
-                content = this.renderContextMenuFile();
-            }
-        }
-        return content;
-    }
-
-    /**
-     * 绘制ChildDocLibModule类型右键菜单
-     *
-     * @param {*} node
-     * @returns
-     * @memberof DocLibTreeProductMobBase
-     */
-    public renderContextMenuChilddoclibmodule() {
-        return 
-    }
-
-    /**
-     * 绘制Doc类型右键菜单
-     *
-     * @param {*} node
-     * @returns
-     * @memberof DocLibTreeProductMobBase
-     */
-    public renderContextMenuDoc() {
-        return 
-    }
-
-    /**
-     * 绘制docLib类型右键菜单
-     *
-     * @param {*} node
-     * @returns
-     * @memberof DocLibTreeProductMobBase
-     */
-    public renderContextMenuDoclib() {
-        return 
-    }
-
-    /**
-     * 绘制Module类型右键菜单
-     *
-     * @param {*} node
-     * @returns
-     * @memberof DocLibTreeProductMobBase
-     */
-    public renderContextMenuModule() {
-        return 
-    }
-
-    /**
-     * 绘制File类型右键菜单
-     *
-     * @param {*} node
-     * @returns
-     * @memberof DocLibTreeProductMobBase
-     */
-    public renderContextMenuFile() {
-        return 
-    }
+    public contextMenuShowStatus = false;
+    
 
     /**
      * 设置选中高亮
@@ -1455,6 +1629,25 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
             }
         }
         this.$emit('selectchange', this.selectedNodes);
+    }
+
+    /**
+     * 激活节点
+     *
+     * @memberof DocLibTreeProductMobBase
+     */
+    public activeNode = "";
+
+    /**
+     * 节点长按
+     *
+     * @memberof DocLibTreeProductMobBase
+     */
+    public node_touch(item:any){
+        this.activeNode  = item.id.split(';')[0];
+        this.currentselectedNode = JSON.parse(JSON.stringify(item));
+        this.contextMenuShowStatus = true;
+    
     }
 
     /**

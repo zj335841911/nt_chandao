@@ -16,10 +16,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 @Slf4j
 @Primary
@@ -38,8 +44,15 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
     @Override
     public Page<SysEmployee> searchDefault(SysEmployeeSearchContext context) {
         log.info("SysEmployeeExService：searchDefault");
-        context.setN_orgid_eq(AuthenticationUser.getAuthenticationUser().getOrgid());
-        return super.searchDefault(context);
+        try {
+            context.setN_orgid_eq(AuthenticationUser.getAuthenticationUser().getOrgid());
+            return super.searchDefault(context);
+        }catch(Exception e) {
+            List<SysEmployee> list = new ArrayList<>();
+            Page<SysEmployee> page = new PageImpl<SysEmployee>(list);
+            return page;
+        }
+
     }
 
     @Override

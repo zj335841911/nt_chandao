@@ -75,6 +75,12 @@ export default class DoclibChildTreeViewModel {
       {
         name: 'root',
       },
+      {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
     ]
   }
 

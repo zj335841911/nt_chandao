@@ -44,7 +44,7 @@
             $projectupdateorder__msdenydefault:Project();
             $projectupdateorder__msdenytemp:Project();
             eval($projectupdateorder__msdenydefault==projectupdateorder__msdenydefault && $projectupdateorder__msdenytemp==projectupdateorder__msdenytemp);
-                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("STATUS"),"EQ","closed"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("ISTOP"),"EQ","0")))
+                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("status"),"EQ","closed"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("istop"),"EQ","0")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -53,7 +53,7 @@
             $projectupdateorder__msdenydefault:Project();
             $projectupdateorder__msdenytemp:Project();
             eval($projectupdateorder__msdenydefault==projectupdateorder__msdenydefault && $projectupdateorder__msdenytemp==projectupdateorder__msdenytemp);
-                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("STATUS"),"EQ","closed"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("ISTOP"),"EQ","1")))
+                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("status"),"EQ","closed"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("istop"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -62,7 +62,7 @@
             $projectupdateorder__msdenydefault:Project();
             $projectupdateorder__msdenytemp:Project();
             eval($projectupdateorder__msdenydefault==projectupdateorder__msdenydefault && $projectupdateorder__msdenytemp==projectupdateorder__msdenytemp);
-                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("STATUS"),"EQ","doing"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("ISTOP"),"EQ","0")))
+                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("status"),"EQ","doing"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("istop"),"EQ","0")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -71,7 +71,7 @@
             $projectupdateorder__msdenydefault:Project();
             $projectupdateorder__msdenytemp:Project();
             eval($projectupdateorder__msdenydefault==projectupdateorder__msdenydefault && $projectupdateorder__msdenytemp==projectupdateorder__msdenytemp);
-                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("STATUS"),"EQ","doing"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("ISTOP"),"EQ","1")))
+                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("status"),"EQ","doing"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("istop"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -80,7 +80,7 @@
             $projectupdateorder__msdenydefault:Project();
             $projectupdateorder__msdenytemp:Project();
             eval($projectupdateorder__msdenydefault==projectupdateorder__msdenydefault && $projectupdateorder__msdenytemp==projectupdateorder__msdenytemp);
-                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("STATUS"),"EQ","suspended"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("ISTOP"),"EQ","0")))
+                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("status"),"EQ","suspended"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("istop"),"EQ","0")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -89,7 +89,7 @@
             $projectupdateorder__msdenydefault:Project();
             $projectupdateorder__msdenytemp:Project();
             eval($projectupdateorder__msdenydefault==projectupdateorder__msdenydefault && $projectupdateorder__msdenytemp==projectupdateorder__msdenytemp);
-                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("STATUS"),"EQ","suspended"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("ISTOP"),"EQ","1")))
+                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("status"),"EQ","suspended"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("istop"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -98,7 +98,7 @@
             $projectupdateorder__msdenydefault:Project();
             $projectupdateorder__msdenytemp:Project();
             eval($projectupdateorder__msdenydefault==projectupdateorder__msdenydefault && $projectupdateorder__msdenytemp==projectupdateorder__msdenytemp);
-                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("STATUS"),"EQ","wait"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("ISTOP"),"EQ","0")))
+                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("status"),"EQ","wait"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("istop"),"EQ","0")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -107,7 +107,7 @@
             $projectupdateorder__msdenydefault:Project();
             $projectupdateorder__msdenytemp:Project();
             eval($projectupdateorder__msdenydefault==projectupdateorder__msdenydefault && $projectupdateorder__msdenytemp==projectupdateorder__msdenytemp);
-                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("STATUS"),"EQ","wait"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("ISTOP"),"EQ","1")))
+                eval((RuleUtils.test($projectupdateorder__msdenytemp.get("status"),"EQ","wait"))&&(RuleUtils.test($projectupdateorder__msdenytemp.get("istop"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>

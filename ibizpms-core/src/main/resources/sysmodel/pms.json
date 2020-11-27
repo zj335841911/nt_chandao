@@ -9,6 +9,8 @@
     "table_name":"zt_action",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"EXTRA" ,
@@ -374,6 +376,8 @@
     "table_name":"zt_block",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"HEIGHT" ,
@@ -545,6 +549,8 @@
     "table_name":"zt_branch",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"NAME" ,
@@ -695,6 +701,8 @@
     "table_name":"zt_bug",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"SEVERITY" ,
@@ -2001,6 +2009,8 @@
     "table_name":"zt_bug",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -2391,6 +2401,8 @@
     "table_name":"zt_build",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"NAME" ,
@@ -2793,6 +2805,8 @@
     "table_name":"zt_burn",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"DATE" ,
@@ -2950,6 +2964,8 @@
     "table_name":"zt_case",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"LASTEDITEDDATE" ,
@@ -3940,6 +3956,8 @@
     "table_name":"zt_casestep",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"TYPE" ,
@@ -4155,6 +4173,8 @@
     "table_name":"zt_company",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ADMINS" ,
@@ -4325,6 +4345,8 @@
     "table_name":"zt_compile",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"QUEUE" ,
@@ -4524,6 +4546,8 @@
     "table_name":"zt_config",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -4622,6 +4646,8 @@
     "table_name":"zt_cron",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -4802,6 +4828,8 @@
     "table_name":"zt_dept",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"MANAGER" ,
@@ -4989,6 +5017,8 @@
     "table_name":"zt_doc",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"GROUPS" ,
@@ -5495,6 +5525,19 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"DOCCNT" ,
+    "codename":"Doccnt",
+    "field_logic_name":"文档数",
+    "entity_name":"Doc",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -5540,6 +5583,8 @@
     "table_name":"zt_doccontent",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"FILES" ,
@@ -5677,6 +5722,8 @@
     "table_name":"zt_doclib",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"TYPE" ,
@@ -5980,6 +6027,34 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"MODULECNT" ,
+    "codename":"Modulecnt",
+    "field_logic_name":"文件夹数",
+    "entity_name":"DocLib",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id)",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"OPENEDDATE" ,
+    "codename":"OpenedDate",
+    "field_logic_name":"创建时间",
+    "entity_name":"DocLib",
+    "field_type":"DATETIME",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"DATETIME",
+    "expression":"(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created')",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -6019,6 +6094,8 @@
     "table_name":"zt_module",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ISLEAF" ,
@@ -6288,6 +6365,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"DOCCNT" ,
+    "codename":"Doccnt",
+    "field_logic_name":"文档数",
+    "entity_name":"DocLibModule",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id)",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -6321,6 +6412,8 @@
     "table_name":"T_DYNADASHBOARD",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"DYNADASHBOARDID" ,
@@ -6482,6 +6575,8 @@
     "table_name":"zt_effort",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"USER" ,
@@ -6649,6 +6744,8 @@
     "table_name":"ZT_TASK",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -6888,6 +6985,8 @@
     "table_name":"zt_entry",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"DELETED" ,
@@ -7103,6 +7202,8 @@
     "table_name":"zt_extension",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"DIRS" ,
@@ -7326,6 +7427,8 @@
     "table_name":"zt_file",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"PATHNAME" ,
@@ -7505,7 +7608,7 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":200,
-    "expression":"CONCAT_WS('',ROUND(t1.size/1024, 1),'k')",
+    "expression":"CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end)",
     "key_field":0,
     "show_order":1000,
     "major_field":0
@@ -7544,6 +7647,8 @@
     "table_name":"zt_group",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ACL" ,
@@ -7629,6 +7734,8 @@
     "table_name":"zt_grouppriv",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"GROUP" ,
@@ -7700,6 +7807,8 @@
     "table_name":"zt_history",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"DIFF" ,
@@ -7808,6 +7917,8 @@
     "table_name":"T_IBIZPRO_KEYWORD",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizplugin",
+    "module_name":"iBiz插件模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -7837,6 +7948,8 @@
     "table_name":"T_IBIZPRO_MESSAGE",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizplugin",
+    "module_name":"iBiz插件模块",
     "fields":[
     {
     "fieldname":"RETRYTIMES" ,
@@ -8130,6 +8243,8 @@
     "table_name":"T_IBIZPRO_PLUGIN",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizplugin",
+    "module_name":"iBiz插件模块",
     "fields":[
     {
     "fieldname":"TYPE" ,
@@ -8346,6 +8461,8 @@
     "table_name":"T_IBIZPRO_TAG",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizplugin",
+    "module_name":"iBiz插件模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -8375,6 +8492,8 @@
     "table_name":"zt_product",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizpro",
+    "module_name":"iBizPro模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -8458,6 +8577,8 @@
     "table_name":"zt_story",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizpro",
+    "module_name":"iBizPro模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -9099,6 +9220,8 @@
     "table_name":"zt_module",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizpro",
+    "module_name":"iBizPro模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -9349,6 +9472,8 @@
     "table_name":"T_IBZPRO_SYSTPL",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizpro",
+    "module_name":"iBizPro模块",
     "fields":[
     {
     "fieldname":"IBZPRO_SYSTPLID" ,
@@ -9536,6 +9661,8 @@
     "table_name":"T_IBZPRO_SYSTEM",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizpro",
+    "module_name":"iBizPro模块",
     "fields":[
     {
     "fieldname":"IBZPRO_SYSTEMID" ,
@@ -9641,6 +9768,8 @@
     "table_name":"T_IBZ_DOC",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"IBZ_DOCID" ,
@@ -9873,6 +10002,8 @@
     "table_name":"zt_user",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"REALNAME" ,
@@ -9958,6 +10089,8 @@
     "table_name":"zt_case",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ORDER" ,
@@ -10390,6 +10523,8 @@
     "table_name":"T_IBZ_FAVORITES",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"CREATEMAN" ,
@@ -10537,6 +10672,8 @@
     "table_name":"zt_testsuite",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"DESC" ,
@@ -10710,6 +10847,8 @@
     "table_name":"ZT_CASESTEP",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -10810,6 +10949,8 @@
     "table_name":"zt_casestep",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"VERSION" ,
@@ -10982,6 +11123,8 @@
     "table_name":"zt_module",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"BRANCH" ,
@@ -11243,6 +11386,8 @@
     "table_name":"zt_user",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"FAILS" ,
@@ -11913,6 +12058,8 @@
     "table_name":"zt_project",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -12116,6 +12263,8 @@
     "table_name":"T_IBZ_TOP",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"IBZ_TOPID" ,
@@ -12277,6 +12426,8 @@
     "table_name":"zt_im_chat",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ADMINS" ,
@@ -12483,6 +12634,8 @@
     "table_name":"zt_im_chatuser",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -12651,6 +12804,8 @@
     "table_name":"zt_im_client",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"EDITEDDATE" ,
@@ -12818,6 +12973,8 @@
     "table_name":"zt_im_conference",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"STATUS" ,
@@ -12929,6 +13086,8 @@
     "table_name":"zt_im_conferenceaction",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"RID" ,
@@ -13012,6 +13171,8 @@
     "table_name":"zt_im_message",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"USER" ,
@@ -13181,6 +13342,8 @@
     "table_name":"zt_im_messagestatus",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"MESSAGE" ,
@@ -13252,6 +13415,8 @@
     "table_name":"zt_im_queue",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"PROCESSDATE" ,
@@ -13362,6 +13527,8 @@
     "table_name":"zt_jenkins",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"NAME" ,
@@ -13529,6 +13696,8 @@
     "table_name":"zt_job",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"DELETED" ,
@@ -13824,6 +13993,8 @@
     "table_name":"zt_lang",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"MODULE" ,
@@ -13937,6 +14108,8 @@
     "table_name":"zt_log",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"URL" ,
@@ -14074,6 +14247,8 @@
     "table_name":"zt_module",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ROOT" ,
@@ -14382,6 +14557,8 @@
     "table_name":"zt_notify",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"CREATEDDATE" ,
@@ -14574,6 +14751,8 @@
     "table_name":"T_PSDEFIELD",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSDEFIELDID" ,
@@ -15918,6 +16097,8 @@
     "table_name":"T_PSDATAENTITY",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSDATAENTITYNAME" ,
@@ -17276,6 +17457,8 @@
     "table_name":"T_PSMODULE",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSMODULENAME" ,
@@ -17753,6 +17936,8 @@
     "table_name":"T_PSSUBSYSSADE",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSUBSYSSADEID" ,
@@ -18101,6 +18286,8 @@
     "table_name":"T_PSSUBSYSSERVICEAPI",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSUBSYSSERVICEAPINAME" ,
@@ -18330,6 +18517,8 @@
     "table_name":"T_PSSYSAPP",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSYSAPPID" ,
@@ -19225,6 +19414,8 @@
     "table_name":"T_PSSYSREQITEM",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSYSREQITEMID" ,
@@ -19691,6 +19882,8 @@
     "table_name":"T_PSSYSREQMODULE",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSYSREQMODULENAME" ,
@@ -20116,6 +20309,8 @@
     "table_name":"T_PSSYSRUNSESSION",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSYSRUNSESSIONNAME" ,
@@ -20677,6 +20872,8 @@
     "table_name":"T_PSSYSSFPUB",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSYSSFPUBNAME" ,
@@ -21221,6 +21418,8 @@
     "table_name":"T_PSSYSSERVICEAPI",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSYSSERVICEAPIID" ,
@@ -21901,6 +22100,8 @@
     "table_name":"T_PSSYSTEMDBCFG",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSYSTEMDBCFGNAME" ,
@@ -22396,6 +22597,8 @@
     "table_name":"zt_product",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"QD" ,
@@ -23201,6 +23404,8 @@
     "table_name":"T_IBZ_PRODUCTLIFE",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"BRANCH" ,
@@ -23416,6 +23621,8 @@
     "table_name":"T_IBZ_PRODUCTLINE",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"IBZ_PRODUCTLINENAME" ,
@@ -23521,6 +23728,8 @@
     "table_name":"zt_module",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"PATH" ,
@@ -23814,6 +24023,8 @@
     "table_name":"zt_productplan",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"TITLE" ,
@@ -24181,6 +24392,8 @@
     "table_name":"zt_product",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -24634,6 +24847,8 @@
     "table_name":"zt_product",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -25113,6 +25328,8 @@
     "table_name":"zt_project",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"OPENEDVERSION" ,
@@ -26275,6 +26492,8 @@
     "table_name":"zt_module",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"TYPE" ,
@@ -26568,6 +26787,8 @@
     "table_name":"zt_projectproduct",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -26748,6 +26969,8 @@
     "table_name":"zt_project",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -27220,6 +27443,8 @@
     "table_name":"zt_projectstory",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -27353,6 +27578,8 @@
     "table_name":"zt_team",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"JOIN" ,
@@ -27600,6 +27827,8 @@
     "table_name":"zt_relation",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"BID" ,
@@ -27777,6 +28006,8 @@
     "table_name":"zt_release",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"STORIES" ,
@@ -28194,6 +28425,8 @@
     "table_name":"zt_repo",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"SCM" ,
@@ -28436,6 +28669,8 @@
     "table_name":"zt_repobranch",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"REVISION" ,
@@ -28506,6 +28741,8 @@
     "table_name":"zt_repofiles",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"PATH" ,
@@ -28632,6 +28869,8 @@
     "table_name":"zt_repohistory",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"COMMITTER" ,
@@ -28741,6 +28980,8 @@
     "table_name":"zt_score",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"METHOD" ,
@@ -28877,6 +29118,8 @@
     "table_name":"zt_story",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ASSIGNEDTO" ,
@@ -29983,6 +30226,8 @@
     "table_name":"zt_storyspec",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"SPEC" ,
@@ -30101,6 +30346,8 @@
     "table_name":"zt_storystage",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -30217,6 +30464,8 @@
     "table_name":"zt_suitecase",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -30338,6 +30587,8 @@
     "table_name":"T_SYS_DEPT",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ou",
+    "module_name":"ou组织用户管理模块",
     "fields":[
     {
     "fieldname":"DEPTID" ,
@@ -30666,6 +30917,8 @@
     "table_name":"T_IBZEMP",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ou",
+    "module_name":"ou组织用户管理模块",
     "fields":[
     {
     "fieldname":"USERID" ,
@@ -31135,6 +31388,8 @@
     "table_name":"T_SYS_ORG",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ou",
+    "module_name":"ou组织用户管理模块",
     "fields":[
     {
     "fieldname":"ORGID" ,
@@ -31350,6 +31605,8 @@
     "table_name":"IBZPOST",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ou",
+    "module_name":"ou组织用户管理模块",
     "fields":[
     {
     "fieldname":"POSTID" ,
@@ -31441,6 +31698,8 @@
     "table_name":"IBZTEAM",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ou",
+    "module_name":"ou组织用户管理模块",
     "fields":[
     {
     "fieldname":"TEAMID" ,
@@ -31518,6 +31777,8 @@
     "table_name":"IBZTEAMMEMBER",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ou",
+    "module_name":"ou组织用户管理模块",
     "fields":[
     {
     "fieldname":"TEAMMEMBERID" ,
@@ -31723,6 +31984,8 @@
     "table_name":"T_SYS_UPDATE_FEATURES",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"SYS_UPDATE_FEATURESNAME" ,
@@ -31926,6 +32189,8 @@
     "table_name":"T_SYS_UPDATE_LOG",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"SYS_UPDATE_LOGID" ,
@@ -32107,6 +32372,8 @@
     "table_name":"zt_task",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"CANCELEDBY" ,
@@ -33248,6 +33515,8 @@
     "table_name":"zt_taskestimate",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ACCOUNT" ,
@@ -33381,6 +33650,8 @@
     "table_name":"T_TASKMSGRECORD",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"TASKMSGRECORDID" ,
@@ -33585,6 +33856,8 @@
     "table_name":"zt_task",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"PROJECTNAME" ,
@@ -33727,6 +34000,8 @@
     "table_name":"zt_team",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ROLE" ,
@@ -33961,6 +34236,8 @@
     "table_name":"zt_team",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ESTIMATE" ,
@@ -34155,6 +34432,8 @@
     "table_name":"zt_module",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"PATH" ,
@@ -34428,6 +34707,8 @@
     "table_name":"zt_testreport",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"OBJECTID" ,
@@ -34824,6 +35105,8 @@
     "table_name":"zt_testresult",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"LASTRUNNER" ,
@@ -35153,6 +35436,8 @@
     "table_name":"zt_testrun",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"LASTRUNRESULT" ,
@@ -35326,6 +35611,8 @@
     "table_name":"zt_testsuite",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"NAME" ,
@@ -35523,6 +35810,8 @@
     "table_name":"zt_testtask",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"END" ,
@@ -35931,6 +36220,8 @@
     "table_name":"zt_todo",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -36429,6 +36720,8 @@
     "table_name":"zt_user",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"PASSWORD" ,
@@ -36914,6 +37207,8 @@
     "table_name":"zt_usercontact",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"USERLIST" ,
@@ -36985,6 +37280,8 @@
     "table_name":"zt_usergroup",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ACCOUNT" ,
@@ -37042,6 +37339,8 @@
     "table_name":"zt_userquery",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -37155,6 +37454,8 @@
     "table_name":"zt_usertpl",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"TITLE" ,
@@ -37254,6 +37555,8 @@
     "table_name":"zt_userview",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -37326,6 +37629,8 @@
     "table_name":"zt_user",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -38038,6 +38343,8 @@
     "table_name":"zt_webhook",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"SECRET" ,

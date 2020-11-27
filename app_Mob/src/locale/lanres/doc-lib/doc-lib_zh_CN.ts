@@ -20,10 +20,15 @@ export default {
     orgid: "组织标识",
     mdeptid: "部门标识",
     root: "Root",
+    modulecnt: "文件夹数",
+    openeddate: "创建时间",
   },
 	views: {
 		mobproducttreeview: {
 			caption: '产品',
+		},
+		projectdoclibmobtreeview: {
+			caption: '项目',
 		},
 		mobeditview: {
 			caption: '文档库',

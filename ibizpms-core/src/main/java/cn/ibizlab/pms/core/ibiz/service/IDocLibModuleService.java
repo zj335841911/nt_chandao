@@ -56,6 +56,7 @@ public interface IDocLibModuleService extends IService<DocLibModule> {
     Page<DocLibModule> searchChildModuleByParent(DocLibModuleSearchContext context);
     Page<DocLibModule> searchChildModuleByRealParent(DocLibModuleSearchContext context);
     Page<DocLibModule> searchDefault(DocLibModuleSearchContext context);
+    Page<DocLibModule> searchMyFavourites(DocLibModuleSearchContext context);
     Page<DocLibModule> searchParentModule(DocLibModuleSearchContext context);
     Page<DocLibModule> searchRootModuleMuLu(DocLibModuleSearchContext context);
     Page<DocLibModule> searchRootModuleMuLuByRoot(DocLibModuleSearchContext context);

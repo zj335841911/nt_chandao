@@ -31,21 +31,21 @@ public class TaskStatsSearchContext extends QueryWrapperContext<TaskStats> {
 	public void setN_project_eq(String n_project_eq) {
         this.n_project_eq = n_project_eq;
         if(!ObjectUtils.isEmpty(this.n_project_eq)){
-            this.getSearchCond().eq("project", n_project_eq);
+            this.getSearchCond().eq("`project`", n_project_eq);
         }
     }
 	private String n_name_like;//[名称]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
-            this.getSearchCond().like("name", n_name_like);
+            this.getSearchCond().like("`name`", n_name_like);
         }
     }
 	private String n_finishedby_eq;//[完成者]
 	public void setN_finishedby_eq(String n_finishedby_eq) {
         this.n_finishedby_eq = n_finishedby_eq;
         if(!ObjectUtils.isEmpty(this.n_finishedby_eq)){
-            this.getSearchCond().eq("finishedby", n_finishedby_eq);
+            this.getSearchCond().eq("`finishedby`", n_finishedby_eq);
         }
     }
 
@@ -58,7 +58,7 @@ public class TaskStatsSearchContext extends QueryWrapperContext<TaskStats> {
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("name", query)   
+                     wrapper.like("`name`", query)
             );
 		 }
 	}

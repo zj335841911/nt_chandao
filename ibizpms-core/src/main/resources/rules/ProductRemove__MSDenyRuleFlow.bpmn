@@ -26,7 +26,7 @@
             $productremove__msdenytemp:Product();
             $productremove__msdenydefault:Product();
             eval($productremove__msdenytemp==productremove__msdenytemp && $productremove__msdenydefault==productremove__msdenydefault);
-                eval((RuleUtils.test($productremove__msdenytemp.get("STATUS"),"EQ","closed"))&&(RuleUtils.test($productremove__msdenytemp.get("ISTOP"),"EQ","1")))
+                eval((RuleUtils.test($productremove__msdenytemp.get("status"),"EQ","closed"))&&(RuleUtils.test($productremove__msdenytemp.get("istop"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -35,7 +35,7 @@
             $productremove__msdenytemp:Product();
             $productremove__msdenydefault:Product();
             eval($productremove__msdenytemp==productremove__msdenytemp && $productremove__msdenydefault==productremove__msdenydefault);
-                eval((RuleUtils.test($productremove__msdenytemp.get("STATUS"),"EQ","normal"))&&(RuleUtils.test($productremove__msdenytemp.get("ISTOP"),"EQ","1")))
+                eval((RuleUtils.test($productremove__msdenytemp.get("status"),"EQ","normal"))&&(RuleUtils.test($productremove__msdenytemp.get("istop"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>

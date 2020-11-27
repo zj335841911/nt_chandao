@@ -31,14 +31,14 @@ public class TaskEstimateSearchContext extends QueryWrapperContext<TaskEstimate>
 	public void setN_id_like(Long n_id_like) {
         this.n_id_like = n_id_like;
         if(!ObjectUtils.isEmpty(this.n_id_like)){
-            this.getSearchCond().like("id", n_id_like);
+            this.getSearchCond().like("`id`", n_id_like);
         }
     }
 	private Long n_task_eq;//[任务]
 	public void setN_task_eq(Long n_task_eq) {
         this.n_task_eq = n_task_eq;
         if(!ObjectUtils.isEmpty(this.n_task_eq)){
-            this.getSearchCond().eq("task", n_task_eq);
+            this.getSearchCond().eq("`task`", n_task_eq);
         }
     }
 
@@ -51,7 +51,7 @@ public class TaskEstimateSearchContext extends QueryWrapperContext<TaskEstimate>
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("id", query)   
+                     wrapper.like("`id`", query)
             );
 		 }
 	}

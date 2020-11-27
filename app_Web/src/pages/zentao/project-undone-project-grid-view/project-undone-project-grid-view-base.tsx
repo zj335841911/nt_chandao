@@ -296,12 +296,16 @@ export class ProjectUndoneProjectGridViewBase extends GridView9Base {
      * @memberof ProjectUndoneProjectGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        const localContext: any = null;
-        const localViewParam: any ={project:"%project%"};
+        const localContext: any = {SRFPARENTKEY:"%project%"};
+        const localViewParam: any ={srfparentkey:"%project%"};
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){
             Object.assign(tempContext,args[0]);
+        }
+        if(localContext && Object.keys(localContext).length >0){
+            let _context:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localContext);
+            Object.assign(tempContext,_context);
         }
         if(localViewParam && Object.keys(localViewParam).length >0){
             let _param:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localViewParam);
@@ -310,7 +314,7 @@ export class ProjectUndoneProjectGridViewBase extends GridView9Base {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'doclibs', parameterName: 'doclib' },
-            { pathName: 'undoneprojectgridview', parameterName: 'undoneprojectgridview' },
+            { pathName: 'projecttreeview', parameterName: 'projecttreeview' },
         ];
         const _this: any = this;
         const openIndexViewTab = (data: any) => {

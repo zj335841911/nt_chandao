@@ -31,21 +31,21 @@ public class ProjectStatsSearchContext extends QueryWrapperContext<ProjectStats>
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
-            this.getSearchCond().like("name", n_name_like);
+            this.getSearchCond().like("`name`", n_name_like);
         }
     }
 	private String n_status_eq;//[状态]
 	public void setN_status_eq(String n_status_eq) {
         this.n_status_eq = n_status_eq;
         if(!ObjectUtils.isEmpty(this.n_status_eq)){
-            this.getSearchCond().eq("status", n_status_eq);
+            this.getSearchCond().eq("`status`", n_status_eq);
         }
     }
 	private String n_status_noteq;//[状态]
 	public void setN_status_noteq(String n_status_noteq) {
         this.n_status_noteq = n_status_noteq;
         if(!ObjectUtils.isEmpty(this.n_status_noteq)){
-            this.getSearchCond().ne("status", n_status_noteq);
+            this.getSearchCond().ne("`status`", n_status_noteq);
         }
     }
 
@@ -58,7 +58,7 @@ public class ProjectStatsSearchContext extends QueryWrapperContext<ProjectStats>
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("name", query)   
+                     wrapper.like("`name`", query)
             );
 		 }
 	}

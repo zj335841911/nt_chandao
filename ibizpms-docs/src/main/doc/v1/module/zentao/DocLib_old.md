@@ -35,6 +35,8 @@ hide members
 |组织标识|ORGID|TEXT|&nbsp;|
 |部门标识|MDEPTID|TEXT|&nbsp;|
 |Root|ROOT|TEXT|&nbsp;|
+|文件夹数|MODULECNT|INT|&nbsp;|
+|创建时间|OPENEDDATE|DATETIME|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -59,6 +61,8 @@ hide members
 |组织标识|默认规则|内容长度必须小于等于[100]|
 |部门标识|默认规则|内容长度必须小于等于[100]|
 |Root|默认规则|内容长度必须小于等于[100]|
+|文件夹数|默认规则|默认规则|
+|创建时间|默认规则|默认规则|
 
 ## 状态控制
 
@@ -121,6 +125,7 @@ hide footbox
 |ByProjectNotFiles|项目文件库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_ByProjectNotFiles))|否|&nbsp;|
 |CurDocLib|所属文档库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_CurDocLib))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_Default))|否|&nbsp;|
+|MyFavourites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_MyFavourites))|否|&nbsp;|
 |RootModuleMuLu|根目录([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_RootModuleMuLu))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_View))|否|&nbsp;|
 
@@ -135,6 +140,7 @@ hide footbox
 |ByProjectNotFiles|项目文件库|ByProjectNotFiles|否|&nbsp;|
 |CurDocLib|所属文档库|CurDocLib|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+|MyFavourites|我的收藏|MyFavourites|否|&nbsp;|
 |RootModuleMuLu|根目录|RootModuleMuLu|否|&nbsp;|
 
 ## 查询模式

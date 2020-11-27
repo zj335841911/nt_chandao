@@ -50,6 +50,7 @@ hide members
 |最近添加数量|RECENTADDCNT|INT|&nbsp;|
 |我的文档数量|MYDOCCNT|INT|&nbsp;|
 |我的收藏数量|MYFAVOURITECNT|INT|&nbsp;|
+|文档数|DOCCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -88,6 +89,7 @@ hide members
 |最近添加数量|默认规则|默认规则|
 |我的文档数量|默认规则|默认规则|
 |我的收藏数量|默认规则|默认规则|
+|文档数|默认规则|默认规则|
 
 ## 状态控制
 
@@ -168,6 +170,7 @@ hide footbox
 |DocStatus|文档统计([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocStatus))|否|&nbsp;|
 |ModuleDocChild|文件夹文档（子目录）([MYSQL5](../../appendix/query_MYSQL5.md#Doc_ModuleDocChild))|否|&nbsp;|
 |MYFAVOURITE|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Doc_MyFavourite))|否|&nbsp;|
+|MyFavouritesOnlyDoc|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Doc_MyFavouritesOnlyDoc))|否|&nbsp;只查询我收藏的文档|
 |NotRootDoc|子目录文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_NotRootDoc))|否|&nbsp;|
 |RootDoc|根目录文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_RootDoc))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Doc_View))|否|&nbsp;|
@@ -184,6 +187,7 @@ hide footbox
 |DocStatus|文档统计|DocStatus|否|&nbsp;|
 |ModuleDocChild|文件夹文档（子目录）|ModuleDocChild|否|&nbsp;|
 |MYFAVOURITE|我的收藏|MYFAVOURITE|否|&nbsp;|
+|MyFavouritesOnlyDoc|我的收藏|MyFavouritesOnlyDoc|否|&nbsp;|
 |NotRootDoc|子目录文档|NotRootDoc|否|&nbsp;|
 |RootDoc|根目录文档|RootDoc|否|&nbsp;|
 

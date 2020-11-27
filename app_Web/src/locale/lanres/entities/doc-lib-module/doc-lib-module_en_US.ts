@@ -18,6 +18,7 @@ export default {
     modulename: "上级模块",
     docqtype: "查询类型",
     isfavourites: "是否已收藏",
+    doccnt: "文档数",
   },
 	views: {
 		childweihuitreeexpview: {

@@ -32,6 +32,7 @@ hide members
 |上级模块|MODULENAME|PICKUPTEXT|&nbsp;|
 |查询类型|DOCQTYPE|TEXT|&nbsp;|
 |是否已收藏|ISFAVOURITES|TEXT|&nbsp;|
+|文档数|DOCCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -54,6 +55,7 @@ hide members
 |上级模块|默认规则|内容长度必须小于等于[60]|
 |查询类型|默认规则|内容长度必须小于等于[100]|
 |是否已收藏|默认规则|内容长度必须小于等于[200]|
+|文档数|默认规则|默认规则|
 
 ## 状态控制
 
@@ -204,6 +206,7 @@ hide footbox
 |ChildModuleByRealParent|文档库分类子模块([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_ChildModuleByRealParent))|否|&nbsp;文档库分类下维护分类专属|
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_Default))|否|&nbsp;|
 |AllDoclibModule|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_DefaultDoclib))|否|&nbsp;|
+|MyFavourites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_MyFavourites))|否|&nbsp;|
 |ParentModule|父模块([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_ParentModule))|否|&nbsp;|
 |RootModuleMuLu|所有根模块目录([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_RootModuleMuLu))|否|&nbsp;|
 |RootModuleMuLuByRoot|根模块目录动态([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_RootModuleMuLuByRoot))|否|&nbsp;|
@@ -219,6 +222,7 @@ hide footbox
 |ChildModuleByParent|子模块目录|ChildModuleByParent|否|&nbsp;|
 |ChildModuleByRealParent|文档库分类子模块|ChildModuleByRealParent|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
+|MyFavourites|我的收藏|MyFavourites|否|&nbsp;|
 |ParentModule|父集合|ParentModule|否|&nbsp;|
 |RootModuleMuLu|所有根模块目录|RootModuleMuLu|否|&nbsp;|
 |RootModuleMuLuByRoot|根模块目录|RootModuleMuLuByRoot|否|&nbsp;|

@@ -117,6 +117,9 @@ export default class MyFavouriteModel {
       {
         name: 'myfavouritecnt',
       },
+      {
+        name: 'doccnt',
+      },
     ]
   }
 

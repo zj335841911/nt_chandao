@@ -208,6 +208,23 @@ public class DocLibDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String root;
 
+    /**
+     * 属性 [MODULECNT]
+     *
+     */
+    @JSONField(name = "modulecnt")
+    @JsonProperty("modulecnt")
+    private Integer modulecnt;
+
+    /**
+     * 属性 [OPENEDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("openeddate")
+    private Timestamp openeddate;
+
 
     /**
      * 设置 [TYPE]

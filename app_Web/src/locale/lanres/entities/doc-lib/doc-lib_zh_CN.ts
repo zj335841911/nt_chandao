@@ -20,6 +20,8 @@ export default {
     orgid: "组织标识",
     mdeptid: "部门标识",
     root: "Root",
+    modulecnt: "文件夹数",
+    openeddate: "创建时间",
   },
 	views: {
 		projecttreeexpview: {
@@ -29,6 +31,10 @@ export default {
 		usr3treeview: {
 			caption: "文档库",
       		title: "文档库树视图",
+		},
+		undoneprojecttreeexpview: {
+			caption: "未完成项目",
+      		title: "文档库树导航视图",
 		},
 		treeview: {
 			caption: "文档库",
@@ -194,12 +200,6 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	undoneprojectgridviewtoolbar_toolbar: {
-		deuiaction1_togglefilter: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -233,6 +233,12 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
+		deuiaction1_togglefilter: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
+	undoneprojectgridviewtoolbar_toolbar: {
 		deuiaction1_togglefilter: {
 			caption: "过滤",
 			tip: "过滤",
@@ -374,6 +380,15 @@ export default {
 		nodes: {
 			root: "默认根节点",
 			allproject: "所有项目",
+			files: "附件库",
+		},
+		uiactions: {
+		},
+	},
+	undoneprojectdoclibtree_treeview: {
+		nodes: {
+			allundoneproject: "所有未关闭项目",
+			root: "默认根节点",
 			files: "附件库",
 		},
 		uiactions: {

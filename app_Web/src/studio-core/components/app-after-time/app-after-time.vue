@@ -12,6 +12,7 @@
 <script lang="ts">
 import { Vue, Component, Prop,  Emit, Watch, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import  moment  from 'moment';
 
 @Component({})
 export default class AppAfterTime extends Vue  {
@@ -105,8 +106,9 @@ export default class AppAfterTime extends Vue  {
      */
     public transTime(){
         if(this.value){
-            let oldTime = new Date(this.value).getTime();
-            let nowTime = new Date().getTime();
+            let dateString:any = 'YYYY年MM月DD日' || 'YYYY年MM月DD日 HH时mm分ss秒' || 'YYYY-MM-DD HH:mm:ss' || 'YYYY-MM-DD' || 'YYYY/MM/DD HH:mm:ss' || 'YYYY/MM/DD';
+            let oldTime = moment(this.value,dateString).valueOf();
+            let nowTime = moment().valueOf();
             let diffTime = nowTime - oldTime;
             if(diffTime < 3600000){
                 this.curvalue = Math.ceil(diffTime/60000)+'';
@@ -119,7 +121,7 @@ export default class AppAfterTime extends Vue  {
                 this.diffTime = 'days';
             }else if(diffTime < 31104000000){
                 this.curvalue = Math.floor(diffTime/2592000000)+'';
-                this.diffTime = 'mounth';
+                this.diffTime = 'mouth';
             }else{
                 this.curvalue = Math.floor(diffTime/31104000000)+'';
                 this.diffTime = 'years';
@@ -128,3 +130,9 @@ export default class AppAfterTime extends Vue  {
     }
 }
 </script>
+
+<style>
+    .app-after-time{
+        margin-left: 6px;
+    }
+</style>

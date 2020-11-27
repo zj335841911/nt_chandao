@@ -376,6 +376,21 @@ export class DocServiceBase extends EntityService {
     }
 
     /**
+     * FetchMyFavouritesOnlyDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async FetchMyFavouritesOnlyDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/docs/fetchmyfavouritesonlydoc`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchNotRootDoc接口方法
      *
      * @param {*} [context={}]

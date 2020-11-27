@@ -18,7 +18,7 @@
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $taskgetusernamesdefault:Task();
             eval($taskgetusernamesdefault==taskgetusernamesdefault);
-                eval((RuleUtils.test($taskgetusernamesdefault.get("MULTIPLE"),"EQ","1")))
+                eval((RuleUtils.test($taskgetusernamesdefault.get("multiple"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -26,7 +26,7 @@
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $taskgetusernamesdefault:Task();
             eval($taskgetusernamesdefault==taskgetusernamesdefault);
-                eval((RuleUtils.test($taskgetusernamesdefault.get("MULTIPLE"),"NOTEQ","1")))
+                eval((RuleUtils.test($taskgetusernamesdefault.get("multiple"),"NOTEQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
