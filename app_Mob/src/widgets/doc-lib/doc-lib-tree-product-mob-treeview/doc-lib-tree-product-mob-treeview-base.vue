@@ -54,70 +54,7 @@
         <!-- 树视图 -->
         <app-pms-upload-list v-if="valueNodes.length>0  && isList" :isCurData="true" :isEnableDelete="false" :isEnableDownload="false" :items="valueNodes"></app-pms-upload-list>
         <app-mob-context-menu :value="contextMenuShowStatus" @change="(val)=>{this.contextMenuShowStatus=val}">
-                                <template slot ="content">
-                                
-                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
-                                    <ion-icon name="star-outline"></ion-icon>
-                            
-                        </div>
-                            
-                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
-                                    <ion-icon name="star"></ion-icon>
-                            
-                        </div>
-                </template>
-                                <template slot ="content">
-                                
-                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
-                                    <ion-icon name="star-outline"></ion-icon>
-                            
-                        </div>
-                            
-                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
-                                    <ion-icon name="star"></ion-icon>
-                            
-                        </div>
-                </template>
-                                <template slot ="content">
-                                
-                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
-                                    <ion-icon name="star"></ion-icon>
-                            
-                        </div>
-                            
-                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
-                                    <ion-icon name="star-outline"></ion-icon>
-                            
-                        </div>
-                </template>
-                                <template slot ="content">
-                                
-                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
-                                    <ion-icon name="star"></ion-icon>
-                            
-                        </div>
-                            
-                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
-                                    <ion-icon name="star-outline"></ion-icon>
-                            
-                        </div>
-                </template>
-                                <template slot ="content">
-                                
-                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
-                            
-                        </div>
-                            
-                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
-                                    <ion-icon name="download"></ion-icon>
-                            
-                        </div>
-                            
-                        <div class="context-menu-item" name='deuiaction3' v-show="this.copyActionModel['deuiaction3'].visabled" disabled="this.copyActionModel['deuiaction3'].disabled">
-                                    <ion-icon name="remove"></ion-icon>
-                            
-                        </div>
-                </template>
+
         </app-mob-context-menu>
     </div>
 </template>
@@ -1454,7 +1391,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     } 
 
     /**
-     * 绘制右击菜单
+     * 绘制长按菜单
      *
      * @param {*} node
      * @returns
@@ -1486,58 +1423,122 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     }
 
     /**
-     * 绘制ChildDocLibModule类型右键菜单
+     * 绘制ChildDocLibModule类型长按菜单
      *
-     * @param {*} node
      * @returns
      * @memberof DocLibTreeProductMobBase
      */
     public renderContextMenuChilddoclibmodule() {
-        return 
+        return (
+            <template slot ="content">
+                            
+                    <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+                                <ion-icon name="star-outline"></ion-icon>
+                        
+                    </div>
+                        
+                    <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                                <ion-icon name="star"></ion-icon>
+                        
+                    </div>
+            </template>
+        );
     }
 
     /**
-     * 绘制Doc类型右键菜单
+     * 绘制Doc类型长按菜单
      *
-     * @param {*} node
      * @returns
      * @memberof DocLibTreeProductMobBase
      */
     public renderContextMenuDoc() {
-        return 
+        return (
+            <template slot ="content">
+                            
+                    <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+                                <ion-icon name="star-outline"></ion-icon>
+                        
+                    </div>
+                        
+                    <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                                <ion-icon name="star"></ion-icon>
+                        
+                    </div>
+            </template>
+        );
     }
 
     /**
-     * 绘制docLib类型右键菜单
+     * 绘制docLib类型长按菜单
      *
-     * @param {*} node
      * @returns
      * @memberof DocLibTreeProductMobBase
      */
     public renderContextMenuDoclib() {
-        return 
+        return (
+            <template slot ="content">
+                            
+                    <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+                                <ion-icon name="star"></ion-icon>
+                        
+                    </div>
+                        
+                    <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                                <ion-icon name="star-outline"></ion-icon>
+                        
+                    </div>
+            </template>
+        );
     }
 
     /**
-     * 绘制Module类型右键菜单
+     * 绘制Module类型长按菜单
      *
-     * @param {*} node
      * @returns
      * @memberof DocLibTreeProductMobBase
      */
     public renderContextMenuModule() {
-        return 
+        return (
+            <template slot ="content">
+                            
+                    <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+                                <ion-icon name="star"></ion-icon>
+                        
+                    </div>
+                        
+                    <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                                <ion-icon name="star-outline"></ion-icon>
+                        
+                    </div>
+            </template>
+        );
     }
 
     /**
-     * 绘制File类型右键菜单
+     * 绘制File类型长按菜单
      *
-     * @param {*} node
      * @returns
      * @memberof DocLibTreeProductMobBase
      */
     public renderContextMenuFile() {
-        return 
+        return (
+            <template slot ="content">
+                            
+                    <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+                        
+                    </div>
+                        
+                    <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                                <ion-icon name="download"></ion-icon>
+                        
+                    </div>
+                        
+                    <div class="context-menu-item" name='deuiaction3' v-show="this.copyActionModel['deuiaction3'].visabled" disabled="this.copyActionModel['deuiaction3'].disabled">
+                                <ion-icon name="remove"></ion-icon>
+                        
+                    </div>
+            </template>
+        );
     }
 
     /**

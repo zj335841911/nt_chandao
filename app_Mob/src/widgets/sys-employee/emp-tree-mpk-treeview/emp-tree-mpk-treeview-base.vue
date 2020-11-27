@@ -55,6 +55,7 @@
             </template>
         </ion-radio-group>
         <app-mob-context-menu :value="contextMenuShowStatus" @change="(val)=>{this.contextMenuShowStatus=val}">
+
         </app-mob-context-menu>
     </div>
 </template>
@@ -942,7 +943,7 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
     } 
 
     /**
-     * 绘制右击菜单
+     * 绘制长按菜单
      *
      * @param {*} node
      * @returns
