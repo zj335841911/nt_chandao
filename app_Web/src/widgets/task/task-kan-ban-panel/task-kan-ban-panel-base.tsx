@@ -144,7 +144,7 @@ export class TaskKanBanPanelBase extends PanelControlBase {
 ,
         button1: new PanelButtonModel({ caption: '指派', itemType: 'BUTTON',visible: false, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'AssignTask',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__TASK_ASSIGN_BUT',visible: true,disabled: false} })
 ,
-        container6: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container6', panel: this })
+        container6: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: false, disabled: false, name: 'container6', panel: this })
 ,
         button2: new PanelButtonModel({ caption: '转交', itemType: 'BUTTON',visible: false, disabled: false, name: 'button2', panel: this, uiaction: { type: 'DEUIACTION', tag: 'Forward',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_FORWARD_BUT',visible: true,disabled: false} })
 ,
@@ -223,6 +223,14 @@ export class TaskKanBanPanelBase extends PanelControlBase {
             this.detailsModel.button1.setVisible(ret);
         }
 
+        if (Object.is(name, '') || Object.is(name, 'tasktype')) {
+            let ret = false;
+            const _tasktype = this.data.tasktype;
+            if (this.$verify.testCond(_tasktype, 'NOTEQ', '10')) {
+                ret = true;
+            }
+            this.detailsModel.container6.setVisible(ret);
+        }
 
         if (Object.is(name, '') || Object.is(name, 'tasktype')) {
             let ret = false;
