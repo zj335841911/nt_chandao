@@ -16,7 +16,7 @@
     </div>
     <div v-show="Object.is(mode, 'chart')" class="documents-library-chart" >
         <template v-for="(item,index) in items">
-            <div :key="index" :class="['chart-item','chart-item-'+index]" @mouseleave="hideToolBar(index)" @mouseover="showToolBar(index)">
+            <div :key="index" :class="['chart-item','chart-item-'+index]" @mouseleave="hideToolBar(index)" @mouseenter="showToolBar(item,index)">
                 <div
                     v-if="Object.is(item.nodeType,'STATIC') || (item.curData && (Object.is(item.curData.doclibtype,'doc') || Object.is(item.curData.docqtype,'module')))"
                     @dblclick="openNode(item)">

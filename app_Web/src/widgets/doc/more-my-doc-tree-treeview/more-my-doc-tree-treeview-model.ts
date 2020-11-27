@@ -117,6 +117,9 @@ export default class MoreMyDocTreeModel {
       {
         name: 'myfavouritecnt',
       },
+      {
+        name: 'doccnt',
+      },
     ]
   }
 

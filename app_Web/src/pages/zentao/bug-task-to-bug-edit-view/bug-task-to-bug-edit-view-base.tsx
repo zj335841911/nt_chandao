@@ -74,21 +74,17 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
 	 * @memberof BugTaskToBugEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'BRANCHNAME': {
-            isRawValue: false,
-            value: 'branch',
-        },
         'ASSIGNEDTO': {
             isRawValue: false,
             value: 'assignedto',
         },
-        'STORYNAME': {
+        'TASK': {
+            isRawValue: false,
+            value: 'task',
+        },
+        'STORY': {
             isRawValue: false,
             value: 'story',
-        },
-        'TASKNAME': {
-            isRawValue: false,
-            value: 'taskname',
         },
         'PROJECT': {
             isRawValue: false,
@@ -98,9 +94,9 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
             isRawValue: false,
             value: 'module',
         },
-        'PROJECTNAME': {
+        'BRANCH': {
             isRawValue: false,
-            value: 'projectname',
+            value: 'branch',
         },
         'TITLE': {
             isRawValue: false,
@@ -124,6 +120,10 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
             isRawValue: false,
             value: 'assignedto',
         },
+        'story': {
+            isRawValue: false,
+            value: 'story',
+        },
         'module': {
             isRawValue: false,
             value: 'module',
@@ -132,21 +132,13 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
             isRawValue: false,
             value: 'title',
         },
-        'projectname': {
+        'task': {
             isRawValue: false,
-            value: 'projectname',
+            value: 'task',
         },
-        'storyname': {
-            isRawValue: false,
-            value: 'story',
-        },
-        'branchname': {
+        'branch': {
             isRawValue: false,
             value: 'branch',
-        },
-        'taskname': {
-            isRawValue: false,
-            value: 'taskname',
         }
     };
 

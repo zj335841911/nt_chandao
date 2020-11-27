@@ -117,6 +117,9 @@ export default class MoreMyFavouritesTreeModel {
       {
         name: 'myfavouritecnt',
       },
+      {
+        name: 'doccnt',
+      },
     ]
   }
 

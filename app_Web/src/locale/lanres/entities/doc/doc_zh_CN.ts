@@ -34,6 +34,7 @@ export default {
     recentaddcnt: "最近添加数量",
     mydoccnt: "我的文档数量",
     myfavouritecnt: "我的收藏数量",
+    doccnt: "文档数",
   },
 	views: {
 		basiceditview9: {

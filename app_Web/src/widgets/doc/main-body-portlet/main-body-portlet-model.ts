@@ -117,6 +117,9 @@ export default class MainBodyModel {
       {
         name: 'myfavouritecnt',
       },
+      {
+        name: 'doccnt',
+      },
     ]
   }
 

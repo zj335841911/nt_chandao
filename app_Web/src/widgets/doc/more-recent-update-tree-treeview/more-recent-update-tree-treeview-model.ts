@@ -117,6 +117,9 @@ export default class MoreRecentUpdateTreeModel {
       {
         name: 'myfavouritecnt',
       },
+      {
+        name: 'doccnt',
+      },
     ]
   }
 

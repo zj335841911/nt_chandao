@@ -585,7 +585,9 @@ export class MoreMyDocTreeTreeBase extends MainControlBase {
     public async computeAllNodeState(items: Array<any>) {
         if (items && items.length > 0) {
             for (let i=0; i < items.length; i++) {
-                await this.getNodeState(items[i]);
+                if (!items[i].curData || !items[i].curData.copyActionModel) {
+                    await this.getNodeState(items[i]);
+                }
             }
         }
     }
@@ -648,7 +650,11 @@ export class MoreMyDocTreeTreeBase extends MainControlBase {
      * @param {*} index 工具栏标识
      * @memberof MoreMyDocTreeBase
      */
-    public showToolBar(index: number){
+    public async showToolBar(item: any,index: number){
+        if(!item.curData || !item.curData.copyActionModel){
+            await this.getNodeState(item);
+            this.$forceUpdate();
+        }
         let el: any = this.$el.getElementsByClassName('chart-item-operate-'+index)[0];
         if (el) {
             el.style.display = 'block'; 
@@ -708,7 +714,7 @@ export class MoreMyDocTreeTreeBase extends MainControlBase {
         this.load(node);
         this.computeCurPageNodeState();
     }
-    
+
     /**
      * 工具栏触发行为
      *

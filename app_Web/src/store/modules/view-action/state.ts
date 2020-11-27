@@ -4309,17 +4309,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'd695dac99ccf0ddd077eb13916241bd0',
-            viewmodule: 'zentao',
-            viewname: 'ProjectMoreUndoneProGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'f83dac873b9215483c4bb91673284b41',
-                '5b2408d384f5b00f079883a01aeb9d2f',
-            ],
-        },
-        {
             viewtag: 'd6ef7de701a935bd9023cd0eb1338f58',
             viewmodule: 'zentao',
             viewname: 'StoryGridView9_Child',
@@ -4816,7 +4805,7 @@ export const viewstate: any = {
                 '4dad74488a4fd446ed9ef787e05206bc',
                 '13f17793cbc4fc2b36473a74d1bad4b2',
                 '6b0e5dd0dca860d801e403c7591a9f41',
-                'd695dac99ccf0ddd077eb13916241bd0',
+                'c468f1ff894437a6de5b9496f0f8b92e',
                 'f9b214cbd7e74778eeeaf536de393f52',
                 '603f4478afd3bcccb330888c3ac880bd',
             ],
