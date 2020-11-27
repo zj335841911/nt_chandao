@@ -296,8 +296,8 @@ export class ProjectUndoneProjectGridViewBase extends GridView9Base {
      * @memberof ProjectUndoneProjectGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        const localContext: any = {PROJECT:"%project%"};
-        const localViewParam: any ={project:"%project%"};
+        const localContext: any = {SRFPARENTKEY:"%project%"};
+        const localViewParam: any ={srfparentkey:"%project%"};
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){
