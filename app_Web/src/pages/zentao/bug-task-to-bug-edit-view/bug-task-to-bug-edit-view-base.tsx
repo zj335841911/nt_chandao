@@ -82,6 +82,10 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
             isRawValue: false,
             value: 'story',
         },
+        'TASKNAME': {
+            isRawValue: false,
+            value: 'taskname',
+        },
         'PROJECT': {
             isRawValue: false,
             value: 'project',
@@ -90,9 +94,9 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
             isRawValue: false,
             value: 'module',
         },
-        'PRODUCT': {
+        'PROJECTNAME': {
             isRawValue: false,
-            value: 'product',
+            value: 'projectname',
         },
         'BRANCH': {
             isRawValue: false,
@@ -112,10 +116,6 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
 	 * @memberof BugTaskToBugEditViewBase
 	 */
     protected customViewParams: any = {
-        'product': {
-            isRawValue: false,
-            value: 'product',
-        },
         'project': {
             isRawValue: false,
             value: 'project',
@@ -139,6 +139,14 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
         'branch': {
             isRawValue: false,
             value: 'branch',
+        },
+        'projectname': {
+            isRawValue: false,
+            value: 'projectname',
+        },
+        'taskname': {
+            isRawValue: false,
+            value: 'taskname',
         }
     };
 
