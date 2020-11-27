@@ -74,6 +74,10 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
 	 * @memberof BugTaskToBugEditViewBase
 	 */
     protected customViewNavContexts: any = {
+        'MAILTO': {
+            isRawValue: false,
+            value: 'mailto',
+        },
         'ASSIGNEDTO': {
             isRawValue: false,
             value: 'assignedto',
@@ -112,6 +116,10 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
 	 * @memberof BugTaskToBugEditViewBase
 	 */
     protected customViewParams: any = {
+        'mailto': {
+            isRawValue: false,
+            value: 'mailto',
+        },
         'project': {
             isRawValue: false,
             value: 'project',

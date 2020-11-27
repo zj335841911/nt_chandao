@@ -191,14 +191,14 @@ export default class TaskToBugModel {
         dataType: 'PICKUP',
       },
       {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
-      },
-      {
         name: 'task',
         prop: 'task',
         dataType: 'PICKUP',
+      },
+      {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
       },
       {
         name: 'bug',

@@ -120,8 +120,8 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
         story: null,
         caseversion: null,
         case: null,
-        id: null,
         task: null,
+        id: null,
         bug: null,
     };
 
@@ -455,18 +455,18 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        id: new FormItemModel({
-    caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 0,
-}),
-
         task: new FormItemModel({
     caption: '相关任务', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
+}),
+
+        id: new FormItemModel({
+    caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
 }),
 
     };
@@ -560,10 +560,7 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
      */
     public createDefault() {                    
         if (this.data.hasOwnProperty('branch')) {
-            this.data['branch'] = this.viewparams['branchname'];
-        }
-        if (this.data.hasOwnProperty('product')) {
-            this.data['product'] = this.viewparams['product'];
+            this.data['branch'] = this.viewparams['branch'];
         }
         if (this.data.hasOwnProperty('module')) {
             this.data['module'] = this.viewparams['module'];
@@ -578,7 +575,7 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
             this.data['type'] = 'codeerror';
         }
         if (this.data.hasOwnProperty('title')) {
-            this.data['title'] = this.viewparams['name'];
+            this.data['title'] = this.viewparams['title'];
         }
         if (this.data.hasOwnProperty('severity')) {
             this.data['severity'] = 3;
@@ -586,20 +583,20 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('pri')) {
             this.data['pri'] = 3;
         }
-        if (this.data.hasOwnProperty('steps')) {
-            this.data['steps'] = this.viewparams['precondition'];
+        if (this.data.hasOwnProperty('color')) {
+            this.data['color'] = this.viewparams['color'];
         }
-        if (this.data.hasOwnProperty('storyname')) {
-            this.data['storyname'] = this.viewparams['storyname'];
-        }
-        if (this.data.hasOwnProperty('taskname')) {
-            this.data['taskname'] = this.viewparams['taskname'];
+        if (this.data.hasOwnProperty('mailto')) {
+            this.data['mailto'] = this.viewparams['mailto'];
         }
         if (this.data.hasOwnProperty('story')) {
             this.data['story'] = this.viewparams['story'];
         }
         if (this.data.hasOwnProperty('case')) {
             this.data['case'] = this.viewparams['case'];
+        }
+        if (this.data.hasOwnProperty('task')) {
+            this.data['task'] = this.viewparams['task'];
         }
     }
 
