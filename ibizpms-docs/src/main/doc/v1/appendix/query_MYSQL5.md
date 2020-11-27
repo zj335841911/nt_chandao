@@ -15436,7 +15436,7 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 LEFT JOIN zt_user t61 on t61.account = t1.assignedTo
 WHERE t1.deleted = '0' 
-t1.project = #{srf.webcontext.project} 
+(t1.project = #{srf.webcontext.project} or t1.project = #{srf.webcontext.curproject}) 
 
 ```
 ### 通过模块查询(ByModule)<div id="Task_ByModule"></div>
