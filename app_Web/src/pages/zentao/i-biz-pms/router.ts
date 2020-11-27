@@ -7948,6 +7948,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-todo-edit-view/bug-todo-edit-view.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/undoneprojecttreeexpview/:undoneprojecttreeexpview?',
+                    meta: {
+                        caption: 'entities.doclib.views.undoneprojecttreeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'undoneprojecttreeexpview', parameterName: 'undoneprojecttreeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-un-done-project-tree-exp-view/doc-lib-un-done-project-tree-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tabexpview/:tabexpview?',
                     meta: {
                         caption: 'entities.story.views.tabexpview.caption',
@@ -10229,20 +10243,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/file-product-grid-view/file-product-grid-view.vue'),
                 },
                 {
-                    path: 'files/:file?/listview9/:listview9?',
-                    meta: {
-                        caption: 'entities.file.views.listview9.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'files', parameterName: 'file' },
-                            { pathName: 'listview9', parameterName: 'listview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/file-list-view9/file-list-view9.vue'),
-                },
-                {
                     path: 'projects/:project?/builds/:build?/editview/:editview?',
                     meta: {
                         caption: 'entities.build.views.editview.caption',
@@ -10291,6 +10291,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/build-edit-view/build-edit-view.vue'),
+                },
+                {
+                    path: 'files/:file?/listview9/:listview9?',
+                    meta: {
+                        caption: 'entities.file.views.listview9.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'files', parameterName: 'file' },
+                            { pathName: 'listview9', parameterName: 'listview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/file-list-view9/file-list-view9.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/activationview/:activationview?',

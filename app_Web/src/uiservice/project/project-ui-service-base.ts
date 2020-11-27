@@ -358,7 +358,7 @@ export default class ProjectUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'doclibs', parameterName: 'doclib' },
-            { pathName: 'projecttreeexpview', parameterName: 'projecttreeexpview' },
+            { pathName: 'undoneprojecttreeexpview', parameterName: 'undoneprojecttreeexpview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
