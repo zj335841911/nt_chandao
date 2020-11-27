@@ -68,7 +68,7 @@
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mainview', parameterName: 'mainview' }
             ]}" valueitem="srfkey" @refresh="refresh.apply(_self, arguments)">
-                            <span>{{row.title}}</span>
+                            <span :style="{'color':row.color}">{{row.title}}</span>
                         </app-column-link >
                     </template>
                 </el-table-column>
