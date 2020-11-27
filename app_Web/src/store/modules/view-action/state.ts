@@ -4770,9 +4770,9 @@ export const viewstate: any = {
                 'd290709d6a36e20e79d60e873047ec0d',
                 '4dad74488a4fd446ed9ef787e05206bc',
                 '13f17793cbc4fc2b36473a74d1bad4b2',
-                'b593c09602d9483d53b1f725395030a6',
                 'd695dac99ccf0ddd077eb13916241bd0',
                 '73647c564ed468885ee3c18bccce5a90',
+                'f9b214cbd7e74778eeeaf536de393f52',
                 '603f4478afd3bcccb330888c3ac880bd',
             ],
         },
@@ -4989,6 +4989,16 @@ export const viewstate: any = {
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
                 '8af65044ab1633eb5b68d99478e9350f',
+            ],
+        },
+        {
+            viewtag: 'f9b214cbd7e74778eeeaf536de393f52',
+            viewmodule: 'zentao',
+            viewname: 'DocMoreMyDocTreeView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b6e02216d1e5c69d79b32342d8b67c7a',
             ],
         },
         {

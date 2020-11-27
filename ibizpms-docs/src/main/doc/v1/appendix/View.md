@@ -759,6 +759,7 @@ SRFNAVPARAM.project=%project%|
 |-|项目|DEEDITVIEW|&nbsp;|
 |-|备注|DEEDITVIEW|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
+|-|文档树视图|DETREEVIEW|&nbsp;|
 |-|需求模块表格视图|DEGRIDVIEW|&nbsp;|
 |-|平台选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|usercontact表格视图|DEGRIDVIEW|&nbsp;|

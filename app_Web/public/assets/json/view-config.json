@@ -5489,6 +5489,16 @@
         "viewtag": "f8ffad31189703973765c5a9c4fc8a5c",
         "memo": ""
     },
+    "docmoremydoctreeview": {
+        "title": "文档树视图",
+        "caption": "我的文档",
+        "viewtype": "DETREEVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocMoreMyDocTreeView",
+        "viewfilename": "doc-more-my-doc-tree-view",
+        "viewtag": "f9b214cbd7e74778eeeaf536de393f52",
+        "memo": ""
+    },
     "ibzprostorymodulegridview": {
         "title": "需求模块表格视图",
         "caption": "需求模块",

@@ -12699,6 +12699,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/todo-close-view/todo-close-view.vue'),
                 },
                 {
+                    path: 'docs/:doc?/moremydoctreeview/:moremydoctreeview?',
+                    meta: {
+                        caption: 'entities.doc.views.moremydoctreeview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'docs', parameterName: 'doc' },
+                            { pathName: 'moremydoctreeview', parameterName: 'moremydoctreeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-more-my-doc-tree-view/doc-more-my-doc-tree-view.vue'),
+                },
+                {
                     path: 'docs/:doc?/gridview9/:gridview9?',
                     meta: {
                         caption: 'entities.doc.views.gridview9.caption',

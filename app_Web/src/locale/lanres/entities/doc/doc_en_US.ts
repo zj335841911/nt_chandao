@@ -112,6 +112,10 @@ export default {
 			caption: "文档",
       		title: "doc表格视图",
 		},
+		moremydoctreeview: {
+			caption: "我的文档",
+      		title: "文档树视图",
+		},
 	},
 	createeditform_form: {
 		details: {
@@ -297,7 +301,17 @@ export default {
 		uiactions: {
 		},
 	},
-	morerecentupdate_grid: {
+	myfavourite_grid: {
+		nodata: "",
+		columns: {
+			title: "文档标题",
+			addedby: "由谁添加",
+			editeddate: "更新时间",
+		},
+		uiactions: {
+		},
+	},
+	moremyfavourite_grid: {
 		nodata: "",
 		columns: {
 			id: "文档编号",
@@ -316,17 +330,7 @@ export default {
         doc_uncollect: "取消收藏",
 		},
 	},
-	myfavourite_grid: {
-		nodata: "",
-		columns: {
-			title: "文档标题",
-			addedby: "由谁添加",
-			editeddate: "更新时间",
-		},
-		uiactions: {
-		},
-	},
-	moremyfavourite_grid: {
+	morerecentupdate_grid: {
 		nodata: "",
 		columns: {
 			id: "文档编号",
@@ -371,12 +375,6 @@ export default {
 			tip: "Filter",
 		},
 	},
-	mymoregridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-	},
 	myfavouritegridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Filter",
@@ -384,6 +382,12 @@ export default {
 		},
 	},
 	recentmoregridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	mymoregridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Filter",
 			tip: "Filter",
@@ -416,6 +420,17 @@ export default {
 		},
 	},
 	morerecentupdatetree_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+        doc_edit: "编辑",
+        doc_delete: "删除",
+        doc_onlycollectdoc: "收藏",
+        doc_onlyuncollectdoc: "取消收藏",
+		},
+	},
+	moremydoctree_treeview: {
 		nodes: {
 			root: "默认根节点",
 		},

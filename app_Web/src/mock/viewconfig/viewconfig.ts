@@ -4399,6 +4399,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugBuildSubGridView_Done",
             "viewtag": "f8ffad31189703973765c5a9c4fc8a5c"
         },
+        "docmoremydoctreeview": {
+            "title": "文档树视图",
+            "caption": "我的文档",
+            "viewtype": "DETREEVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocMoreMyDocTreeView",
+            "viewtag": "f9b214cbd7e74778eeeaf536de393f52"
+        },
         "ibzprostorymodulegridview": {
             "title": "需求模块表格视图",
             "caption": "需求模块",
