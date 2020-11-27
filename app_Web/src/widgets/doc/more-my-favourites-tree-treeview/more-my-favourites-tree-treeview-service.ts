@@ -109,15 +109,6 @@ export default class MoreMyFavouritesTreeService extends ControlService {
 	public TREENODE_MODULE: string = 'Module';
 
     /**
-     * 所有收藏节点分隔符号
-     *
-     * @public
-     * @type {string}
-     * @memberof MoreMyFavouritesTreeService
-     */
-	public TREENODE_ALLFAVOURITES: string = 'AllFavourites';
-
-    /**
      * 文档库下文档节点分隔符号
      *
      * @public
@@ -246,10 +237,6 @@ export default class MoreMyFavouritesTreeService extends ControlService {
         }
         if (Object.is(strNodeType, this.TREENODE_MODULE)) {
             await this.fillModuleNodeChilds(context,filter, list);
-            return Promise.resolve({ status: 200, data: list });
-        }
-        if (Object.is(strNodeType, this.TREENODE_ALLFAVOURITES)) {
-            await this.fillAllfavouritesNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_DOCLIBDOC)) {
@@ -711,95 +698,6 @@ export default class MoreMyFavouritesTreeService extends ControlService {
             let ModuledocRsNavParams:any = {};
             let ModuledocRsParams:any = {};
 			await this.fillModuledocNodes(context, filter, list ,ModuledocRsNavContext,ModuledocRsNavParams,ModuledocRsParams);
-		}
-	}
-
-    /**
-     * 填充 树视图节点[所有收藏]
-     *
-     * @public
-     * @param {any{}} context     
-     * @param {*} filter
-     * @param {any[]} list
-     * @param {*} rsNavContext   
-     * @param {*} rsNavParams
-     * @param {*} rsParams
-     * @returns {Promise<any>}
-     * @memberof MoreMyFavouritesTreeService
-     */
-    @Errorlog
-    public fillAllfavouritesNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
-        context = this.handleResNavContext(context,filter,rsNavContext);
-        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
-        return new Promise((resolve:any,reject:any) =>{
-            let treeNode: any = {};
-            Object.assign(treeNode, { text: i18n.t('entities.doc.moremyfavouritestree_treeview.nodes.allfavourites') });
-            Object.assign(treeNode, { isUseLangRes: true });
-            Object.assign(treeNode,{srfappctx:context});
-            Object.assign(treeNode, { srfmajortext: treeNode.text });
-            let strNodeId: string = 'AllFavourites';
-
-            // 没有指定节点值，直接使用父节点值
-            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
-            strNodeId += this.TREENODE_SEPARATOR;
-            strNodeId += filter.strRealNodeId;
-
-            Object.assign(treeNode, { id: strNodeId });
-
-            Object.assign(treeNode, { expanded: filter.isAutoexpand });
-            Object.assign(treeNode, { leaf: false });
-            Object.assign(treeNode, { nodeid: treeNode.srfkey });
-            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-            Object.assign(treeNode, { nodeType: "STATIC" });
-            list.push(treeNode);
-            resolve(list);
-        });
-	}
-
-    /**
-     * 填充 树视图节点[所有收藏]子节点
-     *
-     * @public
-     * @param {any{}} context         
-     * @param {*} filter
-     * @param {any[]} list
-     * @returns {Promise<any>}
-     * @memberof MoreMyFavouritesTreeService
-     */
-    @Errorlog
-    public async fillAllfavouritesNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
-		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充文档库
-            let DoclibRsNavContext:any = {};
-            let DoclibRsNavParams:any = {};
-            let DoclibRsParams:any = {};
-			await this.fillDoclibNodes(context, filter, list ,DoclibRsNavContext,DoclibRsNavParams,DoclibRsParams);
-			// 填充文档库分类
-            let ModuleRsNavContext:any = {};
-            let ModuleRsNavParams:any = {};
-            let ModuleRsParams:any = {};
-			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
-			// 填充文档
-            let DocRsNavContext:any = {};
-            let DocRsNavParams:any = {};
-            let DocRsParams:any = {};
-			await this.fillDocNodes(context, filter, list ,DocRsNavContext,DocRsNavParams,DocRsParams);
-		} else {
-			// 填充文档库
-            let DoclibRsNavContext:any = {};
-            let DoclibRsNavParams:any = {};
-            let DoclibRsParams:any = {};
-			await this.fillDoclibNodes(context, filter, list ,DoclibRsNavContext,DoclibRsNavParams,DoclibRsParams);
-			// 填充文档库分类
-            let ModuleRsNavContext:any = {};
-            let ModuleRsNavParams:any = {};
-            let ModuleRsParams:any = {};
-			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
-			// 填充文档
-            let DocRsNavContext:any = {};
-            let DocRsNavParams:any = {};
-            let DocRsParams:any = {};
-			await this.fillDocNodes(context, filter, list ,DocRsNavContext,DocRsNavParams,DocRsParams);
 		}
 	}
 
@@ -1301,17 +1199,37 @@ export default class MoreMyFavouritesTreeService extends ControlService {
     @Errorlog
     public async fillRootNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充所有收藏
-            let AllfavouritesRsNavContext:any = {};
-            let AllfavouritesRsNavParams:any = {};
-            let AllfavouritesRsParams:any = {};
-			await this.fillAllfavouritesNodes(context, filter, list ,AllfavouritesRsNavContext,AllfavouritesRsNavParams,AllfavouritesRsParams);
+			// 填充文档库
+            let DoclibRsNavContext:any = {};
+            let DoclibRsNavParams:any = {};
+            let DoclibRsParams:any = {};
+			await this.fillDoclibNodes(context, filter, list ,DoclibRsNavContext,DoclibRsNavParams,DoclibRsParams);
+			// 填充文档库分类
+            let ModuleRsNavContext:any = {};
+            let ModuleRsNavParams:any = {};
+            let ModuleRsParams:any = {};
+			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
+			// 填充文档
+            let DocRsNavContext:any = {};
+            let DocRsNavParams:any = {};
+            let DocRsParams:any = {};
+			await this.fillDocNodes(context, filter, list ,DocRsNavContext,DocRsNavParams,DocRsParams);
 		} else {
-			// 填充所有收藏
-            let AllfavouritesRsNavContext:any = {};
-            let AllfavouritesRsNavParams:any = {};
-            let AllfavouritesRsParams:any = {};
-			await this.fillAllfavouritesNodes(context, filter, list ,AllfavouritesRsNavContext,AllfavouritesRsNavParams,AllfavouritesRsParams);
+			// 填充文档库
+            let DoclibRsNavContext:any = {};
+            let DoclibRsNavParams:any = {};
+            let DoclibRsParams:any = {};
+			await this.fillDoclibNodes(context, filter, list ,DoclibRsNavContext,DoclibRsNavParams,DoclibRsParams);
+			// 填充文档库分类
+            let ModuleRsNavContext:any = {};
+            let ModuleRsNavParams:any = {};
+            let ModuleRsParams:any = {};
+			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
+			// 填充文档
+            let DocRsNavContext:any = {};
+            let DocRsNavParams:any = {};
+            let DocRsParams:any = {};
+			await this.fillDocNodes(context, filter, list ,DocRsNavContext,DocRsNavParams,DocRsParams);
 		}
 	}
 

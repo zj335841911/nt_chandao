@@ -128,6 +128,9 @@ export class MoreMyFavouritesTreeTreeBase extends MainControlBase {
         if (Object.is($event.tag, 'deuiaction3')) {
             this.doclib_cm_deuiaction3_click(null, 'doclib_cm', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction4')) {
+            this.doclib_cm_deuiaction4_click(null, 'doclib_cm', $event2);
+        }
     }
 
     /**
@@ -360,7 +363,7 @@ export class MoreMyFavouritesTreeTreeBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_EditCustomDocLib(datas,contextJO, paramJO,  $event, xData,this,"Doc");
+        curUIService.DocLib_EditDocLib(datas,contextJO, paramJO,  $event, xData,this,"Doc");
     }
 
     /**
@@ -388,7 +391,8 @@ export class MoreMyFavouritesTreeTreeBase extends MainControlBase {
           datas = [params];
         }
         // 界面行为
-        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"Doc");
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"Doc");
     }
 
     /**
@@ -417,7 +421,36 @@ export class MoreMyFavouritesTreeTreeBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"Doc");
+        curUIService.DocLib_UnCollect(datas,contextJO, paramJO,  $event, xData,this,"Doc");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public doclib_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_Collect(datas,contextJO, paramJO,  $event, xData,this,"Doc");
     }
 
     /**
@@ -1000,32 +1033,6 @@ export class MoreMyFavouritesTreeTreeBase extends MainControlBase {
         curUIService.DocLibModule_NFavorite(datas,contextJO, paramJO,  $event, xData,this,"Doc");
     }
 
-    /**
-     * 刷新
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof DocMoreMyFavouritesTreeViewBase
-     */
-    public RefreshAll(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        if (xData && xData.refresh_all && xData.refresh_all instanceof Function) {
-            xData.refresh_all();
-            return;
-        }
-        const _this: any = this;
-        if (_this.refresh_all && _this.refresh_all instanceof Function) {
-            _this.refresh_all();
-            return;
-        }
-        if (_this.engine) {
-            _this.engine.load();
-        }
-    }
-
 
     /**
      * 获取多项数据
@@ -1190,9 +1197,10 @@ export class MoreMyFavouritesTreeTreeBase extends MainControlBase {
         Doc_deuiaction4: {ctrlname: 'doc_cm',name:'deuiaction4',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: ''},
         Doc_deuiaction2: {ctrlname: 'doc_cm',name:'deuiaction2',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
         Doc_deuiaction3: {ctrlname: 'doc_cm',name:'deuiaction3',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
-        DocLib_deuiaction1: {ctrlname: 'doclib_cm',name:'deuiaction1',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'EditCustomDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '编辑'},
-        DocLib_deuiaction2: {ctrlname: 'doclib_cm',name:'deuiaction2',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visible: true, disabled: false,imgclass: 'fa fa-refresh',caption: '刷新'},
-        DocLib_deuiaction3: {ctrlname: 'doclib_cm',name:'deuiaction3',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: '维护分类'},
+        DocLib_deuiaction1: {ctrlname: 'doclib_cm',name:'deuiaction1',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'EditDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
+        DocLib_deuiaction2: {ctrlname: 'doclib_cm',name:'deuiaction2',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
+        DocLib_deuiaction3: {ctrlname: 'doclib_cm',name:'deuiaction3',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
+        DocLib_deuiaction4: {ctrlname: 'doclib_cm',name:'deuiaction4',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
         DocLibDoc_deuiaction1: {ctrlname: 'doclibdoc_cm',name:'deuiaction1',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
         DocLibDoc_deuiaction4: {ctrlname: 'doclibdoc_cm',name:'deuiaction4',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: ''},
         DocLibDoc_deuiaction2: {ctrlname: 'doclibdoc_cm',name:'deuiaction2',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},

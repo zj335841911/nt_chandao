@@ -447,7 +447,6 @@ export default {
 	},
 	moremyfavouritestree_treeview: {
 		nodes: {
-			allfavourites: "所有收藏",
 			root: "默认根节点",
 		},
 		uiactions: {
@@ -455,9 +454,10 @@ export default {
 			doc_delete: "删除",
 			doc_onlycollectdoc: "收藏",
 			doc_onlyuncollectdoc: "取消收藏",
-			doclib_editcustomdoclib: "编辑",
-			refreshall: "刷新",
+			doclib_editdoclib: "编辑",
 			doclib_weihufenlei: "维护分类",
+			doclib_uncollect: "取消收藏",
+			doclib_collect: "收藏",
 			doclibmodule_edit: "编辑",
 			doclibmodule_weihufenlei: "维护分类",
 			doclibmodule_favorite: "收藏",
