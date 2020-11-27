@@ -387,7 +387,7 @@ export default {
 	},
 	undoneprojectdoclibtree_treeview: {
 		nodes: {
-			allundoneproject: "所有项目",
+			allundoneproject: "所有未关闭项目",
 			root: "默认根节点",
 			files: "附件库",
 		},
