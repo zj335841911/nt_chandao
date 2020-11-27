@@ -15,7 +15,7 @@
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $productplangetbedinandenddefault:ProductPlan();
             eval($productplangetbedinandenddefault==productplangetbedinandenddefault);
-                eval((RuleUtils.test($productplangetbedinandenddefault.get("BEGINSTR"),"EQ","待定")))
+                eval((RuleUtils.test($productplangetbedinandenddefault.get("beginstr"),"EQ","待定")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>

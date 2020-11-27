@@ -438,6 +438,34 @@ export class ToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet2_u4f78c20_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_tobug(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet2_uf7c7e04_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -521,6 +549,7 @@ export class ToolbarPortletBase extends MainControlBase {
         canceltaskdash: {name: 'canceltaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_CANCEL_BUT', uiaction: { tag: 'CancelTaskDash', target: 'SINGLEKEY' } },
         maineditdash: {name: 'maineditdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_EDIT_BUT', uiaction: { tag: 'MainEditDash', target: 'SINGLEKEY' } },
         closetaskdash: {name: 'closetaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_CLOSE_BUT', uiaction: { tag: 'CloseTaskDash', target: 'SINGLEKEY' } },
+        tobug: {name: 'tobug', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'tobug', target: 'SINGLEKEY' } },
         delete: {name: 'delete', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
     }
 
@@ -660,6 +689,15 @@ export class ToolbarPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
+        { viewlogicname:"dashboard_sysportlet2_u4f78c20_click",
+        text: "提bug",
+        iconcls: "fa fa-bug",
+        icon: "",
+        noprivdisplaymode: 2,
+        actiontarget:'SINGLEKEY',
+        visible:true,
+        disabled:false
+        },
         { viewlogicname:"dashboard_sysportlet2_uf7c7e04_click",
         text: "删除",
         iconcls: null,
@@ -716,6 +754,9 @@ export class ToolbarPortletBase extends MainControlBase {
         }
         if(Object.is($event,'dashboard_sysportlet2_u532db70_click')){
             this.dashboard_sysportlet2_u532db70_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet2_u4f78c20_click')){
+            this.dashboard_sysportlet2_u4f78c20_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet2_uf7c7e04_click')){
             this.dashboard_sysportlet2_uf7c7e04_click(null);

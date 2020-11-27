@@ -21,7 +21,7 @@
             $buggetmodulebranchdefault:Bug();
             $buggetmodulebranchmodule:Module();
             eval($buggetmodulebranchdefault==buggetmodulebranchdefault && $buggetmodulebranchmodule==buggetmodulebranchmodule);
-                eval((RuleUtils.test($buggetmodulebranchdefault.get("MODULE"),"ISNOTNULL","")))
+                eval((RuleUtils.test($buggetmodulebranchdefault.get("module"),"ISNOTNULL","")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>

@@ -31,14 +31,14 @@ public class StoryStageSearchContext extends QueryWrapperContext<StoryStage> {
 	public void setN_story_eq(Long n_story_eq) {
         this.n_story_eq = n_story_eq;
         if(!ObjectUtils.isEmpty(this.n_story_eq)){
-            this.getSearchCond().eq("story", n_story_eq);
+            this.getSearchCond().eq("`story`", n_story_eq);
         }
     }
 	private Long n_branch_eq;//[平台/分支]
 	public void setN_branch_eq(Long n_branch_eq) {
         this.n_branch_eq = n_branch_eq;
         if(!ObjectUtils.isEmpty(this.n_branch_eq)){
-            this.getSearchCond().eq("branch", n_branch_eq);
+            this.getSearchCond().eq("`branch`", n_branch_eq);
         }
     }
 

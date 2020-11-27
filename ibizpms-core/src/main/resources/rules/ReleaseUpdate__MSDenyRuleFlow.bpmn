@@ -26,7 +26,7 @@
             $releaseupdate__msdenydefault:Release();
             $releaseupdate__msdenytemp:Release();
             eval($releaseupdate__msdenydefault==releaseupdate__msdenydefault && $releaseupdate__msdenytemp==releaseupdate__msdenytemp);
-                eval((RuleUtils.test($releaseupdate__msdenytemp.get("STATUS"),"EQ","normal")))
+                eval((RuleUtils.test($releaseupdate__msdenytemp.get("status"),"EQ","normal")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -35,7 +35,7 @@
             $releaseupdate__msdenydefault:Release();
             $releaseupdate__msdenytemp:Release();
             eval($releaseupdate__msdenydefault==releaseupdate__msdenydefault && $releaseupdate__msdenytemp==releaseupdate__msdenytemp);
-                eval((RuleUtils.test($releaseupdate__msdenytemp.get("STATUS"),"EQ","terminate")))
+                eval((RuleUtils.test($releaseupdate__msdenytemp.get("status"),"EQ","terminate")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
