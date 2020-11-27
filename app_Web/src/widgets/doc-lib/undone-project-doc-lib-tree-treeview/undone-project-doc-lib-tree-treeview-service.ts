@@ -638,7 +638,7 @@ export default class UndoneProjectDocLibTreeService extends ControlService {
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
                         Object.assign(treeNode, { iconcls: 'fa fa-folder-open-o' });
-                        Object.assign(treeNode, { expanded: filter.isautoexpand });
+                        Object.assign(treeNode, { expanded: bFirst });
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "project" });
                         Object.assign(treeNode, { curData: entity });
