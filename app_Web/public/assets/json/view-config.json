@@ -4139,6 +4139,16 @@
         "viewtag": "bc36be2ee4a78e69c13665a8ad03ab6a",
         "memo": ""
     },
+    "docmorerecentupdatetreeview": {
+        "title": "文档树视图",
+        "caption": "最近更新",
+        "viewtype": "DETREEVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocMoreRecentUpdateTreeView",
+        "viewfilename": "doc-more-recent-update-tree-view",
+        "viewtag": "bd1aede12f9d691fb88402d7aa4c07db",
+        "memo": ""
+    },
     "userpickupgridview": {
         "title": "用户选择表格视图",
         "caption": "用户",

@@ -96,6 +96,10 @@ export default {
 			caption: "最近更新",
       		title: "文档表格视图",
 		},
+		morerecentupdatetreeview: {
+			caption: "最近更新",
+      		title: "文档树视图",
+		},
 		docmodulegridview: {
 			caption: "文档",
       		title: "doc表格视图",
@@ -367,12 +371,6 @@ export default {
 			tip: "Filter",
 		},
 	},
-	recentmoregridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-	},
 	mymoregridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Filter",
@@ -380,6 +378,12 @@ export default {
 		},
 	},
 	myfavouritegridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	recentmoregridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Filter",
 			tip: "Filter",
@@ -409,6 +413,17 @@ export default {
 		deuiaction3_togglefilter: {
 			caption: "Filter",
 			tip: "Filter",
+		},
+	},
+	morerecentupdatetree_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+        doc_edit: "编辑",
+        doc_delete: "删除",
+        doc_onlycollectdoc: "收藏",
+        doc_onlyuncollectdoc: "取消收藏",
 		},
 	},
 };

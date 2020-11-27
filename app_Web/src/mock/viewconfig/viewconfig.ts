@@ -3319,6 +3319,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductMainDashboardView",
             "viewtag": "bc36be2ee4a78e69c13665a8ad03ab6a"
         },
+        "docmorerecentupdatetreeview": {
+            "title": "文档树视图",
+            "caption": "最近更新",
+            "viewtype": "DETREEVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocMoreRecentUpdateTreeView",
+            "viewtag": "bd1aede12f9d691fb88402d7aa4c07db"
+        },
         "userpickupgridview": {
             "title": "用户选择表格视图",
             "caption": "用户",
