@@ -770,6 +770,14 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     }
 
     /**
+     * 备份树节点上下文菜单
+     * 
+     * @type any
+     * @memberof MainTreeBase
+     */
+    public copyActionModel:any;
+
+    /**
      * 树节点上下文菜单集合
      *
      * @type {string[]}
@@ -849,7 +857,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
             }
         }
     }
-    
+
     /**
      * 导航点击行为
      *

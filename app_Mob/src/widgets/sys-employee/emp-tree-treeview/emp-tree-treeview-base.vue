@@ -333,6 +333,14 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 备份树节点上下文菜单
+     * 
+     * @type any
+     * @memberof MainTreeBase
+     */
+    public copyActionModel:any;
+
+    /**
      * 树节点上下文菜单集合
      *
      * @type {string[]}
@@ -401,7 +409,7 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
             }
         }
     }
-    
+
     /**
      * 导航点击行为
      *
