@@ -74,14 +74,6 @@ export class DocMoreRecentUpdateTreeViewBase extends TreeViewBase {
 	 * @memberof DocMoreRecentUpdateTreeViewBase
 	 */
     protected customViewParams: any = {
-        'n_lib_eq': {
-            isRawValue: false,
-            value: 'srfparentkey',
-        },
-        'n_project_eq': {
-            isRawValue: false,
-            value: 'project',
-        },
         'parent': {
             isRawValue: true,
             value: '0',

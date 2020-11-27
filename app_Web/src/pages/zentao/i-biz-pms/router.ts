@@ -11389,6 +11389,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/release-edit-view/release-edit-view.vue'),
                 },
                 {
+                    path: 'docs/:doc?/morerecentupdatetreeview/:morerecentupdatetreeview?',
+                    meta: {
+                        caption: 'entities.doc.views.morerecentupdatetreeview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'docs', parameterName: 'doc' },
+                            { pathName: 'morerecentupdatetreeview', parameterName: 'morerecentupdatetreeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-more-recent-update-tree-view/doc-more-recent-update-tree-view.vue'),
+                },
+                {
                     path: 'products/:product?/maintabexpview/:maintabexpview?',
                     meta: {
                         caption: 'entities.product.views.maintabexpview.caption',

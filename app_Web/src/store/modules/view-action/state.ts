@@ -3746,6 +3746,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'bd1aede12f9d691fb88402d7aa4c07db',
+            viewmodule: 'zentao',
+            viewname: 'DocMoreRecentUpdateTreeView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b6e02216d1e5c69d79b32342d8b67c7a',
+            ],
+        },
+        {
             viewtag: 'bd6f41c3367241b8eddd61eb6e80f029',
             viewmodule: 'zentao',
             viewname: 'StoryProjectPlanView',
@@ -4755,6 +4765,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'bd1aede12f9d691fb88402d7aa4c07db',
                 'b79b6d8cb0dcb2ac867f3ea1aa6d4cb2',
                 'd290709d6a36e20e79d60e873047ec0d',
                 '4dad74488a4fd446ed9ef787e05206bc',
@@ -4762,7 +4773,6 @@ export const viewstate: any = {
                 'b593c09602d9483d53b1f725395030a6',
                 'd695dac99ccf0ddd077eb13916241bd0',
                 '73647c564ed468885ee3c18bccce5a90',
-                '7c188c576f1fd59114ac2940d8e92c15',
                 '603f4478afd3bcccb330888c3ac880bd',
             ],
         },

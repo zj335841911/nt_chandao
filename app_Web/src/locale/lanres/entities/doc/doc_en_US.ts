@@ -371,12 +371,6 @@ export default {
 			tip: "Filter",
 		},
 	},
-	recentmoregridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-	},
 	mymoregridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Filter",
@@ -384,6 +378,12 @@ export default {
 		},
 	},
 	myfavouritegridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	recentmoregridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Filter",
 			tip: "Filter",
