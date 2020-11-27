@@ -27,6 +27,9 @@ export default {
 		mobproducttreeview: {
 			caption: '产品',
 		},
+		projectdoclibmobtreeview: {
+			caption: '项目',
+		},
 		mobeditview: {
 			caption: '文档库',
 		},

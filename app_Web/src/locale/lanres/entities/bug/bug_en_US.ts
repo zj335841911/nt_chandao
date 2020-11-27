@@ -524,6 +524,7 @@ export default {
 			title: "Bug标题", 
 			severity: "严重程度", 
 			pri: "优先级", 
+			color: "标题颜色", 
 			steps: "重现步骤", 
 			mailtopk: "抄送给", 
 			storyname: "相关需求", 

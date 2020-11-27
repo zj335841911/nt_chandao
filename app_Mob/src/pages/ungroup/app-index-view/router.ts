@@ -6345,6 +6345,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-my-territory-mob-dashboard-view/ibz-my-territory-mob-dashboard-view.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/projectdoclibmobtreeview',
+                    name: 'doclib_projectdoclibmobtreeview',
+                    meta: {
+                        caption: 'doclib.views.projectdoclibmobtreeview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'projectdoclibmobtreeview', parameterName: 'projectdoclibmobtreeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-project-doc-lib-mob-tree-view/doc-lib-project-doc-lib-mob-tree-view.vue'),
+                },
+                {
                     path: 'projects/:project?/mobmdview',
                     name: 'project_mobmdview',
                     meta: {

@@ -1,7 +1,7 @@
 <div
     class="documents-library"
     v-loading="(Object.is(mode,'chart') && items.length == 0) || (Object.is(mode,'list') && curPageItems.length == 0)"
-    element-loading-text="数据加载中"
+    :element-loading-text="$t('app.directoryTree.loading')"
     element-loading-spinner="el-icon-loading">
     <div class="documents-library-operation">
         <Breadcrumb separator=">">
@@ -13,10 +13,17 @@
                 </BreadcrumbItem>
             </template>
         </Breadcrumb>
-        <ButtonGroup>
-            <Button icon="md-apps" :class="Object.is(mode,'chart') ? 'button-active-background' : ''" @click="modeChange('chart')"></Button>
-            <Button icon="md-menu" :class="Object.is(mode,'list') ? 'button-active-background' : ''" @click="modeChange('list')"></Button>
-        </ButtonGroup>
+        <div class="documents-library-toolbar">
+            <div class="documents-library-search">
+                <i-input slot="quickSearch" clearable search @on-search="onSearch.apply(_self, arguments)" :placeholder="$t('app.directoryTree.placeholder')"></i-input>
+            </div>
+            <div class="documents-library-button">
+                <ButtonGroup>
+                    <Button icon="md-apps" :class="Object.is(mode,'chart') ? 'button-active-background' : ''" @click="modeChange('chart')"></Button>
+                    <Button icon="md-menu" :class="Object.is(mode,'list') ? 'button-active-background' : ''" @click="modeChange('list')"></Button>
+                </ButtonGroup>
+            </div>  
+        </div>
     </div>
     <div v-show="Object.is(mode, 'chart')" class="documents-library-chart" >
         <template v-for="(item,index) in items">
@@ -28,7 +35,8 @@
                 </div> 
                 <div 
                     v-if="item.curData && (Object.is(item.curData.doclibtype,'file') || Object.is(item.curData.docqtype,'doc'))"> 
-                    <Icon type="md-document" size="70" color="darkgrey" />
+                    <Icon v-if="!item.curData.pathname" type="md-document" size="70" color="darkgrey" />
+                    <img v-else style="width: 70px;height: 70px;" :src="downloadUrl+'/'+item.curData.id"/>
                 </div>
                 <div>
                     <a
@@ -50,7 +58,7 @@
                             @click="onAction(item,actionModel.ctrlname,actionModel.name)" 
                             v-show="actionModel.visible"
                             :disabled="actionModel.disabled">
-                            <i v-if="actionModel.imgclass" :class="actionModel.imgclass"></i>
+                            <i :title="$t(actionModel.title)" v-if="actionModel.imgclass" :class="actionModel.imgclass"></i>
                             <span>{{ actionModel.caption }}</span>
                         </a>
                     </div>
@@ -79,7 +87,7 @@
                         @click="onAction(item,actionModel.ctrlname,actionModel.name)" 
                         v-show="actionModel.visible"
                         :disabled="actionModel.disabled">
-                        <i v-if="actionModel.imgclass" :class="actionModel.imgclass"></i>
+                        <i :title="$t(actionModel.title)" v-if="actionModel.imgclass" :class="actionModel.imgclass"></i>
                         <span>{{ actionModel.caption }}</span>
                     </a>
                 </div>

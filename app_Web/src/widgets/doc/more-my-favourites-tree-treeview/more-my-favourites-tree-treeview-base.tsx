@@ -7,6 +7,7 @@ import MoreMyFavouritesTreeService from './more-my-favourites-tree-treeview-serv
 import DocUIService from '@/uiservice/doc/doc-ui-service';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
 import DocLibModuleUIService from '@/uiservice/doc-lib-module/doc-lib-module-ui-service';
+import { Environment } from '@/environments/environment';
 
 /**
  * tree部件基类
@@ -1127,6 +1128,14 @@ export class MoreMyFavouritesTreeTreeBase extends MainControlBase {
     public items: any[] = [];
 
     /**
+     * 当前文件夹所含文件副本
+     *  
+     * @type {Array<any>}
+     * @memberof MoreMyFavouritesTreeBase
+     */
+    public copyItems: any[] = [];
+
+    /**
      * 面包屑数据(默认第一项为图标)
      * 
      * @type {Array<any>}
@@ -1177,10 +1186,18 @@ export class MoreMyFavouritesTreeTreeBase extends MainControlBase {
     /**
      * 列表当前页数据
      *
-     * @type {number}
+     * @type {Array<any>}
      * @memberof MoreMyFavouritesTreeBase
      */
     public curPageItems: any[] = [];
+
+    /**
+     * 图片加载路径
+     *
+     * @type {string}
+     * @memberof MoreMyFavouritesTreeBase
+     */
+    public downloadUrl = Environment.BaseUrl + Environment.ExportFile;
 
     /**
      * 树节点上下文菜单集合
@@ -1189,34 +1206,34 @@ export class MoreMyFavouritesTreeTreeBase extends MainControlBase {
      * @memberof MoreMyFavouritesTreeBase
      */
      public actionModel: any = {
-        RootDir_deuiaction1: {ctrlname: 'rootdir_cm',name:'deuiaction1',nodeOwner:'RootDir',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        RootDir_deuiaction4: {ctrlname: 'rootdir_cm',name:'deuiaction4',nodeOwner:'RootDir',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
-        RootDir_deuiaction2: {ctrlname: 'rootdir_cm',name:'deuiaction2',nodeOwner:'RootDir',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        RootDir_deuiaction3: {ctrlname: 'rootdir_cm',name:'deuiaction3',nodeOwner:'RootDir',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
-        Doc_deuiaction1: {ctrlname: 'doc_cm',name:'deuiaction1',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        Doc_deuiaction4: {ctrlname: 'doc_cm',name:'deuiaction4',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: ''},
-        Doc_deuiaction2: {ctrlname: 'doc_cm',name:'deuiaction2',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        Doc_deuiaction3: {ctrlname: 'doc_cm',name:'deuiaction3',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
-        DocLib_deuiaction1: {ctrlname: 'doclib_cm',name:'deuiaction1',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'EditDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        DocLib_deuiaction2: {ctrlname: 'doclib_cm',name:'deuiaction2',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
-        DocLib_deuiaction3: {ctrlname: 'doclib_cm',name:'deuiaction3',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
-        DocLib_deuiaction4: {ctrlname: 'doclib_cm',name:'deuiaction4',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        DocLibDoc_deuiaction1: {ctrlname: 'doclibdoc_cm',name:'deuiaction1',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        DocLibDoc_deuiaction4: {ctrlname: 'doclibdoc_cm',name:'deuiaction4',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: ''},
-        DocLibDoc_deuiaction2: {ctrlname: 'doclibdoc_cm',name:'deuiaction2',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        DocLibDoc_deuiaction3: {ctrlname: 'doclibdoc_cm',name:'deuiaction3',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
-        Module_deuiaction1: {ctrlname: 'module_cm',name:'deuiaction1',nodeOwner:'Module',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        Module_deuiaction4: {ctrlname: 'module_cm',name:'deuiaction4',nodeOwner:'Module',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
-        Module_deuiaction2: {ctrlname: 'module_cm',name:'deuiaction2',nodeOwner:'Module',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        Module_deuiaction3: {ctrlname: 'module_cm',name:'deuiaction3',nodeOwner:'Module',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
-        ChildDir_deuiaction1: {ctrlname: 'childdir_cm',name:'deuiaction1',nodeOwner:'ChildDir',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        ChildDir_deuiaction4: {ctrlname: 'childdir_cm',name:'deuiaction4',nodeOwner:'ChildDir',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
-        ChildDir_deuiaction2: {ctrlname: 'childdir_cm',name:'deuiaction2',nodeOwner:'ChildDir',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        ChildDir_deuiaction3: {ctrlname: 'childdir_cm',name:'deuiaction3',nodeOwner:'ChildDir',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
-        ModuleDoc_deuiaction1: {ctrlname: 'moduledoc_cm',name:'deuiaction1',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        ModuleDoc_deuiaction4: {ctrlname: 'moduledoc_cm',name:'deuiaction4',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: ''},
-        ModuleDoc_deuiaction2: {ctrlname: 'moduledoc_cm',name:'deuiaction2',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        ModuleDoc_deuiaction3: {ctrlname: 'moduledoc_cm',name:'deuiaction3',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
+        RootDir_deuiaction1: {ctrlname: 'rootdir_cm',name:'deuiaction1',nodeOwner:'RootDir',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclibmodule_edit'},
+        RootDir_deuiaction4: {ctrlname: 'rootdir_cm',name:'deuiaction4',nodeOwner:'RootDir',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclibmodule_weihufenlei'},
+        RootDir_deuiaction2: {ctrlname: 'rootdir_cm',name:'deuiaction2',nodeOwner:'RootDir',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclibmodule_favorite'},
+        RootDir_deuiaction3: {ctrlname: 'rootdir_cm',name:'deuiaction3',nodeOwner:'RootDir',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclibmodule_nfavorite'},
+        Doc_deuiaction1: {ctrlname: 'doc_cm',name:'deuiaction1',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doc_edit'},
+        Doc_deuiaction4: {ctrlname: 'doc_cm',name:'deuiaction4',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doc_delete'},
+        Doc_deuiaction2: {ctrlname: 'doc_cm',name:'deuiaction2',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doc_onlycollectdoc'},
+        Doc_deuiaction3: {ctrlname: 'doc_cm',name:'deuiaction3',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doc_onlyuncollectdoc'},
+        DocLib_deuiaction1: {ctrlname: 'doclib_cm',name:'deuiaction1',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'EditDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclib_editdoclib'},
+        DocLib_deuiaction2: {ctrlname: 'doclib_cm',name:'deuiaction2',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclib_weihufenlei'},
+        DocLib_deuiaction3: {ctrlname: 'doclib_cm',name:'deuiaction3',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclib_uncollect'},
+        DocLib_deuiaction4: {ctrlname: 'doclib_cm',name:'deuiaction4',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclib_collect'},
+        DocLibDoc_deuiaction1: {ctrlname: 'doclibdoc_cm',name:'deuiaction1',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doc_edit'},
+        DocLibDoc_deuiaction4: {ctrlname: 'doclibdoc_cm',name:'deuiaction4',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doc_delete'},
+        DocLibDoc_deuiaction2: {ctrlname: 'doclibdoc_cm',name:'deuiaction2',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doc_onlycollectdoc'},
+        DocLibDoc_deuiaction3: {ctrlname: 'doclibdoc_cm',name:'deuiaction3',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doc_onlyuncollectdoc'},
+        Module_deuiaction1: {ctrlname: 'module_cm',name:'deuiaction1',nodeOwner:'Module',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclibmodule_edit'},
+        Module_deuiaction4: {ctrlname: 'module_cm',name:'deuiaction4',nodeOwner:'Module',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclibmodule_weihufenlei'},
+        Module_deuiaction2: {ctrlname: 'module_cm',name:'deuiaction2',nodeOwner:'Module',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclibmodule_favorite'},
+        Module_deuiaction3: {ctrlname: 'module_cm',name:'deuiaction3',nodeOwner:'Module',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclibmodule_nfavorite'},
+        ChildDir_deuiaction1: {ctrlname: 'childdir_cm',name:'deuiaction1',nodeOwner:'ChildDir',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclibmodule_edit'},
+        ChildDir_deuiaction4: {ctrlname: 'childdir_cm',name:'deuiaction4',nodeOwner:'ChildDir',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclibmodule_weihufenlei'},
+        ChildDir_deuiaction2: {ctrlname: 'childdir_cm',name:'deuiaction2',nodeOwner:'ChildDir',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclibmodule_favorite'},
+        ChildDir_deuiaction3: {ctrlname: 'childdir_cm',name:'deuiaction3',nodeOwner:'ChildDir',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doclibmodule_nfavorite'},
+        ModuleDoc_deuiaction1: {ctrlname: 'moduledoc_cm',name:'deuiaction1',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doc_edit'},
+        ModuleDoc_deuiaction4: {ctrlname: 'moduledoc_cm',name:'deuiaction4',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doc_delete'},
+        ModuleDoc_deuiaction2: {ctrlname: 'moduledoc_cm',name:'deuiaction2',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doc_onlycollectdoc'},
+        ModuleDoc_deuiaction3: {ctrlname: 'moduledoc_cm',name:'deuiaction3',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doc.moremyfavouritestree_treeview.uiactions.doc_onlyuncollectdoc'},
     }
 
     /**
@@ -1296,7 +1313,7 @@ export class MoreMyFavouritesTreeTreeBase extends MainControlBase {
      * @memberof MoreMyFavouritesTreeBase
      */
     public async load(node: any = {}, resolve?: any) {
-        this.items = [];
+        this.copyItems = [];
         this.currentNode = node;
         if (node.data && node.data.children) {
             return;
@@ -1324,12 +1341,32 @@ export class MoreMyFavouritesTreeTreeBase extends MainControlBase {
             return;
         }
         const _items = response.data;
-        this.items = [..._items];
+        this.copyItems = [..._items];
         this.totalRecord = _items.length;
+        this.onSearch('');
         if (Object.is(this.mode,'list')) {
             await this.computeCurPageNodeState();
         }
         this.$emit("load", _items);
+    }
+
+    /**
+     * 搜索
+     * 
+     * @param query 搜索值
+     * @memberof MoreMyFavouritesTreeBase
+     */
+    public onSearch(query: string){
+        let items: Array<any> = [];
+        this.items = [];
+        if(this.copyItems && this.copyItems.length > 0){
+            this.copyItems.forEach((item: any)=>{
+                if(item.text.search(query) !== -1){
+                    items.push(item);
+                }
+            })
+        }
+        this.items = [...items];
     }
 
     /**
@@ -1482,19 +1519,13 @@ export class MoreMyFavouritesTreeTreeBase extends MainControlBase {
         if(Object.is(nodeType,"STATIC")){
             return this.copyActionModel;
         }
-        let service:any = await this.appEntityService.getService(appEntityName);
         if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
-            if(service['Get'] && service['Get'] instanceof Function){
-                let tempContext:any = this.$util.deepCopy(this.context);
-                tempContext[appEntityName] = node.srfkey;
-                let targetData = await service.Get(tempContext,{}, false);
-                let uiservice:any = await this.appUIService.getService(appEntityName);
-                let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
-                return this.copyActionModel;
-            }else{
-                console.warn("获取数据异常");
-                return this.copyActionModel;
-            }
+            let tempContext:any = this.$util.deepCopy(this.context);
+            tempContext[appEntityName] = node.srfkey;
+            let targetData = node.curData;
+            let uiservice:any = await this.appUIService.getService(appEntityName);
+            let result: any[] = ViewTool.calcActionItemAuthState(targetData,this.copyActionModel,uiservice);
+            return this.copyActionModel;
         }
     }
 

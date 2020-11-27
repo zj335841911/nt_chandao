@@ -55,7 +55,8 @@
             </template>
         </ion-radio-group>
         <app-mob-context-menu :value="contextMenuShowStatus" @change="(val)=>{this.contextMenuShowStatus=val}">
-            <template slot ="content" v-html="renderContextMenuDoc()"></template>
+         <div slot="content" >
+        </div>
         </app-mob-context-menu>
     </div>
 </template>
@@ -403,8 +404,8 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
                 let tempContext:any = Util.deepCopy(this.context);
                 tempContext[appEntityName] = node.srfkey;
                 let targetData = await service.Get(tempContext,{}, false);
-                let uiservice:any = await new UIService().getService(appEntityName);
-                let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
+                let uiservice:any = await this.globaluiservice.getService(appEntityName);
+                this.$viewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
                 return this.copyActionModel;
             }else{
                 console.warn("获取数据异常");
@@ -943,21 +944,6 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
     } 
 
     /**
-     * 绘制长按菜单
-     *
-     * @param {*} node
-     * @returns
-     * @memberof EmpTreeMpkBase
-     */
-    public renderContextMenu(node: any) {
-        let content;
-        if (node) {
-            const tags: string[] = node.id.split(';');
-        }
-        return content;
-    }
-
-    /**
      * 菜单显示状态
      *
      * @param {*} node
@@ -1037,6 +1023,25 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
             }
         }
         this.$emit('selectchange', this.selectedNodes);
+    }
+
+    /**
+     * 激活节点
+     *
+     * @memberof EmpTreeMpkBase
+     */
+    public activeNode = "";
+
+    /**
+     * 节点长按
+     *
+     * @memberof EmpTreeMpkBase
+     */
+    public node_touch(item:any){
+        this.activeNode  = item.id.split(';')[0];
+        this.currentselectedNode = JSON.parse(JSON.stringify(item));
+        this.contextMenuShowStatus = true;
+    
     }
 
     /**

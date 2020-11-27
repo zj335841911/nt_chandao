@@ -1084,8 +1084,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<History> changes = ChangeUtil.diff(old, newTask);
         this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            actionHelper.sendTodo(newTask.getId(), newTask.getName(), noticeusers, newTask.getAssignedto(), newTask.getMailto(),
-                    ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ASSIGNED.getText());
+            if (jugAssignToIsChanged(old,et)) {
+                actionHelper.sendMarkDone(newTask.getId(),newTask.getName(),old.getAssignedto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH,StaticDict.Action__type.ASSIGNED.getText());
+                actionHelper.sendTodo(newTask.getId(), newTask.getName(), noticeusers, newTask.getAssignedto(), newTask.getMailto(),
+                        ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ASSIGNED.getText());
+            }
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.ASSIGNED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
             if (changes.size() > 0) {
@@ -1093,6 +1096,14 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             }
         }
         return et;
+    }
+
+    public boolean jugAssignToIsChanged(Task old,Task et){
+        boolean flag = false;
+        if ((et.getStatus().equals(StaticDict.Task__status.WAIT.getValue()) || et.getStatus().equals(StaticDict.Task__status.DOING.getValue())) && !old.getAssignedto().equals(et.getAssignedto())){
+            flag = true;
+        }
+        return flag;
     }
 
     @Transactional(rollbackFor = Exception.class)
@@ -1309,6 +1320,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
+            actionHelper.sendMarkDone(newTask.getId(),newTask.getName(),old.getAssignedto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH,StaticDict.Action__type.FINISHED.getText());
             actionHelper.sendTodo(newTask.getId(), newTask.getName(), noticeusers, newTask.getAssignedto(), newTask.getMailto(),
                     ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.FINISHED.getText());
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.FINISHED.getValue(),

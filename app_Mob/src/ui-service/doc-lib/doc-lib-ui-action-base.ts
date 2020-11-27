@@ -91,6 +91,7 @@ export default class DocLibUIActionBase extends EntityUIActionBase {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'mobproducttreeview',srfappde:'doclibs'});
+        this.allViewMap.set(':',{viewname:'projectdoclibmobtreeview',srfappde:'doclibs'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'doclibs'});
     }
 

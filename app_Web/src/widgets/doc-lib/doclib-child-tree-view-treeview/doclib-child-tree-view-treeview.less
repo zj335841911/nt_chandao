@@ -10,8 +10,16 @@
             .ivu-breadcrumb-item-link{
                 cursor: pointer;
             }
-            .button-active-background{
-                background-color: var(--view-button-background-color-active);
+            .documents-library-toolbar{
+                display: flex;
+                .documents-library-search{
+                    margin-right: 8px;
+                }
+                .documents-library-button{
+                    .button-active-background{
+                        background-color: var(--view-button-background-color-active);
+                    }
+                }
             }
         }
         > .documents-library-chart{
