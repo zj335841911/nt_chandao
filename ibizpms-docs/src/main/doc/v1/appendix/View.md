@@ -440,6 +440,7 @@ SRFNAVPARAM.project=%project%|
 |-|文档库树视图（自定义文档库-根目录）|DETREEVIEW|&nbsp;|
 |-|doclib表格视图|DEGRIDVIEW|&nbsp;|
 |-|执行|DEOPTVIEW|&nbsp;|
+|-|文档树视图|DETREEVIEW|&nbsp;|
 |-|产品|DETABEXPVIEW|&nbsp;|
 |-|执行结果|DEEDITVIEW|&nbsp;|
 |-|需求细分|DEGRIDVIEW|&nbsp;|
@@ -657,6 +658,7 @@ SRFNAVPARAM.project=%project%|
 |-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug表格视图|DEGRIDVIEW9|&nbsp;|
 |-|完成任务|DEOPTVIEW|&nbsp;|
+|-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
 |-|关闭|DEOPTVIEW|&nbsp;|
 |-|需求|DEEDITVIEW|&nbsp;|
 |-|模块选择|DEPICKUPVIEW|&nbsp;|

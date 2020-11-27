@@ -1847,6 +1847,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseTestOptionView",
             "viewtag": "6b041208cbc10321a4d9cd74eaac3689"
         },
+        "docmoremyfavouritestreeview": {
+            "title": "文档树视图",
+            "caption": "我的收藏",
+            "viewtype": "DETREEVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocMoreMyFavouritesTreeView",
+            "viewtag": "6b0e5dd0dca860d801e403c7591a9f41"
+        },
         "productmaintabexpview": {
             "title": "产品",
             "caption": "产品",
@@ -3582,6 +3590,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskDoneTaskView",
             "viewtag": "c9c256aef78723e1bf9ddc1d38667c3f"
+        },
+        "bugtasktobugeditview": {
+            "title": "Bug",
+            "caption": "Bug",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugTaskToBugEditView",
+            "viewtag": "c9c2b18a9b5b1e628179f9ab99ffe23a"
         },
         "testtaskcloseoptionview": {
             "title": "关闭",

@@ -3,7 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
-import StoryToBugService from './story-to-bug-form-service';
+import TaskToBugService from './task-to-bug-form-service';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
 import {
     FormButtonModel,
@@ -24,31 +24,31 @@ import {
  *
  * @export
  * @class EditFormControlBase
- * @extends {StoryToBugEditFormBase}
+ * @extends {TaskToBugEditFormBase}
  */
-export class StoryToBugEditFormBase extends EditFormControlBase {
+export class TaskToBugEditFormBase extends EditFormControlBase {
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof StoryToBugEditFormBase
+     * @memberof TaskToBugEditFormBase
      */
     protected controlType: string = 'FORM';
 
     /**
      * 建构部件服务对象
      *
-     * @type {StoryToBugService}
-     * @memberof StoryToBugEditFormBase
+     * @type {TaskToBugService}
+     * @memberof TaskToBugEditFormBase
      */
-    public service: StoryToBugService = new StoryToBugService({ $store: this.$store });
+    public service: TaskToBugService = new TaskToBugService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof StoryToBugEditFormBase
+     * @memberof TaskToBugEditFormBase
      */
     public appEntityService: BugService = new BugService({ $store: this.$store });
 
@@ -57,7 +57,7 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof StoryToBugEditFormBase
+     * @memberof TaskToBugEditFormBase
      */
     protected appDeName: string = 'bug';
 
@@ -66,7 +66,7 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof StoryToBugEditFormBase
+     * @memberof TaskToBugEditFormBase
      */
     protected appDeLogicName: string = 'Bug';
 
@@ -74,7 +74,7 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
      * 界面UI服务对象
      *
      * @type {BugUIService}
-     * @memberof StoryToBugBase
+     * @memberof TaskToBugBase
      */  
     public appUIService: BugUIService = new BugUIService(this.$store);
 
@@ -82,7 +82,7 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof StoryToBugEditFormBase
+     * @memberof TaskToBugEditFormBase
      */
     public data: any = {
         srfupdatedate: null,
@@ -128,7 +128,7 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
      * 主信息属性映射表单项名称
      *
      * @type {*}
-     * @memberof StoryToBugEditFormBase
+     * @memberof TaskToBugEditFormBase
      */
     public majorMessageField: string = 'title';
 
@@ -136,24 +136,10 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof StoryToBugEditFormBase
+     * @memberof TaskToBugEditFormBase
      */
     public rules(): any{
         return {
-            productname: [
-                {
-                    required: this.detailsModel.productname.required,
-                    type: 'string',
-                    message: '产品 值不能为空',
-                    trigger: 'change',
-                },
-                {
-                    required: this.detailsModel.productname.required,
-                    type: 'string',
-                    message: '产品 值不能为空',
-                    trigger: 'blur',
-                },
-        ],
             openedbuild: [
                 {
                     required: this.detailsModel.openedbuild.required,
@@ -189,7 +175,7 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof StoryToBugBase
+     * @memberof TaskToBugBase
      */
     public deRules:any = {
     };
@@ -198,14 +184,14 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof StoryToBugEditFormBase
+     * @memberof TaskToBugEditFormBase
      */
     public detailsModel: any = {
-        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.storytobug_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.tasktobug_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.storytobug_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.tasktobug_form', extractMode: 'ITEM', details: [] } }),
 
-        group1: new FormGroupPanelModel({ caption: 'bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.storytobug_form', extractMode: 'ITEM', details: [] } }),
+        group1: new FormGroupPanelModel({ caption: 'bug基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.tasktobug_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -267,7 +253,7 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
 
         productname: new FormItemModel({
     caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:true,
+    required:false,
     disabled: false,
     enableCond: 3,
 }),
@@ -467,7 +453,7 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
      * 重置表单项值
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof StoryToBugEditFormBase
+     * @memberof TaskToBugEditFormBase
      */
     public resetFormData({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): void {
         if (Object.is(name, 'branch')) {
@@ -495,7 +481,7 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {Promise<void>}
-     * @memberof StoryToBugEditFormBase
+     * @memberof TaskToBugEditFormBase
      */
     public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
@@ -547,7 +533,7 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
 
     /**
      * 新建默认值
-     * @memberof StoryToBugEditFormBase
+     * @memberof TaskToBugEditFormBase
      */
     public createDefault() {                    
         if (this.data.hasOwnProperty('branch')) {
@@ -580,6 +566,12 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('steps')) {
             this.data['steps'] = this.viewparams['precondition'];
         }
+        if (this.data.hasOwnProperty('storyname')) {
+            this.data['storyname'] = this.viewparams['story'];
+        }
+        if (this.data.hasOwnProperty('taskname')) {
+            this.data['taskname'] = this.viewparams['taskname'];
+        }
         if (this.data.hasOwnProperty('story')) {
             this.data['story'] = this.viewparams['story'];
         }
@@ -593,7 +585,7 @@ export class StoryToBugEditFormBase extends EditFormControlBase {
      * @param {any} item 当前数据
      * @param {any} $event 面板事件数据
      *
-     * @memberof StoryToBugBase
+     * @memberof TaskToBugBase
      */
     public onPanelDataChange(item:any,$event:any) {
         Object.assign(item, $event, {rowDataState:'update'});

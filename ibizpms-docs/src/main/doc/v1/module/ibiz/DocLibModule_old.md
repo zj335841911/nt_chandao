@@ -220,6 +220,7 @@ hide footbox
 |ChildModuleByParent|子模块目录|ChildModuleByParent|否|&nbsp;|
 |ChildModuleByRealParent|文档库分类子模块|ChildModuleByRealParent|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
+|MyFavourites|我的收藏|MyFavourites|否|&nbsp;|
 |ParentModule|父集合|ParentModule|否|&nbsp;|
 |RootModuleMuLu|所有根模块目录|RootModuleMuLu|否|&nbsp;|
 |RootModuleMuLuByRoot|根模块目录|RootModuleMuLuByRoot|否|&nbsp;|

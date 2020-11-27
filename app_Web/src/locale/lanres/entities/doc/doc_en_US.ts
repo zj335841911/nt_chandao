@@ -64,6 +64,10 @@ export default {
 			caption: "嵌入文档库主页",
       		title: "文档编辑视图",
 		},
+		moremyfavouritestreeview: {
+			caption: "我的收藏",
+      		title: "文档树视图",
+		},
 		myfavouritegridview: {
 			caption: "我的收藏",
       		title: "doc表格视图",
@@ -439,6 +443,12 @@ export default {
         doc_delete: "删除",
         doc_onlycollectdoc: "收藏",
         doc_onlyuncollectdoc: "取消收藏",
+		},
+	},
+	tree_treeview: {
+		nodes: {
+		},
+		uiactions: {
 		},
 	},
 };

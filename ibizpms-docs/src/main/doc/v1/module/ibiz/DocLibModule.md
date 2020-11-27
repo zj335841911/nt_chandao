@@ -1367,7 +1367,23 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 #### SQL
 - MYSQL5
 ```SQL
-
+SELECT
+	t1.`BRANCH`,
+	t1.`DELETED`,
+	t1.`GRADE`,
+	t1.`ID`,
+	1 AS `ISFAVOURITES`,
+	( CASE WHEN EXISTS ( SELECT 1 FROM ZT_MODULE WHERE PARENT = t1.`ID` ) THEN FALSE ELSE TRUE END ) AS `ISLEAF`,
+	t1.`NAME`,
+	t1.`ORDER`,
+	t1.`OWNER`,
+	t1.`PARENT`,
+	t1.`PATH`,
+	t1.`ROOT`,
+	t1.`SHORT`,
+	t1.`TYPE` 
+FROM
+	`zt_module` t1
 ```
 ### 数据查询-父模块（ParentModule）
 #### 说明
@@ -1559,10 +1575,11 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 | 3 | [子模块目录](#数据集合-子模块目录（ChildModuleByParent）) | ChildModuleByParent | 否 |
 | 4 | [文档库分类子模块](#数据集合-文档库分类子模块（ChildModuleByRealParent）) | ChildModuleByRealParent | 否 |
 | 5 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
-| 6 | [父集合](#数据集合-父集合（ParentModule）) | ParentModule | 否 |
-| 7 | [所有根模块目录](#数据集合-所有根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
-| 8 | [根模块目录](#数据集合-根模块目录（RootModuleMuLuByRoot）) | RootModuleMuLuByRoot | 否 |
-| 9 | [根模块目录动态](#数据集合-根模块目录动态（RootModuleMuLuBysrfparentkey）) | RootModuleMuLuBysrfparentkey | 否 |
+| 6 | [我的收藏](#数据集合-我的收藏（MyFavourites）) | MyFavourites | 否 |
+| 7 | [父集合](#数据集合-父集合（ParentModule）) | ParentModule | 否 |
+| 8 | [所有根模块目录](#数据集合-所有根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 9 | [根模块目录](#数据集合-根模块目录（RootModuleMuLuByRoot）) | RootModuleMuLuByRoot | 否 |
+| 10 | [根模块目录动态](#数据集合-根模块目录动态（RootModuleMuLuBysrfparentkey）) | RootModuleMuLuBysrfparentkey | 否 |
 
 ### 数据集合-自定义文档库的模块（AllDocLibModule_Custom）
 #### 说明
@@ -1634,6 +1651,20 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（Default）](#数据查询-数据查询（Default）) |
+### 数据集合-我的收藏（MyFavourites）
+#### 说明
+我的收藏
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我的收藏（MyFavourites）](#数据查询-我的收藏（MyFavourites）) |
 ### 数据集合-父集合（ParentModule）
 #### 说明
 父集合

@@ -82,6 +82,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[MyFavourites]-->
+	 <select id="searchMyFavourites"  parameterType="cn.ibizlab.pms.core.ibiz.filter.DocLibModuleSearchContext"  resultMap="DocLibModuleResultMap">
+         select t1.* from (
+                <include refid="MyFavourites" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[ParentModule]-->
 	 <select id="searchParentModule"  parameterType="cn.ibizlab.pms.core.ibiz.filter.DocLibModuleSearchContext"  resultMap="DocLibModuleResultMap">
          select t1.* from (
@@ -156,7 +165,9 @@
     </sql>
     <!--数据查询[MyFavourites]-->
     <sql id="MyFavourites" databaseId="mysql">
-		<![CDATA[ 
+		<![CDATA[ SELECT 	t1.`BRANCH`, 	t1.`DELETED`, 	t1.`GRADE`, 	t1.`ID`, 	1 AS `ISFAVOURITES`, 	( CASE WHEN EXISTS ( SELECT 1 FROM ZT_MODULE WHERE PARENT = t1.`ID` ) THEN FALSE ELSE TRUE END ) AS `ISLEAF`, 	t1.`NAME`, 	t1.`ORDER`, 	t1.`OWNER`, 	t1.`PARENT`, 	t1.`PATH`, 	t1.`ROOT`, 	t1.`SHORT`, 	t1.`TYPE`  FROM 	`zt_module` t1
+					 WHERE 	t1.deleted = '0'
+						 AND FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0
 			]]>
     </sql>
     <!--数据查询[ParentModule]-->

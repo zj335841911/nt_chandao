@@ -3717,6 +3717,91 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-test-report-sub-grid-view/bug-test-report-sub-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/tasktobugeditview/:tasktobugeditview?',
+                    meta: {
+                        caption: 'entities.bug.views.tasktobugeditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'tasktobugeditview', parameterName: 'tasktobugeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-task-to-bug-edit-view/bug-task-to-bug-edit-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/tasktobugeditview/:tasktobugeditview?',
+                    meta: {
+                        caption: 'entities.bug.views.tasktobugeditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'tasktobugeditview', parameterName: 'tasktobugeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-task-to-bug-edit-view/bug-task-to-bug-edit-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/tasktobugeditview/:tasktobugeditview?',
+                    meta: {
+                        caption: 'entities.bug.views.tasktobugeditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'tasktobugeditview', parameterName: 'tasktobugeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-task-to-bug-edit-view/bug-task-to-bug-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/tasktobugeditview/:tasktobugeditview?',
+                    meta: {
+                        caption: 'entities.bug.views.tasktobugeditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'tasktobugeditview', parameterName: 'tasktobugeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-task-to-bug-edit-view/bug-task-to-bug-edit-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/tasktobugeditview/:tasktobugeditview?',
+                    meta: {
+                        caption: 'entities.bug.views.tasktobugeditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'tasktobugeditview', parameterName: 'tasktobugeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-task-to-bug-edit-view/bug-task-to-bug-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/editview/:editview?',
                     meta: {
                         caption: 'entities.task.views.editview.caption',

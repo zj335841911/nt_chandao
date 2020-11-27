@@ -6069,6 +6069,25 @@ t1.type = 'doc'
 ```
 ### 我的收藏(MyFavourites)<div id="DocLibModule_MyFavourites"></div>
 ```sql
+SELECT
+	t1.`BRANCH`,
+	t1.`DELETED`,
+	t1.`GRADE`,
+	t1.`ID`,
+	1 AS `ISFAVOURITES`,
+	( CASE WHEN EXISTS ( SELECT 1 FROM ZT_MODULE WHERE PARENT = t1.`ID` ) THEN FALSE ELSE TRUE END ) AS `ISLEAF`,
+	t1.`NAME`,
+	t1.`ORDER`,
+	t1.`OWNER`,
+	t1.`PARENT`,
+	t1.`PATH`,
+	t1.`ROOT`,
+	t1.`SHORT`,
+	t1.`TYPE` 
+FROM
+	`zt_module` t1
+WHERE t1.deleted = '0' 
+FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 
 
 ```
 ### 父模块(ParentModule)<div id="DocLibModule_ParentModule"></div>

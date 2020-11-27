@@ -2311,7 +2311,7 @@ export default class TaskUIServiceBase extends UIService {
     }
 
     /**
-     * 提bug
+     * 提缺陷
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -2322,12 +2322,14 @@ export default class TaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Task_tobug(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Task_TaskToBug(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{ASSIGNEDTO:"%assignedto%",STORY:"%story%",PROJECT:"%project%",MODULE:"%module%",PRODUCT:"%product%",BRANCH:"%branch%",TITLE:"%title%"});
+        Object.assign(params,{product:"%product%",project:"%project%",assignedto:"%assignedto%",story:"%story%",module:"%module%",title:"%title%",branch:"%branch%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { task: '%task%' });
@@ -2365,10 +2367,10 @@ export default class TaskUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'bug-edit-view', 
+                viewname: 'bug-task-to-bug-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.bug.views.editview.title'),
+                title: actionContext.$t('entities.bug.views.tasktobugeditview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);

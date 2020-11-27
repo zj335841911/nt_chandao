@@ -2299,6 +2299,16 @@
         "viewtag": "6b041208cbc10321a4d9cd74eaac3689",
         "memo": ""
     },
+    "docmoremyfavouritestreeview": {
+        "title": "文档树视图",
+        "caption": "我的收藏",
+        "viewtype": "DETREEVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocMoreMyFavouritesTreeView",
+        "viewfilename": "doc-more-my-favourites-tree-view",
+        "viewtag": "6b0e5dd0dca860d801e403c7591a9f41",
+        "memo": ""
+    },
     "productmaintabexpview": {
         "title": "产品",
         "caption": "产品",
@@ -4468,6 +4478,16 @@
         "viewfilename": "task-done-task-view",
         "viewtag": "c9c256aef78723e1bf9ddc1d38667c3f",
         "memo": ""
+    },
+    "bugtasktobugeditview": {
+        "title": "Bug",
+        "caption": "Bug",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugTaskToBugEditView",
+        "viewfilename": "bug-task-to-bug-edit-view",
+        "viewtag": "c9c2b18a9b5b1e628179f9ab99ffe23a",
+        "memo": "临时充当主信息展示页面"
     },
     "testtaskcloseoptionview": {
         "title": "关闭",
