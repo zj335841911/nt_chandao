@@ -58,28 +58,16 @@
             <div v-if="activeNode == 'ChildDocLibModule'">
                                     
                         <div class="context-menu-item" name='deuiaction1' >
-                                    <ion-icon name="star-outline"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
                             
                         </div>
                         
                         <div class="context-menu-item" name='deuiaction2' >
-                                    <ion-icon name="star"></ion-icon>
-                            
-                        </div>
-            </div>
-            <div v-if="activeNode == 'Doc'">
-                                    
-                        <div class="context-menu-item" name='deuiaction1' >
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
-                        
-                        <div class="context-menu-item" name='deuiaction2' >
-                                    <ion-icon name="star"></ion-icon>
-                            
-                        </div>
             </div>
-            <div v-if="activeNode == 'docLib'">
+            <div v-if="activeNode == 'DocLib'">
                                     
                         <div class="context-menu-item" name='deuiaction1' >
                                     <ion-icon name="star"></ion-icon>
@@ -91,7 +79,19 @@
                             
                         </div>
             </div>
-            <div v-if="activeNode == 'Module'">
+            <div v-if="activeNode == 'DocLibDoc'">
+                                    
+                        <div class="context-menu-item" name='deuiaction1' >
+                                    <ion-icon name="star-outline"></ion-icon>
+                            
+                        </div>
+                        
+                        <div class="context-menu-item" name='deuiaction2' >
+                                    <ion-icon name="star"></ion-icon>
+                            
+                        </div>
+            </div>
+            <div v-if="activeNode == 'RootDocLibModule'">
                                     
                         <div class="context-menu-item" name='deuiaction1' >
                                     <ion-icon name="star"></ion-icon>
@@ -130,7 +130,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import DocLibService from '@/app-core/service/doc-lib/doc-lib-service';
-import DocLibTreeProductMobService from '@/app-core/ctrl-service/doc-lib/doc-lib-tree-product-mob-treeview-service';
+import DocLibTreeProjectMobService from '@/app-core/ctrl-service/doc-lib/doc-lib-tree-project-mob-treeview-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import DocUIService from '@/ui-service/doc/doc-ui-action';
@@ -145,13 +145,13 @@ import { Util } from '@ibiz-core/utils'
     components: {
     }
 })
-export default class DocLibTreeProductMobBase extends Vue implements ControlInterface {
+export default class DocLibTreeProjectMobBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof DocLibTreeProductMob
+     * @memberof DocLibTreeProjectMob
      */
     @Prop() protected name?: string;
 
@@ -159,7 +159,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 视图名称
      *
      * @type {string}
-     * @memberof DocLibTreeProductMob
+     * @memberof DocLibTreeProjectMob
      */
     @Prop() protected viewName!: string;
 
@@ -168,7 +168,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof DocLibTreeProductMob
+     * @memberof DocLibTreeProjectMob
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -176,7 +176,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 应用上下文
      *
      * @type {*}
-     * @memberof DocLibTreeProductMob
+     * @memberof DocLibTreeProjectMob
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -184,7 +184,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 视图参数
      *
      * @type {*}
-     * @memberof DocLibTreeProductMob
+     * @memberof DocLibTreeProjectMob
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -193,7 +193,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof DocLibTreeProductMob
+     * @memberof DocLibTreeProjectMob
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -201,7 +201,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof DocLibTreeProductMob
+     * @memberof DocLibTreeProjectMob
      */
     protected getControlType(): string {
         return 'TREEVIEW'
@@ -211,7 +211,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof DocLibTreeProductMob
+     * @memberof DocLibTreeProjectMob
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -220,7 +220,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 转化数据
      *
      * @param {any} args
-     * @memberof  DocLibTreeProductMobBase
+     * @memberof  DocLibTreeProjectMobBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -232,16 +232,16 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     /**
      * 建构部件服务对象
      *
-     * @type {DocLibTreeProductMobService}
-     * @memberof DocLibTreeProductMob
+     * @type {DocLibTreeProjectMobService}
+     * @memberof DocLibTreeProjectMob
      */
-    protected service: DocLibTreeProductMobService = new DocLibTreeProductMobService({$store:this.$store});
+    protected service: DocLibTreeProjectMobService = new DocLibTreeProjectMobService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
      * @type {DocLibService}
-     * @memberof DocLibTreeProductMob
+     * @memberof DocLibTreeProjectMob
      */
     protected appEntityService: DocLibService = new DocLibService();
 
@@ -249,7 +249,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 界面UI服务对象
      *
      * @type {DocLibUIService}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */  
     public deUIService:DocLibUIService = new DocLibUIService(this.$store);
 
@@ -258,7 +258,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof DocLibTreeProductMob
+     * @memberof DocLibTreeProjectMob
      */
     protected childdoclibmodule_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -270,27 +270,11 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     }
 
     /**
-     * doc_cm 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof DocLibTreeProductMob
-     */
-    protected doc_cm_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.doc_cm_deuiaction1_click($event, 'doc_cm', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.doc_cm_deuiaction2_click($event, 'doc_cm', $event2);
-        }
-    }
-
-    /**
      * doclib_cm 部件 click 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof DocLibTreeProductMob
+     * @memberof DocLibTreeProjectMob
      */
     protected doclib_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -302,18 +286,34 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     }
 
     /**
-     * module_cm 部件 click 事件
+     * doclibdoc_cm 部件 click 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof DocLibTreeProductMob
+     * @memberof DocLibTreeProjectMob
      */
-    protected module_cm_click($event: any, $event2?: any) {
+    protected doclibdoc_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
-            this.module_cm_deuiaction1_click($event, 'module_cm', $event2);
+            this.doclibdoc_cm_deuiaction1_click($event, 'doclibdoc_cm', $event2);
         }
         if (Object.is($event.tag, 'deuiaction2')) {
-            this.module_cm_deuiaction2_click($event, 'module_cm', $event2);
+            this.doclibdoc_cm_deuiaction2_click($event, 'doclibdoc_cm', $event2);
+        }
+    }
+
+    /**
+     * rootdoclibmodule_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof DocLibTreeProjectMob
+     */
+    protected rootdoclibmodule_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.rootdoclibmodule_cm_deuiaction1_click($event, 'rootdoclibmodule_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.rootdoclibmodule_cm_deuiaction2_click($event, 'rootdoclibmodule_cm', $event2);
         }
     }
 
@@ -322,7 +322,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof DocLibTreeProductMob
+     * @memberof DocLibTreeProjectMob
      */
     protected file_cm_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
@@ -347,7 +347,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @returns {Promise<any>}
      * @memberof TreeBase
      */
-    protected async childdoclibmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async doclibdoc_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -379,7 +379,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @returns {Promise<any>}
      * @memberof TreeBase
      */
-    protected async childdoclibmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async doclibdoc_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -571,7 +571,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @returns {Promise<any>}
      * @memberof TreeBase
      */
-    protected async module_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async childdoclibmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -603,7 +603,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @returns {Promise<any>}
      * @memberof TreeBase
      */
-    protected async module_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async childdoclibmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -635,7 +635,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @returns {Promise<any>}
      * @memberof TreeBase
      */
-    protected async doc_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async rootdoclibmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -645,15 +645,15 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        Object.assign(paramJO, {});
+        
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('doc_ui_action');
+        const curUIService: any = await this.globaluiservice.getService('doclibmodule_ui_action');
         if (curUIService) {
-            curUIService.Doc_Collect(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.DocLibModule_NFavorite(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -667,7 +667,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @returns {Promise<any>}
      * @memberof TreeBase
      */
-    protected async doc_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async rootdoclibmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -677,15 +677,15 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        Object.assign(paramJO, {});
+        
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('doc_ui_action');
+        const curUIService: any = await this.globaluiservice.getService('doclibmodule_ui_action');
         if (curUIService) {
-            curUIService.Doc_UnCollect(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.DocLibModule_Favorite(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -693,7 +693,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof DocLibTreeProductMob
+     * @memberof DocLibTreeProjectMob
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -713,7 +713,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 树视图导航数组名称
      *
      * @type {string[]}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public treeNav :any= [{id:"#",text:"文档"}];
 
@@ -721,7 +721,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public getDatas(): any[] {
         return [this.currentselectedNode];
@@ -731,7 +731,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 获取单项树
      *
      * @returns {*}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public getData(): any {
         return this.currentselectedNode;
@@ -741,7 +741,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 是否单选
      *
      * @type {boolean}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     @Prop({ default: true }) public isSingleSelect!: boolean;
 
@@ -749,7 +749,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 是否默认选中第一条数据
      *
      * @type {boolean}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     @Prop({ default: false }) public isSelectFirstDefault!: boolean;
 
@@ -757,7 +757,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 枝干节点是否可用（具有数据能力，可抛出）
      *
      * @type {string}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     @Prop({default:true}) public isBranchAvailable!: boolean;
 
@@ -765,7 +765,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     @Prop({ default: true }) public showBusyIndicator?: boolean;
 
@@ -773,7 +773,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 初始化完成
      *
      * @type {boolean}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public inited: boolean = false;
 
@@ -781,7 +781,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 已选中数据集合
      *
      * @type {*}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public selectedNodes: any = [];
 
@@ -789,7 +789,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 当前选中数据项
      *
      * @type {*}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public currentselectedNode: any = {};
 
@@ -797,14 +797,14 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 选中数据字符串
      *
      * @type {string}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     @Prop() public selectedData?: string;
 
     /**
      * 节点点击加载
      *
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public click_node(data:any){
         if(this.treeNav[this.treeNav.length -1].id == data.id){
@@ -819,7 +819,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     @Watch('selectedData')
     public onValueChange(newVal: any, oldVal: any) {
@@ -849,17 +849,17 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 树节点上下文菜单集合
      *
      * @type {string[]}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
      public actionModel: any = {
-        ChildDocLibModule_deuiaction1: {name:'deuiaction1',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visabled: true, disabled: false},
-        ChildDocLibModule_deuiaction2: {name:'deuiaction2',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visabled: true, disabled: false},
-        Doc_deuiaction1: {name:'deuiaction1',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visabled: true, disabled: false},
-        Doc_deuiaction2: {name:'deuiaction2',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visabled: true, disabled: false},
-        docLib_deuiaction1: {name:'deuiaction1',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visabled: true, disabled: false},
-        docLib_deuiaction2: {name:'deuiaction2',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visabled: true, disabled: false},
-        Module_deuiaction1: {name:'deuiaction1',nodeOwner:'Module',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visabled: true, disabled: false},
-        Module_deuiaction2: {name:'deuiaction2',nodeOwner:'Module',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visabled: true, disabled: false},
+        ChildDocLibModule_deuiaction1: {name:'deuiaction1',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visabled: true, disabled: false},
+        ChildDocLibModule_deuiaction2: {name:'deuiaction2',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visabled: true, disabled: false},
+        DocLib_deuiaction1: {name:'deuiaction1',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visabled: true, disabled: false},
+        DocLib_deuiaction2: {name:'deuiaction2',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visabled: true, disabled: false},
+        DocLibDoc_deuiaction1: {name:'deuiaction1',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visabled: true, disabled: false},
+        DocLibDoc_deuiaction2: {name:'deuiaction2',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visabled: true, disabled: false},
+        RootDocLibModule_deuiaction1: {name:'deuiaction1',nodeOwner:'RootDocLibModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visabled: true, disabled: false},
+        RootDocLibModule_deuiaction2: {name:'deuiaction2',nodeOwner:'RootDocLibModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visabled: true, disabled: false},
         File_deuiaction1: {name:'deuiaction1',nodeOwner:'File',type: 'DEUIACTION', tag: 'Look', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visabled: true, disabled: false},
         File_deuiaction2: {name:'deuiaction2',nodeOwner:'File',type: 'DEUIACTION', tag: 'ibzdownload', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__FILE_DOWNLOAD_BUT', visabled: true, disabled: false},
         File_deuiaction3: {name:'deuiaction3',nodeOwner:'File',type: 'DEUIACTION', tag: 'delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__FILE_DELETE_BUT', visabled: true, disabled: false},
@@ -870,7 +870,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 
      * @param data 节点数据
      * @param event 事件源
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public showContext(data:any,event:any){
         let _this:any = this;
@@ -904,7 +904,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @param {*} nodeType 节点类型
      * @param {*} appEntityName 应用实体名称  
      * @returns
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public async computeNodeState(node:any,nodeType:string,appEntityName:string) {
         if(Object.is(nodeType,"STATIC")){
@@ -931,7 +931,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public nav_click(item:any) {
         if(item.id == this.treeNav[this.treeNav.length-1].id){
@@ -945,14 +945,14 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     /**
      * 节点数组
      *
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public rootNodes :any= [];
 
     /**
      * 节点值数组
      *
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public valueNodes :any= [];
 
@@ -960,7 +960,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 解析节点数据
      *
      * @param {*} nodes
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public parseNodes(nodes:any) {
         this.rootNodes = [];
@@ -981,7 +981,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 回填已选择树节点
      *
      * @param {*} nodes
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public backfill(item:any){
         let ele :any= this.$refs[item.srfkey+'checkbox'];
@@ -1002,7 +1002,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 回显选中数据集合
      *
      * @type {*}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public echoselectedNodes:any[] = this.selectedData ? ( this.isSingleSelect ? [JSON.parse(this.selectedData)[0]] : JSON.parse(this.selectedData)) : [];
 
@@ -1010,7 +1010,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 部件行为--update
      *
      * @type {string}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     @Prop() public updateAction!: string;
 
@@ -1018,7 +1018,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     @Prop() public fetchAction!: string;
 
@@ -1026,7 +1026,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     @Prop() public removeAction!: string;
 
@@ -1034,7 +1034,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 部件行为--load
      *
      * @type {string}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     @Prop() public loadAction!: string;
 
@@ -1042,7 +1042,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 部件行为--create
      *
      * @type {string}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     @Prop() public createAction!: string;
 
@@ -1050,7 +1050,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 过滤属性
      *
      * @type {string}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public srfnodefilter: string = '';
 
@@ -1058,7 +1058,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 默认输出图标
      *
      * @type {boolean}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public isOutputIconDefault: boolean = true;
 
@@ -1066,7 +1066,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 树数据
      *
      * @type {any[]}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     @Provide()
     public nodes: any[] = [];  
@@ -1075,7 +1075,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 数据展开主键
      *
      * @type {string[]}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     @Provide()
     public expandedKeys: string[] = [];
@@ -1085,7 +1085,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public appStateEvent: Subscription | undefined;
 
@@ -1096,7 +1096,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @param {*} data
      * @param {*} data 当前节点对应传入对象
      * @param {*} checkedState 树目前选中状态对象
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public onCheck(data: any, checkedState: any) {
         // 处理多选数据
@@ -1113,7 +1113,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @public
      * @param {*} data 节点对应传入对象
      * @param {*} node 节点对应node对象
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public selectionChange(data: any, node: any) {
         // 禁用项处理
@@ -1136,7 +1136,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public created() {
         this.afterCreated();
@@ -1145,7 +1145,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     /**
      * 执行created后的逻辑
      *
-     *  @memberof DocLibTreeProductMobBase
+     *  @memberof DocLibTreeProjectMobBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -1199,7 +1199,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     /**
      * vue 生命周期
      *
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -1208,7 +1208,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -1222,7 +1222,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     /**
      * 刷新数据
      *
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public refresh_all(): void {
         this.inited = false;
@@ -1234,7 +1234,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     /**
      * 刷新父节点
      *
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public refresh_parent(): void {
         if (Object.keys(this.currentselectedNode).length === 0) {
@@ -1263,7 +1263,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 数据加载
      *
      * @param {*} node
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public load(node: any = {}) {
         if (node.data && node.data.children) {
@@ -1314,7 +1314,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 计算当前节点的上下文
      *
      * @param {*} curNode 当前节点
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public computecurNodeContext(curNode:any){
         let tempContext:any = {};
@@ -1330,7 +1330,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 刷新功能
      *
      * @param {any[]} args
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public refresh(args: any[]): void {
         this.refresh_all();
@@ -1343,7 +1343,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @param {*} [curContext] 当前节点上下文
      * @param {*} [arg={}] 当前节点附加参数
      * @param {boolean} parentnode 是否是刷新父节点
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public refresh_node(curContext:any,arg: any = {}, parentnode: boolean): void {
         const { srfnodeid: id } = arg;
@@ -1376,7 +1376,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @public
      * @param {any[]} items
      * @returns {any[]}
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public formatExpanded(items: any[]): any[] {
         const data: any[] = [];
@@ -1394,7 +1394,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @param {any[]} items 当前节点所有子节点集合
      * @param {boolean} isRoot 是否是加载根节点
      * @param {boolean} isSelectedAll 是否选中所有子节点
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public setDefaultSelection(items: any[], isRoot: boolean = false, isSelectedAll: boolean = false): void {
         if(items.length == 0){
@@ -1460,7 +1460,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      *
      * @param {*} node
      * @returns
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public renderContextMenu(node: any) {
         let content;
@@ -1469,14 +1469,14 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
             if (tags[0] === "ChildDocLibModule") {
                 content = this.renderContextMenuChilddoclibmodule();
             }
-            if (tags[0] === "Doc") {
-                content = this.renderContextMenuDoc();
-            }
-            if (tags[0] === "docLib") {
+            if (tags[0] === "DocLib") {
                 content = this.renderContextMenuDoclib();
             }
-            if (tags[0] === "Module") {
-                content = this.renderContextMenuModule();
+            if (tags[0] === "DocLibDoc") {
+                content = this.renderContextMenuDoclibdoc();
+            }
+            if (tags[0] === "RootDocLibModule") {
+                content = this.renderContextMenuRootdoclibmodule();
             }
             if (tags[0] === "File") {
                 content = this.renderContextMenuFile();
@@ -1490,7 +1490,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      *
      * @param {*} node
      * @returns
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public contextMenuShowStatus = false;
     
@@ -1499,49 +1499,28 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 绘制ChildDocLibModule类型长按菜单
      *
      * @returns
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public renderContextMenuChilddoclibmodule() {
         return (`
             
                     <div class="context-menu-item" name='deuiaction1' >
-                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
                         
                     </div>
                     
                     <div class="context-menu-item" name='deuiaction2' >
-                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
                         
                     </div>
         `);
     }
 
     /**
-     * 绘制Doc类型长按菜单
+     * 绘制DocLib类型长按菜单
      *
      * @returns
-     * @memberof DocLibTreeProductMobBase
-     */
-    public renderContextMenuDoc() {
-        return (`
-            
-                    <div class="context-menu-item" name='deuiaction1' >
-                                <ion-icon name="star-outline"></ion-icon>
-                        
-                    </div>
-                    
-                    <div class="context-menu-item" name='deuiaction2' >
-                                <ion-icon name="star"></ion-icon>
-                        
-                    </div>
-        `);
-    }
-
-    /**
-     * 绘制docLib类型长按菜单
-     *
-     * @returns
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public renderContextMenuDoclib() {
         return (`
@@ -1559,12 +1538,33 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     }
 
     /**
-     * 绘制Module类型长按菜单
+     * 绘制DocLibDoc类型长按菜单
      *
      * @returns
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
-    public renderContextMenuModule() {
+    public renderContextMenuDoclibdoc() {
+        return (`
+            
+                    <div class="context-menu-item" name='deuiaction1' >
+                                <ion-icon name="star-outline"></ion-icon>
+                        
+                    </div>
+                    
+                    <div class="context-menu-item" name='deuiaction2' >
+                                <ion-icon name="star"></ion-icon>
+                        
+                    </div>
+        `);
+    }
+
+    /**
+     * 绘制RootDocLibModule类型长按菜单
+     *
+     * @returns
+     * @memberof DocLibTreeProjectMobBase
+     */
+    public renderContextMenuRootdoclibmodule() {
         return (`
             
                     <div class="context-menu-item" name='deuiaction1' >
@@ -1583,7 +1583,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 绘制File类型长按菜单
      *
      * @returns
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public renderContextMenuFile() {
         return (`
@@ -1608,7 +1608,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 设置选中高亮
      *
      * @param {*} data
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public setTreeNodeHighLight(data: any): void {
         const tree: any = this.$refs.tree;
@@ -1619,7 +1619,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 执行默认界面行为
      *
      * @param {*} node
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public doDefaultAction(node: any) {
         if (node && node.data) {
@@ -1633,7 +1633,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     * 单选选择值
     *
     * @param {string} 
-    * @memberof DocLibTreeProductMob
+    * @memberof DocLibTreeProjectMob
     */
     public selectedValue:string = ""; 
 
@@ -1641,7 +1641,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 单选点击行为
      *
      * @param {*} item
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public onSimpleSelChange(item:any){
         this.$emit('selectchange', [item]);
@@ -1652,7 +1652,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * 多选点击行为
      *
      * @param {*} data
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public onChecked(data:any){
         let { detail } = data;
@@ -1679,7 +1679,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     /**
      * 生命周期
      *
-     * @memberof DocLibTreeProductMobBase
+     * @memberof DocLibTreeProjectMobBase
      */
     public mounted() {
         if(this.viewparams.selectedData){
@@ -1690,5 +1690,5 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
 </script>
 
 <style lang='less'>
-@import './doc-lib-tree-product-mob-treeview.less';
+@import './doc-lib-tree-project-mob-treeview.less';
 </style>

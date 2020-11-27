@@ -55,7 +55,8 @@
             </template>
         </ion-radio-group>
         <app-mob-context-menu :value="contextMenuShowStatus" @change="(val)=>{this.contextMenuShowStatus=val}">
-            <template slot ="content" v-html="renderContextMenuDoc()"></template>
+         <div slot="content" >
+        </div>
         </app-mob-context-menu>
     </div>
 </template>

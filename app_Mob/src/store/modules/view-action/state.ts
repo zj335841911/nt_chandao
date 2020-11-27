@@ -1571,6 +1571,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b731c5d991dcb4695d925bb8749fa6fc',
+            viewmodule: 'zentao',
+            viewname: 'DocLibProjectDocLibMobTreeView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'b876878a52eca4c8f8ddf2b32fdf1bd2',
             viewmodule: 'ibiz',
             viewname: 'DocLibMobEditView',
