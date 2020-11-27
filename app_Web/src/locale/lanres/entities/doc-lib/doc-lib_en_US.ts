@@ -196,12 +196,6 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
-	undoneprojectgridviewtoolbar_toolbar: {
-		deuiaction1_togglefilter: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
@@ -232,6 +226,12 @@ export default {
 		deuiaction6: {
 			caption: "创建文档",
 			tip: "创建文档",
+		},
+	},
+	undoneprojectgridviewtoolbar_toolbar: {
+		deuiaction1_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	gridviewtoolbar_toolbar: {

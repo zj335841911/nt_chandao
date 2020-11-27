@@ -1781,18 +1781,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '5b2408d384f5b00f079883a01aeb9d2f',
-            viewmodule: 'ibiz',
-            viewname: 'DocLibUndoneProjectGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'a501a42f3adfa826e382e4cbc134a4fc',
-                'f7e64f3828c862a4bce56437e1e51069',
-                '73fbcf0e3685096f63587bcff234f958',
-            ],
-        },
-        {
             viewtag: '5b7c1b586dc5e23998a2765d235eaa7e',
             viewmodule: 'zentao',
             viewname: 'ProjectMainView_Edit',
@@ -4261,7 +4249,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'f83dac873b9215483c4bb91673284b41',
-                '5b2408d384f5b00f079883a01aeb9d2f',
+                'c468f1ff894437a6de5b9496f0f8b92e',
             ],
         },
         {

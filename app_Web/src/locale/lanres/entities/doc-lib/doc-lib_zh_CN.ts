@@ -196,12 +196,6 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	undoneprojectgridviewtoolbar_toolbar: {
-		deuiaction1_togglefilter: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -232,6 +226,12 @@ export default {
 		deuiaction6: {
 			caption: "创建文档",
 			tip: "创建文档",
+		},
+	},
+	undoneprojectgridviewtoolbar_toolbar: {
+		deuiaction1_togglefilter: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	gridviewtoolbar_toolbar: {

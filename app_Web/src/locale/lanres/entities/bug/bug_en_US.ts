@@ -673,8 +673,8 @@ export default {
 			story: "相关需求", 
 			caseversion: "用例版本", 
 			case: "相关用例", 
-			id: "Bug编号", 
 			task: "相关任务", 
+			id: "Bug编号", 
 		},
 		uiactions: {
 		},
