@@ -55,56 +55,66 @@
         <app-pms-upload-list v-if="valueNodes.length>0  && isList" :isCurData="true" :isEnableDelete="false" :isEnableDownload="false" :items="valueNodes"></app-pms-upload-list>
         <app-mob-context-menu :value="contextMenuShowStatus" @change="(val)=>{this.contextMenuShowStatus=val}">
                                 <template slot ="content">
-                                <div class="context-menu-item"name='deuiaction1' v-show={this.copyActionModel['deuiaction1'].visabled} disabled={this.copyActionModel['deuiaction1'].disabled}>
-                            <i class='star-outline'></i>
+                                
+                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+                                    <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
-                            <div class="context-menu-item"name='deuiaction2' v-show={this.copyActionModel['deuiaction2'].visabled} disabled={this.copyActionModel['deuiaction2'].disabled}>
-                            <i class='fa fa-star'></i>
                             
-                        </div>
-                </template>
-                                <template slot ="content">
-                                <div class="context-menu-item"name='deuiaction1' v-show={this.copyActionModel['deuiaction1'].visabled} disabled={this.copyActionModel['deuiaction1'].disabled}>
-                            <i class='star-outline'></i>
-                            
-                        </div>
-                            <div class="context-menu-item"name='deuiaction2' v-show={this.copyActionModel['deuiaction2'].visabled} disabled={this.copyActionModel['deuiaction2'].disabled}>
-                            <i class='fa fa-star'></i>
+                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                                    <ion-icon name="star"></ion-icon>
                             
                         </div>
                 </template>
                                 <template slot ="content">
-                                <div class="context-menu-item"name='deuiaction1' v-show={this.copyActionModel['deuiaction1'].visabled} disabled={this.copyActionModel['deuiaction1'].disabled}>
-                            <i class='fa fa-star'></i>
+                                
+                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+                                    <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
-                            <div class="context-menu-item"name='deuiaction2' v-show={this.copyActionModel['deuiaction2'].visabled} disabled={this.copyActionModel['deuiaction2'].disabled}>
-                            <i class='star-outline'></i>
                             
-                        </div>
-                </template>
-                                <template slot ="content">
-                                <div class="context-menu-item"name='deuiaction1' v-show={this.copyActionModel['deuiaction1'].visabled} disabled={this.copyActionModel['deuiaction1'].disabled}>
-                            <i class='fa fa-star'></i>
-                            
-                        </div>
-                            <div class="context-menu-item"name='deuiaction2' v-show={this.copyActionModel['deuiaction2'].visabled} disabled={this.copyActionModel['deuiaction2'].disabled}>
-                            <i class='star-outline'></i>
+                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                                    <ion-icon name="star"></ion-icon>
                             
                         </div>
                 </template>
                                 <template slot ="content">
-                                <div class="context-menu-item"name='deuiaction1' v-show={this.copyActionModel['deuiaction1'].visabled} disabled={this.copyActionModel['deuiaction1'].disabled}>
-                            
-                            
-                        </div>
-                            <div class="context-menu-item"name='deuiaction2' v-show={this.copyActionModel['deuiaction2'].visabled} disabled={this.copyActionModel['deuiaction2'].disabled}>
-                            <i class='fa fa-download'></i>
+                                
+                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+                                    <ion-icon name="star"></ion-icon>
                             
                         </div>
-                            <div class="context-menu-item"name='deuiaction3' v-show={this.copyActionModel['deuiaction3'].visabled} disabled={this.copyActionModel['deuiaction3'].disabled}>
-                            <i class='fa fa-remove'></i>
+                            
+                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                                    <ion-icon name="star-outline"></ion-icon>
+                            
+                        </div>
+                </template>
+                                <template slot ="content">
+                                
+                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+                                    <ion-icon name="star"></ion-icon>
+                            
+                        </div>
+                            
+                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                                    <ion-icon name="star-outline"></ion-icon>
+                            
+                        </div>
+                </template>
+                                <template slot ="content">
+                                
+                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled" disabled="this.copyActionModel['deuiaction1'].disabled">
+                            
+                        </div>
+                            
+                        <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled" disabled="this.copyActionModel['deuiaction2'].disabled">
+                                    <ion-icon name="download"></ion-icon>
+                            
+                        </div>
+                            
+                        <div class="context-menu-item" name='deuiaction3' v-show="this.copyActionModel['deuiaction3'].visabled" disabled="this.copyActionModel['deuiaction3'].disabled">
+                                    <ion-icon name="remove"></ion-icon>
                             
                         </div>
                 </template>
