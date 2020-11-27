@@ -57,64 +57,64 @@
          <div slot="content" >
             <div v-if="activeNode == 'ChildDocLibModule'">
                                     
-                        <div class="context-menu-item" name='deuiaction1' >
+                        <div class="context-menu-item" name='deuiaction1'  @click="childdoclibmodule_cm_click({tag: $event})">
                                     <ion-icon name="star"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2' >
+                        <div class="context-menu-item" name='deuiaction2'  @click="childdoclibmodule_cm_click({tag: $event})">
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
             </div>
             <div v-if="activeNode == 'DocLib'">
                                     
-                        <div class="context-menu-item" name='deuiaction1' >
+                        <div class="context-menu-item" name='deuiaction1'  @click="doclib_cm_click({tag: $event})">
                                     <ion-icon name="star"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2' >
+                        <div class="context-menu-item" name='deuiaction2'  @click="doclib_cm_click({tag: $event})">
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
             </div>
             <div v-if="activeNode == 'DocLibDoc'">
                                     
-                        <div class="context-menu-item" name='deuiaction1' >
+                        <div class="context-menu-item" name='deuiaction1'  @click="doclibdoc_cm_click({tag: $event})">
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2' >
+                        <div class="context-menu-item" name='deuiaction2'  @click="doclibdoc_cm_click({tag: $event})">
                                     <ion-icon name="star"></ion-icon>
                             
                         </div>
             </div>
             <div v-if="activeNode == 'RootDocLibModule'">
                                     
-                        <div class="context-menu-item" name='deuiaction1' >
+                        <div class="context-menu-item" name='deuiaction1'  @click="rootdoclibmodule_cm_click({tag: $event})">
                                     <ion-icon name="star"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2' >
+                        <div class="context-menu-item" name='deuiaction2'  @click="rootdoclibmodule_cm_click({tag: $event})">
                                     <ion-icon name="star-outline"></ion-icon>
                             
                         </div>
             </div>
             <div v-if="activeNode == 'File'">
                                     
-                        <div class="context-menu-item" name='deuiaction1' >
+                        <div class="context-menu-item" name='deuiaction1'  @click="file_cm_click({tag: $event})">
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction2' >
+                        <div class="context-menu-item" name='deuiaction2'  @click="file_cm_click({tag: $event})">
                                     <ion-icon name="download"></ion-icon>
                             
                         </div>
                         
-                        <div class="context-menu-item" name='deuiaction3' >
+                        <div class="context-menu-item" name='deuiaction3'  @click="file_cm_click({tag: $event})">
                                     <ion-icon name="remove"></ion-icon>
                             
                         </div>
@@ -1456,36 +1456,6 @@ export default class DocLibTreeProjectMobBase extends Vue implements ControlInte
     } 
 
     /**
-     * 绘制长按菜单
-     *
-     * @param {*} node
-     * @returns
-     * @memberof DocLibTreeProjectMobBase
-     */
-    public renderContextMenu(node: any) {
-        let content;
-        if (node) {
-            const tags: string[] = node.id.split(';');
-            if (tags[0] === "ChildDocLibModule") {
-                content = this.renderContextMenuChilddoclibmodule();
-            }
-            if (tags[0] === "DocLib") {
-                content = this.renderContextMenuDoclib();
-            }
-            if (tags[0] === "DocLibDoc") {
-                content = this.renderContextMenuDoclibdoc();
-            }
-            if (tags[0] === "RootDocLibModule") {
-                content = this.renderContextMenuRootdoclibmodule();
-            }
-            if (tags[0] === "File") {
-                content = this.renderContextMenuFile();
-            }
-        }
-        return content;
-    }
-
-    /**
      * 菜单显示状态
      *
      * @param {*} node
@@ -1494,115 +1464,6 @@ export default class DocLibTreeProjectMobBase extends Vue implements ControlInte
      */
     public contextMenuShowStatus = false;
     
-
-    /**
-     * 绘制ChildDocLibModule类型长按菜单
-     *
-     * @returns
-     * @memberof DocLibTreeProjectMobBase
-     */
-    public renderContextMenuChilddoclibmodule() {
-        return (`
-            
-                    <div class="context-menu-item" name='deuiaction1' >
-                                <ion-icon name="star"></ion-icon>
-                        
-                    </div>
-                    
-                    <div class="context-menu-item" name='deuiaction2' >
-                                <ion-icon name="star-outline"></ion-icon>
-                        
-                    </div>
-        `);
-    }
-
-    /**
-     * 绘制DocLib类型长按菜单
-     *
-     * @returns
-     * @memberof DocLibTreeProjectMobBase
-     */
-    public renderContextMenuDoclib() {
-        return (`
-            
-                    <div class="context-menu-item" name='deuiaction1' >
-                                <ion-icon name="star"></ion-icon>
-                        
-                    </div>
-                    
-                    <div class="context-menu-item" name='deuiaction2' >
-                                <ion-icon name="star-outline"></ion-icon>
-                        
-                    </div>
-        `);
-    }
-
-    /**
-     * 绘制DocLibDoc类型长按菜单
-     *
-     * @returns
-     * @memberof DocLibTreeProjectMobBase
-     */
-    public renderContextMenuDoclibdoc() {
-        return (`
-            
-                    <div class="context-menu-item" name='deuiaction1' >
-                                <ion-icon name="star-outline"></ion-icon>
-                        
-                    </div>
-                    
-                    <div class="context-menu-item" name='deuiaction2' >
-                                <ion-icon name="star"></ion-icon>
-                        
-                    </div>
-        `);
-    }
-
-    /**
-     * 绘制RootDocLibModule类型长按菜单
-     *
-     * @returns
-     * @memberof DocLibTreeProjectMobBase
-     */
-    public renderContextMenuRootdoclibmodule() {
-        return (`
-            
-                    <div class="context-menu-item" name='deuiaction1' >
-                                <ion-icon name="star"></ion-icon>
-                        
-                    </div>
-                    
-                    <div class="context-menu-item" name='deuiaction2' >
-                                <ion-icon name="star-outline"></ion-icon>
-                        
-                    </div>
-        `);
-    }
-
-    /**
-     * 绘制File类型长按菜单
-     *
-     * @returns
-     * @memberof DocLibTreeProjectMobBase
-     */
-    public renderContextMenuFile() {
-        return (`
-            
-                    <div class="context-menu-item" name='deuiaction1' >
-                        
-                    </div>
-                    
-                    <div class="context-menu-item" name='deuiaction2' >
-                                <ion-icon name="download"></ion-icon>
-                        
-                    </div>
-                    
-                    <div class="context-menu-item" name='deuiaction3' >
-                                <ion-icon name="remove"></ion-icon>
-                        
-                    </div>
-        `);
-    }
 
     /**
      * 设置选中高亮

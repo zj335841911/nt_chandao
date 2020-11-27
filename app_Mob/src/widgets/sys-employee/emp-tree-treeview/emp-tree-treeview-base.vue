@@ -944,21 +944,6 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
     } 
 
     /**
-     * 绘制长按菜单
-     *
-     * @param {*} node
-     * @returns
-     * @memberof EmpTreeBase
-     */
-    public renderContextMenu(node: any) {
-        let content;
-        if (node) {
-            const tags: string[] = node.id.split(';');
-        }
-        return content;
-    }
-
-    /**
      * 菜单显示状态
      *
      * @param {*} node
