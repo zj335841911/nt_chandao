@@ -158,7 +158,7 @@
     </sql>
     <!--数据查询[MyFavourites]-->
     <sql id="MyFavourites" databaseId="mysql">
-		<![CDATA[ 
+		<![CDATA[ SELECT 	t1.`ACL`, 	t1.`DELETED`, 	'doc' AS `DOCLIBTYPE`, 	t1.`GROUPS`, 	t1.`ID`, 	'1' AS `ISFAVOURITES`, 	t1.`MAIN`, 	t1.`MDEPTID`, 	t1.`NAME`, 	t1.`ORDER`, 	t1.`ORGID`, 	t1.`PRODUCT`, 	t1.`PROJECT`, 	t1.`TYPE`  FROM 	zt_doclib t1
 			]]>
     </sql>
     <!--数据查询[RootModuleMuLu]-->

@@ -1516,7 +1516,23 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 #### SQL
 - MYSQL5
 ```SQL
-
+SELECT
+	t1.`ACL`,
+	t1.`DELETED`,
+	'doc' AS `DOCLIBTYPE`,
+	t1.`GROUPS`,
+	t1.`ID`,
+	'1' AS `ISFAVOURITES`,
+	t1.`MAIN`,
+	t1.`MDEPTID`,
+	t1.`NAME`,
+	t1.`ORDER`,
+	t1.`ORGID`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`TYPE` 
+FROM
+	zt_doclib t1
 ```
 ### 数据查询-根目录（RootModuleMuLu）
 #### 说明
