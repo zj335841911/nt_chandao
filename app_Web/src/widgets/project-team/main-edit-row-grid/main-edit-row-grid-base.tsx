@@ -384,9 +384,9 @@ export class Main_EditRowGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工日 值不能为空', trigger: 'blur' },
         ],
         hours: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工时/天 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工时/天 值不能为空', trigger: 'blur' },
-            {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("hours",this.deRules,"AND",value).isPast},message: "(数值必须大于等于[0.0]且小于等于[24.0])", trigger: 'blur' },
+            { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工时/天 值不能为空', trigger: 'change' },
+            { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '可用工时/天 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("hours",this.deRules,"AND",value).isPast},message: "数值必须大于等于[0.0]且小于等于[24.0]", trigger: 'blur' },
         ],
         role: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '角色 值不能为空', trigger: 'change' },
@@ -416,21 +416,6 @@ export class Main_EditRowGridBase extends GridControlBase {
     public deRules:any = {
                 hours:[
                   {
-                      type:"GROUP",
-                      condOP:"OR",
-                      ruleInfo:"(数值必须大于等于[0.0]且小于等于[24.0])", 
-                      isKeyCond:false,
-                      isNotMode:false,
-                      group:[
-                  {
-                      type:"SIMPLE",
-                      condOP:"ISNULL",
-                      ruleInfo:"", 
-                      isKeyCond:false,
-                      isNotMode:false,
-                      deName:"hours",
-                  },
-                  {
                       type:"VALUERANGE2",
                       condOP:"",
                       ruleInfo:"数值必须大于等于[0.0]且小于等于[24.0]", 
@@ -441,8 +426,6 @@ export class Main_EditRowGridBase extends GridControlBase {
                       deName:"hours",
                       isIncludeMaxValue:true,
                       isIncludeMinValue:true,
-                  },
-                        ]
                   },
                 ],
     };
