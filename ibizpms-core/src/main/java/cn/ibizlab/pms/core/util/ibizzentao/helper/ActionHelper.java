@@ -14,12 +14,14 @@ import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.Arrays;
 import java.util.List;
 
@@ -175,10 +177,40 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
                 return;
             }
 
+
+            User from = userHelper.getOne(new QueryWrapper<User>().eq("account",AuthenticationUser.getAuthenticationUser().getUsername()));
+
             IBIZProMessage ibizProMessage = new IBIZProMessage();
-            ibizProMessage.setCc(noticeuserss);
-            ibizProMessage.setTo(touser);
-            ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUsername());
+            if ("".equals(touser)){
+                ibizProMessage.setTo(touser);
+            }
+            else {
+                User to = userHelper.getOne(new QueryWrapper<User>().eq("account",touser));
+                ibizProMessage.setTo(to.getId().toString());
+            }
+
+            if ("".equals(noticeuserss)){
+                ibizProMessage.setCc(noticeuserss);
+            }
+            else {
+                String[] allCCUser = noticeuserss.split(",");
+                StringBuilder cc = new StringBuilder();
+                for (String account : allCCUser) {
+                    User c = userHelper.getOne(new QueryWrapper<User>().eq("account",account));
+                    if (c == null){
+                        continue;
+                    }
+                    if (cc.length() != 0){
+                        cc.append(MULTIPLE_CHOICE);
+                        cc.append(c.getId());
+                    }else {
+                      cc.append(c.getId());
+                    }
+                }
+                ibizProMessage.setCc(cc.toString());
+            }
+
+            ibizProMessage.setFrom(from.getId().toString());
 
             ibizProMessage.setType(StaticDict.Message__type.TODO.getValue());
             ibizProMessage.setIbizpromessagename(name);
@@ -193,6 +225,35 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         }catch (RuntimeException e) {
             log.error(e.getMessage());
             log.error("待办消息发送失败！");
+        }
+    }
+
+
+    public void sendMarkDone(Long id, String name, String toUser,String logicname, String type, String path, String actiontextname){
+        try {
+            if (toUser == null || toUser.equals("")){
+                return;
+            }
+            User to = userHelper.getOne(new QueryWrapper<User>().eq("account",toUser));
+            User from = userHelper.getOne(new QueryWrapper<User>().eq("account",AuthenticationUser.getAuthenticationUser().getUsername()));
+
+            IBIZProMessage ibizProMessage = new IBIZProMessage();
+            ibizProMessage.setTo(to.getId().toString());
+
+            ibizProMessage.setFrom(from.toString());
+            ibizProMessage.setIbizpromessagename(name);
+            ibizProMessage.setType("已办");
+            JSONObject param = new JSONObject();
+            param.put(PARAM_OBJECT_ID, id);
+            param.put(PARAM_OBJECT_TYPE, type);
+            param.put(PARAM_OBJECT_SOURCE_PATH, path);
+            param.put(PARAM_OBJECT_TEXT_NAME, logicname);
+            param.put(PARAM_ACTION_TEXT_NAME, actiontextname);
+            ibizProMessage.setParam(param.toJSONString());
+            iibizProMessageService.markDone(ibizProMessage);
+        }catch (RuntimeException e){
+            log.error(e.getMessage());
+            log.error("已办消息发送失败！");
         }
     }
 

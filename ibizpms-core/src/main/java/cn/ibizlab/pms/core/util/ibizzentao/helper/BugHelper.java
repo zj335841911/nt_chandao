@@ -5,6 +5,7 @@ import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.BugMapper;
 import cn.ibizlab.pms.core.zentao.service.IBugService;
+import cn.ibizlab.pms.core.zentao.service.IBuildService;
 import cn.ibizlab.pms.core.zentao.service.IStoryService;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
@@ -115,7 +116,10 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         this.internalUpdate(et);
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
         List<History> changes = ChangeUtil.diff(old, et);
-        actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ASSIGNED.getText());
+        if (!et.getAssignedto().equals(old.getAssignedto())){
+            actionHelper.sendMarkDone(et.getId(),et.getTitle(),old.getAssignedto(),IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.BUG.getValue(),IBugService.OBJECT_SOURCE_PATH,StaticDict.Action__type.ASSIGNED.getText());
+            actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ASSIGNED.getText());
+        }
         Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.ASSIGNED.getValue(),
                 comment, et.getAssignedto(), null, true);
         if (changes.size() > 0) {
@@ -179,6 +183,10 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         actionHelper.sendToread(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.BUGCONFIRMED.getText());
         List<History> changes = ChangeUtil.diff(old, et, null, new String[]{"confirmed", "assignedto"}, null);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
+            if (!et.getAssignedto().equals(old.getAssignedto())){
+                actionHelper.sendMarkDone(et.getId(),et.getTitle(),old.getAssignedto(),IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.BUG.getValue(),IBugService.OBJECT_SOURCE_PATH,StaticDict.Action__type.BUGCONFIRMED.getText());
+                actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.BUGCONFIRMED.getText());
+            }
             Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.BUGCONFIRMED.getValue(),
                     comment, "", null, true);
             if (changes.size() > 0) {
@@ -238,6 +246,10 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
+            if (!et.getAssignedto().equals(old.getAssignedto())){
+                actionHelper.sendMarkDone(et.getId(),et.getTitle(),old.getAssignedto(), IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.BUG.getValue(),IBugService.OBJECT_SOURCE_PATH,StaticDict.Action__type.RESOLVED.getText());
+                actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers,et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, StaticDict.Action__type.RESOLVED.getText());
+            }
             Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.RESOLVED.getValue(),
                     comment, et.getResolution(), null, true);
             if (changes.size() > 0) {
