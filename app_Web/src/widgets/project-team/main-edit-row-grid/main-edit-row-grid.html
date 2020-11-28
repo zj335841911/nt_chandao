@@ -33,29 +33,9 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template v-if="actualIsOpenEdit">
-                            <app-form-item :error="gridItemsModel[$index][column.property].error">
-                                
-            <dropdown-list 
-                v-show="(row.id == null)"
-                v-model="row[column.property]" 
-                :disabled="getColumnDisabled(row,column.property)" 
-                :data="row" 
-                :context="context"
-                :viewparams="viewparams" 
-                :localContext='{ ACCOUNT:"%account%" }' 
-                :localParam='{ account:"%account%" }' 
-                tag="RealNameProjectM" 
-                codelistType="DYNAMIC"
-                placeholder="请选择..." 
-                style="" 
-                @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}"
-            ></dropdown-list>
-            
-                            </app-form-item>
-                        </template>
+                        <span> <input-box :disabled="getColumnDisabled(row,column.property)" v-model="row[column.property]"  style="" type="text" @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}" ></input-box></span>
                         <template v-if="!actualIsOpenEdit">
-            <codelist :value="row.account" tag="RealNameProjectM" codelistType="DYNAMIC" ></codelist>
+                                  <span> <input-box :disabled="getColumnDisabled(row,column.property)" v-model="row[column.property]"  style="" type="text" @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}" ></input-box></span>
                         </template>
                     </template>
                 </el-table-column>
