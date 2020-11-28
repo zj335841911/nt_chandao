@@ -6,6 +6,7 @@
 |zentao|[基础管理模块](zentao.md)||
 |ibizpro|[iBizPro模块](ibizpro.md)||
 |ibizplugin|[iBiz插件模块](ibizplugin.md)||
+|report|[汇报模块](report.md)||
 |ibizsysmodel|[iBiz系统模型](ibizsysmodel.md)||
 |uaa|[uaa权限模块](uaa.md)||
 |ou|[ou组织用户管理模块](ou.md)||
@@ -678,6 +679,18 @@ class 系统插件 {
 
 class 标签 {
 }
+
+
+
+}
+
+hide members
+
+{% endplantuml %}
+
+{% plantuml %}
+
+package 汇报模块 {
 
 
 

@@ -1031,8 +1031,6 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
         this.activeNode  = item.id.split(';')[0];
         this.currentselectedNode = JSON.parse(JSON.stringify(item));
         this.showContext(item,{})
-        this.contextMenuShowStatus = true;
-    
     }
 
     /**

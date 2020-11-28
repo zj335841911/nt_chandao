@@ -228,6 +228,8 @@
 
     * [标签](module/ibizplugin/IBIZProTag.md) 
 
+  * [汇报模块](module/report.md) 
+
   * [iBiz系统模型](module/ibizsysmodel.md) 
 
     * [实体属性](module/ibizsysmodel/PSDEField.md) 
