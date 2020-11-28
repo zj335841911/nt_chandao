@@ -3774,6 +3774,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "UserTplType",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "story",
+                label: "需求",
+                text: "需求",
+                "data":"",
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "任务",
+                text: "任务",
+                "data":"",
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":"",
+                "codename":"Bug",
+                value: "bug",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Release__status",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -4684,6 +4721,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Custom",
                 value: "custom",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "UserTplQuickGroup",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "all",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "all",
+                
+                disabled: false,
+            },
+            {
+                id: "story",
+                label: "需求",
+                text: "需求",
+                "data":{"n_type_eq":"story"},
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "任务",
+                text: "任务",
+                "data":{"n_type_eq":"task"},
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":{"n_type_eq":"bug"},
+                "codename":"Bug",
+                value: "bug",
                 
                 disabled: false,
             },

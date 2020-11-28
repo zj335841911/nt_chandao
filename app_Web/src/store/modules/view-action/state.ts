@@ -298,6 +298,7 @@ export const viewstate: any = {
             refviews: [
                 '24a03de02dc02b92a3c228b944e78ed9',
                 'cdba1a5e90e147e5f3bf9f2c08c87f56',
+                '379360eb2f83ea4dc50744144c2878b7',
                 '96ed1661161ecbd9adbb979fddb405a5',
                 '43d566a4567a5e337a73afa187dae97c',
                 'd21c783cde14166ba9deb09e746a0f28',
@@ -1049,6 +1050,16 @@ export const viewstate: any = {
             refviews: [
                 'f83dac873b9215483c4bb91673284b41',
                 'fd0b8748ff96edcde009d39903a9f211',
+            ],
+        },
+        {
+            viewtag: '379360eb2f83ea4dc50744144c2878b7',
+            viewmodule: 'zentao',
+            viewname: 'UserTplGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '8c08fcf2db47efba2ca50d8feed5e52c',
             ],
         },
         {
@@ -2687,6 +2698,15 @@ export const viewstate: any = {
             viewtag: '8b96b7671df722e66d78808ee0636349',
             viewmodule: 'zentao',
             viewname: 'TaskEstimateGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '8c08fcf2db47efba2ca50d8feed5e52c',
+            viewmodule: 'zentao',
+            viewname: 'UserTplEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

@@ -8157,6 +8157,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-task-edit-view9-detail/test-task-edit-view9-detail.vue'),
                 },
                 {
+                    path: 'usertpls/:usertpl?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.usertpl.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'usertpls', parameterName: 'usertpl' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/user-tpl-edit-view/user-tpl-edit-view.vue'),
+                },
+                {
                     path: 'docs/:doc?/createeditview/:createeditview?',
                     meta: {
                         caption: 'entities.doc.views.createeditview.caption',
@@ -9553,6 +9567,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-main-tab-exp-view/project-main-tab-exp-view.vue'),
+                },
+                {
+                    path: 'usertpls/:usertpl?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.usertpl.views.gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'usertpls', parameterName: 'usertpl' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/user-tpl-grid-view/user-tpl-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplangridview/:subplangridview?',

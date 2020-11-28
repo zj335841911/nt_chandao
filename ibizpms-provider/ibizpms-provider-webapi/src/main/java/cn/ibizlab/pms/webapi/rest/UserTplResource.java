@@ -157,6 +157,28 @@ public class UserTplResource {
                 .body(new PageImpl(usertplMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserTpl-searchMyUserTpl-all')")
+	@ApiOperation(value = "获取我的模板", tags = {"用户模板" } ,notes = "获取我的模板")
+    @RequestMapping(method= RequestMethod.GET , value="/usertpls/fetchmyusertpl")
+	public ResponseEntity<List<UserTplDTO>> fetchMyUserTpl(UserTplSearchContext context) {
+        Page<UserTpl> domains = usertplService.searchMyUserTpl(context) ;
+        List<UserTplDTO> list = usertplMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserTpl-searchMyUserTpl-all')")
+	@ApiOperation(value = "查询我的模板", tags = {"用户模板" } ,notes = "查询我的模板")
+    @RequestMapping(method= RequestMethod.POST , value="/usertpls/searchmyusertpl")
+	public ResponseEntity<Page<UserTplDTO>> searchMyUserTpl(@RequestBody UserTplSearchContext context) {
+        Page<UserTpl> domains = usertplService.searchMyUserTpl(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(usertplMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

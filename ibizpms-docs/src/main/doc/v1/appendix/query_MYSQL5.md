@@ -17534,6 +17534,20 @@ FROM `zt_usertpl` t1
 WHERE ( ( t1.`PUBLIC` = '1'  OR  t1.`ACCOUNT` =  ${srfwebcontext('account','{"defname":"ACCOUNT","dename":"ZT_USERTPL"}')} )  AND  t1.`TYPE` =  ${srfwebcontext('type','{"defname":"TYPE","dename":"ZT_USERTPL"}')} ) 
 
 ```
+### 我的模板(MyUserTpl)<div id="UserTpl_MyUserTpl"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CONTENT`,
+t1.`ID`,
+t1.`PUBLIC`,
+t1.`TITLE`,
+t1.`TYPE`
+FROM `zt_usertpl` t1 
+
+WHERE ( t1.`ACCOUNT` =  ${srfsessioncontext('srfloginname','{"defname":"ACCOUNT","dename":"ZT_USERTPL"}')} ) 
+
+```
 ### 默认（全部数据）(VIEW)<div id="UserTpl_View"></div>
 ```sql
 SELECT

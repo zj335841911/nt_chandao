@@ -52,6 +52,7 @@
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#UserTpl_Default))|否|&nbsp;|
+|MyUserTpl|我的模板([MYSQL5](../../appendix/query_MYSQL5.md#UserTpl_MyUserTpl))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#UserTpl_View))|否|&nbsp;|
 
 * **数据集合**
@@ -59,11 +60,13 @@
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+|MyUserTpl|我的模板|MyUserTpl|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
 |title(TITLE)|LIKE|
+|type(TYPE)|EQ|
 |public(PUBLIC)|EQ|
 
 ## 导入模式

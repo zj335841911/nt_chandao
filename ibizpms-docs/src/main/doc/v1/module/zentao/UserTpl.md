@@ -159,7 +159,7 @@ String
 无
 
 - 取值范围/公式
-无
+参照数据字典【[用户模板类型（UserTplType）](../../codelist/UserTplType)】
 
 - 数据格式
 无
@@ -168,7 +168,9 @@ String
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
 
 #### 关系属性
 无
@@ -196,7 +198,7 @@ String
 无
 
 - 取值范围/公式
-无
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
 
 - 数据格式
 无
@@ -365,17 +367,42 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [title（TITLE）](#属性-title（TITLE）) | `%like%` |
-| 2 | [public（PUBLIC）](#属性-public（PUBLIC）) | `=` |
+| 2 | [type（TYPE）](#属性-type（TYPE）) | `=` |
+| 3 | [public（PUBLIC）](#属性-public（PUBLIC）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [我的模板](#数据查询-我的模板（MyUserTpl）) | MyUserTpl | 否 |
+| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
 DEFAULT
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACCOUNT`,
+t1.`CONTENT`,
+t1.`ID`,
+t1.`PUBLIC`,
+t1.`TITLE`,
+t1.`TYPE`
+FROM `zt_usertpl` t1 
+
+```
+### 数据查询-我的模板（MyUserTpl）
+#### 说明
+我的模板
 
 - 默认查询
 否
@@ -424,6 +451,7 @@ FROM `zt_usertpl` t1
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 2 | [我的模板](#数据集合-我的模板（MyUserTpl）) | MyUserTpl | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -439,6 +467,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DEFAULT（Default）](#数据查询-DEFAULT（Default）) |
+### 数据集合-我的模板（MyUserTpl）
+#### 说明
+我的模板
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我的模板（MyUserTpl）](#数据查询-我的模板（MyUserTpl）) |
 
 ## 数据导入
 无

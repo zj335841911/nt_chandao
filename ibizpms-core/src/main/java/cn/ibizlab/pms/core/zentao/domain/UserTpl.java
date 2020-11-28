@@ -75,6 +75,7 @@ public class UserTpl extends EntityMP implements Serializable {
     /**
      * account
      */
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
     @TableField(value = "`account`")
     @JSONField(name = "account")
     @JsonProperty("account")
@@ -112,14 +113,6 @@ public class UserTpl extends EntityMP implements Serializable {
     public void setType(String type) {
         this.type = type;
         this.modify("type", type);
-    }
-
-    /**
-     * 设置 [account]
-     */
-    public void setAccount(String account) {
-        this.account = account;
-        this.modify("account", account);
     }
 
     /**

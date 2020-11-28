@@ -2177,6 +2177,29 @@ public class StaticDict {
 
 
     /**
+     * 代码表[用户模板快速分组]
+     */
+    @Getter
+    public enum UserTplQuickGroup {
+        ALL("all","所有"),
+        STORY("story","需求"),
+        TASK("task","任务"),
+        BUG("bug","Bug");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        UserTplQuickGroup(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[是否（YESNO）]
      */
     @Getter
@@ -4864,6 +4887,28 @@ public class StaticDict {
         }
     }
 
+
+
+    /**
+     * 代码表[用户模板类型]
+     */
+    @Getter
+    public enum UserTplType {
+        STORY("story","需求"),
+        TASK("task","任务"),
+        BUG("bug","Bug");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        UserTplType(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
 
 
 

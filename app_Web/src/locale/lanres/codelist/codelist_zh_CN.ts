@@ -514,6 +514,12 @@ export default {
         "4": "4",
         "empty": "",
     },
+    UserTplType: {
+        "story": "需求",
+        "task": "任务",
+        "bug": "Bug",
+        "empty": "",
+    },
     Release__status: {
         "normal": "正常",
         "terminate": "停止维护",
@@ -656,6 +662,13 @@ export default {
         "open": "默认设置(有产品视图权限，即可访问)",
         "private": "私有产品(相关负责人和项目团队成员才能访问)",
         "custom": "自定义白名单(团队成员和白名单的成员可以访问)",
+        "empty": "",
+    },
+    UserTplQuickGroup: {
+        "all": "所有",
+        "story": "需求",
+        "task": "任务",
+        "bug": "Bug",
         "empty": "",
     },
     BugCodeList2: {

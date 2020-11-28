@@ -327,6 +327,7 @@ SRFNAVPARAM.project=%project%|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
 |-|激活Bug|DEOPTVIEW|&nbsp;|
 |-|项目|DEGRIDVIEW|&nbsp;|
+|-|usertpl表格视图|DEGRIDVIEW|&nbsp;|
 |-|阻塞|DEOPTVIEW|&nbsp;|
 |-|继续任务|DEOPTVIEW|&nbsp;|
 |-|项目编辑视图（计划添加）|DEEDITVIEW|&nbsp;|
@@ -514,6 +515,7 @@ SRFNAVPARAM.project=%project%|
 |-|文档编辑视图（文档摘要）|DEEDITVIEW9|&nbsp;|
 |-|Bug表格视图|DEGRIDVIEW|&nbsp;版本-----已解决的Bug---关联bug—打开表格视图进行Bug批量关联（设置为已解决）|
 |-|任务预计表格视图|DEGRIDVIEW9|&nbsp;|
+|-|usertpl编辑视图|DEEDITVIEW|&nbsp;|
 |-|产品统计表格视图|DEGRIDVIEW9|&nbsp;|
 |-|Bug数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|系统更新功能表格视图|DEGRIDVIEW|&nbsp;|

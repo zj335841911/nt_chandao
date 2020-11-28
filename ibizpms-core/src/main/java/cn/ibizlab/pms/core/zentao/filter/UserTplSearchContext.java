@@ -34,6 +34,13 @@ public class UserTplSearchContext extends QueryWrapperContext<UserTpl> {
             this.getSearchCond().like("`title`", n_title_like);
         }
     }
+	private String n_type_eq;//[type]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("`type`", n_type_eq);
+        }
+    }
 	private String n_public_eq;//[public]
 	public void setN_public_eq(String n_public_eq) {
         this.n_public_eq = n_public_eq;

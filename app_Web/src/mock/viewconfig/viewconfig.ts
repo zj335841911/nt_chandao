@@ -935,6 +935,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectMainMyGridView",
             "viewtag": "376e2623b256509cdf69e2de4c01d31b"
         },
+        "usertplgridview": {
+            "title": "usertpl表格视图",
+            "caption": "用户模板",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "UserTplGridView",
+            "viewtag": "379360eb2f83ea4dc50744144c2878b7"
+        },
         "testtaskblockoptionview": {
             "title": "阻塞",
             "caption": "阻塞",
@@ -2430,6 +2438,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskEstimateGridView9",
             "viewtag": "8b96b7671df722e66d78808ee0636349"
+        },
+        "usertpleditview": {
+            "title": "usertpl编辑视图",
+            "caption": "用户模板",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "UserTplEditView",
+            "viewtag": "8c08fcf2db47efba2ca50d8feed5e52c"
         },
         "productstatsgridview9": {
             "title": "产品统计表格视图",
