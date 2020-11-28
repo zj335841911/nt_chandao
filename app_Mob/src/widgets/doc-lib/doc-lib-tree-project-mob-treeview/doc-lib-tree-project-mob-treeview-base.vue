@@ -4,5 +4,5 @@ Tip: If the failing expression is known to be legally refer to something that's 
 
 ----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: #if render.code3??  [in template "TEMPLCODE_en_US" at line 119, column 9]
+	- Failed at: ${render.code3}  [in template "TEMPLCODE_en_US" at line 119, column 9]
 ----
