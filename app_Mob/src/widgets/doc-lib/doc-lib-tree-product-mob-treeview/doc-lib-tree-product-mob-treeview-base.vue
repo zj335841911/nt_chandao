@@ -122,10 +122,6 @@
             </div>
             <div v-if="activeNode == 'File'">
                                     
-                        <div class="context-menu-item" name='deuiaction1' v-show="this.copyActionModel['deuiaction1'].visabled"  @click="file_cm_click({tag: 'deuiaction1'}),contextMenuShowStatus=false">
-                            查看
-                        </div>
-                        
                         <div class="context-menu-item" name='deuiaction2' v-show="this.copyActionModel['deuiaction2'].visabled"  @click="file_cm_click({tag: 'deuiaction2'}),contextMenuShowStatus=false">
                                     <ion-icon name="download"></ion-icon>
                             下载
@@ -357,9 +353,6 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @memberof DocLibTreeProductMob
      */
     protected file_cm_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.file_cm_deuiaction1_click($event, 'file_cm', $event2);
-        }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.file_cm_deuiaction2_click($event, 'file_cm', $event2);
         }
@@ -430,38 +423,6 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
         const curUIService: any = await this.globaluiservice.getService('doclibmodule_ui_action');
         if (curUIService) {
             curUIService.DocLibModule_Favorite(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof TreeBase
-     */
-    protected async file_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('file_ui_action');
-        if (curUIService) {
-            curUIService.File_Look(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -958,7 +919,6 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
         RootDocLibModule_deuiaction2: {name:'deuiaction2',nodeOwner:'RootDocLibModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visabled: true, disabled: false},
         ModuleDoc_deuiaction1: {name:'deuiaction1',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visabled: true, disabled: false},
         ModuleDoc_deuiaction2: {name:'deuiaction2',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visabled: true, disabled: false},
-        File_deuiaction1: {name:'deuiaction1',nodeOwner:'File',type: 'DEUIACTION', tag: 'Look', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visabled: true, disabled: false},
         File_deuiaction2: {name:'deuiaction2',nodeOwner:'File',type: 'DEUIACTION', tag: 'ibzdownload', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__FILE_DOWNLOAD_BUT', visabled: true, disabled: false},
         File_deuiaction3: {name:'deuiaction3',nodeOwner:'File',type: 'DEUIACTION', tag: 'delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__FILE_DELETE_BUT', visabled: true, disabled: false},
     }
