@@ -77,6 +77,23 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.usertpl.main_grid.columns.uagridcolumn1')" :width="50"  :align="'center'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.usertpl.main_grid.columns.uagridcolumn1')}}
+                       </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                            <a v-show="scope.row.Remove.visible" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.usertpl.main_grid.uiactions.remove')">
+                                <i class="fa fa-remove"></i>
+                                
+                            </a>
+                        </div>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

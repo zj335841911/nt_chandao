@@ -45,8 +45,10 @@ export default {
 			title: "模板标题",
 			type: "类型",
 			public: "公开",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        remove: "Remove",
 		},
 	},
 	default_searchform: {

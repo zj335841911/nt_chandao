@@ -145,6 +145,20 @@ export class MainEditFormBase extends EditFormControlBase {
                     trigger: 'blur',
                 },
         ],
+            content: [
+                {
+                    required: this.detailsModel.content.required,
+                    type: 'string',
+                    message: '模板 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.content.required,
+                    type: 'string',
+                    message: '模板 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
             public: [
                 {
                     required: this.detailsModel.public.required,
@@ -254,7 +268,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         content: new FormItemModel({
     caption: '模板', detailType: 'FORMITEM', name: 'content', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
