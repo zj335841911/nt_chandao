@@ -37,7 +37,7 @@
                             <app-form-item :error="gridItemsModel[$index][column.property].error">
                                 
             <dropdown-list 
-                
+                v-show="(row.id == null)"
                 v-model="row[column.property]" 
                 :disabled="getColumnDisabled(row,column.property)" 
                 :data="row" 
