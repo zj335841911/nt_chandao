@@ -1,6 +1,8 @@
 <template>
   <div class="app-pms-upload-list">
-    <div class="app-pms-upload-list_item" @click="onItemClick(item)" v-for="item in items" :key="item.id">
+      <template  v-for="item in items">
+          <v-touch v-on:press="node_touch(item)" :key="item.id">
+    <div class="app-pms-upload-list_item" @click="onItemClick(item)" >
       <div class="index_icon">
         <ion-icon class="doc" v-if="getFileType(item) == 'doc' || getFileType(item) == 'docx'" name="file-word-o"></ion-icon> 
         <ion-icon class="txt" v-else-if="getFileType(item)== 'txt'" name="file-text-o"></ion-icon> 
@@ -25,6 +27,8 @@
       </div>
         <div v-if="isEnableDelete" class="file_delete_icon"><ion-icon class="app-pms-upload-list_item_icon ios hydrated" name="close-outline" @click.stop="item_delete(item)"></ion-icon></div>
     </div>
+          </v-touch>
+      </template>
     <div class="nofile" v-if="items.length == 0">{{$t('no_file')}}</div>
   </div>
 </template>
@@ -141,12 +145,22 @@ export default class AppPmsUploadList extends Vue {
         });
     }
 
+    /**
+     * 获取文件类型
+     */
     public getFileType(item:any){
         if(this.isCurData){
             return item.curData.extension
         }else{
             return item.extension
         }
+    }
+
+    /**
+     * 列表项长按
+     */
+    public node_touch(item:any) {
+        this.$emit("node_touch",item)
     }
 
 }
