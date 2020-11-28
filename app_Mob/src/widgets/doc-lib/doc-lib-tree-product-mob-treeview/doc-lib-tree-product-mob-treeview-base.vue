@@ -1,6 +1,6 @@
 <template>
     <div class="app-mob-treeview doclib-tree ">
-     <div class="tree_hearder">
+         <div class="tree_hearder">
             <div class="treeNav">
             <template v-for="(item,index) in treeNav">
             <ion-label  :key="item.id" class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated" :class="index+1 < treeNav.length? 'treeNav-active':'' " @click="nav_click(item)">{{item.text}}</ion-label>
@@ -11,16 +11,19 @@
             <ion-icon :class="{active:!isList}" class="ios hydrated" name="apps"  @click="()=>{this.isList = false}"></ion-icon>
             <ion-icon :class="{active:isList}" class="ios hydrated" name="reorder-four" @click="()=>{this.isList = true}"></ion-icon>
         </div>
-
         </div>
         <div class="tree-partition" v-if="valueNodes.length > 0" ></div>
         <ion-list>
         <template  v-if="isList" >
-            <ion-item  v-for="(item ,index) in rootNodes" :key="index" @click="click_node(item)">
+            <template v-for="(item ,index) in rootNodes">
+            <v-touch v-on:press="node_touch(item)" :key="index">
+            <ion-item    @click="click_node(item)">
                 <ion-icon class="file_icon" name="folder"></ion-icon>
                 <ion-label>{{item.text}}</ion-label>
                 <ion-icon class="tree-icon" slot="end" name="chevron-forward-outline"></ion-icon>
             </ion-item>
+            </v-touch>
+            </template>
         </template>
         <template v-else>
             <ion-row class="file_grid" >
@@ -31,6 +34,7 @@
                     </div>
                 </ion-col>
                 <ion-col  :size="3" v-for="(item ) in valueNodes" :key="item.id" >
+                    <v-touch v-on:press="node_touch(item)">
                     <div class="node_item">
                         <ion-icon class="file_icon_node_grid doc" v-if="getFileType(item) == 'doc' || getFileType(item) == 'docx'" name="file-word-o"></ion-icon> 
                         <ion-icon class="file_icon_node_grid txt" v-else-if="getFileType(item)== 'txt'" name="file-text-o"></ion-icon> 
@@ -46,6 +50,7 @@
                         <ion-icon class="file_icon_node_grid txt" v-else name="file-o"></ion-icon> 
                         <div class="text">{{item.text}}</div>
                     </div>
+                    </v-touch>
                 </ion-col>
             </ion-row>
         </template>
