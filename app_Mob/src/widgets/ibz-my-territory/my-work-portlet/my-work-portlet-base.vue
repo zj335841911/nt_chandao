@@ -153,7 +153,7 @@ export default class MyWorkBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
 
     /**

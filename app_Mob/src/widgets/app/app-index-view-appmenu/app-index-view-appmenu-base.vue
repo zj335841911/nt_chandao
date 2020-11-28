@@ -166,7 +166,7 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 部件样式

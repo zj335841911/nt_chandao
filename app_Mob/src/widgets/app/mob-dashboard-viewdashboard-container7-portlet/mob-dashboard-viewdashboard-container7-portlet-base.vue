@@ -153,7 +153,7 @@ export default class MobDashboardViewdashboard_container7Base extends Vue implem
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
 
     /**

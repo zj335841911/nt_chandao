@@ -132,7 +132,7 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
 
     /**

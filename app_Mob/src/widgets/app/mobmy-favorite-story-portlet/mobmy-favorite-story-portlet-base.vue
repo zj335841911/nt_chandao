@@ -184,7 +184,7 @@ export default class MOBMyFavoriteStoryBase extends Vue implements ControlInterf
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
 
     /**

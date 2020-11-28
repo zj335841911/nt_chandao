@@ -230,7 +230,7 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 视图类型

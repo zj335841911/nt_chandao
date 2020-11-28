@@ -163,7 +163,7 @@ export default class ProjectStatusBarMobBBase extends Vue implements ControlInte
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
 
     /**

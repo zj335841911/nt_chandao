@@ -148,7 +148,7 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
 
     

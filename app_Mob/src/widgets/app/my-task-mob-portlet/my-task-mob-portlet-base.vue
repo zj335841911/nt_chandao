@@ -184,7 +184,7 @@ export default class MyTaskMobBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
 
     /**

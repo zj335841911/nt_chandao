@@ -186,7 +186,7 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
     
     /**
      * ProductMobCounterCounterService计数器服务对象

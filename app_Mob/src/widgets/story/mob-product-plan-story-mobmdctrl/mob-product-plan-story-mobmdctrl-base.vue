@@ -265,7 +265,7 @@ export default class Mob_ProductPlan_StoryBase extends Vue implements ControlInt
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 视图类型

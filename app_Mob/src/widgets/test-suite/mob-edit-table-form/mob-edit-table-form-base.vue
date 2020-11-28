@@ -237,7 +237,7 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 工作流审批意见控件绑定值
