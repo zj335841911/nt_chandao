@@ -54,8 +54,7 @@ import AppPortalView_dbService from '@/app-core/ctrl-service/app/app-portal-view
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class AppPortalView_dbBase extends Vue implements ControlInterface {
 
@@ -148,7 +147,6 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
 

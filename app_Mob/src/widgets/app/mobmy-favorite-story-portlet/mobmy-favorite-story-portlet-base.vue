@@ -31,8 +31,7 @@ import StoryUIService from '@/ui-service/story/story-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MOBMyFavoriteStoryBase extends Vue implements ControlInterface {
 
@@ -184,7 +183,6 @@ export default class MOBMyFavoriteStoryBase extends Vue implements ControlInterf
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
 

@@ -107,8 +107,7 @@ import {  Util } from '@/ibiz-core/utils';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class ClosePauseCancelFormMobBase extends Vue implements ControlInterface {
 
@@ -229,7 +228,6 @@ export default class ClosePauseCancelFormMobBase extends Vue implements ControlI
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
     /**

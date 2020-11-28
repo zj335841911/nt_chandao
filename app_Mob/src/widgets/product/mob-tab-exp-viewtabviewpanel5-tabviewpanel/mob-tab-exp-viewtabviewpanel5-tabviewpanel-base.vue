@@ -26,8 +26,7 @@ import ProductUIService from '@/ui-service/product/product-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobTabExpViewtabviewpanel5Base extends Vue implements ControlInterface {
 
@@ -148,7 +147,6 @@ export default class MobTabExpViewtabviewpanel5Base extends Vue implements Contr
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
     /**

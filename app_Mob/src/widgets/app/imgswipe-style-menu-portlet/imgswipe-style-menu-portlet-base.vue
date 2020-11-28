@@ -38,8 +38,7 @@ import ImgswipeStyleMenuService from '@/app-core/ctrl-service/app/imgswipe-style
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class ImgswipeStyleMenuBase extends Vue implements ControlInterface {
 
@@ -132,7 +131,6 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
 

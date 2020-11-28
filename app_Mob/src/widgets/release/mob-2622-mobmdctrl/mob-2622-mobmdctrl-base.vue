@@ -106,8 +106,7 @@ import ReleaseUIService from '@/ui-service/release/release-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class Mob_2622Base extends Vue implements ControlInterface {
 
@@ -228,7 +227,6 @@ export default class Mob_2622Base extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
     /**

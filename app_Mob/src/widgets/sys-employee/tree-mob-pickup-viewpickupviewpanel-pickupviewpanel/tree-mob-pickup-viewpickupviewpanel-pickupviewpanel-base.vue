@@ -34,8 +34,7 @@ import SysEmployeeUIService from '@/ui-service/sys-employee/sys-employee-ui-acti
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class TreeMobPickupViewpickupviewpanelBase extends Vue implements ControlInterface {
 
@@ -156,7 +155,6 @@ export default class TreeMobPickupViewpickupviewpanelBase extends Vue implements
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
     /**

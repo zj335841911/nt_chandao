@@ -209,8 +209,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobDefBase extends Vue implements ControlInterface {
 
@@ -331,7 +330,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
     /**

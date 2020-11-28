@@ -98,8 +98,7 @@ import StoryUIService from '@/ui-service/story/story-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MOB_BuildLink_StoryBase extends Vue implements ControlInterface {
 
@@ -220,7 +219,6 @@ export default class MOB_BuildLink_StoryBase extends Vue implements ControlInter
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
     /**

@@ -98,8 +98,7 @@ import ModuleUIService from '@/ui-service/module/module-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobBase extends Vue implements ControlInterface {
 
@@ -220,7 +219,6 @@ export default class MobBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
     /**

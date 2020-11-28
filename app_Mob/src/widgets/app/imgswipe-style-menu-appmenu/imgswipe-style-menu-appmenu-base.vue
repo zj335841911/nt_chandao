@@ -72,8 +72,7 @@ import { Environment } from '@/environments/environment';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class ImgswipeStyleMenuBase extends Vue implements ControlInterface {
 
@@ -166,7 +165,6 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
     /**

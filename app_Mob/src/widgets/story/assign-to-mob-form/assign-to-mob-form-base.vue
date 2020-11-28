@@ -147,8 +147,7 @@ import {  Util } from '@/ibiz-core/utils';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class AssignToMobBase extends Vue implements ControlInterface {
 
@@ -269,7 +268,6 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
     /**

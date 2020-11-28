@@ -40,8 +40,7 @@ import IbzTaskestimateUIService from '@/ui-service/ibz-taskestimate/ibz-taskesti
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MainBase extends Vue implements ControlInterface {
 
@@ -162,7 +161,6 @@ export default class MainBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
     /**
      * 获取多项数据

@@ -38,8 +38,7 @@ import ListMenuService from '@/app-core/ctrl-service/app/list-menu-portlet-servi
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class ListMenuBase extends Vue implements ControlInterface {
 
@@ -132,7 +131,6 @@ export default class ListMenuBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
 

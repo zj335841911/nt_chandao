@@ -74,8 +74,7 @@ import ProductStatsUIService from '@/ui-service/product-stats/product-stats-ui-a
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobTabExpViewtabexppanelBase extends Vue implements ControlInterface {
 
@@ -196,7 +195,6 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
     /**

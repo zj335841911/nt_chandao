@@ -108,8 +108,7 @@ import BugUIService from '@/ui-service/bug/bug-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MOB_ReleaseLink_ResolvedBugBase extends Vue implements ControlInterface {
 
@@ -230,7 +229,6 @@ export default class MOB_ReleaseLink_ResolvedBugBase extends Vue implements Cont
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
     /**

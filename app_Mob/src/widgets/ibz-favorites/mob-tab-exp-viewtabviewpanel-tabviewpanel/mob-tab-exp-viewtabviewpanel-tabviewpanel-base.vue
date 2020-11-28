@@ -26,8 +26,7 @@ import IbzFavoritesUIService from '@/ui-service/ibz-favorites/ibz-favorites-ui-a
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobTabExpViewtabviewpanelBase extends Vue implements ControlInterface {
 
@@ -148,7 +147,6 @@ export default class MobTabExpViewtabviewpanelBase extends Vue implements Contro
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
     /**

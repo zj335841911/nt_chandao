@@ -38,8 +38,7 @@ import IconStyleMenuService from '@/app-core/ctrl-service/app/icon-style-menu-po
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class IconStyleMenuBase extends Vue implements ControlInterface {
 
@@ -132,7 +131,6 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-    
     
 
 
