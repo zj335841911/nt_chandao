@@ -261,12 +261,12 @@ POST
 #### UserTplDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | title | String | 不可 | title |
+| 1 | title | String | 不可 | 模板标题 |
 | 2 | id | Long | 不可 | id |
 | 3 | content | String | 允许 | content |
 | 4 | type | String | 允许 | type |
 | 5 | account | String | 允许 | account |
-| 6 | ibizpublic | String | 允许 | public |
+| 6 | ibizpublic | String | 允许 | 公开 |
 | 7 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### UserTplSearchContext

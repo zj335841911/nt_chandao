@@ -1,11 +1,11 @@
 export default {
   fields: {
-    title: "title",
+    title: "模板标题",
     id: "id",
     content: "content",
     type: "type",
     account: "account",
-    ibizpublic: "public",
+    ibizpublic: "公开",
   },
 	views: {
 		gridview: {
@@ -23,7 +23,7 @@ export default {
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "id", 
-			srfmajortext: "title", 
+			srfmajortext: "模板标题", 
 			srftempmode: "", 
 			srfuf: "", 
 			srfdeid: "", 
@@ -44,7 +44,7 @@ export default {
 			id: "编号",
 			title: "模板标题",
 			type: "类型",
-			public: "权限",
+			public: "公开",
 		},
 		uiactions: {
 		},

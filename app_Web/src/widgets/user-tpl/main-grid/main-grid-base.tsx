@@ -137,7 +137,7 @@ export class MainGridBase extends GridControlBase {
         },
         {
             name: 'public',
-            label: '权限',
+            label: '公开',
             langtag: 'entities.usertpl.main_grid.columns.public',
             show: true,
             unit: 'PX',

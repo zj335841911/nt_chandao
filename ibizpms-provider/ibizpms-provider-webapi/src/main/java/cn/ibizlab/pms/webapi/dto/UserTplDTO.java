@@ -35,7 +35,7 @@ public class UserTplDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "title")
     @JsonProperty("title")
-    @NotBlank(message = "[title]不允许为空!")
+    @NotBlank(message = "[模板标题]不允许为空!")
     @Size(min = 0, max = 150, message = "内容长度必须小于等于[150]")
     private String title;
 

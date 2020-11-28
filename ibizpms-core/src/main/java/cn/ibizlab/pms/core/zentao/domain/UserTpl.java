@@ -44,7 +44,7 @@ public class UserTpl extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * title
+     * 模板标题
      */
     @TableField(value = "`title`")
     @JSONField(name = "title")
@@ -81,7 +81,7 @@ public class UserTpl extends EntityMP implements Serializable {
     @JsonProperty("account")
     private String account;
     /**
-     * public
+     * 公开
      */
     @DEField(defaultValue = "0")
     @TableField(value = "`public`")
@@ -92,7 +92,7 @@ public class UserTpl extends EntityMP implements Serializable {
 
 
     /**
-     * 设置 [title]
+     * 设置 [模板标题]
      */
     public void setTitle(String title) {
         this.title = title;
@@ -116,7 +116,7 @@ public class UserTpl extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [public]
+     * 设置 [公开]
      */
     public void setIbizpublic(String ibizpublic) {
         this.ibizpublic = ibizpublic;

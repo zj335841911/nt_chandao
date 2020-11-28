@@ -37460,7 +37460,7 @@
     {
     "fieldname":"TITLE" ,
     "codename":"Title",
-    "field_logic_name":"title",
+    "field_logic_name":"模板标题",
     "entity_name":"UserTpl",
     "field_type":"TEXT",
     "nullable":0,
@@ -37532,7 +37532,7 @@
     {
     "fieldname":"PUBLIC" ,
     "codename":"IBizPublic",
-    "field_logic_name":"public",
+    "field_logic_name":"公开",
     "entity_name":"UserTpl",
     "field_type":"SSCODELIST",
     "dict":"YesNo2",

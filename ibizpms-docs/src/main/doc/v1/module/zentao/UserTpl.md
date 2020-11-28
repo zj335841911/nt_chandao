@@ -16,16 +16,16 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| 1 | [title](#属性-title（TITLE）) | TITLE | 文本，可指定长度 | 否 | 否 | 否 |
+| 1 | [模板标题](#属性-模板标题（TITLE）) | TITLE | 文本，可指定长度 | 否 | 否 | 否 |
 | 2 | [id](#属性-id（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
 | 3 | [content](#属性-content（CONTENT）) | CONTENT | 长文本，没有长度限制 | 否 | 否 | 是 |
 | 4 | [type](#属性-type（TYPE）) | TYPE | 单项选择(文本值) | 否 | 否 | 是 |
 | 5 | [account](#属性-account（ACCOUNT）) | ACCOUNT | 文本，可指定长度 | 否 | 否 | 是 |
-| 6 | [public](#属性-public（PUBLIC）) | PUBLIC | 单项选择(文本值) | 否 | 否 | 是 |
+| 6 | [公开](#属性-公开（PUBLIC）) | PUBLIC | 单项选择(文本值) | 否 | 否 | 是 |
 
-### 属性-title（TITLE）
+### 属性-模板标题（TITLE）
 #### 属性说明
-title
+模板标题
 
 - 是否是主键
 否
@@ -212,9 +212,9 @@ String
 #### 关系属性
 无
 
-### 属性-public（PUBLIC）
+### 属性-公开（PUBLIC）
 #### 属性说明
-public
+公开
 
 - 是否是主键
 否
@@ -361,14 +361,14 @@ Save
 ### 快速搜索项
 | 序号 | 属性 |
 | ---- | ---- |
-| 1 | [title（TITLE）](#属性-title（TITLE）) |
+| 1 | [模板标题（TITLE）](#属性-模板标题（TITLE）) |
 
 ### 搜索条件
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
-| 1 | [title（TITLE）](#属性-title（TITLE）) | `%like%` |
+| 1 | [模板标题（TITLE）](#属性-模板标题（TITLE）) | `%like%` |
 | 2 | [type（TYPE）](#属性-type（TYPE）) | `=` |
-| 3 | [public（PUBLIC）](#属性-public（PUBLIC）) | `=` |
+| 3 | [公开（PUBLIC）](#属性-公开（PUBLIC）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

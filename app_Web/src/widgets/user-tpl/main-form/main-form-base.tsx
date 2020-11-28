@@ -197,7 +197,7 @@ export class MainEditFormBase extends EditFormControlBase {
 }),
 
         srfmajortext: new FormItemModel({
-    caption: 'title', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '模板标题', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
