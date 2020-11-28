@@ -238,7 +238,7 @@ String
 | 值 | 0 |
 
 - 取值范围/公式
-参照数据字典【[是否（数值）（YesNo2）](../../codelist/YesNo2)】
+参照数据字典【[是否（YesNo）](../../codelist/YesNo)】
 
 - 数据格式
 无

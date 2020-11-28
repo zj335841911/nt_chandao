@@ -37535,7 +37535,7 @@
     "field_logic_name":"公开",
     "entity_name":"UserTpl",
     "field_type":"SSCODELIST",
-    "dict":"YesNo2",
+    "dict":"YesNo",
     "nullable":1,
     "physical_field":1,
     "data_type":"VARCHAR",
