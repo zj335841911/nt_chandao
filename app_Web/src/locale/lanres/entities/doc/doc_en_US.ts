@@ -316,7 +316,7 @@ export default {
 		uiactions: {
 		},
 	},
-	morerecentupdate_grid: {
+	moremyfavourite_grid: {
 		nodata: "",
 		columns: {
 			id: "文档编号",
@@ -335,7 +335,7 @@ export default {
         doc_uncollect: "取消收藏",
 		},
 	},
-	moremyfavourite_grid: {
+	morerecentupdate_grid: {
 		nodata: "",
 		columns: {
 			id: "文档编号",
@@ -380,24 +380,6 @@ export default {
 			tip: "Filter",
 		},
 	},
-	recentmoregridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-	},
-	mymoregridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-	},
-	myfavouritegridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-	},
 	createeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
@@ -410,6 +392,24 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 		deuiaction3_togglefilter: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	myfavouritegridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	recentmoregridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	mymoregridviewtoolbar_toolbar: {
+		deuiaction1: {
 			caption: "Filter",
 			tip: "Filter",
 		},

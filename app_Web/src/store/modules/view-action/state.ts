@@ -2189,18 +2189,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '73647c564ed468885ee3c18bccce5a90',
-            viewmodule: 'ibiz',
-            viewname: 'DocMyFavouriteGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'b6e02216d1e5c69d79b32342d8b67c7a',
-                '23cc93d7fdddff5077a7952d26802a7b',
-                'c9be79d1ad2a32e56092cd1ec1e896eb',
-            ],
-        },
-        {
             viewtag: '73fbcf0e3685096f63587bcff234f958',
             viewmodule: 'zentao',
             viewname: 'DocLibUsr2EditView',
@@ -2340,18 +2328,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '7c188c576f1fd59114ac2940d8e92c15',
-            viewmodule: 'ibiz',
-            viewname: 'DocRecentMoreGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'b6e02216d1e5c69d79b32342d8b67c7a',
-                '23cc93d7fdddff5077a7952d26802a7b',
-                'c9be79d1ad2a32e56092cd1ec1e896eb',
-            ],
-        },
-        {
             viewtag: '7c6956b0c4bcc773697adb506d3ce5e9',
             viewmodule: 'zentao',
             viewname: 'BugConfirmView',
@@ -2445,14 +2421,14 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'bd1aede12f9d691fb88402d7aa4c07db',
                 '2d63c9fa825c7d4f7816cab45ad34bb6',
                 '092028347755c225e484250308db2d51',
                 '22dcf6656e1b870d0427a450cdbd7d20',
-                'b593c09602d9483d53b1f725395030a6',
                 'ec35bfd0c7d043d531053eac7775a40b',
+                '6b0e5dd0dca860d801e403c7591a9f41',
                 '41693a4d3b2bd3a7195d31ceae6cdcf3',
-                '73647c564ed468885ee3c18bccce5a90',
-                '7c188c576f1fd59114ac2940d8e92c15',
+                'f9b214cbd7e74778eeeaf536de393f52',
                 '7b8d03598e32aa0f535758927a17b98e',
             ],
         },
@@ -3563,18 +3539,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '846ddf8e555650608d4f75c4595c1270',
-            ],
-        },
-        {
-            viewtag: 'b593c09602d9483d53b1f725395030a6',
-            viewmodule: 'ibiz',
-            viewname: 'DocMyMoreGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'b6e02216d1e5c69d79b32342d8b67c7a',
-                '23cc93d7fdddff5077a7952d26802a7b',
-                'c9be79d1ad2a32e56092cd1ec1e896eb',
             ],
         },
         {

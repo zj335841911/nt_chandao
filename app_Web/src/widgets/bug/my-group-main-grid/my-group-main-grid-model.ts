@@ -236,6 +236,11 @@ export default class MyGroupMainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'entry',
           prop: 'entry',
           dataType: 'PICKUP',
