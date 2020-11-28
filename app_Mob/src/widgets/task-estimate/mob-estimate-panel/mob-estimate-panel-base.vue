@@ -188,6 +188,7 @@ export default class MobEstimateBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
     
+    
 
    /**
      * 生命周期

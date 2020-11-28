@@ -149,6 +149,7 @@ export default class MobTabExpViewtabviewpanel7Base extends Vue implements Contr
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 面板导航参数

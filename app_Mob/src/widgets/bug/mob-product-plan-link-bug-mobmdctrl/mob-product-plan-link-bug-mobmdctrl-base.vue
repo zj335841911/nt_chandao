@@ -231,6 +231,7 @@ export default class MOB_ProductPlanLink_BugBase extends Vue implements ControlI
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 视图类型

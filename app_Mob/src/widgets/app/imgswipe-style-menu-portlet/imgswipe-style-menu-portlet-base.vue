@@ -133,6 +133,7 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
         _this.$emit('closeview', args);
     }
     
+    
 
 
     /**

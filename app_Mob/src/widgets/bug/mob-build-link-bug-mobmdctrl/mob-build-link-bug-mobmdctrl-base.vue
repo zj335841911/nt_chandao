@@ -231,6 +231,7 @@ export default class MOB_BuildLink_BugBase extends Vue implements ControlInterfa
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 视图类型

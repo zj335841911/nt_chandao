@@ -157,6 +157,7 @@ export default class Usr3MobMPickupViewpickupviewpanelBase extends Vue implement
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 面板导航参数

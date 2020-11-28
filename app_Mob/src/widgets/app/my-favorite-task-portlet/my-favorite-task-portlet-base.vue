@@ -185,6 +185,7 @@ export default class MyFavoriteTaskBase extends Vue implements ControlInterface 
         _this.$emit('closeview', args);
     }
     
+    
 
 
     /**

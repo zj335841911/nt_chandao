@@ -276,6 +276,7 @@ export default class MOB_Release_YiLiuBugBase extends Vue implements ControlInte
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 视图类型

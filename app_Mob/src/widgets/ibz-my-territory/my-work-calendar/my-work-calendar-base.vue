@@ -178,6 +178,7 @@ export default class MyWorkBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 显示处理提示

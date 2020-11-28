@@ -157,6 +157,7 @@ export default class LinkStoryMobMPickupViewpickupviewpanelBase extends Vue impl
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 面板导航参数

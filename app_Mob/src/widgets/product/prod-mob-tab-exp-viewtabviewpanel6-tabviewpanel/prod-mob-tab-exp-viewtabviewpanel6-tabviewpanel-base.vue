@@ -149,6 +149,7 @@ export default class ProdMobTabExpViewtabviewpanel6Base extends Vue implements C
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 面板导航参数

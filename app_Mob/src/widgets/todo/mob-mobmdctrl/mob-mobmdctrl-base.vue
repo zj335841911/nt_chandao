@@ -441,6 +441,7 @@ export default class MobBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 视图类型

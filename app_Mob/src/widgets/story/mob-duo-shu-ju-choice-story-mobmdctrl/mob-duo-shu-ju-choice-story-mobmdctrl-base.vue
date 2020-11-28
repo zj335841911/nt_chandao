@@ -221,6 +221,7 @@ export default class MOB_DuoShuJuChoice_StoryBase extends Vue implements Control
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 视图类型

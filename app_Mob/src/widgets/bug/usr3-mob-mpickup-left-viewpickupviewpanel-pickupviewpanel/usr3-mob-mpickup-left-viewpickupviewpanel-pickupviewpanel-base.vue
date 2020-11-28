@@ -157,6 +157,7 @@ export default class Usr3MobMPickupLeftViewpickupviewpanelBase extends Vue imple
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 面板导航参数

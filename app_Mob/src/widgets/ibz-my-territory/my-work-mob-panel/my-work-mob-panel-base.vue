@@ -275,6 +275,7 @@ export default class MyWorkMobBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
     
+    
 
    /**
      * 生命周期

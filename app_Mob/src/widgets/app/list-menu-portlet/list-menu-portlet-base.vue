@@ -133,6 +133,7 @@ export default class ListMenuBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
     
+    
 
 
     /**

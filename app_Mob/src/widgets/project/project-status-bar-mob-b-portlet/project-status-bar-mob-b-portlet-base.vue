@@ -164,6 +164,7 @@ export default class ProjectStatusBarMobBBase extends Vue implements ControlInte
         _this.$emit('closeview', args);
     }
     
+    
 
 
     /**

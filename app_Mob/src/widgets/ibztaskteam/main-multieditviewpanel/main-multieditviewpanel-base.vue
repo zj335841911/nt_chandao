@@ -163,6 +163,7 @@ export default class MainBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
     
+    
     /**
      * 获取多项数据
      *

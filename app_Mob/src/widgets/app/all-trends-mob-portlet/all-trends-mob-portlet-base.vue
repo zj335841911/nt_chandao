@@ -154,6 +154,7 @@ export default class AllTrendsMobBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
     
+    
 
 
     /**

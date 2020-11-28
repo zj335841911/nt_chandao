@@ -441,6 +441,7 @@ export default class MOB_Build_CreateBugBase extends Vue implements ControlInter
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 视图类型

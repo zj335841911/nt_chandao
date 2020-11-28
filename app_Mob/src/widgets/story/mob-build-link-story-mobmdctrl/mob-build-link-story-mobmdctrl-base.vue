@@ -221,6 +221,7 @@ export default class MOB_BuildLink_StoryBase extends Vue implements ControlInter
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 视图类型

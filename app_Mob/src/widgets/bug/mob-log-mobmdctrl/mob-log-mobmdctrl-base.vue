@@ -231,6 +231,7 @@ export default class MobLogBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 视图类型

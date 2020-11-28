@@ -154,6 +154,7 @@ export default class MobDashboardViewdashboard_container5Base extends Vue implem
         _this.$emit('closeview', args);
     }
     
+    
 
 
     /**

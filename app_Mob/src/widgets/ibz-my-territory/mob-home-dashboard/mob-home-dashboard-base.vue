@@ -246,6 +246,7 @@ export default class MobHomeBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
     
+    
 
 
     

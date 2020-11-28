@@ -276,6 +276,7 @@ export default class MOB_Build_ResolvedBugBase extends Vue implements ControlInt
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 视图类型

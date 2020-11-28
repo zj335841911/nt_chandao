@@ -157,6 +157,7 @@ export default class MobPickupViewpickupviewpanelBase extends Vue implements Con
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 面板导航参数

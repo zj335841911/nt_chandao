@@ -199,6 +199,7 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 视图类型

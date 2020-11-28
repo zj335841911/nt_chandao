@@ -221,6 +221,7 @@ export default class Mob_Task_CaseBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 视图类型

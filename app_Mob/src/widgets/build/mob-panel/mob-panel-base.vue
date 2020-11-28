@@ -183,6 +183,7 @@ export default class MobBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
     
+    
 
    /**
      * 生命周期

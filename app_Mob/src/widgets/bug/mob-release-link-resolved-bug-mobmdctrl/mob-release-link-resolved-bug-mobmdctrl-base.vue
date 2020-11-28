@@ -231,6 +231,7 @@ export default class MOB_ReleaseLink_ResolvedBugBase extends Vue implements Cont
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 视图类型

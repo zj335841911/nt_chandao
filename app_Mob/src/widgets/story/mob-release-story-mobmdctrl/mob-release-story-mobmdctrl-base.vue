@@ -221,6 +221,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 视图类型

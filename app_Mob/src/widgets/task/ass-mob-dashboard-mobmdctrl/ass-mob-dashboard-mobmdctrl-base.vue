@@ -495,6 +495,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 视图类型

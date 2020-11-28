@@ -164,6 +164,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
         _this.$emit('closeview', args);
     }
     
+    
 
 
     /**

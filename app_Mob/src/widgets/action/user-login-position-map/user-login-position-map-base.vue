@@ -144,6 +144,7 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
         _this.$emit('closeview', args);
     }
     
+    
 
     /**
      * 获取多项数据
