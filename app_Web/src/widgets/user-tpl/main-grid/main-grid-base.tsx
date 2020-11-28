@@ -328,7 +328,7 @@ export class MainGridBase extends GridControlBase {
             },
             {
                 name: 'public',
-                srfkey: 'YesNo2',
+                srfkey: 'YesNo',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',
