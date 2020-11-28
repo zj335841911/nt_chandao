@@ -78,6 +78,9 @@ Vue.component('v-calendar', Calendar);
 // 手势滑动
 import VueTouch from 'vue-touch'
 Vue.use(VueTouch, {name: 'v-touch'});
+VueTouch.config.press = {
+    time: 700
+  }
 router.beforeEach((to: any, from: any, next: any) => {
     if (to.meta && !to.meta.ignoreAddPage) {
         router.app.$store.commit('addPage', to);

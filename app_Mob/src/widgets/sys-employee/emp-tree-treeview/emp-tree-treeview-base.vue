@@ -379,7 +379,7 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
                 })
             }
             if(flag){
-                (_this.$refs.contextmenu as any).showContextMenu();
+                (_this.$refs.contextmenu as any).openContextMenu();
             }
         });
     }
@@ -1028,7 +1028,7 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
      */
     public node_touch(item:any){
         this.activeNode  = item.id.split(';')[0];
-        this.currentselectedNode = JSON.parse(JSON.stringify(item));
+        this.currentselectedNode = Object.assign(JSON.parse(JSON.stringify(item.curData)),item);
         this.showContext(item,{})
     }
 
@@ -1046,6 +1046,13 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
             }
         }
         this.parseNodes(reNodes);
+    }
+
+    /**
+     * 上下文菜单点击
+     */
+    public context_menu_click() {
+        (this.$refs.contextmenu as any).closeContextMenu();
     }
 
     /**

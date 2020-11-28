@@ -219,6 +219,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -384,6 +387,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "srfparentkey": "%productplan%", "productplan": "%productplan%" } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -438,6 +444,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -492,6 +501,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -600,6 +612,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "release": "%release%" } ;
         let panelNavContext= { "release": "%release%" } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -756,6 +771,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "build": "%build%" } ;
         let panelNavContext= { "build": "%build%" } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -907,6 +925,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "productplan": "%productplan%" } ;
         let panelNavContext= { "productplan": "%productplan%", "story": "0" } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -976,6 +997,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
               container.closeView(null);
         const backend = async () => {
@@ -1028,6 +1052,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "project": "%project%" } ;
         let panelNavContext= { "project": "%project%" } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -1144,6 +1171,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');

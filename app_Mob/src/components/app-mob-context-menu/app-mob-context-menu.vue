@@ -33,8 +33,15 @@ export default class appMobContextMenu extends Vue {
      * @type {*}
      * @memberof appMobContextMenu
      */
-    public showContextMenu(){
+    public openContextMenu(){
         this.isShow = true;
+    }
+
+    /**
+     * 关闭上下文菜单
+     */
+    public closeContextMenu() {
+        this.isShow = false;
     }
     
 }

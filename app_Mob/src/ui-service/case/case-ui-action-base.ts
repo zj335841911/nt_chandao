@@ -290,6 +290,9 @@ export default class CaseUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "suite": "%testsuite%" } ;
         let panelNavContext= { "suite": "%testsuite%" } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('case');
@@ -341,6 +344,9 @@ export default class CaseUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
               container.closeView(null);
         const backend = async () => {
@@ -407,6 +413,9 @@ export default class CaseUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "task": "%testtask%" } ;
         let panelNavContext= { "task": "%testtask%" } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('case');
