@@ -1646,8 +1646,20 @@ export default class DocLibTreeProjectMobBase extends Vue implements ControlInte
     public node_touch(item:any){
         this.activeNode  = item.id.split(';')[0];
         this.currentselectedNode = JSON.parse(JSON.stringify(item));
+        this.showContext(item,{})
         this.contextMenuShowStatus = true;
     
+    }
+
+    public webLoad(query:string){
+        let reNodes:any = [];
+        for (let index = 0; index < this.nodes.length; index++) {
+            const node = this.nodes[index];
+            if(node.srfmajortext.indexOf(query) != -1){
+                reNodes.push(node);
+            }
+        }
+        this.parseNodes(reNodes);
     }
 
     /**

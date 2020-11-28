@@ -561,6 +561,35 @@ export default class DocLibProjectDocLibMobTreeViewBase extends Vue {
 
 
 
+    /**
+     * 搜索值
+     *
+     * @type {string}
+     * @memberof DocLibProjectDocLibMobTreeViewBase
+     */
+    public query: string = '';
+
+    /**
+     * 快速搜索值变化
+     *
+     * @param {*} event
+     * @returns
+     * @memberof DocLibProjectDocLibMobTreeViewBase
+     */
+    public async quickValueChange(event: any) {
+        let { detail } = event;
+        if (!detail) {
+            return;
+        }
+        let { value } = detail;
+        this.query = value;
+
+        const tree: any = this.$refs.tree;
+        if (tree) {
+            tree.webLoad(this.query);
+        }
+    }
+
 }
 </script>
 

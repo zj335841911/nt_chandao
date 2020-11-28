@@ -561,6 +561,35 @@ export default class DocLibMobProductTreeViewBase extends Vue {
 
 
 
+    /**
+     * 搜索值
+     *
+     * @type {string}
+     * @memberof DocLibMobProductTreeViewBase
+     */
+    public query: string = '';
+
+    /**
+     * 快速搜索值变化
+     *
+     * @param {*} event
+     * @returns
+     * @memberof DocLibMobProductTreeViewBase
+     */
+    public async quickValueChange(event: any) {
+        let { detail } = event;
+        if (!detail) {
+            return;
+        }
+        let { value } = detail;
+        this.query = value;
+
+        const tree: any = this.$refs.tree;
+        if (tree) {
+            tree.webLoad(this.query);
+        }
+    }
+
 }
 </script>
 
