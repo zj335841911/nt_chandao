@@ -109,7 +109,7 @@ export default class DocUIServiceBase extends UIService {
             viewname: 'editview',
             srfappde: 'docs',
             component: 'doc-edit-view',
-            openmode: '',
+            openmode: 'DRAWER_LEFT',
             title: '文档',
             width: 0,
             height: 0
@@ -452,14 +452,25 @@ export default class DocUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'editview', parameterName: 'editview' },
         ];
-        const openIndexViewTab = (data: any) => {
-            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
-            actionContext.$router.push(routePath);
-            return null;
-        }
-        openIndexViewTab(data);
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'doc-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.doc.views.editview.title'),
+                placement: 'DRAWER_LEFT',
+            };
+            openDrawer(view, data);
     }
 
     /**
