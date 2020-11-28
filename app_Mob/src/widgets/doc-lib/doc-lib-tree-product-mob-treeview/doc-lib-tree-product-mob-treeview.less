@@ -30,7 +30,6 @@
         height: 16px;
     }
     ion-list {
-        margin-top: 30px;
         ion-item {
             font-size: 15px;
             font-family: '微软雅黑';
@@ -62,86 +61,89 @@
 }
 
 .doclib-tree {
-}
-
-.file_icon {
-    color: #ffca28;
-    font-size: 26px;
-    margin-right: 10px;
-}
-
-.file_grid {
-    .text {
-        font-size: 12px;
+    ion-list {
+        margin-top: 30px;
     }
-    .node_item {
-        text-align: center;
-        .img_content {
-            border-radius: 4px;
-            img {
-                max-width: 100%;
+    .file_icon {
+        color: #ffca28;
+        font-size: 26px;
+        margin-right: 10px;
+    }
+    .file_grid {
+        .text {
+            font-size: 12px;
+        }
+        .node_item {
+            text-align: center;
+            .img_content {
+                border-radius: 4px;
+                img {
+                    width: 100%;
+                    height: 50px;
+                }
+            }
+        }
+        .file_icon_grid {
+            color: #ffca28;
+            font-size: 45px;
+        }
+        .file_icon_node_grid {
+            color: #ccc;
+            font-size: 45px;
+        }
+        .doc {
+            color: #54b5f0;
+        }
+        .txt {
+            color: #ccc;
+        }
+        .pdf {
+            color: #ec0013;
+        }
+        .zip {
+            color: #0078d7;
+        }
+        .rar {
+            color: #8c58a2;
+        }
+        .xls {
+            color: #107c41;
+        }
+        .ppt {
+            color: #c43e1c;
+        }
+        .mp4 {
+            color: #177ecd;
+        }
+    }
+    
+    .tree_hearder {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background: #f5f5f5;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .list_style {
+            text-align: right;
+            font-size: 18px;
+            ion-icon {
+                margin: 3px;
+            }
+            ion-icon:nth-child(1) {
+                font-size: 18px;
+            }
+            ion-icon:nth-child(2) {
+                font-size: 20px;
+                position: relative;
+                top: 1.3px;
+            }
+            .active {
+                color: #705697;
             }
         }
     }
-    .file_icon_grid {
-        color: #ffca28;
-        font-size: 45px;
-    }
-    .file_icon_node_grid {
-        color: #ccc;
-        font-size: 45px;
-    }
-    .doc {
-        color: #54b5f0;
-    }
-    .txt {
-        color: #ccc;
-    }
-    .pdf {
-        color: #ec0013;
-    }
-    .zip {
-        color: #0078d7;
-    }
-    .rar {
-        color: #8c58a2;
-    }
-    .xls {
-        color: #107c41;
-    }
-    .ppt {
-        color: #c43e1c;
-    }
-    .mp4 {
-        color: #177ecd;
-    }
 }
 
-.tree_hearder {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    background: #f5f5f5;
-    z-index: 1000000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .list_style {
-        text-align: right;
-        font-size: 18px;
-        ion-icon {
-            margin: 3px;
-        }
-        ion-icon:nth-child(1) {
-            font-size: 18px;
-        }
-        ion-icon:nth-child(2) {
-            font-size: 20px;
-            position: relative;
-            top: 1.3px;
-        }
-        .active {
-            color: #705697;
-        }
-    }
-}
