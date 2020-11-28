@@ -12,27 +12,12 @@ import { MapService } from '@/ibiz-core/service/map-service';
 export default class appMobContextMenu extends Vue {
 
     /**
-     * 显示值
+     * 上下文菜单显示状态
      *
      * @type {*}
      * @memberof appMobContextMenu
      */
-    @Prop({default:false}) value?: boolean;
-
-    /**
-     * 绑定值
-     *
-     * @type {*}
-     * @memberof appMobContextMenu
-     */
-    get isShow(){
-        return this.value
-    }
-
-    set isShow(newVal:any){
-        this.$emit("change",newVal)
-    }
-
+    public isShow :boolean = false;
 
     /**
      * 指定挂载节点  默认为#app
@@ -41,9 +26,17 @@ export default class appMobContextMenu extends Vue {
      * @memberof appMobContextMenu
      */
     @Prop({default:'#app'}) public eleContainer?:any;
+
+    /**
+     * 打开上下文菜单
+     *
+     * @type {*}
+     * @memberof appMobContextMenu
+     */
+    public showContextMenu(){
+        this.isShow = true;
+    }
     
-
-
 }
 </script>
 <style lang="less">

@@ -54,7 +54,7 @@
                 </ion-item>
             </template>
         </ion-radio-group>
-        <app-mob-context-menu :value="contextMenuShowStatus" @change="(val)=>{this.contextMenuShowStatus=val}">
+        <app-mob-context-menu ref="contextmenu">
          <div slot="content" >
         </div>
         </app-mob-context-menu>
@@ -358,7 +358,7 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
      * 
      * @param data 节点数据
      * @param event 事件源
-     * @memberof EmpTreeMpkBase
+     * @memberof DocLibTreeProductMobBase
      */
     public showContext(data:any,event:any){
         let _this:any = this;
@@ -380,7 +380,7 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
                 })
             }
             if(flag){
-                (_this.$refs[data.id] as any).showContextMenu(event.clientX, event.clientY);
+                (_this.$refs.contextmenu as any).showContextMenu();
             }
         });
     }
@@ -941,17 +941,7 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
             this.selectedNodes = this.selectedNodes.concat(leafNodes);
             this.$emit('selectionchange', this.selectedNodes);
         }
-    } 
-
-    /**
-     * 菜单显示状态
-     *
-     * @param {*} node
-     * @returns
-     * @memberof EmpTreeMpkBase
-     */
-    public contextMenuShowStatus = false;
-    
+    }   
 
     /**
      * 设置选中高亮
@@ -1045,6 +1035,11 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
     
     }
 
+    /**
+     * 树前端搜索
+     *
+     * @memberof EmpTreeMpkBase
+     */
     public webLoad(query:string){
         let reNodes:any = [];
         for (let index = 0; index < this.nodes.length; index++) {

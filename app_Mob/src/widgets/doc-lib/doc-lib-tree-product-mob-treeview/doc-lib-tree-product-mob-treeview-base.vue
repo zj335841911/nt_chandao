@@ -53,7 +53,7 @@
         <div class="tree-partition tree-partition-bigger" v-if="rootNodes.length > 0 && isList"></div>
         <!-- 树视图 -->
         <app-pms-upload-list v-if="valueNodes.length>0  && isList" :isCurData="true" :isEnableDelete="false" :isEnableDownload="false" :items="valueNodes"></app-pms-upload-list>
-        <app-mob-context-menu :value="contextMenuShowStatus" @change="(val)=>{this.contextMenuShowStatus=val}">
+        <app-mob-context-menu ref="contextmenu">
          <div slot="content" >
             <div v-if="activeNode == 'ChildDocLibModule'">
                                     
@@ -986,7 +986,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
                 })
             }
             if(flag){
-                (_this.$refs[data.id] as any).showContextMenu(event.clientX, event.clientY);
+                (_this.$refs.contextmenu as any).showContextMenu();
             }
         });
     }
@@ -1547,17 +1547,7 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
             this.selectedNodes = this.selectedNodes.concat(leafNodes);
             this.$emit('selectionchange', this.selectedNodes);
         }
-    } 
-
-    /**
-     * 菜单显示状态
-     *
-     * @param {*} node
-     * @returns
-     * @memberof DocLibTreeProductMobBase
-     */
-    public contextMenuShowStatus = false;
-    
+    }   
 
     /**
      * 设置选中高亮
@@ -1651,6 +1641,11 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
     
     }
 
+    /**
+     * 树前端搜索
+     *
+     * @memberof DocLibTreeProductMobBase
+     */
     public webLoad(query:string){
         let reNodes:any = [];
         for (let index = 0; index < this.nodes.length; index++) {
