@@ -133,7 +133,7 @@ export default class ReleaseUIActionBase extends EntityUIActionBase {
      * @memberof ReleaseUIService
      */
     public async Release_MobActive(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { release: '%release%' });
         Object.assign(paramJO, { id: '%release%' });
@@ -245,7 +245,7 @@ export default class ReleaseUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { release: '%release%' });
         Object.assign(paramJO, { id: '%release%' });
@@ -302,7 +302,7 @@ export default class ReleaseUIActionBase extends EntityUIActionBase {
      * @memberof ReleaseUIService
      */
     public async Release_MobTerminal(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { release: '%release%' });
         Object.assign(paramJO, { id: '%release%' });

@@ -268,7 +268,7 @@ export default class CaseUIActionBase extends EntityUIActionBase {
      * @memberof CaseUIService
      */
     public async Case_mobUnlinkSuiteCase(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { case: '%case%' });
         Object.assign(paramJO, { id: '%case%' });
@@ -325,7 +325,7 @@ export default class CaseUIActionBase extends EntityUIActionBase {
      * @memberof CaseUIService
      */
     public async Case_MobTaskLinkCase(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -391,7 +391,7 @@ export default class CaseUIActionBase extends EntityUIActionBase {
      * @memberof CaseUIService
      */
     public async Case_mobUnlinkCase(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { case: '%case%' });
         Object.assign(paramJO, { id: '%case%' });

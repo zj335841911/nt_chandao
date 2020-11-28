@@ -127,7 +127,7 @@ export default class ProjectTeamUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { projectteam: '%projectteam%' });
         Object.assign(paramJO, { id: '%projectteam%' });

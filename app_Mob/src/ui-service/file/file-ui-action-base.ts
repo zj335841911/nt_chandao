@@ -163,7 +163,7 @@ export default class FileUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { file: '%file%' });
         Object.assign(paramJO, { id: '%file%' });

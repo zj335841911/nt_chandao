@@ -201,7 +201,7 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { project: '%project%' });
         Object.assign(paramJO, { id: '%project%' });
@@ -271,7 +271,7 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
      * @memberof ProjectUIService
      */
     public async Project_ProjectTop(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { project: '%project%' });
         Object.assign(paramJO, { id: '%project%' });
@@ -372,7 +372,7 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
      * @memberof ProjectUIService
      */
     public async Project_CancelProjectTop(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { project: '%project%' });
         Object.assign(paramJO, { id: '%project%' });

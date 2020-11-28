@@ -137,7 +137,7 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { productplan: '%productplan%' });
         Object.assign(paramJO, { id: '%productplan%' });

@@ -185,7 +185,7 @@ export default class ProductUIActionBase extends EntityUIActionBase {
      * @memberof ProductUIService
      */
     public async Product_CancelProductTop(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { product: '%product%' });
         Object.assign(paramJO, { id: '%product%' });
@@ -246,7 +246,7 @@ export default class ProductUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { product: '%product%' });
         Object.assign(paramJO, { id: '%product%' });
@@ -353,7 +353,7 @@ export default class ProductUIActionBase extends EntityUIActionBase {
      * @memberof ProductUIService
      */
     public async Product_ProductTop(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { product: '%product%' });
         Object.assign(paramJO, { id: '%product%' });

@@ -200,7 +200,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      * @memberof StoryUIService
      */
     public async Story_MobReleaseLinkStory(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -365,7 +365,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { story: '%story%' });
         Object.assign(paramJO, { id: '%story%' });
@@ -422,7 +422,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      * @memberof StoryUIService
      */
     public async Story_StoryNFavoritesMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { story: '%story%' });
         Object.assign(paramJO, { id: '%story%' });
@@ -479,7 +479,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      * @memberof StoryUIService
      */
     public async Story_StoryFavoritesMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { story: '%story%' });
         Object.assign(paramJO, { id: '%story%' });
@@ -590,7 +590,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      * @memberof StoryUIService
      */
     public async Story_releaseUnlinkStory(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { story: '%story%' });
         Object.assign(paramJO, { id: '%story%' });
@@ -749,7 +749,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { story: '%story%' });
         Object.assign(paramJO, { id: '%story%' });
@@ -906,7 +906,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      * @memberof StoryUIService
      */
     public async Story_MobProductLinkStory(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -975,7 +975,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { story: '%story%' });
         Object.assign(paramJO, { id: '%story%' });
@@ -1033,7 +1033,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      * @memberof StoryUIService
      */
     public async Story_MobBuildLinkStory(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -1149,7 +1149,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { story: '%story%' });
         Object.assign(paramJO, { id: '%story%' });

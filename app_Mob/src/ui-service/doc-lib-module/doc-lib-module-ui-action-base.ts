@@ -126,7 +126,7 @@ export default class DocLibModuleUIActionBase extends EntityUIActionBase {
      * @memberof DocLibModuleUIService
      */
     public async DocLibModule_Favorite(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { doclibmodule: '%doclibmodule%' });
         Object.assign(paramJO, { id: '%doclibmodule%' });
@@ -183,7 +183,7 @@ export default class DocLibModuleUIActionBase extends EntityUIActionBase {
      * @memberof DocLibModuleUIService
      */
     public async DocLibModule_NFavorite(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { doclibmodule: '%doclibmodule%' });
         Object.assign(paramJO, { id: '%doclibmodule%' });

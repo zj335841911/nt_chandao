@@ -133,7 +133,7 @@ export default class DocLibUIActionBase extends EntityUIActionBase {
      * @memberof DocLibUIService
      */
     public async DocLib_Collect(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { doclib: '%doclib%' });
         Object.assign(paramJO, { id: '%doclib%' });
@@ -190,7 +190,7 @@ export default class DocLibUIActionBase extends EntityUIActionBase {
      * @memberof DocLibUIService
      */
     public async DocLib_UnCollect(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { doclib: '%doclib%' });
         Object.assign(paramJO, { id: '%doclib%' });

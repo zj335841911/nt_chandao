@@ -255,7 +255,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_confirmStoryChangeCz(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -372,7 +372,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_ConsumedMobTaskTeam(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -438,7 +438,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_TaskNFavoritesMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -617,7 +617,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_RestartMobTeamTask(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -748,7 +748,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_finishTask1(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -814,7 +814,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_PauseMobTeamTask(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -880,7 +880,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_StartMobTeamTask(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -1010,7 +1010,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });
@@ -1258,7 +1258,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof TaskUIService
      */
     public async Task_TaskFavoritesMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
         Object.assign(paramJO, { id: '%task%' });

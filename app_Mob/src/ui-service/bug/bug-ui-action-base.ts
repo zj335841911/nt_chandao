@@ -179,7 +179,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * @memberof BugUIService
      */
     public async Bug_releaseUnlinkBugByLeftBug(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { bug: '%bug%' });
         Object.assign(paramJO, { id: '%bug%' });
@@ -306,7 +306,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * @memberof BugUIService
      */
     public async Bug_releaseUnlinkBug(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { bug: '%bug%' });
         Object.assign(paramJO, { id: '%bug%' });
@@ -500,7 +500,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * @memberof BugUIService
      */
     public async Bug_MobReleaseLinkResolvedBug(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -631,7 +631,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * @memberof BugUIService
      */
     public async Bug_MobProductPlanLinkBug(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -696,7 +696,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { bug: '%bug%' });
         Object.assign(paramJO, { id: '%bug%' });
@@ -757,7 +757,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { bug: '%bug%' });
         Object.assign(paramJO, { id: '%bug%' });
@@ -884,7 +884,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { bug: '%bug%' });
         Object.assign(paramJO, { id: '%bug%' });
@@ -1073,7 +1073,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * @memberof BugUIService
      */
     public async Bug_MobReleaseLinkLeftBug(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -1204,7 +1204,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
      * @memberof BugUIService
      */
     public async Bug_MobBuildLink(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);

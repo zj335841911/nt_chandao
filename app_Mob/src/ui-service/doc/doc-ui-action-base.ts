@@ -134,7 +134,7 @@ export default class DocUIActionBase extends EntityUIActionBase {
      * @memberof DocUIService
      */
     public async Doc_Collect(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { doc: '%doc%' });
         Object.assign(paramJO, { id: '%doc%' });
@@ -191,7 +191,7 @@ export default class DocUIActionBase extends EntityUIActionBase {
      * @memberof DocUIService
      */
     public async Doc_UnCollect(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { doc: '%doc%' });
         Object.assign(paramJO, { id: '%doc%' });
