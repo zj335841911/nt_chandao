@@ -64,10 +64,4 @@ export default {
 			tip: "新建",
 		},
 	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
 };

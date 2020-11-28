@@ -64,10 +64,4 @@ export default {
 			tip: "New",
 		},
 	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
-		},
-	},
 };
