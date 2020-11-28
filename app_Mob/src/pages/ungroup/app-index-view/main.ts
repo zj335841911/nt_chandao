@@ -18,7 +18,11 @@ ionicInitialize({ mode: 'ios' });
 ibizMobileComponentsInitialize();
 import { Lazyload } from 'vant';
 
-Vue.use(Lazyload);
+Vue.use(Lazyload,{
+    preLoad: 1,
+    attempt: 1,
+    error: 'https://gitee.com/kk_ah/images/raw/master/images/20201126175359.png',
+});
 import VueAMap from "vue-amap";
 Vue.use(VueAMap);
 VueAMap.initAMapApiLoader({
