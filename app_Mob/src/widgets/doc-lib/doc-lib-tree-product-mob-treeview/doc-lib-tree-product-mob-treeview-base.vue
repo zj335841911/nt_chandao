@@ -1,6 +1,6 @@
 <template>
     <div class="app-mob-treeview doclib-tree ">
-         <div class="tree_hearder">
+             <div class="tree_hearder">
             <div class="treeNav">
             <template v-for="(item,index) in treeNav">
             <ion-label  :key="item.id" class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated" :class="index+1 < treeNav.length? 'treeNav-active':'' " @click="nav_click(item)">{{item.text}}</ion-label>
@@ -57,7 +57,12 @@
        </ion-list>
         <div class="tree-partition tree-partition-bigger" v-if="rootNodes.length > 0 && isList"></div>
         <!-- 树视图 -->
-        <app-pms-upload-list v-if="valueNodes.length>0  && isList" :isCurData="true" :isEnableDelete="false" :isEnableDownload="false" :items="valueNodes"></app-pms-upload-list>
+        <app-pms-upload-list 
+            v-if="valueNodes.length>0  && isList" :isCurData="true" 
+            :isEnableDelete="false" 
+            :isEnableDownload="false" 
+            :items="valueNodes" 
+            @node_touch="node_touch" />
         <app-mob-context-menu ref="contextmenu">
          <div slot="content" >
             <div v-if="activeNode == 'ChildDocLibModule'">
