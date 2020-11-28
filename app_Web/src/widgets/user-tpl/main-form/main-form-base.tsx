@@ -149,13 +149,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 {
                     required: this.detailsModel.public.required,
                     type: 'string',
-                    message: '权限 值不能为空',
+                    message: '公开 值不能为空',
                     trigger: 'change',
                 },
                 {
                     required: this.detailsModel.public.required,
                     type: 'string',
-                    message: '权限 值不能为空',
+                    message: '公开 值不能为空',
                     trigger: 'blur',
                 },
         ],
@@ -260,7 +260,7 @@ export class MainEditFormBase extends EditFormControlBase {
 }),
 
         public: new FormItemModel({
-    caption: '权限', detailType: 'FORMITEM', name: 'public', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '公开', detailType: 'FORMITEM', name: 'public', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:true,
     disabled: false,
     enableCond: 3,

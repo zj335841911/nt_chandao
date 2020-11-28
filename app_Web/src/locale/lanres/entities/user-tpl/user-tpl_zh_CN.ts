@@ -32,7 +32,7 @@ export default {
 			type: "类型", 
 			account: "所属用户", 
 			content: "模板", 
-			public: "权限", 
+			public: "公开", 
 			id: "id", 
 		},
 		uiactions: {

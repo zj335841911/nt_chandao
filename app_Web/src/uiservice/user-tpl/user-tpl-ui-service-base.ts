@@ -109,7 +109,7 @@ export default class UserTplUIServiceBase extends UIService {
             viewname: 'editview',
             srfappde: 'usertpls',
             component: 'user-tpl-edit-view',
-            openmode: '',
+            openmode: 'DRAWER_RIGHT',
             title: '用户模板',
             width: 0,
             height: 0
