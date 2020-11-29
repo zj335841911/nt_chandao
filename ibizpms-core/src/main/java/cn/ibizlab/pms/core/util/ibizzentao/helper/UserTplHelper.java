@@ -11,5 +11,9 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class UserTplHelper extends ZTBaseHelper<UserTplMapper, UserTpl> {
 
+    @Override
+    public boolean hasDeleted(){
+        return false ;
+    }
 
 }
