@@ -1158,7 +1158,6 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
         this.copyItems = [..._items];
         this.totalRecord = _items.length;
         this.onSearch('');
-        await this.computeCurPageNodeState();
         this.loading = false;
         this.$emit("load", _items);
     }
@@ -1169,7 +1168,7 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      * @param query 搜索值
      * @memberof DocLibTreeProductBase
      */
-    public onSearch(query: string){
+    public async onSearch(query: string){
         let items: Array<any> = [];
         this.items = [];
         if(this.copyItems && this.copyItems.length > 0){
@@ -1180,6 +1179,7 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
             })
         }
         this.items = [...items];
+        await this.computeCurPageNodeState();
     }
 
     /**
