@@ -165,9 +165,6 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      * @memberof DocLibTreeProductTreeBase
      */
     public file_cm_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.file_cm_deuiaction1_click(null, 'file_cm', $event2);
-        }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.file_cm_deuiaction2_click(null, 'file_cm', $event2);
         }
@@ -312,35 +309,6 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
         // 界面行为
         const curUIService:DocUIService  = new DocUIService();
         curUIService.Doc_OnlyUnCollectDoc(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public file_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:FileUIService  = new FileUIService();
-        curUIService.File_Look(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -1053,7 +1021,6 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
         DocLibDoc_deuiaction4: {ctrlname: 'doclibdoc_cm',name:'deuiaction4',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doc_delete'},
         DocLibDoc_deuiaction2: {ctrlname: 'doclibdoc_cm',name:'deuiaction2',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doc_onlycollectdoc'},
         DocLibDoc_deuiaction3: {ctrlname: 'doclibdoc_cm',name:'deuiaction3',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doc_onlyuncollectdoc'},
-        File_deuiaction1: {ctrlname: 'file_cm',name:'deuiaction1',nodeOwner:'File',type: 'DEUIACTION', tag: 'Look', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false,imgclass: '',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.file_look'},
         File_deuiaction2: {ctrlname: 'file_cm',name:'deuiaction2',nodeOwner:'File',type: 'DEUIACTION', tag: 'ibzdownload', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__FILE_DOWNLOAD_BUT', visible: true, disabled: false,imgclass: 'fa fa-download',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.file_ibzdownload'},
         File_deuiaction3: {ctrlname: 'file_cm',name:'deuiaction3',nodeOwner:'File',type: 'DEUIACTION', tag: 'delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__FILE_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.file_delete'},
         ModuleDoc_deuiaction1: {ctrlname: 'moduledoc_cm',name:'deuiaction1',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doc_edit'},
