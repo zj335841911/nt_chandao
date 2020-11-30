@@ -143,6 +143,13 @@ public class IbzWeekly extends EntityMP implements Serializable {
     @JSONField(name = "date", format = "yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
+    /**
+     * 本周工作
+     */
+    @TableField(value = "`workthisweek`")
+    @JSONField(name = "workthisweek")
+    @JsonProperty("workthisweek")
+    private String workthisweek;
 
 
 
@@ -212,6 +219,14 @@ public class IbzWeekly extends EntityMP implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(date);
     }
+    /**
+     * 设置 [本周工作]
+     */
+    public void setWorkthisweek(String workthisweek) {
+        this.workthisweek = workthisweek;
+        this.modify("workthisweek", workthisweek);
+    }
+
 
     /**
      * 复制当前对象数据到目标对象(粘贴重置)

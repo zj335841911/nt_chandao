@@ -29,6 +29,7 @@
 | 11 | [汇报给](#属性-汇报给（REPORTTO）) | REPORTTO | 单项选择(文本值) | 否 | 否 | 是 |
 | 12 | [其他事项](#属性-其他事项（COMMENT）) | COMMENT | 文本，可指定长度 | 否 | 否 | 是 |
 | 13 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
+| 14 | [本周工作](#属性-本周工作（WORKTHISWEEK）) | WORKTHISWEEK | HTML文本，没有长度限制 | 否 | 否 | 是 |
 
 ### 属性-周报名称（IBZ_WEEKLYNAME）
 #### 属性说明
@@ -519,6 +520,43 @@ yyyy-MM-dd
 #### 关系属性
 无
 
+### 属性-本周工作（WORKTHISWEEK）
+#### 属性说明
+本周工作
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+HTML文本，没有长度限制
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -696,7 +734,8 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 t1.`REPORTTO`,
 t1.`UPDATEDATE`,
-t1.`UPDATEMAN`
+t1.`UPDATEMAN`,
+t1.`WORKTHISWEEK`
 FROM `T_IBZ_WEEKLY` t1 
 
 ```

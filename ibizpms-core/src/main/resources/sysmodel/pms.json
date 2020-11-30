@@ -13150,6 +13150,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"WORKTHISWEEK" ,
+    "codename":"Workthisweek",
+    "field_logic_name":"本周工作",
+    "entity_name":"IbzWeekly",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
