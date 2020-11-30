@@ -153,7 +153,7 @@
     
     
     :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 20, offset: 0 }"
+    
 >
     <app-form-item
     name="todaytask"
@@ -183,25 +183,6 @@
 </dropdown-list-mpicker>
 
 </app-form-item>
-
-</i-col>
-<i-col
-    class="form-layout-container"
-    v-show="detailsModel.button1.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 2, offset: 2 }"
->
-    <i-button 
-    type="primary"
-    @click="button1_click($event)"
-    style=""
-    :title="$t('entities.ibzdaily.dailyedit_form.uiactions.ibzdaily_linkcompletetask')"
->
-    <span >{{$t('entities.ibzdaily.dailyedit_form.details.button1')}}</span>
-</i-button>
 
 </i-col>
 <i-col

@@ -120,6 +120,34 @@ export class NewEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
+            thismonthtask: [
+                {
+                    required: this.detailsModel.thismonthtask.required,
+                    type: 'string',
+                    message: '本月完成任务 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.thismonthtask.required,
+                    type: 'string',
+                    message: '本月完成任务 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
+            workthismonth: [
+                {
+                    required: this.detailsModel.workthismonth.required,
+                    type: 'string',
+                    message: '本月工作 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.workthismonth.required,
+                    type: 'string',
+                    message: '本月工作 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
         }
     }
 
@@ -201,14 +229,14 @@ export class NewEditFormBase extends EditFormControlBase {
 
         thismonthtask: new FormItemModel({
     caption: '本月完成任务', detailType: 'FORMITEM', name: 'thismonthtask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
 
         workthismonth: new FormItemModel({
     caption: '本月工作', detailType: 'FORMITEM', name: 'workthismonth', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),

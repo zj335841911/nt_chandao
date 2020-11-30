@@ -31,7 +31,6 @@ export default {
 	dailyedit_form: {
 		details: {
 			group1: "日报基本信息", 
-			button1: "完成任务", 
 			formpage1: "基本信息", 
 			srfupdatedate: "更新时间", 
 			srforikey: "", 
@@ -56,7 +55,6 @@ export default {
 			issubmit: "是否提交", 
 		},
 		uiactions: {
-        ibzdaily_linkcompletetask: "完成任务",
 		},
 	},
 	main_grid: {
