@@ -67,8 +67,8 @@
   :data="data" 
   :context="context"
   :viewparams="viewparams" 
-  :localContext ='{ N_FINISHEDBY_EQ:"%srfloginname%" }' 
-  :localParam ='{ n_finishedby_eq:"%srfloginname%" }' 
+  :localContext ='{ N_FINISHEDBY_EQ:"%account%" }' 
+  :localParam ='{ n_finishedby_eq:"%account%" }' 
   :disabled="detailsModel.thismonthtask.disabled"
   tag='AllTask' 
   codelistType='DYNAMIC' 
@@ -110,8 +110,8 @@
     name="workthismonth"
     :context="context"
     :viewparams="viewparams"
-    :uploadparams='{}'
-    :exportparams='{}'
+    :uploadparams='{objecttype:"monthly",version:"editor"}'
+    :exportparams='{objecttype:"monthly",version:"editor"}'
     
     style=""
 ></app-rich-text-editor>
@@ -190,8 +190,49 @@
     name="plansnextmonth"
     :context="context"
     :viewparams="viewparams"
-    :uploadparams='{}'
-    :exportparams='{}'
+    :uploadparams='{objecttype:"monthly",version:"editor"}'
+    :exportparams='{objecttype:"monthly",version:"editor"}'
+    
+    style=""
+></app-rich-text-editor>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.comment.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="comment"
+    :itemRules="this.rules().comment"
+    class=""
+
+    :caption="$t('entities.ibzmonthly.new_form.details.comment')"
+    uiStyle="DEFAULT"
+    :labelWidth="120"
+    :isShowCaption="true"
+    :error="detailsModel.comment.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.comment"
+    @change="(val) =>{this.data.comment =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.comment.disabled"
+    :data="JSON.stringify(this.data)"
+    name="comment"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"monthly",version:"editor"}'
+    :exportparams='{objecttype:"monthly",version:"editor"}'
     
     style=""
 ></app-rich-text-editor>
@@ -229,8 +270,8 @@
     name="files"
     :value="data.files"
     :disabled="detailsModel.files.disabled"
-    :uploadparams='{}'
-    :exportparams='{}'
+    :uploadparams='{objecttype:"monthly",objectid:"0",version:"1"}'
+    :exportparams='{objecttype:"monthly",objectid:"0",version:"1"}'
     style="overflow: auto;"
 ></app-file-upload>
 </app-form-item>

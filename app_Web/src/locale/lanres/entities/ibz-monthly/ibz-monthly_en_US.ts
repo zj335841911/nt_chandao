@@ -44,10 +44,13 @@ export default {
 			workthismonth: "本月工作", 
 			nextmonthplanstask: "下月计划任务", 
 			plansnextmonth: "下月计划", 
+			comment: "其他事项", 
 			files: "附件", 
 			reportto: "汇报", 
 			mailto: "抄送给", 
 			ibz_monthlyid: "月报标识", 
+			account: "用户", 
+			issubmit: "是否提交", 
 		},
 		uiactions: {
 		},
@@ -70,6 +73,10 @@ export default {
 		},
 	},
 	newmonthlyeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
 	},
 	mainmonthlygridviewtoolbar_toolbar: {
 		deuiaction1_create: {

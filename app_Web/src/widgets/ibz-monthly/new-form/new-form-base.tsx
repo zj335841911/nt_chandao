@@ -97,10 +97,13 @@ export class NewEditFormBase extends EditFormControlBase {
         workthismonth: null,
         nextmonthplanstask: null,
         plansnextmonth: null,
+        comment: null,
         files: null,
         reportto: null,
         mailto: null,
         ibz_monthlyid: null,
+        account: null,
+        issubmit: null,
         ibzmonthly: null,
     };
 
@@ -255,6 +258,13 @@ export class NewEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        comment: new FormItemModel({
+    caption: '其他事项', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         files: new FormItemModel({
     caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -278,6 +288,20 @@ export class NewEditFormBase extends EditFormControlBase {
 
         ibz_monthlyid: new FormItemModel({
     caption: '月报标识', detailType: 'FORMITEM', name: 'ibz_monthlyid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        account: new FormItemModel({
+    caption: '用户', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        issubmit: new FormItemModel({
+    caption: '是否提交', detailType: 'FORMITEM', name: 'issubmit', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

@@ -76,6 +76,11 @@ export default class NewModel {
         dataType: 'HTMLTEXT',
       },
       {
+        name: 'comment',
+        prop: 'comment',
+        dataType: 'HTMLTEXT',
+      },
+      {
         name: 'files',
         prop: 'files',
         dataType: 'TEXT',
@@ -94,6 +99,16 @@ export default class NewModel {
         name: 'ibz_monthlyid',
         prop: 'ibzmonthlyid',
         dataType: 'ACID',
+      },
+      {
+        name: 'account',
+        prop: 'account',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'issubmit',
+        prop: 'issubmit',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'ibzmonthly',
