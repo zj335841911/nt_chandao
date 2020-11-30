@@ -36,6 +36,7 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
     @Transactional(rollbackFor = Exception.class)
     public boolean create(IbzDaily et) {
         String files = et.getFiles();
+        et.setIbzdailyname(et.getAccount() + " " + et.getDate() + "的日报");
         if (!SqlHelper.retBool(this.baseMapper.insert(et))) {
             return false;
         }
@@ -54,11 +55,11 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
         if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("Ibz_dailyid", et.getIbzdailyid()))) {
             return false;
         }
-        if (hasId()) {
-            CachedBeanCopier.copy(get(et.getIbzdailyid()), et);
-        }
+
+        CachedBeanCopier.copy(get(et.getIbzdailyid()), et);
+
         fileHelper.updateObjectID(et.getIbzdailyid(), StaticDict.File__object_type.DAILY.getValue(), files, "");
-        List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
+        List<History> changes = ChangeUtil.diff(old, et, null, null, diffAttrs);
         if (changes.size() > 0) {
             String strAction = StaticDict.Action__type.EDITED.getValue();
             Action action = actionHelper.create(StaticDict.Action__object_type.DAILY.getValue(), et.getIbzdailyid(), strAction,
@@ -70,8 +71,29 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
         return true;
     }
 
-
-    public IbzDaily submit(IbzDaily et){
-       return et;
+    @Transactional(rollbackFor = Exception.class)
+    public IbzDaily submit(IbzDaily et) {
+        et.setIssubmit(StaticDict.YesNo.ITEM_1.getValue());
+        IbzDaily old = new IbzDaily();
+        CachedBeanCopier.copy(get(et.getIbzdailyid()), old);
+        String files = et.getFiles();
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("Ibz_dailyid", et.getIbzdailyid()))) {
+            return et;
+        }
+        CachedBeanCopier.copy(get(et.getIbzdailyid()), et);
+        fileHelper.updateObjectID(et.getIbzdailyid(), StaticDict.File__object_type.DAILY.getValue(), files, "");
+        List<History> changes = ChangeUtil.diff(old, et, null, null, diffAttrs);
+        if (changes.size() > 0) {
+            String strAction = StaticDict.Action__type.SUBMIT.getValue();
+            Action action = actionHelper.create(StaticDict.Action__object_type.DAILY.getValue(), et.getIbzdailyid(), strAction,
+                    "", "", null, true);
+            if (changes.size() > 0) {
+                actionHelper.logHistory(action.getId(), changes);
+            }
+        }
+        // 给汇报人，抄送人 待阅
+//        actionHelper.sendToread(et.getId(), et.getTitle(), noticeusers, et.getAssignedto(), et.getMailto(), IBugService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH, strActionText);
+        return et;
     }
 }
+
