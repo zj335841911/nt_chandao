@@ -338,7 +338,24 @@ export class IbzMonthlyMainMonthlyGridViewBase extends GridViewBase {
      * @memberof IbzMonthlyMainMonthlyGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
+        const localContext: any = null;
+        const localViewParam: any =null;
+        const data: any = {};
+        let tempContext = JSON.parse(JSON.stringify(this.context));
+        if(args.length >0){
+            Object.assign(tempContext,args[0]);
+        }
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+            { pathName: 'mainmsgeditview', parameterName: 'mainmsgeditview' },
+        ];
+        const _this: any = this;
+        const openIndexViewTab = (data: any) => {
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
+            this.$router.push(routePath);
+        }
+        openIndexViewTab(data);
     }
 
 

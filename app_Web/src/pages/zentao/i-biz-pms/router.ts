@@ -14332,6 +14332,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-stats-allgrid-view/product-stats-allgrid-view.vue'),
                 },
                 {
+                    path: 'ibzmonthlies/:ibzmonthly?/mainmsgeditview/:mainmsgeditview?',
+                    meta: {
+                        caption: 'entities.ibzmonthly.views.mainmsgeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'mainmsgeditview', parameterName: 'mainmsgeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-main-msg-edit-view/ibz-monthly-main-msg-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/testsuites/:testsuite?/maindashboardview/:maindashboardview?',
                     meta: {
                         caption: 'entities.testsuite.views.maindashboardview.caption',

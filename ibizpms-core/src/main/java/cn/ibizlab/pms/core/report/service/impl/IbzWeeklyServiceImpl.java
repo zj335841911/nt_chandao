@@ -144,6 +144,13 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
         saveOrUpdateBatch(list, batchSize);
     }
 
+    @Override
+    @Transactional
+    public IbzWeekly submit(IbzWeekly et) {
+        //自定义代码
+        return et;
+    }
+
 
 
     /**

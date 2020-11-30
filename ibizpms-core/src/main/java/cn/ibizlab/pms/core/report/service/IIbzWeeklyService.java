@@ -46,6 +46,7 @@ public interface IIbzWeeklyService extends IService<IbzWeekly> {
     boolean checkKey(IbzWeekly et);
     boolean save(IbzWeekly et);
     void saveBatch(List<IbzWeekly> list);
+    IbzWeekly submit(IbzWeekly et);
     Page<IbzWeekly> searchDefault(IbzWeeklySearchContext context);
     /**
      * 自定义查询SQL

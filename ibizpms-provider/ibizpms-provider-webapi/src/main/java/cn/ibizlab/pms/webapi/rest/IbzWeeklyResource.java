@@ -136,6 +136,17 @@ public class IbzWeeklyResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-Submit-all')")
+    @ApiOperation(value = "提交", tags = {"周报" },  notes = "提交")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/submit")
+    public ResponseEntity<IbzWeeklyDTO> submit(@PathVariable("ibzweekly_id") Long ibzweekly_id, @RequestBody IbzWeeklyDTO ibzweeklydto) {
+        IbzWeekly domain = ibzweeklyMapping.toDomain(ibzweeklydto);
+        domain.setIbzweeklyid(ibzweekly_id);
+        domain = ibzweeklyService.submit(domain);
+        ibzweeklydto = ibzweeklyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzweeklydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-searchDefault-all') and hasPermission(#context,'pms-IbzWeekly-Get')")
 	@ApiOperation(value = "获取数据集", tags = {"周报" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/ibzweeklies/fetchdefault")
