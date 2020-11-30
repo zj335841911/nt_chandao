@@ -162,7 +162,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
-        thisweektask: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'thisweektask', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        thisweektask: new FormDRUIPartModel({ caption: '本周完成的任务', detailType: 'DRUIPART', name: 'thisweektask', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
