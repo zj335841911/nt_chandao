@@ -112,7 +112,7 @@ export class MainGridBase extends GridControlBase {
         },
         {
             name: 'updateman',
-            label: '用户',
+            label: '更新人',
             langtag: 'entities.ibzdaily.main_grid.columns.updateman',
             show: true,
             unit: 'PX',
@@ -303,11 +303,11 @@ export class MainGridBase extends GridControlBase {
         return super.formatExcelData(filterVal, jsonData, [
             {
                 name: 'updateman',
-                srfkey: 'UserRealName',
+                srfkey: 'SysOperator',
                 codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
             },
         ]);
     }

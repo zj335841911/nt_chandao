@@ -102,7 +102,7 @@ export default {
 		nodata: "",
 		columns: {
 			ibz_dailyname: "日报名称",
-			updateman: "用户",
+			updateman: "更新人",
 			updatedate: "更新时间",
 		},
 		uiactions: {

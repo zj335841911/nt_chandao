@@ -33,8 +33,8 @@ export default class MainModel {
         },
         {
           name: 'updateman',
-          prop: 'account',
-          dataType: 'SSCODELIST',
+          prop: 'updateman',
+          dataType: 'TEXT',
         },
         {
           name: 'updatedate',
@@ -42,9 +42,14 @@ export default class MainModel {
           dataType: 'DATETIME',
         },
         {
-          name: 'account',
-          prop: 'account',
+          name: 'issubmit',
+          prop: 'issubmit',
           dataType: 'SSCODELIST',
+        },
+        {
+          name: 'ibz_dailyid',
+          prop: 'ibzdailyid',
+          dataType: 'ACID',
         },
         {
           name: 'srfmajortext',
