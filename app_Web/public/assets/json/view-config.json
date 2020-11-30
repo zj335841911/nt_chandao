@@ -4329,6 +4329,16 @@
         "viewtag": "bef7c08b651990569cd09ce805ebcfe3",
         "memo": ""
     },
+    "taskusr2gridview": {
+        "title": "任务表格视图",
+        "caption": "任务",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskUsr2GridView",
+        "viewfilename": "task-usr2-grid-view",
+        "viewtag": "bf911962d0a1ec51e903e512c2700650",
+        "memo": ""
+    },
     "fileproductgridview": {
         "title": "file表格视图",
         "caption": "附件",

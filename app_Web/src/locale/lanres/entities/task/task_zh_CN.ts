@@ -237,6 +237,10 @@ export default {
 			caption: "日历航显示",
       		title: "任务编辑视图（日历航显示）",
 		},
+		usr2gridview: {
+			caption: "任务",
+      		title: "任务表格视图",
+		},
 		donetaskview: {
 			caption: "完成任务",
       		title: "完成任务",
@@ -1541,6 +1545,8 @@ export default {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
 		},
+	},
+	usr2gridviewtoolbar_toolbar: {
 	},
 	taskgrouptree_treeview: {
 		nodes: {

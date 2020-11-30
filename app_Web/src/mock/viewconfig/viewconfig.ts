@@ -3471,6 +3471,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzMyTerritoryTestTreeExpView",
             "viewtag": "bef7c08b651990569cd09ce805ebcfe3"
         },
+        "taskusr2gridview": {
+            "title": "任务表格视图",
+            "caption": "任务",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskUsr2GridView",
+            "viewtag": "bf911962d0a1ec51e903e512c2700650"
+        },
         "fileproductgridview": {
             "title": "file表格视图",
             "caption": "附件",

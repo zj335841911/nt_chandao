@@ -644,6 +644,7 @@ SRFNAVPARAM.project=%project%|
 |-|bug选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|待办事宜表格视图|DEGRIDVIEW|&nbsp;|
 |-|我的地盘树导航视图（测试统计）|DETREEEXPVIEW|&nbsp;|
+|-|任务表格视图|DEGRIDVIEW|&nbsp;|
 |-|file表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品编辑视图|DEEDITVIEW|&nbsp;|
 |-|解决Bug|DEOPTVIEW|&nbsp;|
