@@ -411,7 +411,7 @@ export class MoreMyDocTreeTreeBase extends MainControlBase {
                     return;
                 }
                 if (Object.is('load', action)) {
-                    this.inintData();
+                    this.initData();
                     this.load();
                 }
                 if (Object.is('filter', action)) {
@@ -433,7 +433,7 @@ export class MoreMyDocTreeTreeBase extends MainControlBase {
      * 
      * @memberof MoreMyDocTreeBase
      */
-    public inintData(){
+    public initData(){
         this.breadcrumbs.splice(1);
         this.mode = 'chart';
         this.curPage = 1;

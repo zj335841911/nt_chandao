@@ -1058,7 +1058,7 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
                     return;
                 }
                 if (Object.is('load', action)) {
-                    this.inintData();
+                    this.initData();
                     this.load();
                 }
                 if (Object.is('filter', action)) {
@@ -1080,7 +1080,7 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
      * 
      * @memberof DocLibTreeProjectBase
      */
-    public inintData(){
+    public initData(){
         this.breadcrumbs.splice(1);
         this.mode = 'chart';
         this.curPage = 1;

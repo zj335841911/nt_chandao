@@ -555,7 +555,7 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
                     return;
                 }
                 if (Object.is('load', action)) {
-                    this.inintData();
+                    this.initData();
                     this.load();
                 }
                 if (Object.is('filter', action)) {
@@ -577,7 +577,7 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
      * 
      * @memberof DocChildProductTreeViewBase
      */
-    public inintData(){
+    public initData(){
         this.breadcrumbs.splice(1);
         this.mode = 'chart';
         this.curPage = 1;
