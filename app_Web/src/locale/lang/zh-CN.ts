@@ -90,7 +90,8 @@ const data: any = {
     app: {
         directoryTree:{
             loading: "数据加载中",
-            placeholder: "文件名"
+            placeholder: "文件名",
+            noData: "暂无数据"
         },
         commonWords:{
             error: "失败",
