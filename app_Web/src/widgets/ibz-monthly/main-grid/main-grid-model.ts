@@ -27,19 +27,29 @@ export default class MainModel {
     }else{
 		  return [
         {
+          name: 'ibz_monthlyid',
+          prop: 'ibzmonthlyid',
+          dataType: 'ACID',
+        },
+        {
           name: 'ibz_monthlyname',
           prop: 'ibzmonthlyname',
           dataType: 'TEXT',
         },
         {
-          name: 'updateman',
-          prop: 'updateman',
-          dataType: 'TEXT',
+          name: 'account',
+          prop: 'account',
+          dataType: 'SSCODELIST',
         },
         {
-          name: 'updatedate',
-          prop: 'updatedate',
-          dataType: 'DATETIME',
+          name: 'date',
+          prop: 'date',
+          dataType: 'DATE',
+        },
+        {
+          name: 'issubmit',
+          prop: 'issubmit',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'srfmajortext',

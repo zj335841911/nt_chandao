@@ -25,8 +25,20 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
+            <template v-if="getColumnState('ibz_monthlyid')">
+                <el-table-column show-overflow-tooltip :prop="'ibz_monthlyid'" :label="$t('entities.ibzmonthly.main_grid.columns.ibz_monthlyid')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.ibzmonthly.main_grid.columns.ibz_monthlyid')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.ibz_monthlyid}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('ibz_monthlyname')">
-                <el-table-column show-overflow-tooltip :prop="'ibz_monthlyname'" :label="$t('entities.ibzmonthly.main_grid.columns.ibz_monthlyname')" :width="150"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'ibz_monthlyname'" :label="$t('entities.ibzmonthly.main_grid.columns.ibz_monthlyname')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibzmonthly.main_grid.columns.ibz_monthlyname')}}
@@ -37,29 +49,43 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('updateman')">
-                <el-table-column show-overflow-tooltip :prop="'updateman'" :label="$t('entities.ibzmonthly.main_grid.columns.updateman')" :width="150"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('account')">
+                <el-table-column show-overflow-tooltip :prop="'account'" :label="$t('entities.ibzmonthly.main_grid.columns.account')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzmonthly.main_grid.columns.updateman')}}
+                        {{$t('entities.ibzmonthly.main_grid.columns.account')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.updateman" tag="SysOperator" codelistType="DYNAMIC" ></codelist>
+            <codelist :value="row.account" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('updatedate')">
-                <el-table-column show-overflow-tooltip :prop="'updatedate'" :label="$t('entities.ibzmonthly.main_grid.columns.updatedate')" :width="150"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('date')">
+                <el-table-column show-overflow-tooltip :prop="'date'" :label="$t('entities.ibzmonthly.main_grid.columns.date')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzmonthly.main_grid.columns.updatedate')}}
+                        {{$t('entities.ibzmonthly.main_grid.columns.date')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                            <app-format-data format="YYYY-MM-DD HH:mm:ss" :data="row.updatedate"></app-format-data>
+                            <app-format-data format="YYYY-MM-DD" :data="row.date"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('issubmit')">
+                <el-table-column show-overflow-tooltip :prop="'issubmit'" :label="$t('entities.ibzmonthly.main_grid.columns.issubmit')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.ibzmonthly.main_grid.columns.issubmit')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.issubmit" tag="YesNo" codelistType="STATIC" ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>

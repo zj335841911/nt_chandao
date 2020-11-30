@@ -58,9 +58,11 @@ export default {
 	main_grid: {
 		nodata: "",
 		columns: {
+			ibz_monthlyid: "月报标识",
 			ibz_monthlyname: "月报名称",
-			updateman: "更新人",
-			updatedate: "更新时间",
+			account: "用户",
+			date: "日期",
+			issubmit: "是否提交",
 		},
 		uiactions: {
 		},

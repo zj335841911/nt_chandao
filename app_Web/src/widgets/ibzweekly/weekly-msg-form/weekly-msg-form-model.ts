@@ -56,29 +56,14 @@ export default class WeeklyMsgModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'ibz_weeklyid',
-        prop: 'ibzweeklyid',
-        dataType: 'ACID',
-      },
-      {
         name: 'ibz_weeklyname',
         prop: 'ibzweeklyname',
         dataType: 'TEXT',
       },
       {
-        name: 'thisweektask',
-        prop: 'thisweektask',
-        dataType: 'SMCODELIST',
-      },
-      {
         name: 'workthisweek',
         prop: 'workthisweek',
         dataType: 'HTMLTEXT',
-      },
-      {
-        name: 'nextweektask',
-        prop: 'nextweektask',
-        dataType: 'SMCODELIST',
       },
       {
         name: 'plannextweek',
@@ -109,6 +94,21 @@ export default class WeeklyMsgModel {
         name: 'reportto',
         prop: 'reportto',
         dataType: 'SSCODELIST',
+      },
+      {
+        name: 'thisweektask',
+        prop: 'thisweektask',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'nextweektask',
+        prop: 'nextweektask',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'ibz_weeklyid',
+        prop: 'ibzweeklyid',
+        dataType: 'ACID',
       },
       {
         name: 'ibzweekly',

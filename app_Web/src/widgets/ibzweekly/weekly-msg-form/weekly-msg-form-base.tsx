@@ -93,17 +93,17 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        ibz_weeklyid: null,
         ibz_weeklyname: null,
-        thisweektask: null,
         workthisweek: null,
-        nextweektask: null,
         plannextweek: null,
         comment: null,
         files: null,
         date: null,
         mailto: null,
         reportto: null,
+        thisweektask: null,
+        nextweektask: null,
+        ibz_weeklyid: null,
         ibzweekly: null,
     };
 
@@ -202,13 +202,6 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        ibz_weeklyid: new FormItemModel({
-    caption: '周报标识', detailType: 'FORMITEM', name: 'ibz_weeklyid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
         ibz_weeklyname: new FormItemModel({
     caption: '周报名称', detailType: 'FORMITEM', name: 'ibz_weeklyname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -216,22 +209,8 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        thisweektask: new FormItemModel({
-    caption: '本周完成任务', detailType: 'FORMITEM', name: 'thisweektask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
         workthisweek: new FormItemModel({
     caption: '本周工作', detailType: 'FORMITEM', name: 'workthisweek', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        nextweektask: new FormItemModel({
-    caption: '下周计划任务', detailType: 'FORMITEM', name: 'nextweektask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -274,6 +253,27 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
 
         reportto: new FormItemModel({
     caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        thisweektask: new FormItemModel({
+    caption: '本周完成任务', detailType: 'FORMITEM', name: 'thisweektask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        nextweektask: new FormItemModel({
+    caption: '下周计划任务', detailType: 'FORMITEM', name: 'nextweektask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        ibz_weeklyid: new FormItemModel({
+    caption: '周报标识', detailType: 'FORMITEM', name: 'ibz_weeklyid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

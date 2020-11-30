@@ -302,6 +302,9 @@ export class DailyEditEditFormBase extends EditFormControlBase {
      * @memberof DailyEditEditFormBase
      */
     public createDefault() {                    
+        if (this.data.hasOwnProperty('ibz_dailyname')) {
+            this.data['ibz_dailyname'] = this.context['srfusername'];
+        }
         if (this.data.hasOwnProperty('date')) {
             this.data['date'] = this.$util.dateFormat(new Date());
         }

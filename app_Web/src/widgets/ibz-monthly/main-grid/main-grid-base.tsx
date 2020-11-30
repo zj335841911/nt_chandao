@@ -84,6 +84,13 @@ export class MainGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "ibz_monthlyname";
 
+    /**
+     * 列主键属性名称
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public columnKeyName: string = "ibz_monthlyid";
 
     /**
      * 本地缓存标识
@@ -102,6 +109,15 @@ export class MainGridBase extends GridControlBase {
      */
     public allColumns: any[] = [
         {
+            name: 'ibz_monthlyid',
+            label: '月报标识',
+            langtag: 'entities.ibzmonthly.main_grid.columns.ibz_monthlyid',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'ibz_monthlyname',
             label: '月报名称',
             langtag: 'entities.ibzmonthly.main_grid.columns.ibz_monthlyname',
@@ -111,18 +127,27 @@ export class MainGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'updateman',
-            label: '更新人',
-            langtag: 'entities.ibzmonthly.main_grid.columns.updateman',
+            name: 'account',
+            label: '用户',
+            langtag: 'entities.ibzmonthly.main_grid.columns.account',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'updatedate',
-            label: '更新时间',
-            langtag: 'entities.ibzmonthly.main_grid.columns.updatedate',
+            name: 'date',
+            label: '日期',
+            langtag: 'entities.ibzmonthly.main_grid.columns.date',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'issubmit',
+            label: '是否提交',
+            langtag: 'entities.ibzmonthly.main_grid.columns.issubmit',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -229,9 +254,11 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public hasRowEdit: any = {
+        'ibz_monthlyid':false,
         'ibz_monthlyname':false,
-        'updateman':false,
-        'updatedate':false,
+        'account':false,
+        'date':false,
+        'issubmit':false,
     };
 
     /**
@@ -302,9 +329,17 @@ export class MainGridBase extends GridControlBase {
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
             {
-                name: 'updateman',
-                srfkey: 'SysOperator',
+                name: 'account',
+                srfkey: 'UserRealName',
                 codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'issubmit',
+                srfkey: 'YesNo',
+                codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',
                 valueSeparator: ',',
@@ -327,7 +362,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ibz_monthlyname','updateman','updatedate'];
+        let allColumns:Array<any> = ['ibz_monthlyid','ibz_monthlyname','account','date','issubmit'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -406,9 +441,11 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
+                ibz_monthlyid:'',
                 ibz_monthlyname:'',
-                updateman:'',
-                updatedate:'',
+                account:'',
+                date:'',
+                issubmit:'',
                 children: children
             }
             groupTree.push(tree);
@@ -433,9 +470,11 @@ export class MainGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
+            ibz_monthlyid:'',
             ibz_monthlyname:'',
-            updateman:'',
-            updatedate:'',
+            account:'',
+            date:'',
+            issubmit:'',
             children: child
         }
         if(child && child.length > 0){
@@ -496,9 +535,11 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
+                ibz_monthlyid:'',
                 ibz_monthlyname:'',
-                updateman:'',
-                updatedate:'',
+                account:'',
+                date:'',
+                issubmit:'',
                 children: children,
             }
             groupTree.push(tree);

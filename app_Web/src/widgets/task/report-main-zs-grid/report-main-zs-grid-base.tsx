@@ -102,6 +102,14 @@ export class ReportMainZSGridBase extends GridControlBase {
     protected localStorageTag: string = 'zt_task_reportmainzs_grid';
 
     /**
+     * 是否支持分页
+     *
+     * @type {boolean}
+     * @memberof ReportMainZSGridBase
+     */
+    public isEnablePagingBar: boolean = false;
+
+    /**
      * 排序方向
      *
      * @type {string}
@@ -116,6 +124,14 @@ export class ReportMainZSGridBase extends GridControlBase {
      * @memberof ReportMainZSGridBase
      */
     public minorSortPSDEF: string = 'id';
+
+    /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof ReportMainZSGridBase
+     */
+    public limit: number = 100;
 
     /**
      * 所有列成员

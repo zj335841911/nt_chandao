@@ -69,6 +69,20 @@ export class TaskZsGridView9Base extends GridView9Base {
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskZsGridView9Base
+	 */
+    protected customViewParams: any = {
+        'size': {
+            isRawValue: true,
+            value: '100',
+        }
+    };
+
     /**
      * 视图模型数据
      *
