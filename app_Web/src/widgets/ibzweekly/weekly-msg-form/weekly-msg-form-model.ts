@@ -76,11 +76,6 @@ export default class WeeklyMsgModel {
         dataType: 'TEXT',
       },
       {
-        name: 'files',
-        prop: 'files',
-        dataType: 'TEXT',
-      },
-      {
         name: 'date',
         prop: 'date',
         dataType: 'DATE',

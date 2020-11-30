@@ -141,4 +141,20 @@ export interface IbzDaily {
      * @memberof IbzDaily
      */
     comment?: any;
+
+    /**
+     * 建立人名称
+     *
+     * @returns {*}
+     * @memberof IbzDaily
+     */
+    createmanname?: any;
+
+    /**
+     * 更新人名称
+     *
+     * @returns {*}
+     * @memberof IbzDaily
+     */
+    updatemanname?: any;
 }

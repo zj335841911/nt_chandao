@@ -280,7 +280,9 @@ POST
 | 15 | tomorrowplanstask | String | 允许 | 明日计划任务 |
 | 16 | reportto | String | 允许 | 汇报给 |
 | 17 | comment | String | 允许 | 其他事项 |
-| 18 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 18 | createmanname | String | 不可 | 建立人名称 |
+| 19 | updatemanname | String | 不可 | 更新人名称 |
+| 20 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzDailySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

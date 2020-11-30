@@ -10774,6 +10774,36 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"CREATEMANNAME" ,
+    "codename":"CreateManName",
+    "field_logic_name":"建立人名称",
+    "entity_name":"IbzDaily",
+    "field_type":"TEXT",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"CREATEMANNAME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEMANNAME" ,
+    "codename":"UpdateManName",
+    "field_logic_name":"更新人名称",
+    "entity_name":"IbzDaily",
+    "field_type":"TEXT",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"UPDATEMANNAME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

@@ -1383,6 +1383,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CompanyDeptUserTreeExpView",
             "viewtag": "4cb497e84dfabd873bc62d5386d5551f"
         },
+        "ibzmonthlymainmsgeditview": {
+            "title": "月报编辑视图",
+            "caption": "主信息",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "report",
+            "viewname": "IbzMonthlyMainMsgEditView",
+            "viewtag": "4d1285fe32c0a29579db88b5adf12f73"
+        },
         "testtaskeditview_committest": {
             "title": "提交测试",
             "caption": "测试版本",

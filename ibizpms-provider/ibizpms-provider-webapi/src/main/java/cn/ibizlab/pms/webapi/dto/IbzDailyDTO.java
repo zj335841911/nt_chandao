@@ -182,6 +182,24 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String comment;
 
+    /**
+     * 属性 [CREATEMANNAME]
+     *
+     */
+    @JSONField(name = "createmanname")
+    @JsonProperty("createmanname")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String createmanname;
+
+    /**
+     * 属性 [UPDATEMANNAME]
+     *
+     */
+    @JSONField(name = "updatemanname")
+    @JsonProperty("updatemanname")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String updatemanname;
+
 
     /**
      * 设置 [IBZ_DAILYNAME]

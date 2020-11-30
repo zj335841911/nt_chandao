@@ -27,6 +27,10 @@ zuul:
       path: /users/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_daily:
+      path: /ibzdailies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_favorites:
       path: /ibzfavorites/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

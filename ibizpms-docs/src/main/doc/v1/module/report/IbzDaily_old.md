@@ -26,6 +26,8 @@
 |明日计划任务|TOMORROWPLANSTASK|SMCODELIST|&nbsp;|
 |汇报给|REPORTTO|SSCODELIST|&nbsp;|
 |其他事项|COMMENT|HTMLTEXT|&nbsp;|
+|建立人名称|CREATEMANNAME|TEXT|&nbsp;|
+|更新人名称|UPDATEMANNAME|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -47,6 +49,8 @@
 |明日计划任务|默认规则|内容长度必须小于等于[2000]|
 |汇报给|默认规则|内容长度必须小于等于[60]|
 |其他事项|默认规则|内容长度必须小于等于[1048576]|
+|建立人名称|默认规则|内容长度必须小于等于[60]|
+|更新人名称|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 

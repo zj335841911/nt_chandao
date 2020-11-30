@@ -172,6 +172,22 @@ public class IbzDaily extends EntityMP implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
+    /**
+     * 建立人名称
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
+    @TableField(value = "`createmanname`")
+    @JSONField(name = "createmanname")
+    @JsonProperty("createmanname")
+    private String createmanname;
+    /**
+     * 更新人名称
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMANNAME)
+    @TableField(value = "`updatemanname`")
+    @JSONField(name = "updatemanname")
+    @JsonProperty("updatemanname")
+    private String updatemanname;
 
 
 

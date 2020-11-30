@@ -17,6 +17,8 @@ export default {
     tomorrowplanstask: "明日计划任务",
     reportto: "汇报给",
     comment: "其他事项",
+    createmanname: "建立人名称",
+    updatemanname: "更新人名称",
   },
 	views: {
 		dailyeditview: {

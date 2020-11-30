@@ -19,6 +19,10 @@ export default {
     issubmit: "是否提交",
   },
 	views: {
+		mainmsgeditview: {
+			caption: "主信息",
+      		title: "月报编辑视图",
+		},
 		newmonthlyeditview: {
 			caption: "月报",
       		title: "月报编辑视图",
@@ -51,6 +55,24 @@ export default {
 			ibz_monthlyid: "月报标识", 
 			account: "用户", 
 			issubmit: "是否提交", 
+		},
+		uiactions: {
+		},
+	},
+	mainmsg_form: {
+		details: {
+			group1: "月报基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "更新时间", 
+			srforikey: "", 
+			srfkey: "月报标识", 
+			srfmajortext: "月报名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			ibz_monthlyname: "月报名称", 
+			ibz_monthlyid: "月报标识", 
 		},
 		uiactions: {
 		},

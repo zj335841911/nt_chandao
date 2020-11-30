@@ -106,7 +106,6 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
         workthisweek: null,
         plannextweek: null,
         comment: null,
-        files: null,
         date: null,
         mailto: null,
         reportto: null,
@@ -151,9 +150,9 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
      * @memberof WeeklyMsgEditFormBase
      */
     public detailsModel: any = {
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        druipart2: new FormDRUIPartModel({ caption: '附件', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        druipart1: new FormDRUIPartModel({ caption: '操作历史', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         group1: new FormGroupPanelModel({ caption: '周报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzweekly.weeklymsg_form', extractMode: 'ITEM', details: [] } }),
 
@@ -238,13 +237,6 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
 
         comment: new FormItemModel({
     caption: '其他事项', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        files: new FormItemModel({
-    caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

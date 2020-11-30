@@ -42,8 +42,8 @@ export default {
 	},
 	weeklymsg_form: {
 		details: {
-			druipart2: "", 
-			druipart1: "", 
+			druipart2: "附件", 
+			druipart1: "操作历史", 
 			group1: "周报基本信息", 
 			formpage1: "基本信息", 
 			srfupdatedate: "更新时间", 
@@ -58,7 +58,6 @@ export default {
 			workthisweek: "本周工作", 
 			plannextweek: "下周计划", 
 			comment: "其他事项", 
-			files: "附件", 
 			date: "日期", 
 			mailto: "抄送给", 
 			reportto: "汇报给", 
