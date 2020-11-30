@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzMonthlyMonthlyMainMsgEditViewBase } from './ibz-monthly-monthly-main-msg-edit-view-base';
-import view_form from '@widgets/ibz-monthly/main-msg-form/main-msg-form.vue';
+import view_form from '@widgets/ibz-monthly/main-info-form/main-info-form.vue';
 
 /**
  * 月报编辑视图视图

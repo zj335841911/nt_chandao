@@ -66,9 +66,18 @@ export default {
 		uiactions: {
 		},
 	},
-	mainmsg_form: {
+	maininfo_form: {
 		details: {
+			druipart1: "", 
+			grouppanel1: "附件", 
+			druipart2: "", 
+			grouppanel2: "操作", 
 			group1: "月报基本信息", 
+			druipart3: "", 
+			grouppanel4: "完成任务", 
+			druipart4: "", 
+			grouppanel5: "计划参与", 
+			grouppanel3: "分组面板", 
 			formpage1: "基本信息", 
 			srfupdatedate: "更新时间", 
 			srforikey: "", 
@@ -79,7 +88,17 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			ibz_monthlyname: "月报名称", 
+			date: "日期", 
+			workthismonth: "本月工作", 
+			plansnextmonth: "下月计划", 
+			comment: "其他事项", 
+			reportto: "汇报给", 
+			mailto: "抄送给", 
+			thismonthtask: "本月完成任务", 
+			nextmonthplanstask: "下月计划任务", 
 			ibz_monthlyid: "月报标识", 
+			account: "用户", 
+			issubmit: "是否提交", 
 		},
 		uiactions: {
 		},
