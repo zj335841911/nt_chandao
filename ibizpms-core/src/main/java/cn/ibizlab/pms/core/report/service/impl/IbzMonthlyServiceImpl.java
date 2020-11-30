@@ -51,22 +51,16 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(IbzMonthly et) {
-        if (!this.retBool(this.baseMapper.insert(et))) {
-            return false;
-        }
-        CachedBeanCopier.copy(get(et.getIbzmonthlyid()), et);
-        return true;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).create(et);
     }
 
     @Override
-    @Transactional
     public void createBatch(List<IbzMonthly> list) {
-        this.saveBatch(list, batchSize);
-    }
 
+    }
     @Override
     @Transactional
     public boolean update(IbzMonthly et) {

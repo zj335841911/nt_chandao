@@ -1316,6 +1316,7 @@ hide footbox
 |MyTomorrowPlanTask|我计划参与的任务（汇报）|MyTomorrowPlanTask|否|&nbsp;|
 |ProjectTask|项目任务|ProjectTask|否|&nbsp;|
 |RootTask|根任务|RootTask|否|&nbsp;|
+|ThisWeekCompleteTask|本周完成的任务(汇报)|ThisWeekCompleteTask|否|&nbsp;|
 |TodoListTask|todo列表查询|TodoListTask|否|&nbsp;|
 |TypeGroup|任务类型分组|TypeGroup|否|&nbsp;|
 

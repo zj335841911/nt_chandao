@@ -7820,6 +7820,16 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 
                 disabled: false,
             },
+            {
+                id: "submit",
+                label: "提交",
+                text: "提交",
+                "data":"",
+                "codename":"Submit",
+                value: "submit",
+                
+                disabled: false,
+            },
         ]
     },
     {
