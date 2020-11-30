@@ -3,8 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskUsr2GridViewBase } from './task-usr2-grid-view-base';
-import view_grid from '@widgets/task/main-grid/main-grid.vue';
-import view_searchform from '@widgets/task/default-searchform/default-searchform.vue';
+import view_grid from '@widgets/task/report-main-grid/report-main-grid.vue';
 
 /**
  * 任务表格视图视图
@@ -16,7 +15,6 @@ import view_searchform from '@widgets/task/default-searchform/default-searchform
 @Component({
     components: {
         view_grid, 
-        view_searchform, 
     }
 })
 @VueLifeCycleProcessing()

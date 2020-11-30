@@ -1224,6 +1224,26 @@ export default {
         task_assigntask: "指派",
 		},
 	},
+	reportmain_grid: {
+		nodata: "",
+		columns: {
+			id: "ID",
+			pri: "P",
+			productname: "产品",
+			projectname: "所属项目",
+			name: "任务名称",
+			status1: "任务状态",
+			assignedto: "指派给",
+			finishedby: "完成者",
+			estimate: "预计",
+			consumed: "消耗",
+			left: "剩余",
+			progressrate: "%",
+			deadline: "截止日期",
+		},
+		uiactions: {
+		},
+	},
 	reportmainzs_grid: {
 		nodata: "",
 		columns: {
@@ -1253,26 +1273,6 @@ export default {
 			status1: "任务状态",
 			consumed: "总计消耗",
 			left: "预计剩余",
-		},
-		uiactions: {
-		},
-	},
-	reportmain_grid: {
-		nodata: "",
-		columns: {
-			id: "ID",
-			pri: "P",
-			productname: "产品",
-			projectname: "所属项目",
-			name: "任务名称",
-			status1: "任务状态",
-			assignedto: "指派给",
-			finishedby: "完成者",
-			estimate: "预计",
-			consumed: "消耗",
-			left: "剩余",
-			progressrate: "%",
-			deadline: "截止日期",
 		},
 		uiactions: {
 		},

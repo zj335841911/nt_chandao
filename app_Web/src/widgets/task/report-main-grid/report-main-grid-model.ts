@@ -159,7 +159,6 @@ export default class ReportMainModel {
           name: 'task',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'
