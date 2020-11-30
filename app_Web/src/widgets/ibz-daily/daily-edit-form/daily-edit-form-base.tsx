@@ -125,6 +125,62 @@ export class DailyEditEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
+            todaytask: [
+                {
+                    required: this.detailsModel.todaytask.required,
+                    type: 'string',
+                    message: '完成任务 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.todaytask.required,
+                    type: 'string',
+                    message: '完成任务 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
+            worktoday: [
+                {
+                    required: this.detailsModel.worktoday.required,
+                    type: 'string',
+                    message: '今日工作 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.worktoday.required,
+                    type: 'string',
+                    message: '今日工作 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
+            tomorrowplanstask: [
+                {
+                    required: this.detailsModel.tomorrowplanstask.required,
+                    type: 'string',
+                    message: '明日计划任务 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.tomorrowplanstask.required,
+                    type: 'string',
+                    message: '明日计划任务 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
+            planstomorrow: [
+                {
+                    required: this.detailsModel.planstomorrow.required,
+                    type: 'string',
+                    message: '明日计划 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.planstomorrow.required,
+                    type: 'string',
+                    message: '明日计划 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
         }
     }
 
@@ -220,28 +276,28 @@ export class DailyEditEditFormBase extends EditFormControlBase {
 
         todaytask: new FormItemModel({
     caption: '完成任务', detailType: 'FORMITEM', name: 'todaytask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
 
         worktoday: new FormItemModel({
     caption: '今日工作', detailType: 'FORMITEM', name: 'worktoday', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
 
         tomorrowplanstask: new FormItemModel({
     caption: '明日计划任务', detailType: 'FORMITEM', name: 'tomorrowplanstask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
 
         planstomorrow: new FormItemModel({
     caption: '明日计划', detailType: 'FORMITEM', name: 'planstomorrow', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
