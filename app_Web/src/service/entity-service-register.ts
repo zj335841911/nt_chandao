@@ -50,6 +50,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('productsum', () => import('@/service/product-sum/product-sum-service'));
         this.allEntityService.set('ibzlibcasesteps', () => import('@/service/ibz-lib-casesteps/ibz-lib-casesteps-service'));
         this.allEntityService.set('ibzlib', () => import('@/service/ibz-lib/ibz-lib-service'));
+        this.allEntityService.set('ibzdaily', () => import('@/service/ibz-daily/ibz-daily-service'));
         this.allEntityService.set('suitecase', () => import('@/service/suite-case/suite-case-service'));
         this.allEntityService.set('burn', () => import('@/service/burn/burn-service'));
         this.allEntityService.set('substory', () => import('@/service/sub-story/sub-story-service'));
@@ -105,6 +106,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('testreport', () => import('@/service/test-report/test-report-service'));
         this.allEntityService.set('projectstats', () => import('@/service/project-stats/project-stats-service'));
         this.allEntityService.set('testrun', () => import('@/service/test-run/test-run-service'));
+        this.allEntityService.set('ibzmonthly', () => import('@/service/ibz-monthly/ibz-monthly-service'));
         this.allEntityService.set('ibzmyterritory', () => import('@/service/ibz-my-territory/ibz-my-territory-service'));
         this.allEntityService.set('sysupdatelog', () => import('@/service/sys-update-log/sys-update-log-service'));
         this.allEntityService.set('doc', () => import('@/service/doc/doc-service'));

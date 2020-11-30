@@ -11,6 +11,7 @@ import ibzprostorymodule_en_US from '@locale/lanres/entities/ibzpro-story-module
 import productsum_en_US from '@locale/lanres/entities/product-sum/product-sum_en_US';
 import ibzlibcasesteps_en_US from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_en_US';
 import ibzlib_en_US from '@locale/lanres/entities/ibz-lib/ibz-lib_en_US';
+import ibzdaily_en_US from '@locale/lanres/entities/ibz-daily/ibz-daily_en_US';
 import suitecase_en_US from '@locale/lanres/entities/suite-case/suite-case_en_US';
 import burn_en_US from '@locale/lanres/entities/burn/burn_en_US';
 import substory_en_US from '@locale/lanres/entities/sub-story/sub-story_en_US';
@@ -66,6 +67,7 @@ import pssyssfpub_en_US from '@locale/lanres/entities/pssys-sfpub/pssys-sfpub_en
 import testreport_en_US from '@locale/lanres/entities/test-report/test-report_en_US';
 import projectstats_en_US from '@locale/lanres/entities/project-stats/project-stats_en_US';
 import testrun_en_US from '@locale/lanres/entities/test-run/test-run_en_US';
+import ibzmonthly_en_US from '@locale/lanres/entities/ibz-monthly/ibz-monthly_en_US';
 import ibzmyterritory_en_US from '@locale/lanres/entities/ibz-my-territory/ibz-my-territory_en_US';
 import sysupdatelog_en_US from '@locale/lanres/entities/sys-update-log/sys-update-log_en_US';
 import doc_en_US from '@locale/lanres/entities/doc/doc_en_US';
@@ -355,6 +357,7 @@ const data: any = {
         productsum: productsum_en_US,
         ibzlibcasesteps: ibzlibcasesteps_en_US,
         ibzlib: ibzlib_en_US,
+        ibzdaily: ibzdaily_en_US,
         suitecase: suitecase_en_US,
         burn: burn_en_US,
         substory: substory_en_US,
@@ -410,6 +413,7 @@ const data: any = {
         testreport: testreport_en_US,
         projectstats: projectstats_en_US,
         testrun: testrun_en_US,
+        ibzmonthly: ibzmonthly_en_US,
         ibzmyterritory: ibzmyterritory_en_US,
         sysupdatelog: sysupdatelog_en_US,
         doc: doc_en_US,

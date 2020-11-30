@@ -7171,6 +7171,52 @@ LEFT JOIN zt_testsuite t21 ON t1.LIB = t21.ID
 
 ```
 
+# **日报**(IBZ_DAILY)
+
+### 数据查询(DEFAULT)<div id="IbzDaily_Default"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`PLANSTOMORROW`,
+t1.`REPORTTO`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_DAILY` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzDaily_View"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`PLANSTOMORROW`,
+t1.`REPORTTO`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`WORKTODAY`
+FROM `T_IBZ_DAILY` t1 
+
+```
+
 # **收藏**(IBZ_FAVORITES)
 
 ### 数据查询(DEFAULT)<div id="IbzFavorites_Default"></div>
@@ -7362,6 +7408,50 @@ t1.`SHORT`,
 t1.`TYPE`
 FROM `zt_module` t1 
 LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID 
+
+```
+
+# **月报**(IBZ_MONTHLY)
+
+### 数据查询(DEFAULT)<div id="IbzMonthly_Default"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBZ_MONTHLYID`,
+t1.`IBZ_MONTHLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`NEXTMONTHPLANSTASK`,
+t1.`REPORTTO`,
+t1.`THISMONTHTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_MONTHLY` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzMonthly_View"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBZ_MONTHLYID`,
+t1.`IBZ_MONTHLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`NEXTMONTHPLANSTASK`,
+t1.`PLANSNEXTMONTH`,
+t1.`REPORTTO`,
+t1.`THISMONTHTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`WORKTHISMONTH`
+FROM `T_IBZ_MONTHLY` t1 
 
 ```
 
@@ -7623,6 +7713,47 @@ t1.`TYPE`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_TOP` t1 
+
+```
+
+# **周报**(IBZ_WEEKLY)
+
+### 数据查询(DEFAULT)<div id="IbzWeekly_Default"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBZ_WEEKLYID`,
+t1.`IBZ_WEEKLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`REPORTTO`,
+t1.`TODAYTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_WEEKLY` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzWeekly_View"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DATE`,
+t1.`IBZ_WEEKLYID`,
+t1.`IBZ_WEEKLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`REPORTTO`,
+t1.`TODAYTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_WEEKLY` t1 
 
 ```
 

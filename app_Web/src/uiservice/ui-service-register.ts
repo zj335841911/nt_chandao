@@ -50,6 +50,7 @@ export class UIServiceRegister {
         this.allUIService.set('productsum', () => import('@/uiservice/product-sum/product-sum-ui-service'));
         this.allUIService.set('ibzlibcasesteps', () => import('@/uiservice/ibz-lib-casesteps/ibz-lib-casesteps-ui-service'));
         this.allUIService.set('ibzlib', () => import('@/uiservice/ibz-lib/ibz-lib-ui-service'));
+        this.allUIService.set('ibzdaily', () => import('@/uiservice/ibz-daily/ibz-daily-ui-service'));
         this.allUIService.set('suitecase', () => import('@/uiservice/suite-case/suite-case-ui-service'));
         this.allUIService.set('burn', () => import('@/uiservice/burn/burn-ui-service'));
         this.allUIService.set('substory', () => import('@/uiservice/sub-story/sub-story-ui-service'));
@@ -105,6 +106,7 @@ export class UIServiceRegister {
         this.allUIService.set('testreport', () => import('@/uiservice/test-report/test-report-ui-service'));
         this.allUIService.set('projectstats', () => import('@/uiservice/project-stats/project-stats-ui-service'));
         this.allUIService.set('testrun', () => import('@/uiservice/test-run/test-run-ui-service'));
+        this.allUIService.set('ibzmonthly', () => import('@/uiservice/ibz-monthly/ibz-monthly-ui-service'));
         this.allUIService.set('ibzmyterritory', () => import('@/uiservice/ibz-my-territory/ibz-my-territory-ui-service'));
         this.allUIService.set('sysupdatelog', () => import('@/uiservice/sys-update-log/sys-update-log-ui-service'));
         this.allUIService.set('doc', () => import('@/uiservice/doc/doc-ui-service'));

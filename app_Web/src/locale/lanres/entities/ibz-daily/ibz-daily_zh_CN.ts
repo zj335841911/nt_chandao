@@ -1,0 +1,21 @@
+export default {
+  fields: {
+    createman: "建立人",
+    ibzdailyid: "日报标识",
+    ibzdailyname: "日报名称",
+    updatedate: "更新时间",
+    createdate: "建立时间",
+    updateman: "更新人",
+    date: "日期",
+    account: "用户",
+    worktoday: "今日工作",
+    mailto: "抄送给",
+    files: "附件",
+    todaytask: "完成任务",
+    issubmit: "是否提交",
+    planstomorrow: "明日计划",
+    tomorrowplanstask: "明日计划任务",
+    reportto: "汇报给",
+    comment: "其他事项",
+  },
+};

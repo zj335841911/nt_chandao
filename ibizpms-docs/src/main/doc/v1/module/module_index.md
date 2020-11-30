@@ -692,6 +692,15 @@ hide members
 
 package 汇报模块 {
 
+class 日报 {
+}
+
+class 月报 {
+}
+
+class 周报 {
+}
+
 
 
 }

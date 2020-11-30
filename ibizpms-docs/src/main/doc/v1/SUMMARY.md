@@ -230,6 +230,12 @@
 
   * [汇报模块](module/report.md) 
 
+    * [日报](module/report/IbzDaily.md) 
+
+    * [月报](module/report/IbzMonthly.md) 
+
+    * [周报](module/report/IbzWeekly.md) 
+
   * [iBiz系统模型](module/ibizsysmodel.md) 
 
     * [实体属性](module/ibizsysmodel/PSDEField.md) 

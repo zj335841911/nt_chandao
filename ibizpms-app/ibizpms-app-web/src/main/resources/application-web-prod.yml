@@ -51,6 +51,10 @@ zuul:
       path: /ibzlibs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_daily:
+      path: /ibzdailies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_suitecase:
       path: /suitecases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -269,6 +273,10 @@ zuul:
       stripPrefix: false
     zt_testrun:
       path: /testruns/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_monthly:
+      path: /ibzmonthlies/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_myterritory:

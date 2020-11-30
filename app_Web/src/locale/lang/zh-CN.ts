@@ -11,6 +11,7 @@ import ibzprostorymodule_zh_CN from '@locale/lanres/entities/ibzpro-story-module
 import productsum_zh_CN from '@locale/lanres/entities/product-sum/product-sum_zh_CN';
 import ibzlibcasesteps_zh_CN from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_zh_CN';
 import ibzlib_zh_CN from '@locale/lanres/entities/ibz-lib/ibz-lib_zh_CN';
+import ibzdaily_zh_CN from '@locale/lanres/entities/ibz-daily/ibz-daily_zh_CN';
 import suitecase_zh_CN from '@locale/lanres/entities/suite-case/suite-case_zh_CN';
 import burn_zh_CN from '@locale/lanres/entities/burn/burn_zh_CN';
 import substory_zh_CN from '@locale/lanres/entities/sub-story/sub-story_zh_CN';
@@ -66,6 +67,7 @@ import pssyssfpub_zh_CN from '@locale/lanres/entities/pssys-sfpub/pssys-sfpub_zh
 import testreport_zh_CN from '@locale/lanres/entities/test-report/test-report_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/entities/project-stats/project-stats_zh_CN';
 import testrun_zh_CN from '@locale/lanres/entities/test-run/test-run_zh_CN';
+import ibzmonthly_zh_CN from '@locale/lanres/entities/ibz-monthly/ibz-monthly_zh_CN';
 import ibzmyterritory_zh_CN from '@locale/lanres/entities/ibz-my-territory/ibz-my-territory_zh_CN';
 import sysupdatelog_zh_CN from '@locale/lanres/entities/sys-update-log/sys-update-log_zh_CN';
 import doc_zh_CN from '@locale/lanres/entities/doc/doc_zh_CN';
@@ -354,6 +356,7 @@ const data: any = {
         productsum: productsum_zh_CN,
         ibzlibcasesteps: ibzlibcasesteps_zh_CN,
         ibzlib: ibzlib_zh_CN,
+        ibzdaily: ibzdaily_zh_CN,
         suitecase: suitecase_zh_CN,
         burn: burn_zh_CN,
         substory: substory_zh_CN,
@@ -409,6 +412,7 @@ const data: any = {
         testreport: testreport_zh_CN,
         projectstats: projectstats_zh_CN,
         testrun: testrun_zh_CN,
+        ibzmonthly: ibzmonthly_zh_CN,
         ibzmyterritory: ibzmyterritory_zh_CN,
         sysupdatelog: sysupdatelog_zh_CN,
         doc: doc_zh_CN,

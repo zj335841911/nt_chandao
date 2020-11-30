@@ -7,6 +7,15 @@
 
 package 汇报模块 {
 
+class 日报 {
+}
+
+class 月报 {
+}
+
+class 周报 {
+}
+
 
 
 }
@@ -20,3 +29,6 @@ hide members
 
 | 实体编号    |    实体名称    |  实体类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
+|IBZ_DAILY|[日报](report/IbzDaily.md)|主实体|&nbsp;|
+|IBZ_MONTHLY|[月报](report/IbzMonthly.md)|主实体|&nbsp;|
+|IBZ_WEEKLY|[周报](report/IbzWeekly.md)|主实体|&nbsp;|

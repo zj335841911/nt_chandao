@@ -1397,7 +1397,10 @@ public class StaticDict {
         CASELIB("caselib","用例库"),
         TESTREPORT("testreport","报告"),
         ENTRY("entry","应用"),
-        WEBHOOK("webhook","Webhook");
+        WEBHOOK("webhook","Webhook"),
+        DAILY("daily","日报"),
+        WEEKLY("weekly","周报"),
+        MONTHLY("monthly","月报");
 
         private String value;
         private String text;
@@ -3311,7 +3314,10 @@ public class StaticDict {
         CASELIB("caselib","用例库"),
         TESTREPORT("testreport","报告"),
         ENTRY("entry","应用"),
-        WEBHOOK("webhook","Webhook");
+        WEBHOOK("webhook","Webhook"),
+        DAILY("daily","日报"),
+        WEEKLY("weekly","周报"),
+        MONTHLY("monthly","月报");
 
         private String value;
         private String text;

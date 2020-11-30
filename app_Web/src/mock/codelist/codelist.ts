@@ -3687,6 +3687,36 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 
                 disabled: false,
             },
+            {
+                id: "daily",
+                label: "日报",
+                text: "日报",
+                "data":"",
+                "codename":"Daily",
+                value: "daily",
+                
+                disabled: false,
+            },
+            {
+                id: "weekly",
+                label: "周报",
+                text: "周报",
+                "data":"",
+                "codename":"Weekly",
+                value: "weekly",
+                
+                disabled: false,
+            },
+            {
+                id: "monthly",
+                label: "月报",
+                text: "月报",
+                "data":"",
+                "codename":"Monthly",
+                value: "monthly",
+                
+                disabled: false,
+            },
         ]
     },
     {
@@ -6018,6 +6048,36 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Webhook",
                 value: "webhook",
+                
+                disabled: false,
+            },
+            {
+                id: "daily",
+                label: "日报",
+                text: "日报",
+                "data":"",
+                "codename":"Daily",
+                value: "daily",
+                
+                disabled: false,
+            },
+            {
+                id: "weekly",
+                label: "周报",
+                text: "周报",
+                "data":"",
+                "codename":"Weekly",
+                value: "weekly",
+                
+                disabled: false,
+            },
+            {
+                id: "monthly",
+                label: "月报",
+                text: "月报",
+                "data":"",
+                "codename":"Monthly",
+                value: "monthly",
                 
                 disabled: false,
             },
