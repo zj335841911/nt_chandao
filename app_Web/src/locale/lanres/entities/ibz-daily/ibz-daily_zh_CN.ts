@@ -78,5 +78,33 @@ export default {
 		},
 	},
 	dailygridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction4: {
+			caption: "导出",
+			tip: "导出",
+		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 };
