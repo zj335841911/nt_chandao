@@ -1053,6 +1053,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '371c02ab5108f29501f89e273ebd39d1',
+            viewmodule: 'zentao',
+            viewname: 'TaskZsGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ea141fddc78fd1af4d06e494baf12cc1',
+            ],
+        },
+        {
             viewtag: '376e2623b256509cdf69e2de4c01d31b',
             viewmodule: 'zentao',
             viewname: 'ProjectMainMyGridView',
@@ -2056,6 +2066,18 @@ export const viewstate: any = {
                 '1877f0428a710631da1becb3931873a0',
                 'f7e64f3828c862a4bce56437e1e51069',
                 '73fbcf0e3685096f63587bcff234f958',
+            ],
+        },
+        {
+            viewtag: '6b63300dfe7c9f777eda7627fc02d822',
+            viewmodule: 'report',
+            viewname: 'IbzDailymainEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
+                '371c02ab5108f29501f89e273ebd39d1',
+                'aeee411b8bffcf0c30d65557a8deeeee',
             ],
         },
         {
@@ -3281,6 +3303,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '6b63300dfe7c9f777eda7627fc02d822',
                 '1edacc9f865e00cd6cd2ea0475e8dd26',
             ],
         },
