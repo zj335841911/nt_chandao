@@ -105,22 +105,22 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    
-<rich-text-editor 
-    :formState="formState" 
+    <app-rich-text-editor
+    :formState="formState"
     :value="data.worktoday"
     @change="(val) =>{this.data.worktoday =val}"
-    @formitemvaluechange="onFormItemValueChange($event)" 
-    :disabled="detailsModel.worktoday.disabled" 
-    :data="JSON.stringify(this.data)"  
-    name="worktoday" 
-    :viewparams="viewparams"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.worktoday.disabled"
+    :data="JSON.stringify(this.data)"
+    name="worktoday"
     :context="context"
-    :uploadparams='{objecttype:"daily",version:"editor"}' 
-    :exportparams='{objecttype:"daily",version:"editor"}' 
-    :templParams='{ }' 
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"daily",version:"editor"}'
+    :exportparams='{objecttype:"daily",version:"editor"}'
+    
     style=""
-></rich-text-editor>
+></app-rich-text-editor>
+
 </app-form-item>
 
 </i-col>
@@ -185,22 +185,22 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    
-<rich-text-editor 
-    :formState="formState" 
+    <app-rich-text-editor
+    :formState="formState"
     :value="data.planstomorrow"
     @change="(val) =>{this.data.planstomorrow =val}"
-    @formitemvaluechange="onFormItemValueChange($event)" 
-    :disabled="detailsModel.planstomorrow.disabled" 
-    :data="JSON.stringify(this.data)"  
-    name="planstomorrow" 
-    :viewparams="viewparams"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.planstomorrow.disabled"
+    :data="JSON.stringify(this.data)"
+    name="planstomorrow"
     :context="context"
-    :uploadparams='{objecttype:"daily",version:"editor"}' 
-    :exportparams='{objecttype:"daily",version:"editor"}' 
-    :templParams='{ }' 
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"daily",version:"editor"}'
+    :exportparams='{objecttype:"daily",version:"editor"}'
+    
     style=""
-></rich-text-editor>
+></app-rich-text-editor>
+
 </app-form-item>
 
 </i-col>
@@ -226,22 +226,22 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    
-<rich-text-editor 
-    :formState="formState" 
+    <app-rich-text-editor
+    :formState="formState"
     :value="data.comment"
     @change="(val) =>{this.data.comment =val}"
-    @formitemvaluechange="onFormItemValueChange($event)" 
-    :disabled="detailsModel.comment.disabled" 
-    :data="JSON.stringify(this.data)"  
-    name="comment" 
-    :viewparams="viewparams"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.comment.disabled"
+    :data="JSON.stringify(this.data)"
+    name="comment"
     :context="context"
-    :uploadparams='{objecttype:"daily",version:"editor"}' 
-    :exportparams='{objecttype:"daily",version:"editor"}' 
-    :templParams='{ }' 
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"daily",version:"editor"}'
+    :exportparams='{objecttype:"daily",version:"editor"}'
+    
     style=""
-></rich-text-editor>
+></app-rich-text-editor>
+
 </app-form-item>
 
 </i-col>

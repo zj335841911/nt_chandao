@@ -47,6 +47,7 @@ public interface IIbzDailyService extends IService<IbzDaily> {
     IbzDaily linkCompleteTask(IbzDaily et);
     boolean save(IbzDaily et);
     void saveBatch(List<IbzDaily> list);
+    IbzDaily submit(IbzDaily et);
     Page<IbzDaily> searchDefault(IbzDailySearchContext context);
     /**
      * 自定义查询SQL

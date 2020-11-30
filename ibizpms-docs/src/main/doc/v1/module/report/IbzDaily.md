@@ -689,6 +689,7 @@ String
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [关联完成任务](#实体行为-关联完成任务（LinkCompleteTask）) | LinkCompleteTask | 用户自定义 | 后台及前台 |
 | 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 9 | [提交](#实体行为-提交（Submit）) | submit | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -777,6 +778,18 @@ CheckKey
 ### 实体行为-Save（Save）
 #### 说明
 Save
+
+- 行为类型
+内置方法
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-提交（Submit）
+#### 说明
+提交
 
 - 行为类型
 内置方法

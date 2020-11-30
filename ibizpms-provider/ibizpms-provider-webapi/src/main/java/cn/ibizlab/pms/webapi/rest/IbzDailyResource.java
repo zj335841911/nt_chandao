@@ -147,6 +147,17 @@ public class IbzDailyResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzDaily-Submit-all')")
+    @ApiOperation(value = "提交", tags = {"日报" },  notes = "提交")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzdailies/{ibzdaily_id}/submit")
+    public ResponseEntity<IbzDailyDTO> submit(@PathVariable("ibzdaily_id") Long ibzdaily_id, @RequestBody IbzDailyDTO ibzdailydto) {
+        IbzDaily domain = ibzdailyMapping.toDomain(ibzdailydto);
+        domain.setIbzdailyid(ibzdaily_id);
+        domain = ibzdailyService.submit(domain);
+        ibzdailydto = ibzdailyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzdailydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzDaily-searchDefault-all') and hasPermission(#context,'pms-IbzDaily-Get')")
 	@ApiOperation(value = "获取数据集", tags = {"日报" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/ibzdailies/fetchdefault")

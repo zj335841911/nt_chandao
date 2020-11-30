@@ -146,6 +146,12 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
         saveOrUpdateBatch(list, batchSize);
     }
 
+        @Override
+    @Transactional
+    public IbzDaily submit(IbzDaily et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzDailyHelper.class).submit(et);
+    }
+
 
 
     /**
