@@ -56,9 +56,24 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'ibz_weeklyname',
+        prop: 'ibzweeklyname',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'thisweektask1',
+        prop: 'thisweektask',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'workthisweek',
         prop: 'workthisweek',
         dataType: 'HTMLTEXT',
+      },
+      {
+        name: 'nextweektask',
+        prop: 'nextweektask',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'plannextweek',
@@ -84,11 +99,6 @@ export default class MainModel {
         name: 'reportto',
         prop: 'reportto',
         dataType: 'SSCODELIST',
-      },
-      {
-        name: 'thisweektask1',
-        prop: 'thisweektask',
-        dataType: 'SMCODELIST',
       },
       {
         name: 'ibz_weeklyid',

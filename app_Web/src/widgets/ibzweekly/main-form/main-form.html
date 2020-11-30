@@ -10,6 +10,81 @@
     <row>
             <i-col
     class="form-layout-container"
+    v-show="detailsModel.ibz_weeklyname.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="ibz_weeklyname"
+    :itemRules="this.rules().ibz_weeklyname"
+    class=""
+
+    :caption="$t('entities.ibzweekly.main_form.details.ibz_weeklyname')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.ibz_weeklyname.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <input-box 
+    v-model="data.ibz_weeklyname"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.ibz_weeklyname.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.thisweektask1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="thisweektask1"
+    :itemRules="this.rules().thisweektask1"
+    class=""
+
+    :caption="$t('entities.ibzweekly.main_form.details.thisweektask1')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.thisweektask1.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-checkbox-list 
+  v-model="data.thisweektask1" 
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :disabled="detailsModel.thisweektask1.disabled" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  tag='AllTask' 
+  codelistType='DYNAMIC' 
+  mode=""
+  name="thisweektask1" 
+  style="">
+</app-checkbox-list>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.workthisweek.visible"
     :style="{}"
     
@@ -31,6 +106,47 @@
     labelPos="LEFT"
 >
     <input-box v-model="data.workthisweek"  :disabled="detailsModel.workthisweek.disabled" type='textarea' style="" ></input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.nextweektask.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="nextweektask"
+    :itemRules="this.rules().nextweektask"
+    class=""
+
+    :caption="$t('entities.ibzweekly.main_form.details.nextweektask')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.nextweektask.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-checkbox-list 
+  v-model="data.nextweektask" 
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :disabled="detailsModel.nextweektask.disabled" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  tag='AllTask' 
+  codelistType='DYNAMIC' 
+  mode=""
+  name="nextweektask" 
+  style="">
+</app-checkbox-list>
 
 </app-form-item>
 

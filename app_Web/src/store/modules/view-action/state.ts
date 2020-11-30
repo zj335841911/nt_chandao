@@ -3882,16 +3882,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'bf911962d0a1ec51e903e512c2700650',
-            viewmodule: 'zentao',
-            viewname: 'TaskUsr2GridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'ea141fddc78fd1af4d06e494baf12cc1',
-            ],
-        },
-        {
             viewtag: 'bfdd5a8d625f1be3f009084fbc16c909',
             viewmodule: 'zentao',
             viewname: 'FileProductGridView',
