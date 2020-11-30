@@ -192,18 +192,4 @@ export default {
 			tip: "Save",
 		},
 	},
-	mydailygridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-		deuiaction1: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
-		},
-		deuiaction4: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-	},
 };

@@ -76,7 +76,6 @@ export default class MyMainModel {
           name: 'ibzdaily',
           prop: 'ibzdailyid',
         },
-
         {
           name:'size',
           prop:'size'

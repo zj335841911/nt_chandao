@@ -192,18 +192,4 @@ export default {
 			tip: "保存",
 		},
 	},
-	mydailygridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-		deuiaction1: {
-			caption: "导出",
-			tip: "导出",
-		},
-		deuiaction4: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-	},
 };
