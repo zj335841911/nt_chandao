@@ -15959,7 +15959,7 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
 
 ```
-### 我完成的任务(MyCompleteTask)<div id="Task_MyCompleteTask"></div>
+### 我完成的任务（汇报）(MyCompleteTask)<div id="Task_MyCompleteTask"></div>
 ```sql
 SELECT
 t1.`ASSIGNEDDATE`,
@@ -16024,6 +16024,7 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 
 WHERE t1.DELETED = '0' 
+( ( ( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} )  OR  ( t1.`FINISHEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"FINISHEDBY","dename":"ZT_TASK"}')} ) ) ) 
 
 ```
 ### 我的收藏(MyFavorites)<div id="Task_MyFavorites"></div>

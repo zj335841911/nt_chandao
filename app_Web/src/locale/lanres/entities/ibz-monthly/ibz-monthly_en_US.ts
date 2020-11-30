@@ -69,12 +69,12 @@ export default {
 		uiactions: {
 		},
 	},
-	newmonthlyeditviewtoolbar_toolbar: {
-	},
 	mainmonthlygridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "New",
 			tip: "New",
 		},
+	},
+	newmonthlyeditviewtoolbar_toolbar: {
 	},
 };

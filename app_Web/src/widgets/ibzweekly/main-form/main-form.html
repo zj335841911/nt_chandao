@@ -8,61 +8,9 @@
 >
     <input style="display:none;">
     <row>
-    <tabs
-        :animated="false"
-        size="small"
-        name="main"
-        :value="detailsModel.form.activiedPage" 
-        @on-click="detailsModel.form.clickPage($event)"
-    >
-        <tab-pane
-            v-show="detailsModel.formpage1.visible"
-            name="formpage1"
-            :index="0"
-            tab="main"
-            class=""  
-            :label="(h) =>{
-                return h('span',{
-                    class:'caption'
-                },[
-                $t('entities.ibzweekly.main_form.details.formpage1')
-                ])
-            }"
-        >
-                <i-col
+            <i-col
     class="form-layout-container"
-    v-show="detailsModel.group1.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-group
-    :model="detailsModel.group1"
-    layoutType="TABLE_24COL"
-    titleStyle=""
-    class=""
-    :uiActionGroup="detailsModel.group1.uiActionGroup"
-    @groupuiactionclick="groupUIActionClick($event)"
-    :caption="$t('entities.ibzweekly.main_form.details.group1')"
-    :isShowCaption="true"
-    uiStyle="DEFAULT"
-    :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
-
->    
-    <app-form-group-data-panel
-        slot="dataInfoPanel"
-        :model="detailsModel.group1"
-        :data="data"
-        :context="context"
-        :viewparams="viewparams"
-    ></app-form-group-data-panel>
-    <row>
-        <i-col
-    class="form-layout-container"
-    v-show="detailsModel.ibz_weeklyname.visible"
+    v-show="detailsModel.workthisweek.visible"
     :style="{}"
     
     
@@ -70,23 +18,23 @@
     
 >
     <app-form-item
-    name="ibz_weeklyname"
-    :itemRules="this.rules().ibz_weeklyname"
+    name="workthisweek"
+    :itemRules="this.rules().workthisweek"
     class=""
 
-    :caption="$t('entities.ibzweekly.main_form.details.ibz_weeklyname')"
+    :caption="$t('entities.ibzweekly.main_form.details.workthisweek')"
     uiStyle="DEFAULT"
     :labelWidth="130"
     :isShowCaption="true"
-    :error="detailsModel.ibz_weeklyname.error"
+    :error="detailsModel.workthisweek.error"
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
     <input-box 
-    v-model="data.ibz_weeklyname"  
+    v-model="data.workthisweek"  
     @enter="onEnter($event)"  
      unit=""  
-    :disabled="detailsModel.ibz_weeklyname.disabled" 
+    :disabled="detailsModel.workthisweek.disabled" 
     type='text' 
     style="">
 </input-box>
@@ -94,62 +42,9 @@
 </app-form-item>
 
 </i-col>
-    
-    </row>
-</app-form-group>
-
-</i-col>
-
-
-        </tab-pane> 
-        <tab-pane
-            v-show="detailsModel.formpage2.visible"
-            name="formpage2"
-            :index="1"
-            tab="main"
-            class=""  
-            :label="(h) =>{
-                return h('span',{
-                    class:'caption'
-                },[
-                $t('entities.ibzweekly.main_form.details.formpage2')
-                ])
-            }"
-        >
-                <i-col
+<i-col
     class="form-layout-container"
-    v-show="detailsModel.group2.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-group
-    :model="detailsModel.group2"
-    layoutType="TABLE_24COL"
-    titleStyle=""
-    class=""
-    :uiActionGroup="detailsModel.group2.uiActionGroup"
-    @groupuiactionclick="groupUIActionClick($event)"
-    :caption="$t('entities.ibzweekly.main_form.details.group2')"
-    :isShowCaption="true"
-    uiStyle="DEFAULT"
-    :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
-
->    
-    <app-form-group-data-panel
-        slot="dataInfoPanel"
-        :model="detailsModel.group2"
-        :data="data"
-        :context="context"
-        :viewparams="viewparams"
-    ></app-form-group-data-panel>
-    <row>
-        <i-col
-    class="form-layout-container"
-    v-show="detailsModel.createman.visible"
+    v-show="detailsModel.plannextweek.visible"
     :style="{}"
     
     
@@ -157,30 +52,33 @@
     
 >
     <app-form-item
-    name="createman"
-    :itemRules="this.rules().createman"
+    name="plannextweek"
+    :itemRules="this.rules().plannextweek"
     class=""
 
-    :caption="$t('entities.ibzweekly.main_form.details.createman')"
+    :caption="$t('entities.ibzweekly.main_form.details.plannextweek')"
     uiStyle="DEFAULT"
     :labelWidth="130"
     :isShowCaption="true"
-    :error="detailsModel.createman.error"
+    :error="detailsModel.plannextweek.error"
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    
-<app-span name='createman' :value="data.createman" dataType="TEXT"     :precision="0"
-tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
->  
-</app-span>
+    <input-box 
+    v-model="data.plannextweek"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.plannextweek.disabled" 
+    type='text' 
+    style="">
+</input-box>
 
 </app-form-item>
 
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.createdate.visible"
+    v-show="detailsModel.comment.visible"
     :style="{}"
     
     
@@ -188,30 +86,33 @@ tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewpa
     
 >
     <app-form-item
-    name="createdate"
-    :itemRules="this.rules().createdate"
+    name="comment"
+    :itemRules="this.rules().comment"
     class=""
 
-    :caption="$t('entities.ibzweekly.main_form.details.createdate')"
+    :caption="$t('entities.ibzweekly.main_form.details.comment')"
     uiStyle="DEFAULT"
     :labelWidth="130"
     :isShowCaption="true"
-    :error="detailsModel.createdate.error"
+    :error="detailsModel.comment.error"
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    
-<app-span name='createdate' :value="data.createdate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
->  
-</app-span>
+    <input-box 
+    v-model="data.comment"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.comment.disabled" 
+    type='text' 
+    style="">
+</input-box>
 
 </app-form-item>
 
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.updateman.visible"
+    v-show="detailsModel.files.visible"
     :style="{}"
     
     
@@ -219,30 +120,33 @@ tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewpa
     
 >
     <app-form-item
-    name="updateman"
-    :itemRules="this.rules().updateman"
+    name="files"
+    :itemRules="this.rules().files"
     class=""
 
-    :caption="$t('entities.ibzweekly.main_form.details.updateman')"
+    :caption="$t('entities.ibzweekly.main_form.details.files')"
     uiStyle="DEFAULT"
     :labelWidth="130"
     :isShowCaption="true"
-    :error="detailsModel.updateman.error"
+    :error="detailsModel.files.error"
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    
-<app-span name='updateman' :value="data.updateman" dataType="TEXT"     :precision="0"
-tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
->  
-</app-span>
+    <input-box 
+    v-model="data.files"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.files.disabled" 
+    type='text' 
+    style="">
+</input-box>
 
 </app-form-item>
 
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.updatedate.visible"
+    v-show="detailsModel.reportto.visible"
     :style="{}"
     
     
@@ -250,35 +154,78 @@ tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewpa
     
 >
     <app-form-item
-    name="updatedate"
-    :itemRules="this.rules().updatedate"
+    name="reportto"
+    :itemRules="this.rules().reportto"
     class=""
 
-    :caption="$t('entities.ibzweekly.main_form.details.updatedate')"
+    :caption="$t('entities.ibzweekly.main_form.details.reportto')"
     uiStyle="DEFAULT"
     :labelWidth="130"
     :isShowCaption="true"
-    :error="detailsModel.updatedate.error"
+    :error="detailsModel.reportto.error"
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
     
-<app-span name='updatedate' :value="data.updatedate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
->  
-</app-span>
+<dropdown-list 
+    v-model="data.reportto"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.reportto.disabled"
+    valueType="string"
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.mailto.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="mailto"
+    :itemRules="this.rules().mailto"
+    class=""
+
+    :caption="$t('entities.ibzweekly.main_form.details.mailto')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.mailto.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list-mpicker 
+  v-model="data.mailto"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.mailto.disabled"
+  tag='UserRealName' 
+  codelistType='DYNAMIC' 
+  valueSeparator=","
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
 
 </app-form-item>
 
 </i-col>
-    
-    </row>
-</app-form-group>
-
-</i-col>
 
 
-        </tab-pane> 
-    </tabs>
     </row>
 </i-form>

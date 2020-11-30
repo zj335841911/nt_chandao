@@ -34,10 +34,7 @@ export default {
 	},
 	main_form: {
 		details: {
-			group1: "实体2基本信息", 
 			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
 			srfupdatedate: "更新时间", 
 			srforikey: "", 
 			srfkey: "周报标识", 
@@ -46,11 +43,12 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			ibz_weeklyname: "周报名称", 
-			createman: "建立人", 
-			createdate: "建立时间", 
-			updateman: "更新人", 
-			updatedate: "更新时间", 
+			workthisweek: "本周工作", 
+			plannextweek: "下周计划", 
+			comment: "其他事项", 
+			files: "附件", 
+			reportto: "汇报给", 
+			mailto: "抄送给", 
 			ibz_weeklyid: "周报标识", 
 		},
 		uiactions: {

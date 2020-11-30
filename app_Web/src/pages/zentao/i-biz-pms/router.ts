@@ -5480,20 +5480,6 @@ const router = new Router({
                     component: () => import('@pages/report/ibz-my-territory-report-tab-exp-view/ibz-my-territory-report-tab-exp-view.vue'),
                 },
                 {
-                    path: 'ibzmonthlies/:ibzmonthly?/newmonthlyeditview/:newmonthlyeditview?',
-                    meta: {
-                        caption: 'entities.ibzmonthly.views.newmonthlyeditview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-                            { pathName: 'newmonthlyeditview', parameterName: 'newmonthlyeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/report/ibz-monthly-new-monthly-edit-view/ibz-monthly-new-monthly-edit-view.vue'),
-                },
-                {
                     path: 'ibizprokeywords/:ibizprokeyword?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.ibizprokeyword.views.gridview.caption',
@@ -15432,6 +15418,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/release-main-info-view/release-main-info-view.vue'),
+                },
+                {
+                    path: 'ibzmonthlies/:ibzmonthly?/mainmonthlygridview/:mainmonthlygridview?',
+                    meta: {
+                        caption: 'entities.ibzmonthly.views.mainmonthlygridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'mainmonthlygridview', parameterName: 'mainmonthlygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-main-monthly-grid-view/ibz-monthly-main-monthly-grid-view.vue'),
                 },
                 {
                     path: 'projectstats/:projectstats?/usr2gridviewtaskstatuscount/:usr2gridviewtaskstatuscount?',

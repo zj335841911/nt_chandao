@@ -6584,7 +6584,7 @@ FAVORITES
 | 7 | [用户年度完成任务](#数据查询-用户年度完成任务（CurFinishTask）) | CurFinishTask | 否 |
 | 8 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 9 | [DefaultRow](#数据查询-DefaultRow（DefaultRow）) | DefaultRow | 否 |
-| 10 | [我完成的任务](#数据查询-我完成的任务（MyCompleteTask）) | MyCompleteTask | 否 |
+| 10 | [我完成的任务（汇报）](#数据查询-我完成的任务（汇报）（MyCompleteTask）) | MyCompleteTask | 否 |
 | 11 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
 | 12 | [项目任务](#数据查询-项目任务（ProjectTask）) | ProjectTask | 否 |
 | 13 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
@@ -7236,9 +7236,9 @@ LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID
 LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 ```
-### 数据查询-我完成的任务（MyCompleteTask）
+### 数据查询-我完成的任务（汇报）（MyCompleteTask）
 #### 说明
-我完成的任务
+我完成的任务（汇报）
 
 - 默认查询
 否

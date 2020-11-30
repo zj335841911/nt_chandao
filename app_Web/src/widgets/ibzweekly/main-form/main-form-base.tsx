@@ -93,11 +93,12 @@ export class MainEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        ibz_weeklyname: null,
-        createman: null,
-        createdate: null,
-        updateman: null,
-        updatedate: null,
+        workthisweek: null,
+        plannextweek: null,
+        comment: null,
+        files: null,
+        reportto: null,
+        mailto: null,
         ibz_weeklyid: null,
         ibzweekly: null,
     };
@@ -108,7 +109,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainEditFormBase
      */
-    public majorMessageField: string = 'ibz_weeklyname';
+    public majorMessageField: string = '';
 
     /**
      * 属性值规则
@@ -118,6 +119,20 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
+            workthisweek: [
+                {
+                    required: this.detailsModel.workthisweek.required,
+                    type: 'string',
+                    message: '本周工作 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.workthisweek.required,
+                    type: 'string',
+                    message: '本周工作 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
         }
     }
 
@@ -137,13 +152,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '实体2基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzweekly.main_form', extractMode: 'ITEM', details: [] } }),
-
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
-        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzweekly.main_form', extractMode: 'ITEM', details: [] } }),
-
-        formpage2: new FormPageModel({ caption: '其它', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srfupdatedate: new FormItemModel({
     caption: '更新时间', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
@@ -201,36 +210,43 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        ibz_weeklyname: new FormItemModel({
-    caption: '周报名称', detailType: 'FORMITEM', name: 'ibz_weeklyname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        workthisweek: new FormItemModel({
+    caption: '本周工作', detailType: 'FORMITEM', name: 'workthisweek', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        plannextweek: new FormItemModel({
+    caption: '下周计划', detailType: 'FORMITEM', name: 'plannextweek', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
-        createman: new FormItemModel({
-    caption: '建立人', detailType: 'FORMITEM', name: 'createman', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        comment: new FormItemModel({
+    caption: '其他事项', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
-        createdate: new FormItemModel({
-    caption: '建立时间', detailType: 'FORMITEM', name: 'createdate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        files: new FormItemModel({
+    caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
-        updateman: new FormItemModel({
-    caption: '更新人', detailType: 'FORMITEM', name: 'updateman', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        reportto: new FormItemModel({
+    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
-        updatedate: new FormItemModel({
-    caption: '更新时间', detailType: 'FORMITEM', name: 'updatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        mailto: new FormItemModel({
+    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -243,26 +259,6 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        form: new FormTabPanelModel({
-            caption: 'form',
-            detailType: 'TABPANEL',
-            name: 'form',
-            visible: true,
-            isShowCaption: true,
-            form: this,
-            tabPages: [
-                {
-                    name: 'formpage1',
-                    index: 0,
-                    visible: true,
-                },
-                {
-                    name: 'formpage2',
-                    index: 1,
-                    visible: true,
-                },
-            ]
-        }),
     };
 
     /**
