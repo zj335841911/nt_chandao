@@ -51,51 +51,40 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(IbzDaily et) {
-        if (!this.retBool(this.baseMapper.insert(et))) {
-            return false;
-        }
-        CachedBeanCopier.copy(get(et.getIbzdailyid()), et);
-        return true;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzDailyHelper.class).create(et);
     }
 
     @Override
-    @Transactional
     public void createBatch(List<IbzDaily> list) {
-        this.saveBatch(list, batchSize);
-    }
 
-    @Override
+    }
+        @Override
     @Transactional
     public boolean update(IbzDaily et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibz_dailyid", et.getIbzdailyid()))) {
-            return false;
-        }
-        CachedBeanCopier.copy(get(et.getIbzdailyid()), et);
-        return true;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzDailyHelper.class).edit(et);
     }
 
     @Override
-    @Transactional
     public void updateBatch(List<IbzDaily> list) {
-        updateBatchById(list, batchSize);
-    }
 
-    @Override
+    }
+        @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result = removeById(key);
-        return result;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzDailyHelper.class).delete(key);
     }
 
     @Override
-    @Transactional
-    public void removeBatch(Collection<Long> idList) {
-        removeByIds(idList);
+    public void removeBatch(Collection<Long> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (Long id : idList) {
+                this.remove(id);
+            }
+        }
     }
-
     @Override
     @Transactional
     public IbzDaily get(Long key) {
