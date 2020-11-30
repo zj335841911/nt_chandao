@@ -273,7 +273,7 @@ export class NewEditFormBase extends EditFormControlBase {
 }),
 
         reportto: new FormItemModel({
-    caption: '汇报', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

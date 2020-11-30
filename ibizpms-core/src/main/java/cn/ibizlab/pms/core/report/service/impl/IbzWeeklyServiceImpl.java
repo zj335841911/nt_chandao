@@ -144,11 +144,10 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
         saveOrUpdateBatch(list, batchSize);
     }
 
-    @Override
+        @Override
     @Transactional
     public IbzWeekly submit(IbzWeekly et) {
-        //自定义代码
-        return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzWeeklyHelper.class).submit(et);
     }
 
 

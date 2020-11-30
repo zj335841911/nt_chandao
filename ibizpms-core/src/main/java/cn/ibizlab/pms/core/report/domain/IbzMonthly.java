@@ -123,7 +123,7 @@ public class IbzMonthly extends EntityMP implements Serializable {
     @JsonProperty("plansnextmonth")
     private String plansnextmonth;
     /**
-     * 汇报
+     * 汇报给
      */
     @TableField(value = "`reportto`")
     @JSONField(name = "reportto")
@@ -171,6 +171,30 @@ public class IbzMonthly extends EntityMP implements Serializable {
     @JSONField(name = "issubmit")
     @JsonProperty("issubmit")
     private String issubmit;
+    /**
+     * 更新人名称
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMANNAME)
+    @TableField(value = "`updatemanname`")
+    @JSONField(name = "updatemanname")
+    @JsonProperty("updatemanname")
+    private String updatemanname;
+    /**
+     * 状态
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`reportstatus`")
+    @JSONField(name = "reportstatus")
+    @JsonProperty("reportstatus")
+    private String reportstatus;
+    /**
+     * 建立人名称
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
+    @TableField(value = "`createmanname`")
+    @JSONField(name = "createmanname")
+    @JsonProperty("createmanname")
+    private String createmanname;
 
 
 
@@ -225,7 +249,7 @@ public class IbzMonthly extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [汇报]
+     * 设置 [汇报给]
      */
     public void setReportto(String reportto) {
         this.reportto = reportto;
@@ -270,6 +294,14 @@ public class IbzMonthly extends EntityMP implements Serializable {
     public void setIssubmit(String issubmit) {
         this.issubmit = issubmit;
         this.modify("issubmit", issubmit);
+    }
+
+    /**
+     * 设置 [状态]
+     */
+    public void setReportstatus(String reportstatus) {
+        this.reportstatus = reportstatus;
+        this.modify("reportstatus", reportstatus);
     }
 
 

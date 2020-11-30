@@ -28,6 +28,7 @@ import ProductUnClosedProduct from '@/widgets/product/un-closed-product-portlet/
 import IbzLibIbzLibMain from '@/widgets/ibz-lib/ibz-lib-main-portlet/ibz-lib-main-portlet.vue';
 import IbzLibIbzLibCz from '@/widgets/ibz-lib/ibz-lib-cz-portlet/ibz-lib-cz-portlet.vue';
 import BurnBurnDownChart from '@/widgets/burn/burn-down-chart-portlet/burn-down-chart-portlet.vue';
+import IbzReportMyReport from '@/widgets/ibz-report/my-report-portlet/my-report-portlet.vue';
 import IbzProjectMemberRelatedMembers from '@/widgets/ibz-project-member/related-members-portlet/related-members-portlet.vue';
 import ActionActionHistory from '@/widgets/action/action-history-portlet/action-history-portlet.vue';
 import ActionProjectTrendsTimeline from '@/widgets/action/project-trends-timeline-portlet/project-trends-timeline-portlet.vue';
@@ -186,6 +187,7 @@ export const  PortletComponent = {
         v.component('app-project-project-status-bar-portlet', ProjectProjectStatusBar);
         v.component('app-test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
         v.component('app-case-me-create-case-portlet', CaseMeCreateCase);
+        v.component('app-ibz-report-my-report-portlet', IbzReportMyReport);
         v.component('app-todo-my-upcoming-portlet', TodoMyUpcoming);
         v.component('app-case-case-result-project-portlet', CaseCaseResultProject);
         v.component('app-case-case-type-project-portlet', CaseCaseTypeProject);
@@ -223,6 +225,7 @@ export const  PortletComponent = {
         v.component('ibz-lib-ibz-lib-main-portlet', IbzLibIbzLibMain);
         v.component('ibz-lib-ibz-lib-cz-portlet', IbzLibIbzLibCz);
         v.component('burn-burn-down-chart-portlet', BurnBurnDownChart);
+        v.component('ibz-report-my-report-portlet', IbzReportMyReport);
         v.component('ibz-project-member-related-members-portlet', IbzProjectMemberRelatedMembers);
         v.component('action-action-history-portlet', ActionActionHistory);
         v.component('action-project-trends-timeline-portlet', ActionProjectTrendsTimeline);

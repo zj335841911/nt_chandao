@@ -159,7 +159,7 @@ export class MainGridBase extends GridControlBase {
         },
         {
             name: 'reportto',
-            label: '汇报',
+            label: '汇报给',
             langtag: 'entities.ibzmonthly.main_grid.columns.reportto',
             show: true,
             unit: 'PX',

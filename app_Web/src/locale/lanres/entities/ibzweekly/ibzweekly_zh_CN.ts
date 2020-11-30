@@ -17,15 +17,14 @@ export default {
     plannextweek: "下周计划",
     thisweektask: "本周完成任务",
     nextweektask: "下周计划任务",
+    updatemanname: "更新人名称",
+    createmanname: "建立人名称",
+    reportstatus: "状态",
   },
 	views: {
 		usr2editview: {
 			caption: "周报",
       		title: "周报编辑视图",
-		},
-		dashboardview: {
-			caption: "周报",
-      		title: "周报数据看板视图",
 		},
 		editview: {
 			caption: "周报",
@@ -43,8 +42,13 @@ export default {
 	weeklymsg_form: {
 		details: {
 			druipart2: "附件", 
+			grouppanel1: "附件", 
 			druipart1: "操作历史", 
+			grouppanel2: "操作历史", 
 			group1: "周报基本信息", 
+			druipart3: "", 
+			grouppanel3: "完成的任务", 
+			grouppanel4: "下周计划任务", 
 			formpage1: "基本信息", 
 			srfupdatedate: "更新时间", 
 			srforikey: "", 
@@ -55,12 +59,12 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			ibz_weeklyname: "周报名称", 
+			date: "日期", 
 			workthisweek: "本周工作", 
 			plannextweek: "下周计划", 
 			comment: "其他事项", 
-			date: "日期", 
-			mailto: "抄送给", 
 			reportto: "汇报给", 
+			mailto: "抄送给", 
 			thisweektask: "本周完成任务", 
 			nextweektask: "下周计划任务", 
 			ibz_weeklyid: "周报标识", 
@@ -102,8 +106,10 @@ export default {
 			ibz_weeklyname: "周报名称",
 			updateman: "更新人",
 			updatedate: "更新时间",
+			uagridcolumn1: "提交",
 		},
 		uiactions: {
+			ibzweekly_submit: "提交",
 		},
 	},
 	default_searchform: {

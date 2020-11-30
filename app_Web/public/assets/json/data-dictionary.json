@@ -652,6 +652,14 @@
         "items": []
     }, 
     {
+        "srfkey": "MyPlanTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyTomorrowPlanTask",
+        "items": []
+    }, 
+    {
         "srfkey": "ProjectCodeList",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -9158,6 +9166,30 @@
                 "disabled": false,
                 "default": false
             }
+            , {
+                "id": "submit",
+                "label": "提交",
+                "text": "提交",
+                "class":"",
+                "data":"",
+                "codename":"Submit",
+                "value": "submit",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "read",
+                "label": "已读了",
+                "text": "已读了",
+                "class":"",
+                "data":"",
+                "codename":"Read",
+                "value": "read",
+                
+                "disabled": false,
+                "default": false
+            }
         ]
     }, 
     {
@@ -10069,6 +10101,14 @@
                 "default": false
             }
         ]
+    }, 
+    {
+        "srfkey": "MyCompleteTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyCompleteTask",
+        "items": []
     }, 
     {
         "srfkey": "Testrun__result",

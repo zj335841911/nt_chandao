@@ -33,6 +33,9 @@
 | 15 | [下周计划](#属性-下周计划（PLANNEXTWEEK）) | PLANNEXTWEEK | HTML文本，没有长度限制 | 否 | 否 | 是 |
 | 16 | [本周完成任务](#属性-本周完成任务（THISWEEKTASK）) | THISWEEKTASK | 多项选择(文本值) | 否 | 否 | 是 |
 | 17 | [下周计划任务](#属性-下周计划任务（NEXTWEEKTASK）) | NEXTWEEKTASK | 多项选择(文本值) | 否 | 否 | 是 |
+| 18 | [更新人名称](#属性-更新人名称（UPDATEMANNAME）) | UPDATEMANNAME | 文本，可指定长度 | 否 | 否 | 否 |
+| 19 | [建立人名称](#属性-建立人名称（CREATEMANNAME）) | CREATEMANNAME | 文本，可指定长度 | 否 | 否 | 否 |
+| 20 | [状态](#属性-状态（REPORTSTATUS）) | REPORTSTATUS | 单项选择(文本值) | 否 | 否 | 是 |
 
 ### 属性-周报名称（IBZ_WEEKLYNAME）
 #### 属性说明
@@ -671,6 +674,122 @@ String
 #### 关系属性
 无
 
+### 属性-更新人名称（UPDATEMANNAME）
+#### 属性说明
+更新人名称
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+否
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-建立人名称（CREATEMANNAME）
+#### 属性说明
+建立人名称
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+否
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-状态（REPORTSTATUS）
+#### 属性说明
+状态
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+| 项目 | 说明 |
+| ---- | ---- |
+| 类型 |  |
+| 值 | 0 |
+
+- 取值范围/公式
+参照数据字典【[汇报状态（ReportStatus）](../../codelist/ReportStatus)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -800,6 +919,7 @@ Save
 | 2 | [用户（ACCOUNT）](#属性-用户（ACCOUNT）) | `=` |
 | 3 | [是否提交（ISSUBMIT）](#属性-是否提交（ISSUBMIT）) | `=` |
 | 4 | [汇报给（REPORTTO）](#属性-汇报给（REPORTTO）) | `=` |
+| 5 | [状态（REPORTSTATUS）](#属性-状态（REPORTSTATUS）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -825,16 +945,19 @@ t1.`ACCOUNT`,
 t1.`COMMENT`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
 t1.`DATE`,
 t1.`IBZ_WEEKLYID`,
 t1.`IBZ_WEEKLYNAME`,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
 t1.`NEXTWEEKTASK`,
+t1.`REPORTSTATUS`,
 t1.`REPORTTO`,
 t1.`THISWEEKTASK`,
 t1.`UPDATEDATE`,
-t1.`UPDATEMAN`
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
 FROM `T_IBZ_WEEKLY` t1 
 
 ```
@@ -856,6 +979,7 @@ t1.`ACCOUNT`,
 t1.`COMMENT`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
 t1.`DATE`,
 t1.`IBZ_WEEKLYID`,
 t1.`IBZ_WEEKLYNAME`,
@@ -863,10 +987,12 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 t1.`NEXTWEEKTASK`,
 t1.`PLANNEXTWEEK`,
+t1.`REPORTSTATUS`,
 t1.`REPORTTO`,
 t1.`THISWEEKTASK`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
 t1.`WORKTHISWEEK`
 FROM `T_IBZ_WEEKLY` t1 
 

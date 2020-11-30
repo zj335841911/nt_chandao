@@ -141,4 +141,28 @@ export interface IBZWEEKLY {
      * @memberof IBZWEEKLY
      */
     nextweektask?: any;
+
+    /**
+     * 更新人名称
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    updatemanname?: any;
+
+    /**
+     * 建立人名称
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    createmanname?: any;
+
+    /**
+     * 状态
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    reportstatus?: any;
 }

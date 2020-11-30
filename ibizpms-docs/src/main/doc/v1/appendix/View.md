@@ -351,7 +351,6 @@ SRFNAVPARAM.project=%project%|
 |-|关闭产品|DEEDITVIEW|&nbsp;|
 |-|创建文档库|DEEDITVIEW|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
-|-|周报数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|用例步骤表格视图|DEGRIDVIEW9|&nbsp;|
 |-|实体表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试用例图表视图（累计创建用例）|DECHARTVIEW9|&nbsp;|
@@ -383,7 +382,6 @@ SRFNAVPARAM.project=%project%|
 |-|关联Bug|DEMPICKUPVIEW|&nbsp;|
 |-|项目|DEEDITVIEW|&nbsp;|
 |-|组织部门人员树导航视图|DETREEEXPVIEW|&nbsp;|
-|-|月报编辑视图|DEEDITVIEW9|&nbsp;|
 |-|提交测试|DEEDITVIEW|&nbsp;|
 |-|文档表格视图|DEGRIDVIEW9|&nbsp;|
 |-|任务主数据看板视图|DEPORTALVIEW|&nbsp;|
@@ -446,6 +444,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务预计表格视图|DEGRIDVIEW9|&nbsp;|
 |-|文档库树视图（自定义文档库-根目录）|DETREEVIEW|&nbsp;|
 |-|doclib表格视图|DEGRIDVIEW|&nbsp;|
+|-|任务表格视图（展示）|DEGRIDVIEW9|&nbsp;|
 |-|执行|DEOPTVIEW|&nbsp;|
 |-|文档树视图|DETREEVIEW|&nbsp;|
 |-|日报编辑视图（主数据）|DEEDITVIEW|&nbsp;|
@@ -466,6 +465,7 @@ SRFNAVPARAM.project=%project%|
 |-|关闭|DEOPTVIEW|&nbsp;|
 |-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|文档库编辑视图|DEEDITVIEW|&nbsp;|
+|-|日报编辑视图（主数据）|DEEDITVIEW|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
 |-|需求编辑视图|DEEDITVIEW|&nbsp;|
 |-|需求分页导航视图|DETABEXPVIEW|&nbsp;|
@@ -529,6 +529,7 @@ SRFNAVPARAM.project=%project%|
 |-|系统更新功能表格视图|DEGRIDVIEW|&nbsp;|
 |-|工时信息|DEEDITVIEW9|&nbsp;|
 |-|所有产品|DELISTVIEW|&nbsp;|
+|-|月报编辑视图|DEEDITVIEW|&nbsp;|
 |-|我的地盘日历视图|DECALENDARVIEW|&nbsp;|
 |-|task表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
@@ -682,6 +683,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目主页|APPPORTALVIEW|&nbsp;|
 |-|用例库用例步骤表格视图|DEGRIDVIEW9|&nbsp;|
+|-|汇报分页导航视图（我收到的）|DETABEXPVIEW|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
 |-|员工负载表编辑视图|DEEDITVIEW|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
@@ -770,7 +772,6 @@ SRFNAVPARAM.project=%project%|
 |-|系统更新日志编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|文档库分类表格视图|DEGRIDVIEW|&nbsp;|
-|-|月报数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|用例步骤|DEGRIDVIEW9|&nbsp;|
 |-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|功能测试表格视图|DEGRIDVIEW|&nbsp;|
@@ -791,5 +792,6 @@ SRFNAVPARAM.project=%project%|
 |-|激活|DEOPTVIEW|&nbsp;|
 |-|系统更新日志表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目|DETABEXPVIEW|&nbsp;|
+|-|日报表格视图|DEGRIDVIEW|&nbsp;|
 |-|版本分页导航视图|DETABEXPVIEW|&nbsp;|
 

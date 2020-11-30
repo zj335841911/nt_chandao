@@ -86,4 +86,6 @@
 | 70 | linkparentstory | 关联到父需求 |  |  | 否 | 否 | 关联到父需求 |
 | 71 | unlinkparentstory | 从父需求取消关联 |  |  | 否 | 否 | 从父需求取消关联 |
 | 72 | deletechildrenstory | 删除子需求 |  |  | 否 | 否 | 删除子需求 |
+| 73 | submit | 提交 |  |  | 否 | 否 | 提交 |
+| 74 | read | 已读了 |  |  | 否 | 否 | 已读了 |
 

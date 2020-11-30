@@ -49,6 +49,10 @@ import org.springframework.util.StringUtils;
 public class IbzReportServiceImpl extends ServiceImpl<IbzReportMapper, IbzReport> implements IIbzReportService {
 
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.report.service.logic.IIbzReportReportIReceivedLogic reportireceivedLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -118,6 +122,13 @@ public class IbzReportServiceImpl extends ServiceImpl<IbzReportMapper, IbzReport
     public boolean checkKey(IbzReport et) {
         return (!ObjectUtils.isEmpty(et.getIbzdailyid())) && (!Objects.isNull(this.getById(et.getIbzdailyid())));
     }
+    @Override
+    @Transactional
+    public IbzReport reportIReceived(IbzReport et) {
+        reportireceivedLogic.execute(et);
+         return et;
+    }
+
     @Override
     @Transactional
     public boolean save(IbzReport et) {

@@ -171,6 +171,30 @@ public class IbzWeekly extends EntityMP implements Serializable {
     @JSONField(name = "nextweektask")
     @JsonProperty("nextweektask")
     private String nextweektask;
+    /**
+     * 更新人名称
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMANNAME)
+    @TableField(value = "`updatemanname`")
+    @JSONField(name = "updatemanname")
+    @JsonProperty("updatemanname")
+    private String updatemanname;
+    /**
+     * 建立人名称
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
+    @TableField(value = "`createmanname`")
+    @JSONField(name = "createmanname")
+    @JsonProperty("createmanname")
+    private String createmanname;
+    /**
+     * 状态
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`reportstatus`")
+    @JSONField(name = "reportstatus")
+    @JsonProperty("reportstatus")
+    private String reportstatus;
 
 
 
@@ -270,6 +294,14 @@ public class IbzWeekly extends EntityMP implements Serializable {
     public void setNextweektask(String nextweektask) {
         this.nextweektask = nextweektask;
         this.modify("nextweektask", nextweektask);
+    }
+
+    /**
+     * 设置 [状态]
+     */
+    public void setReportstatus(String reportstatus) {
+        this.reportstatus = reportstatus;
+        this.modify("reportstatus", reportstatus);
     }
 
 

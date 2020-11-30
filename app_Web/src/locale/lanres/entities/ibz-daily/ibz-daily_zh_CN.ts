@@ -30,7 +30,15 @@ export default {
 			caption: "日报",
       		title: "日报编辑视图（主数据）",
 		},
+		mymaineditview: {
+			caption: "日报",
+      		title: "日报编辑视图（主数据）",
+		},
 		dailygridview: {
+			caption: "日报",
+      		title: "日报表格视图",
+		},
+		mydailygridview: {
 			caption: "日报",
       		title: "日报表格视图",
 		},
@@ -122,6 +130,14 @@ export default {
 		},
 	},
 	dailygridviewtoolbar_toolbar: {
+		deuiaction3_createuserdaily: {
+			caption: "生成日报",
+			tip: "生成日报",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction1: {
 			caption: "新建",
 			tip: "新建",
@@ -155,6 +171,20 @@ export default {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
+		},
+	},
+	mydailygridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
+		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 };

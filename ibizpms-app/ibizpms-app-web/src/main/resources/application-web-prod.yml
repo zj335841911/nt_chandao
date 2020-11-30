@@ -79,6 +79,10 @@ zuul:
       path: /doccontents/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_report:
+      path: /ibzreports/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_storyspec:
       path: /storyspecs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

@@ -15,7 +15,7 @@
     
     
     :lg="{ span: 24, offset: 0 }"
-    
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-group
     :model="detailsModel.group1"
@@ -25,7 +25,7 @@
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.ibzweekly.weeklymsg_form.details.group1')"
-    :isShowCaption="true"
+    :isShowCaption="false"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
     :isInfoGroupMode="false"
@@ -75,122 +75,6 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.workthisweek.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-item
-    name="workthisweek"
-    :itemRules="this.rules().workthisweek"
-    class=""
-
-    :caption="$t('entities.ibzweekly.weeklymsg_form.details.workthisweek')"
-    uiStyle="DEFAULT"
-    :labelWidth="130"
-    :isShowCaption="true"
-    :error="detailsModel.workthisweek.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
->
-    <app-rich-text-editor
-    :formState="formState"
-    :value="data.workthisweek"
-    @change="(val) =>{this.data.workthisweek =val}"
-    @formitemvaluechange="onFormItemValueChange($event)"
-    :disabled="detailsModel.workthisweek.disabled"
-    :data="JSON.stringify(this.data)"
-    name="workthisweek"
-    :context="context"
-    :viewparams="viewparams"
-    :uploadparams='{}'
-    :exportparams='{}'
-    
-    style=""
-></app-rich-text-editor>
-
-</app-form-item>
-
-</i-col>
-<i-col
-    class="form-layout-container"
-    v-show="detailsModel.plannextweek.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-item
-    name="plannextweek"
-    :itemRules="this.rules().plannextweek"
-    class=""
-
-    :caption="$t('entities.ibzweekly.weeklymsg_form.details.plannextweek')"
-    uiStyle="DEFAULT"
-    :labelWidth="130"
-    :isShowCaption="true"
-    :error="detailsModel.plannextweek.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
->
-    <app-rich-text-editor
-    :formState="formState"
-    :value="data.plannextweek"
-    @change="(val) =>{this.data.plannextweek =val}"
-    @formitemvaluechange="onFormItemValueChange($event)"
-    :disabled="detailsModel.plannextweek.disabled"
-    :data="JSON.stringify(this.data)"
-    name="plannextweek"
-    :context="context"
-    :viewparams="viewparams"
-    :uploadparams='{}'
-    :exportparams='{}'
-    
-    style=""
-></app-rich-text-editor>
-
-</app-form-item>
-
-</i-col>
-<i-col
-    class="form-layout-container"
-    v-show="detailsModel.comment.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-item
-    name="comment"
-    :itemRules="this.rules().comment"
-    class=""
-
-    :caption="$t('entities.ibzweekly.weeklymsg_form.details.comment')"
-    uiStyle="DEFAULT"
-    :labelWidth="130"
-    :isShowCaption="true"
-    :error="detailsModel.comment.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
->
-    <input-box 
-    v-model="data.comment"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.comment.disabled" 
-    type='text' 
-    style="">
-</input-box>
-
-</app-form-item>
-
-</i-col>
-<i-col
-    class="form-layout-container"
     v-show="detailsModel.date.visible"
     :style="{}"
     
@@ -218,68 +102,121 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.druipart2.visible"
+    v-show="detailsModel.workthisweek.visible"
     :style="{}"
     
     
     :lg="{ span: 24, offset: 0 }"
     
 >
-    <app-form-druipart
-    
-    :formState="formState"
-    :isForbidLoad="this.data.srfuf === '0'"
-    paramItem="ibzweekly" 
-    :parentdata='{"srfparentdename":"IBZ_WEEKLY","SRFPARENTTYPE":"CUSTOM"}'
-    :parameters="[
-    ]"
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{}'
-    :localParam ='{objecttype:"weekly"}'
-    parameterName="ibzweekly"
-    parentName="IBZWEEKLY"  
-    refviewtype="DELISTVIEW9" 
-    refreshitems="" 
-    :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname="file-list-view9" 
-    :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved.apply(_self, arguments)"
-    style="overflow: auto;">
-</app-form-druipart>
+    <app-form-item
+    name="workthisweek"
+    :itemRules="this.rules().workthisweek"
+    class=""
+
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.workthisweek')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.workthisweek.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <html-container :content="data.workthisweek"></html-container>
+</app-form-item>
 
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.druipart1.visible"
+    v-show="detailsModel.plannextweek.visible"
     :style="{}"
     
     
     :lg="{ span: 24, offset: 0 }"
     
 >
-    <app-form-druipart
+    <app-form-item
+    name="plannextweek"
+    :itemRules="this.rules().plannextweek"
+    class=""
+
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.plannextweek')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.plannextweek.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <html-container :content="data.plannextweek"></html-container>
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.comment.visible"
+    :style="{}"
     
-    :formState="formState"
-    :isForbidLoad="this.data.srfuf === '0'"
-    paramItem="ibzweekly" 
-    :parentdata='{"srfparentdename":"IBZ_WEEKLY","SRFPARENTTYPE":"CUSTOM"}'
-    :parameters="[
-    ]"
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="comment"
+    :itemRules="this.rules().comment"
+    class=""
+
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.comment')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.comment.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <html-container :content="data.comment"></html-container>
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.reportto.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
+    <app-form-item
+    name="reportto"
+    :itemRules="this.rules().reportto"
+    class=""
+
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.reportto')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.reportto.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list 
+    v-model="data.reportto"
+    :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
-    :localContext ='{}'
-    :localParam ='{objecttype:"weekly"}'
-    parameterName="ibzweekly"
-    parentName="IBZWEEKLY"  
-    refviewtype="DELISTVIEW" 
-    refreshitems="" 
-    :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname="action-add-comment-history-list-view" 
-    :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved.apply(_self, arguments)"
-    style="overflow: auto;">
-</app-form-druipart>
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.reportto.disabled"
+    valueType="string"
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
+</app-form-item>
 
 </i-col>
 <i-col
@@ -289,7 +226,7 @@
     
     
     :lg="{ span: 24, offset: 0 }"
-    
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
     name="mailto"
@@ -324,46 +261,252 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.reportto.visible"
+    v-show="detailsModel.grouppanel1.visible"
     :style="{}"
     
     
     :lg="{ span: 24, offset: 0 }"
     
 >
-    <app-form-item
-    name="reportto"
-    :itemRules="this.rules().reportto"
+    <app-form-group
+    :model="detailsModel.grouppanel1"
+    layoutType="TABLE_24COL"
+    titleStyle=""
     class=""
-
-    :caption="$t('entities.ibzweekly.weeklymsg_form.details.reportto')"
-    uiStyle="DEFAULT"
-    :labelWidth="130"
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.grouppanel1')"
     :isShowCaption="true"
-    :error="detailsModel.reportto.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
->
-    
-<dropdown-list 
-    v-model="data.reportto"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext='{ }' 
-    :localParam='{ }' 
-    :disabled="detailsModel.reportto.disabled"
-    valueType="string"
-    tag="UserRealName"
-    codelistType="DYNAMIC"
-    placeholder="请选择..."
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="false"
 
-></dropdown-list>
-</app-form-item>
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel1"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibzweekly" 
+    :parentdata='{"srfparentdename":"IBZ_WEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{objecttype:"weekly"}'
+    parameterName="ibzweekly"
+    parentName="IBZWEEKLY"  
+    refviewtype="DELISTVIEW9" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="file-list-view9" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
 
 </i-col>
     
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-group
+    :model="detailsModel.grouppanel2"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.grouppanel2')"
+    :isShowCaption="false"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="false"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel2"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibzweekly" 
+    :parentdata='{"srfparentdename":"IBZ_WEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{objecttype:"weekly"}'
+    parameterName="ibzweekly"
+    parentName="IBZWEEKLY"  
+    refviewtype="DELISTVIEW" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="action-add-comment-history-list-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
+    <app-form-group
+    :model="detailsModel.grouppanel3"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.grouppanel3.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.grouppanel3')"
+    :isShowCaption="true"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="false"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel3"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart3.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibzweekly" 
+    :parentdata='{"srfparentdename":"IBZ_WEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+        {
+            pathName: 'stories',
+            parameterName: 'story',
+        },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName="ibzweekly"
+    parentName="IBZWEEKLY"  
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="task-zs-grid-view9-week" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.grouppanel4.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
+    <app-form-group
+    :model="detailsModel.grouppanel4"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.grouppanel4.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.grouppanel4')"
+    :isShowCaption="true"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="false"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.grouppanel4"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+            
     </row>
 </app-form-group>
 

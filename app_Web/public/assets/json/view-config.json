@@ -1399,16 +1399,6 @@
         "viewtag": "417541fa331fc089b84936b8359403fa",
         "memo": ""
     },
-    "ibzweeklydashboardview": {
-        "title": "周报数据看板视图",
-        "caption": "周报",
-        "viewtype": "DEPORTALVIEW",
-        "viewmodule": "report",
-        "viewname": "IbzWeeklyDashboardView",
-        "viewfilename": "ibz-weekly-dashboard-view",
-        "viewtag": "41becbb887d136e0bed97622de0fa836",
-        "memo": ""
-    },
     "casestepgridview9": {
         "title": "用例步骤表格视图",
         "caption": "用例步骤",
@@ -1717,16 +1707,6 @@
         "viewname": "CompanyDeptUserTreeExpView",
         "viewfilename": "company-dept-user-tree-exp-view",
         "viewtag": "4cb497e84dfabd873bc62d5386d5551f",
-        "memo": ""
-    },
-    "ibzmonthlymainmsgeditview": {
-        "title": "月报编辑视图",
-        "caption": "主信息",
-        "viewtype": "DEEDITVIEW9",
-        "viewmodule": "report",
-        "viewname": "IbzMonthlyMainMsgEditView",
-        "viewfilename": "ibz-monthly-main-msg-edit-view",
-        "viewtag": "4d1285fe32c0a29579db88b5adf12f73",
         "memo": ""
     },
     "testtaskeditview_committest": {
@@ -2349,6 +2329,16 @@
         "viewtag": "6a667f9ae1a5096ceac93a16d1586978",
         "memo": ""
     },
+    "taskzsgridview9week": {
+        "title": "任务表格视图（展示）",
+        "caption": "展示",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TaskZsGridView9Week",
+        "viewfilename": "task-zs-grid-view9-week",
+        "viewtag": "6af549668ff8757cf378a5a50d8917e4",
+        "memo": ""
+    },
     "casetestoptionview": {
         "title": "执行",
         "caption": "执行",
@@ -2547,6 +2537,16 @@
         "viewname": "DocLibUsr2EditView",
         "viewfilename": "doc-lib-usr2-edit-view",
         "viewtag": "73fbcf0e3685096f63587bcff234f958",
+        "memo": ""
+    },
+    "ibzdailymymaineditview": {
+        "title": "日报编辑视图（主数据）",
+        "caption": "日报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzDailyMymainEditView",
+        "viewfilename": "ibz-daily-mymain-edit-view",
+        "viewtag": "74aa34a6a878f58a6459d220ceb2092e",
         "memo": ""
     },
     "casecursuitgridview": {
@@ -3177,6 +3177,16 @@
         "viewname": "ProductLeftSidebarListView",
         "viewfilename": "product-left-sidebar-list-view",
         "viewtag": "8ca39819b87c5e3e8669fcd7409cf9a2",
+        "memo": ""
+    },
+    "ibzmonthlymonthlymainmsgeditview": {
+        "title": "月报编辑视图",
+        "caption": "月报实体编辑视图",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMonthlyMonthlyMainMsgEditView",
+        "viewfilename": "ibz-monthly-monthly-main-msg-edit-view",
+        "viewtag": "8caddd30a10ec08a95cd804fa2524e14",
         "memo": ""
     },
     "ibzmyterritorycalendarview": {
@@ -4709,6 +4719,16 @@
         "viewtag": "cc94f92626c795b12a5598ae3bf3da39",
         "memo": ""
     },
+    "ibzreportmytabexpview": {
+        "title": "汇报分页导航视图（我收到的）",
+        "caption": "我收到的",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzReportMyTabExpView",
+        "viewfilename": "ibz-report-my-tab-exp-view",
+        "viewtag": "cced9dfff799c2f6ed1012fd70161948",
+        "memo": ""
+    },
     "casemainmygridview": {
         "title": "功能测试",
         "caption": "功能测试",
@@ -5589,16 +5609,6 @@
         "viewtag": "f3b0810b31f6ce2c9e2eac61e3ba941d",
         "memo": ""
     },
-    "ibzmonthlymonthlymainmsgdashboardview": {
-        "title": "月报数据看板视图",
-        "caption": "月报实体数据看板视图",
-        "viewtype": "DEPORTALVIEW",
-        "viewmodule": "report",
-        "viewname": "IbzMonthlyMonthlyMainMsgDashboardView",
-        "viewfilename": "ibz-monthly-monthly-main-msg-dashboard-view",
-        "viewtag": "f4f102801c1b22bc86a61ae241fb5d0f",
-        "memo": ""
-    },
     "casestepmaingridview9": {
         "title": "用例步骤",
         "caption": "用例步骤",
@@ -5797,6 +5807,16 @@
         "viewname": "ProjectMainTabExpView",
         "viewfilename": "project-main-tab-exp-view",
         "viewtag": "fd0b8748ff96edcde009d39903a9f211",
+        "memo": ""
+    },
+    "ibzdailymydailygridview": {
+        "title": "日报表格视图",
+        "caption": "日报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzDailyMyDailyGridView",
+        "viewfilename": "ibz-daily-my-daily-grid-view",
+        "viewtag": "ff73d748d9fbc7cd4d59a714d7be6ad7",
         "memo": ""
     },
     "buildmaintabexpview": {

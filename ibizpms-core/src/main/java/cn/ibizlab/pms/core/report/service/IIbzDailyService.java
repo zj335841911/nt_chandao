@@ -44,6 +44,8 @@ public interface IIbzDailyService extends IService<IbzDaily> {
     IbzDaily get(Long key);
     IbzDaily getDraft(IbzDaily et);
     boolean checkKey(IbzDaily et);
+    IbzDaily createUserDaily(IbzDaily et);
+    IbzDaily haveRead(IbzDaily et);
     IbzDaily linkCompleteTask(IbzDaily et);
     boolean save(IbzDaily et);
     void saveBatch(List<IbzDaily> list);

@@ -66,6 +66,20 @@ export class IbzWeeklyUsr2EditViewBase extends EditViewBase {
      */
     public appUIService: IBZWEEKLYUIService = new IBZWEEKLYUIService(this.$store);
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof IbzWeeklyUsr2EditViewBase
+	 */
+    protected customViewParams: any = {
+        'todaytask': {
+            isRawValue: false,
+            value: 'thisweektask',
+        }
+    };
+
     /**
      * 是否显示信息栏
      *

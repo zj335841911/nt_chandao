@@ -121,6 +121,17 @@ public class IbzReportResource {
         return  ResponseEntity.status(HttpStatus.OK).body(ibzreportService.checkKey(ibzreportMapping.toDomain(ibzreportdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReport-ReportIReceived-all')")
+    @ApiOperation(value = "我收到的汇报（计数器）", tags = {"汇报" },  notes = "我收到的汇报（计数器）")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzreports/{ibzreport_id}/reportireceived")
+    public ResponseEntity<IbzReportDTO> reportIReceived(@PathVariable("ibzreport_id") Long ibzreport_id, @RequestBody IbzReportDTO ibzreportdto) {
+        IbzReport domain = ibzreportMapping.toDomain(ibzreportdto);
+        domain.setIbzdailyid(ibzreport_id);
+        domain = ibzreportService.reportIReceived(domain);
+        ibzreportdto = ibzreportMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzreportdto);
+    }
+
     @PreAuthorize("hasPermission(this.ibzreportMapping.toDomain(#ibzreportdto),'pms-IbzReport-Save')")
     @ApiOperation(value = "保存汇报", tags = {"汇报" },  notes = "保存汇报")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzreports/save")

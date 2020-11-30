@@ -18,6 +18,7 @@ import substory_en_US from '@locale/lanres/entities/sub-story/sub-story_en_US';
 import subproductplan_en_US from '@locale/lanres/entities/sub-product-plan/sub-product-plan_en_US';
 import employeeload_en_US from '@locale/lanres/entities/emp-loyeeload/emp-loyeeload_en_US';
 import doccontent_en_US from '@locale/lanres/entities/doc-content/doc-content_en_US';
+import ibzreport_en_US from '@locale/lanres/entities/ibz-report/ibz-report_en_US';
 import storyspec_en_US from '@locale/lanres/entities/story-spec/story-spec_en_US';
 import usertpl_en_US from '@locale/lanres/entities/user-tpl/user-tpl_en_US';
 import taskstats_en_US from '@locale/lanres/entities/task-stats/task-stats_en_US';
@@ -366,6 +367,7 @@ const data: any = {
         subproductplan: subproductplan_en_US,
         employeeload: employeeload_en_US,
         doccontent: doccontent_en_US,
+        ibzreport: ibzreport_en_US,
         storyspec: storyspec_en_US,
         usertpl: usertpl_en_US,
         taskstats: taskstats_en_US,

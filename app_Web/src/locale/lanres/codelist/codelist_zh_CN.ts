@@ -86,6 +86,9 @@ export default {
     RealNameProjectM: {
         "empty": "",
     },
+    MyPlanTask: {
+        "empty": "",
+    },
     ProjectCodeList: {
         "empty": "",
     },
@@ -1067,6 +1070,8 @@ export default {
         "linkparentstory": "关联到父需求",
         "unlinkparentstory": "从父需求取消关联",
         "deletechildrenstory": "删除子需求",
+        "submit": "提交",
+        "read": "已读了",
         "empty": "",
     },
     User__gender: {
@@ -1183,6 +1188,9 @@ export default {
     Company__guest: {
         "1": "允许",
         "0": "不允许",
+        "empty": "",
+    },
+    MyCompleteTask: {
         "empty": "",
     },
     Testrun__result: {

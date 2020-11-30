@@ -160,6 +160,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '9ed41cee96088630f3d4b0a91e705930',
+                '6af549668ff8757cf378a5a50d8917e4',
                 'aeee411b8bffcf0c30d65557a8deeeee',
             ],
         },
@@ -1524,15 +1525,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '4d1285fe32c0a29579db88b5adf12f73',
-            viewmodule: 'report',
-            viewname: 'IbzMonthlyMainMsgEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '4d32793fc57ec1ae930a18608526d00e',
             viewmodule: 'zentao',
             viewname: 'TestTaskEditView_commitTest',
@@ -2064,6 +2056,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '6af549668ff8757cf378a5a50d8917e4',
+            viewmodule: 'zentao',
+            viewname: 'TaskZsGridView9Week',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ea141fddc78fd1af4d06e494baf12cc1',
+            ],
+        },
+        {
             viewtag: '6b041208cbc10321a4d9cd74eaac3689',
             viewmodule: 'zentao',
             viewname: 'CaseTestOptionView',
@@ -2273,6 +2275,18 @@ export const viewstate: any = {
             refviews: [
                 '5a8a29268a7563b62fc0160233958830',
                 '7df0f0deee91304e0350f00baa8a92d6',
+            ],
+        },
+        {
+            viewtag: '74aa34a6a878f58a6459d220ceb2092e',
+            viewmodule: 'report',
+            viewname: 'IbzDailyMymainEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
+                '371c02ab5108f29501f89e273ebd39d1',
+                'aeee411b8bffcf0c30d65557a8deeeee',
             ],
         },
         {
@@ -2848,6 +2862,18 @@ export const viewstate: any = {
                 '6c7b582273d0726bcf77214807cfe40c',
                 '1381e29846ae321ca2d06d71bbe3082d',
                 'e042a1dee405b0a853f315b39a375783',
+            ],
+        },
+        {
+            viewtag: '8caddd30a10ec08a95cd804fa2524e14',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyMonthlyMainMsgEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
+                '371c02ab5108f29501f89e273ebd39d1',
+                'aeee411b8bffcf0c30d65557a8deeeee',
             ],
         },
         {
@@ -4211,6 +4237,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'cced9dfff799c2f6ed1012fd70161948',
+            viewmodule: 'report',
+            viewname: 'IbzReportMyTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ff73d748d9fbc7cd4d59a714d7be6ad7',
+            ],
+        },
+        {
             viewtag: 'cd3d221ec6771bb755a0e482b8bcd171',
             viewmodule: 'zentao',
             viewname: 'CaseMainMyGridView',
@@ -4310,8 +4346,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '8caddd30a10ec08a95cd804fa2524e14',
                 'c5aad5f12820569b3a1e8903d243aade',
-                '4d1285fe32c0a29579db88b5adf12f73',
             ],
         },
         {
@@ -4460,11 +4496,12 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '79b3a14f0431747becc48f5b9f3aa990',
-                'cdba1a5e90e147e5f3bf9f2c08c87f56',
                 '24a03de02dc02b92a3c228b944e78ed9',
+                'cdba1a5e90e147e5f3bf9f2c08c87f56',
                 'e9f72c81d94c56a08c355c2ba2e20d07',
                 '3cecc451b691620a36a8dc8aa69d624d',
                 '3aafb12bb0db2be013c0f5ced8c7dc50',
+                'cced9dfff799c2f6ed1012fd70161948',
                 '6d466e003e0479fb8b1a16e49b889dc1',
                 '4b82e9acf6c784b138b365d6011b296b',
                 'c3f0a8956b863fa05a7d961df90a3975',
@@ -5207,6 +5244,17 @@ export const viewstate: any = {
                 '85ee867b09a2d6303c061d91374ec975',
                 'bb8860972029d9947daa3652a4b5d291',
                 '441544d65ca067ea5ea625645b70e610',
+            ],
+        },
+        {
+            viewtag: 'ff73d748d9fbc7cd4d59a714d7be6ad7',
+            viewmodule: 'report',
+            viewname: 'IbzDailyMyDailyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a4a6e9515a944ab2976c5034fb049f63',
+                '74aa34a6a878f58a6459d220ceb2092e',
             ],
         },
         {

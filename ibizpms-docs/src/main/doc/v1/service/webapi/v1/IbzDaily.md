@@ -148,6 +148,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
+### 定时生成用户日报
+#### 访问路径
+/ibzdailies/{ibzdaily_id}/createuserdaily
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzdaily_id | Long | 日报主键ID |
+| 2 | ibzdailydto | [IbzDailyDTO](#IbzDailyDTO) | 日报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbzDailyDTO](#IbzDailyDTO)：日报实体传输对象 |
+
+### 已读
+#### 访问路径
+/ibzdailies/{ibzdaily_id}/haveread
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzdaily_id | Long | 日报主键ID |
+| 2 | ibzdailydto | [IbzDailyDTO](#IbzDailyDTO) | 日报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbzDailyDTO](#IbzDailyDTO)：日报实体传输对象 |
+
 ### 关联完成任务
 #### 访问路径
 /ibzdailies/{ibzdaily_id}/linkcompletetask
