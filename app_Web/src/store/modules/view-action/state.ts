@@ -153,6 +153,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '08b9cfa3e53e34fdb6a8533b1ebcc0ff',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyUsr2EditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '092028347755c225e484250308db2d51',
             viewmodule: 'zentao',
             viewname: 'DocLibProjectTreeExpView',
@@ -3500,6 +3509,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '08b9cfa3e53e34fdb6a8533b1ebcc0ff',
                 '7ae5b669ec5f5284763927aee60efde1',
             ],
         },

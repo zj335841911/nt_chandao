@@ -40,6 +40,33 @@ export default {
       		title: "实体2表格视图",
 		},
 	},
+	weeklymsg_form: {
+		details: {
+			group1: "周报基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "更新时间", 
+			srforikey: "", 
+			srfkey: "周报标识", 
+			srfmajortext: "周报名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			ibz_weeklyid: "周报标识", 
+			ibz_weeklyname: "周报名称", 
+			thisweektask: "本周完成任务", 
+			workthisweek: "本周工作", 
+			nextweektask: "下周计划任务", 
+			plannextweek: "下周计划", 
+			comment: "其他事项", 
+			files: "附件", 
+			date: "日期", 
+			mailto: "抄送给", 
+			reportto: "汇报给", 
+		},
+		uiactions: {
+		},
+	},
 	main_form: {
 		details: {
 			formpage1: "基本信息", 

@@ -1,0 +1,426 @@
+<i-form
+    :model="this.data"
+    class="app-form"
+    ref="form"
+    id="ibzweekly_weeklymsg"
+    style=""
+    @on-validate="formItemValidate.apply(_self, arguments)"
+>
+    <input style="display:none;">
+    <row>
+            <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-group
+    :model="detailsModel.group1"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.group1.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.group1')"
+    :isShowCaption="true"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="false"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.group1"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.ibz_weeklyname.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="ibz_weeklyname"
+    :itemRules="this.rules().ibz_weeklyname"
+    class=""
+
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.ibz_weeklyname')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.ibz_weeklyname.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <input-box 
+    v-model="data.ibz_weeklyname"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.ibz_weeklyname.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.thisweektask.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="thisweektask"
+    :itemRules="this.rules().thisweektask"
+    class=""
+
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.thisweektask')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.thisweektask.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-checkbox-list 
+  v-model="data.thisweektask" 
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :disabled="detailsModel.thisweektask.disabled" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  tag='AllTask' 
+  codelistType='DYNAMIC' 
+  mode=""
+  name="thisweektask" 
+  style="">
+</app-checkbox-list>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.workthisweek.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="workthisweek"
+    :itemRules="this.rules().workthisweek"
+    class=""
+
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.workthisweek')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.workthisweek.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.workthisweek"
+    @change="(val) =>{this.data.workthisweek =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.workthisweek.disabled"
+    :data="JSON.stringify(this.data)"
+    name="workthisweek"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{}'
+    :exportparams='{}'
+    
+    style=""
+></app-rich-text-editor>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.nextweektask.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="nextweektask"
+    :itemRules="this.rules().nextweektask"
+    class=""
+
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.nextweektask')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.nextweektask.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-checkbox-list 
+  v-model="data.nextweektask" 
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :disabled="detailsModel.nextweektask.disabled" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  tag='AllTask' 
+  codelistType='DYNAMIC' 
+  mode=""
+  name="nextweektask" 
+  style="">
+</app-checkbox-list>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.plannextweek.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="plannextweek"
+    :itemRules="this.rules().plannextweek"
+    class=""
+
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.plannextweek')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.plannextweek.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.plannextweek"
+    @change="(val) =>{this.data.plannextweek =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.plannextweek.disabled"
+    :data="JSON.stringify(this.data)"
+    name="plannextweek"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{}'
+    :exportparams='{}'
+    
+    style=""
+></app-rich-text-editor>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.comment.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="comment"
+    :itemRules="this.rules().comment"
+    class=""
+
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.comment')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.comment.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <input-box 
+    v-model="data.comment"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.comment.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.files.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="files"
+    :itemRules="this.rules().files"
+    class=""
+
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.files')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.files.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <input-box 
+    v-model="data.files"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.files.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.date.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="date"
+    :itemRules="this.rules().date"
+    class=""
+
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.date')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.date.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.mailto.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="mailto"
+    :itemRules="this.rules().mailto"
+    class=""
+
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.mailto')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.mailto.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-checkbox-list 
+  v-model="data.mailto" 
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :disabled="detailsModel.mailto.disabled" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  tag='UserRealName' 
+  codelistType='DYNAMIC' 
+  valueSeparator=","
+  mode="str"
+  name="mailto" 
+  style="">
+</app-checkbox-list>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.reportto.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="reportto"
+    :itemRules="this.rules().reportto"
+    class=""
+
+    :caption="$t('entities.ibzweekly.weeklymsg_form.details.reportto')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.reportto.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list 
+    v-model="data.reportto"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.reportto.disabled"
+    valueType="string"
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
+    </row>
+</i-form>

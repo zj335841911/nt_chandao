@@ -1247,20 +1247,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-case-main-edit-view9/ibz-case-main-edit-view9.vue'),
                 },
                 {
-                    path: 'doclibmodules/:doclibmodule?/childweihuitreeexpview/:childweihuitreeexpview?',
-                    meta: {
-                        caption: 'entities.doclibmodule.views.childweihuitreeexpview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'doclibmodules', parameterName: 'doclibmodule' },
-                            { pathName: 'childweihuitreeexpview', parameterName: 'childweihuitreeexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/doc-lib-module-child-wei-hui-tree-exp-view/doc-lib-module-child-wei-hui-tree-exp-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/typetaskgroupgridview/:typetaskgroupgridview?',
                     meta: {
                         caption: 'entities.task.views.typetaskgroupgridview.caption',
@@ -1327,6 +1313,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-type-task-group-grid-view/task-type-task-group-grid-view.vue'),
+                },
+                {
+                    path: 'doclibmodules/:doclibmodule?/childweihuitreeexpview/:childweihuitreeexpview?',
+                    meta: {
+                        caption: 'entities.doclibmodule.views.childweihuitreeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibmodules', parameterName: 'doclibmodule' },
+                            { pathName: 'childweihuitreeexpview', parameterName: 'childweihuitreeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/doc-lib-module-child-wei-hui-tree-exp-view/doc-lib-module-child-wei-hui-tree-exp-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/pickupgridview3/:pickupgridview3?',
@@ -5384,6 +5384,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-pickup-grid-view2/story-pickup-grid-view2.vue'),
+                },
+                {
+                    path: 'ibzweeklies/:ibzweekly?/usr2editview/:usr2editview?',
+                    meta: {
+                        caption: 'entities.ibzweekly.views.usr2editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+                            { pathName: 'usr2editview', parameterName: 'usr2editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-weekly-usr2-edit-view/ibz-weekly-usr2-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/pickupgridview4/:pickupgridview4?',
