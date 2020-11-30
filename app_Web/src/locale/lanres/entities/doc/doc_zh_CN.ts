@@ -386,12 +386,6 @@ export default {
 			tip: "过滤",
 		},
 	},
-	mymoregridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-	},
 	createeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -409,6 +403,12 @@ export default {
 		},
 	},
 	myfavouritegridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
+	mymoregridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "过滤",
 			tip: "过滤",

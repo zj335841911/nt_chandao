@@ -2106,7 +2106,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'b593c09602d9483d53b1f725395030a6',
+                'c5aad5f12820569b3a1e8903d243aade',
                 '7c188c576f1fd59114ac2940d8e92c15',
             ],
         },
@@ -3588,18 +3588,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'b593c09602d9483d53b1f725395030a6',
-            viewmodule: 'ibiz',
-            viewname: 'DocMyMoreGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'b6e02216d1e5c69d79b32342d8b67c7a',
-                '23cc93d7fdddff5077a7952d26802a7b',
-                'c9be79d1ad2a32e56092cd1ec1e896eb',
-            ],
-        },
-        {
             viewtag: 'b5d2389c0dd12ae614b319090ecc2361',
             viewmodule: 'zentao',
             viewname: 'ProductDashboardInfoMainView9',
@@ -3975,6 +3963,15 @@ export const viewstate: any = {
             viewtag: 'c5630df2f9e4729be1d7ba4048064774',
             viewmodule: 'ibiz',
             viewname: 'IbzLibModuleEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'c5aad5f12820569b3a1e8903d243aade',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyNewMonthlyEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

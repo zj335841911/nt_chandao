@@ -5480,6 +5480,20 @@ const router = new Router({
                     component: () => import('@pages/report/ibz-my-territory-report-tab-exp-view/ibz-my-territory-report-tab-exp-view.vue'),
                 },
                 {
+                    path: 'ibzmonthlies/:ibzmonthly?/newmonthlyeditview/:newmonthlyeditview?',
+                    meta: {
+                        caption: 'entities.ibzmonthly.views.newmonthlyeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'newmonthlyeditview', parameterName: 'newmonthlyeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-new-monthly-edit-view/ibz-monthly-new-monthly-edit-view.vue'),
+                },
+                {
                     path: 'ibizprokeywords/:ibizprokeyword?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.ibizprokeyword.views.gridview.caption',
@@ -16234,20 +16248,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/employeeloadedit-view/employeeloadedit-view.vue'),
-                },
-                {
-                    path: 'docs/:doc?/mymoregridview/:mymoregridview?',
-                    meta: {
-                        caption: 'entities.doc.views.mymoregridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'docs', parameterName: 'doc' },
-                            { pathName: 'mymoregridview', parameterName: 'mymoregridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/doc-my-more-grid-view/doc-my-more-grid-view.vue'),
                 },
                 {
                     path: 'ibzmyterritories/:ibzmyterritory?/employtreeexpview/:employtreeexpview?',

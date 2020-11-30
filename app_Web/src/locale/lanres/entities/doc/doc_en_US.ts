@@ -386,12 +386,6 @@ export default {
 			tip: "Filter",
 		},
 	},
-	mymoregridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-	},
 	createeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
@@ -409,6 +403,12 @@ export default {
 		},
 	},
 	myfavouritegridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	mymoregridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Filter",
 			tip: "Filter",
