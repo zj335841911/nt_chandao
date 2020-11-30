@@ -28,8 +28,6 @@ export default {
 		details: {
 			group1: "日报基本信息", 
 			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
 			srfupdatedate: "更新时间", 
 			srforikey: "", 
 			srfkey: "日报标识", 
@@ -51,30 +49,34 @@ export default {
 			ibz_dailyid: "日报标识", 
 			account: "用户", 
 			issubmit: "是否提交", 
-			createman: "建立人", 
-			createdate: "建立时间", 
-			updateman: "更新人", 
-			updatedate: "更新时间", 
 		},
 		uiactions: {
 		},
 	},
 	dailyeditviewtoolbar_toolbar: {
-		tbitem3: {
-			caption: "Save",
-			tip: "Save",
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
 		},
-		tbitem4: {
-			caption: "Save And New",
-			tip: "Save And New",
+		deuiaction4: {
+			caption: "Remove",
+			tip: "Remove {0}",
 		},
-		tbitem5: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
+		seperator1: {
+			caption: "",
+			tip: "",
 		},
-		tbitem7: {
-			caption: "Remove And Close",
-			tip: "Remove And Close Window",
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 };

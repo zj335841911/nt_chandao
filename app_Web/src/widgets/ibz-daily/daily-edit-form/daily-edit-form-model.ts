@@ -121,26 +121,6 @@ export default class DailyEditModel {
         dataType: 'SSCODELIST',
       },
       {
-        name: 'createman',
-        prop: 'createman',
-        dataType: 'TEXT',
-      },
-      {
-        name: 'createdate',
-        prop: 'createdate',
-        dataType: 'DATETIME',
-      },
-      {
-        name: 'updateman',
-        prop: 'updateman',
-        dataType: 'TEXT',
-      },
-      {
-        name: 'updatedate',
-        prop: 'updatedate',
-        dataType: 'DATETIME',
-      },
-      {
         name: 'ibzdaily',
         prop: 'ibzdailyid',
         dataType: 'FONTKEY',

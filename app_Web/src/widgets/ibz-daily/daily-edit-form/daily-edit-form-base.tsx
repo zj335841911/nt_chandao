@@ -106,10 +106,6 @@ export class DailyEditEditFormBase extends EditFormControlBase {
         ibz_dailyid: null,
         account: null,
         issubmit: null,
-        createman: null,
-        createdate: null,
-        updateman: null,
-        updatedate: null,
         ibzdaily: null,
     };
 
@@ -151,10 +147,6 @@ export class DailyEditEditFormBase extends EditFormControlBase {
         group1: new FormGroupPanelModel({ caption: '日报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzdaily.dailyedit_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
-        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzdaily.dailyedit_form', extractMode: 'ITEM', details: [] } }),
-
-        formpage2: new FormPageModel({ caption: '其它', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srfupdatedate: new FormItemModel({
     caption: '更新时间', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
@@ -303,54 +295,6 @@ export class DailyEditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        createman: new FormItemModel({
-    caption: '建立人', detailType: 'FORMITEM', name: 'createman', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        createdate: new FormItemModel({
-    caption: '建立时间', detailType: 'FORMITEM', name: 'createdate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        updateman: new FormItemModel({
-    caption: '更新人', detailType: 'FORMITEM', name: 'updateman', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        updatedate: new FormItemModel({
-    caption: '更新时间', detailType: 'FORMITEM', name: 'updatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        form: new FormTabPanelModel({
-            caption: 'form',
-            detailType: 'TABPANEL',
-            name: 'form',
-            visible: true,
-            isShowCaption: true,
-            form: this,
-            tabPages: [
-                {
-                    name: 'formpage1',
-                    index: 0,
-                    visible: true,
-                },
-                {
-                    name: 'formpage2',
-                    index: 1,
-                    visible: true,
-                },
-            ]
-        }),
     };
 
     /**

@@ -139,6 +139,7 @@ public class IbzDaily extends EntityMP implements Serializable {
     /**
      * 是否提交
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`issubmit`")
     @JSONField(name = "issubmit")
     @JsonProperty("issubmit")

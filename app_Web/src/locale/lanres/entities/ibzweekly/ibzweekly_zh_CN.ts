@@ -83,22 +83,14 @@ export default {
 			tip: "",
 		},
 		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
+			caption: "编辑",
+			tip: "编辑",
 		},
-		seperator3: {
+		seperator2: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction4: {
-			caption: "导出",
-			tip: "导出",
-		},
-		seperator4: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
+		deuiaction3: {
 			caption: "过滤",
 			tip: "过滤",
 		},

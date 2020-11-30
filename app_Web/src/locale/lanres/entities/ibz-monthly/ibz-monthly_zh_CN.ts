@@ -72,5 +72,9 @@ export default {
 	newmonthlyeditviewtoolbar_toolbar: {
 	},
 	mainmonthlygridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
 	},
 };
