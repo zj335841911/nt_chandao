@@ -41,7 +41,7 @@ public class IbzMonthlySearchContext extends QueryWrapperContext<IbzMonthly> {
             this.getSearchCond().eq("`account`", n_account_eq);
         }
     }
-	private String n_reportto_eq;//[汇报]
+	private String n_reportto_eq;//[汇报给]
 	public void setN_reportto_eq(String n_reportto_eq) {
         this.n_reportto_eq = n_reportto_eq;
         if(!ObjectUtils.isEmpty(this.n_reportto_eq)){
@@ -53,6 +53,13 @@ public class IbzMonthlySearchContext extends QueryWrapperContext<IbzMonthly> {
         this.n_issubmit_eq = n_issubmit_eq;
         if(!ObjectUtils.isEmpty(this.n_issubmit_eq)){
             this.getSearchCond().eq("`issubmit`", n_issubmit_eq);
+        }
+    }
+	private String n_reportstatus_eq;//[状态]
+	public void setN_reportstatus_eq(String n_reportstatus_eq) {
+        this.n_reportstatus_eq = n_reportstatus_eq;
+        if(!ObjectUtils.isEmpty(this.n_reportstatus_eq)){
+            this.getSearchCond().eq("`reportstatus`", n_reportstatus_eq);
         }
     }
 

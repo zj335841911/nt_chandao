@@ -26,6 +26,9 @@
 |下周计划|PLANNEXTWEEK|HTMLTEXT|&nbsp;|
 |本周完成任务|THISWEEKTASK|SMCODELIST|&nbsp;|
 |下周计划任务|NEXTWEEKTASK|SMCODELIST|&nbsp;|
+|更新人名称|UPDATEMANNAME|TEXT|&nbsp;|
+|建立人名称|CREATEMANNAME|TEXT|&nbsp;|
+|状态|REPORTSTATUS|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -47,6 +50,9 @@
 |下周计划|默认规则|内容长度必须小于等于[1048576]|
 |本周完成任务|默认规则|内容长度必须小于等于[100]|
 |下周计划任务|默认规则|内容长度必须小于等于[100]|
+|更新人名称|默认规则|内容长度必须小于等于[60]|
+|建立人名称|默认规则|内容长度必须小于等于[60]|
+|状态|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 
@@ -90,6 +96,7 @@
 |用户(ACCOUNT)|EQ|
 |是否提交(ISSUBMIT)|EQ|
 |汇报给(REPORTTO)|EQ|
+|状态(REPORTSTATUS)|EQ|
 
 ## 导入模式
 无

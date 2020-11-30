@@ -1089,6 +1089,26 @@ export default {
 		uiactions: {
 		},
 	},
+	reportmainzs_grid: {
+		nodata: "",
+		columns: {
+			id: "ID",
+			pri: "P",
+			productname: "产品",
+			projectname: "所属项目",
+			name: "任务名称",
+			status1: "任务状态",
+			assignedto: "指派给",
+			finishedby: "完成者",
+			estimate: "预计",
+			consumed: "消耗",
+			left: "剩余",
+			progressrate: "%",
+			deadline: "截止日期",
+		},
+		uiactions: {
+		},
+	},
 	myfavoritemain_grid: {
 		nodata: "",
 		columns: {
@@ -1222,26 +1242,6 @@ export default {
         task_checkforward: "转交",
         task_forward: "转交",
         task_assigntask: "指派",
-		},
-	},
-	reportmainzs_grid: {
-		nodata: "",
-		columns: {
-			id: "ID",
-			pri: "P",
-			productname: "产品",
-			projectname: "所属项目",
-			name: "任务名称",
-			status1: "任务状态",
-			assignedto: "指派给",
-			finishedby: "完成者",
-			estimate: "预计",
-			consumed: "消耗",
-			left: "剩余",
-			progressrate: "%",
-			deadline: "截止日期",
-		},
-		uiactions: {
 		},
 	},
 	projectrelated_grid: {

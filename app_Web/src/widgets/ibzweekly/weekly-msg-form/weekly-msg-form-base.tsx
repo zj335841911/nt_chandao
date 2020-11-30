@@ -86,7 +86,7 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof WeeklyMsgEditFormBase
      */
-    protected drCount: number = 2;
+    protected drCount: number = 3;
     /**
      * 表单数据对象
      *
@@ -103,12 +103,12 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         ibz_weeklyname: null,
+        date: null,
         workthisweek: null,
         plannextweek: null,
         comment: null,
-        date: null,
-        mailto: null,
         reportto: null,
+        mailto: null,
         thisweektask: null,
         nextweektask: null,
         ibz_weeklyid: null,
@@ -152,9 +152,19 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
     public detailsModel: any = {
         druipart2: new FormDRUIPartModel({ caption: '附件', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
+        grouppanel1: new FormGroupPanelModel({ caption: '附件', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzweekly.weeklymsg_form', extractMode: 'ITEM', details: [] } }),
+
         druipart1: new FormDRUIPartModel({ caption: '操作历史', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        group1: new FormGroupPanelModel({ caption: '周报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzweekly.weeklymsg_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel2: new FormGroupPanelModel({ caption: '操作历史', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzweekly.weeklymsg_form', extractMode: 'ITEM', details: [] } }),
+
+        group1: new FormGroupPanelModel({ caption: '周报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzweekly.weeklymsg_form', extractMode: 'ITEM', details: [] } }),
+
+        druipart3: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel3: new FormGroupPanelModel({ caption: '完成的任务', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzweekly.weeklymsg_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel4: new FormGroupPanelModel({ caption: '下周计划任务', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzweekly.weeklymsg_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -221,6 +231,13 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        date: new FormItemModel({
+    caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         workthisweek: new FormItemModel({
     caption: '本周工作', detailType: 'FORMITEM', name: 'workthisweek', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -242,8 +259,8 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        date: new FormItemModel({
-    caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        reportto: new FormItemModel({
+    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -251,13 +268,6 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
 
         mailto: new FormItemModel({
     caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        reportto: new FormItemModel({
-    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

@@ -55,6 +55,13 @@ public class IbzWeeklySearchContext extends QueryWrapperContext<IbzWeekly> {
             this.getSearchCond().eq("`reportto`", n_reportto_eq);
         }
     }
+	private String n_reportstatus_eq;//[状态]
+	public void setN_reportstatus_eq(String n_reportstatus_eq) {
+        this.n_reportstatus_eq = n_reportstatus_eq;
+        if(!ObjectUtils.isEmpty(this.n_reportstatus_eq)){
+            this.getSearchCond().eq("`reportstatus`", n_reportstatus_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

@@ -26,13 +26,16 @@
 | 8 | [用户](#属性-用户（ACCOUNT）) | ACCOUNT | 单项选择(文本值) | 否 | 否 | 是 |
 | 9 | [本月工作](#属性-本月工作（WORKTHISMONTH）) | WORKTHISMONTH | HTML文本，没有长度限制 | 否 | 否 | 是 |
 | 10 | [下月计划](#属性-下月计划（PLANSNEXTMONTH）) | PLANSNEXTMONTH | HTML文本，没有长度限制 | 否 | 否 | 是 |
-| 11 | [汇报](#属性-汇报（REPORTTO）) | REPORTTO | 单项选择(文本值) | 否 | 否 | 是 |
+| 11 | [汇报给](#属性-汇报给（REPORTTO）) | REPORTTO | 单项选择(文本值) | 否 | 否 | 是 |
 | 12 | [抄送给](#属性-抄送给（MAILTO）) | MAILTO | 多项选择(文本值) | 否 | 否 | 是 |
 | 13 | [其他事项](#属性-其他事项（COMMENT）) | COMMENT | HTML文本，没有长度限制 | 否 | 否 | 是 |
 | 14 | [本月完成任务](#属性-本月完成任务（THISMONTHTASK）) | THISMONTHTASK | 多项选择(文本值) | 否 | 否 | 是 |
 | 15 | [下月计划任务](#属性-下月计划任务（NEXTMONTHPLANSTASK）) | NEXTMONTHPLANSTASK | 多项选择(文本值) | 否 | 否 | 是 |
 | 16 | [附件](#属性-附件（FILES）) | FILES | 文本，可指定长度 | 否 | 否 | 是 |
 | 17 | [是否提交](#属性-是否提交（ISSUBMIT）) | ISSUBMIT | 单项选择(文本值) | 否 | 否 | 是 |
+| 18 | [更新人名称](#属性-更新人名称（UPDATEMANNAME）) | UPDATEMANNAME | 文本，可指定长度 | 否 | 否 | 否 |
+| 19 | [状态](#属性-状态（REPORTSTATUS）) | REPORTSTATUS | 单项选择(文本值) | 否 | 否 | 是 |
+| 20 | [建立人名称](#属性-建立人名称（CREATEMANNAME）) | CREATEMANNAME | 文本，可指定长度 | 否 | 否 | 否 |
 
 ### 属性-月报标识（IBZ_MONTHLYID）
 #### 属性说明
@@ -408,9 +411,9 @@ String
 #### 关系属性
 无
 
-### 属性-汇报（REPORTTO）
+### 属性-汇报给（REPORTTO）
 #### 属性说明
-汇报
+汇报给
 
 - 是否是主键
 否
@@ -671,6 +674,122 @@ String
 #### 关系属性
 无
 
+### 属性-更新人名称（UPDATEMANNAME）
+#### 属性说明
+更新人名称
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+否
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-状态（REPORTSTATUS）
+#### 属性说明
+状态
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+| 项目 | 说明 |
+| ---- | ---- |
+| 类型 |  |
+| 值 | 0 |
+
+- 取值范围/公式
+参照数据字典【[汇报状态（ReportStatus）](../../codelist/ReportStatus)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+无
+
+### 属性-建立人名称（CREATEMANNAME）
+#### 属性说明
+建立人名称
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+否
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -798,8 +917,9 @@ Save
 | ---- | ---- | ---- |
 | 1 | [月报名称（IBZ_MONTHLYNAME）](#属性-月报名称（IBZ_MONTHLYNAME）) | `%like%` |
 | 2 | [用户（ACCOUNT）](#属性-用户（ACCOUNT）) | `=` |
-| 3 | [汇报（REPORTTO）](#属性-汇报（REPORTTO）) | `=` |
+| 3 | [汇报给（REPORTTO）](#属性-汇报给（REPORTTO）) | `=` |
 | 4 | [是否提交（ISSUBMIT）](#属性-是否提交（ISSUBMIT）) | `=` |
+| 5 | [状态（REPORTSTATUS）](#属性-状态（REPORTSTATUS）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -824,16 +944,19 @@ SELECT
 t1.`ACCOUNT`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
 t1.`DATE`,
 t1.`IBZ_MONTHLYID`,
 t1.`IBZ_MONTHLYNAME`,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
 t1.`NEXTMONTHPLANSTASK`,
+t1.`REPORTSTATUS`,
 t1.`REPORTTO`,
 t1.`THISMONTHTASK`,
 t1.`UPDATEDATE`,
-t1.`UPDATEMAN`
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
 FROM `T_IBZ_MONTHLY` t1 
 
 ```
@@ -855,6 +978,7 @@ t1.`ACCOUNT`,
 t1.`COMMENT`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
 t1.`DATE`,
 t1.`IBZ_MONTHLYID`,
 t1.`IBZ_MONTHLYNAME`,
@@ -862,10 +986,12 @@ t1.`ISSUBMIT`,
 t1.`MAILTO`,
 t1.`NEXTMONTHPLANSTASK`,
 t1.`PLANSNEXTMONTH`,
+t1.`REPORTSTATUS`,
 t1.`REPORTTO`,
 t1.`THISMONTHTASK`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
 t1.`WORKTHISMONTH`
 FROM `T_IBZ_MONTHLY` t1 
 

@@ -471,7 +471,7 @@ String
 无
 
 - 取值范围/公式
-参照数据字典【[所有任务（AllTask）](../../codelist/AllTask)】
+参照数据字典【[我完成的任务（汇报）（MyCompleteTask）](../../codelist/MyCompleteTask)】
 
 - 数据格式
 无
@@ -587,7 +587,7 @@ String
 无
 
 - 取值范围/公式
-参照数据字典【[所有任务（AllTask）](../../codelist/AllTask)】
+参照数据字典【[我计划参与的任务（汇报）（MyPlanTask）](../../codelist/MyPlanTask)】
 
 - 数据格式
 无

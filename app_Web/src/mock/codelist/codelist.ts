@@ -570,6 +570,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        "srfkey": "MyPlanTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyTomorrowPlanTask",
+        "items": []
+    },
+    {
         "srfkey": "ProjectCodeList",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -8593,6 +8601,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "MyCompleteTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyCompleteTask",
+        "items": []
     },
     {
         srfkey: "Testrun__result",

@@ -214,6 +214,29 @@ public class StaticDict {
 
 
     /**
+     * 代码表[汇报快速分组]
+     */
+    @Getter
+    public enum REPORTQuickGroup {
+        ALLCNT("All","所有"),
+        DAILYCNT("daily","日报"),
+        WEEKLYCNT("weekly","周报"),
+        MONTHLYCNT("monthly","月报");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        REPORTQuickGroup(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[扩展表格单元格垂直对齐方式]
      */
     @Getter
@@ -3945,6 +3968,7 @@ public class StaticDict {
     }
 
 
+
     /**
      * 代码表[功能测试快速分组]
      */
@@ -5638,6 +5662,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
 

@@ -19,13 +19,16 @@
 |用户|ACCOUNT|SSCODELIST|&nbsp;|
 |本月工作|WORKTHISMONTH|HTMLTEXT|&nbsp;|
 |下月计划|PLANSNEXTMONTH|HTMLTEXT|&nbsp;|
-|汇报|REPORTTO|SSCODELIST|&nbsp;|
+|汇报给|REPORTTO|SSCODELIST|&nbsp;|
 |抄送给|MAILTO|SMCODELIST|&nbsp;|
 |其他事项|COMMENT|HTMLTEXT|&nbsp;|
 |本月完成任务|THISMONTHTASK|SMCODELIST|&nbsp;|
 |下月计划任务|NEXTMONTHPLANSTASK|SMCODELIST|&nbsp;|
 |附件|FILES|TEXT|&nbsp;|
 |是否提交|ISSUBMIT|SSCODELIST|&nbsp;|
+|更新人名称|UPDATEMANNAME|TEXT|&nbsp;|
+|状态|REPORTSTATUS|SSCODELIST|&nbsp;|
+|建立人名称|CREATEMANNAME|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -40,13 +43,16 @@
 |用户|默认规则|内容长度必须小于等于[100]|
 |本月工作|默认规则|内容长度必须小于等于[1048576]|
 |下月计划|默认规则|内容长度必须小于等于[1048576]|
-|汇报|默认规则|内容长度必须小于等于[60]|
+|汇报给|默认规则|内容长度必须小于等于[60]|
 |抄送给|默认规则|内容长度必须小于等于[2000]|
 |其他事项|默认规则|内容长度必须小于等于[1048576]|
 |本月完成任务|默认规则|内容长度必须小于等于[2000]|
 |下月计划任务|默认规则|内容长度必须小于等于[2000]|
 |附件|默认规则|内容长度必须小于等于[100]|
 |是否提交|默认规则|内容长度必须小于等于[100]|
+|更新人名称|默认规则|内容长度必须小于等于[60]|
+|状态|默认规则|内容长度必须小于等于[60]|
+|建立人名称|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 
@@ -88,8 +94,9 @@
 | --------   |------------|
 |月报名称(IBZ_MONTHLYNAME)|LIKE|
 |用户(ACCOUNT)|EQ|
-|汇报(REPORTTO)|EQ|
+|汇报给(REPORTTO)|EQ|
 |是否提交(ISSUBMIT)|EQ|
+|状态(REPORTSTATUS)|EQ|
 
 ## 导入模式
 无

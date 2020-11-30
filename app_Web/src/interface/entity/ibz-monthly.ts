@@ -87,7 +87,7 @@ export interface IbzMonthly {
     plansnextmonth?: any;
 
     /**
-     * 汇报
+     * 汇报给
      *
      * @returns {*}
      * @memberof IbzMonthly
@@ -141,4 +141,28 @@ export interface IbzMonthly {
      * @memberof IbzMonthly
      */
     issubmit?: any;
+
+    /**
+     * 更新人名称
+     *
+     * @returns {*}
+     * @memberof IbzMonthly
+     */
+    updatemanname?: any;
+
+    /**
+     * 状态
+     *
+     * @returns {*}
+     * @memberof IbzMonthly
+     */
+    reportstatus?: any;
+
+    /**
+     * 建立人名称
+     *
+     * @returns {*}
+     * @memberof IbzMonthly
+     */
+    createmanname?: any;
 }

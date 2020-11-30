@@ -652,6 +652,14 @@
         "items": []
     }, 
     {
+        "srfkey": "MyPlanTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyTomorrowPlanTask",
+        "items": []
+    }, 
+    {
         "srfkey": "ProjectCodeList",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -10069,6 +10077,14 @@
                 "default": false
             }
         ]
+    }, 
+    {
+        "srfkey": "MyCompleteTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyCompleteTask",
+        "items": []
     }, 
     {
         "srfkey": "Testrun__result",

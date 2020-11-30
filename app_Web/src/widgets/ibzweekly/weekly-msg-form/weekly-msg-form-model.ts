@@ -61,6 +61,11 @@ export default class WeeklyMsgModel {
         dataType: 'TEXT',
       },
       {
+        name: 'date',
+        prop: 'date',
+        dataType: 'DATE',
+      },
+      {
         name: 'workthisweek',
         prop: 'workthisweek',
         dataType: 'HTMLTEXT',
@@ -76,19 +81,14 @@ export default class WeeklyMsgModel {
         dataType: 'TEXT',
       },
       {
-        name: 'date',
-        prop: 'date',
-        dataType: 'DATE',
+        name: 'reportto',
+        prop: 'reportto',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'mailto',
         prop: 'mailto',
         dataType: 'SMCODELIST',
-      },
-      {
-        name: 'reportto',
-        prop: 'reportto',
-        dataType: 'SSCODELIST',
       },
       {
         name: 'thisweektask',

@@ -86,6 +86,9 @@ export default {
     RealNameProjectM: {
         "empty": "",
     },
+    MyPlanTask: {
+        "empty": "",
+    },
     ProjectCodeList: {
         "empty": "",
     },
@@ -1184,6 +1187,9 @@ export default {
         "1": "允许",
         "0": "不允许",
         "empty": ""
+    },
+    MyCompleteTask: {
+        "empty": "",
     },
     Testrun__result: {
         "n/a": "忽略",

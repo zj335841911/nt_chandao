@@ -1,0 +1,21 @@
+package cn.ibizlab.pms.report.logic.ibzreportlogic.reportireceived;
+import java.util.Map;
+import java.util.HashMap;
+import com.alibaba.fastjson.JSONObject;
+import org.springframework.util.StringUtils;
+import org.springframework.util.ObjectUtils;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
+global cn.ibizlab.pms.core.report.domain.IbzReport ibzreportreportireceiveddefault;
+global cn.ibizlab.pms.core.report.service.IIbzReportService iBzSysIbzreportDefaultService;
+global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
+
+
+no-loop
+
+//逻辑处理节点[开始]
+rule "begin"
+ruleflow-group "ibzreportreportireceivedbegin"
+    when
+    then
+    end
+

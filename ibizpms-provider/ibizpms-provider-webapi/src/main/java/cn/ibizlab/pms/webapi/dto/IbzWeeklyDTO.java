@@ -182,6 +182,33 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String nextweektask;
 
+    /**
+     * 属性 [UPDATEMANNAME]
+     *
+     */
+    @JSONField(name = "updatemanname")
+    @JsonProperty("updatemanname")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String updatemanname;
+
+    /**
+     * 属性 [CREATEMANNAME]
+     *
+     */
+    @JSONField(name = "createmanname")
+    @JsonProperty("createmanname")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String createmanname;
+
+    /**
+     * 属性 [REPORTSTATUS]
+     *
+     */
+    @JSONField(name = "reportstatus")
+    @JsonProperty("reportstatus")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String reportstatus;
+
 
     /**
      * 设置 [IBZ_WEEKLYNAME]
@@ -269,6 +296,14 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     public void setNextweektask(String  nextweektask){
         this.nextweektask = nextweektask ;
         this.modify("nextweektask",nextweektask);
+    }
+
+    /**
+     * 设置 [REPORTSTATUS]
+     */
+    public void setReportstatus(String  reportstatus){
+        this.reportstatus = reportstatus ;
+        this.modify("reportstatus",reportstatus);
     }
 
 
