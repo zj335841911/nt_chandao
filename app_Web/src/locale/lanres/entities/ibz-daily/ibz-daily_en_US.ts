@@ -58,25 +58,5 @@ export default {
 			caption: "New",
 			tip: "New",
 		},
-		deuiaction4: {
-			caption: "Remove",
-			tip: "Remove {0}",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
-		},
 	},
 };

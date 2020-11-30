@@ -424,47 +424,6 @@
 </app-form-item>
 
 </i-col>
-<i-col
-    class="form-layout-container"
-    v-show="detailsModel.issubmit.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-item
-    name="issubmit"
-    :itemRules="this.rules().issubmit"
-    class=""
-
-    :caption="$t('entities.ibzdaily.dailyedit_form.details.issubmit')"
-    uiStyle="DEFAULT"
-    :labelWidth="130"
-    :isShowCaption="true"
-    :error="detailsModel.issubmit.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
->
-    
-<dropdown-list 
-    v-model="data.issubmit"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext='{ }' 
-    :localParam='{ }' 
-    :disabled="detailsModel.issubmit.disabled"
-    valueType="string"
-    tag="YesNo"
-    codelistType="STATIC"
-    placeholder="请选择..."
-
-></dropdown-list>
-</app-form-item>
-
-</i-col>
 
 
     </row>
