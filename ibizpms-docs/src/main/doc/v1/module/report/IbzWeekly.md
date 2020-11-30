@@ -26,10 +26,9 @@
 | 8 | [抄送给](#属性-抄送给（MAILTO）) | MAILTO | 多项选择(文本值) | 否 | 否 | 是 |
 | 9 | [附件](#属性-附件（FILES）) | FILES | 文本，可指定长度 | 否 | 否 | 是 |
 | 10 | [是否提交](#属性-是否提交（ISSUBMIT）) | ISSUBMIT | 单项选择(文本值) | 否 | 否 | 是 |
-| 11 | [完成任务](#属性-完成任务（TODAYTASK）) | TODAYTASK | 多项选择(文本值) | 否 | 否 | 是 |
-| 12 | [汇报给](#属性-汇报给（REPORTTO）) | REPORTTO | 单项选择(文本值) | 否 | 否 | 是 |
-| 13 | [其他事项](#属性-其他事项（COMMENT）) | COMMENT | 文本，可指定长度 | 否 | 否 | 是 |
-| 14 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
+| 11 | [汇报给](#属性-汇报给（REPORTTO）) | REPORTTO | 单项选择(文本值) | 否 | 否 | 是 |
+| 12 | [其他事项](#属性-其他事项（COMMENT）) | COMMENT | 文本，可指定长度 | 否 | 否 | 是 |
+| 13 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
 
 ### 属性-周报名称（IBZ_WEEKLYNAME）
 #### 属性说明
@@ -407,43 +406,6 @@ String
 #### 关系属性
 无
 
-### 属性-完成任务（TODAYTASK）
-#### 属性说明
-完成任务
-
-- 是否是主键
-否
-
-- 属性类型
-物理字段[来自当前实体物理表字段]
-
-- 数据类型
-多项选择(文本值)
-
-- Java类型
-String
-
-- 是否允许为空
-是
-
-- 默认值
-无
-
-- 取值范围/公式
-参照数据字典【[所有任务（AllTask）](../../codelist/AllTask)】
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-无
-
-#### 关系属性
-无
-
 ### 属性-汇报给（REPORTTO）
 #### 属性说明
 汇报给
@@ -704,7 +666,6 @@ t1.`IBZ_WEEKLYNAME`,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
 t1.`REPORTTO`,
-t1.`TODAYTASK`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_WEEKLY` t1 
@@ -734,7 +695,6 @@ t1.`IBZ_WEEKLYNAME`,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
 t1.`REPORTTO`,
-t1.`TODAYTASK`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_WEEKLY` t1 

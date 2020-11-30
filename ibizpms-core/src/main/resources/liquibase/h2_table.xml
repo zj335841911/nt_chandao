@@ -1287,8 +1287,6 @@
                 </column>
                 <column name="ISSUBMIT" remarks="" type="VARCHAR(60)">
                 </column>
-                <column name="TODAYTASK" remarks="" type="VARCHAR(2000)">
-                </column>
                 <column name="REPORTTO" remarks="" type="VARCHAR(60)">
                 </column>
                 <column name="COMMENT" remarks="" type="VARCHAR(100)">

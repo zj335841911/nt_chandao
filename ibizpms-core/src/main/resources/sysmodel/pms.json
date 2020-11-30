@@ -13110,21 +13110,6 @@
     "major_field":0
     },
     {
-    "fieldname":"TODAYTASK" ,
-    "codename":"Todaytask",
-    "field_logic_name":"完成任务",
-    "entity_name":"IbzWeekly",
-    "field_type":"SMCODELIST",
-    "dict":"AllTask",
-    "nullable":1,
-    "physical_field":1,
-    "data_type":"VARCHAR",
-    "data_length":2000,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
     "fieldname":"REPORTTO" ,
     "codename":"Reportto",
     "field_logic_name":"汇报给",

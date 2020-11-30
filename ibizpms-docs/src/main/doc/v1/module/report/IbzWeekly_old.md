@@ -19,7 +19,6 @@
 |抄送给|MAILTO|SMCODELIST|&nbsp;|
 |附件|FILES|TEXT|&nbsp;|
 |是否提交|ISSUBMIT|SSCODELIST|&nbsp;|
-|完成任务|TODAYTASK|SMCODELIST|&nbsp;|
 |汇报给|REPORTTO|SSCODELIST|&nbsp;|
 |其他事项|COMMENT|TEXT|&nbsp;|
 |日期|DATE|DATE|&nbsp;|
@@ -37,7 +36,6 @@
 |抄送给|默认规则|内容长度必须小于等于[2000]|
 |附件|默认规则|内容长度必须小于等于[100]|
 |是否提交|默认规则|内容长度必须小于等于[60]|
-|完成任务|默认规则|内容长度必须小于等于[2000]|
 |汇报给|默认规则|内容长度必须小于等于[60]|
 |其他事项|默认规则|内容长度必须小于等于[100]|
 |日期|默认规则|默认规则|

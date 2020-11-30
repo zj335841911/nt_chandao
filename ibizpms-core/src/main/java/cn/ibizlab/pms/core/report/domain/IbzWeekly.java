@@ -122,13 +122,6 @@ public class IbzWeekly extends EntityMP implements Serializable {
     @JsonProperty("issubmit")
     private String issubmit;
     /**
-     * 完成任务
-     */
-    @TableField(value = "`todaytask`")
-    @JSONField(name = "todaytask")
-    @JsonProperty("todaytask")
-    private String todaytask;
-    /**
      * 汇报给
      */
     @TableField(value = "`reportto`")
@@ -183,14 +176,6 @@ public class IbzWeekly extends EntityMP implements Serializable {
     public void setIssubmit(String issubmit) {
         this.issubmit = issubmit;
         this.modify("issubmit", issubmit);
-    }
-
-    /**
-     * 设置 [完成任务]
-     */
-    public void setTodaytask(String todaytask) {
-        this.todaytask = todaytask;
-        this.modify("todaytask", todaytask);
     }
 
     /**

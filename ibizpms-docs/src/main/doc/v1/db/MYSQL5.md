@@ -57589,7 +57589,6 @@ CREATE TABLE `T_IBZ_TOP`(
 | DATE        | 日期  | DATETIME      |   -1   | &nbsp; |
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | REPORTTO        | 汇报给  | VARCHAR      |   60   | &nbsp; |
-| TODAYTASK        | 完成任务  | VARCHAR      |   2,000   | &nbsp; |
 | COMMENT        | 其他事项  | VARCHAR      |   100   | &nbsp; |
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
 | ACCOUNT        | 用户  | VARCHAR      |   60   | &nbsp; |
@@ -57681,7 +57680,6 @@ CREATE TABLE `T_IBZ_WEEKLY`(
 ,`ACCOUNT`  VARCHAR(60) COMMENT '用户' 
 ,`MAILTO`  VARCHAR(2000) COMMENT '抄送给' 
 ,`ISSUBMIT`  VARCHAR(60) COMMENT '是否提交' 
-,`TODAYTASK`  VARCHAR(2000) COMMENT '完成任务' 
 ,`REPORTTO`  VARCHAR(60) COMMENT '汇报给' 
 ,`COMMENT`  VARCHAR(100) COMMENT '其他事项' 
 ,`DATE`  DATETIME COMMENT '日期' 
