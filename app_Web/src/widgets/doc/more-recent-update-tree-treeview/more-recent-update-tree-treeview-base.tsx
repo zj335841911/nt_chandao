@@ -290,7 +290,7 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
     public srfnodefilter: string = '';
 
     /**
-     * 当前文件夹所含文件
+     * 满足搜索条件的所有文件
      *  
      * @type {Array<any>}
      * @memberof MoreRecentUpdateTreeBase
@@ -298,12 +298,20 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
     public items: any[] = [];
 
     /**
-     * 当前文件夹所含文件副本
+     * 当前文件夹所含文件(副本)
      *  
      * @type {Array<any>}
      * @memberof MoreRecentUpdateTreeBase
      */
     public copyItems: any[] = [];
+
+    /**
+     * loading状态
+     *  
+     * @type {Boolean}
+     * @memberof MoreRecentUpdateTreeBase
+     */
+    public loading: boolean = false;
 
     /**
      * 面包屑数据(默认第一项为图标)
@@ -354,7 +362,7 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
     public curPage: number = 1;
 
     /**
-     * 列表当前页数据
+     * 当前页数据
      *
      * @type {Array<any>}
      * @memberof MoreRecentUpdateTreeBase
@@ -403,8 +411,7 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
                     return;
                 }
                 if (Object.is('load', action)) {
-                    this.breadcrumbs.splice(1);
-                    this.mode = 'chart';
+                    this.initData();
                     this.load();
                 }
                 if (Object.is('filter', action)) {
@@ -419,6 +426,19 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
                 }
             });
         }
+    }
+
+    /**
+     * 初始化目录树参数
+     * 
+     * @memberof MoreRecentUpdateTreeBase
+     */
+    public initData(){
+        this.breadcrumbs.splice(1);
+        this.mode = 'chart';
+        this.curPage = 1;
+        this.totalRecord = 0;
+        this.limit = 20;
     }
 
     /**
@@ -459,6 +479,7 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
      * @memberof MoreRecentUpdateTreeBase
      */
     public async load(node: any = {}, resolve?: any) {
+        this.loading = true;
         this.copyItems = [];
         this.currentNode = node;
         if (node.data && node.data.children) {
@@ -490,9 +511,7 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
         this.copyItems = [..._items];
         this.totalRecord = _items.length;
         this.onSearch('');
-        if (Object.is(this.mode,'list')) {
-            await this.computeCurPageNodeState();
-        }
+        this.loading = false;
         this.$emit("load", _items);
     }
 
@@ -502,7 +521,7 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
      * @param query 搜索值
      * @memberof MoreRecentUpdateTreeBase
      */
-    public onSearch(query: string){
+    public async onSearch(query: string){
         let items: Array<any> = [];
         this.items = [];
         if(this.copyItems && this.copyItems.length > 0){
@@ -513,6 +532,7 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
             })
         }
         this.items = [...items];
+        await this.computeCurPageNodeState();
     }
 
     /**
@@ -582,13 +602,11 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
      */
     public modeChange(mode: string) {
         this.mode = mode;
-        if (Object.is(mode,'list')) {
-            this.computeCurPageNodeState();
-        }
+        this.computeCurPageNodeState();
     }
 
     /**
-     * 计算当前页工具栏状态
+     * 计算当前页显示数据(若为list模式则计算当前页的工具栏权限状态)
      * 
      * @memberof MoreRecentUpdateTreeBase
      */
@@ -599,7 +617,9 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
         let end = this.curPage * this.limit;
         end = end > this.items.length ? this.items.length : end;
         curPageItems = this.items.slice(start,end);
-        await this.computeAllNodeState(curPageItems);
+        if (Object.is(this.mode,'list')) {
+            await this.computeAllNodeState(curPageItems);
+        }
         this.curPageItems = [...curPageItems];
     }
 

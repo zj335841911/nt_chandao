@@ -6,6 +6,7 @@
         position: relative;
         > .documents-library-operation{
             display: flex;
+            margin-bottom: 8px;
             justify-content: space-between;
             .ivu-breadcrumb-item-link{
                 cursor: pointer;
@@ -25,9 +26,12 @@
         > .documents-library-chart{
             display: flex;
             flex-wrap: wrap;
+            overflow: auto;
+            max-height: 720px;
             .chart-item{
-                width: 150px;
-                height: 150px;
+                width: 175px;
+                height: 175px;
+                padding: 6px;
                 text-align: center;
                 .chart-item-operate{
                     display: none;
@@ -43,6 +47,8 @@
             }
         }
         > .documents-library-list{
+            overflow: auto;
+            max-height: 720px;
             .list-item{
                 font-size: 15px;
                 margin: 6px;

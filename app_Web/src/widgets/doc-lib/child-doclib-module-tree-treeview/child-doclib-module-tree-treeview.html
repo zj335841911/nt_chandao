@@ -1,6 +1,6 @@
 <div
     class="documents-library"
-    v-loading="(Object.is(mode,'chart') && items.length == 0) || (Object.is(mode,'list') && curPageItems.length == 0)"
+    v-loading="loading"
     :element-loading-text="$t('app.directoryTree.loading')"
     element-loading-spinner="el-icon-loading">
     <div class="documents-library-operation">
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div v-show="Object.is(mode, 'chart')" class="documents-library-chart" >
-        <template v-for="(item,index) in items">
+        <template v-for="(item,index) in curPageItems">
             <div :key="index" :class="['chart-item','chart-item-'+index]" @mouseleave="hideToolBar(index)" @mouseenter="showToolBar(item,index)">
                 <div
                     v-if="Object.is(item.nodeType,'STATIC') || (item.curData && (Object.is(item.curData.doclibtype,'doc') || Object.is(item.curData.docqtype,'module')))"
@@ -94,7 +94,7 @@
             </div>
         </template>
     </div>
-    <row class="list-pagination" v-show="Object.is(mode,'list') && curPageItems.length > 0">
+    <row class="list-pagination" v-show="copyItems.length > 0">
         <page class="pull-right" @on-change="pageOnChange($event)" 
             @on-page-size-change="onPageSizeChange($event)"
             :total="totalRecord"
