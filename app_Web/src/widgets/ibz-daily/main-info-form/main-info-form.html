@@ -1,6 +1,6 @@
 <i-form
     :model="this.data"
-    class="app-form"
+    class="app-form info-form-mode"
     ref="form"
     id="ibzdaily_maininfo"
     style=""
@@ -28,7 +28,7 @@
     :isShowCaption="false"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -61,14 +61,11 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <input-box 
-    v-model="data.ibz_dailyname"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.ibz_dailyname.disabled" 
-    type='text' 
-    style="">
-</input-box>
+    
+<app-span name='ibz_dailyname' :value="data.ibz_dailyname" dataType="TEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
 </app-form-item>
 
@@ -95,7 +92,11 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
+    
+<app-span name='date' :value="data.date" dataType="DATE" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
 </app-form-item>
 
@@ -122,22 +123,7 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    
-<rich-text-editor 
-    :formState="formState" 
-    :value="data.worktoday"
-    @change="(val) =>{this.data.worktoday =val}"
-    @formitemvaluechange="onFormItemValueChange($event)" 
-    :disabled="detailsModel.worktoday.disabled" 
-    :data="JSON.stringify(this.data)"  
-    name="worktoday" 
-    :viewparams="viewparams"
-    :context="context"
-    :uploadparams='{objecttype:"daily",version:"editor"}' 
-    :exportparams='{objecttype:"daily",version:"editor"}' 
-    :templParams='{ }' 
-    style=""
-></rich-text-editor>
+    <html-container :content="data.worktoday"></html-container>
 </app-form-item>
 
 </i-col>
@@ -163,22 +149,7 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    
-<rich-text-editor 
-    :formState="formState" 
-    :value="data.planstomorrow"
-    @change="(val) =>{this.data.planstomorrow =val}"
-    @formitemvaluechange="onFormItemValueChange($event)" 
-    :disabled="detailsModel.planstomorrow.disabled" 
-    :data="JSON.stringify(this.data)"  
-    name="planstomorrow" 
-    :viewparams="viewparams"
-    :context="context"
-    :uploadparams='{objecttype:"daily",version:"editor"}' 
-    :exportparams='{objecttype:"daily",version:"editor"}' 
-    :templParams='{ }' 
-    style=""
-></rich-text-editor>
+    <html-container :content="data.planstomorrow"></html-container>
 </app-form-item>
 
 </i-col>
@@ -204,22 +175,7 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    
-<rich-text-editor 
-    :formState="formState" 
-    :value="data.comment"
-    @change="(val) =>{this.data.comment =val}"
-    @formitemvaluechange="onFormItemValueChange($event)" 
-    :disabled="detailsModel.comment.disabled" 
-    :data="JSON.stringify(this.data)"  
-    name="comment" 
-    :viewparams="viewparams"
-    :context="context"
-    :uploadparams='{objecttype:"daily",version:"editor"}' 
-    :exportparams='{objecttype:"daily",version:"editor"}' 
-    :templParams='{ }' 
-    style=""
-></rich-text-editor>
+    <html-container :content="data.comment"></html-container>
 </app-form-item>
 
 </i-col>
@@ -246,21 +202,11 @@
     labelPos="LEFT"
 >
     
-<dropdown-list 
-    v-model="data.reportto"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext='{ }' 
-    :localParam='{ }' 
-    :disabled="detailsModel.reportto.disabled"
-    valueType="string"
-    tag="UserRealName"
-    codelistType="DYNAMIC"
-    placeholder="请选择..."
+<app-span name='reportto' :value="data.reportto" dataType="SSCODELIST"     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
-></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -287,19 +233,10 @@
     labelPos="LEFT"
 >
     
-<dropdown-list-mpicker 
-  v-model="data.mailto"
-  :data="data" 
-  :context="context"
-  :viewparams="viewparams" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.mailto.disabled"
-  tag='UserRealName' 
-  codelistType='DYNAMIC' 
-  valueSeparator=","
-  placeholder='请选择...' style="">
-</dropdown-list-mpicker>
+<app-span name='mailto' :value="data.mailto" dataType="SMCODELIST"     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
 </app-form-item>
 
@@ -324,7 +261,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -393,7 +330,7 @@
     :isShowCaption="false"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -467,7 +404,7 @@
     :isShowCaption="false"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -498,7 +435,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -571,7 +508,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
