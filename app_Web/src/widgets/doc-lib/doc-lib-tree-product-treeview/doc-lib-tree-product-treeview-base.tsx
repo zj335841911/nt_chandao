@@ -1078,6 +1078,7 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
         this.curPage = 1;
         this.totalRecord = 0;
         this.limit = 20;
+        this.srfnodefilter = '';
     }
 
     /**
