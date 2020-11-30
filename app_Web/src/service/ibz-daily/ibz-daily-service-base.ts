@@ -155,6 +155,20 @@ export default class IbzDailyServiceBase extends EntityService {
     }
 
     /**
+     * CreateUserDaily接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async CreateUserDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/createuserdaily`,data,isloading);
+            return res;
+    }
+
+    /**
      * HaveRead接口方法
      *
      * @param {*} [context={}]

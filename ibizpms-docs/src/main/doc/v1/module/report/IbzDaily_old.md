@@ -68,6 +68,7 @@
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|定时生成用户日报|用户自定义|&nbsp;|
 |已读|用户自定义|&nbsp;|
 |关联完成任务|用户自定义|&nbsp;|
 |Save|内置方法|&nbsp;|

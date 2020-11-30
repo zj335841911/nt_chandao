@@ -107,6 +107,13 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
     public boolean checkKey(IbzDaily et) {
         return (!ObjectUtils.isEmpty(et.getIbzdailyid())) && (!Objects.isNull(this.getById(et.getIbzdailyid())));
     }
+    @Override
+    @Transactional
+    public IbzDaily createUserDaily(IbzDaily et) {
+        //自定义代码
+        return et;
+    }
+
         @Override
     @Transactional
     public IbzDaily haveRead(IbzDaily et) {
