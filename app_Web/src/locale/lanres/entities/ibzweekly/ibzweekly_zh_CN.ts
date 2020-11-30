@@ -19,6 +19,14 @@ export default {
     nextweektask: "下周计划任务",
   },
 	views: {
+		usr2editview: {
+			caption: "周报",
+      		title: "周报编辑视图",
+		},
+		dashboardview: {
+			caption: "周报",
+      		title: "周报数据看板视图",
+		},
 		editview: {
 			caption: "周报",
       		title: "实体2编辑视图",
@@ -76,6 +84,8 @@ export default {
 		},
 		uiactions: {
 		},
+	},
+	usr2editviewtoolbar_toolbar: {
 	},
 	usr2gridviewtoolbar_toolbar: {
 		deuiaction1: {

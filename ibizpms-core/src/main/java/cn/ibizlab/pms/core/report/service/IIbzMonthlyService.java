@@ -46,7 +46,6 @@ public interface IIbzMonthlyService extends IService<IbzMonthly> {
     boolean checkKey(IbzMonthly et);
     boolean save(IbzMonthly et);
     void saveBatch(List<IbzMonthly> list);
-    IbzMonthly submit(IbzMonthly et);
     Page<IbzMonthly> searchDefault(IbzMonthlySearchContext context);
     /**
      * 自定义查询SQL

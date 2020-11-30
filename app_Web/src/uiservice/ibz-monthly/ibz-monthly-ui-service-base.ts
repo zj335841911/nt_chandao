@@ -156,7 +156,7 @@ export default class IbzMonthlyUIServiceBase extends UIService {
         
         const backend = () => {
             const curService:IbzMonthlyService =  new IbzMonthlyService();
-            curService.Submit(context,data, true).then((response: any) => {
+            curService.Create(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;

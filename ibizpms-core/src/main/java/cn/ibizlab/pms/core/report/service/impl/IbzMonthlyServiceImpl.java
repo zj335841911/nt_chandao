@@ -150,13 +150,6 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         saveOrUpdateBatch(list, batchSize);
     }
 
-    @Override
-    @Transactional
-    public IbzMonthly submit(IbzMonthly et) {
-        //自定义代码
-        return et;
-    }
-
 
 
     /**

@@ -229,6 +229,7 @@
 |-|需求表格视图|DEGRIDVIEW|&nbsp;|
 |-|文档编辑视图（基本信息）|DEEDITVIEW9|&nbsp;|
 |-|iBiz软件生产管理|DEHTMLVIEW|&nbsp;|
+|-|周报编辑视图|DEEDITVIEW|&nbsp;|
 |-|计划|DETABEXPVIEW|&nbsp;|
 |-|文档库树导航视图（项目文档库）|DETREEEXPVIEW|&nbsp;|
 |-|testresult编辑视图|DEEDITVIEW|&nbsp;|
@@ -350,6 +351,7 @@ SRFNAVPARAM.project=%project%|
 |-|关闭产品|DEEDITVIEW|&nbsp;|
 |-|创建文档库|DEEDITVIEW|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
+|-|周报数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|用例步骤表格视图|DEGRIDVIEW9|&nbsp;|
 |-|实体表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试用例图表视图（累计创建用例）|DECHARTVIEW9|&nbsp;|

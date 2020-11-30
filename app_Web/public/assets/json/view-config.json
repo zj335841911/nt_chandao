@@ -199,6 +199,16 @@
         "viewtag": "0846a45e5ffdd4d8f857575cfa955dce",
         "memo": ""
     },
+    "ibzweeklyusr2editview": {
+        "title": "周报编辑视图",
+        "caption": "周报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzWeeklyUsr2EditView",
+        "viewfilename": "ibz-weekly-usr2-edit-view",
+        "viewtag": "08b9cfa3e53e34fdb6a8533b1ebcc0ff",
+        "memo": ""
+    },
     "productplanmaintabexp": {
         "title": "计划",
         "caption": "产品计划",
@@ -1387,6 +1397,16 @@
         "viewname": "CaseMainGridView",
         "viewfilename": "case-main-grid-view",
         "viewtag": "417541fa331fc089b84936b8359403fa",
+        "memo": ""
+    },
+    "ibzweeklydashboardview": {
+        "title": "周报数据看板视图",
+        "caption": "周报",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzWeeklyDashboardView",
+        "viewfilename": "ibz-weekly-dashboard-view",
+        "viewtag": "41becbb887d136e0bed97622de0fa836",
         "memo": ""
     },
     "casestepgridview9": {

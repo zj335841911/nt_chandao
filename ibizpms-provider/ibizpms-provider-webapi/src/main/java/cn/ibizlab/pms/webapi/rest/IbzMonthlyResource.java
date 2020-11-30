@@ -136,17 +136,6 @@ public class IbzMonthlyResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-Submit-all')")
-    @ApiOperation(value = "提交", tags = {"月报" },  notes = "提交")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/{ibzmonthly_id}/submit")
-    public ResponseEntity<IbzMonthlyDTO> submit(@PathVariable("ibzmonthly_id") Long ibzmonthly_id, @RequestBody IbzMonthlyDTO ibzmonthlydto) {
-        IbzMonthly domain = ibzmonthlyMapping.toDomain(ibzmonthlydto);
-        domain.setIbzmonthlyid(ibzmonthly_id);
-        domain = ibzmonthlyService.submit(domain);
-        ibzmonthlydto = ibzmonthlyMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlydto);
-    }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-searchDefault-all') and hasPermission(#context,'pms-IbzMonthly-Get')")
 	@ApiOperation(value = "获取数据集", tags = {"月报" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/ibzmonthlies/fetchdefault")

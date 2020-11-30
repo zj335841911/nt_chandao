@@ -167,6 +167,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductHtmlView",
             "viewtag": "0846a45e5ffdd4d8f857575cfa955dce"
         },
+        "ibzweeklyusr2editview": {
+            "title": "周报编辑视图",
+            "caption": "周报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzWeeklyUsr2EditView",
+            "viewtag": "08b9cfa3e53e34fdb6a8533b1ebcc0ff"
+        },
         "productplanmaintabexp": {
             "title": "计划",
             "caption": "产品计划",
@@ -1118,6 +1126,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseMainGridView",
             "viewtag": "417541fa331fc089b84936b8359403fa"
+        },
+        "ibzweeklydashboardview": {
+            "title": "周报数据看板视图",
+            "caption": "周报",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzWeeklyDashboardView",
+            "viewtag": "41becbb887d136e0bed97622de0fa836"
         },
         "casestepgridview9": {
             "title": "用例步骤表格视图",
