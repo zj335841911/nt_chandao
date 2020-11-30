@@ -7830,6 +7830,16 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 
                 disabled: false,
             },
+            {
+                id: "read",
+                label: "已读了",
+                text: "已读了",
+                "data":"",
+                "codename":"Read",
+                value: "read",
+                
+                disabled: false,
+            },
         ]
     },
     {

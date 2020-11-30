@@ -9178,6 +9178,18 @@
                 "disabled": false,
                 "default": false
             }
+            , {
+                "id": "read",
+                "label": "已读了",
+                "text": "已读了",
+                "class":"",
+                "data":"",
+                "codename":"Read",
+                "value": "read",
+                
+                "disabled": false,
+                "default": false
+            }
         ]
     }, 
     {

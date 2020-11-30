@@ -1071,6 +1071,7 @@ export default {
         "unlinkparentstory": "从父需求取消关联",
         "deletechildrenstory": "删除子需求",
         "submit": "提交",
+        "read": "已读了",
         "empty": ""
     },
     User__gender: {

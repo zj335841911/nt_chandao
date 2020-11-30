@@ -2368,7 +2368,8 @@ public class StaticDict {
         LINKPARENTSTORY("linkparentstory","关联到父需求"),
         UNLINKPARENTSTORY("unlinkparentstory","从父需求取消关联"),
         DELETECHILDRENSTORY("deletechildrenstory","删除子需求"),
-        SUBMIT("submit","提交");
+        SUBMIT("submit","提交"),
+        READ("read","已读了");
 
         private String value;
         private String text;
