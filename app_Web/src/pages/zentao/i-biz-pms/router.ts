@@ -1741,6 +1741,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-suite-edit-view9/test-suite-edit-view9.vue'),
                 },
                 {
+                    path: 'ibzmonthlies/:ibzmonthly?/monthlymainmsgeditview/:monthlymainmsgeditview?',
+                    meta: {
+                        caption: 'entities.ibzmonthly.views.monthlymainmsgeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'monthlymainmsgeditview', parameterName: 'monthlymainmsgeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-monthly-main-msg-edit-view/ibz-monthly-monthly-main-msg-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/maindashboardview/:maindashboardview?',
                     meta: {
                         caption: 'entities.bug.views.maindashboardview.caption',
@@ -14330,20 +14344,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/product-stats-allgrid-view/product-stats-allgrid-view.vue'),
-                },
-                {
-                    path: 'ibzmonthlies/:ibzmonthly?/mainmsgeditview/:mainmsgeditview?',
-                    meta: {
-                        caption: 'entities.ibzmonthly.views.mainmsgeditview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-                            { pathName: 'mainmsgeditview', parameterName: 'mainmsgeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/report/ibz-monthly-main-msg-edit-view/ibz-monthly-main-msg-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/testsuites/:testsuite?/maindashboardview/:maindashboardview?',

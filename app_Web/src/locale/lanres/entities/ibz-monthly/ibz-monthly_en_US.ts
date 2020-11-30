@@ -22,10 +22,6 @@ export default {
     createmanname: "建立人名称",
   },
 	views: {
-		mainmsgeditview: {
-			caption: "主信息",
-      		title: "月报编辑视图",
-		},
 		monthlymainmsgeditview: {
 			caption: "月报实体编辑视图",
       		title: "月报编辑视图",
@@ -123,7 +119,5 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
-	},
-	monthlymainmsgeditviewtoolbar_toolbar: {
 	},
 };

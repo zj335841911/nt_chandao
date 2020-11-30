@@ -1525,15 +1525,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '4d1285fe32c0a29579db88b5adf12f73',
-            viewmodule: 'report',
-            viewname: 'IbzMonthlyMainMsgEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '4d32793fc57ec1ae930a18608526d00e',
             viewmodule: 'zentao',
             viewname: 'TestTaskEditView_commitTest',
@@ -2849,6 +2840,15 @@ export const viewstate: any = {
                 '6c7b582273d0726bcf77214807cfe40c',
                 '1381e29846ae321ca2d06d71bbe3082d',
                 'e042a1dee405b0a853f315b39a375783',
+            ],
+        },
+        {
+            viewtag: '8caddd30a10ec08a95cd804fa2524e14',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyMonthlyMainMsgEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -4311,8 +4311,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '8caddd30a10ec08a95cd804fa2524e14',
                 'c5aad5f12820569b3a1e8903d243aade',
-                '4d1285fe32c0a29579db88b5adf12f73',
             ],
         },
         {

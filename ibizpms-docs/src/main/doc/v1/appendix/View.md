@@ -383,7 +383,6 @@ SRFNAVPARAM.project=%project%|
 |-|关联Bug|DEMPICKUPVIEW|&nbsp;|
 |-|项目|DEEDITVIEW|&nbsp;|
 |-|组织部门人员树导航视图|DETREEEXPVIEW|&nbsp;|
-|-|月报编辑视图|DEEDITVIEW9|&nbsp;|
 |-|提交测试|DEEDITVIEW|&nbsp;|
 |-|文档表格视图|DEGRIDVIEW9|&nbsp;|
 |-|任务主数据看板视图|DEPORTALVIEW|&nbsp;|

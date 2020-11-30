@@ -348,7 +348,7 @@ export class IbzMonthlyMainMonthlyGridViewBase extends GridViewBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-            { pathName: 'mainmsgeditview', parameterName: 'mainmsgeditview' },
+            { pathName: 'monthlymainmsgeditview', parameterName: 'monthlymainmsgeditview' },
         ];
         const _this: any = this;
         const openIndexViewTab = (data: any) => {
