@@ -1059,6 +1059,37 @@
         "items": []
     }, 
     {
+        "srfkey": "ReportStatus",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "0",
+                "label": "未读",
+                "text": "未读",
+                "class":"",
+                "data":"",
+                "codename":"Item_0",
+                "value": "0",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "1",
+                "label": "已读",
+                "text": "已读",
+                "class":"",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Bug__os",
         "emptytext": "未定义",
         "codelisttype":"static",

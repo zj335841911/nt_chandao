@@ -94,34 +94,6 @@ export class MyMainGridBase extends GridControlBase {
         curUIService.IbzDaily_HaveRead(datas,contextJO, paramJO,  $event, xData,this,"IbzDaily");
     }
 
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_ub92f467_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:IbzDailyUIService  = new IbzDailyUIService();
-        curUIService.IbzDaily_submit(datas,contextJO, paramJO,  $event, xData,this,"IbzDaily");
-    }
-
 
     /**
      * 界面行为模型
@@ -130,8 +102,7 @@ export class MyMainGridBase extends GridControlBase {
      * @memberof MyMainBase
      */  
     public ActionModel: any = {
-        HaveRead: { name: 'HaveRead',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        submit: { name: 'submit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
+        HaveRead: { name: 'HaveRead',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -212,9 +183,9 @@ export class MyMainGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'uagridcolumn1',
-            label: '操作',
-            langtag: 'entities.ibzdaily.mymain_grid.columns.uagridcolumn1',
+            name: 'reportstatus',
+            label: '状态',
+            langtag: 'entities.ibzdaily.mymain_grid.columns.reportstatus',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -326,7 +297,7 @@ export class MyMainGridBase extends GridControlBase {
         'account':false,
         'date':false,
         'reportto':false,
-        'uagridcolumn1':false,
+        'reportstatus':false,
     };
 
     /**
@@ -412,6 +383,14 @@ export class MyMainGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+            {
+                name: 'reportstatus',
+                srfkey: 'ReportStatus',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
         ]);
     }
 
@@ -429,9 +408,6 @@ export class MyMainGridBase extends GridControlBase {
         if(Object.is('HaveRead', tag)) {
             this.grid_ibz_dailyname_click(row, tag, $event);
         }
-        if(Object.is('submit', tag)) {
-            this.grid_uagridcolumn1_ub92f467_click(row, tag, $event);
-        }
     }
 
     /**
@@ -448,7 +424,7 @@ export class MyMainGridBase extends GridControlBase {
     * @memberof MyMainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ibz_dailyid','ibz_dailyname','account','date','reportto','uagridcolumn1'];
+        let allColumns:Array<any> = ['ibz_dailyid','ibz_dailyname','account','date','reportto','reportstatus'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -535,9 +511,7 @@ export class MyMainGridBase extends GridControlBase {
                 account:'',
                 date:'',
                 reportto:'',
-                submit:{
-                    visible: false
-                },
+                reportstatus:'',
                 children: children
             }
             groupTree.push(tree);
@@ -570,9 +544,7 @@ export class MyMainGridBase extends GridControlBase {
             account:'',
             date:'',
             reportto:'',
-            submit:{
-                visible: false
-            },
+            reportstatus:'',
             children: child
         }
         if(child && child.length > 0){
@@ -641,9 +613,7 @@ export class MyMainGridBase extends GridControlBase {
                 account:'',
                 date:'',
                 reportto:'',
-                submit:{
-                    visible: false
-                },
+                reportstatus:'',
                 children: children,
             }
             groupTree.push(tree);

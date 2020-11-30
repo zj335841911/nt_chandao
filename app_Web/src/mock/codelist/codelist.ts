@@ -923,6 +923,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "ReportStatus",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "0",
+                label: "未读",
+                text: "未读",
+                "data":"",
+                "codename":"Item_0",
+                value: "0",
+                
+                disabled: false,
+            },
+            {
+                id: "1",
+                label: "已读",
+                text: "已读",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Bug__os",
         emptytext: "未定义",
         "codelisttype":"static",

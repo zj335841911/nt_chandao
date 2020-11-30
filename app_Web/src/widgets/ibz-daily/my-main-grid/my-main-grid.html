@@ -91,20 +91,17 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.ibzdaily.mymain_grid.columns.uagridcolumn1')" :width="200"  :align="'center'">
+            <template v-if="getColumnState('reportstatus')">
+                <el-table-column show-overflow-tooltip :prop="'reportstatus'" :label="$t('entities.ibzdaily.mymain_grid.columns.reportstatus')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzdaily.mymain_grid.columns.uagridcolumn1')}}
+                        {{$t('entities.ibzdaily.mymain_grid.columns.reportstatus')}}
                        </span>
                     </template>
-                    <template slot-scope="scope">
-                        <div style="text-align: center;">
-                            <a v-show="scope.row.submit.visible" :disabled="scope.row.submit.disabled" @click="uiAction(scope.row, 'submit', $event)" :title="$t('entities.ibzdaily.mymain_grid.uiactions.ibzdaily_submit')">
-                                <i class=""></i>
-                                {{$t('entities.ibzdaily.mymain_grid.uiactions.ibzdaily_submit')}}
-                            </a>
-                        </div>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.reportstatus" tag="ReportStatus" codelistType="STATIC" ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>

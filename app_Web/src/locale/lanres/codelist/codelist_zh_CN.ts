@@ -146,6 +146,11 @@ export default {
     UserRealNameW: {
         "empty": "未指派",
     },
+    ReportStatus: {
+        "0": "未读",
+        "1": "已读",
+        "empty": "",
+    },
     Bug__os: {
         "all": "全部",
         "windows": "Windows",

@@ -52,6 +52,11 @@ export default class MyMainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'reportstatus',
+          prop: 'reportstatus',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'issubmit',
           prop: 'issubmit',
           dataType: 'SSCODELIST',

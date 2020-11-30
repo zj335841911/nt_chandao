@@ -26,7 +26,7 @@
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('ibz_dailyname')">
-                <el-table-column show-overflow-tooltip :prop="'ibz_dailyname'" :label="$t('entities.ibzdaily.main_grid.columns.ibz_dailyname')" :width="150"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'ibz_dailyname'" :label="$t('entities.ibzdaily.main_grid.columns.ibz_dailyname')" :min-width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.ibzdaily.main_grid.columns.ibz_dailyname')}}
@@ -100,9 +100,9 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <a v-show="scope.row.submit.visible" :disabled="scope.row.submit.disabled" @click="uiAction(scope.row, 'submit', $event)" :title="$t('entities.ibzdaily.main_grid.uiactions.ibzdaily_submit')">
+                            <a v-show="scope.row.Edit.visible" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.ibzdaily.main_grid.uiactions.ibzdaily_edit')">
                                 <i class=""></i>
-                                {{$t('entities.ibzdaily.main_grid.uiactions.ibzdaily_submit')}}
+                                {{$t('entities.ibzdaily.main_grid.uiactions.ibzdaily_edit')}}
                             </a>
                         </div>
                     </template>
