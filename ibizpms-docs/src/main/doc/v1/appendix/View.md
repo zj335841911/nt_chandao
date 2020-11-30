@@ -770,7 +770,6 @@ SRFNAVPARAM.project=%project%|
 |-|系统更新日志编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|文档库分类表格视图|DEGRIDVIEW|&nbsp;|
-|-|月报数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|用例步骤|DEGRIDVIEW9|&nbsp;|
 |-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|功能测试表格视图|DEGRIDVIEW|&nbsp;|

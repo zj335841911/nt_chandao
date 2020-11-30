@@ -34,10 +34,6 @@ export default {
 			caption: "月报实体表格视图",
       		title: "月报表格视图",
 		},
-		monthlymainmsgdashboardview: {
-			caption: "月报实体数据看板视图",
-      		title: "月报数据看板视图",
-		},
 	},
 	new_form: {
 		details: {
