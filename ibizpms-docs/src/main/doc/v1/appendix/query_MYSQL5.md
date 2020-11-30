@@ -7685,6 +7685,56 @@ FROM `zt_project` t1
 
 ```
 
+# **汇报**(IBZ_REPORT)
+
+### 数据查询(DEFAULT)<div id="IbzReport_Default"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `t_ibz_daily` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzReport_View"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`PLANSTOMORROW`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+t1.`WORKTODAY`
+FROM `t_ibz_daily` t1 
+
+```
+
 # **置顶**(IBZ_TOP)
 
 ### 数据查询(DEFAULT)<div id="IbzTop_Default"></div>

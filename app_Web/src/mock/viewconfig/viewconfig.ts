@@ -4479,6 +4479,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DocLibModuleUsr2GridView",
             "viewtag": "f3b0810b31f6ce2c9e2eac61e3ba941d"
         },
+        "ibzmonthlymonthlymainmsgdashboardview": {
+            "title": "月报数据看板视图",
+            "caption": "月报实体数据看板视图",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzMonthlyMonthlyMainMsgDashboardView",
+            "viewtag": "f4f102801c1b22bc86a61ae241fb5d0f"
+        },
         "casestepmaingridview9": {
             "title": "用例步骤",
             "caption": "用例步骤",

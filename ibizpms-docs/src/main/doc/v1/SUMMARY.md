@@ -234,6 +234,8 @@
 
     * [月报](module/report/IbzMonthly.md) 
 
+    * [汇报](module/report/IbzReport.md) 
+
     * [周报](module/report/IbzWeekly.md) 
 
   * [iBiz系统模型](module/ibizsysmodel.md) 

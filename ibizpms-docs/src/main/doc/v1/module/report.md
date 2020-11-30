@@ -13,6 +13,9 @@ class 日报 {
 class 月报 {
 }
 
+class 汇报 {
+}
+
 class 周报 {
 }
 
@@ -31,4 +34,5 @@ hide members
 | --------   |------------| -----   |  -------- | 
 |IBZ_DAILY|[日报](report/IbzDaily.md)|主实体|&nbsp;|
 |IBZ_MONTHLY|[月报](report/IbzMonthly.md)|主实体|&nbsp;|
+|IBZ_REPORT|[汇报](report/IbzReport.md)|主实体|&nbsp;|
 |IBZ_WEEKLY|[周报](report/IbzWeekly.md)|主实体|&nbsp;|

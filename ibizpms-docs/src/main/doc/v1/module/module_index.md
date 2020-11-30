@@ -698,6 +698,9 @@ class 日报 {
 class 月报 {
 }
 
+class 汇报 {
+}
+
 class 周报 {
 }
 

@@ -64,6 +64,7 @@ import TestTaskMainInfo from '@/widgets/test-task/main-info-portlet/main-info-po
 import TestTaskToTestTestTask from '@/widgets/test-task/to-test-test-task-portlet/to-test-test-task-portlet.vue';
 import TestTaskActionBar from '@/widgets/test-task/action-bar-portlet/action-bar-portlet.vue';
 import TestTaskMainDetail from '@/widgets/test-task/main-detail-portlet/main-detail-portlet.vue';
+import IbzMonthlyMainMsg from '@/widgets/ibz-monthly/main-msg-portlet/main-msg-portlet.vue';
 import SysUpdateLogLastUpdate from '@/widgets/sys-update-log/last-update-portlet/last-update-portlet.vue';
 import DocKeywords from '@/widgets/doc/keywords-portlet/keywords-portlet.vue';
 import DocBasic from '@/widgets/doc/basic-portlet/basic-portlet.vue';
@@ -203,6 +204,7 @@ export const  PortletComponent = {
         v.component('app-doc-my-favourite-portlet', DocMyFavourite);
         v.component('app-doc-docstatus-portlet', DocDOCSTATUS);
         v.component('app-project-undone-project-portlet', ProjectUndoneProject);
+        v.component('app-ibz-monthly-main-msg-portlet', IbzMonthlyMainMsg);
         v.component('case-test-main-detail-portlet', CaseTestMainDetail);
         v.component('case-main-detail-portlet', CaseMainDetail);
         v.component('case-case-lastrunner-portlet', CaseCaseLastrunner);
@@ -259,6 +261,7 @@ export const  PortletComponent = {
         v.component('test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
         v.component('test-task-action-bar-portlet', TestTaskActionBar);
         v.component('test-task-main-detail-portlet', TestTaskMainDetail);
+        v.component('ibz-monthly-main-msg-portlet', IbzMonthlyMainMsg);
         v.component('sys-update-log-last-update-portlet', SysUpdateLogLastUpdate);
         v.component('doc-keywords-portlet', DocKeywords);
         v.component('doc-basic-portlet', DocBasic);
