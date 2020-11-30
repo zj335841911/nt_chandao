@@ -1586,7 +1586,7 @@ export class GridControlBase extends MDControlBase {
                 return item.name === name;
             });
             if (curColumn.hasOwnProperty('enableCond')) {
-                return data.srfuf == 1 ? (curColumn.enableCond & 2) !== 2 : (curColumn.enableCond & 1) !== 1;
+                return (data.rowDataState && Object.is(data.rowDataState, 'create')) ? (curColumn.enableCond & 1) !== 1 : (curColumn.enableCond & 2) !== 2;
             } else {
                 return false;
             }
