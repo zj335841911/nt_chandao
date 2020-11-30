@@ -3179,6 +3179,16 @@
         "viewtag": "8ca39819b87c5e3e8669fcd7409cf9a2",
         "memo": ""
     },
+    "ibzmonthlymonthlymainmsgeditview": {
+        "title": "月报编辑视图",
+        "caption": "月报实体编辑视图",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMonthlyMonthlyMainMsgEditView",
+        "viewfilename": "ibz-monthly-monthly-main-msg-edit-view",
+        "viewtag": "8caddd30a10ec08a95cd804fa2524e14",
+        "memo": ""
+    },
     "ibzmyterritorycalendarview": {
         "title": "我的地盘日历视图",
         "caption": "我的地盘",

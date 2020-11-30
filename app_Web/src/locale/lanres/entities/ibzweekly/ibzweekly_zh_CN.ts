@@ -110,8 +110,10 @@ export default {
 			ibz_weeklyname: "周报名称",
 			updateman: "更新人",
 			updatedate: "更新时间",
+			uagridcolumn1: "提交",
 		},
 		uiactions: {
+			ibzweekly_submit: "提交",
 		},
 	},
 	default_searchform: {

@@ -2551,6 +2551,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductLeftSidebarListView",
             "viewtag": "8ca39819b87c5e3e8669fcd7409cf9a2"
         },
+        "ibzmonthlymonthlymainmsgeditview": {
+            "title": "月报编辑视图",
+            "caption": "月报实体编辑视图",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzMonthlyMonthlyMainMsgEditView",
+            "viewtag": "8caddd30a10ec08a95cd804fa2524e14"
+        },
         "ibzmyterritorycalendarview": {
             "title": "我的地盘日历视图",
             "caption": "我的地盘",

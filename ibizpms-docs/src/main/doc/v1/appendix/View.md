@@ -529,6 +529,7 @@ SRFNAVPARAM.project=%project%|
 |-|系统更新功能表格视图|DEGRIDVIEW|&nbsp;|
 |-|工时信息|DEEDITVIEW9|&nbsp;|
 |-|所有产品|DELISTVIEW|&nbsp;|
+|-|月报编辑视图|DEEDITVIEW|&nbsp;|
 |-|我的地盘日历视图|DECALENDARVIEW|&nbsp;|
 |-|task表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
