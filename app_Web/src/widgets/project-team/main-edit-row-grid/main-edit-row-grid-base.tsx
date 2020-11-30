@@ -257,7 +257,7 @@ export class Main_EditRowGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
-            enableCond: 2 ,
+            enableCond: 3 ,
         },
         {
             name: 'hours',
@@ -266,7 +266,7 @@ export class Main_EditRowGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
-            enableCond: 2 ,
+            enableCond: 3 ,
         },
         {
             name: 'limited',
@@ -275,7 +275,7 @@ export class Main_EditRowGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
-            enableCond: 0 ,
+            enableCond: 3 ,
         },
         {
             name: 'uagridcolumn1',
