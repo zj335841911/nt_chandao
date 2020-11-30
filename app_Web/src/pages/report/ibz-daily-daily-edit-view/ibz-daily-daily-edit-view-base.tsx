@@ -112,7 +112,9 @@ export class IbzDailyDailyEditViewBase extends EditViewBase {
      * @memberof IbzDailyDailyEditView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
+        deuiaction3_submit: { name: 'deuiaction3_submit', caption: '提交', 'isShowCaption': true, 'isShowIcon': true, tooltip: '提交', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'submit', target: 'SINGLEKEY', class: '' } },
+
+        deuiaction1: { name: 'deuiaction1', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'Save', target: '', class: '' } },
 
     };
 
@@ -182,6 +184,9 @@ export class IbzDailyDailyEditViewBase extends EditViewBase {
      * @memberof IbzDailyDailyEditViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction3_submit')) {
+            this.toolbar_deuiaction3_submit_click(null, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction1')) {
             this.toolbar_deuiaction1_click(null, '', $event2);
         }
@@ -228,6 +233,35 @@ export class IbzDailyDailyEditViewBase extends EditViewBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public toolbar_deuiaction3_submit_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzDailyUIService  = new IbzDailyUIService();
+        curUIService.IbzDaily_submit(datas,contextJO, paramJO,  $event, xData,this,"IbzDaily");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
@@ -245,11 +279,11 @@ export class IbzDailyDailyEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"IbzDaily");
+        this.Save(datas, contextJO,paramJO,  $event, xData,this,"IbzDaily");
     }
 
     /**
-     * 保存并关闭
+     * 保存
      *
      * @param {any[]} args 当前数据
      * @param {any} contextJO 行为附加上下文
@@ -259,27 +293,20 @@ export class IbzDailyDailyEditViewBase extends EditViewBase {
      * @param {*} [actionContext]  执行行为上下文
      * @memberof IbzDailyDailyEditViewBase
      */
-    public SaveAndExit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public Save(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        // 界面行为容器对象 _this
         const _this: any = this;
-        if (xData && xData.saveAndExit instanceof Function) {
-            xData.saveAndExit().then((response: any) => {
+        if (xData && xData.save instanceof Function) {
+            xData.save().then((response: any) => {
                 if (!response || response.status !== 200) {
                     return;
                 }
-                if(window.parent){
-                    window.parent.postMessage([{ ...response.data }],'*');
-                }
+                _this.$emit('viewdataschange', [{ ...response.data }]);
             });
-        } else if (_this.saveAndExit && _this.saveAndExit instanceof Function) {
-            _this.saveAndExit().then((response: any) => {
-                if (!response || response.status !== 200) {
-                    return;
-                }
-                if(window.parent){
-                    window.parent.postMessage([{ ...response.data }],'*');
-                }
-            });
+        } else if (_this.save && _this.save instanceof Function) {
+            _this.save();
         }
     }
+
 
 }

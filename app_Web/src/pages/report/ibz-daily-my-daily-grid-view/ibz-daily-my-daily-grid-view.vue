@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { IbzDailyMyDailyGridViewBase } from './ibz-daily-my-daily-grid-view-base';
-import view_grid from '@widgets/ibz-daily/main-grid/main-grid.vue';
+import view_grid from '@widgets/ibz-daily/my-main-grid/my-main-grid.vue';
 import view_searchform from '@widgets/ibz-daily/default-searchform/default-searchform.vue';
 
 /**

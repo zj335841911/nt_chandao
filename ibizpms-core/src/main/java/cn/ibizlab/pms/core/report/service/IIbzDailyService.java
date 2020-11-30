@@ -51,6 +51,7 @@ public interface IIbzDailyService extends IService<IbzDaily> {
     void saveBatch(List<IbzDaily> list);
     IbzDaily submit(IbzDaily et);
     Page<IbzDaily> searchDefault(IbzDailySearchContext context);
+    Page<IbzDaily> searchMyDaily(IbzDailySearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

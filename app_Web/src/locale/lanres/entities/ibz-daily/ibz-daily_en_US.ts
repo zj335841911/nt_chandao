@@ -122,6 +122,21 @@ export default {
         ibzdaily_submit: "提交",
 		},
 	},
+	mymain_grid: {
+		nodata: "",
+		columns: {
+			ibz_dailyid: "编号",
+			ibz_dailyname: "日报名称",
+			account: "用户",
+			date: "日期",
+			reportto: "汇报给",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        ibzdaily_haveread: "已读",
+        ibzdaily_submit: "提交",
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
@@ -168,9 +183,13 @@ export default {
 		},
 	},
 	dailyeditviewtoolbar_toolbar: {
+		deuiaction3_submit: {
+			caption: "提交",
+			tip: "提交",
+		},
 		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
+			caption: "Save",
+			tip: "Save",
 		},
 	},
 	mydailygridviewtoolbar_toolbar: {
