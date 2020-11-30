@@ -173,4 +173,12 @@ export interface IbzReport {
      * @memberof IbzReport
      */
     type?: any;
+
+    /**
+     * 未读日报数
+     *
+     * @returns {*}
+     * @memberof IbzReport
+     */
+    dailycnt?: any;
 }

@@ -265,7 +265,8 @@ POST
 | 19 | createmanname | String | 不可 | 建立人名称 |
 | 20 | ibzdailyname | String | 允许 | 汇报名称 |
 | 21 | type | String | 允许 | 类型 |
-| 22 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 22 | dailycnt | Integer | 允许 | 未读日报数 |
+| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzReportSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

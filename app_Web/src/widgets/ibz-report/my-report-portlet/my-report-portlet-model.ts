@@ -78,6 +78,9 @@ export default class MyReportModel {
       {
         name: 'type',
       },
+      {
+        name: 'dailycnt',
+      },
     ]
   }
 

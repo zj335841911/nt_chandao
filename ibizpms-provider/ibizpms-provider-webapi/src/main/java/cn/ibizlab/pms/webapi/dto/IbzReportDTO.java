@@ -218,6 +218,14 @@ public class IbzReportDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String type;
 
+    /**
+     * 属性 [DAILYCNT]
+     *
+     */
+    @JSONField(name = "dailycnt")
+    @JsonProperty("dailycnt")
+    private Integer dailycnt;
+
 
     /**
      * 设置 [WORKTODAY]

@@ -21,6 +21,7 @@ export default {
     createmanname: "建立人名称",
     ibzdailyname: "汇报名称",
     type: "类型",
+    dailycnt: "未读日报数",
   },
 	views: {
 		mytabexpview: {
