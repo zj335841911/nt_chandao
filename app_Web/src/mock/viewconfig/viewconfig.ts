@@ -1895,6 +1895,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DocMoreMyFavouritesTreeView",
             "viewtag": "6b0e5dd0dca860d801e403c7591a9f41"
         },
+        "ibzdailymaineditview": {
+            "title": "日报编辑视图（主数据）",
+            "caption": "日报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzDailymainEditView",
+            "viewtag": "6b63300dfe7c9f777eda7627fc02d822"
+        },
         "productmaintabexpview": {
             "title": "产品",
             "caption": "产品",

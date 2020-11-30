@@ -2359,6 +2359,16 @@
         "viewtag": "6b0e5dd0dca860d801e403c7591a9f41",
         "memo": ""
     },
+    "ibzdailymaineditview": {
+        "title": "日报编辑视图（主数据）",
+        "caption": "日报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzDailymainEditView",
+        "viewfilename": "ibz-dailymain-edit-view",
+        "viewtag": "6b63300dfe7c9f777eda7627fc02d822",
+        "memo": ""
+    },
     "productmaintabexpview": {
         "title": "产品",
         "caption": "产品",
