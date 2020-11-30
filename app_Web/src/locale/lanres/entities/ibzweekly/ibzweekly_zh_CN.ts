@@ -50,6 +50,7 @@ export default {
 			files: "附件", 
 			mailto: "抄送给", 
 			reportto: "汇报给", 
+			thisweektask1: "本周完成任务", 
 			ibz_weeklyid: "周报标识", 
 		},
 		uiactions: {

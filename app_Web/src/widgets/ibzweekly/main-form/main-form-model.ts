@@ -86,6 +86,11 @@ export default class MainModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'thisweektask1',
+        prop: 'thisweektask',
+        dataType: 'TEXT',
+      },
+      {
         name: 'ibz_weeklyid',
         prop: 'ibzweeklyid',
         dataType: 'ACID',

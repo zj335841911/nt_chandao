@@ -108,6 +108,7 @@ export class MainEditFormBase extends EditFormControlBase {
         files: null,
         mailto: null,
         reportto: null,
+        thisweektask1: null,
         ibz_weeklyid: null,
         ibzweekly: null,
     };
@@ -258,6 +259,13 @@ export class MainEditFormBase extends EditFormControlBase {
 
         reportto: new FormItemModel({
     caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        thisweektask1: new FormItemModel({
+    caption: '本周完成任务', detailType: 'FORMITEM', name: 'thisweektask1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

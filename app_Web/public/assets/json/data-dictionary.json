@@ -17,6 +17,18 @@
                 "default": false
             }
             , {
+                "id": "0.5",
+                "label": "1/2",
+                "text": "1/2",
+                "class":"",
+                "data":"",
+                "codename":"Item_05",
+                "value": "0.5",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
                 "id": "1",
                 "label": "1",
                 "text": "1",
