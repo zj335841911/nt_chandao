@@ -615,6 +615,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1edacc9f865e00cd6cd2ea0475e8dd26',
+            viewmodule: 'report',
+            viewname: 'IbzDailyDailyEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '1eeb1cc3801fe7d3961fca4b3d753b04',
             viewmodule: 'zentao',
             viewname: 'UserContactEditView',
@@ -2107,6 +2116,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'c5aad5f12820569b3a1e8903d243aade',
+                '1edacc9f865e00cd6cd2ea0475e8dd26',
                 '7c188c576f1fd59114ac2940d8e92c15',
             ],
         },

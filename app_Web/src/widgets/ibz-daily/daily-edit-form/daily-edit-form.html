@@ -1,0 +1,543 @@
+<i-form
+    :model="this.data"
+    class="app-form"
+    ref="form"
+    id="ibzdaily_dailyedit"
+    style=""
+    @on-validate="formItemValidate.apply(_self, arguments)"
+>
+    <input style="display:none;">
+    <row>
+    <tabs
+        :animated="false"
+        size="small"
+        name="dailyedit"
+        :value="detailsModel.form.activiedPage" 
+        @on-click="detailsModel.form.clickPage($event)"
+    >
+        <tab-pane
+            v-show="detailsModel.formpage1.visible"
+            name="formpage1"
+            :index="0"
+            tab="dailyedit"
+            class=""  
+            :label="(h) =>{
+                return h('span',{
+                    class:'caption'
+                },[
+                $t('entities.ibzdaily.dailyedit_form.details.formpage1')
+                ])
+            }"
+        >
+                <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-group
+    :model="detailsModel.group1"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.group1.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.group1')"
+    :isShowCaption="true"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="false"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.group1"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.ibz_dailyname.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="ibz_dailyname"
+    :itemRules="this.rules().ibz_dailyname"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.ibz_dailyname')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.ibz_dailyname.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <input-box 
+    v-model="data.ibz_dailyname"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.ibz_dailyname.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.worktoday.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="worktoday"
+    :itemRules="this.rules().worktoday"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.worktoday')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.worktoday.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <input-box v-model="data.worktoday"  :disabled="detailsModel.worktoday.disabled" type='textarea' style="" ></input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.planstomorrow.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="planstomorrow"
+    :itemRules="this.rules().planstomorrow"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.planstomorrow')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.planstomorrow.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <input-box 
+    v-model="data.planstomorrow"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.planstomorrow.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.todaytask.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="todaytask"
+    :itemRules="this.rules().todaytask"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.todaytask')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.todaytask.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list-mpicker 
+  v-model="data.todaytask"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.todaytask.disabled"
+  tag='AllTask' 
+  codelistType='DYNAMIC' 
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.tomorrowplanstask.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="tomorrowplanstask"
+    :itemRules="this.rules().tomorrowplanstask"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.tomorrowplanstask')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.tomorrowplanstask.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list-mpicker 
+  v-model="data.tomorrowplanstask"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.tomorrowplanstask.disabled"
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.comment.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="comment"
+    :itemRules="this.rules().comment"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.comment')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.comment.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.comment"
+    @change="(val) =>{this.data.comment =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.comment.disabled"
+    :data="JSON.stringify(this.data)"
+    name="comment"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{}'
+    :exportparams='{}'
+    
+    style=""
+></app-rich-text-editor>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.mailto.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="mailto"
+    :itemRules="this.rules().mailto"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.mailto')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.mailto.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list-mpicker 
+  v-model="data.mailto"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.mailto.disabled"
+  tag='UserRealName' 
+  codelistType='DYNAMIC' 
+  valueSeparator=","
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.reportto.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="reportto"
+    :itemRules="this.rules().reportto"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.reportto')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.reportto.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list 
+    v-model="data.reportto"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.reportto.disabled"
+    valueType="string"
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
+</app-form-item>
+
+</i-col>
+
+
+        </tab-pane> 
+        <tab-pane
+            v-show="detailsModel.formpage2.visible"
+            name="formpage2"
+            :index="1"
+            tab="dailyedit"
+            class=""  
+            :label="(h) =>{
+                return h('span',{
+                    class:'caption'
+                },[
+                $t('entities.ibzdaily.dailyedit_form.details.formpage2')
+                ])
+            }"
+        >
+                <i-col
+    class="form-layout-container"
+    v-show="detailsModel.group2.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-group
+    :model="detailsModel.group2"
+    layoutType="TABLE_24COL"
+    titleStyle=""
+    class=""
+    :uiActionGroup="detailsModel.group2.uiActionGroup"
+    @groupuiactionclick="groupUIActionClick($event)"
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.group2')"
+    :isShowCaption="true"
+    uiStyle="DEFAULT"
+    :titleBarCloseMode="0"
+    :isInfoGroupMode="false"
+
+>    
+    <app-form-group-data-panel
+        slot="dataInfoPanel"
+        :model="detailsModel.group2"
+        :data="data"
+        :context="context"
+        :viewparams="viewparams"
+    ></app-form-group-data-panel>
+    <row>
+        <i-col
+    class="form-layout-container"
+    v-show="detailsModel.createman.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="createman"
+    :itemRules="this.rules().createman"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.createman')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.createman.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-span name='createman' :value="data.createman" dataType="TEXT"     :precision="0"
+tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.createdate.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="createdate"
+    :itemRules="this.rules().createdate"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.createdate')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.createdate.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-span name='createdate' :value="data.createdate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.updateman.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="updateman"
+    :itemRules="this.rules().updateman"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.updateman')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.updateman.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-span name='updateman' :value="data.updateman" dataType="TEXT"     :precision="0"
+tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.updatedate.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="updatedate"
+    :itemRules="this.rules().updatedate"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.updatedate')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.updatedate.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<app-span name='updatedate' :value="data.updatedate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
+        </tab-pane> 
+    </tabs>
+    </row>
+</i-form>

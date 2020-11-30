@@ -24,7 +24,7 @@ export default {
       		title: "日报编辑视图",
 		},
 	},
-	main_form: {
+	dailyedit_form: {
 		details: {
 			group1: "日报基本信息", 
 			formpage1: "基本信息", 
@@ -39,6 +39,13 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			ibz_dailyname: "日报名称", 
+			worktoday: "今日工作", 
+			planstomorrow: "明日计划", 
+			todaytask: "完成任务", 
+			tomorrowplanstask: "明日计划任务", 
+			comment: "其他事项", 
+			mailto: "抄送给", 
+			reportto: "汇报给", 
 			createman: "建立人", 
 			createdate: "建立时间", 
 			updateman: "更新人", 
