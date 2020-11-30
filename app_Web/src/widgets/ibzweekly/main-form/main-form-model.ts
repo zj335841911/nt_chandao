@@ -86,6 +86,11 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
+        name: 'date',
+        prop: 'date',
+        dataType: 'DATE',
+      },
+      {
         name: 'files',
         prop: 'files',
         dataType: 'TEXT',
@@ -104,6 +109,11 @@ export default class MainModel {
         name: 'ibz_weeklyid',
         prop: 'ibzweeklyid',
         dataType: 'ACID',
+      },
+      {
+        name: 'account',
+        prop: 'account',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'ibzweekly',

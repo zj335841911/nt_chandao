@@ -99,10 +99,12 @@ export class MainEditFormBase extends EditFormControlBase {
         nextweektask: null,
         plannextweek: null,
         comment: null,
+        date: null,
         files: null,
         mailto: null,
         reportto: null,
         ibz_weeklyid: null,
+        account: null,
         ibzweekly: null,
     };
 
@@ -122,6 +124,20 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
+            ibz_weeklyname: [
+                {
+                    required: this.detailsModel.ibz_weeklyname.required,
+                    type: 'string',
+                    message: '周报名称 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.ibz_weeklyname.required,
+                    type: 'string',
+                    message: '周报名称 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
             workthisweek: [
                 {
                     required: this.detailsModel.workthisweek.required,
@@ -215,7 +231,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         ibz_weeklyname: new FormItemModel({
     caption: '周报名称', detailType: 'FORMITEM', name: 'ibz_weeklyname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
@@ -255,6 +271,13 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        date: new FormItemModel({
+    caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         files: new FormItemModel({
     caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -283,7 +306,24 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        account: new FormItemModel({
+    caption: '用户', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
     };
+
+    /**
+     * 新建默认值
+     * @memberof MainEditFormBase
+     */
+    public createDefault() {                    
+        if (this.data.hasOwnProperty('account')) {
+            this.data['account'] = this.context['srfusername'];
+        }
+    }
 
     /**
      * 面板数据变化处理事件

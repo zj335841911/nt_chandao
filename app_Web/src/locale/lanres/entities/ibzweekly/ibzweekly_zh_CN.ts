@@ -49,10 +49,12 @@ export default {
 			nextweektask: "下周计划任务", 
 			plannextweek: "下周计划", 
 			comment: "其他事项", 
+			date: "日期", 
 			files: "附件", 
 			mailto: "抄送给", 
 			reportto: "汇报给", 
 			ibz_weeklyid: "周报标识", 
+			account: "用户", 
 		},
 		uiactions: {
 		},
