@@ -44,6 +44,7 @@ export default {
 			todaytask: "完成任务", 
 			tomorrowplanstask: "明日计划任务", 
 			comment: "其他事项", 
+			files: "附件", 
 			mailto: "抄送给", 
 			reportto: "汇报给", 
 			createman: "建立人", 

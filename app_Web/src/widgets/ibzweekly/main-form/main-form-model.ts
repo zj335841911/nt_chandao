@@ -1,16 +1,16 @@
 /**
- * DailyEdit 部件模型
+ * Main 部件模型
  *
  * @export
- * @class DailyEditModel
+ * @class MainModel
  */
-export default class DailyEditModel {
+export default class MainModel {
 
   /**
   * 获取数据项集合
   *
   * @returns {any[]}
-  * @memberof DailyEditModel
+  * @memberof MainModel
   */
   public getDataItems(): any[] {
     return [
@@ -35,12 +35,12 @@ export default class DailyEditModel {
       },
       {
         name: 'srfkey',
-        prop: 'ibzdailyid',
+        prop: 'ibzweeklyid',
         dataType: 'ACID',
       },
       {
         name: 'srfmajortext',
-        prop: 'ibzdailyname',
+        prop: 'ibzweeklyname',
         dataType: 'TEXT',
       },
       {
@@ -56,49 +56,9 @@ export default class DailyEditModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'ibz_dailyname',
-        prop: 'ibzdailyname',
+        name: 'ibz_weeklyname',
+        prop: 'ibzweeklyname',
         dataType: 'TEXT',
-      },
-      {
-        name: 'worktoday',
-        prop: 'worktoday',
-        dataType: 'HTMLTEXT',
-      },
-      {
-        name: 'planstomorrow',
-        prop: 'planstomorrow',
-        dataType: 'HTMLTEXT',
-      },
-      {
-        name: 'todaytask',
-        prop: 'todaytask',
-        dataType: 'SMCODELIST',
-      },
-      {
-        name: 'tomorrowplanstask',
-        prop: 'tomorrowplanstask',
-        dataType: 'SMCODELIST',
-      },
-      {
-        name: 'comment',
-        prop: 'comment',
-        dataType: 'HTMLTEXT',
-      },
-      {
-        name: 'files',
-        prop: 'files',
-        dataType: 'TEXT',
-      },
-      {
-        name: 'mailto',
-        prop: 'mailto',
-        dataType: 'SMCODELIST',
-      },
-      {
-        name: 'reportto',
-        prop: 'reportto',
-        dataType: 'SSCODELIST',
       },
       {
         name: 'createman',
@@ -121,13 +81,13 @@ export default class DailyEditModel {
         dataType: 'DATETIME',
       },
       {
-        name: 'ibz_dailyid',
-        prop: 'ibzdailyid',
+        name: 'ibz_weeklyid',
+        prop: 'ibzweeklyid',
         dataType: 'ACID',
       },
       {
-        name: 'ibzdaily',
-        prop: 'ibzdailyid',
+        name: 'ibzweekly',
+        prop: 'ibzweeklyid',
         dataType: 'FONTKEY',
       },
     ]

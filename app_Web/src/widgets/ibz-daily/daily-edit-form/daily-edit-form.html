@@ -121,22 +121,22 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-rich-text-editor
-    :formState="formState"
+    
+<rich-text-editor 
+    :formState="formState" 
     :value="data.worktoday"
     @change="(val) =>{this.data.worktoday =val}"
-    @formitemvaluechange="onFormItemValueChange($event)"
-    :disabled="detailsModel.worktoday.disabled"
-    :data="JSON.stringify(this.data)"
-    name="worktoday"
-    :context="context"
+    @formitemvaluechange="onFormItemValueChange($event)" 
+    :disabled="detailsModel.worktoday.disabled" 
+    :data="JSON.stringify(this.data)"  
+    name="worktoday" 
     :viewparams="viewparams"
-    :uploadparams='{}'
-    :exportparams='{}'
-    
+    :context="context"
+    :uploadparams='{}' 
+    :exportparams='{}' 
+    :templParams='{ }' 
     style=""
-></app-rich-text-editor>
-
+></rich-text-editor>
 </app-form-item>
 
 </i-col>
@@ -162,22 +162,22 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <app-rich-text-editor
-    :formState="formState"
+    
+<rich-text-editor 
+    :formState="formState" 
     :value="data.planstomorrow"
     @change="(val) =>{this.data.planstomorrow =val}"
-    @formitemvaluechange="onFormItemValueChange($event)"
-    :disabled="detailsModel.planstomorrow.disabled"
-    :data="JSON.stringify(this.data)"
-    name="planstomorrow"
-    :context="context"
+    @formitemvaluechange="onFormItemValueChange($event)" 
+    :disabled="detailsModel.planstomorrow.disabled" 
+    :data="JSON.stringify(this.data)"  
+    name="planstomorrow" 
     :viewparams="viewparams"
-    :uploadparams='{}'
-    :exportparams='{}'
-    
+    :context="context"
+    :uploadparams='{}' 
+    :exportparams='{}' 
+    :templParams='{ }' 
     style=""
-></app-rich-text-editor>
-
+></rich-text-editor>
 </app-form-item>
 
 </i-col>
@@ -297,6 +297,43 @@
     style=""
 ></app-rich-text-editor>
 
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.files.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="files"
+    :itemRules="this.rules().files"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.files')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.files.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <app-file-upload
+    :formState="formState"
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :data="JSON.stringify(this.data)"
+    name="files"
+    :value="data.files"
+    :disabled="detailsModel.files.disabled"
+    :uploadparams='{}'
+    :exportparams='{}'
+    style="overflow: auto;"
+></app-file-upload>
 </app-form-item>
 
 </i-col>

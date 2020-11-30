@@ -121,6 +121,11 @@ export default class BugToStoryModel {
         dataType: 'NSCODELIST',
       },
       {
+        name: 'storypoints',
+        prop: 'storypoints',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'estimate',
         prop: 'estimate',
         dataType: 'FLOAT',

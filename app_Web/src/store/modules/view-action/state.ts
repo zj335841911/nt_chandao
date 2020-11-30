@@ -2116,8 +2116,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'c5aad5f12820569b3a1e8903d243aade',
+                'ab7bb92108f4ae63c52d94b39affb30a',
                 '1edacc9f865e00cd6cd2ea0475e8dd26',
-                '7c188c576f1fd59114ac2940d8e92c15',
             ],
         },
         {
@@ -2309,6 +2309,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7ae5b669ec5f5284763927aee60efde1',
+            viewmodule: 'zentao',
+            viewname: 'IbzWeeklyEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '7af111f4c127f7032c3e12e8c5fc0045',
             viewmodule: 'zentao',
             viewname: 'ProductTestLeftSidebarListView',
@@ -2359,18 +2368,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-            ],
-        },
-        {
-            viewtag: '7c188c576f1fd59114ac2940d8e92c15',
-            viewmodule: 'ibiz',
-            viewname: 'DocRecentMoreGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'b6e02216d1e5c69d79b32342d8b67c7a',
-                '23cc93d7fdddff5077a7952d26802a7b',
-                'c9be79d1ad2a32e56092cd1ec1e896eb',
             ],
         },
         {
@@ -3461,6 +3458,16 @@ export const viewstate: any = {
                 '5b139a407fa34f386f3f784f33841184',
                 '5273dc442a49b8c4d37ba9ff008531e7',
                 '7cba1f165fc6b4948ce752d3c3b68a34',
+            ],
+        },
+        {
+            viewtag: 'ab7bb92108f4ae63c52d94b39affb30a',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7ae5b669ec5f5284763927aee60efde1',
             ],
         },
         {

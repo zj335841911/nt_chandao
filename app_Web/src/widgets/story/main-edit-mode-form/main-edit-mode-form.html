@@ -922,6 +922,47 @@
 </i-col>
 <i-col
     class="form-layout-container"
+    v-show="detailsModel.storypoints.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="storypoints"
+    :itemRules="this.rules().storypoints"
+    class=""
+
+    :caption="$t('entities.story.main_editmode_form.details.storypoints')"
+    uiStyle="DEFAULT"
+    :labelWidth="70"
+    :isShowCaption="true"
+    :error="detailsModel.storypoints.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list 
+    v-model="data.storypoints"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.storypoints.disabled"
+    valueType="string"
+    tag="StoryPoints"
+    codelistType="STATIC"
+    placeholder="请选择..."
+
+></dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.estimate.visible"
     :style="{}"
     

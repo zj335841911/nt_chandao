@@ -2,9 +2,9 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, EditFormControlBase } from '@/studio-core';
-import IbzDailyService from '@/service/ibz-daily/ibz-daily-service';
-import DailyEditService from './daily-edit-form-service';
-import IbzDailyUIService from '@/uiservice/ibz-daily/ibz-daily-ui-service';
+import IBZWEEKLYService from '@/service/ibzweekly/ibzweekly-service';
+import MainService from './main-form-service';
+import IBZWEEKLYUIService from '@/uiservice/ibzweekly/ibzweekly-ui-service';
 import {
     FormButtonModel,
     FormPageModel,
@@ -24,65 +24,65 @@ import {
  *
  * @export
  * @class EditFormControlBase
- * @extends {DailyEditEditFormBase}
+ * @extends {MainEditFormBase}
  */
-export class DailyEditEditFormBase extends EditFormControlBase {
+export class MainEditFormBase extends EditFormControlBase {
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof DailyEditEditFormBase
+     * @memberof MainEditFormBase
      */
     protected controlType: string = 'FORM';
 
     /**
      * 建构部件服务对象
      *
-     * @type {DailyEditService}
-     * @memberof DailyEditEditFormBase
+     * @type {MainService}
+     * @memberof MainEditFormBase
      */
-    public service: DailyEditService = new DailyEditService({ $store: this.$store });
+    public service: MainService = new MainService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {IbzDailyService}
-     * @memberof DailyEditEditFormBase
+     * @type {IBZWEEKLYService}
+     * @memberof MainEditFormBase
      */
-    public appEntityService: IbzDailyService = new IbzDailyService({ $store: this.$store });
+    public appEntityService: IBZWEEKLYService = new IBZWEEKLYService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof DailyEditEditFormBase
+     * @memberof MainEditFormBase
      */
-    protected appDeName: string = 'ibzdaily';
+    protected appDeName: string = 'ibzweekly';
 
     /**
      * 应用实体中文名称
      *
      * @protected
      * @type {string}
-     * @memberof DailyEditEditFormBase
+     * @memberof MainEditFormBase
      */
-    protected appDeLogicName: string = '日报';
+    protected appDeLogicName: string = '周报';
 
     /**
      * 界面UI服务对象
      *
-     * @type {IbzDailyUIService}
-     * @memberof DailyEditBase
+     * @type {IBZWEEKLYUIService}
+     * @memberof MainBase
      */  
-    public appUIService: IbzDailyUIService = new IbzDailyUIService(this.$store);
+    public appUIService: IBZWEEKLYUIService = new IBZWEEKLYUIService(this.$store);
 
     /**
      * 表单数据对象
      *
      * @type {*}
-     * @memberof DailyEditEditFormBase
+     * @memberof MainEditFormBase
      */
     public data: any = {
         srfupdatedate: null,
@@ -93,36 +93,28 @@ export class DailyEditEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        ibz_dailyname: null,
-        worktoday: null,
-        planstomorrow: null,
-        todaytask: null,
-        tomorrowplanstask: null,
-        comment: null,
-        files: null,
-        mailto: null,
-        reportto: null,
+        ibz_weeklyname: null,
         createman: null,
         createdate: null,
         updateman: null,
         updatedate: null,
-        ibz_dailyid: null,
-        ibzdaily: null,
+        ibz_weeklyid: null,
+        ibzweekly: null,
     };
 
     /**
      * 主信息属性映射表单项名称
      *
      * @type {*}
-     * @memberof DailyEditEditFormBase
+     * @memberof MainEditFormBase
      */
-    public majorMessageField: string = 'ibz_dailyname';
+    public majorMessageField: string = 'ibz_weeklyname';
 
     /**
      * 属性值规则
      *
      * @type {*}
-     * @memberof DailyEditEditFormBase
+     * @memberof MainEditFormBase
      */
     public rules(): any{
         return {
@@ -133,7 +125,7 @@ export class DailyEditEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof DailyEditBase
+     * @memberof MainBase
      */
     public deRules:any = {
     };
@@ -142,14 +134,14 @@ export class DailyEditEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof DailyEditEditFormBase
+     * @memberof MainEditFormBase
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '日报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzdaily.dailyedit_form', extractMode: 'ITEM', details: [] } }),
+        group1: new FormGroupPanelModel({ caption: '实体2基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzweekly.main_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzdaily.dailyedit_form', extractMode: 'ITEM', details: [] } }),
+        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzweekly.main_form', extractMode: 'ITEM', details: [] } }),
 
         formpage2: new FormPageModel({ caption: '其它', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -168,14 +160,14 @@ export class DailyEditEditFormBase extends EditFormControlBase {
 }),
 
         srfkey: new FormItemModel({
-    caption: '日报标识', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '周报标识', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
         srfmajortext: new FormItemModel({
-    caption: '日报名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '周报名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -209,64 +201,8 @@ export class DailyEditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        ibz_dailyname: new FormItemModel({
-    caption: '日报名称', detailType: 'FORMITEM', name: 'ibz_dailyname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        worktoday: new FormItemModel({
-    caption: '今日工作', detailType: 'FORMITEM', name: 'worktoday', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        planstomorrow: new FormItemModel({
-    caption: '明日计划', detailType: 'FORMITEM', name: 'planstomorrow', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        todaytask: new FormItemModel({
-    caption: '完成任务', detailType: 'FORMITEM', name: 'todaytask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        tomorrowplanstask: new FormItemModel({
-    caption: '明日计划任务', detailType: 'FORMITEM', name: 'tomorrowplanstask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        comment: new FormItemModel({
-    caption: '其他事项', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        files: new FormItemModel({
-    caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        mailto: new FormItemModel({
-    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        reportto: new FormItemModel({
-    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        ibz_weeklyname: new FormItemModel({
+    caption: '周报名称', detailType: 'FORMITEM', name: 'ibz_weeklyname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -300,8 +236,8 @@ export class DailyEditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        ibz_dailyid: new FormItemModel({
-    caption: '日报标识', detailType: 'FORMITEM', name: 'ibz_dailyid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        ibz_weeklyid: new FormItemModel({
+    caption: '周报标识', detailType: 'FORMITEM', name: 'ibz_weeklyid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -334,7 +270,7 @@ export class DailyEditEditFormBase extends EditFormControlBase {
      * @param {any} item 当前数据
      * @param {any} $event 面板事件数据
      *
-     * @memberof DailyEditBase
+     * @memberof MainBase
      */
     public onPanelDataChange(item:any,$event:any) {
         Object.assign(item, $event, {rowDataState:'update'});

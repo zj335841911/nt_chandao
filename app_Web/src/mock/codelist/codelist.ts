@@ -8,6 +8,123 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
     let status = MockAdapter.mockStatus(config);
     return [status, [
         {
+        srfkey: "StoryPoints",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "0",
+                label: "0",
+                text: "0",
+                "data":"",
+                "codename":"Item_0",
+                value: "0",
+                
+                disabled: false,
+            },
+            {
+                id: "0.5",
+                label: "1/2",
+                text: "1/2",
+                "data":"",
+                "codename":"Item_2",
+                value: "0.5",
+                
+                disabled: false,
+            },
+            {
+                id: "1",
+                label: "1",
+                text: "1",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "2",
+                text: "2",
+                "data":"",
+                "codename":"Item_2",
+                value: "2",
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "3",
+                text: "3",
+                "data":"",
+                "codename":"Item_3",
+                value: "3",
+                
+                disabled: false,
+            },
+            {
+                id: "5",
+                label: "5",
+                text: "5",
+                "data":"",
+                "codename":"Item_5",
+                value: "5",
+                
+                disabled: false,
+            },
+            {
+                id: "8",
+                label: "8",
+                text: "8",
+                "data":"",
+                "codename":"Item_8",
+                value: "8",
+                
+                disabled: false,
+            },
+            {
+                id: "13",
+                label: "13",
+                text: "13",
+                "data":"",
+                "codename":"Item_13",
+                value: "13",
+                
+                disabled: false,
+            },
+            {
+                id: "20",
+                label: "20",
+                text: "20",
+                "data":"",
+                "codename":"Item_20",
+                value: "20",
+                
+                disabled: false,
+            },
+            {
+                id: "40",
+                label: "40",
+                text: "40",
+                "data":"",
+                "codename":"Item_40",
+                value: "40",
+                
+                disabled: false,
+            },
+            {
+                id: "100",
+                label: "100",
+                text: "100",
+                "data":"",
+                "codename":"Item_100",
+                value: "100",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "BugCreateResolve",
         emptytext: "未定义",
         "codelisttype":"static",

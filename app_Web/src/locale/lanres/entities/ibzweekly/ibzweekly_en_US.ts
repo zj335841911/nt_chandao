@@ -73,6 +73,8 @@ export default {
 		uiactions: {
 		},
 	},
+	usr2gridviewtoolbar_toolbar: {
+	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "Save",
@@ -90,8 +92,6 @@ export default {
 			caption: "Remove And Close",
 			tip: "Remove And Close Window",
 		},
-	},
-	usr2gridviewtoolbar_toolbar: {
 	},
 	gridviewtoolbar_toolbar: {
 		tbitem3: {
