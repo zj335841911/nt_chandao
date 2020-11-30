@@ -4369,6 +4369,16 @@
         "viewtag": "c5630df2f9e4729be1d7ba4048064774",
         "memo": ""
     },
+    "ibzmonthlynewmonthlyeditview": {
+        "title": "月报编辑视图",
+        "caption": "新建月报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMonthlyNewMonthlyEditView",
+        "viewfilename": "ibz-monthly-new-monthly-edit-view",
+        "viewtag": "c5aad5f12820569b3a1e8903d243aade",
+        "memo": ""
+    },
     "casegridview9_mecretae": {
         "title": "测试用例表格视图",
         "caption": "测试用例",

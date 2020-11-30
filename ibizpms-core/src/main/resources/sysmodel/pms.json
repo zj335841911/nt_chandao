@@ -13164,6 +13164,48 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"PLANNEXTWEEK" ,
+    "codename":"Plannextweek",
+    "field_logic_name":"下周计划",
+    "entity_name":"IbzWeekly",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"THISWEEKTASK" ,
+    "codename":"Thisweektask",
+    "field_logic_name":"本周完成任务",
+    "entity_name":"IbzWeekly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"NEXTWEEKTASK" ,
+    "codename":"Nextweektask",
+    "field_logic_name":"下周计划任务",
+    "entity_name":"IbzWeekly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

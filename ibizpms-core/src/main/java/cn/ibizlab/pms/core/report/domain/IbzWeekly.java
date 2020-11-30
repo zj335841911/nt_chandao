@@ -150,6 +150,27 @@ public class IbzWeekly extends EntityMP implements Serializable {
     @JSONField(name = "workthisweek")
     @JsonProperty("workthisweek")
     private String workthisweek;
+    /**
+     * 下周计划
+     */
+    @TableField(value = "`plannextweek`")
+    @JSONField(name = "plannextweek")
+    @JsonProperty("plannextweek")
+    private String plannextweek;
+    /**
+     * 本周完成任务
+     */
+    @TableField(value = "`thisweektask`")
+    @JSONField(name = "thisweektask")
+    @JsonProperty("thisweektask")
+    private String thisweektask;
+    /**
+     * 下周计划任务
+     */
+    @TableField(value = "`nextweektask`")
+    @JSONField(name = "nextweektask")
+    @JsonProperty("nextweektask")
+    private String nextweektask;
 
 
 
@@ -225,6 +246,30 @@ public class IbzWeekly extends EntityMP implements Serializable {
     public void setWorkthisweek(String workthisweek) {
         this.workthisweek = workthisweek;
         this.modify("workthisweek", workthisweek);
+    }
+
+    /**
+     * 设置 [下周计划]
+     */
+    public void setPlannextweek(String plannextweek) {
+        this.plannextweek = plannextweek;
+        this.modify("plannextweek", plannextweek);
+    }
+
+    /**
+     * 设置 [本周完成任务]
+     */
+    public void setThisweektask(String thisweektask) {
+        this.thisweektask = thisweektask;
+        this.modify("thisweektask", thisweektask);
+    }
+
+    /**
+     * 设置 [下周计划任务]
+     */
+    public void setNextweektask(String nextweektask) {
+        this.nextweektask = nextweektask;
+        this.modify("nextweektask", nextweektask);
     }
 
 

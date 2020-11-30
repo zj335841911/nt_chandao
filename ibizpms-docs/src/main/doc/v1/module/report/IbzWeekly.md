@@ -30,6 +30,9 @@
 | 12 | [其他事项](#属性-其他事项（COMMENT）) | COMMENT | 文本，可指定长度 | 否 | 否 | 是 |
 | 13 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
 | 14 | [本周工作](#属性-本周工作（WORKTHISWEEK）) | WORKTHISWEEK | HTML文本，没有长度限制 | 否 | 否 | 是 |
+| 15 | [下周计划](#属性-下周计划（PLANNEXTWEEK）) | PLANNEXTWEEK | HTML文本，没有长度限制 | 否 | 否 | 是 |
+| 16 | [本周完成任务](#属性-本周完成任务（THISWEEKTASK）) | THISWEEKTASK | 文本，可指定长度 | 否 | 否 | 是 |
+| 17 | [下周计划任务](#属性-下周计划任务（NEXTWEEKTASK）) | NEXTWEEKTASK | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-周报名称（IBZ_WEEKLYNAME）
 #### 属性说明
@@ -557,6 +560,117 @@ String
 #### 关系属性
 无
 
+### 属性-下周计划（PLANNEXTWEEK）
+#### 属性说明
+下周计划
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+HTML文本，没有长度限制
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-本周完成任务（THISWEEKTASK）
+#### 属性说明
+本周完成任务
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-下周计划任务（NEXTWEEKTASK）
+#### 属性说明
+下周计划任务
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -703,7 +817,9 @@ t1.`IBZ_WEEKLYID`,
 t1.`IBZ_WEEKLYNAME`,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
+t1.`NEXTWEEKTASK`,
 t1.`REPORTTO`,
+t1.`THISWEEKTASK`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_WEEKLY` t1 
@@ -732,7 +848,10 @@ t1.`IBZ_WEEKLYID`,
 t1.`IBZ_WEEKLYNAME`,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
+t1.`NEXTWEEKTASK`,
+t1.`PLANNEXTWEEK`,
 t1.`REPORTTO`,
+t1.`THISWEEKTASK`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
 t1.`WORKTHISWEEK`

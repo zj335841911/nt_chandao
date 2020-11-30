@@ -3503,6 +3503,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzLibModuleEditView",
             "viewtag": "c5630df2f9e4729be1d7ba4048064774"
         },
+        "ibzmonthlynewmonthlyeditview": {
+            "title": "月报编辑视图",
+            "caption": "新建月报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzMonthlyNewMonthlyEditView",
+            "viewtag": "c5aad5f12820569b3a1e8903d243aade"
+        },
         "casegridview9_mecretae": {
             "title": "测试用例表格视图",
             "caption": "测试用例",
