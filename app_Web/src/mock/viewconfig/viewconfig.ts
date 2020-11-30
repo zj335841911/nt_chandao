@@ -2039,6 +2039,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DocLibUsr2EditView",
             "viewtag": "73fbcf0e3685096f63587bcff234f958"
         },
+        "ibzdailymymaineditview": {
+            "title": "日报编辑视图（主数据）",
+            "caption": "日报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzDailyMymainEditView",
+            "viewtag": "74aa34a6a878f58a6459d220ceb2092e"
+        },
         "casecursuitgridview": {
             "title": "功能测试",
             "caption": "功能测试",

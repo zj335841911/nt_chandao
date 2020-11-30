@@ -30,6 +30,10 @@ export default {
 			caption: "日报",
       		title: "日报编辑视图（主数据）",
 		},
+		mymaineditview: {
+			caption: "日报",
+      		title: "日报编辑视图（主数据）",
+		},
 		dailygridview: {
 			caption: "日报",
       		title: "日报表格视图",

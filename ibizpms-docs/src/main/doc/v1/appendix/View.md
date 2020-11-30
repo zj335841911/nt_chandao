@@ -465,6 +465,7 @@ SRFNAVPARAM.project=%project%|
 |-|关闭|DEOPTVIEW|&nbsp;|
 |-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|文档库编辑视图|DEEDITVIEW|&nbsp;|
+|-|日报编辑视图（主数据）|DEEDITVIEW|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
 |-|需求编辑视图|DEEDITVIEW|&nbsp;|
 |-|需求分页导航视图|DETABEXPVIEW|&nbsp;|

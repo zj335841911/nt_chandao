@@ -144,11 +144,10 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         saveOrUpdateBatch(list, batchSize);
     }
 
-    @Override
+        @Override
     @Transactional
     public IbzMonthly submit(IbzMonthly et) {
-        //自定义代码
-        return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).submit(et);
     }
 
 
