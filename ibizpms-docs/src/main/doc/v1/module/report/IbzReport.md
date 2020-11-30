@@ -817,7 +817,7 @@ String
 无
 
 - 取值范围/公式
-无
+参照数据字典【[汇报类型（ReportType）](../../codelist/ReportType)】
 
 - 数据格式
 无

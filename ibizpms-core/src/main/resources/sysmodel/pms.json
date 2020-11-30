@@ -13143,6 +13143,7 @@
     "field_logic_name":"类型",
     "entity_name":"IbzReport",
     "field_type":"SSCODELIST",
+    "dict":"ReportType",
     "nullable":1,
     "physical_field":0,
     "data_type":"VARCHAR",

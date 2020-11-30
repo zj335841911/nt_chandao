@@ -5027,6 +5027,28 @@ public class StaticDict {
 
 
     /**
+     * 代码表[汇报类型]
+     */
+    @Getter
+    public enum ReportType {
+        WEEKLY("weekly","周报"),
+        DAILY("daily","日报"),
+        MONTHLY("monthly","月报");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ReportType(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[性能分析指标]
      */
     @Getter
