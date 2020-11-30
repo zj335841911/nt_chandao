@@ -57,6 +57,34 @@ export class IbzReportMyTabExpViewBase extends TabExpViewBase {
      */
     public appUIService: IbzReportUIService = new IbzReportUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof IbzReportMyTabExpViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'IBZREPORT': {
+            isRawValue: true,
+            value: '0',
+        }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof IbzReportMyTabExpViewBase
+	 */
+    protected customViewParams: any = {
+        'ibzreport': {
+            isRawValue: true,
+            value: '0',
+        }
+    };
+
     /**
      * 是否显示信息栏
      *

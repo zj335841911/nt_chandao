@@ -933,6 +933,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 text: "未读",
                 "data":"",
                 "codename":"Item_0",
+                "color": "rgba(244, 15, 15, 1)",
                 value: "0",
                 
                 disabled: false,

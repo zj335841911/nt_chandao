@@ -1070,6 +1070,7 @@
                 "class":"",
                 "data":"",
                 "codename":"Item_0",
+                "color": "rgba(244, 15, 15, 1)",
                 "value": "0",
                 
                 "disabled": false,
