@@ -94,19 +94,22 @@ export class DailyEditEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         ibz_dailyname: null,
+        date: null,
         worktoday: null,
-        planstomorrow: null,
         todaytask: null,
+        planstomorrow: null,
         tomorrowplanstask: null,
         comment: null,
         files: null,
         mailto: null,
         reportto: null,
+        ibz_dailyid: null,
+        account: null,
+        issubmit: null,
         createman: null,
         createdate: null,
         updateman: null,
         updatedate: null,
-        ibz_dailyid: null,
         ibzdaily: null,
     };
 
@@ -216,6 +219,13 @@ export class DailyEditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        date: new FormItemModel({
+    caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         worktoday: new FormItemModel({
     caption: '今日工作', detailType: 'FORMITEM', name: 'worktoday', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -223,15 +233,15 @@ export class DailyEditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        planstomorrow: new FormItemModel({
-    caption: '明日计划', detailType: 'FORMITEM', name: 'planstomorrow', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        todaytask: new FormItemModel({
+    caption: '完成任务', detailType: 'FORMITEM', name: 'todaytask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
-        todaytask: new FormItemModel({
-    caption: '完成任务', detailType: 'FORMITEM', name: 'todaytask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        planstomorrow: new FormItemModel({
+    caption: '明日计划', detailType: 'FORMITEM', name: 'planstomorrow', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -272,6 +282,27 @@ export class DailyEditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        ibz_dailyid: new FormItemModel({
+    caption: '日报标识', detailType: 'FORMITEM', name: 'ibz_dailyid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        account: new FormItemModel({
+    caption: '用户', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        issubmit: new FormItemModel({
+    caption: '是否提交', detailType: 'FORMITEM', name: 'issubmit', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         createman: new FormItemModel({
     caption: '建立人', detailType: 'FORMITEM', name: 'createman', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -295,13 +326,6 @@ export class DailyEditEditFormBase extends EditFormControlBase {
 
         updatedate: new FormItemModel({
     caption: '更新时间', detailType: 'FORMITEM', name: 'updatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        ibz_dailyid: new FormItemModel({
-    caption: '日报标识', detailType: 'FORMITEM', name: 'ibz_dailyid', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

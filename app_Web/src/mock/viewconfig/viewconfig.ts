@@ -3775,6 +3775,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectProductListView9",
             "viewtag": "d0454a2ae9eb44aca3613b27169f3b18"
         },
+        "ibzmonthlymainmonthlygridview": {
+            "title": "月报表格视图",
+            "caption": "月报实体表格视图",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzMonthlyMainMonthlyGridView",
+            "viewtag": "d054969e8eb4b11e01d771b95045178c"
+        },
         "fileeditview": {
             "title": "file编辑视图",
             "caption": "附件",

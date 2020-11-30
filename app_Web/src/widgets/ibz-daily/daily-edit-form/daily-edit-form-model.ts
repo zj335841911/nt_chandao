@@ -61,19 +61,24 @@ export default class DailyEditModel {
         dataType: 'TEXT',
       },
       {
-        name: 'worktoday',
-        prop: 'worktoday',
-        dataType: 'HTMLTEXT',
+        name: 'date',
+        prop: 'date',
+        dataType: 'DATE',
       },
       {
-        name: 'planstomorrow',
-        prop: 'planstomorrow',
+        name: 'worktoday',
+        prop: 'worktoday',
         dataType: 'HTMLTEXT',
       },
       {
         name: 'todaytask',
         prop: 'todaytask',
         dataType: 'SMCODELIST',
+      },
+      {
+        name: 'planstomorrow',
+        prop: 'planstomorrow',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'tomorrowplanstask',
@@ -101,6 +106,21 @@ export default class DailyEditModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'ibz_dailyid',
+        prop: 'ibzdailyid',
+        dataType: 'ACID',
+      },
+      {
+        name: 'account',
+        prop: 'account',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'issubmit',
+        prop: 'issubmit',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'createman',
         prop: 'createman',
         dataType: 'TEXT',
@@ -119,11 +139,6 @@ export default class DailyEditModel {
         name: 'updatedate',
         prop: 'updatedate',
         dataType: 'DATETIME',
-      },
-      {
-        name: 'ibz_dailyid',
-        prop: 'ibzdailyid',
-        dataType: 'ACID',
       },
       {
         name: 'ibzdaily',

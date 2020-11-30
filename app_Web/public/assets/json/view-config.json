@@ -4709,6 +4709,16 @@
         "viewtag": "d0454a2ae9eb44aca3613b27169f3b18",
         "memo": ""
     },
+    "ibzmonthlymainmonthlygridview": {
+        "title": "月报表格视图",
+        "caption": "月报实体表格视图",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMonthlyMainMonthlyGridView",
+        "viewfilename": "ibz-monthly-main-monthly-grid-view",
+        "viewtag": "d054969e8eb4b11e01d771b95045178c",
+        "memo": ""
+    },
     "fileeditview": {
         "title": "file编辑视图",
         "caption": "附件",

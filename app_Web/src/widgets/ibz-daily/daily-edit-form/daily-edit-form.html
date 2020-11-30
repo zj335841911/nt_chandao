@@ -94,6 +94,33 @@
 </app-form-item>
 
 </i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.date.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="date"
+    :itemRules="this.rules().date"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.date')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.date.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
+
+</app-form-item>
+
+</i-col>
     
     </row>
 </app-form-group>
@@ -142,6 +169,45 @@
 </i-col>
 <i-col
     class="form-layout-container"
+    v-show="detailsModel.todaytask.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="todaytask"
+    :itemRules="this.rules().todaytask"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.todaytask')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.todaytask.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list-mpicker 
+  v-model="data.todaytask"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.todaytask.disabled"
+  tag='AllTask' 
+  codelistType='DYNAMIC' 
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.planstomorrow.visible"
     :style="{}"
     
@@ -178,45 +244,6 @@
     :templParams='{ }' 
     style=""
 ></rich-text-editor>
-</app-form-item>
-
-</i-col>
-<i-col
-    class="form-layout-container"
-    v-show="detailsModel.todaytask.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-item
-    name="todaytask"
-    :itemRules="this.rules().todaytask"
-    class=""
-
-    :caption="$t('entities.ibzdaily.dailyedit_form.details.todaytask')"
-    uiStyle="DEFAULT"
-    :labelWidth="130"
-    :isShowCaption="true"
-    :error="detailsModel.todaytask.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
->
-    
-<dropdown-list-mpicker 
-  v-model="data.todaytask"
-  :data="data" 
-  :context="context"
-  :viewparams="viewparams" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.todaytask.disabled"
-  tag='AllTask' 
-  codelistType='DYNAMIC' 
-  placeholder='请选择...' style="">
-</dropdown-list-mpicker>
-
 </app-form-item>
 
 </i-col>
@@ -412,6 +439,47 @@
     valueType="string"
     tag="UserRealName"
     codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.issubmit.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="issubmit"
+    :itemRules="this.rules().issubmit"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.issubmit')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.issubmit.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list 
+    v-model="data.issubmit"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.issubmit.disabled"
+    valueType="string"
+    tag="YesNo"
+    codelistType="STATIC"
     placeholder="请选择..."
 
 ></dropdown-list>

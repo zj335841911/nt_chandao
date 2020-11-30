@@ -107,6 +107,7 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
         project: null,
         title: null,
         pri: null,
+        storypoints: null,
         estimate: null,
         color: null,
         spec: null,
@@ -341,6 +342,13 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        storypoints: new FormItemModel({
+    caption: '故事点', detailType: 'FORMITEM', name: 'storypoints', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         estimate: new FormItemModel({
     caption: '预计', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -460,6 +468,7 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.assignedto.setDisabled(!ret);
         }
+
 
 
 

@@ -23,6 +23,10 @@ export default {
 			caption: "新建月报",
       		title: "月报编辑视图",
 		},
+		mainmonthlygridview: {
+			caption: "月报实体表格视图",
+      		title: "月报表格视图",
+		},
 	},
 	new_form: {
 		details: {
@@ -48,6 +52,25 @@ export default {
 		uiactions: {
 		},
 	},
+	main_grid: {
+		nodata: "",
+		columns: {
+			ibz_monthlyname: "月报名称",
+			updateman: "更新人",
+			updatedate: "更新时间",
+		},
+		uiactions: {
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+		},
+		uiactions: {
+		},
+	},
 	newmonthlyeditviewtoolbar_toolbar: {
+	},
+	mainmonthlygridviewtoolbar_toolbar: {
 	},
 };

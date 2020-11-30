@@ -682,6 +682,7 @@ SRFNAVPARAM.project=%project%|
 |-|需求数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|测试结果编辑视图|DEEDITVIEW9|&nbsp;|
 |-|项目产品列表视图|DELISTVIEW9|&nbsp;|
+|-|月报表格视图|DEGRIDVIEW|&nbsp;|
 |-|file编辑视图|DEEDITVIEW|&nbsp;|
 |-|平台数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|测试运行编辑视图|DEEDITVIEW9|&nbsp;|
