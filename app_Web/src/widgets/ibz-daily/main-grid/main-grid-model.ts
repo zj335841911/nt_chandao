@@ -33,13 +33,18 @@ export default class MainModel {
         },
         {
           name: 'updateman',
-          prop: 'updateman',
-          dataType: 'TEXT',
+          prop: 'account',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'updatedate',
           prop: 'updatedate',
           dataType: 'DATETIME',
+        },
+        {
+          name: 'account',
+          prop: 'account',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'srfmajortext',
