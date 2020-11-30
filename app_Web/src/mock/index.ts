@@ -79,6 +79,7 @@ import './entity/ibz-my-territorys/ibz-my-territorys';
 import './entity/sys-update-logs/sys-update-logs';
 import './entity/docs/docs';
 import './entity/bugs/bugs';
+import './entity/ibzweeklys/ibzweeklys';
 import './entity/project-modules/project-modules';
 import './entity/ibz-docs/ibz-docs';
 import './entity/pssys-apps/pssys-apps';

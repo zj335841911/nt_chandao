@@ -213,6 +213,9 @@ export default class BaseInfoModel {
       {
         name: 'ibiz_sourcename',
       },
+      {
+        name: 'storypoints',
+      },
     ]
   }
 

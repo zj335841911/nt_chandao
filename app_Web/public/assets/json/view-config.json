@@ -2589,6 +2589,16 @@
         "viewtag": "7a983ef690626958a9897f58efe15e58",
         "memo": ""
     },
+    "ibzweeklyeditview": {
+        "title": "实体2编辑视图",
+        "caption": "周报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "IbzWeeklyEditView",
+        "viewfilename": "ibz-weekly-edit-view",
+        "viewtag": "7ae5b669ec5f5284763927aee60efde1",
+        "memo": ""
+    },
     "producttestleftsidebarlistview": {
         "title": "所有测试",
         "caption": "测试",
@@ -3849,6 +3859,16 @@
         "viewtag": "ab45ff5d2250ad8a5d88f39cc26b7646",
         "memo": ""
     },
+    "ibzweeklyusr2gridview": {
+        "title": "周报表格视图",
+        "caption": "周报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzWeeklyUsr2GridView",
+        "viewfilename": "ibz-weekly-usr2-grid-view",
+        "viewtag": "ab7bb92108f4ae63c52d94b39affb30a",
+        "memo": ""
+    },
     "bugstatsbugresolvetion": {
         "title": "每个解决方案的Bug数统计表格视图",
         "caption": "Bug统计",
@@ -3967,6 +3987,16 @@
         "viewname": "CompanyEditView",
         "viewfilename": "company-edit-view",
         "viewtag": "b39a7a76c2175803831235ae3aeef05b",
+        "memo": ""
+    },
+    "ibzweeklygridview": {
+        "title": "实体2表格视图",
+        "caption": "周报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "IbzWeeklyGridView",
+        "viewfilename": "ibz-weekly-grid-view",
+        "viewtag": "b3df645f670804bed90722c381c38fd6",
         "memo": ""
     },
     "bugpickupgridview_buildlinkresolvedbugs": {

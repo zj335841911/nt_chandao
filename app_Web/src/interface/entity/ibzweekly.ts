@@ -1,0 +1,144 @@
+/**
+ * 周报
+ *
+ * @export
+ * @interface IBZWEEKLY
+ */
+export interface IBZWEEKLY {
+
+    /**
+     * 周报名称
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    ibzweeklyname?: any;
+
+    /**
+     * 周报标识
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    ibzweeklyid?: any;
+
+    /**
+     * 建立人
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    createman?: any;
+
+    /**
+     * 建立时间
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    createdate?: any;
+
+    /**
+     * 更新人
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    updateman?: any;
+
+    /**
+     * 更新时间
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    updatedate?: any;
+
+    /**
+     * 用户
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    account?: any;
+
+    /**
+     * 抄送给
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    mailto?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    files?: any;
+
+    /**
+     * 是否提交
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    issubmit?: any;
+
+    /**
+     * 汇报给
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    reportto?: any;
+
+    /**
+     * 其他事项
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    comment?: any;
+
+    /**
+     * 日期
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    date?: any;
+
+    /**
+     * 本周工作
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    workthisweek?: any;
+
+    /**
+     * 下周计划
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    plannextweek?: any;
+
+    /**
+     * 本周完成任务
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    thisweektask?: any;
+
+    /**
+     * 下周计划任务
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    nextweektask?: any;
+}

@@ -111,6 +111,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('sysupdatelog', () => import('@/authservice/sys-update-log/sys-update-log-auth-service'));
         this.allAuthService.set('doc', () => import('@/authservice/doc/doc-auth-service'));
         this.allAuthService.set('bug', () => import('@/authservice/bug/bug-auth-service'));
+        this.allAuthService.set('ibzweekly', () => import('@/authservice/ibzweekly/ibzweekly-auth-service'));
         this.allAuthService.set('projectmodule', () => import('@/authservice/project-module/project-module-auth-service'));
         this.allAuthService.set('ibzdoc', () => import('@/authservice/ibz-doc/ibz-doc-auth-service'));
         this.allAuthService.set('pssysapp', () => import('@/authservice/pssys-app/pssys-app-auth-service'));

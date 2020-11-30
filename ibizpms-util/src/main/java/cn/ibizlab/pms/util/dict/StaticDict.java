@@ -6192,6 +6192,36 @@ public class StaticDict {
 
 
     /**
+     * 代码表[需求故事点]
+     */
+    @Getter
+    public enum StoryPoints {
+        ITEM_0("0","0"),
+        ITEM_2("0.5","1/2"),
+        ITEM_1("1","1"),
+        ITEM_2("2","2"),
+        ITEM_3("3","3"),
+        ITEM_5("5","5"),
+        ITEM_8("8","8"),
+        ITEM_13("13","13"),
+        ITEM_20("20","20"),
+        ITEM_40("40","40"),
+        ITEM_100("100","100");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        StoryPoints(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[项目状态]
      */
     @Getter

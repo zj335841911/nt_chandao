@@ -121,7 +121,21 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <input-box v-model="data.worktoday"  :disabled="detailsModel.worktoday.disabled" type='textarea' style="" ></input-box>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.worktoday"
+    @change="(val) =>{this.data.worktoday =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.worktoday.disabled"
+    :data="JSON.stringify(this.data)"
+    name="worktoday"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{}'
+    :exportparams='{}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
@@ -148,14 +162,21 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <input-box 
-    v-model="data.planstomorrow"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.planstomorrow.disabled" 
-    type='text' 
-    style="">
-</input-box>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.planstomorrow"
+    @change="(val) =>{this.data.planstomorrow =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.planstomorrow.disabled"
+    :data="JSON.stringify(this.data)"
+    name="planstomorrow"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{}'
+    :exportparams='{}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
@@ -230,6 +251,8 @@
   :localContext ='{ }' 
   :localParam ='{ }' 
   :disabled="detailsModel.tomorrowplanstask.disabled"
+  tag='AllTask' 
+  codelistType='DYNAMIC' 
   placeholder='请选择...' style="">
 </dropdown-list-mpicker>
 

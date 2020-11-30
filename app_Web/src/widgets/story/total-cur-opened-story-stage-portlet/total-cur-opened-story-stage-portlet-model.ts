@@ -213,6 +213,9 @@ export default class TotalCurOpenedStoryStageModel {
       {
         name: 'ibiz_sourcename',
       },
+      {
+        name: 'storypoints',
+      },
     ]
   }
 

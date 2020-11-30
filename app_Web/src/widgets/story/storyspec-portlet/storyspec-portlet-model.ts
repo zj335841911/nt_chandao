@@ -213,6 +213,9 @@ export default class StoryspecModel {
       {
         name: 'ibiz_sourcename',
       },
+      {
+        name: 'storypoints',
+      },
     ]
   }
 

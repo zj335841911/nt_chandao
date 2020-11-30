@@ -470,6 +470,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务表格视图|DEGRIDVIEW9|&nbsp;|
 |-|需求表格视图|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|
 |-|测试套件编辑视图|DEEDITVIEW|&nbsp;|
+|-|实体2编辑视图|DEEDITVIEW|&nbsp;|
 |-|所有测试|DELISTVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务表格视图（需求分组）|DEGRIDVIEW|&nbsp;|
@@ -596,6 +597,7 @@ SRFNAVPARAM.project=%project%|
 |-|计划|DEEDITVIEW|&nbsp;|
 |-|测试单表格视图|DEGRIDVIEW|&nbsp;|
 |-|用例库用例编辑视图|DEEDITVIEW|&nbsp;|
+|-|周报表格视图|DEGRIDVIEW|&nbsp;|
 |-|每个解决方案的Bug数统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|公司数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|开始任务|DEOPTVIEW|&nbsp;|
@@ -608,6 +610,7 @@ SRFNAVPARAM.project=%project%|
 |-|暂停任务|DEOPTVIEW|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
 |-|公司编辑视图|DEEDITVIEW|&nbsp;|
+|-|实体2表格视图|DEGRIDVIEW|&nbsp;|
 |-|bug选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试用例编辑视图|DEEDITVIEW9|&nbsp;|

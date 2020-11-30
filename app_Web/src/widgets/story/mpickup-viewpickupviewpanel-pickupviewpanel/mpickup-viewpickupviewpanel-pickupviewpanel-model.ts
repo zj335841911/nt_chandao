@@ -213,6 +213,9 @@ export default class MPickupViewpickupviewpanelModel {
       {
         name: 'ibiz_sourcename',
       },
+      {
+        name: 'storypoints',
+      },
     ]
   }
 

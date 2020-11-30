@@ -213,6 +213,9 @@ export default class TotalCurOpenedStoryPriModel {
       {
         name: 'ibiz_sourcename',
       },
+      {
+        name: 'storypoints',
+      },
     ]
   }
 

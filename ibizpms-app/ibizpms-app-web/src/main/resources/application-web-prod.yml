@@ -295,6 +295,10 @@ zuul:
       path: /bugs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_weekly:
+      path: /ibzweeklies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_projectmodule:
       path: /projectmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

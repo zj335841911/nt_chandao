@@ -72,6 +72,7 @@ import ibzmyterritory_en_US from '@locale/lanres/entities/ibz-my-territory/ibz-m
 import sysupdatelog_en_US from '@locale/lanres/entities/sys-update-log/sys-update-log_en_US';
 import doc_en_US from '@locale/lanres/entities/doc/doc_en_US';
 import bug_en_US from '@locale/lanres/entities/bug/bug_en_US';
+import ibzweekly_en_US from '@locale/lanres/entities/ibzweekly/ibzweekly_en_US';
 import projectmodule_en_US from '@locale/lanres/entities/project-module/project-module_en_US';
 import ibzdoc_en_US from '@locale/lanres/entities/ibz-doc/ibz-doc_en_US';
 import pssysapp_en_US from '@locale/lanres/entities/pssys-app/pssys-app_en_US';
@@ -418,6 +419,7 @@ const data: any = {
         sysupdatelog: sysupdatelog_en_US,
         doc: doc_en_US,
         bug: bug_en_US,
+        ibzweekly: ibzweekly_en_US,
         projectmodule: projectmodule_en_US,
         ibzdoc: ibzdoc_en_US,
         pssysapp: pssysapp_en_US,

@@ -72,6 +72,7 @@ import ibzmyterritory_zh_CN from '@locale/lanres/entities/ibz-my-territory/ibz-m
 import sysupdatelog_zh_CN from '@locale/lanres/entities/sys-update-log/sys-update-log_zh_CN';
 import doc_zh_CN from '@locale/lanres/entities/doc/doc_zh_CN';
 import bug_zh_CN from '@locale/lanres/entities/bug/bug_zh_CN';
+import ibzweekly_zh_CN from '@locale/lanres/entities/ibzweekly/ibzweekly_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/entities/project-module/project-module_zh_CN';
 import ibzdoc_zh_CN from '@locale/lanres/entities/ibz-doc/ibz-doc_zh_CN';
 import pssysapp_zh_CN from '@locale/lanres/entities/pssys-app/pssys-app_zh_CN';
@@ -417,6 +418,7 @@ const data: any = {
         sysupdatelog: sysupdatelog_zh_CN,
         doc: doc_zh_CN,
         bug: bug_zh_CN,
+        ibzweekly: ibzweekly_zh_CN,
         projectmodule: projectmodule_zh_CN,
         ibzdoc: ibzdoc_zh_CN,
         pssysapp: pssysapp_zh_CN,

@@ -314,6 +314,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().eq("`preversion`", n_preversion_eq);
         }
     }
+	private String n_storypoints_eq;//[故事点]
+	public void setN_storypoints_eq(String n_storypoints_eq) {
+        this.n_storypoints_eq = n_storypoints_eq;
+        if(!ObjectUtils.isEmpty(this.n_storypoints_eq)){
+            this.getSearchCond().eq("`storypoints`", n_storypoints_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

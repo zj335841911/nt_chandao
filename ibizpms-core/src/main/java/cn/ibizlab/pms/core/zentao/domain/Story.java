@@ -545,6 +545,13 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "ibiz_sourcename")
     @JsonProperty("ibiz_sourcename")
     private String ibizSourcename;
+    /**
+     * 故事点
+     */
+    @TableField(value = "`storypoints`")
+    @JSONField(name = "storypoints")
+    @JsonProperty("storypoints")
+    private String storypoints;
 
     /**
      * 
@@ -936,6 +943,14 @@ public class Story extends EntityMP implements Serializable {
     public void setIbizSourcename(String ibizSourcename) {
         this.ibizSourcename = ibizSourcename;
         this.modify("ibiz_sourcename", ibizSourcename);
+    }
+
+    /**
+     * 设置 [故事点]
+     */
+    public void setStorypoints(String storypoints) {
+        this.storypoints = storypoints;
+        this.modify("storypoints", storypoints);
     }
 
 

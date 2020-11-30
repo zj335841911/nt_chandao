@@ -111,6 +111,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('sysupdatelog', () => import('@/service/sys-update-log/sys-update-log-service'));
         this.allEntityService.set('doc', () => import('@/service/doc/doc-service'));
         this.allEntityService.set('bug', () => import('@/service/bug/bug-service'));
+        this.allEntityService.set('ibzweekly', () => import('@/service/ibzweekly/ibzweekly-service'));
         this.allEntityService.set('projectmodule', () => import('@/service/project-module/project-module-service'));
         this.allEntityService.set('ibzdoc', () => import('@/service/ibz-doc/ibz-doc-service'));
         this.allEntityService.set('pssysapp', () => import('@/service/pssys-app/pssys-app-service'));
