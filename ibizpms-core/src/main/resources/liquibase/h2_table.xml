@@ -1185,7 +1185,7 @@
     <!--输出实体[IBZ_MONTHLY]数据结构 -->
     <changeSet author="zentao" id="tab-ibz_monthly-39-41">
         <createTable tableName="T_IBZ_MONTHLY">
-                <column name="IBZ_MONTHLYID" remarks="" type="VARCHAR(100)">
+                <column name="IBZ_MONTHLYID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_MONTHLY_IBZ_MONTHLYID"/>
                 </column>
                 <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
@@ -1270,7 +1270,7 @@
         <createTable tableName="T_IBZ_WEEKLY">
                 <column name="IBZ_WEEKLYNAME" remarks="" type="VARCHAR(200)">
                 </column>
-                <column name="IBZ_WEEKLYID" remarks="" type="VARCHAR(100)">
+                <column name="IBZ_WEEKLYID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_WEEKLY_IBZ_WEEKLYID"/>
                 </column>
                 <column name="CREATEMAN" remarks="" type="VARCHAR(60)">

@@ -39,9 +39,9 @@ public interface IIbzWeeklyService extends IService<IbzWeekly> {
     void createBatch(List<IbzWeekly> list);
     boolean update(IbzWeekly et);
     void updateBatch(List<IbzWeekly> list);
-    boolean remove(String key);
-    void removeBatch(Collection<String> idList);
-    IbzWeekly get(String key);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    IbzWeekly get(Long key);
     IbzWeekly getDraft(IbzWeekly et);
     boolean checkKey(IbzWeekly et);
     boolean save(IbzWeekly et);
@@ -62,7 +62,7 @@ public interface IIbzWeeklyService extends IService<IbzWeekly> {
      */
     boolean execute(String sql, Map param);
 
-    List<IbzWeekly> getIbzweeklyByIds(List<String> ids);
+    List<IbzWeekly> getIbzweeklyByIds(List<Long> ids);
     List<IbzWeekly> getIbzweeklyByEntities(List<IbzWeekly> entities);
 }
 

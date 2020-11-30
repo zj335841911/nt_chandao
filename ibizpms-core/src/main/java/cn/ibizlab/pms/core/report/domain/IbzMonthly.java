@@ -47,10 +47,10 @@ public class IbzMonthly extends EntityMP implements Serializable {
      * 月报标识
      */
     @DEField(name = "ibz_monthlyid", isKeyField = true)
-    @TableId(value = "ibz_monthlyid", type = IdType.ASSIGN_UUID)
+    @TableId(value = "ibz_monthlyid", type = IdType.AUTO)
     @JSONField(name = "ibzmonthlyid")
     @JsonProperty("ibzmonthlyid")
-    private String ibzmonthlyid;
+    private Long ibzmonthlyid;
     /**
      * 建立人
      */
@@ -273,6 +273,10 @@ public class IbzMonthly extends EntityMP implements Serializable {
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+        return IdWorker.getId();
+    }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
      * @param targetEntity 目标数据对象

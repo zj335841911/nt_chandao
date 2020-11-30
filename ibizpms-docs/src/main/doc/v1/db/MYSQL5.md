@@ -53010,7 +53010,7 @@ CREATE TABLE `zt_testsuite`(
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
-| IBZ_MONTHLYID        | 月报标识  | VARCHAR      |   100   | 主键&nbsp; |
+| IBZ_MONTHLYID        | 月报标识  |       |   100   | 主键&nbsp; |
 | ISSUBMIT        | 是否提交  | VARCHAR      |   100   | &nbsp; |
 | DATE        | 日期  | DATETIME      |   -1   | &nbsp; |
 | NEXTMONTHPLANSTASK        | 下月计划任务  | VARCHAR      |   2,000   | &nbsp; |
@@ -57780,7 +57780,7 @@ CREATE TABLE `T_IBZ_TOP`(
 | IBZ_WEEKLYNAME        | 周报名称  | VARCHAR      |   200   | &nbsp; |
 | NEXTWEEKTASK        | 下周计划任务  | VARCHAR      |   100   | &nbsp; |
 | THISWEEKTASK        | 本周完成任务  | VARCHAR      |   100   | &nbsp; |
-| IBZ_WEEKLYID        | 周报标识  | VARCHAR      |   100   | 主键&nbsp; |
+| IBZ_WEEKLYID        | 周报标识  |       |   100   | 主键&nbsp; |
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
 | MAILTO        | 抄送给  | VARCHAR      |   2,000   | &nbsp; |
 | ISSUBMIT        | 是否提交  | VARCHAR      |   60   | &nbsp; |
@@ -57872,7 +57872,7 @@ CREATE TABLE `T_IBZ_TOP`(
 ```sql
 CREATE TABLE `T_IBZ_WEEKLY`(
 `IBZ_WEEKLYNAME`  VARCHAR(200) COMMENT '周报名称' 
-,`IBZ_WEEKLYID`  VARCHAR(100)  NOT NULL PRIMARY KEY COMMENT '周报标识' 
+,`IBZ_WEEKLYID`  BIGINT(100)  UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '周报标识' 
 ,`CREATEMAN`  VARCHAR(60) COMMENT '建立人' 
 ,`CREATEDATE`  DATETIME COMMENT '建立时间' 
 ,`UPDATEMAN`  VARCHAR(60) COMMENT '更新人' 

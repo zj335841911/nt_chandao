@@ -8,7 +8,7 @@
 #### IbzMonthlyDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | ibzmonthlyid | String | 不可 | 月报标识 |
+| 1 | ibzmonthlyid | Long | 不可 | 月报标识 |
 | 2 | createman | String | 不可 | 建立人 |
 | 3 | updateman | String | 不可 | 更新人 |
 | 4 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |

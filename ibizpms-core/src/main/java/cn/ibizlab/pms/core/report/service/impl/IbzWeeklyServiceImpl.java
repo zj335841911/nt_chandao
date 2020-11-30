@@ -85,20 +85,20 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
 
     @Override
     @Transactional
-    public boolean remove(String key) {
+    public boolean remove(Long key) {
         boolean result = removeById(key);
         return result;
     }
 
     @Override
     @Transactional
-    public void removeBatch(Collection<String> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IbzWeekly get(String key) {
+    public IbzWeekly get(Long key) {
         IbzWeekly et = getById(key);
         if (et == null) {
             et = new IbzWeekly();
@@ -192,7 +192,7 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
     }
 
     @Override
-    public List<IbzWeekly> getIbzweeklyByIds(List<String> ids) {
+    public List<IbzWeekly> getIbzweeklyByIds(List<Long> ids) {
          return this.listByIds(ids);
     }
 

@@ -39,9 +39,9 @@ public interface IIbzMonthlyService extends IService<IbzMonthly> {
     void createBatch(List<IbzMonthly> list);
     boolean update(IbzMonthly et);
     void updateBatch(List<IbzMonthly> list);
-    boolean remove(String key);
-    void removeBatch(Collection<String> idList);
-    IbzMonthly get(String key);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    IbzMonthly get(Long key);
     IbzMonthly getDraft(IbzMonthly et);
     boolean checkKey(IbzMonthly et);
     boolean save(IbzMonthly et);
@@ -62,7 +62,7 @@ public interface IIbzMonthlyService extends IService<IbzMonthly> {
      */
     boolean execute(String sql, Map param);
 
-    List<IbzMonthly> getIbzmonthlyByIds(List<String> ids);
+    List<IbzMonthly> getIbzmonthlyByIds(List<Long> ids);
     List<IbzMonthly> getIbzmonthlyByEntities(List<IbzMonthly> entities);
 }
 

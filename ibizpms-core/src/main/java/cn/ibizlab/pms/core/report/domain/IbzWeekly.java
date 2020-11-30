@@ -55,10 +55,10 @@ public class IbzWeekly extends EntityMP implements Serializable {
      * 周报标识
      */
     @DEField(name = "ibz_weeklyid", isKeyField = true)
-    @TableId(value = "ibz_weeklyid", type = IdType.ASSIGN_UUID)
+    @TableId(value = "ibz_weeklyid", type = IdType.AUTO)
     @JSONField(name = "ibzweeklyid")
     @JsonProperty("ibzweeklyid")
-    private String ibzweeklyid;
+    private Long ibzweeklyid;
     /**
      * 建立人
      */
@@ -273,6 +273,10 @@ public class IbzWeekly extends EntityMP implements Serializable {
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+        return IdWorker.getId();
+    }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
      * @param targetEntity 目标数据对象

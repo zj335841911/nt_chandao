@@ -85,20 +85,20 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
 
     @Override
     @Transactional
-    public boolean remove(String key) {
+    public boolean remove(Long key) {
         boolean result = removeById(key);
         return result;
     }
 
     @Override
     @Transactional
-    public void removeBatch(Collection<String> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IbzMonthly get(String key) {
+    public IbzMonthly get(Long key) {
         IbzMonthly et = getById(key);
         if (et == null) {
             et = new IbzMonthly();
@@ -192,7 +192,7 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
     }
 
     @Override
-    public List<IbzMonthly> getIbzmonthlyByIds(List<String> ids) {
+    public List<IbzMonthly> getIbzmonthlyByIds(List<Long> ids) {
          return this.listByIds(ids);
     }
 
