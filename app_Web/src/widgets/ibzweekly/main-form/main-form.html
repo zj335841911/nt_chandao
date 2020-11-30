@@ -10,6 +10,43 @@
     <row>
             <i-col
     class="form-layout-container"
+    v-show="detailsModel.thisweektask.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibzweekly" 
+    :parentdata='{"srfparentdename":"IBZ_WEEKLY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+        {
+            pathName: 'stories',
+            parameterName: 'story',
+        },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName="ibzweekly"
+    parentName="IBZWEEKLY"  
+    refviewtype="DEGRIDVIEW" 
+    refreshitems="" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="task-usr2-grid-view" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.workthisweek.visible"
     :style="{}"
     

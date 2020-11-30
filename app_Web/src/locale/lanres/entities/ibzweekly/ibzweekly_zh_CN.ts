@@ -34,6 +34,7 @@ export default {
 	},
 	main_form: {
 		details: {
+			thisweektask: "", 
 			formpage1: "基本信息", 
 			srfupdatedate: "更新时间", 
 			srforikey: "", 

@@ -2315,6 +2315,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'bf911962d0a1ec51e903e512c2700650',
             ],
         },
         {
@@ -3879,6 +3880,24 @@ export const viewstate: any = {
                 'ae715fb0beead59fd6157e0ef163a4bb',
                 'b7427fe34d292009905e126defc9fa22',
                 'a7aa4a1d093b609e270df2fec5ea627b',
+            ],
+        },
+        {
+            viewtag: 'bf911962d0a1ec51e903e512c2700650',
+            viewmodule: 'zentao',
+            viewname: 'TaskUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f27febc6ab4d30f9e419caf1e6930a94',
+                '21e00a7239d9737bbfda5c1608b4129c',
+                'c9c256aef78723e1bf9ddc1d38667c3f',
+                '12661bdb476cd339554799b417c6ea48',
+                'abca63015fc84466991c6479f955f6d0',
+                'c9c2b18a9b5b1e628179f9ab99ffe23a',
+                'ea141fddc78fd1af4d06e494baf12cc1',
+                '35ba93bac795e0deb7297d2d471b7180',
+                '507c506d62dc910a814332e6ae242266',
             ],
         },
         {

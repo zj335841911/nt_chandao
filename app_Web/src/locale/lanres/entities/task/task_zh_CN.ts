@@ -1522,6 +1522,8 @@ export default {
 			tip: "过滤",
 		},
 	},
+	usr2gridviewtoolbar_toolbar: {
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction3_create: {
 			caption: "新建",
@@ -1545,8 +1547,6 @@ export default {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
 		},
-	},
-	usr2gridviewtoolbar_toolbar: {
 	},
 	taskgrouptree_treeview: {
 		nodes: {

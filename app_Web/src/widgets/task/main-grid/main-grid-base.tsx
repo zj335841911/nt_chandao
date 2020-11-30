@@ -410,7 +410,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof TaskMainGridViewBase
+     * @memberof TaskUsr2GridViewBase
      */
     public Copy(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         if (args.length === 0) {
@@ -438,22 +438,38 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        TaskToBug: { name: 'TaskToBug',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CREATE_BUT', target: 'SINGLEKEY'},
-        confirmStoryChange: { name: 'confirmStoryChange',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', target: 'SINGLEKEY'},
-        MStartTaskDash1: { name: 'MStartTaskDash1',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', target: 'SINGLEKEY'},
-        StartTask: { name: 'StartTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', target: 'SINGLEKEY'},
-        CloseTask: { name: 'CloseTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', target: 'SINGLEKEY'},
-        done: { name: 'done',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', target: 'SINGLEKEY'},
-        DoneTask: { name: 'DoneTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', target: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_EDIT_BUT', target: 'SINGLEKEY'},
-        NewSubTask: { name: 'NewSubTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_SUBTASKS_BUT', target: 'SINGLEKEY'},
-        Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', target: 'SINGLEKEY'},
-        TaskFavorites: { name: 'TaskFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', target: 'SINGLEKEY'},
-        TaskNFavorites: { name: 'TaskNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', target: 'SINGLEKEY'},
-        AssignTask: { name: 'AssignTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', target: 'SINGLEKEY'},
-        CheckForward: { name: 'CheckForward',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_FORWARD_BUT', target: 'SINGLEKEY'},
-        Forward: { name: 'Forward',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FORWARD_BUT', target: 'SINGLEKEY'}
+        TaskToBug: { name: 'TaskToBug',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CREATE_BUT', actiontarget: 'SINGLEKEY'},
+        confirmStoryChange: { name: 'confirmStoryChange',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', actiontarget: 'SINGLEKEY'},
+        MStartTaskDash1: { name: 'MStartTaskDash1',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
+        StartTask: { name: 'StartTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
+        CloseTask: { name: 'CloseTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
+        done: { name: 'done',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', actiontarget: 'SINGLEKEY'},
+        DoneTask: { name: 'DoneTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', actiontarget: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        NewSubTask: { name: 'NewSubTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_SUBTASKS_BUT', actiontarget: 'SINGLEKEY'},
+        Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
+        TaskFavorites: { name: 'TaskFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
+        TaskNFavorites: { name: 'TaskNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', actiontarget: 'SINGLEKEY'},
+        AssignTask: { name: 'AssignTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', actiontarget: 'SINGLEKEY'},
+        CheckForward: { name: 'CheckForward',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_FORWARD_BUT', actiontarget: 'SINGLEKEY'},
+        Forward: { name: 'Forward',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FORWARD_BUT', actiontarget: 'SINGLEKEY'}
     };
+
+    /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof MainBase
+     */  
+    public majorInfoColName:string = "name";
+
+    /**
+     * 列主键属性名称
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识
@@ -494,6 +510,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'pri',
@@ -502,6 +519,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'name',
@@ -510,6 +528,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'status1',
@@ -518,6 +537,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'deadline',
@@ -526,6 +546,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'assignedto',
@@ -534,6 +555,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'finishedby',
@@ -542,6 +564,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'estimate',
@@ -550,6 +573,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'consumed',
@@ -558,6 +582,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'left',
@@ -566,6 +591,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'progressrate',
@@ -574,6 +600,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'uagridcolumn1',
@@ -582,6 +609,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 
@@ -598,6 +626,62 @@ export class MainGridBase extends GridControlBase {
     }
 
     /**
+     * 是否启用分组
+     *
+     * @type {boolean}
+     * @memberof MainBase
+     */
+    public isEnableGroup:boolean = false;
+
+    /**
+     * 分组属性
+     *
+     * @type {string}
+     * @memberof MainBase
+     */
+    public groupAppField:string ="";
+
+    /**
+     * 分组属性代码表标识
+     *
+     * @type {string}
+     * @memberof MainBase
+     */
+    public groupAppFieldCodelistTag:string ="";
+
+    /**
+     * 分组属性代码表类型
+     * 
+     * @type {string}
+     * @memberof MainBase
+     */
+    public groupAppFieldCodelistType: string = "";
+
+    /**
+     * 分组模式
+     *
+     * @type {string}
+     * @memberof MainBase
+     */
+    public groupMode:string ="NONE";
+
+    /**
+     * 分组代码表标识
+     * 
+     * @type {string}
+     * @memberof MainBase
+     */
+    public codelistTag: string = "";
+
+    /**
+     * 分组代码表类型
+     * 
+     * @type {string}
+     * @memberof MainBase
+     */
+    public codelistType: string = "";
+
+    /**
      * 属性值规则
      *
      * @type {*}
@@ -609,8 +693,17 @@ export class MainGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
         ],
-        }
     }
+    }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 获取对应列class
@@ -641,117 +734,53 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
-        return ( this.hasRowEdit[args.column.property] && this.actualIsOpenEdit ) ? "edit-cell" : "info-cell";
+        let className: string = '';
+        if(args.column.property){
+          let col = this.allColumns.find((item:any)=>{
+              return Object.is(args.column.property,item.name);
+          })
+          if(col !== undefined){
+              if(col.isEnableRowEdit && this.actualIsOpenEdit ){
+                className += 'edit-cell ';
+              }
+          } else {
+              className += 'info-cell';
+          }
+        }
+        if(this.groupAppField && args.columnIndex === 0 && !this.isSingleSelect) {
+            if(args.row.children && args.row.children.length > 0) {
+                className += this.computeGroupRow(args.row.children, args.row);
+            }
+        }
+        return className;
     }
-
-
+    
     /**
-     * 是否为实体导出对象
+     * 计算分组行checkbox选中样式
      *
-     * @protected
-     * @type {boolean}
-     * @memberof MainGridBase
+     * @param {*} rows 当前分组行下的所有数据
+     * @returns {*} currentRow 当前分组行
+     * @memberof MainBase
      */
-    protected isDeExport: boolean = true;
-
-    /**
-     * 所有导出列成员
-     *
-     * @type {any[]}
-     * @memberof MainGridBase
-     */
-    public allExportColumns: any[] = [
-        {
-            name: 'id',
-            label: 'ID',
-            langtag: 'entities.task.main_grid.exportColumns.id',
-            show: true,
-        },
-        {
-            name: 'pri',
-            label: 'P',
-            langtag: 'entities.task.main_grid.exportColumns.pri',
-            show: true,
-        },
-        {
-            name: 'name',
-            label: '任务名称',
-            langtag: 'entities.task.main_grid.exportColumns.name',
-            show: true,
-        },
-        {
-            name: 'status',
-            label: '任务状态',
-            langtag: 'entities.task.main_grid.exportColumns.status',
-            show: true,
-        },
-        {
-            name: 'status1',
-            label: '任务状态',
-            langtag: 'entities.task.main_grid.exportColumns.status1',
-            show: true,
-        },
-        {
-            name: 'assignedto',
-            label: '指派给',
-            langtag: 'entities.task.main_grid.exportColumns.assignedto',
-            show: true,
-        },
-        {
-            name: 'finishedby',
-            label: '完成者',
-            langtag: 'entities.task.main_grid.exportColumns.finishedby',
-            show: true,
-        },
-        {
-            name: 'estimate',
-            label: '预计',
-            langtag: 'entities.task.main_grid.exportColumns.estimate',
-            show: true,
-        },
-        {
-            name: 'consumed',
-            label: '消耗',
-            langtag: 'entities.task.main_grid.exportColumns.consumed',
-            show: true,
-        },
-        {
-            name: 'left',
-            label: '剩余',
-            langtag: 'entities.task.main_grid.exportColumns.left',
-            show: true,
-        },
-        {
-            name: 'deadline',
-            label: '截止日期',
-            langtag: 'entities.task.main_grid.exportColumns.deadline',
-            show: true,
-        },
-        {
-            name: 'isfavorites',
-            label: '是否收藏',
-            langtag: 'entities.task.main_grid.exportColumns.isfavorites',
-            show: true,
-        },
-        {
-            name: 'tasktype',
-            label: '任务类型',
-            langtag: 'entities.task.main_grid.exportColumns.tasktype',
-            show: true,
-        },
-        {
-            name: 'product',
-            label: '产品',
-            langtag: 'entities.task.main_grid.exportColumns.product',
-            show: true,
-        },
-        {
-            name: 'projectname',
-            label: '所属项目',
-            langtag: 'entities.task.main_grid.exportColumns.projectname',
-            show: true,
-        },
-    ]
+    public computeGroupRow(rows: any[], currentRow: any) {
+        let count: number = 0;
+        this.selections.forEach((select: any) => {
+            rows.forEach((row: any) => {
+                if(row.groupById === select.groupById) {
+                    count++;
+                }
+            })
+        })
+        if(count === rows.length) {
+            (this.$refs.multipleTable as any).toggleRowSelection(currentRow, true);
+            return 'cell-select-all ';
+        } else if(count !== 0 && count < rows.length) {
+            return 'cell-indeterminate '
+        } else if(count === 0) {
+            (this.$refs.multipleTable as any).toggleRowSelection(currentRow, false);
+            return '';
+        }
+    }
 
     /**
      * 导出数据格式化
@@ -773,14 +802,6 @@ export class MainGridBase extends GridControlBase {
                 valueSeparator: ',',
             },
             {
-                name: 'status',
-                srfkey: 'Task__status',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
                 name: 'status1',
                 srfkey: 'TaskStatusCK',
                 codelistType : 'STATIC',
@@ -790,7 +811,7 @@ export class MainGridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealNameW',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -857,108 +878,343 @@ export class MainGridBase extends GridControlBase {
     }
 
     /**
-     * 表格数据加载
-     *
-     * @param {*} [opt={}]
-     * @param {boolean} [pageReset=false]
-     * @returns {void}
-     * @memberof MainGridBase
+     * 更新默认值
+     * @param {*}  row 行数据
+     * @memberof MainBase
      */
-    public load(opt: any = {}, pageReset: boolean = false): void {
-        if (!this.fetchAction) {
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.fetchAction') as string) });
-            return;
-        }
-        if (pageReset) {
-            this.curPage = 1;
-        }
-        const arg: any = { ...opt };
-        const page: any = {};
-        if (this.isEnablePagingBar) {
-            Object.assign(page, { page: this.curPage - 1, size: this.limit });
-        }
-        // 设置排序
-        if (!this.isNoSort && !Object.is(this.minorSortDir, '') && !Object.is(this.minorSortPSDEF, '')) {
-            const sort: string = this.minorSortPSDEF + "," + this.minorSortDir;
-            Object.assign(page, { sort: sort });
-        }
-        Object.assign(arg, page);
-        const parentdata: any = {};
-        this.$emit('beforeload', parentdata);
-        Object.assign(arg, parentdata);
-        let tempViewParams: any = parentdata.viewparams ? parentdata.viewparams : {};
-        Object.assign(tempViewParams, JSON.parse(JSON.stringify(this.viewparams)));
-        Object.assign(arg, { viewparams: tempViewParams });
-        const post: Promise<any> = this.service.search(this.fetchAction, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
-        post.then((response: any) => {
-            if (!response.status || response.status !== 200) {
-                if (response.errorMessage) {
-                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
-                }
-                return;
-            }
-            const data: any = response.data;
-            if(data.length === 0 && this.curPage > 1) {
-                this.curPage--;
-                this.load(opt, pageReset);
-                return;
-            }
-            this.totalRecord = response.total;
-            this.items = JSON.parse(JSON.stringify(data));
-            // 清空selections,gridItemsModel
-            this.selections = [];
-            this.gridItemsModel = [];
-            this.items.forEach(() => { this.gridItemsModel.push(this.getGridRowModel()) });
-            this.items.forEach((item: any) => {
-                this.setActionState(item);
-            });
-            this.$emit('load', this.items);
-            // 向上下文中填充当前数据
-            this.$appService.contextStore.setContextData(this.context, this.appDeName, { items: this.items });
-            // 设置默认选中
-            setTimeout(() => {
-                if (this.isSelectFirstDefault) {
-                    this.rowClick(this.items[0]);
-                }
-                if (this.selectedData) {
-                    const refs: any = this.$refs;
-                    if (refs.multipleTable) {
-                        refs.multipleTable.clearSelection();
-                        JSON.parse(this.selectedData).forEach((selection: any) => {
-                            let selectedItem = this.items.find((item: any) => {
-                                return Object.is(item.srfkey, selection.srfkey);
-                            });
-                            if (selectedItem) {
-                                this.rowClick(selectedItem);
-                            }
-                        });
-                    }
-                }
-            }, 300);
-            // 
-        }).catch((response: any) => {
-            if (response && response.status === 401) {
-                return;
-            }
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
-        });
+    public updateDefault(row: any){                    
     }
 
     /**
-     * 表格数据加载
-     *
-     * @param {*} item
-     * @returns {void}
-     * @memberof MainGridBase
-     */
-    public setActionState(item: any) {
-        Object.assign(item, this.getActionState(item));
-        if(item.items && item.items.length > 0) {
-            item.items.forEach((data: any) => {
-                let _data: any = this.service.handleResponseData('', data);
-                Object.assign(data, _data);
-                this.setActionState(data);
-            })
+    * 合并分组行
+    * 
+    * @memberof MainBase
+    */
+    public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
+        let allColumns:Array<any> = ['id','pri','name','status1','deadline','assignedto','finishedby','estimate','consumed','left','progressrate','uagridcolumn1'];
+        if(row && row.children) {
+            if(columnIndex == (this.isSingleSelect ? 0:1)) {
+                return [1, allColumns.length+1];
+            } else if(columnIndex > (this.isSingleSelect ? 0:1)) {
+                return [0,0];
+            }
         }
     }
+
+	/**
+     * 分组方法
+     * 
+     * @memberof MainBase
+     */
+    public group(){
+        if(Object.is(this.groupMode,"AUTO")){
+            this.drawGroup();
+        }else if(Object.is(this.groupMode,"CODELIST")){
+            this.drawCodelistGroup();
+        }
+    }
+
+    /**
+     * 获取表格分组相关代码表
+     * 
+     * @param {string}  codelistType 代码表类型
+     * @param {string}  codelistTag 代码表标识
+     * @memberof MainBase
+     */
+    public async getGroupCodelist(codelistType: string,codelistTag:string){
+        let codelist: Array<any> = [];
+        // 动态代码表
+        if (Object.is(codelistType, "DYNAMIC")) {
+             codelist = await this.codeListService.getItems(codelistTag);
+        // 静态代码表
+        } else if(Object.is(codelistType, "STATIC")){
+            codelist = this.$store.getters.getCodeListItems(codelistTag);
+        }
+        return codelist;
+    }
+
+    /**
+     * 根据分组代码表绘制分组列表
+     * 
+     * @memberof MainBase
+     */
+    public async drawCodelistGroup(){
+        if(!this.isEnableGroup) return;
+        // 分组
+        let allGroup: Array<any> = [];
+        let allGroupField: Array<any> =[];
+        let groupTree:Array<any> = [];
+        allGroup = await this.getGroupCodelist(this.codelistType,this.codelistTag);
+        allGroupField = await this.getGroupCodelist(this.groupAppFieldCodelistType,this.groupAppFieldCodelistTag);
+        if(allGroup.length == 0){
+            console.warn("分组数据无效");
+        }
+        allGroup.forEach((group: any,i: number)=>{
+            let children:Array<any> = [];
+            this.items.forEach((item: any,j: number)=>{
+                if(allGroupField && allGroupField.length > 0){
+                    const arr:Array<any> = allGroupField.filter((field:any)=>{return field.value == item[this.groupAppField]});
+                    if(arr && arr.length>0) {
+                        if(Object.is(group.value,arr[0].value)){
+                            item.groupById = Number((i+1) * 100 + (j+1) * 1);
+                            item.group = '';
+                            children.push(item);
+                        }
+                    }
+                }else if(Object.is(group.value,item[this.groupAppField])){
+                    item.groupById = Number((i+1) * 100 + (j+1) * 1);
+                    item.group = '';
+                    children.push(item);
+                }
+            });
+            const tree: any ={
+                groupById: Number((i+1)*100),
+                group: group.label,
+                id:'',
+                pri:'',
+                name:'',
+                status1:'',
+                deadline:'',
+                assignedto:'',
+                finishedby:'',
+                estimate:'',
+                consumed:'',
+                left:'',
+                progressrate:'',
+                TaskToBug:{
+                    visible: false
+                },
+                confirmStoryChange:{
+                    visible: false
+                },
+                MStartTaskDash1:{
+                    visible: false
+                },
+                CloseTask:{
+                    visible: false
+                },
+                done:{
+                    visible: false
+                },
+                MainEdit:{
+                    visible: false
+                },
+                NewSubTask:{
+                    visible: false
+                },
+                Copy:{
+                    visible: false
+                },
+                TaskFavorites:{
+                    visible: false
+                },
+                TaskNFavorites:{
+                    visible: false
+                },
+                children: children
+            }
+            groupTree.push(tree);
+        });
+        let child:Array<any> = [];
+        this.items.forEach((item: any,index: number)=>{
+            let i: number = 0;
+            if(allGroupField && allGroupField.length > 0){
+                const arr:Array<any> = allGroupField.filter((field:any)=>{return field.value == item[this.groupAppField]});
+                if(arr && arr.length>0) {
+                    i = allGroup.findIndex((group: any)=>Object.is(group.value,arr[0].value));
+                }
+            }else{
+                i = allGroup.findIndex((group: any)=>Object.is(group.value,item[this.groupAppField]));
+            }
+            if(i < 0){
+                item.groupById = Number((allGroup.length+1) * 100 + (index+1) * 1);
+                item.group = '';
+                child.push(item);
+            }
+        })
+        const Tree: any = {
+            groupById: Number((allGroup.length+1)*100),
+            group: '其他',
+            id:'',
+            pri:'',
+            name:'',
+            status1:'',
+            deadline:'',
+            assignedto:'',
+            finishedby:'',
+            estimate:'',
+            consumed:'',
+            left:'',
+            progressrate:'',
+            TaskToBug:{
+                visible: false
+            },
+            confirmStoryChange:{
+                visible: false
+            },
+            MStartTaskDash1:{
+                visible: false
+            },
+            CloseTask:{
+                visible: false
+            },
+            done:{
+                visible: false
+            },
+            MainEdit:{
+                visible: false
+            },
+            NewSubTask:{
+                visible: false
+            },
+            Copy:{
+                visible: false
+            },
+            TaskFavorites:{
+                visible: false
+            },
+            TaskNFavorites:{
+                visible: false
+            },
+            children: child
+        }
+        if(child && child.length > 0){
+            groupTree.push(Tree);
+        }
+        this.items = groupTree;
+        if(this.actualIsOpenEdit) {
+            for(let i = 0; i < this.items.length; i++) {
+                this.gridItemsModel.push(this.getGridRowModel());
+            }
+        }
+    }
+
+    /**
+     * 绘制分组
+     * 
+     * @memberof MainBase
+     */
+    public async drawGroup(){
+        if(!this.isEnableGroup) return;
+        // 分组
+        let allGroup: Array<any> = [];
+        let allGroupField: Array<any> =[];
+        allGroupField = await this.getGroupCodelist(this.groupAppFieldCodelistType,this.groupAppFieldCodelistTag);
+        this.items.forEach((item: any)=>{
+            if(item.hasOwnProperty(this.groupAppField)){
+                if(allGroupField && allGroupField.length > 0){
+                    const arr:Array<any> = allGroupField.filter((field:any)=>{return field.value == item[this.groupAppField]});
+                    allGroup.push(arr[0].label);
+                }else{
+                    allGroup.push(item[this.groupAppField]);
+                }
+            }
+        });
+        let groupTree:Array<any> = [];
+        allGroup = [...new Set(allGroup)];
+        if(allGroup.length == 0){
+            console.warn("分组数据无效");
+        }
+        // 组装数据
+        allGroup.forEach((group: any, groupIndex: number)=>{
+            let children:Array<any> = [];
+            this.items.forEach((item: any,itemIndex: number)=>{
+                if(allGroupField && allGroupField.length > 0){
+                    const arr:Array<any> = allGroupField.filter((field:any)=>{return field.value == item[this.groupAppField]});
+                    if(Object.is(group,arr[0].label)){
+                        item.groupById = Number((groupIndex+1) * 100 + (itemIndex+1) * 1);
+                        item.group = '';
+                        children.push(item);
+                    }
+                }else if(Object.is(group,item[this.groupAppField])){
+                    item.groupById = Number((groupIndex+1) * 100 + (itemIndex+1) * 1);
+                    item.group = '';
+                    children.push(item);
+                }
+            });
+            group = group ? group : '其他';
+            const tree: any ={
+                groupById: Number((groupIndex+1)*100),
+                group: group,
+                id:'',
+                pri:'',
+                name:'',
+                status1:'',
+                deadline:'',
+                assignedto:'',
+                finishedby:'',
+                estimate:'',
+                consumed:'',
+                left:'',
+                progressrate:'',
+                TaskToBug:{
+                    visible: false
+                },
+                confirmStoryChange:{
+                    visible: false
+                },
+                MStartTaskDash1:{
+                    visible: false
+                },
+                CloseTask:{
+                    visible: false
+                },
+                done:{
+                    visible: false
+                },
+                MainEdit:{
+                    visible: false
+                },
+                NewSubTask:{
+                    visible: false
+                },
+                Copy:{
+                    visible: false
+                },
+                TaskFavorites:{
+                    visible: false
+                },
+                TaskNFavorites:{
+                    visible: false
+                },
+                children: children,
+            }
+            groupTree.push(tree);
+        });
+        this.items = groupTree;
+        if(this.actualIsOpenEdit) {
+            for(let i = 0; i < this.items.length; i++) {
+                this.gridItemsModel.push(this.getGridRowModel());
+            }
+        }
+    }
+
+    /**
+     * 计算数据对象类型的默认值
+     * @param {string}  action 行为
+     * @param {string}  param 默认值参数
+     * @param {*}  data 当前行数据
+     * @memberof MainBase
+     */
+    public computeDefaultValueWithParam(action:string,param:string,data:any){
+        if(Object.is(action,"UPDATE")){
+            const nativeData:any = this.service.getCopynativeData();
+            if(nativeData && (nativeData instanceof Array) && nativeData.length >0){
+                let targetData:any = nativeData.find((item:any) =>{
+                    return item.id === data.srfkey;
+                })
+                if(targetData){
+                    return targetData[param]?targetData[param]:null;
+                }else{
+                    return null;
+                }
+            }else{
+                return null;
+            }
+        }else{
+           return this.service.getRemoteCopyData()[param]?this.service.getRemoteCopyData()[param]:null;
+        }
+    }
+
+
 }
