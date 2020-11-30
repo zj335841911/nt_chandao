@@ -111,18 +111,27 @@ export class MainGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'updateman',
-            label: '更新人',
-            langtag: 'entities.ibzdaily.main_grid.columns.updateman',
+            name: 'account',
+            label: '用户',
+            langtag: 'entities.ibzdaily.main_grid.columns.account',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'updatedate',
-            label: '更新时间',
-            langtag: 'entities.ibzdaily.main_grid.columns.updatedate',
+            name: 'date',
+            label: '日期',
+            langtag: 'entities.ibzdaily.main_grid.columns.date',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'reportto',
+            label: '汇报给',
+            langtag: 'entities.ibzdaily.main_grid.columns.reportto',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -230,8 +239,9 @@ export class MainGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'ibz_dailyname':false,
-        'updateman':false,
-        'updatedate':false,
+        'account':false,
+        'date':false,
+        'reportto':false,
     };
 
     /**
@@ -302,12 +312,20 @@ export class MainGridBase extends GridControlBase {
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
             {
-                name: 'updateman',
-                srfkey: 'SysOperator',
+                name: 'account',
+                srfkey: 'UserRealName',
                 codelistType : 'DYNAMIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
+            {
+                name: 'reportto',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
             },
         ]);
     }
@@ -327,7 +345,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ibz_dailyname','updateman','updatedate'];
+        let allColumns:Array<any> = ['ibz_dailyname','account','date','reportto'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -407,8 +425,9 @@ export class MainGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 ibz_dailyname:'',
-                updateman:'',
-                updatedate:'',
+                account:'',
+                date:'',
+                reportto:'',
                 children: children
             }
             groupTree.push(tree);
@@ -434,8 +453,9 @@ export class MainGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
             ibz_dailyname:'',
-            updateman:'',
-            updatedate:'',
+            account:'',
+            date:'',
+            reportto:'',
             children: child
         }
         if(child && child.length > 0){
@@ -497,8 +517,9 @@ export class MainGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 ibz_dailyname:'',
-                updateman:'',
-                updatedate:'',
+                account:'',
+                date:'',
+                reportto:'',
                 children: children,
             }
             groupTree.push(tree);

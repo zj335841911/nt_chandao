@@ -78,6 +78,15 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
      */  
     public appUIService: IBZWEEKLYUIService = new IBZWEEKLYUIService(this.$store);
 
+
+    /**
+     * 关系界面数量
+     *
+     * @protected
+     * @type {number}
+     * @memberof WeeklyMsgEditFormBase
+     */
+    protected drCount: number = 2;
     /**
      * 表单数据对象
      *
@@ -142,6 +151,10 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
      * @memberof WeeklyMsgEditFormBase
      */
     public detailsModel: any = {
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         group1: new FormGroupPanelModel({ caption: '周报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzweekly.weeklymsg_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),

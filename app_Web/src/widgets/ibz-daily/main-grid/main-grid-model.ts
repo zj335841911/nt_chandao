@@ -32,14 +32,19 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
-          name: 'updateman',
-          prop: 'updateman',
-          dataType: 'TEXT',
+          name: 'account',
+          prop: 'account',
+          dataType: 'SSCODELIST',
         },
         {
-          name: 'updatedate',
-          prop: 'updatedate',
-          dataType: 'DATETIME',
+          name: 'date',
+          prop: 'date',
+          dataType: 'DATE',
+        },
+        {
+          name: 'reportto',
+          prop: 'reportto',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'issubmit',

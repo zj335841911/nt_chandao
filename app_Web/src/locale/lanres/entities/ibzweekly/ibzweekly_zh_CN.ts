@@ -42,6 +42,8 @@ export default {
 	},
 	weeklymsg_form: {
 		details: {
+			druipart2: "", 
+			druipart1: "", 
 			group1: "周报基本信息", 
 			formpage1: "基本信息", 
 			srfupdatedate: "更新时间", 

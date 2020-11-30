@@ -27,11 +27,6 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'ibz_monthlyid',
-          prop: 'ibzmonthlyid',
-          dataType: 'ACID',
-        },
-        {
           name: 'ibz_monthlyname',
           prop: 'ibzmonthlyname',
           dataType: 'TEXT',
@@ -47,9 +42,14 @@ export default class MainModel {
           dataType: 'DATE',
         },
         {
-          name: 'issubmit',
-          prop: 'issubmit',
+          name: 'reportto',
+          prop: 'reportto',
           dataType: 'SSCODELIST',
+        },
+        {
+          name: 'ibz_monthlyid',
+          prop: 'ibzmonthlyid',
+          dataType: 'ACID',
         },
         {
           name: 'srfmajortext',

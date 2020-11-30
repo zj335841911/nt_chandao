@@ -66,6 +66,34 @@ export class MainGridBase extends GridControlBase {
      */  
     public appUIService: IbzMonthlyUIService = new IbzMonthlyUIService(this.$store);
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ud39f2a2_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzMonthlyUIService  = new IbzMonthlyUIService();
+        curUIService.IbzMonthly_Submit(datas,contextJO, paramJO,  $event, xData,this,"IbzMonthly");
+    }
+
 
     /**
      * 界面行为模型
@@ -74,6 +102,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
+        Submit: { name: 'Submit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -84,13 +113,6 @@ export class MainGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "ibz_monthlyname";
 
-    /**
-     * 列主键属性名称
-     *
-     * @type {string}
-     * @memberof MainGridBase
-     */
-    public columnKeyName: string = "ibz_monthlyid";
 
     /**
      * 本地缓存标识
@@ -109,17 +131,8 @@ export class MainGridBase extends GridControlBase {
      */
     public allColumns: any[] = [
         {
-            name: 'ibz_monthlyid',
-            label: '月报标识',
-            langtag: 'entities.ibzmonthly.main_grid.columns.ibz_monthlyid',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
             name: 'ibz_monthlyname',
-            label: '月报名称',
+            label: '名称',
             langtag: 'entities.ibzmonthly.main_grid.columns.ibz_monthlyname',
             show: true,
             unit: 'PX',
@@ -145,9 +158,18 @@ export class MainGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'issubmit',
-            label: '是否提交',
-            langtag: 'entities.ibzmonthly.main_grid.columns.issubmit',
+            name: 'reportto',
+            label: '汇报',
+            langtag: 'entities.ibzmonthly.main_grid.columns.reportto',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.ibzmonthly.main_grid.columns.uagridcolumn1',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -254,11 +276,11 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public hasRowEdit: any = {
-        'ibz_monthlyid':false,
         'ibz_monthlyname':false,
         'account':false,
         'date':false,
-        'issubmit':false,
+        'reportto':false,
+        'uagridcolumn1':false,
     };
 
     /**
@@ -337,16 +359,31 @@ export class MainGridBase extends GridControlBase {
                 valueSeparator: ",",
             },
             {
-                name: 'issubmit',
-                srfkey: 'YesNo',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
+                name: 'reportto',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
             },
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('Submit', tag)) {
+            this.grid_uagridcolumn1_ud39f2a2_click(row, tag, $event);
+        }
+    }
 
     /**
      * 更新默认值
@@ -362,7 +399,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ibz_monthlyid','ibz_monthlyname','account','date','issubmit'];
+        let allColumns:Array<any> = ['ibz_monthlyname','account','date','reportto','uagridcolumn1'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -441,11 +478,13 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
-                ibz_monthlyid:'',
                 ibz_monthlyname:'',
                 account:'',
                 date:'',
-                issubmit:'',
+                reportto:'',
+                Submit:{
+                    visible: false
+                },
                 children: children
             }
             groupTree.push(tree);
@@ -470,11 +509,13 @@ export class MainGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
-            ibz_monthlyid:'',
             ibz_monthlyname:'',
             account:'',
             date:'',
-            issubmit:'',
+            reportto:'',
+            Submit:{
+                visible: false
+            },
             children: child
         }
         if(child && child.length > 0){
@@ -535,11 +576,13 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
-                ibz_monthlyid:'',
                 ibz_monthlyname:'',
                 account:'',
                 date:'',
-                issubmit:'',
+                reportto:'',
+                Submit:{
+                    visible: false
+                },
                 children: children,
             }
             groupTree.push(tree);

@@ -25,18 +25,6 @@
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('ibz_monthlyid')">
-                <el-table-column show-overflow-tooltip :prop="'ibz_monthlyid'" :label="$t('entities.ibzmonthly.main_grid.columns.ibz_monthlyid')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                       <span class="column-header ">
-                        {{$t('entities.ibzmonthly.main_grid.columns.ibz_monthlyid')}}
-                       </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                            <span>{{row.ibz_monthlyid}}</span>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('ibz_monthlyname')">
                 <el-table-column show-overflow-tooltip :prop="'ibz_monthlyname'" :label="$t('entities.ibzmonthly.main_grid.columns.ibz_monthlyname')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -75,17 +63,34 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('issubmit')">
-                <el-table-column show-overflow-tooltip :prop="'issubmit'" :label="$t('entities.ibzmonthly.main_grid.columns.issubmit')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('reportto')">
+                <el-table-column show-overflow-tooltip :prop="'reportto'" :label="$t('entities.ibzmonthly.main_grid.columns.reportto')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzmonthly.main_grid.columns.issubmit')}}
+                        {{$t('entities.ibzmonthly.main_grid.columns.reportto')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.issubmit" tag="YesNo" codelistType="STATIC" ></codelist>
+            <codelist :value="row.reportto" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.ibzmonthly.main_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.ibzmonthly.main_grid.columns.uagridcolumn1')}}
+                       </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                            <a v-show="scope.row.Submit.visible" :disabled="scope.row.Submit.disabled" @click="uiAction(scope.row, 'Submit', $event)" :title="$t('entities.ibzmonthly.main_grid.uiactions.ibzmonthly_submit')">
+                                
+                                {{$t('entities.ibzmonthly.main_grid.uiactions.ibzmonthly_submit')}}
+                            </a>
+                        </div>
                     </template>
                 </el-table-column>
             </template>
