@@ -66,6 +66,34 @@ export class MainGridBase extends GridControlBase {
      */  
     public appUIService: IbzDailyUIService = new IbzDailyUIService(this.$store);
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ua49d711_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzDailyUIService  = new IbzDailyUIService();
+        curUIService.IbzDaily_create(datas,contextJO, paramJO,  $event, xData,this,"IbzDaily");
+    }
+
 
     /**
      * 界面行为模型
@@ -74,6 +102,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
+        create: { name: 'create',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -132,6 +161,15 @@ export class MainGridBase extends GridControlBase {
             name: 'reportto',
             label: '汇报给',
             langtag: 'entities.ibzdaily.main_grid.columns.reportto',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.ibzdaily.main_grid.columns.uagridcolumn1',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -242,6 +280,7 @@ export class MainGridBase extends GridControlBase {
         'account':false,
         'date':false,
         'reportto':false,
+        'uagridcolumn1':false,
     };
 
     /**
@@ -332,6 +371,21 @@ export class MainGridBase extends GridControlBase {
 
 
     /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('create', tag)) {
+            this.grid_uagridcolumn1_ua49d711_click(row, tag, $event);
+        }
+    }
+
+    /**
      * 更新默认值
      * @param {*}  row 行数据
      * @memberof MainBase
@@ -345,7 +399,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ibz_dailyname','account','date','reportto'];
+        let allColumns:Array<any> = ['ibz_dailyname','account','date','reportto','uagridcolumn1'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -428,6 +482,9 @@ export class MainGridBase extends GridControlBase {
                 account:'',
                 date:'',
                 reportto:'',
+                create:{
+                    visible: false
+                },
                 children: children
             }
             groupTree.push(tree);
@@ -456,6 +513,9 @@ export class MainGridBase extends GridControlBase {
             account:'',
             date:'',
             reportto:'',
+            create:{
+                visible: false
+            },
             children: child
         }
         if(child && child.length > 0){
@@ -520,6 +580,9 @@ export class MainGridBase extends GridControlBase {
                 account:'',
                 date:'',
                 reportto:'',
+                create:{
+                    visible: false
+                },
                 children: children,
             }
             groupTree.push(tree);

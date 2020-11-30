@@ -105,8 +105,10 @@ export default {
 			account: "用户",
 			date: "日期",
 			reportto: "汇报给",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        ibzdaily_create: "新建",
 		},
 	},
 	default_searchform: {
@@ -114,6 +116,12 @@ export default {
 			formpage1: "常规条件", 
 		},
 		uiactions: {
+		},
+	},
+	dailyeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 	dailygridviewtoolbar_toolbar: {
@@ -144,12 +152,6 @@ export default {
 		deuiaction5: {
 			caption: "Filter",
 			tip: "Filter",
-		},
-	},
-	dailyeditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 };
