@@ -171,7 +171,7 @@ public class IbzDailyResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzDaily-Submit-all')")
     @ApiOperation(value = "提交", tags = {"日报" },  notes = "提交")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibzdailies/{ibzdaily_id}/submit")
+	@RequestMapping(method = RequestMethod.PUT, value = "/ibzdailies/{ibzdaily_id}/submit")
     public ResponseEntity<IbzDailyDTO> submit(@PathVariable("ibzdaily_id") Long ibzdaily_id, @RequestBody IbzDailyDTO ibzdailydto) {
         IbzDaily domain = ibzdailyMapping.toDomain(ibzdailydto);
         domain.setIbzdailyid(ibzdaily_id);

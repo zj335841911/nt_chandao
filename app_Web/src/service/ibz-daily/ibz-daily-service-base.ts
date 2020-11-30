@@ -223,7 +223,7 @@ export default class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async Submit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/submit`,data,isloading);
+            let res:any = Http.getInstance().put(`/ibzdailies/${context.ibzdaily}/submit`,data,isloading);
             return res;
     }
 

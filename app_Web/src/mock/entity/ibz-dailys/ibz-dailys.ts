@@ -386,7 +386,7 @@ mock.onPost(new RegExp(/^\/ibzdailies\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply(
 });
         
 // Submit
-mock.onPost(new RegExp(/^\/ibzdailies\/?([a-zA-Z0-9\-\;]{0,35})\/submit$/)).reply((config: any) => {
+mock.onPut(new RegExp(/^\/ibzdailies\/?([a-zA-Z0-9\-\;]{0,35})\/submit$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzdaily 方法: Submit");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
