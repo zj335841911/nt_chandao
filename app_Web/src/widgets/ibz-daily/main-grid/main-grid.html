@@ -100,9 +100,9 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <a v-show="scope.row.create.visible" :disabled="scope.row.create.disabled" @click="uiAction(scope.row, 'create', $event)" :title="$t('entities.ibzdaily.main_grid.uiactions.ibzdaily_create')">
-                                <i class="fa fa-plus"></i>
-                                
+                            <a v-show="scope.row.submit.visible" :disabled="scope.row.submit.disabled" @click="uiAction(scope.row, 'submit', $event)" :title="$t('entities.ibzdaily.main_grid.uiactions.ibzdaily_submit')">
+                                <i class=""></i>
+                                {{$t('entities.ibzdaily.main_grid.uiactions.ibzdaily_submit')}}
                             </a>
                         </div>
                     </template>

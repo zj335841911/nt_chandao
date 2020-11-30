@@ -111,7 +111,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-			ibzdaily_create: "新建",
+			ibzdaily_submit: "提交",
 		},
 	},
 	default_searchform: {
@@ -119,12 +119,6 @@ export default {
 			formpage1: "常规条件", 
 		},
 		uiactions: {
-		},
-	},
-	dailyeditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 	dailygridviewtoolbar_toolbar: {
@@ -155,6 +149,12 @@ export default {
 		deuiaction5: {
 			caption: "过滤",
 			tip: "过滤",
+		},
+	},
+	dailyeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 };

@@ -74,7 +74,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ua49d711_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ub92f467_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -91,7 +91,7 @@ export class MainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:IbzDailyUIService  = new IbzDailyUIService();
-        curUIService.IbzDaily_create(datas,contextJO, paramJO,  $event, xData,this,"IbzDaily");
+        curUIService.IbzDaily_submit(datas,contextJO, paramJO,  $event, xData,this,"IbzDaily");
     }
 
 
@@ -102,7 +102,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        create: { name: 'create',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
+        submit: { name: 'submit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -380,8 +380,8 @@ export class MainGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
-        if(Object.is('create', tag)) {
-            this.grid_uagridcolumn1_ua49d711_click(row, tag, $event);
+        if(Object.is('submit', tag)) {
+            this.grid_uagridcolumn1_ub92f467_click(row, tag, $event);
         }
     }
 
@@ -482,7 +482,7 @@ export class MainGridBase extends GridControlBase {
                 account:'',
                 date:'',
                 reportto:'',
-                create:{
+                submit:{
                     visible: false
                 },
                 children: children
@@ -513,7 +513,7 @@ export class MainGridBase extends GridControlBase {
             account:'',
             date:'',
             reportto:'',
-            create:{
+            submit:{
                 visible: false
             },
             children: child
@@ -580,7 +580,7 @@ export class MainGridBase extends GridControlBase {
                 account:'',
                 date:'',
                 reportto:'',
-                create:{
+                submit:{
                     visible: false
                 },
                 children: children,
