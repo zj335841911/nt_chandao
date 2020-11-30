@@ -84,6 +84,13 @@ export class MainGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "ibz_weeklyname";
 
+    /**
+     * 列主键属性名称
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public columnKeyName: string = "ibz_weeklyid";
 
     /**
      * 本地缓存标识
@@ -101,6 +108,15 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainGridBase
      */
     public allColumns: any[] = [
+        {
+            name: 'ibz_weeklyid',
+            label: '周报标识',
+            langtag: 'entities.ibzweekly.main_grid.columns.ibz_weeklyid',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
         {
             name: 'ibz_weeklyname',
             label: '周报名称',
@@ -229,6 +245,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public hasRowEdit: any = {
+        'ibz_weeklyid':false,
         'ibz_weeklyname':false,
         'updateman':false,
         'updatedate':false,
@@ -327,7 +344,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ibz_weeklyname','updateman','updatedate'];
+        let allColumns:Array<any> = ['ibz_weeklyid','ibz_weeklyname','updateman','updatedate'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -406,6 +423,7 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
+                ibz_weeklyid:'',
                 ibz_weeklyname:'',
                 updateman:'',
                 updatedate:'',
@@ -433,6 +451,7 @@ export class MainGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
+            ibz_weeklyid:'',
             ibz_weeklyname:'',
             updateman:'',
             updatedate:'',
@@ -496,6 +515,7 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
+                ibz_weeklyid:'',
                 ibz_weeklyname:'',
                 updateman:'',
                 updatedate:'',

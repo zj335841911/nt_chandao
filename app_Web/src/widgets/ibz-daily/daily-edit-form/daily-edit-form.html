@@ -25,7 +25,7 @@
     :uiActionGroup="detailsModel.group1.uiActionGroup"
     @groupuiactionclick="groupUIActionClick($event)"
     :caption="$t('entities.ibzdaily.dailyedit_form.details.group1')"
-    :isShowCaption="true"
+    :isShowCaption="false"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
     :isInfoGroupMode="false"
@@ -39,68 +39,7 @@
         :viewparams="viewparams"
     ></app-form-group-data-panel>
     <row>
-        <i-col
-    class="form-layout-container"
-    v-show="detailsModel.ibz_dailyname.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-item
-    name="ibz_dailyname"
-    :itemRules="this.rules().ibz_dailyname"
-    class=""
-
-    :caption="$t('entities.ibzdaily.dailyedit_form.details.ibz_dailyname')"
-    uiStyle="DEFAULT"
-    :labelWidth="130"
-    :isShowCaption="true"
-    :error="detailsModel.ibz_dailyname.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
->
-    <input-box 
-    v-model="data.ibz_dailyname"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.ibz_dailyname.disabled" 
-    type='text' 
-    style="">
-</input-box>
-
-</app-form-item>
-
-</i-col>
-<i-col
-    class="form-layout-container"
-    v-show="detailsModel.date.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-item
-    name="date"
-    :itemRules="this.rules().date"
-    class=""
-
-    :caption="$t('entities.ibzdaily.dailyedit_form.details.date')"
-    uiStyle="DEFAULT"
-    :labelWidth="130"
-    :isShowCaption="true"
-    :error="detailsModel.date.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
->
-    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
-
-</app-form-item>
-
-</i-col>
-    
+            
     </row>
 </app-form-group>
 
@@ -121,7 +60,7 @@
 
     :caption="$t('entities.ibzdaily.dailyedit_form.details.todaytask')"
     uiStyle="DEFAULT"
-    :labelWidth="130"
+    :labelWidth="100"
     :isShowCaption="true"
     :error="detailsModel.todaytask.error"
     :isEmptyCaption="false"
@@ -160,7 +99,7 @@
 
     :caption="$t('entities.ibzdaily.dailyedit_form.details.worktoday')"
     uiStyle="DEFAULT"
-    :labelWidth="130"
+    :labelWidth="100"
     :isShowCaption="true"
     :error="detailsModel.worktoday.error"
     :isEmptyCaption="false"
@@ -201,7 +140,7 @@
 
     :caption="$t('entities.ibzdaily.dailyedit_form.details.tomorrowplanstask')"
     uiStyle="DEFAULT"
-    :labelWidth="130"
+    :labelWidth="100"
     :isShowCaption="true"
     :error="detailsModel.tomorrowplanstask.error"
     :isEmptyCaption="false"
@@ -240,7 +179,7 @@
 
     :caption="$t('entities.ibzdaily.dailyedit_form.details.planstomorrow')"
     uiStyle="DEFAULT"
-    :labelWidth="130"
+    :labelWidth="100"
     :isShowCaption="true"
     :error="detailsModel.planstomorrow.error"
     :isEmptyCaption="false"
@@ -281,7 +220,7 @@
 
     :caption="$t('entities.ibzdaily.dailyedit_form.details.comment')"
     uiStyle="DEFAULT"
-    :labelWidth="130"
+    :labelWidth="100"
     :isShowCaption="true"
     :error="detailsModel.comment.error"
     :isEmptyCaption="false"
@@ -322,7 +261,7 @@
 
     :caption="$t('entities.ibzdaily.dailyedit_form.details.files')"
     uiStyle="DEFAULT"
-    :labelWidth="130"
+    :labelWidth="100"
     :isShowCaption="true"
     :error="detailsModel.files.error"
     :isEmptyCaption="false"
@@ -345,52 +284,12 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.mailto.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-item
-    name="mailto"
-    :itemRules="this.rules().mailto"
-    class=""
-
-    :caption="$t('entities.ibzdaily.dailyedit_form.details.mailto')"
-    uiStyle="DEFAULT"
-    :labelWidth="130"
-    :isShowCaption="true"
-    :error="detailsModel.mailto.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
->
-    
-<dropdown-list-mpicker 
-  v-model="data.mailto"
-  :data="data" 
-  :context="context"
-  :viewparams="viewparams" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.mailto.disabled"
-  tag='UserRealName' 
-  codelistType='DYNAMIC' 
-  valueSeparator=","
-  placeholder='请选择...' style="">
-</dropdown-list-mpicker>
-
-</app-form-item>
-
-</i-col>
-<i-col
-    class="form-layout-container"
     v-show="detailsModel.reportto.visible"
     :style="{}"
     
     
     :lg="{ span: 24, offset: 0 }"
-    
+    :xl="{ span: 12, offset: 0 }"
 >
     <app-form-item
     name="reportto"
@@ -399,7 +298,7 @@
 
     :caption="$t('entities.ibzdaily.dailyedit_form.details.reportto')"
     uiStyle="DEFAULT"
-    :labelWidth="130"
+    :labelWidth="100"
     :isShowCaption="true"
     :error="detailsModel.reportto.error"
     :isEmptyCaption="false"
@@ -421,6 +320,46 @@
     placeholder="请选择..."
 
 ></dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.mailto.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
+    <app-form-item
+    name="mailto"
+    :itemRules="this.rules().mailto"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.mailto')"
+    uiStyle="DEFAULT"
+    :labelWidth="100"
+    :isShowCaption="true"
+    :error="detailsModel.mailto.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list-mpicker 
+  v-model="data.mailto"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.mailto.disabled"
+  tag='UserRealName' 
+  codelistType='DYNAMIC' 
+  valueSeparator=","
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
+
 </app-form-item>
 
 </i-col>

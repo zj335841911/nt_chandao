@@ -62,6 +62,7 @@ export default {
 	main_grid: {
 		nodata: "",
 		columns: {
+			ibz_weeklyid: "周报标识",
 			ibz_weeklyname: "周报名称",
 			updateman: "更新人",
 			updatedate: "更新时间",

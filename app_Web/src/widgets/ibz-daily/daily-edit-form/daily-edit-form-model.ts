@@ -96,14 +96,14 @@ export default class DailyEditModel {
         dataType: 'TEXT',
       },
       {
-        name: 'mailto',
-        prop: 'mailto',
-        dataType: 'SMCODELIST',
-      },
-      {
         name: 'reportto',
         prop: 'reportto',
         dataType: 'SSCODELIST',
+      },
+      {
+        name: 'mailto',
+        prop: 'mailto',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'ibz_dailyid',

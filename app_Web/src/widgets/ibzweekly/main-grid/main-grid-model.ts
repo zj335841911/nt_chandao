@@ -27,6 +27,11 @@ export default class MainModel {
     }else{
 		  return [
         {
+          name: 'ibz_weeklyid',
+          prop: 'ibzweeklyid',
+          dataType: 'ACID',
+        },
+        {
           name: 'ibz_weeklyname',
           prop: 'ibzweeklyname',
           dataType: 'TEXT',
@@ -40,11 +45,6 @@ export default class MainModel {
           name: 'updatedate',
           prop: 'updatedate',
           dataType: 'DATETIME',
-        },
-        {
-          name: 'ibz_weeklyid',
-          prop: 'ibzweeklyid',
-          dataType: 'ACID',
         },
         {
           name: 'srfmajortext',

@@ -101,8 +101,8 @@ export class DailyEditEditFormBase extends EditFormControlBase {
         planstomorrow: null,
         comment: null,
         files: null,
-        mailto: null,
         reportto: null,
+        mailto: null,
         ibz_dailyid: null,
         account: null,
         issubmit: null,
@@ -115,7 +115,7 @@ export class DailyEditEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof DailyEditEditFormBase
      */
-    public majorMessageField: string = 'ibz_dailyname';
+    public majorMessageField: string = '';
 
     /**
      * 属性值规则
@@ -144,7 +144,7 @@ export class DailyEditEditFormBase extends EditFormControlBase {
      * @memberof DailyEditEditFormBase
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '日报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzdaily.dailyedit_form', extractMode: 'ITEM', details: [] } }),
+        group1: new FormGroupPanelModel({ caption: '日报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzdaily.dailyedit_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -260,15 +260,15 @@ export class DailyEditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        mailto: new FormItemModel({
-    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        reportto: new FormItemModel({
+    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
-        reportto: new FormItemModel({
-    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        mailto: new FormItemModel({
+    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
