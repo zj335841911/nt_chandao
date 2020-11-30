@@ -47,8 +47,8 @@ export default {
 			plannextweek: "下周计划", 
 			comment: "其他事项", 
 			files: "附件", 
-			reportto: "汇报给", 
 			mailto: "抄送给", 
+			reportto: "汇报给", 
 			ibz_weeklyid: "周报标识", 
 		},
 		uiactions: {
@@ -81,14 +81,22 @@ export default {
 			tip: "",
 		},
 		deuiaction2: {
-			caption: "编辑",
-			tip: "编辑",
+			caption: "刷新",
+			tip: "刷新",
 		},
-		seperator2: {
+		seperator3: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction3: {
+		deuiaction4: {
+			caption: "导出",
+			tip: "导出",
+		},
+		seperator4: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
 			caption: "过滤",
 			tip: "过滤",
 		},

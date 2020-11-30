@@ -100,7 +100,7 @@ export default class IBZWEEKLYUIServiceBase extends UIService {
             viewname: 'editview',
             srfappde: 'ibzweeklies',
             component: 'ibz-weekly-edit-view',
-            openmode: '',
+            openmode: 'DRAWER_RIGHT',
             title: '周报',
             width: 0,
             height: 0

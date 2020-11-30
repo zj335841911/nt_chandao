@@ -3529,6 +3529,16 @@
         "viewtag": "9ed41cee96088630f3d4b0a91e705930",
         "memo": "视图参数从上下文中获取对应的对象类型"
     },
+    "taskreportmpickupview": {
+        "title": "任务数据多项选择视图（汇报）",
+        "caption": "汇报",
+        "viewtype": "DEMPICKUPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskreportMPickupView",
+        "viewfilename": "taskreport-mpickup-view",
+        "viewtag": "9f39c37259c1dabb9f2e8769eea76642",
+        "memo": ""
+    },
     "projectteamlistview": {
         "title": "项目团队列表视图",
         "caption": "项目团队",
@@ -4868,6 +4878,16 @@
         "viewfilename": "story-grid-view9-child",
         "viewtag": "d6ef7de701a935bd9023cd0eb1338f58",
         "memo": "视图参数中指定了过滤条件"
+    },
+    "taskreportpickupgridview": {
+        "title": "任务选择表格视图（汇报）",
+        "caption": "汇报",
+        "viewtype": "DEPICKUPGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskreportPickupGridView",
+        "viewfilename": "taskreport-pickup-grid-view",
+        "viewtag": "d7b7fadc3c6a2da9c7a4319c40fd0e7c",
+        "memo": ""
     },
     "companymainview9": {
         "title": "公司编辑视图",

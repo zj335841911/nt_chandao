@@ -91,6 +91,10 @@ export class IbzMonthlyMainMonthlyGridViewBase extends GridViewBase {
      * @memberof IbzMonthlyMainMonthlyGridViewBase
      */
     protected containerModel: any = {
+        view_toolbar: {
+            name: 'toolbar',
+            type: 'TOOLBAR',
+        },
         view_grid: {
             name: 'grid',
             type: 'GRID',
@@ -100,6 +104,18 @@ export class IbzMonthlyMainMonthlyGridViewBase extends GridViewBase {
             type: 'SEARCHFORM',
         },
     };
+
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof IbzMonthlyMainMonthlyGridView
+     */
+    public toolBarModels: any = {
+        deuiaction1_create: { name: 'deuiaction1_create', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
+
+    };
+
 
 
 	/**
@@ -162,6 +178,19 @@ export class IbzMonthlyMainMonthlyGridViewBase extends GridViewBase {
             majorPSDEField: 'ibzmonthlyname',
             isLoadDefault: true,
         });
+    }
+
+    /**
+     * toolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof IbzMonthlyMainMonthlyGridViewBase
+     */
+    public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction1_create')) {
+            this.toolbar_deuiaction1_create_click(null, '', $event2);
+        }
     }
 
     /**
@@ -250,6 +279,35 @@ export class IbzMonthlyMainMonthlyGridViewBase extends GridViewBase {
      */
     public searchform_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('searchform', 'load', $event);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction1_create_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzMonthlyUIService  = new IbzMonthlyUIService();
+        curUIService.IbzMonthly_Create(datas,contextJO, paramJO,  $event, xData,this,"IbzMonthly");
     }
 
     /**

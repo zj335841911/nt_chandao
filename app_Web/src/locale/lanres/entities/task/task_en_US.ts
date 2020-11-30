@@ -197,6 +197,10 @@ export default {
 			caption: "更多",
       		title: "任务分页导航视图（更多）",
 		},
+		reportmpickupview: {
+			caption: "汇报",
+      		title: "任务数据多项选择视图（汇报）",
+		},
 		chartview9: {
 			caption: "任务",
       		title: "任务图表视图",
@@ -236,6 +240,10 @@ export default {
 		pritaskgroupgridview: {
 			caption: "优先级分组",
       		title: "任务表格视图（优先级分组）",
+		},
+		reportpickupgridview: {
+			caption: "汇报",
+      		title: "任务选择表格视图（汇报）",
 		},
 		editview: {
 			caption: "任务",
@@ -1217,6 +1225,26 @@ export default {
 			status1: "任务状态",
 			consumed: "总计消耗",
 			left: "预计剩余",
+		},
+		uiactions: {
+		},
+	},
+	reportmain_grid: {
+		nodata: "",
+		columns: {
+			id: "ID",
+			pri: "P",
+			productname: "产品",
+			projectname: "所属项目",
+			name: "任务名称",
+			status1: "任务状态",
+			assignedto: "指派给",
+			finishedby: "完成者",
+			estimate: "预计",
+			consumed: "消耗",
+			left: "剩余",
+			progressrate: "%",
+			deadline: "截止日期",
 		},
 		uiactions: {
 		},

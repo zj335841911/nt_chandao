@@ -55,6 +55,18 @@ export default class IbzDailyServiceBase extends EntityService {
     }
 
     /**
+     * LinkCompleteTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async LinkCompleteTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]

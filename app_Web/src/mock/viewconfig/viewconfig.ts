@@ -2831,6 +2831,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "FileListView9",
             "viewtag": "9ed41cee96088630f3d4b0a91e705930"
         },
+        "taskreportmpickupview": {
+            "title": "任务数据多项选择视图（汇报）",
+            "caption": "汇报",
+            "viewtype": "DEMPICKUPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskreportMPickupView",
+            "viewtag": "9f39c37259c1dabb9f2e8769eea76642"
+        },
         "projectteamlistview": {
             "title": "项目团队列表视图",
             "caption": "项目团队",
@@ -3902,6 +3910,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryGridView9_Child",
             "viewtag": "d6ef7de701a935bd9023cd0eb1338f58"
+        },
+        "taskreportpickupgridview": {
+            "title": "任务选择表格视图（汇报）",
+            "caption": "汇报",
+            "viewtype": "DEPICKUPGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskreportPickupGridView",
+            "viewtag": "d7b7fadc3c6a2da9c7a4319c40fd0e7c"
         },
         "companymainview9": {
             "title": "公司编辑视图",

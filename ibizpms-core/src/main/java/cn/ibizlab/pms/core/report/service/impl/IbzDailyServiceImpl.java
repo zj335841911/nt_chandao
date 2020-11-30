@@ -120,6 +120,13 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
     }
     @Override
     @Transactional
+    public IbzDaily linkCompleteTask(IbzDaily et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(IbzDaily et) {
         if (!saveOrUpdate(et)) {
             return false;

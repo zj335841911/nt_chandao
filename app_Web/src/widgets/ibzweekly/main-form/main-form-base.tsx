@@ -97,8 +97,8 @@ export class MainEditFormBase extends EditFormControlBase {
         plannextweek: null,
         comment: null,
         files: null,
-        reportto: null,
         mailto: null,
+        reportto: null,
         ibz_weeklyid: null,
         ibzweekly: null,
     };
@@ -238,15 +238,15 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        reportto: new FormItemModel({
-    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        mailto: new FormItemModel({
+    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
-        mailto: new FormItemModel({
-    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        reportto: new FormItemModel({
+    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

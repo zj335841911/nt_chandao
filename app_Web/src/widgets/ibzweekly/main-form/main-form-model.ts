@@ -76,14 +76,14 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
-        name: 'reportto',
-        prop: 'reportto',
-        dataType: 'SSCODELIST',
-      },
-      {
         name: 'mailto',
         prop: 'mailto',
         dataType: 'SMCODELIST',
+      },
+      {
+        name: 'reportto',
+        prop: 'reportto',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'ibz_weeklyid',

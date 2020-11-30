@@ -564,6 +564,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品模块编辑视图|DEEDITVIEW|&nbsp;|
 |-|发布编辑视图|DEEDITVIEW|&nbsp;|
 |-|附件|DELISTVIEW9|&nbsp;视图参数从上下文中获取对应的对象类型|
+|-|任务数据多项选择视图（汇报）|DEMPICKUPVIEW|&nbsp;|
 |-|项目团队列表视图|DELISTVIEW|&nbsp;|
 |-|用例库用例编辑视图（基本信息）|DEEDITVIEW9|&nbsp;|
 |-|相关需求|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|
@@ -698,6 +699,7 @@ SRFNAVPARAM.project=%project%|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
 |-|项目表格视图|DEGRIDVIEW|&nbsp;|
 |-|细分需求|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|
+|-|任务选择表格视图（汇报）|DEPICKUPGRIDVIEW|&nbsp;|
 |-|公司编辑视图|DEEDITVIEW9|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|文档库树视图（自定义文档库）|DETREEVIEW|&nbsp;|
