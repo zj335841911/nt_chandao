@@ -328,6 +328,7 @@ export default class IbzDailyUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(params,{mailto:"%MAILTO%",files:"%files%",tomorrowplanstask:"%tomorrowplanstask%",worktoday:"%worktoday%",todaytask:"%todaytask%",planstomorrow:"%planstomorrow%",comment:"%comment%",reportto:"%REPORTTO%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { ibzdaily: '%ibzdaily%' });
