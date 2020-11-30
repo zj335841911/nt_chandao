@@ -15,7 +15,7 @@
         </Breadcrumb>
         <div class="documents-library-toolbar">
             <div class="documents-library-search">
-                <i-input slot="quickSearch" clearable search @on-search="onSearch.apply(_self, arguments)" :placeholder="$t('app.directoryTree.placeholder')"></i-input>
+                <i-input slot="quickSearch" v-model="srfnodefilter" clearable search @on-search="onSearch.apply(_self, arguments)" :placeholder="$t('app.directoryTree.placeholder')"></i-input>
             </div>
             <div class="documents-library-button">
                 <ButtonGroup>
@@ -38,14 +38,13 @@
                     <Icon v-if="!item.curData.pathname" type="md-document" size="70" color="darkgrey" />
                     <img v-else style="width: 70px;height: 70px;" :src="downloadUrl+'/'+item.curData.id"/>
                 </div>
-                <div>
+                <div class="text-description">
                     <a
                         v-if="Object.is(item.nodeType,'STATIC') || (item.curData && (Object.is(item.curData.doclibtype,'doc') || Object.is(item.curData.docqtype,'module')))" 
                         @click="openNode(item)">
                         <span>{{ item.text }}</span>
                     </a>
-                    <span
-                        v-if="item.curData && (Object.is(item.curData.doclibtype,'file') || Object.is(item.curData.docqtype,'doc'))">
+                    <span v-if="item.curData && (Object.is(item.curData.doclibtype,'file') || Object.is(item.curData.docqtype,'doc'))">
                         {{ item.text }}
                     </span>
                 </div>
@@ -94,7 +93,7 @@
             </div>
         </template>
     </div>
-    <row class="list-pagination" v-show="copyItems.length > 0">
+    <row class="pagination" v-show="items.length > 0">
         <page class="pull-right" @on-change="pageOnChange($event)" 
             @on-page-size-change="onPageSizeChange($event)"
             :total="totalRecord"

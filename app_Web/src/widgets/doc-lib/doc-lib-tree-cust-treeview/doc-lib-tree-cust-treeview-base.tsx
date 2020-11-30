@@ -836,7 +836,7 @@ export class DocLibTreeCustTreeBase extends MainControlBase {
     @Prop() public createAction!: string;
 
     /**
-     * 过滤属性
+     * 过滤值
      *
      * @type {string}
      * @memberof DocLibTreeCustBase
@@ -844,20 +844,12 @@ export class DocLibTreeCustTreeBase extends MainControlBase {
     public srfnodefilter: string = '';
 
     /**
-     * 满足搜索条件的所有文件
+     * 当前文件夹所有符合条件的文件
      *  
      * @type {Array<any>}
      * @memberof DocLibTreeCustBase
      */
     public items: any[] = [];
-
-    /**
-     * 当前文件夹所含文件(副本)
-     *  
-     * @type {Array<any>}
-     * @memberof DocLibTreeCustBase
-     */
-    public copyItems: any[] = [];
 
     /**
      * loading状态
@@ -1050,7 +1042,7 @@ export class DocLibTreeCustTreeBase extends MainControlBase {
      */
     public async load(node: any = {}, resolve?: any) {
         this.loading = true;
-        this.copyItems = [];
+        this.items = [];
         this.currentNode = node;
         if (node.data && node.data.children) {
             return;
@@ -1078,9 +1070,9 @@ export class DocLibTreeCustTreeBase extends MainControlBase {
             return;
         }
         const _items = response.data;
-        this.copyItems = [..._items];
-        this.totalRecord = _items.length;
-        this.onSearch('');
+        this.items = [..._items];
+        this.totalRecord = _items.length; 
+        await this.computeCurPageNodeState();
         this.loading = false;
         this.$emit("load", _items);
     }
@@ -1091,18 +1083,9 @@ export class DocLibTreeCustTreeBase extends MainControlBase {
      * @param query 搜索值
      * @memberof DocLibTreeCustBase
      */
-    public async onSearch(query: string){
-        let items: Array<any> = [];
-        this.items = [];
-        if(this.copyItems && this.copyItems.length > 0){
-            this.copyItems.forEach((item: any)=>{
-                if(item.text.search(query) !== -1){
-                    items.push(item);
-                }
-            })
-        }
-        this.items = [...items];
-        await this.computeCurPageNodeState();
+    public onSearch(query: string){
+        const node = this.currentNode;
+        this.load(node);
     }
 
     /**
@@ -1161,6 +1144,7 @@ export class DocLibTreeCustTreeBase extends MainControlBase {
      */
     public handleLink(node: any) {
         this.removeBreadcrumbs(node);
+        this.srfnodefilter = '';
         this.load({data: node});
     }
 
@@ -1201,6 +1185,7 @@ export class DocLibTreeCustTreeBase extends MainControlBase {
      */
     public openNode(node: any) {
         this.addBreadcrumbs(node);
+        this.srfnodefilter = '';
         this.load({data: node});
     }
 
@@ -1333,7 +1318,6 @@ export class DocLibTreeCustTreeBase extends MainControlBase {
     public pageRefresh(): void {
         const node = this.currentNode;
         this.load(node);
-        this.computeCurPageNodeState();
     }
 
     /**

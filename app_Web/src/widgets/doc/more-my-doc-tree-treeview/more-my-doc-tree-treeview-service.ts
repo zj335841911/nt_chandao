@@ -312,6 +312,9 @@ export default class MoreMyDocTreeService extends ControlService {
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
             }
+            if(filter.srfnodefilter){
+                Object.assign(searchFilter,{query:filter.srfnodefilter});
+            }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});
             }

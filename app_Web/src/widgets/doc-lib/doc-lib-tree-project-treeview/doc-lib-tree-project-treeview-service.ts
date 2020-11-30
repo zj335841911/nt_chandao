@@ -349,6 +349,9 @@ export default class DocLibTreeProjectService extends ControlService {
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
             }
+            if(filter.srfnodefilter){
+                Object.assign(searchFilter,{query:filter.srfnodefilter});
+            }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});
             }
@@ -585,6 +588,9 @@ export default class DocLibTreeProjectService extends ControlService {
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
             }
+            if(filter.srfnodefilter){
+                Object.assign(searchFilter,{query:filter.srfnodefilter});
+            }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});
             }
@@ -722,6 +728,9 @@ export default class DocLibTreeProjectService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
+            }
+            if(filter.srfnodefilter){
+                Object.assign(searchFilter,{query:filter.srfnodefilter});
             }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});
@@ -865,6 +874,9 @@ export default class DocLibTreeProjectService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
+            }
+            if(filter.srfnodefilter){
+                Object.assign(searchFilter,{query:filter.srfnodefilter});
             }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});
@@ -1023,6 +1035,9 @@ export default class DocLibTreeProjectService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
+            }
+            if(filter.srfnodefilter){
+                Object.assign(searchFilter,{query:filter.srfnodefilter});
             }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});
@@ -1255,6 +1270,9 @@ export default class DocLibTreeProjectService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
+            }
+            if(filter.srfnodefilter){
+                Object.assign(searchFilter,{query:filter.srfnodefilter});
             }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});
