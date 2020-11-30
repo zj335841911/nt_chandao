@@ -935,6 +935,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugActivationView",
             "viewtag": "37166f95166299e28f1a366b0b375d06"
         },
+        "taskzsgridview9": {
+            "title": "任务表格视图（展示）",
+            "caption": "展示",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TaskZsGridView9",
+            "viewtag": "371c02ab5108f29501f89e273ebd39d1"
+        },
         "projectmainmygridview": {
             "title": "项目",
             "caption": "项目",
@@ -2926,6 +2934,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductPortalView",
             "viewtag": "A49E5FD9-FC90-434B-9E13-192873F6F2AC"
+        },
+        "ibzdailydailygridview": {
+            "title": "日报表格视图",
+            "caption": "日报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzDailyDailyGridView",
+            "viewtag": "a4a6e9515a944ab2976c5034fb049f63"
         },
         "taskmaingridview": {
             "title": "task表格视图",

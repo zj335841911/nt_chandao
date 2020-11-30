@@ -1159,6 +1159,16 @@
         "viewtag": "37166f95166299e28f1a366b0b375d06",
         "memo": ""
     },
+    "taskzsgridview9": {
+        "title": "任务表格视图（展示）",
+        "caption": "展示",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TaskZsGridView9",
+        "viewfilename": "task-zs-grid-view9",
+        "viewtag": "371c02ab5108f29501f89e273ebd39d1",
+        "memo": ""
+    },
     "projectmainmygridview": {
         "title": "项目",
         "caption": "项目",
@@ -3647,6 +3657,16 @@
         "viewname": "ProductPortalView",
         "viewfilename": "product-portal-view",
         "viewtag": "A49E5FD9-FC90-434B-9E13-192873F6F2AC",
+        "memo": ""
+    },
+    "ibzdailydailygridview": {
+        "title": "日报表格视图",
+        "caption": "日报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzDailyDailyGridView",
+        "viewfilename": "ibz-daily-daily-grid-view",
+        "viewtag": "a4a6e9515a944ab2976c5034fb049f63",
         "memo": ""
     },
     "taskmaingridview": {

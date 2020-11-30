@@ -327,6 +327,7 @@
 SRFNAVPARAM.project=%project%|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
 |-|激活Bug|DEOPTVIEW|&nbsp;|
+|-|任务表格视图（展示）|DEGRIDVIEW9|&nbsp;|
 |-|项目|DEGRIDVIEW|&nbsp;|
 |-|usertpl表格视图|DEGRIDVIEW|&nbsp;|
 |-|阻塞|DEOPTVIEW|&nbsp;|
@@ -576,6 +577,7 @@ SRFNAVPARAM.project=%project%|
 |-|系统更新功能编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目表格视图|DEGRIDVIEW9|&nbsp;|
 |-|产品主页|APPPORTALVIEW|&nbsp;|
+|-|日报表格视图|DEGRIDVIEW|&nbsp;|
 |-|task表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试模块树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|需求|DEPICKUPGRIDVIEW|&nbsp;用于【项目】关联【需求】，显示项目下的所有需求。|

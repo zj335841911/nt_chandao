@@ -621,6 +621,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '371c02ab5108f29501f89e273ebd39d1',
+                '9f39c37259c1dabb9f2e8769eea76642',
             ],
         },
         {
@@ -1050,6 +1052,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '371c02ab5108f29501f89e273ebd39d1',
+            viewmodule: 'zentao',
+            viewname: 'TaskZsGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ea141fddc78fd1af4d06e494baf12cc1',
             ],
         },
         {
@@ -3164,6 +3176,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '9f39c37259c1dabb9f2e8769eea76642',
+            viewmodule: 'zentao',
+            viewname: 'TaskreportMPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd7b7fadc3c6a2da9c7a4319c40fd0e7c',
+            ],
+        },
+        {
             viewtag: 'a03214a97c7b57f1681defbdecd07f9d',
             viewmodule: 'ibiz',
             viewname: 'ProjectTeamListView',
@@ -4364,6 +4386,15 @@ export const viewstate: any = {
             refviews: [
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
+            ],
+        },
+        {
+            viewtag: 'd7b7fadc3c6a2da9c7a4319c40fd0e7c',
+            viewmodule: 'zentao',
+            viewname: 'TaskreportPickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

@@ -101,6 +101,10 @@ export default {
 			caption: "任务",
       		title: "任务编辑视图",
 		},
+		zsgridview9: {
+			caption: "展示",
+      		title: "任务表格视图（展示）",
+		},
 		restarttaskview: {
 			caption: "继续任务",
       		title: "继续任务",
@@ -1216,19 +1220,6 @@ export default {
 			task_assigntask: "指派",
 		},
 	},
-	projectrelated_grid: {
-		nodata: "",
-		columns: {
-			id: "编号",
-			name: "任务名称",
-			assignedto: "指派给",
-			status1: "任务状态",
-			consumed: "总计消耗",
-			left: "预计剩余",
-		},
-		uiactions: {
-		},
-	},
 	reportmain_grid: {
 		nodata: "",
 		columns: {
@@ -1245,6 +1236,39 @@ export default {
 			left: "剩余",
 			progressrate: "%",
 			deadline: "截止日期",
+		},
+		uiactions: {
+		},
+	},
+	reportmainzs_grid: {
+		nodata: "",
+		columns: {
+			id: "ID",
+			pri: "P",
+			productname: "产品",
+			projectname: "所属项目",
+			name: "任务名称",
+			status1: "任务状态",
+			assignedto: "指派给",
+			finishedby: "完成者",
+			estimate: "预计",
+			consumed: "消耗",
+			left: "剩余",
+			progressrate: "%",
+			deadline: "截止日期",
+		},
+		uiactions: {
+		},
+	},
+	projectrelated_grid: {
+		nodata: "",
+		columns: {
+			id: "编号",
+			name: "任务名称",
+			assignedto: "指派给",
+			status1: "任务状态",
+			consumed: "总计消耗",
+			left: "预计剩余",
 		},
 		uiactions: {
 		},

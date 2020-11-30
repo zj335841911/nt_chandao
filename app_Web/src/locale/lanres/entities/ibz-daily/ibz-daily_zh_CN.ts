@@ -23,10 +23,16 @@ export default {
 			caption: "日报",
       		title: "日报编辑视图",
 		},
+		dailygridview: {
+			caption: "日报",
+      		title: "日报表格视图",
+		},
 	},
 	dailyedit_form: {
 		details: {
 			group1: "日报基本信息", 
+			button1: "完成任务", 
+			druipart1: "", 
 			formpage1: "基本信息", 
 			srfupdatedate: "更新时间", 
 			srforikey: "", 
@@ -51,12 +57,26 @@ export default {
 			issubmit: "是否提交", 
 		},
 		uiactions: {
+			ibzdaily_linkcompletetask: "完成任务",
 		},
 	},
-	dailyeditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
+	main_grid: {
+		nodata: "",
+		columns: {
+			ibz_dailyname: "日报名称",
+			updateman: "更新人",
+			updatedate: "更新时间",
 		},
+		uiactions: {
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+		},
+		uiactions: {
+		},
+	},
+	dailygridviewtoolbar_toolbar: {
 	},
 };

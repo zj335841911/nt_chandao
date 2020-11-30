@@ -153,7 +153,7 @@
     
     
     :lg="{ span: 24, offset: 0 }"
-    
+    :xl="{ span: 20, offset: 0 }"
 >
     <app-form-item
     name="todaytask"
@@ -183,6 +183,62 @@
 </dropdown-list-mpicker>
 
 </app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.button1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 2, offset: 2 }"
+>
+    <i-button 
+    type="primary"
+    @click="button1_click($event)"
+    style=""
+    :title="$t('entities.ibzdaily.dailyedit_form.uiactions.ibzdaily_linkcompletetask')"
+>
+    <span >{{$t('entities.ibzdaily.dailyedit_form.details.button1')}}</span>
+</i-button>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.druipart1.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem="ibzdaily" 
+    :parentdata='{"srfparentdename":"IBZ_DAILY","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+        {
+            pathName: 'stories',
+            parameterName: 'story',
+        },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{todaytask:"%todaytask%"}'
+    parameterName="ibzdaily"
+    parentName="IbzDaily"  
+    refviewtype="DEGRIDVIEW9" 
+    refreshitems="todaytask" 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname="task-zs-grid-view9" 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
+    style="overflow: auto;">
+</app-form-druipart>
 
 </i-col>
 <i-col
