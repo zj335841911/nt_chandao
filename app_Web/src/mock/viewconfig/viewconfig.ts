@@ -1127,14 +1127,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainGridView",
             "viewtag": "417541fa331fc089b84936b8359403fa"
         },
-        "ibzweeklydashboardview": {
-            "title": "周报数据看板视图",
-            "caption": "周报",
-            "viewtype": "DEPORTALVIEW",
-            "viewmodule": "report",
-            "viewname": "IbzWeeklyDashboardView",
-            "viewtag": "41becbb887d136e0bed97622de0fa836"
-        },
         "casestepgridview9": {
             "title": "用例步骤表格视图",
             "caption": "用例步骤",
@@ -1878,6 +1870,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "DocLibProductGridView",
             "viewtag": "6a667f9ae1a5096ceac93a16d1586978"
+        },
+        "taskzsgridview9week": {
+            "title": "任务表格视图（展示）",
+            "caption": "展示",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TaskZsGridView9Week",
+            "viewtag": "6af549668ff8757cf378a5a50d8917e4"
         },
         "casetestoptionview": {
             "title": "执行",
@@ -3783,6 +3783,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzLibCaseStepsGridView9",
             "viewtag": "cc94f92626c795b12a5598ae3bf3da39"
         },
+        "ibzreportmytabexpview": {
+            "title": "汇报分页导航视图（我收到的）",
+            "caption": "我收到的",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzReportMyTabExpView",
+            "viewtag": "cced9dfff799c2f6ed1012fd70161948"
+        },
         "casemainmygridview": {
             "title": "功能测试",
             "caption": "功能测试",
@@ -4646,6 +4654,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProjectMainTabExpView",
             "viewtag": "fd0b8748ff96edcde009d39903a9f211"
+        },
+        "ibzdailymydailygridview": {
+            "title": "日报表格视图",
+            "caption": "日报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzDailyMyDailyGridView",
+            "viewtag": "ff73d748d9fbc7cd4d59a714d7be6ad7"
         },
         "buildmaintabexpview": {
             "title": "版本分页导航视图",

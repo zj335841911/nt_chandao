@@ -70,6 +70,7 @@
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|我收到的汇报（计数器）|实体处理逻辑|&nbsp;|
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
@@ -80,10 +81,13 @@
 {% plantuml %}
 hide footbox
 
+汇报 -> 汇报: 统计我收到的日报数
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
+|0|开始 | 
+|1|统计我收到的日报数 |
 <center>我收到的汇报（计数器）</center>
 
 ## 查询集合

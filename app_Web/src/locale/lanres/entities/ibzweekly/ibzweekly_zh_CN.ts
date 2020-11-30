@@ -26,10 +26,6 @@ export default {
 			caption: "周报",
       		title: "周报编辑视图",
 		},
-		dashboardview: {
-			caption: "周报",
-      		title: "周报数据看板视图",
-		},
 		editview: {
 			caption: "周报",
       		title: "实体2编辑视图",

@@ -157,6 +157,10 @@ export default {
 			caption: "任务",
       		title: "任务表格视图",
 		},
+		zsgridview9week: {
+			caption: "展示",
+      		title: "任务表格视图（展示）",
+		},
 		kanbanview: {
 			caption: "任务",
       		title: "任务看板视图",

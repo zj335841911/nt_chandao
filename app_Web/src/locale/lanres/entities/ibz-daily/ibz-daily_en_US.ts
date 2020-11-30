@@ -38,6 +38,10 @@ export default {
 			caption: "日报",
       		title: "日报表格视图",
 		},
+		mydailygridview: {
+			caption: "日报",
+      		title: "日报表格视图",
+		},
 	},
 	maininfo_form: {
 		details: {
@@ -159,6 +163,20 @@ export default {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
+		},
+	},
+	mydailygridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 };

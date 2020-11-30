@@ -351,7 +351,6 @@ SRFNAVPARAM.project=%project%|
 |-|关闭产品|DEEDITVIEW|&nbsp;|
 |-|创建文档库|DEEDITVIEW|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
-|-|周报数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|用例步骤表格视图|DEGRIDVIEW9|&nbsp;|
 |-|实体表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试用例图表视图（累计创建用例）|DECHARTVIEW9|&nbsp;|
@@ -445,6 +444,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务预计表格视图|DEGRIDVIEW9|&nbsp;|
 |-|文档库树视图（自定义文档库-根目录）|DETREEVIEW|&nbsp;|
 |-|doclib表格视图|DEGRIDVIEW|&nbsp;|
+|-|任务表格视图（展示）|DEGRIDVIEW9|&nbsp;|
 |-|执行|DEOPTVIEW|&nbsp;|
 |-|文档树视图|DETREEVIEW|&nbsp;|
 |-|日报编辑视图（主数据）|DEEDITVIEW|&nbsp;|
@@ -683,6 +683,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目主页|APPPORTALVIEW|&nbsp;|
 |-|用例库用例步骤表格视图|DEGRIDVIEW9|&nbsp;|
+|-|汇报分页导航视图（我收到的）|DETABEXPVIEW|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
 |-|员工负载表编辑视图|DEEDITVIEW|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
@@ -791,5 +792,6 @@ SRFNAVPARAM.project=%project%|
 |-|激活|DEOPTVIEW|&nbsp;|
 |-|系统更新日志表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目|DETABEXPVIEW|&nbsp;|
+|-|日报表格视图|DEGRIDVIEW|&nbsp;|
 |-|版本分页导航视图|DETABEXPVIEW|&nbsp;|
 

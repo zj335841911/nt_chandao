@@ -44,6 +44,7 @@ public interface IIbzReportService extends IService<IbzReport> {
     IbzReport get(Long key);
     IbzReport getDraft(IbzReport et);
     boolean checkKey(IbzReport et);
+    IbzReport reportIReceived(IbzReport et);
     boolean save(IbzReport et);
     void saveBatch(List<IbzReport> list);
     Page<IbzReport> searchDefault(IbzReportSearchContext context);

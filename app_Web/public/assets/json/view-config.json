@@ -1399,16 +1399,6 @@
         "viewtag": "417541fa331fc089b84936b8359403fa",
         "memo": ""
     },
-    "ibzweeklydashboardview": {
-        "title": "周报数据看板视图",
-        "caption": "周报",
-        "viewtype": "DEPORTALVIEW",
-        "viewmodule": "report",
-        "viewname": "IbzWeeklyDashboardView",
-        "viewfilename": "ibz-weekly-dashboard-view",
-        "viewtag": "41becbb887d136e0bed97622de0fa836",
-        "memo": ""
-    },
     "casestepgridview9": {
         "title": "用例步骤表格视图",
         "caption": "用例步骤",
@@ -2337,6 +2327,16 @@
         "viewname": "DocLibProductGridView",
         "viewfilename": "doc-lib-product-grid-view",
         "viewtag": "6a667f9ae1a5096ceac93a16d1586978",
+        "memo": ""
+    },
+    "taskzsgridview9week": {
+        "title": "任务表格视图（展示）",
+        "caption": "展示",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TaskZsGridView9Week",
+        "viewfilename": "task-zs-grid-view9-week",
+        "viewtag": "6af549668ff8757cf378a5a50d8917e4",
         "memo": ""
     },
     "casetestoptionview": {
@@ -4719,6 +4719,16 @@
         "viewtag": "cc94f92626c795b12a5598ae3bf3da39",
         "memo": ""
     },
+    "ibzreportmytabexpview": {
+        "title": "汇报分页导航视图（我收到的）",
+        "caption": "我收到的",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzReportMyTabExpView",
+        "viewfilename": "ibz-report-my-tab-exp-view",
+        "viewtag": "cced9dfff799c2f6ed1012fd70161948",
+        "memo": ""
+    },
     "casemainmygridview": {
         "title": "功能测试",
         "caption": "功能测试",
@@ -5797,6 +5807,16 @@
         "viewname": "ProjectMainTabExpView",
         "viewfilename": "project-main-tab-exp-view",
         "viewtag": "fd0b8748ff96edcde009d39903a9f211",
+        "memo": ""
+    },
+    "ibzdailymydailygridview": {
+        "title": "日报表格视图",
+        "caption": "日报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzDailyMyDailyGridView",
+        "viewfilename": "ibz-daily-my-daily-grid-view",
+        "viewtag": "ff73d748d9fbc7cd4d59a714d7be6ad7",
         "memo": ""
     },
     "buildmaintabexpview": {

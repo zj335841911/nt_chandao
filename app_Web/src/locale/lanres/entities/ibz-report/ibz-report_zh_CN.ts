@@ -22,4 +22,10 @@ export default {
     ibzdailyname: "汇报名称",
     type: "类型",
   },
+	views: {
+		mytabexpview: {
+			caption: "我收到的",
+      		title: "汇报分页导航视图（我收到的）",
+		},
+	},
 };
