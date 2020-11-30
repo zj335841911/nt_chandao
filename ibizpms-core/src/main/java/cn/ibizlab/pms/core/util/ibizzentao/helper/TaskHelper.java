@@ -1559,8 +1559,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             task.setModule(module);
             task.setType(type);
             task.setAssignedto(assignedTo);
-            task.set(FIELD_ESTSTARTED, task.getEststarted() == null ? DEFAULT_DATE : task.getEststarted());
-            task.set(FIELD_DEADLINE, task.getDeadline() == null ? DEFAULT_DATE : task.getDeadline());
+//            task.set(FIELD_ESTSTARTED, task.getEststarted() == null ? DEFAULT_TIME : task.getEststarted());
+////            task.set(FIELD_DEADLINE, task.getDeadline() == null ? DEFAULT_TIME : task.getDeadline());
             task.setStatus(StaticDict.Task__status.WAIT.getValue());
             task.setLeft(task.getEstimate());
             if (task.getStory() != null && task.getStory() != 0L) {
