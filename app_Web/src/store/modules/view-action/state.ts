@@ -2127,8 +2127,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'a4a6e9515a944ab2976c5034fb049f63',
                 'ab7bb92108f4ae63c52d94b39affb30a',
-                '1edacc9f865e00cd6cd2ea0475e8dd26',
                 'd054969e8eb4b11e01d771b95045178c',
             ],
         },
@@ -3294,6 +3294,16 @@ export const viewstate: any = {
                 'd86b9d1e9fad770e8fc97718cee8ed31',
                 'e396b6f39451e3bf963aec602106adf0',
                 '8c3d000c53ed0d5490a133f568d98097',
+            ],
+        },
+        {
+            viewtag: 'a4a6e9515a944ab2976c5034fb049f63',
+            viewmodule: 'report',
+            viewname: 'IbzDailyDailyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1edacc9f865e00cd6cd2ea0475e8dd26',
             ],
         },
         {

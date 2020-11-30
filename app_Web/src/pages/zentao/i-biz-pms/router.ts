@@ -260,6 +260,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-lib-module-edit-view/ibz-lib-module-edit-view.vue'),
                 },
                 {
+                    path: 'ibzdailies/:ibzdaily?/dailygridview/:dailygridview?',
+                    meta: {
+                        caption: 'entities.ibzdaily.views.dailygridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'dailygridview', parameterName: 'dailygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-daily-grid-view/ibz-daily-daily-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/myfavoritegridview/:myfavoritegridview?',
                     meta: {
                         caption: 'entities.bug.views.myfavoritegridview.caption',
@@ -6877,20 +6891,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-case-to-bug-edit-view/bug-case-to-bug-edit-view.vue'),
                 },
                 {
-                    path: 'ibzdailies/:ibzdaily?/dailyeditview/:dailyeditview?',
-                    meta: {
-                        caption: 'entities.ibzdaily.views.dailyeditview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
-                            { pathName: 'dailyeditview', parameterName: 'dailyeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/report/ibz-daily-daily-edit-view/ibz-daily-daily-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/htmlview/:htmlview?',
                     meta: {
                         caption: 'entities.product.views.htmlview.caption',
@@ -6903,6 +6903,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-html-view/product-html-view.vue'),
+                },
+                {
+                    path: 'ibzdailies/:ibzdaily?/dailyeditview/:dailyeditview?',
+                    meta: {
+                        caption: 'entities.ibzdaily.views.dailyeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'dailyeditview', parameterName: 'dailyeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-daily-edit-view/ibz-daily-daily-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/gridview9_substory/:gridview9_substory?',
