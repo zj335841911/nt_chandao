@@ -130,6 +130,14 @@ export default {
 		},
 	},
 	dailygridviewtoolbar_toolbar: {
+		deuiaction3_createuserdaily: {
+			caption: "生成日报",
+			tip: "生成日报",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction1: {
 			caption: "New",
 			tip: "New",
