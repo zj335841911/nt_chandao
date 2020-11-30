@@ -31,5 +31,15 @@ public class IbzDailyExService extends IbzDailyServiceImpl {
     public IbzDaily linkCompleteTask(IbzDaily et) {
         return super.linkCompleteTask(et);
     }
+    /**
+     * [Submit:提交] 行为扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public IbzDaily submit(IbzDaily et) {
+        return super.submit(et);
+    }
 }
 
