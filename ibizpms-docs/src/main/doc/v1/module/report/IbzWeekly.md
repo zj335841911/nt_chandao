@@ -31,8 +31,8 @@
 | 13 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
 | 14 | [本周工作](#属性-本周工作（WORKTHISWEEK）) | WORKTHISWEEK | HTML文本，没有长度限制 | 否 | 否 | 是 |
 | 15 | [下周计划](#属性-下周计划（PLANNEXTWEEK）) | PLANNEXTWEEK | HTML文本，没有长度限制 | 否 | 否 | 是 |
-| 16 | [本周完成任务](#属性-本周完成任务（THISWEEKTASK）) | THISWEEKTASK | 文本，可指定长度 | 否 | 否 | 是 |
-| 17 | [下周计划任务](#属性-下周计划任务（NEXTWEEKTASK）) | NEXTWEEKTASK | 文本，可指定长度 | 否 | 否 | 是 |
+| 16 | [本周完成任务](#属性-本周完成任务（THISWEEKTASK）) | THISWEEKTASK | 多项选择(文本值) | 否 | 否 | 是 |
+| 17 | [下周计划任务](#属性-下周计划任务（NEXTWEEKTASK）) | NEXTWEEKTASK | 多项选择(文本值) | 否 | 否 | 是 |
 
 ### 属性-周报名称（IBZ_WEEKLYNAME）
 #### 属性说明
@@ -608,7 +608,7 @@ String
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-文本，可指定长度
+多项选择(文本值)
 
 - Java类型
 String
@@ -620,7 +620,7 @@ String
 无
 
 - 取值范围/公式
-无
+参照数据字典【[所有任务（AllTask）](../../codelist/AllTask)】
 
 - 数据格式
 无
@@ -645,7 +645,7 @@ String
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-文本，可指定长度
+多项选择(文本值)
 
 - Java类型
 String
@@ -657,7 +657,7 @@ String
 无
 
 - 取值范围/公式
-无
+参照数据字典【[所有任务（AllTask）](../../codelist/AllTask)】
 
 - 数据格式
 无

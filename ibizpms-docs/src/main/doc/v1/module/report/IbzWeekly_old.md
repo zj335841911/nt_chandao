@@ -24,8 +24,8 @@
 |日期|DATE|DATE|&nbsp;|
 |本周工作|WORKTHISWEEK|HTMLTEXT|&nbsp;|
 |下周计划|PLANNEXTWEEK|HTMLTEXT|&nbsp;|
-|本周完成任务|THISWEEKTASK|TEXT|&nbsp;|
-|下周计划任务|NEXTWEEKTASK|TEXT|&nbsp;|
+|本周完成任务|THISWEEKTASK|SMCODELIST|&nbsp;|
+|下周计划任务|NEXTWEEKTASK|SMCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |

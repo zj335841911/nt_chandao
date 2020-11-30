@@ -88,7 +88,7 @@ export default class MainModel {
       {
         name: 'thisweektask1',
         prop: 'thisweektask',
-        dataType: 'TEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'ibz_weeklyid',

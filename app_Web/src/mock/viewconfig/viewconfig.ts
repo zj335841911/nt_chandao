@@ -3577,7 +3577,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "ibzmonthlynewmonthlyeditview": {
             "title": "月报编辑视图",
-            "caption": "新建月报",
+            "caption": "月报",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "report",
             "viewname": "IbzMonthlyNewMonthlyEditView",

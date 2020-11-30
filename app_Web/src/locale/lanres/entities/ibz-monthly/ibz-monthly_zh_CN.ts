@@ -20,7 +20,7 @@ export default {
   },
 	views: {
 		newmonthlyeditview: {
-			caption: "新建月报",
+			caption: "月报",
       		title: "月报编辑视图",
 		},
 		mainmonthlygridview: {

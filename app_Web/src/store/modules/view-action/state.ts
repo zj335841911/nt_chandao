@@ -2315,7 +2315,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'bf911962d0a1ec51e903e512c2700650',
             ],
         },
         {

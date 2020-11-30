@@ -78,15 +78,6 @@ export class MainEditFormBase extends EditFormControlBase {
      */  
     public appUIService: IBZWEEKLYUIService = new IBZWEEKLYUIService(this.$store);
 
-
-    /**
-     * 关系界面数量
-     *
-     * @protected
-     * @type {number}
-     * @memberof MainEditFormBase
-     */
-    protected drCount: number = 1;
     /**
      * 表单数据对象
      *
@@ -162,8 +153,6 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public detailsModel: any = {
-        thisweektask: new FormDRUIPartModel({ caption: '本周完成的任务', detailType: 'DRUIPART', name: 'thisweektask', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srfupdatedate: new FormItemModel({
