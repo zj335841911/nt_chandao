@@ -1524,15 +1524,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '4d1285fe32c0a29579db88b5adf12f73',
-            viewmodule: 'report',
-            viewname: 'IbzMonthlyMainMsgEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '4d32793fc57ec1ae930a18608526d00e',
             viewmodule: 'zentao',
             viewname: 'TestTaskEditView_commitTest',

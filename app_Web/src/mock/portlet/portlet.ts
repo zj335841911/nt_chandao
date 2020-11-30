@@ -458,14 +458,6 @@ mock.onGet('./assets/json/portlet-data.json').reply((config: any) => {
     "groupName":"（未分类）",
     "portletTYpe":"VIEW","componentName":"test-task-main-detail-portlet"},
     {"type":"appde",
-    "appCodeName":"IbzMonthly",
-    "appName":"月报",
-    "portletCodeName": "MainMsg",
-    "portletName": "主信息",
-    "groupCodeName":"Ungroup",
-    "groupName":"（未分类）",
-    "portletTYpe":"VIEW","componentName":"ibz-monthly-main-msg-portlet"},
-    {"type":"appde",
     "appCodeName":"SysUpdateLog",
     "appName":"系统更新日志",
     "portletCodeName": "LastUpdate",
@@ -1552,14 +1544,6 @@ mock.onGet('./assets/json/portlet-data.json').reply((config: any) => {
     "portletName": "未完成项目",
     "groupCodeName":"Ungroup",
     "groupName":"（未分类）",
-    "portletTYpe":"VIEW","componentName":"app-project-undone-project-portlet"},
-    {"type":"app",
-    "appCodeName":"IbzMonthly",
-    "appName":"月报",
-    "portletCodeName": "MainMsg",
-    "portletName": "主信息",
-    "groupCodeName":"Ungroup",
-    "groupName":"（未分类）",
-    "portletTYpe":"VIEW","componentName":"app-ibz-monthly-main-msg-portlet"}
+    "portletTYpe":"VIEW","componentName":"app-project-undone-project-portlet"}
     ]];
 });
