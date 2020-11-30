@@ -24,8 +24,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
             },
             {
                 id: "0.5",
-                label: "1/2",
-                text: "1/2",
+                label: "0.5",
+                text: "0.5",
                 "data":"",
                 "codename":"Item_2",
                 value: "0.5",

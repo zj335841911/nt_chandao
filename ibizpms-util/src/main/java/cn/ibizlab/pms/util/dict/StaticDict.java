@@ -6197,7 +6197,7 @@ public class StaticDict {
     @Getter
     public enum StoryPoints {
         ITEM_0("0","0"),
-        ITEM_2("0.5","1/2"),
+        ITEM_2("0.5","0.5"),
         ITEM_1("1","1"),
         ITEM_2("2","2"),
         ITEM_3("3","3"),

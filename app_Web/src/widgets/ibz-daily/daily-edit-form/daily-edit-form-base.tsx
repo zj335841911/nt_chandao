@@ -106,15 +106,6 @@ export class DailyEditEditFormBase extends EditFormControlBase {
         curUIService.IbzDaily_LinkCompleteTask(datas,contextJO, paramJO,  $event, xData,this,"IbzDaily");
     }
 
-
-    /**
-     * 关系界面数量
-     *
-     * @protected
-     * @type {number}
-     * @memberof DailyEditEditFormBase
-     */
-    protected drCount: number = 1;
     /**
      * 表单数据对象
      *
@@ -195,8 +186,6 @@ export class DailyEditEditFormBase extends EditFormControlBase {
         disabled: false,
         }
 }),
-
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 

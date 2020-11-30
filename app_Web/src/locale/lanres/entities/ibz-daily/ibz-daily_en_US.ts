@@ -32,7 +32,6 @@ export default {
 		details: {
 			group1: "日报基本信息", 
 			button1: "完成任务", 
-			druipart1: "", 
 			formpage1: "基本信息", 
 			srfupdatedate: "更新时间", 
 			srforikey: "", 
