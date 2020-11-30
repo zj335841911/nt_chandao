@@ -98,6 +98,7 @@
 | 属性      |    搜索模式     |
 | --------   |------------|
 |日报名称(IBZ_DAILYNAME)|LIKE|
+|日期(DATE)|EQ|
 |用户(ACCOUNT)|EQ|
 |是否提交(ISSUBMIT)|EQ|
 |汇报给(REPORTTO)|EQ|
