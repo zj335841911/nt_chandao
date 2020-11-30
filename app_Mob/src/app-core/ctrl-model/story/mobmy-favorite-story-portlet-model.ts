@@ -213,6 +213,9 @@ export class MOBMyFavoriteStoryModel {
       {
         name: 'ibiz_sourcename',
       },
+      {
+        name: 'storypoints',
+      },
     ]
   }
 

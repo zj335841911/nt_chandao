@@ -610,6 +610,9 @@ export default {
         'testreport': '报告',
         'entry': '应用',
         'webhook': 'Webhook',
+        'daily': '日报',
+        'weekly': '周报',
+        'monthly': '月报',
         empty: '',
     },
     CaseTestTaskQuickpachet: {

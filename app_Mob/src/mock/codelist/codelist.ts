@@ -3492,6 +3492,27 @@ const datas: Array<any> = [
                 value: 'webhook',
                 disabled: false,
             },
+            {
+                id: 'daily',
+                label: '日报',
+                text: '日报',
+                value: 'daily',
+                disabled: false,
+            },
+            {
+                id: 'weekly',
+                label: '周报',
+                text: '周报',
+                value: 'weekly',
+                disabled: false,
+            },
+            {
+                id: 'monthly',
+                label: '月报',
+                text: '月报',
+                value: 'monthly',
+                disabled: false,
+            },
         ]
     },
     {

@@ -213,6 +213,9 @@ export class LinkStoryMobMPickupViewpickupviewpanelModel {
       {
         name: 'ibiz_sourcename',
       },
+      {
+        name: 'storypoints',
+      },
     ]
   }
 

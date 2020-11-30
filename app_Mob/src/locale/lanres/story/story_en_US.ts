@@ -66,6 +66,7 @@ export default {
     sOURCEID: "来源对象标识",
     iBIZ_SOURCEID: "来源对象标识",
     iBIZ_SOURCENAME: "来源对象名称",
+    storypoints: "故事点",
   },
 	views: {
 		newmobeditview: {
