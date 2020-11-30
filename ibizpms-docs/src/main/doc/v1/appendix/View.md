@@ -281,6 +281,7 @@
 |-|bug选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|iBiz软件生产管理|APPINDEXVIEW|&nbsp;"????"
 "????"|
+|-|日报编辑视图|DEEDITVIEW|&nbsp;|
 |-|usercontact编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|需求编辑视图|DEEDITVIEW9|&nbsp;|
@@ -447,6 +448,7 @@ SRFNAVPARAM.project=%project%|
 |-|执行结果|DEEDITVIEW|&nbsp;|
 |-|需求细分|DEGRIDVIEW|&nbsp;|
 |-|系统日志列表视图|DELISTVIEW|&nbsp;|
+|-|我的地盘分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|Bug看板视图|DEKANBANVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|需求图表视图（累计创建需求-优先级）|DECHARTVIEW9|&nbsp;|

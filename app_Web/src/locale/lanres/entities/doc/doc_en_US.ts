@@ -286,6 +286,25 @@ export default {
         doc_uncollect: "取消收藏",
 		},
 	},
+	morerecentupdate_grid: {
+		nodata: "",
+		columns: {
+			id: "文档编号",
+			title: "文档标题",
+			addedby: "由谁添加",
+			addeddate: "添加时间",
+			editedby: "由谁更新",
+			editeddate: "更新时间",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        doc_look: "查看",
+        doc_edit: "编辑",
+        doc_delete: "删除",
+        doc_collect: "收藏",
+        doc_uncollect: "取消收藏",
+		},
+	},
 	mydoc_grid: {
 		nodata: "",
 		columns: {
@@ -335,25 +354,6 @@ export default {
         doc_uncollect: "取消收藏",
 		},
 	},
-	morerecentupdate_grid: {
-		nodata: "",
-		columns: {
-			id: "文档编号",
-			title: "文档标题",
-			addedby: "由谁添加",
-			addeddate: "添加时间",
-			editedby: "由谁更新",
-			editeddate: "更新时间",
-			uagridcolumn1: "操作",
-		},
-		uiactions: {
-        doc_look: "查看",
-        doc_edit: "编辑",
-        doc_delete: "删除",
-        doc_collect: "收藏",
-        doc_uncollect: "取消收藏",
-		},
-	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
@@ -380,6 +380,18 @@ export default {
 			tip: "Filter",
 		},
 	},
+	recentmoregridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	mymoregridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
 	createeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
@@ -397,18 +409,6 @@ export default {
 		},
 	},
 	myfavouritegridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-	},
-	recentmoregridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Filter",
-			tip: "Filter",
-		},
-	},
-	mymoregridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Filter",
 			tip: "Filter",

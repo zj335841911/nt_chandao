@@ -152,7 +152,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "planstomorrow")
     @JsonProperty("planstomorrow")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String planstomorrow;
 
     /**
@@ -179,7 +179,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "comment")
     @JsonProperty("comment")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String comment;
 
 

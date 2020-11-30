@@ -298,6 +298,7 @@ export const viewstate: any = {
             refviews: [
                 '24a03de02dc02b92a3c228b944e78ed9',
                 'cdba1a5e90e147e5f3bf9f2c08c87f56',
+                '6e1a903e2d94b6568debc087b75e5d53',
                 '379360eb2f83ea4dc50744144c2878b7',
                 '96ed1661161ecbd9adbb979fddb405a5',
                 '43d566a4567a5e337a73afa187dae97c',
@@ -2099,6 +2100,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '6e1a903e2d94b6568debc087b75e5d53',
+            viewmodule: 'report',
+            viewname: 'IbzMyTerritoryReportTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b593c09602d9483d53b1f725395030a6',
+                '7c188c576f1fd59114ac2940d8e92c15',
+            ],
+        },
+        {
             viewtag: '6e27d3c90de590e23204e3a310321f21',
             viewmodule: 'zentao',
             viewname: 'BugBugKanbanView',
@@ -2337,6 +2349,18 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '7c188c576f1fd59114ac2940d8e92c15',
+            viewmodule: 'ibiz',
+            viewname: 'DocRecentMoreGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b6e02216d1e5c69d79b32342d8b67c7a',
+                '23cc93d7fdddff5077a7952d26802a7b',
+                'c9be79d1ad2a32e56092cd1ec1e896eb',
             ],
         },
         {
@@ -3561,6 +3585,18 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '846ddf8e555650608d4f75c4595c1270',
+            ],
+        },
+        {
+            viewtag: 'b593c09602d9483d53b1f725395030a6',
+            viewmodule: 'ibiz',
+            viewname: 'DocMyMoreGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b6e02216d1e5c69d79b32342d8b67c7a',
+                '23cc93d7fdddff5077a7952d26802a7b',
+                'c9be79d1ad2a32e56092cd1ec1e896eb',
             ],
         },
         {

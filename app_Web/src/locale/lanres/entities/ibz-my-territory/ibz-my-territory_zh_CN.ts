@@ -62,6 +62,10 @@ export default {
 			caption: "我的地盘",
       		title: "我的地盘日历导航视图",
 		},
+		reporttabexpview: {
+			caption: "汇报",
+      		title: "我的地盘分页导航视图",
+		},
 		calendarview: {
 			caption: "我的地盘",
       		title: "我的地盘日历视图",

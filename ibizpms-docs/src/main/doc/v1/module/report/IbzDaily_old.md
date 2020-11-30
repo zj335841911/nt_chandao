@@ -22,10 +22,10 @@
 |附件|FILES|TEXT|&nbsp;|
 |完成任务|TODAYTASK|SMCODELIST|&nbsp;|
 |是否提交|ISSUBMIT|SSCODELIST|&nbsp;|
-|明日计划|PLANSTOMORROW|TEXT|&nbsp;|
+|明日计划|PLANSTOMORROW|HTMLTEXT|&nbsp;|
 |明日计划任务|TOMORROWPLANSTASK|SMCODELIST|&nbsp;|
 |汇报给|REPORTTO|SSCODELIST|&nbsp;|
-|其他事项|COMMENT|TEXT|&nbsp;|
+|其他事项|COMMENT|HTMLTEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -43,10 +43,10 @@
 |附件|默认规则|内容长度必须小于等于[100]|
 |完成任务|默认规则|内容长度必须小于等于[2000]|
 |是否提交|默认规则|内容长度必须小于等于[60]|
-|明日计划|默认规则|内容长度必须小于等于[100]|
+|明日计划|默认规则|内容长度必须小于等于[1048576]|
 |明日计划任务|默认规则|内容长度必须小于等于[2000]|
 |汇报给|默认规则|内容长度必须小于等于[60]|
-|其他事项|默认规则|内容长度必须小于等于[100]|
+|其他事项|默认规则|内容长度必须小于等于[1048576]|
 
 ## 状态控制
 

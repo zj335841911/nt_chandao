@@ -709,6 +709,16 @@
         "viewtag": "1ed8a475f4c185fc99c487900bbcf69e",
         "memo": "\"????\" \"????\""
     },
+    "ibzdailydailyeditview": {
+        "title": "日报编辑视图",
+        "caption": "日报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzDailyDailyEditView",
+        "viewfilename": "ibz-daily-daily-edit-view",
+        "viewtag": "1edacc9f865e00cd6cd2ea0475e8dd26",
+        "memo": ""
+    },
     "usercontacteditview": {
         "title": "usercontact编辑视图",
         "caption": "用户联系方式",
@@ -2357,6 +2367,16 @@
         "viewname": "ActionMyAllTrendsListView",
         "viewfilename": "action-my-all-trends-list-view",
         "viewtag": "6d466e003e0479fb8b1a16e49b889dc1",
+        "memo": ""
+    },
+    "ibzmyterritoryreporttabexpview": {
+        "title": "我的地盘分页导航视图",
+        "caption": "汇报",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMyTerritoryReportTabExpView",
+        "viewfilename": "ibz-my-territory-report-tab-exp-view",
+        "viewtag": "6e1a903e2d94b6568debc087b75e5d53",
         "memo": ""
     },
     "bugbugkanbanview": {

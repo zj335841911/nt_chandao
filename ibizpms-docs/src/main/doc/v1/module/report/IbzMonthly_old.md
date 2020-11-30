@@ -86,7 +86,9 @@
 | 属性      |    搜索模式     |
 | --------   |------------|
 |月报名称(IBZ_MONTHLYNAME)|LIKE|
+|用户(ACCOUNT)|EQ|
 |汇报(REPORTTO)|EQ|
+|是否提交(ISSUBMIT)|EQ|
 
 ## 导入模式
 无

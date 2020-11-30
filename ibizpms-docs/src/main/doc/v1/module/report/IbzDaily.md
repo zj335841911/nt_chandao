@@ -29,10 +29,10 @@
 | 11 | [附件](#属性-附件（FILES）) | FILES | 文本，可指定长度 | 否 | 否 | 是 |
 | 12 | [完成任务](#属性-完成任务（TODAYTASK）) | TODAYTASK | 多项选择(文本值) | 否 | 否 | 是 |
 | 13 | [是否提交](#属性-是否提交（ISSUBMIT）) | ISSUBMIT | 单项选择(文本值) | 否 | 否 | 是 |
-| 14 | [明日计划](#属性-明日计划（PLANSTOMORROW）) | PLANSTOMORROW | 文本，可指定长度 | 否 | 否 | 是 |
+| 14 | [明日计划](#属性-明日计划（PLANSTOMORROW）) | PLANSTOMORROW | HTML文本，没有长度限制 | 否 | 否 | 是 |
 | 15 | [明日计划任务](#属性-明日计划任务（TOMORROWPLANSTASK）) | TOMORROWPLANSTASK | 多项选择(文本值) | 否 | 否 | 是 |
 | 16 | [汇报给](#属性-汇报给（REPORTTO）) | REPORTTO | 单项选择(文本值) | 否 | 否 | 是 |
-| 17 | [其他事项](#属性-其他事项（COMMENT）) | COMMENT | 文本，可指定长度 | 否 | 否 | 是 |
+| 17 | [其他事项](#属性-其他事项（COMMENT）) | COMMENT | HTML文本，没有长度限制 | 否 | 否 | 是 |
 
 ### 属性-建立人（CREATEMAN）
 #### 属性说明
@@ -532,7 +532,7 @@ String
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-文本，可指定长度
+HTML文本，没有长度限制
 
 - Java类型
 String
@@ -645,7 +645,7 @@ String
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-文本，可指定长度
+HTML文本，没有长度限制
 
 - Java类型
 String
@@ -809,7 +809,6 @@ Save
 ```SQL
 SELECT
 t1.`ACCOUNT`,
-t1.`COMMENT`,
 t1.`CREATEDATE`,
 t1.`CREATEMAN`,
 t1.`DATE`,
@@ -817,7 +816,6 @@ t1.`IBZ_DAILYID`,
 t1.`IBZ_DAILYNAME`,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
-t1.`PLANSTOMORROW`,
 t1.`REPORTTO`,
 t1.`TODAYTASK`,
 t1.`TOMORROWPLANSTASK`,

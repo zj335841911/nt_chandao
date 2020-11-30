@@ -45987,11 +45987,11 @@ CREATE TABLE `zt_case`(
 | WORKTODAY        | 今日工作  | CLOB      |   1,048,576   | &nbsp; |
 | MAILTO        | 抄送给  | VARCHAR      |   2,000   | &nbsp; |
 | TOMORROWPLANSTASK        | 明日计划任务  | VARCHAR      |   2,000   | &nbsp; |
-| PLANSTOMORROW        | 明日计划  | VARCHAR      |   100   | &nbsp; |
+| PLANSTOMORROW        | 明日计划  | CLOB      |   1,048,576   | &nbsp; |
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
 | ACCOUNT        | 用户  | VARCHAR      |   60   | &nbsp; |
 | DATE        | 日期  | DATETIME      |   -1   | &nbsp; |
-| COMMENT        | 其他事项  | VARCHAR      |   100   | &nbsp; |
+| COMMENT        | 其他事项  | CLOB      |   1,048,576   | &nbsp; |
 | REPORTTO        | 汇报给  | VARCHAR      |   60   | &nbsp; |
 | UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
 | IBZ_DAILYNAME        | 日报名称  | VARCHAR      |   200   | &nbsp; |
@@ -46033,10 +46033,10 @@ CREATE TABLE `T_IBZ_DAILY`(
 ,`MAILTO`  VARCHAR(2000) COMMENT '抄送给' 
 ,`TODAYTASK`  VARCHAR(2000) COMMENT '完成任务' 
 ,`ISSUBMIT`  VARCHAR(60) COMMENT '是否提交' 
-,`PLANSTOMORROW`  VARCHAR(100) COMMENT '明日计划' 
+,`PLANSTOMORROW`  MEDIUMTEXT COMMENT '明日计划' 
 ,`TOMORROWPLANSTASK`  VARCHAR(2000) COMMENT '明日计划任务' 
 ,`REPORTTO`  VARCHAR(60) COMMENT '汇报给' 
-,`COMMENT`  VARCHAR(100) COMMENT '其他事项' 
+,`COMMENT`  MEDIUMTEXT COMMENT '其他事项' 
 )COMMENT='日报';
 ```
 
@@ -53077,7 +53077,7 @@ CREATE TABLE `zt_testsuite`(
 表
 ```sql
 CREATE TABLE `T_IBZ_MONTHLY`(
-`IBZ_MONTHLYID`  VARCHAR(100)  NOT NULL PRIMARY KEY COMMENT '月报标识' 
+`IBZ_MONTHLYID`  BIGINT(100)  UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '月报标识' 
 ,`CREATEMAN`  VARCHAR(60) COMMENT '建立人' 
 ,`UPDATEMAN`  VARCHAR(60) COMMENT '更新人' 
 ,`CREATEDATE`  DATETIME COMMENT '建立时间' 

@@ -1067,7 +1067,7 @@
 
 
     <!--输出实体[IBZ_DAILY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_daily-38-35">
+    <changeSet author="zentao" id="tab-ibz_daily-43-35">
         <createTable tableName="T_IBZ_DAILY">
                 <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
                 </column>
@@ -1094,13 +1094,13 @@
                 </column>
                 <column name="ISSUBMIT" remarks="" type="VARCHAR(60)">
                 </column>
-                <column name="PLANSTOMORROW" remarks="" type="VARCHAR(100)">
+                <column name="PLANSTOMORROW" remarks="" type="TEXT(1048576)">
                 </column>
                 <column name="TOMORROWPLANSTASK" remarks="" type="VARCHAR(2000)">
                 </column>
                 <column name="REPORTTO" remarks="" type="VARCHAR(60)">
                 </column>
-                <column name="COMMENT" remarks="" type="VARCHAR(100)">
+                <column name="COMMENT" remarks="" type="TEXT(1048576)">
                 </column>
         </createTable>
     </changeSet>
@@ -1183,7 +1183,7 @@
 
 
     <!--输出实体[IBZ_MONTHLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_monthly-39-41">
+    <changeSet author="zentao" id="tab-ibz_monthly-42-41">
         <createTable tableName="T_IBZ_MONTHLY">
                 <column name="IBZ_MONTHLYID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_MONTHLY_IBZ_MONTHLYID"/>
@@ -1266,7 +1266,7 @@
 
 
     <!--输出实体[IBZ_WEEKLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_weekly-44-45">
+    <changeSet author="zentao" id="tab-ibz_weekly-46-45">
         <createTable tableName="T_IBZ_WEEKLY">
                 <column name="IBZ_WEEKLYNAME" remarks="" type="VARCHAR(200)">
                 </column>

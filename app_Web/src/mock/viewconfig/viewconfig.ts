@@ -575,6 +575,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "iBizPMS",
             "viewtag": "1ed8a475f4c185fc99c487900bbcf69e"
         },
+        "ibzdailydailyeditview": {
+            "title": "日报编辑视图",
+            "caption": "日报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzDailyDailyEditView",
+            "viewtag": "1edacc9f865e00cd6cd2ea0475e8dd26"
+        },
         "usercontacteditview": {
             "title": "usercontact编辑视图",
             "caption": "用户联系方式",
@@ -1894,6 +1902,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ActionMyAllTrendsListView",
             "viewtag": "6d466e003e0479fb8b1a16e49b889dc1"
+        },
+        "ibzmyterritoryreporttabexpview": {
+            "title": "我的地盘分页导航视图",
+            "caption": "汇报",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzMyTerritoryReportTabExpView",
+            "viewtag": "6e1a903e2d94b6568debc087b75e5d53"
         },
         "bugbugkanbanview": {
             "title": "Bug看板视图",
