@@ -107,47 +107,6 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.worktoday.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    
->
-    <app-form-item
-    name="worktoday"
-    :itemRules="this.rules().worktoday"
-    class=""
-
-    :caption="$t('entities.ibzdaily.dailyedit_form.details.worktoday')"
-    uiStyle="DEFAULT"
-    :labelWidth="130"
-    :isShowCaption="true"
-    :error="detailsModel.worktoday.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
->
-    <app-rich-text-editor
-    :formState="formState"
-    :value="data.worktoday"
-    @change="(val) =>{this.data.worktoday =val}"
-    @formitemvaluechange="onFormItemValueChange($event)"
-    :disabled="detailsModel.worktoday.disabled"
-    :data="JSON.stringify(this.data)"
-    name="worktoday"
-    :context="context"
-    :viewparams="viewparams"
-    :uploadparams='{objecttype:"daily",version:"editor"}'
-    :exportparams='{objecttype:"daily",version:"editor"}'
-    
-    style=""
-></app-rich-text-editor>
-
-</app-form-item>
-
-</i-col>
-<i-col
-    class="form-layout-container"
     v-show="detailsModel.todaytask.visible"
     :style="{}"
     
@@ -187,7 +146,7 @@
 </i-col>
 <i-col
     class="form-layout-container"
-    v-show="detailsModel.planstomorrow.visible"
+    v-show="detailsModel.worktoday.visible"
     :style="{}"
     
     
@@ -195,34 +154,34 @@
     
 >
     <app-form-item
-    name="planstomorrow"
-    :itemRules="this.rules().planstomorrow"
+    name="worktoday"
+    :itemRules="this.rules().worktoday"
     class=""
 
-    :caption="$t('entities.ibzdaily.dailyedit_form.details.planstomorrow')"
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.worktoday')"
     uiStyle="DEFAULT"
     :labelWidth="130"
     :isShowCaption="true"
-    :error="detailsModel.planstomorrow.error"
+    :error="detailsModel.worktoday.error"
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    
-<rich-text-editor 
-    :formState="formState" 
-    :value="data.planstomorrow"
-    @change="(val) =>{this.data.planstomorrow =val}"
-    @formitemvaluechange="onFormItemValueChange($event)" 
-    :disabled="detailsModel.planstomorrow.disabled" 
-    :data="JSON.stringify(this.data)"  
-    name="planstomorrow" 
-    :viewparams="viewparams"
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.worktoday"
+    @change="(val) =>{this.data.worktoday =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.worktoday.disabled"
+    :data="JSON.stringify(this.data)"
+    name="worktoday"
     :context="context"
-    :uploadparams='{objecttype:"daily",version:"editor"}' 
-    :exportparams='{objecttype:"daily",version:"editor"}' 
-    :templParams='{ }' 
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"daily",version:"editor"}'
+    :exportparams='{objecttype:"daily",version:"editor"}'
+    
     style=""
-></rich-text-editor>
+></app-rich-text-editor>
+
 </app-form-item>
 
 </i-col>
@@ -267,6 +226,47 @@
 </i-col>
 <i-col
     class="form-layout-container"
+    v-show="detailsModel.planstomorrow.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    
+>
+    <app-form-item
+    name="planstomorrow"
+    :itemRules="this.rules().planstomorrow"
+    class=""
+
+    :caption="$t('entities.ibzdaily.dailyedit_form.details.planstomorrow')"
+    uiStyle="DEFAULT"
+    :labelWidth="130"
+    :isShowCaption="true"
+    :error="detailsModel.planstomorrow.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.planstomorrow"
+    @change="(val) =>{this.data.planstomorrow =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.planstomorrow.disabled"
+    :data="JSON.stringify(this.data)"
+    name="planstomorrow"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{objecttype:"daily",version:"editor"}'
+    :exportparams='{objecttype:"daily",version:"editor"}'
+    
+    style=""
+></app-rich-text-editor>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.comment.visible"
     :style="{}"
     
@@ -297,8 +297,8 @@
     name="comment"
     :context="context"
     :viewparams="viewparams"
-    :uploadparams='{}'
-    :exportparams='{}'
+    :uploadparams='{objecttype:"daily",version:"editor"}'
+    :exportparams='{objecttype:"daily",version:"editor"}'
     
     style=""
 ></app-rich-text-editor>

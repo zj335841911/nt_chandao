@@ -95,10 +95,10 @@ export class DailyEditEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         ibz_dailyname: null,
         date: null,
-        worktoday: null,
         todaytask: null,
-        planstomorrow: null,
+        worktoday: null,
         tomorrowplanstask: null,
+        planstomorrow: null,
         comment: null,
         files: null,
         mailto: null,
@@ -218,13 +218,6 @@ export class DailyEditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        worktoday: new FormItemModel({
-    caption: '今日工作', detailType: 'FORMITEM', name: 'worktoday', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
         todaytask: new FormItemModel({
     caption: '完成任务', detailType: 'FORMITEM', name: 'todaytask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -232,8 +225,8 @@ export class DailyEditEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        planstomorrow: new FormItemModel({
-    caption: '明日计划', detailType: 'FORMITEM', name: 'planstomorrow', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        worktoday: new FormItemModel({
+    caption: '今日工作', detailType: 'FORMITEM', name: 'worktoday', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -241,6 +234,13 @@ export class DailyEditEditFormBase extends EditFormControlBase {
 
         tomorrowplanstask: new FormItemModel({
     caption: '明日计划任务', detailType: 'FORMITEM', name: 'tomorrowplanstask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        planstomorrow: new FormItemModel({
+    caption: '明日计划', detailType: 'FORMITEM', name: 'planstomorrow', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -296,6 +296,16 @@ export class DailyEditEditFormBase extends EditFormControlBase {
 }),
 
     };
+
+    /**
+     * 新建默认值
+     * @memberof DailyEditEditFormBase
+     */
+    public createDefault() {                    
+        if (this.data.hasOwnProperty('date')) {
+            this.data['date'] = this.$util.dateFormat(new Date());
+        }
+    }
 
     /**
      * 面板数据变化处理事件

@@ -66,24 +66,24 @@ export default class DailyEditModel {
         dataType: 'DATE',
       },
       {
-        name: 'worktoday',
-        prop: 'worktoday',
-        dataType: 'HTMLTEXT',
-      },
-      {
         name: 'todaytask',
         prop: 'todaytask',
         dataType: 'SMCODELIST',
       },
       {
-        name: 'planstomorrow',
-        prop: 'planstomorrow',
+        name: 'worktoday',
+        prop: 'worktoday',
         dataType: 'HTMLTEXT',
       },
       {
         name: 'tomorrowplanstask',
         prop: 'tomorrowplanstask',
         dataType: 'SMCODELIST',
+      },
+      {
+        name: 'planstomorrow',
+        prop: 'planstomorrow',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'comment',
