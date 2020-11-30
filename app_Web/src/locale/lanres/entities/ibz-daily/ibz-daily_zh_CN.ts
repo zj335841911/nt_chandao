@@ -104,4 +104,10 @@ export default {
 			tip: "过滤",
 		},
 	},
+	dailyeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 };
