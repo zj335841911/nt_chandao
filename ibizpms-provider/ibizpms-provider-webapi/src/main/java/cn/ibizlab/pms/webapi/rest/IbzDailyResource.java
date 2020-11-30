@@ -121,6 +121,17 @@ public class IbzDailyResource {
         return  ResponseEntity.status(HttpStatus.OK).body(ibzdailyService.checkKey(ibzdailyMapping.toDomain(ibzdailydto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzDaily-HaveRead-all')")
+    @ApiOperation(value = "已读", tags = {"日报" },  notes = "已读")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzdailies/{ibzdaily_id}/haveread")
+    public ResponseEntity<IbzDailyDTO> haveRead(@PathVariable("ibzdaily_id") Long ibzdaily_id, @RequestBody IbzDailyDTO ibzdailydto) {
+        IbzDaily domain = ibzdailyMapping.toDomain(ibzdailydto);
+        domain.setIbzdailyid(ibzdaily_id);
+        domain = ibzdailyService.haveRead(domain);
+        ibzdailydto = ibzdailyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzdailydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzDaily-LinkCompleteTask-all')")
     @ApiOperation(value = "关联完成任务", tags = {"日报" },  notes = "关联完成任务")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzdailies/{ibzdaily_id}/linkcompletetask")

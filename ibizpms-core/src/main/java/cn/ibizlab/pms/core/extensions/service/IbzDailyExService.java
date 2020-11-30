@@ -22,6 +22,16 @@ public class IbzDailyExService extends IbzDailyServiceImpl {
     }
 
     /**
+     * [HaveRead:已读] 行为扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public IbzDaily haveRead(IbzDaily et) {
+        return super.haveRead(et);
+    }
+    /**
      * [LinkCompleteTask:关联完成任务] 行为扩展
      * @param et
      * @return

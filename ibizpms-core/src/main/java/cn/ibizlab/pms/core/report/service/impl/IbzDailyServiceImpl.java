@@ -107,6 +107,12 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
     public boolean checkKey(IbzDaily et) {
         return (!ObjectUtils.isEmpty(et.getIbzdailyid())) && (!Objects.isNull(this.getById(et.getIbzdailyid())));
     }
+        @Override
+    @Transactional
+    public IbzDaily haveRead(IbzDaily et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzDailyHelper.class).haveRead(et);
+    }
+
     @Override
     @Transactional
     public IbzDaily linkCompleteTask(IbzDaily et) {
