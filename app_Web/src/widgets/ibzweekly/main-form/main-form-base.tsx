@@ -320,6 +320,9 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public createDefault() {                    
+        if (this.data.hasOwnProperty('date')) {
+            this.data['date'] = this.$util.dateFormat(new Date());
+        }
         if (this.data.hasOwnProperty('account')) {
             this.data['account'] = this.context['srfusername'];
         }
