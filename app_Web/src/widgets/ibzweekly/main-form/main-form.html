@@ -65,20 +65,18 @@
     labelPos="LEFT"
 >
     
-<app-checkbox-list 
-  v-model="data.thisweektask1" 
+<dropdown-list-mpicker 
+  v-model="data.thisweektask1"
   :data="data" 
   :context="context"
   :viewparams="viewparams" 
-  :disabled="detailsModel.thisweektask1.disabled" 
   :localContext ='{ }' 
   :localParam ='{ }' 
+  :disabled="detailsModel.thisweektask1.disabled"
   tag='AllTask' 
   codelistType='DYNAMIC' 
-  mode=""
-  name="thisweektask1" 
-  style="">
-</app-checkbox-list>
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
 
 </app-form-item>
 
@@ -133,20 +131,18 @@
     labelPos="LEFT"
 >
     
-<app-checkbox-list 
-  v-model="data.nextweektask" 
+<dropdown-list-mpicker 
+  v-model="data.nextweektask"
   :data="data" 
   :context="context"
   :viewparams="viewparams" 
-  :disabled="detailsModel.nextweektask.disabled" 
   :localContext ='{ }' 
   :localParam ='{ }' 
+  :disabled="detailsModel.nextweektask.disabled"
   tag='AllTask' 
   codelistType='DYNAMIC' 
-  mode=""
-  name="nextweektask" 
-  style="">
-</app-checkbox-list>
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
 
 </app-form-item>
 

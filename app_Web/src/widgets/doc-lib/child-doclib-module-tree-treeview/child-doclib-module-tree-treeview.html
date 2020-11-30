@@ -25,7 +25,7 @@
             </div>  
         </div>
     </div>
-    <div v-show="Object.is(mode, 'chart')" class="documents-library-chart" >
+    <div v-if="Object.is(mode, 'chart')" class="documents-library-chart" >
         <template v-for="(item,index) in curPageItems">
             <div :key="index" :class="['chart-item','chart-item-'+index]" @mouseleave="hideToolBar(index)" @mouseenter="showToolBar(item,index)">
                 <div
@@ -36,7 +36,7 @@
                 <div 
                     v-if="item.curData && (Object.is(item.curData.doclibtype,'file') || Object.is(item.curData.docqtype,'doc'))"> 
                     <Icon v-if="!item.curData.pathname" type="md-document" size="70" color="darkgrey" />
-                    <img v-else style="width: 70px;height: 70px;" :src="downloadUrl+'/'+item.curData.id"/>
+                    <img v-else style="width: 70px;height: 70px;" :src="downloadUrl+'/'+item.curData.id" onerror="this.src='/assets/img/noimage.png'"/>
                 </div>
                 <div class="text-description">
                     <a
@@ -65,7 +65,7 @@
             </div>
         </template>
     </div>
-    <div v-show="Object.is(mode, 'list')" class="documents-library-list">
+    <div v-if="Object.is(mode, 'list')" class="documents-library-list">
         <template v-for="(item,index) in curPageItems">
             <div :key="index" class="list-item">
                 <div>
@@ -92,6 +92,11 @@
                 </div>
             </div>
         </template>
+    </div>
+    <div class="documents-library-no-data" v-if="items.length == 0">
+        <span>
+            {{ $t('entities.doclib.childdoclibmoduletree_treeview.nodata') }}
+        </span>
     </div>
     <row class="pagination" v-show="items.length > 0">
         <page class="pull-right" @on-change="pageOnChange($event)" 
