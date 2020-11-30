@@ -4250,6 +4250,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd054969e8eb4b11e01d771b95045178c',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyMainMonthlyGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'c5aad5f12820569b3a1e8903d243aade',
+            ],
+        },
+        {
             viewtag: 'D1283E46-401A-4CFD-A7A1-BF5B90197463',
             viewmodule: 'Ungroup',
             viewname: 'TestPortalView',

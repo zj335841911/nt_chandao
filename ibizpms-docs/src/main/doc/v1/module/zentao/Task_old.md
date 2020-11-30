@@ -1287,6 +1287,7 @@ hide footbox
 |DefaultRow|DefaultRow([MYSQL5](../../appendix/query_MYSQL5.md#Task_DefaultRow))|否|&nbsp;|
 |MyCompleteTask|我完成的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTask))|否|&nbsp;|
 |MyFavorites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyFavorites))|否|&nbsp;|
+|MyTomorrowPlanTask|我计划参与的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyTomorrowPlanTask))|否|&nbsp;|
 |ProjectTask|项目任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_ProjectTask))|否|&nbsp;|
 |RootTask|根任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_RootTask))|否|&nbsp;|
 |TodoListTask|todo任务列表查询([MYSQL5](../../appendix/query_MYSQL5.md#Task_TodoListTask))|否|&nbsp;|
