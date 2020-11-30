@@ -188,6 +188,14 @@ public class IbzDaily extends EntityMP implements Serializable {
     @JSONField(name = "updatemanname")
     @JsonProperty("updatemanname")
     private String updatemanname;
+    /**
+     * 状态
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`reportstatus`")
+    @JSONField(name = "reportstatus")
+    @JsonProperty("reportstatus")
+    private String reportstatus;
 
 
 
@@ -287,6 +295,14 @@ public class IbzDaily extends EntityMP implements Serializable {
     public void setComment(String comment) {
         this.comment = comment;
         this.modify("comment", comment);
+    }
+
+    /**
+     * 设置 [状态]
+     */
+    public void setReportstatus(String reportstatus) {
+        this.reportstatus = reportstatus;
+        this.modify("reportstatus", reportstatus);
     }
 
 

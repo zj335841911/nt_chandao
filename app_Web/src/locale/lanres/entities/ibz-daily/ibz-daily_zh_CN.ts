@@ -19,6 +19,7 @@ export default {
     comment: "其他事项",
     createmanname: "建立人名称",
     updatemanname: "更新人名称",
+    reportstatus: "状态",
   },
 	views: {
 		dailyeditview: {

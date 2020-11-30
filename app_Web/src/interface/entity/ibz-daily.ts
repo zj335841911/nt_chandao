@@ -157,4 +157,12 @@ export interface IbzDaily {
      * @memberof IbzDaily
      */
     updatemanname?: any;
+
+    /**
+     * 状态
+     *
+     * @returns {*}
+     * @memberof IbzDaily
+     */
+    reportstatus?: any;
 }

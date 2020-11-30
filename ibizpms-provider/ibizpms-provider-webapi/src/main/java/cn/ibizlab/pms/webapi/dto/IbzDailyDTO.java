@@ -200,6 +200,15 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String updatemanname;
 
+    /**
+     * 属性 [REPORTSTATUS]
+     *
+     */
+    @JSONField(name = "reportstatus")
+    @JsonProperty("reportstatus")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String reportstatus;
+
 
     /**
      * 设置 [IBZ_DAILYNAME]
@@ -287,6 +296,14 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     public void setComment(String  comment){
         this.comment = comment ;
         this.modify("comment",comment);
+    }
+
+    /**
+     * 设置 [REPORTSTATUS]
+     */
+    public void setReportstatus(String  reportstatus){
+        this.reportstatus = reportstatus ;
+        this.modify("reportstatus",reportstatus);
     }
 
 

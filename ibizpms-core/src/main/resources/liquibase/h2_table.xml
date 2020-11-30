@@ -1067,7 +1067,7 @@
 
 
     <!--输出实体[IBZ_DAILY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_daily-136-35">
+    <changeSet author="zentao" id="tab-ibz_daily-138-35">
         <createTable tableName="T_IBZ_DAILY">
                 <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
                 </column>
@@ -1105,6 +1105,8 @@
                 <column name="CREATEMANNAME" remarks="" type="VARCHAR(60)">
                 </column>
                 <column name="UPDATEMANNAME" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="REPORTSTATUS" remarks="" type="VARCHAR(60)">
                 </column>
         </createTable>
     </changeSet>
@@ -1270,7 +1272,7 @@
 
 
     <!--输出实体[IBZ_WEEKLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_weekly-119-45">
+    <changeSet author="zentao" id="tab-ibz_weekly-120-45">
         <createTable tableName="T_IBZ_WEEKLY">
                 <column name="IBZ_WEEKLYNAME" remarks="" type="VARCHAR(200)">
                 </column>

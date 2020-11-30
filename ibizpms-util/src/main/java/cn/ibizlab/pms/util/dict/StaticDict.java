@@ -514,6 +514,26 @@ public class StaticDict {
     }
 
 
+    /**
+     * 代码表[汇报状态]
+     */
+    @Getter
+    public enum ReportStatus {
+        ITEM_0("0","未读"),
+        ITEM_1("1","已读");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ReportStatus(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
 
 
     /**

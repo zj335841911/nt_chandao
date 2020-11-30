@@ -10804,6 +10804,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"REPORTSTATUS" ,
+    "codename":"Reportstatus",
+    "field_logic_name":"状态",
+    "entity_name":"IbzDaily",
+    "field_type":"SSCODELIST",
+    "dict":"ReportStatus",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
