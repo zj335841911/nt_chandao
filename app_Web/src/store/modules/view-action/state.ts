@@ -3986,15 +3986,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'c5aad5f12820569b3a1e8903d243aade',
-            viewmodule: 'report',
-            viewname: 'IbzMonthlyNewMonthlyEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: 'c5b7fb7289325c348ca867eb86185986',
             viewmodule: 'zentao',
             viewname: 'CaseGridView9_MeCretae',
@@ -4256,7 +4247,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'c5aad5f12820569b3a1e8903d243aade',
             ],
         },
         {

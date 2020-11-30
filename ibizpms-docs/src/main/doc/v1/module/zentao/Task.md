@@ -7818,11 +7818,13 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 | 7 | [用户年度完成任务](#数据集合-用户年度完成任务（CurFinishTask）) | CurFinishTask | 否 |
 | 8 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 9 | [DefaultRow](#数据集合-DefaultRow（DefaultRow）) | DefaultRow | 否 |
-| 10 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 11 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
-| 12 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
-| 13 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
-| 14 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 10 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTask）) | MyCompleteTask | 否 |
+| 11 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 12 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
+| 13 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
+| 14 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
+| 15 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
+| 16 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
 
 ### 数据集合-指派给我任务（AssignedToMyTask）
 #### 说明
@@ -7950,6 +7952,20 @@ DefaultRow
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DefaultRow（DefaultRow）](#数据查询-DefaultRow（DefaultRow）) |
+### 数据集合-我完成的任务（汇报）（MyCompleteTask）
+#### 说明
+我完成的任务（汇报）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我完成的任务（汇报）（MyCompleteTask）](#数据查询-我完成的任务（汇报）（MyCompleteTask）) |
 ### 数据集合-我的收藏（MyFavorites）
 #### 说明
 我的收藏
@@ -7964,6 +7980,20 @@ DefaultRow
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我的收藏（MyFavorites）](#数据查询-我的收藏（MyFavorites）) |
+### 数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTask）
+#### 说明
+我计划参与的任务（汇报）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我计划参与的任务（汇报）（MyTomorrowPlanTask）](#数据查询-我计划参与的任务（汇报）（MyTomorrowPlanTask）) |
 ### 数据集合-项目任务（ProjectTask）
 #### 说明
 项目任务

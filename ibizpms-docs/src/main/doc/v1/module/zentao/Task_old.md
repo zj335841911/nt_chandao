@@ -1307,7 +1307,9 @@ hide footbox
 |CurFinishTask|用户年度完成任务|CurFinishTask|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DefaultRow|DefaultRow|DefaultRow|否|&nbsp;|
+|MyCompleteTask|我完成的任务（汇报）|MyCompleteTask|否|&nbsp;|
 |MyFavorites|我的收藏|MyFavorites|否|&nbsp;|
+|MyTomorrowPlanTask|我计划参与的任务（汇报）|MyTomorrowPlanTask|否|&nbsp;|
 |ProjectTask|项目任务|ProjectTask|否|&nbsp;|
 |RootTask|根任务|RootTask|否|&nbsp;|
 |TodoListTask|todo列表查询|TodoListTask|否|&nbsp;|
