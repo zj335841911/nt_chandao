@@ -102,6 +102,11 @@
                                 
                                 {{$t('entities.ibzweekly.main_grid.uiactions.ibzweekly_submit')}}
                             </a>
+                            <divider v-show="scope.row.edit.visible" type="vertical"></divider>
+                            <a v-show="scope.row.edit.visible" :disabled="scope.row.edit.disabled" @click="uiAction(scope.row, 'edit', $event)" :title="$t('entities.ibzweekly.main_grid.uiactions.ibzweekly_edit')">
+                                
+                                {{$t('entities.ibzweekly.main_grid.uiactions.ibzweekly_edit')}}
+                            </a>
                         </div>
                     </template>
                 </el-table-column>

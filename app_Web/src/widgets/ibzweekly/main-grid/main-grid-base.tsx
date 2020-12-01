@@ -94,6 +94,34 @@ export class MainGridBase extends GridControlBase {
         curUIService.IbzWeekly_submit(datas,contextJO, paramJO,  $event, xData,this,"IBZWEEKLY");
     }
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u1b66b37_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IBZWEEKLYUIService  = new IBZWEEKLYUIService();
+        curUIService.IbzWeekly_edit(datas,contextJO, paramJO,  $event, xData,this,"IBZWEEKLY");
+    }
+
 
     /**
      * 界面行为模型
@@ -102,7 +130,8 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        submit: { name: 'submit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
+        submit: { name: 'submit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        edit: { name: 'edit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -175,7 +204,7 @@ export class MainGridBase extends GridControlBase {
         },
         {
             name: 'uagridcolumn1',
-            label: '提交',
+            label: '提交修改',
             langtag: 'entities.ibzweekly.main_grid.columns.uagridcolumn1',
             show: true,
             unit: 'PX',
@@ -382,6 +411,9 @@ export class MainGridBase extends GridControlBase {
         if(Object.is('submit', tag)) {
             this.grid_uagridcolumn1_u16527fe_click(row, tag, $event);
         }
+        if(Object.is('edit', tag)) {
+            this.grid_uagridcolumn1_u1b66b37_click(row, tag, $event);
+        }
     }
 
     /**
@@ -484,6 +516,9 @@ export class MainGridBase extends GridControlBase {
                 submit:{
                     visible: false
                 },
+                edit:{
+                    visible: false
+                },
                 children: children
             }
             groupTree.push(tree);
@@ -513,6 +548,9 @@ export class MainGridBase extends GridControlBase {
             updateman:'',
             updatedate:'',
             submit:{
+                visible: false
+            },
+            edit:{
                 visible: false
             },
             children: child
@@ -580,6 +618,9 @@ export class MainGridBase extends GridControlBase {
                 updateman:'',
                 updatedate:'',
                 submit:{
+                    visible: false
+                },
+                edit:{
                     visible: false
                 },
                 children: children,

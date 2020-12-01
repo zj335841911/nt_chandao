@@ -107,10 +107,11 @@ export default {
 			ibz_weeklyname: "周报名称",
 			updateman: "更新人",
 			updatedate: "更新时间",
-			uagridcolumn1: "提交",
+			uagridcolumn1: "提交修改",
 		},
 		uiactions: {
 			ibzweekly_submit: "提交",
+			ibzweekly_edit: "修改",
 		},
 	},
 	default_searchform: {
@@ -121,6 +122,12 @@ export default {
 		},
 	},
 	usr2editviewtoolbar_toolbar: {
+	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
 	},
 	usr2gridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -150,12 +157,6 @@ export default {
 		deuiaction5: {
 			caption: "过滤",
 			tip: "过滤",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 	gridviewtoolbar_toolbar: {
