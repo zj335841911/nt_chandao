@@ -149,7 +149,9 @@ String
 | 序号 | 组合方式 |
 | ---- | ---- |
 | 1 | `=` |
-| 2 | `%like%` |
+| 2 | `in(...)` |
+| 3 | `%like%` |
+| 4 | `notin(...)` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -193,7 +195,8 @@ String
 | 序号 | 组合方式 |
 | ---- | ---- |
 | 1 | `=` |
-| 2 | `%like%` |
+| 2 | `in(...)` |
+| 3 | `%like%` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -237,7 +240,9 @@ String
 | 序号 | 组合方式 |
 | ---- | ---- |
 | 1 | `=` |
-| 2 | `%like%` |
+| 2 | `in(...)` |
+| 3 | `%like%` |
+| 4 | `notin(...)` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -565,11 +570,16 @@ Save
 | ---- | ---- | ---- |
 | 1 | [角色标识（SYS_ROLEID）](#属性-角色标识（SYS_ROLEID）) | `=` |
 | 2 | [角色名称（SYS_ROLENAME）](#属性-角色名称（SYS_ROLENAME）) | `=` |
-| 3 | [角色名称（SYS_ROLENAME）](#属性-角色名称（SYS_ROLENAME）) | `%like%` |
-| 4 | [用户标识（SYS_USERID）](#属性-用户标识（SYS_USERID）) | `=` |
-| 5 | [用户标识（SYS_USERID）](#属性-用户标识（SYS_USERID）) | `%like%` |
-| 6 | [用户名称（SYS_USERNAME）](#属性-用户名称（SYS_USERNAME）) | `=` |
-| 7 | [用户名称（SYS_USERNAME）](#属性-用户名称（SYS_USERNAME）) | `%like%` |
+| 3 | [角色名称（SYS_ROLENAME）](#属性-角色名称（SYS_ROLENAME）) | `in(...)` |
+| 4 | [角色名称（SYS_ROLENAME）](#属性-角色名称（SYS_ROLENAME）) | `%like%` |
+| 5 | [角色名称（SYS_ROLENAME）](#属性-角色名称（SYS_ROLENAME）) | `notin(...)` |
+| 6 | [用户标识（SYS_USERID）](#属性-用户标识（SYS_USERID）) | `=` |
+| 7 | [用户标识（SYS_USERID）](#属性-用户标识（SYS_USERID）) | `in(...)` |
+| 8 | [用户标识（SYS_USERID）](#属性-用户标识（SYS_USERID）) | `%like%` |
+| 9 | [用户名称（SYS_USERNAME）](#属性-用户名称（SYS_USERNAME）) | `=` |
+| 10 | [用户名称（SYS_USERNAME）](#属性-用户名称（SYS_USERNAME）) | `in(...)` |
+| 11 | [用户名称（SYS_USERNAME）](#属性-用户名称（SYS_USERNAME）) | `%like%` |
+| 12 | [用户名称（SYS_USERNAME）](#属性-用户名称（SYS_USERNAME）) | `notin(...)` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

@@ -716,6 +716,7 @@ SRFNAVPARAM.project=%project%|
 |-|我的地盘树导航视图（员工负载计）|DETREEEXPVIEW|&nbsp;|
 |-|需求数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|测试结果编辑视图|DEEDITVIEW9|&nbsp;|
+|-|汇报角色配置表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目产品列表视图|DELISTVIEW9|&nbsp;|
 |-|月报表格视图|DEGRIDVIEW|&nbsp;|
 |-|file编辑视图|DEEDITVIEW|&nbsp;|
@@ -814,6 +815,7 @@ SRFNAVPARAM.project=%project%|
 |-|平台选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|usercontact表格视图|DEGRIDVIEW|&nbsp;|
 |-|路线图|DELISTVIEW9|&nbsp;视图参数转换|
+|-|汇报角色配置编辑视图|DEEDITVIEW|&nbsp;|
 |-|系统更新日志分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|激活|DEOPTVIEW|&nbsp;|
 |-|系统更新日志表格视图|DEGRIDVIEW|&nbsp;|

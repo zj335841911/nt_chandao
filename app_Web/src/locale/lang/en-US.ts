@@ -1,6 +1,7 @@
 import enUSUser from '../user/en-US.user';
 import { Util } from '@/utils/util/util';
 import productplan_en_US from '@locale/lanres/entities/product-plan/product-plan_en_US';
+import ibzreportroleconfig_en_US from '@locale/lanres/entities/ibz-report-role-config/ibz-report-role-config_en_US';
 import projectproduct_en_US from '@locale/lanres/entities/project-product/project-product_en_US';
 import case_en_US from '@locale/lanres/entities/case/case_en_US';
 import sysuser_en_US from '@locale/lanres/entities/sys-user/sys-user_en_US';
@@ -240,6 +241,7 @@ const data: any = {
                 menuitem7: "iBiz软件生产管理",
                 menuitem8: "更新日志",
                 menuitem17: "插件管理",
+                menuitem19: "汇报角色管理",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
                 menuitem5: "项目",
@@ -353,6 +355,7 @@ const data: any = {
     },
     entities: {
         productplan: productplan_en_US,
+        ibzreportroleconfig: ibzreportroleconfig_en_US,
         projectproduct: projectproduct_en_US,
         case: case_en_US,
         sysuser: sysuser_en_US,

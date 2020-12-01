@@ -29,15 +29,25 @@ public class SysUserRoleSearchContext extends SearchContextBase {
 
 	private String n_sys_rolename_eq;//[角色名称]
 
+	private String n_sys_rolename_in;//[角色名称]
+
 	private String n_sys_rolename_like;//[角色名称]
 
+	private String n_sys_rolename_notin;//[角色名称]
+
 	private String n_sys_userid_eq;//[用户标识]
+
+	private String n_sys_userid_in;//[用户标识]
 
 	private String n_sys_userid_like;//[用户标识]
 
 	private String n_sys_username_eq;//[用户名称]
 
+	private String n_sys_username_in;//[用户名称]
+
 	private String n_sys_username_like;//[用户名称]
+
+	private String n_sys_username_notin;//[用户名称]
 
 }
 

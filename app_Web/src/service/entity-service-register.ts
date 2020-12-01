@@ -40,6 +40,7 @@ export class EntityServiceRegister {
      */
     protected init(): void {
                 this.allEntityService.set('productplan', () => import('@/service/product-plan/product-plan-service'));
+        this.allEntityService.set('ibzreportroleconfig', () => import('@/service/ibz-report-role-config/ibz-report-role-config-service'));
         this.allEntityService.set('projectproduct', () => import('@/service/project-product/project-product-service'));
         this.allEntityService.set('case', () => import('@/service/case/case-service'));
         this.allEntityService.set('sysuser', () => import('@/service/sys-user/sys-user-service'));

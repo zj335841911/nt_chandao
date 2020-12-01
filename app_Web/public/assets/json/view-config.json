@@ -4829,6 +4829,16 @@
         "viewtag": "d000027bf12084d69b1e064264d06962",
         "memo": ""
     },
+    "ibzreportroleconfiggridview": {
+        "title": "汇报角色配置表格视图",
+        "caption": "汇报角色配置",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzReportRoleConfigGridView",
+        "viewfilename": "ibz-report-role-config-grid-view",
+        "viewtag": "d03a65f09905f6286e89671dfcfaed4a",
+        "memo": ""
+    },
     "projectproductlistview9": {
         "title": "项目产品列表视图",
         "caption": "关联产品",
@@ -5808,6 +5818,16 @@
         "viewfilename": "product-life-road-map-slist-view9",
         "viewtag": "fae08b50e13943a0678a96d852e8808d",
         "memo": "视图参数转换"
+    },
+    "ibzreportroleconfigeditview": {
+        "title": "汇报角色配置编辑视图",
+        "caption": "汇报角色配置",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzReportRoleConfigEditView",
+        "viewfilename": "ibz-report-role-config-edit-view",
+        "viewtag": "fb99ca35f5d1bb1749788ffeacfa2ea3",
+        "memo": ""
     },
     "sysupdatelogtabexpview": {
         "title": "系统更新日志分页导航视图",

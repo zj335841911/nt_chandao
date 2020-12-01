@@ -5389,6 +5389,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        "srfkey": "AllRole",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysRole",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: "CodeList47",
         emptytext: "未定义",
         "codelisttype":"static",

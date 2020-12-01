@@ -8,6 +8,7 @@ import './upload/upload';
 
 // 实体级接口对象
 import './entity/product-plans/product-plans';
+import './entity/ibz-report-role-configs/ibz-report-role-configs';
 import './entity/project-products/project-products';
 import './entity/cases/cases';
 import './entity/sys-users/sys-users';

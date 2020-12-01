@@ -3871,6 +3871,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestResultEditView9",
             "viewtag": "d000027bf12084d69b1e064264d06962"
         },
+        "ibzreportroleconfiggridview": {
+            "title": "汇报角色配置表格视图",
+            "caption": "汇报角色配置",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzReportRoleConfigGridView",
+            "viewtag": "d03a65f09905f6286e89671dfcfaed4a"
+        },
         "projectproductlistview9": {
             "title": "项目产品列表视图",
             "caption": "关联产品",
@@ -4654,6 +4662,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProductLifeRoadMapSListView9",
             "viewtag": "fae08b50e13943a0678a96d852e8808d"
+        },
+        "ibzreportroleconfigeditview": {
+            "title": "汇报角色配置编辑视图",
+            "caption": "汇报角色配置",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzReportRoleConfigEditView",
+            "viewtag": "fb99ca35f5d1bb1749788ffeacfa2ea3"
         },
         "sysupdatelogtabexpview": {
             "title": "系统更新日志分页导航视图",

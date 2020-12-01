@@ -7839,6 +7839,35 @@ FROM `t_ibz_daily` t1
 
 ```
 
+# **汇报角色配置**(IBZ_REPORT_ROLE_CONFIG)
+
+### 数据查询(DEFAULT)<div id="IbzReportRoleConfig_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZ_REPORT_ROLE_CONFIGID`,
+t1.`IBZ_REPORT_ROLE_CONFIGNAME`,
+t1.`REPORT_ROLE`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_REPORT_ROLE_CONFIG` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzReportRoleConfig_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZ_REPORT_ROLE_CONFIGID`,
+t1.`IBZ_REPORT_ROLE_CONFIGNAME`,
+t1.`REPORT_ROLE`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_REPORT_ROLE_CONFIG` t1 
+
+```
+
 # **置顶**(IBZ_TOP)
 
 ### 数据查询(DEFAULT)<div id="IbzTop_Default"></div>

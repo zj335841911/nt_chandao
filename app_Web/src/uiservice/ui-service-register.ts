@@ -40,6 +40,7 @@ export class UIServiceRegister {
      */
     protected init(): void {
                 this.allUIService.set('productplan', () => import('@/uiservice/product-plan/product-plan-ui-service'));
+        this.allUIService.set('ibzreportroleconfig', () => import('@/uiservice/ibz-report-role-config/ibz-report-role-config-ui-service'));
         this.allUIService.set('projectproduct', () => import('@/uiservice/project-product/project-product-ui-service'));
         this.allUIService.set('case', () => import('@/uiservice/case/case-ui-service'));
         this.allUIService.set('sysuser', () => import('@/uiservice/sys-user/sys-user-ui-service'));

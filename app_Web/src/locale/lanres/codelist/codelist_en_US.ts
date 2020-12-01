@@ -755,6 +755,9 @@ export default {
     UserRealNameTask: {
         "empty": "",
     },
+    AllRole: {
+        "empty": "",
+    },
     CodeList47: {
         "1": "1号",
         "2": "2号",

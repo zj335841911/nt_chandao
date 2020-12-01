@@ -77,11 +77,16 @@ hide members
 | --------   |------------|
 |角色标识(SYS_ROLEID)|EQ|
 |角色名称(SYS_ROLENAME)|EQ|
+|角色名称(SYS_ROLENAME)|IN|
 |角色名称(SYS_ROLENAME)|LIKE|
+|角色名称(SYS_ROLENAME)|NOTIN|
 |用户标识(SYS_USERID)|EQ|
+|用户标识(SYS_USERID)|IN|
 |用户标识(SYS_USERID)|LIKE|
 |用户名称(SYS_USERNAME)|EQ|
+|用户名称(SYS_USERNAME)|IN|
 |用户名称(SYS_USERNAME)|LIKE|
+|用户名称(SYS_USERNAME)|NOTIN|
 
 ## 导入模式
 无

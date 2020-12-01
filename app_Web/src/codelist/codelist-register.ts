@@ -70,6 +70,7 @@ export class CodeListRegister {
         this.allCodeList.set('PlanCodeList', () => import('@/codelist/plan-code-list'));
         this.allCodeList.set('CurProductPlan', () => import('@/codelist/cur-product-plan'));
         this.allCodeList.set('UserRealNameTask', () => import('@/codelist/user-real-name-task'));
+        this.allCodeList.set('AllRole', () => import('@/codelist/all-role'));
         this.allCodeList.set('AllTask', () => import('@/codelist/all-task'));
         this.allCodeList.set('CurDocVersion', () => import('@/codelist/cur-doc-version'));
         this.allCodeList.set('AllTestTask', () => import('@/codelist/all-test-task'));

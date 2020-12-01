@@ -236,6 +236,8 @@
 
     * [汇报](module/report/IbzReport.md) 
 
+    * [汇报角色配置](module/report/IbzReportRoleConfig.md) 
+
     * [周报](module/report/IbzWeekly.md) 
 
   * [iBiz系统模型](module/ibizsysmodel.md) 
@@ -369,6 +371,7 @@
       * [Pro模块](app/Web/func/IBZProStoryModuleGridView.md)
       * [用例库](app/Web/func/IbzLibGridView.md)
       * [iBiz软件生产管理](app/Web/func/ProductHtmlView.md)
+      * [汇报填写角色](app/Web/func/IbzReportRoleConfigGridView.md)
       * [bug主数据视图（链接）](app/Web/func/Bugmaindashboardview_link.md)
       * [项目边栏](app/Web/func/ProjectLeftSidebarListView.md)
       * [打开测试主页](app/Web/func/TestPortalView.md)

@@ -607,6 +607,7 @@ export const viewstate: any = {
             refviews: [
                 '2d522dfacc8d37f56c2d684791a39d5d',
                 '7af111f4c127f7032c3e12e8c5fc0045',
+                'd03a65f09905f6286e89671dfcfaed4a',
                 'cfc7781789f7706e02b2d2504339de69',
                 '0bd16cd21ee2e8951fb8a86599ac1510',
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
@@ -4375,6 +4376,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd03a65f09905f6286e89671dfcfaed4a',
+            viewmodule: 'report',
+            viewname: 'IbzReportRoleConfigGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'fb99ca35f5d1bb1749788ffeacfa2ea3',
+            ],
+        },
+        {
             viewtag: 'd054969e8eb4b11e01d771b95045178c',
             viewmodule: 'report',
             viewname: 'IbzMonthlyMainMonthlyGridView',
@@ -5235,6 +5246,15 @@ export const viewstate: any = {
             viewtag: 'fae08b50e13943a0678a96d852e8808d',
             viewmodule: 'ibiz',
             viewname: 'ProductLifeRoadMapSListView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'fb99ca35f5d1bb1749788ffeacfa2ea3',
+            viewmodule: 'report',
+            viewname: 'IbzReportRoleConfigEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

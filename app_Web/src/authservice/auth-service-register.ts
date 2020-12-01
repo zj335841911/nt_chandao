@@ -40,6 +40,7 @@ export class AuthServiceRegister {
      */
     protected init(): void {
                 this.allAuthService.set('productplan', () => import('@/authservice/product-plan/product-plan-auth-service'));
+        this.allAuthService.set('ibzreportroleconfig', () => import('@/authservice/ibz-report-role-config/ibz-report-role-config-auth-service'));
         this.allAuthService.set('projectproduct', () => import('@/authservice/project-product/project-product-auth-service'));
         this.allAuthService.set('case', () => import('@/authservice/case/case-auth-service'));
         this.allAuthService.set('sysuser', () => import('@/authservice/sys-user/sys-user-auth-service'));
