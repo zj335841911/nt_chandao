@@ -86,7 +86,7 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof WeeklyMsgEditFormBase
      */
-    protected drCount: number = 3;
+    protected drCount: number = 4;
     /**
      * 表单数据对象
      *
@@ -163,6 +163,8 @@ export class WeeklyMsgEditFormBase extends EditFormControlBase {
         druipart3: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel3: new FormGroupPanelModel({ caption: '完成的任务', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzweekly.weeklymsg_form', extractMode: 'ITEM', details: [] } }),
+
+        druipart4: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart4', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel4: new FormGroupPanelModel({ caption: '下周计划任务', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.ibzweekly.weeklymsg_form', extractMode: 'ITEM', details: [] } }),
 

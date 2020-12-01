@@ -9288,6 +9288,74 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-lib-tab-exp-view/ibz-lib-tab-exp-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.task.views.gridview9.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-grid-view9/task-grid-view9.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.task.views.gridview9.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-grid-view9/task-grid-view9.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.task.views.gridview9.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-grid-view9/task-grid-view9.vue'),
+                },
+                {
+                    path: 'tasks/:task?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.task.views.gridview9.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-grid-view9/task-grid-view9.vue'),
+                },
+                {
                     path: 'todos/:todo?/baseeditview9/:baseeditview9?',
                     meta: {
                         caption: 'entities.todo.views.baseeditview9.caption',

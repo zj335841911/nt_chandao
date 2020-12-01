@@ -1508,6 +1508,8 @@ export default {
 			tip: "Filter",
 		},
 	},
+	gridview9toolbar_toolbar: {
+	},
 	myfavoritegridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
@@ -1529,8 +1531,6 @@ export default {
 			caption: "Filter",
 			tip: "Filter",
 		},
-	},
-	gridview9toolbar_toolbar: {
 	},
 	gridviewtoolbar_toolbar: {
 		deuiaction3_create: {

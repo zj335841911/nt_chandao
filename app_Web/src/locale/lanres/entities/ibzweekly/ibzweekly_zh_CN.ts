@@ -48,6 +48,7 @@ export default {
 			group1: "周报基本信息", 
 			druipart3: "", 
 			grouppanel3: "完成的任务", 
+			druipart4: "", 
 			grouppanel4: "下周计划任务", 
 			formpage1: "基本信息", 
 			srfupdatedate: "更新时间", 

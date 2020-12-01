@@ -237,6 +237,7 @@ export const PageComponents = {
         Vue.component('case-step-main-grid-view9-edit-mode', () => import('@pages/zentao/case-step-main-grid-view9-edit-mode/case-step-main-grid-view9-edit-mode.vue'));
         Vue.component('case-cur-test-task-grid-view', () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'));
         Vue.component('ibz-lib-tab-exp-view', () => import('@pages/ibiz/ibz-lib-tab-exp-view/ibz-lib-tab-exp-view.vue'));
+        Vue.component('task-grid-view9', () => import('@pages/zentao/task-grid-view9/task-grid-view9.vue'));
         Vue.component('todo-base-edit-view9', () => import('@pages/zentao/todo-base-edit-view9/todo-base-edit-view9.vue'));
         Vue.component('story-main-view9', () => import('@pages/zentao/story-main-view9/story-main-view9.vue'));
         Vue.component('product-dashboard-info-main-view9', () => import('@pages/zentao/product-dashboard-info-main-view9/product-dashboard-info-main-view9.vue'));
