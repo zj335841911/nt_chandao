@@ -69,7 +69,21 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <input-box v-model="data.workthisweek"  :disabled="detailsModel.workthisweek.disabled" type='textarea' style="" ></input-box>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.workthisweek"
+    @change="(val) =>{this.data.workthisweek =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.workthisweek.disabled"
+    :data="JSON.stringify(this.data)"
+    name="workthisweek"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{}'
+    :exportparams='{}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
@@ -135,7 +149,21 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <input-box v-model="data.plannextweek"  :disabled="detailsModel.plannextweek.disabled" type='textarea' style="" ></input-box>
+    <app-rich-text-editor
+    :formState="formState"
+    :value="data.plannextweek"
+    @change="(val) =>{this.data.plannextweek =val}"
+    @formitemvaluechange="onFormItemValueChange($event)"
+    :disabled="detailsModel.plannextweek.disabled"
+    :data="JSON.stringify(this.data)"
+    name="plannextweek"
+    :context="context"
+    :viewparams="viewparams"
+    :uploadparams='{}'
+    :exportparams='{}'
+    
+    style=""
+></app-rich-text-editor>
 
 </app-form-item>
 
