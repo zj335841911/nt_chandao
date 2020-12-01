@@ -35,29 +35,6 @@ export default {
 			caption: '日报',
 		},
 	},
-	mobmain_form: {
-		details: {
-			group1: '日报基本信息', 
-			group2: '操作信息', 
-			formpage1: '基本信息', 
-			srfupdatedate: '更新时间', 
-			srforikey: '', 
-			srfkey: '日报标识', 
-			srfmajortext: '日报名称', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			ibz_dailyname: '日报名称', 
-			createman: '建立人', 
-			createdate: '建立时间', 
-			updateman: '更新人', 
-			updatedate: '更新时间', 
-			ibz_dailyid: '日报标识', 
-		},
-		uiactions: {
-		},
-	},
 	mobdailyedit_form: {
 		details: {
 			group1: '日报基本信息', 
@@ -87,10 +64,27 @@ export default {
 		uiactions: {
 		},
 	},
-	mobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: 'Save And Close',
-			tip: 'tbitem1',
+	mobmain_form: {
+		details: {
+			group1: '日报基本信息', 
+			group2: '操作信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '更新时间', 
+			srforikey: '', 
+			srfkey: '日报标识', 
+			srfmajortext: '日报名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			ibz_dailyname: '日报名称', 
+			createman: '建立人', 
+			createdate: '建立时间', 
+			updateman: '更新人', 
+			updatedate: '更新时间', 
+			ibz_dailyid: '日报标识', 
+		},
+		uiactions: {
 		},
 	},
 	dailymobeditviewtoolbar_toolbar: {
@@ -109,6 +103,12 @@ export default {
 		tbitem7: {
 			caption: 'Remove And Close',
 			tip: 'tbitem7',
+		},
+	},
+	mobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
 		},
 	},
 	dailymobmdviewrighttoolbar_toolbar: {

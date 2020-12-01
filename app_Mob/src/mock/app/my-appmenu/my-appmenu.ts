@@ -13,10 +13,10 @@ mock.onGet('v7/myappmenu').reply((config: any) => {
             {
 	id: '7F346864-D529-43AF-9112-3540450CCAA3',
 	name: 'menuitem6',
-	text: '我的代办',
+	text: '我的待办',
 	type: 'MENUITEM',
 	counterid: '',
-	tooltip: '我的代办',
+	tooltip: '我的待办',
 	expanded: false,
 	separator: false,
 	hidden: false,

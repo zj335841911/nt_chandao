@@ -16,7 +16,7 @@
 
 | 菜单项      |  功能  |
 | --------   |   ----  |
-|日报|[查看功能](func/IbzDailyMobEditView.md)|
+|日报|[查看功能](func/IbzDailyDailyMobEditView.md)|
 |周报|-|
 |月报|-|
 

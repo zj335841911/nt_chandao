@@ -1971,6 +1971,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/action-mob-map-view/action-mob-map-view.vue'),
                 },
                 {
+                    path: 'ibzdailies/:ibzdaily?/dailymobeditview',
+                    name: 'ibzdaily_dailymobeditview',
+                    meta: {
+                        caption: 'ibzdaily.views.dailymobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'dailymobeditview', parameterName: 'dailymobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-daily-mob-edit-view/ibz-daily-daily-mob-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/rmoboptionview',
                     name: 'bug_rmoboptionview',
                     meta: {
@@ -6713,20 +6727,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-usr2-mob-mpickup-view/bug-usr2-mob-mpickup-view.vue'),
-                },
-                {
-                    path: 'ibzdailies/:ibzdaily?/mobeditview',
-                    name: 'ibzdaily_mobeditview',
-                    meta: {
-                        caption: 'ibzdaily.views.mobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
-                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/report/ibz-daily-mob-edit-view/ibz-daily-mob-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/usr2mobpickupmdbuildview',

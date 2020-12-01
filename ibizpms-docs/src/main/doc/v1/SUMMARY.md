@@ -327,7 +327,7 @@
       * [更新日志](app/Mob/func/SysUpdateLogMobMDView.md)
       * [仪表盘](app/Mob/func/IbzMyTerritoryMobDashboardView.md)
       * [我的待办](app/Mob/func/TodoMobMDView.md)
-      * [日报](app/Mob/func/IbzDailyMobEditView.md)
+      * [日报](app/Mob/func/IbzDailyDailyMobEditView.md)
       * [打开看板](app/Mob/func/AppPortalView.md)
       * [个人中心](app/Mob/func/UserUserCenterMobEditView.md)
       * [用户选择](app/Mob/func/UserMobPickupView.md)

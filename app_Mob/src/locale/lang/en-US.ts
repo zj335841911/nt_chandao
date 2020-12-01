@@ -122,7 +122,7 @@ export default {
                 menuitem9: '登录地图test',
             },
             my: {
-                menuitem6: '我的代办',
+                menuitem6: '我的待办',
                 menuitem5: '仪表盘',
                 menuitem15: '我的工作',
             },
