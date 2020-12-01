@@ -1100,7 +1100,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
     public boolean jugAssignToIsChanged(Task old,Task et){
         boolean flag = false;
-        if ((et.getStatus().equals(StaticDict.Task__status.WAIT.getValue()) || et.getStatus().equals(StaticDict.Task__status.DOING.getValue())) && !old.getAssignedto().equals(et.getAssignedto())){
+        if ((StaticDict.Task__status.WAIT.getValue().equals(et.getStatus()) || StaticDict.Task__status.DOING.getValue().equals(et.getStatus())) && ((old.getAssignedto() == null) || !old.getAssignedto().equals(et.getAssignedto()))){
             flag = true;
         }
         return flag;
