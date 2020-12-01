@@ -5062,6 +5062,17 @@
                 
                 "disabled": false
             }
+            , {
+                "id": "remind",
+                "label": "提醒",
+                "text": "提醒",
+                "default": false,
+                "data": "",
+                "value": "remind",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
         ]
     }, 
     {
