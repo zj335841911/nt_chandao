@@ -69,6 +69,4 @@ export default {
 			caption: '我的地盘',
 		},
 	},
-	reportmobtabexpviewrighttoolbar_toolbar: {
-	},
 };

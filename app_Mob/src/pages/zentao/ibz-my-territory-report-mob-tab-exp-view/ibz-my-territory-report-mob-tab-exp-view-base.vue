@@ -248,7 +248,6 @@ export default class IbzMyTerritoryReportMobTabExpViewBase extends Vue {
      * @memberof IbzMyTerritoryReportMobTabExpViewBase
      */
     protected containerModel: any = {
-        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
         view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
     };
 
@@ -270,26 +269,13 @@ export default class IbzMyTerritoryReportMobTabExpViewBase extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
-   /**
-    * 工具栏 IbzMyTerritoryReportMobTabExpView 模型
-    *
-    * @type {*}
-    * @memberof IbzMyTerritoryReportMobTabExpView
-    */
-    public righttoolbarModels: any = {
-    };
-
-    
-
-
-
 
     /**
      * 工具栏模型集合名
      *
      * @memberof IbzMyTerritoryReportMobTabExpViewBase
      */
-    public toolbarModelList:any = ['righttoolbarModels',]
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数
