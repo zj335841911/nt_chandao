@@ -18,5 +18,5 @@
 | --------   |   ----  |
 |日报|-|
 |周报|-|
-|月报|-|
+|月报|[查看功能](func/IbzMonthlyMySubmitMobMDView.md)|
 

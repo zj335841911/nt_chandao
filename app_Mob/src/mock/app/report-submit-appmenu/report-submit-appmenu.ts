@@ -61,7 +61,7 @@ mock.onGet('v7/report-submitappmenu').reply((config: any) => {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: 'MySubmitMonthly',
 	resourcetag: '',
 },
         ],

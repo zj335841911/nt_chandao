@@ -22,6 +22,9 @@ export default {
     createmanname: "建立人名称",
   },
 	views: {
+		mysubmitmobmdview: {
+			caption: '月报',
+		},
 		myreceivedmobmdview: {
 			caption: '月报',
 		},

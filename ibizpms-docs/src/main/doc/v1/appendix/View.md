@@ -85,6 +85,7 @@
 |-|待办事宜表移动端列表视图|DEMOBLISTVIEW|&nbsp;|
 |-|发布移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|我的收藏|DEMOBTABEXPVIEW|&nbsp;|
+|-|月报移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|日报移动端编辑视图（编辑）|DEMOBEDITVIEW|&nbsp;|
 |-|产品移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|

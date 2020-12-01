@@ -7494,6 +7494,31 @@ WHERE t1.issubmit = '1'
 ```
 ### 我提交的月报(MySubmitMonthly)<div id="IbzMonthly_MySubmitMonthly"></div>
 ```sql
+SELECT
+	t1.`ACCOUNT`,
+	t1.`CREATEDATE`,
+	t1.`CREATEMAN`,
+	t1.`CREATEMANNAME`,
+	t1.`DATE`,
+	t1.`IBZ_MONTHLYID`,
+	t1.`IBZ_MONTHLYNAME`,
+	t1.`ISSUBMIT`,
+	t1.`MAILTO`,
+	( CASE WHEN t11.id IS NOT NULL THEN '1' ELSE '0' END ) AS `REPORTSTATUS`,
+	t1.`REPORTTO`,
+	t1.`THISMONTHTASK`,
+	t1.`NEXTMONTHPLANSTASK`,
+	t1.`UPDATEDATE`,
+	t1.`UPDATEMAN`,
+	t1.`UPDATEMANNAME` 
+FROM
+	`t_ibz_monthly` t1
+	LEFT JOIN zt_action t11 ON t11.objectID = t1.IBZ_MONTHLYID 
+	AND t11.objectType = 'monthly' 
+	AND t11.action = 'read' 
+	AND t11.actor = #{srf.sessioncontext.srfloginname}
+WHERE t1.issubmit = '1' 
+t1.account = #{srf.sessioncontext.srfloginname} 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzMonthly_View"></div>

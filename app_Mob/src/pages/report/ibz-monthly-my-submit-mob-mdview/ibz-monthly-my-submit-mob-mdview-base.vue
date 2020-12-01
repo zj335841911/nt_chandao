@@ -1,5 +1,5 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'ibz-monthly-my-received-mob-mdview': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'ibz-monthly-my-submit-mob-mdview': true }">
     
     <ion-header>
         <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="false"></app-search-history>
@@ -10,7 +10,7 @@
     <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="IbzMonthlyMyReceivedMobMDView"  
+            viewName="IbzMonthlyMySubmitMobMDView"  
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"
@@ -20,7 +20,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchMyReceivedMonthly" 
+            fetchAction="FetchMySubmitMonthly" 
             :isMutli="!isSingleSelect"
             :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
@@ -56,13 +56,13 @@ import { AnimationService } from '@ibiz-core/service/animation-service'
     components: {
     },
 })
-export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
+export default class IbzMonthlyMySubmitMobMDViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -70,7 +70,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 实体服务对象
      *
      * @type {IbzMonthlyService}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected appEntityService: IbzMonthlyService = new IbzMonthlyService();
 
@@ -78,7 +78,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 实体UI服务对象
      *
      * @type IbzMonthlyUIService
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public appUIService: IbzMonthlyUIService = new IbzMonthlyUIService(this.$store);
 
@@ -87,7 +87,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -98,7 +98,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     @Prop() protected _context!: string;
 
@@ -106,7 +106,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -114,7 +114,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -122,15 +122,15 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof IbzMonthlyMyReceivedMobMDViewBase
+	 * @memberof IbzMonthlyMySubmitMobMDViewBase
 	 */
-	protected viewtag: string = 'bb00037ee518e24c062310bc79031627';
+	protected viewtag: string = '5fe25d42c90a7c54a91c4b284851f70e';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected context: any = {};
 
@@ -138,7 +138,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected viewparams: any = {};
 
@@ -146,7 +146,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
@@ -154,14 +154,14 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 是否为门户嵌入视图
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public titleStatus :boolean = true;
 
@@ -170,7 +170,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected navContext: any = {};
 
@@ -179,7 +179,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected navParam: any = {};
 
@@ -187,14 +187,14 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected model: any = {
         srfTitle: '月报移动端多数据视图',
-        srfCaption: 'ibzmonthly.views.myreceivedmobmdview.caption',
+        srfCaption: 'ibzmonthly.views.mysubmitmobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'ibzmonthly.myreceivedmobmdview',
+        viewname:'ibzmonthly.mysubmitmobmdview',
         iconcls: '',
         icon: ''
     }
@@ -204,7 +204,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof  IbzMonthlyMySubmitMobMDViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -232,7 +232,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -245,7 +245,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected containerModel: any = {
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
@@ -255,7 +255,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -264,7 +264,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
@@ -272,14 +272,14 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public toolbarModelList:any = []
 
     /**
      * 解析视图参数
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -292,7 +292,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -306,14 +306,14 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected engine: MobMDViewEngine = new MobMDViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected engineInit(): void {
         this.engine.init({
@@ -334,7 +334,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected created() {
         this.afterCreated();
@@ -343,7 +343,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -359,7 +359,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -368,7 +368,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public activated() {
         this.thirdPartyInit();
@@ -379,7 +379,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -389,7 +389,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -404,7 +404,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * 第三方容器初始化
      * 
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -416,7 +416,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -425,7 +425,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -443,7 +443,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected mdctrl_selectionchange($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'selectionchange', $event);
@@ -454,7 +454,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected mdctrl_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'beforeload', $event);
@@ -465,7 +465,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected mdctrl_rowclick($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'rowclick', $event);
@@ -476,7 +476,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected mdctrl_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
@@ -494,7 +494,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * @param {*} [container]
      * @param {string} [srfParentDeName]
      * @returns {Promise<any>}
-     * @memberof IbzMonthlyMyReceivedMobMDView
+     * @memberof IbzMonthlyMySubmitMobMDView
      */
     public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         //this.$notice.warning('未指定关系视图');
@@ -512,7 +512,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * @param {*} [container]
      * @param {string} [srfParentDeName]
      * @returns {Promise<any>}
-     * @memberof IbzMonthlyMyReceivedMobMDView
+     * @memberof IbzMonthlyMySubmitMobMDView
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         //this.$notice.warning('未指定关系视图');
@@ -523,7 +523,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -547,7 +547,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.$store.state.searchformStatus){
@@ -577,7 +577,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -589,7 +589,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -611,7 +611,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * @param {*} val
      * @param {boolean} isCreate
      * @returns
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
@@ -620,7 +620,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * onScroll滚动事件
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public async onScroll(e:any){
         this.isScrollStop = false;
@@ -650,7 +650,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * onScroll滚动结束事件
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public onScrollEnd(){
         this.isScrollStop = true;
@@ -659,7 +659,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * 返回顶部
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public onScrollToTop() {
         let ionScroll:any = this.$refs.ionScroll;
@@ -671,14 +671,14 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * 是否应该显示返回顶部按钮
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public isShouleBackTop = false;
 
     /**
      * 当前滚动条是否是停止状态
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public isScrollStop = true;
 
@@ -687,7 +687,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 搜索值
      *
      * @type {string}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public query: string = '';
 
@@ -696,7 +696,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      *
      * @param {*} event
      * @returns
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public async quickValueChange(event: any) {
         let { detail } = event;
@@ -716,7 +716,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
 
@@ -724,7 +724,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 能否上拉加载
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */ 
     @Prop({ default: true }) public isEnablePullUp?: boolean;
 
@@ -734,7 +734,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 分类值
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public categoryValue :any = {};
 
@@ -742,14 +742,14 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 排序值
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public sortValue :any = {};
 
     /**
      * 刷新视图
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public onRefreshView() {
         let mdctrl: any = this.$refs.mdctrl;
@@ -761,10 +761,10 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * 打开搜索表单
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public openSearchform() {
-      let search :any = this.$refs.searchformibzmonthlymyreceivedmobmdview;
+      let search :any = this.$refs.searchformibzmonthlymysubmitmobmdview;
       if(search){
           search.open();
       }
@@ -773,10 +773,10 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * 关闭搜索表单
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public closeSearchform(){
-      let search :any = this.$refs.searchformibzmonthlymyreceivedmobmdview;
+      let search :any = this.$refs.searchformibzmonthlymysubmitmobmdview;
       if(search){
           search.close();
       }
@@ -785,7 +785,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * 多选状态改变事件
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public isChooseChange(value:any){
         this.isChoose = value;
@@ -794,13 +794,13 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
     /**
      * 多选状态
      *
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public isChoose = false;
 
     /**
      * 取消选择状态
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public cancelSelect() {
         this.isChooseChange(false);
@@ -808,7 +808,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
 
     /**
      * 视图加载（排序|分类）
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public onViewLoad() {
         let value = Object.assign(this.categoryValue,this.sortValue);
@@ -819,7 +819,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof IbzMonthlyMyReceivedMobMDViewBase
+     * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
     public onCategory(value:any){
         Object.assign(this.categoryValue,value);
@@ -832,5 +832,5 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './ibz-monthly-my-received-mob-mdview.less';
+@import './ibz-monthly-my-submit-mob-mdview.less';
 </style>

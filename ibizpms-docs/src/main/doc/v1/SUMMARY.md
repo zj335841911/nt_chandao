@@ -324,6 +324,7 @@
       * [产品](app/Mob/func/ProductMobMDView.md)
       * [我的工作](app/Mob/func/IbzMyTerritoryMobCalendarView.md)
       * [产品总览](app/Mob/func/ProductMobChartView.md)
+      * [月报（我提交的）](app/Mob/func/IbzMonthlyMySubmitMobMDView.md)
       * [更新日志](app/Mob/func/SysUpdateLogMobMDView.md)
       * [仪表盘](app/Mob/func/IbzMyTerritoryMobDashboardView.md)
       * [我的待办](app/Mob/func/TodoMobMDView.md)

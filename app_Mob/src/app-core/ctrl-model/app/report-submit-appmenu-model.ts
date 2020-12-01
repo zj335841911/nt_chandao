@@ -67,7 +67,7 @@ export class ReportSubmitModel {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: 'MySubmitMonthly',
 	resourcetag: '',
 	authtag:'Mob-reportSubmit-menuitem3',
 },

@@ -895,6 +895,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5fe25d42c90a7c54a91c4b284851f70e',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyMySubmitMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '61673d1a86a046c9ff672f16ab4b7ce7',
             viewmodule: 'ibiz',
             viewname: 'TaskFavoriteMoreMobMDView',
@@ -1896,6 +1905,7 @@ export const viewstate: any = {
                 '5653288057279c196b979f0f43fc520a',
                 'bb00037ee518e24c062310bc79031627',
                 '899ab4d4cfc33b089a9c4aa5118acbf3',
+                '5fe25d42c90a7c54a91c4b284851f70e',
                 '70d570ae5cafd7af092084e6d0e6b2f7',
                 '053879e9b47bc845598b68abbdbb2e0a',
                 '61b07d6ba0ff1c6a96f09f0fcbb4cda7',

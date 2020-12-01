@@ -241,4 +241,19 @@ export class IbzMonthlyServiceBase extends EntityService {
         let res:any = Http.getInstance().get(`/ibzmonthlies/fetchmyreceivedmonthly`,tempData,isloading);
         return res;
     }
+
+    /**
+     * FetchMySubmitMonthly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async FetchMySubmitMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzmonthlies/fetchmysubmitmonthly`,tempData,isloading);
+        return res;
+    }
 }

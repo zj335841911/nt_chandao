@@ -1808,6 +1808,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-module-mob-pickup-view/product-module-mob-pickup-view.vue'),
                 },
                 {
+                    path: 'ibzmonthlies/:ibzmonthly?/mysubmitmobmdview',
+                    name: 'ibzmonthly_mysubmitmobmdview',
+                    meta: {
+                        caption: 'ibzmonthly.views.mysubmitmobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'mysubmitmobmdview', parameterName: 'mysubmitmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-my-submit-mob-mdview/ibz-monthly-my-submit-mob-mdview.vue'),
+                },
+                {
                     path: 'products/:product?/mobpickupmdview',
                     name: 'product_mobpickupmdview',
                     meta: {
