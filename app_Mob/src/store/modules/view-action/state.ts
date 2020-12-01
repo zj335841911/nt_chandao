@@ -1887,6 +1887,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd5dfb8e49ac109dec6ea502b80cb4419',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyCreateMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'd739ee414172cbfdc3d6e2d2e01e3676',
             viewmodule: 'ibiz',
             viewname: 'TaskMobOptionView',
