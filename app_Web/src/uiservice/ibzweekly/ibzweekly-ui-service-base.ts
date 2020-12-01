@@ -208,8 +208,8 @@ export default class IBZWEEKLYUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{IBZDAILY:"0"});
-        Object.assign(params,{ibzdaily:"0"});
+        Object.assign(context,{IBZWEEKLY:"0"});
+        Object.assign(params,{ibzweekly:"0"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         if(_this.context){
