@@ -107,8 +107,6 @@ export default {
 			group1: '日报基本信息', 
 			druipart1: '', 
 			grouppanel1: '附件', 
-			druipart2: '', 
-			grouppanel2: '操作历史', 
 			formpage1: '基本信息', 
 			srfupdatedate: '更新时间', 
 			srforikey: '', 
@@ -161,11 +159,11 @@ export default {
 	},
 	dailyreportsubmitmobmdviewrighttoolbar_toolbar: {
 	},
-	dailyplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
-	},
 	dailyinfomobeditviewrighttoolbar_toolbar: {
 	},
 	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
+	},
+	dailyplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
 	},
 	dailymobtabexpviewrighttoolbar_toolbar: {
 	},

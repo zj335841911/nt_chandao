@@ -1041,7 +1041,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'cb96d02b067621654223b228ad3960ef',
                 'b52bf86837838dcfd5b787fad0350f22',
             ],
         },
@@ -1769,6 +1768,15 @@ export const viewstate: any = {
             viewtag: 'bbd1f1ee06963455848eadd5a6f530e4',
             viewmodule: 'zentao',
             viewname: 'BugUsr3MobPickupBuildResolvedMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'c18e8afb20aa65bc1b26322170cfd189',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyMobMDView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

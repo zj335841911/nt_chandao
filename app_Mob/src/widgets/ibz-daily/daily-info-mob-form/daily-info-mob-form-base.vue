@@ -243,50 +243,6 @@
 
 
 
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel2.visible" 
-    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
-    :caption="$t('ibzdaily.dailyinfomob_form.details.grouppanel2')" 
-    :isShowCaption="false" 
-    :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
-    :data="transformData(data)"
-    :uiService="deUIService"
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-druipart
-    class='' 
-    parameterName='ibzdaily' 
-    refviewtype='DEMOBMDVIEW9'  
-    refreshitems='' 
-    viewname='action-allmob-mdview9' 
-    v-show="detailsModel.druipart2.visible" 
-    :caption="$t('ibzdaily.dailyinfomob_form.details.druipart2')"  
-    paramItem='ibzdaily' 
-    style="" 
-    :formState="formState" 
-    :parentdata='{"srfparentdename":"IBZ_DAILY","SRFPARENTTYPE":"CUSTOM"}' 
-    :parameters="[
-    ]" 
-    tempMode='0'
-    :context="context" 
-    :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)"  
-    @drdatasaved="drdatasaved($event)"/>
-
-
-    
-</app-form-group>
-
-
-
 
     </div>
 </template>
@@ -762,10 +718,6 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
 , 
         grouppanel1: new FormGroupPanelModel({ caption: '附件', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'ibzdaily.dailyinfomob_form', extractMode: 'ITEM', details: [] } })
 , 
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
-, 
-        grouppanel2: new FormGroupPanelModel({ caption: '操作历史', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzdaily.dailyinfomob_form', extractMode: 'ITEM', details: [] } })
-, 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
         srfupdatedate: new FormItemModel({ caption: '更新时间', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1072,8 +1024,6 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
-
 
 
 
@@ -1606,7 +1556,7 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 2;
+            this.drcounter = 1;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();

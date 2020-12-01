@@ -22,6 +22,9 @@ export default {
     reportstatus: "状态",
   },
 	views: {
+		mobmdview: {
+			caption: '周报',
+		},
 		mobeditview: {
 			caption: '周报',
 		},
@@ -56,5 +59,7 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+	},
+	mobmdviewrighttoolbar_toolbar: {
 	},
 };
