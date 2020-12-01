@@ -675,11 +675,11 @@ public class SubTaskResource {
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTaskZS-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTask-all')")
 	@ApiOperation(value = "获取下周计划完成任务(汇报)", tags = {"任务" } ,notes = "获取下周计划完成任务(汇报)")
-    @RequestMapping(method= RequestMethod.GET , value="/subtasks/fetchnextweekplancompletetaskzs")
-	public ResponseEntity<List<SubTaskDTO>> fetchNextWeekPlanCompleteTaskZS(TaskSearchContext context) {
-        Page<Task> domains = taskService.searchNextWeekPlanCompleteTaskZS(context) ;
+    @RequestMapping(method= RequestMethod.GET , value="/subtasks/fetchnextweekplancompletetask")
+	public ResponseEntity<List<SubTaskDTO>> fetchNextWeekPlanCompleteTask(TaskSearchContext context) {
+        Page<Task> domains = taskService.searchNextWeekPlanCompleteTask(context) ;
         List<SubTaskDTO> list = subtaskMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
@@ -688,11 +688,11 @@ public class SubTaskResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTaskZS-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTask-all')")
 	@ApiOperation(value = "查询下周计划完成任务(汇报)", tags = {"任务" } ,notes = "查询下周计划完成任务(汇报)")
-    @RequestMapping(method= RequestMethod.POST , value="/subtasks/searchnextweekplancompletetaskzs")
-	public ResponseEntity<Page<SubTaskDTO>> searchNextWeekPlanCompleteTaskZS(@RequestBody TaskSearchContext context) {
-        Page<Task> domains = taskService.searchNextWeekPlanCompleteTaskZS(context) ;
+    @RequestMapping(method= RequestMethod.POST , value="/subtasks/searchnextweekplancompletetask")
+	public ResponseEntity<Page<SubTaskDTO>> searchNextWeekPlanCompleteTask(@RequestBody TaskSearchContext context) {
+        Page<Task> domains = taskService.searchNextWeekPlanCompleteTask(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -1486,12 +1486,12 @@ public class SubTaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTaskZS-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTask-all')")
 	@ApiOperation(value = "根据任务获取下周计划完成任务(汇报)", tags = {"任务" } ,notes = "根据任务获取下周计划完成任务(汇报)")
-    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/subtasks/fetchnextweekplancompletetaskzs")
-	public ResponseEntity<List<SubTaskDTO>> fetchSubTaskNextWeekPlanCompleteTaskZSByTask(@PathVariable("task_id") Long task_id,TaskSearchContext context) {
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/subtasks/fetchnextweekplancompletetask")
+	public ResponseEntity<List<SubTaskDTO>> fetchSubTaskNextWeekPlanCompleteTaskByTask(@PathVariable("task_id") Long task_id,TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<Task> domains = taskService.searchNextWeekPlanCompleteTaskZS(context) ;
+        Page<Task> domains = taskService.searchNextWeekPlanCompleteTask(context) ;
         List<SubTaskDTO> list = subtaskMapping.toDto(domains.getContent());
 	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
@@ -1500,12 +1500,12 @@ public class SubTaskResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTaskZS-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTask-all')")
 	@ApiOperation(value = "根据任务查询下周计划完成任务(汇报)", tags = {"任务" } ,notes = "根据任务查询下周计划完成任务(汇报)")
-    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/subtasks/searchnextweekplancompletetaskzs")
-	public ResponseEntity<Page<SubTaskDTO>> searchSubTaskNextWeekPlanCompleteTaskZSByTask(@PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/subtasks/searchnextweekplancompletetask")
+	public ResponseEntity<Page<SubTaskDTO>> searchSubTaskNextWeekPlanCompleteTaskByTask(@PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<Task> domains = taskService.searchNextWeekPlanCompleteTaskZS(context) ;
+        Page<Task> domains = taskService.searchNextWeekPlanCompleteTask(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -2303,12 +2303,12 @@ public class SubTaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTaskZS-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTask-all')")
 	@ApiOperation(value = "根据需求任务获取下周计划完成任务(汇报)", tags = {"任务" } ,notes = "根据需求任务获取下周计划完成任务(汇报)")
-    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/subtasks/fetchnextweekplancompletetaskzs")
-	public ResponseEntity<List<SubTaskDTO>> fetchSubTaskNextWeekPlanCompleteTaskZSByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/subtasks/fetchnextweekplancompletetask")
+	public ResponseEntity<List<SubTaskDTO>> fetchSubTaskNextWeekPlanCompleteTaskByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<Task> domains = taskService.searchNextWeekPlanCompleteTaskZS(context) ;
+        Page<Task> domains = taskService.searchNextWeekPlanCompleteTask(context) ;
         List<SubTaskDTO> list = subtaskMapping.toDto(domains.getContent());
 	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
@@ -2317,12 +2317,12 @@ public class SubTaskResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTaskZS-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTask-all')")
 	@ApiOperation(value = "根据需求任务查询下周计划完成任务(汇报)", tags = {"任务" } ,notes = "根据需求任务查询下周计划完成任务(汇报)")
-    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/subtasks/searchnextweekplancompletetaskzs")
-	public ResponseEntity<Page<SubTaskDTO>> searchSubTaskNextWeekPlanCompleteTaskZSByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/subtasks/searchnextweekplancompletetask")
+	public ResponseEntity<Page<SubTaskDTO>> searchSubTaskNextWeekPlanCompleteTaskByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<Task> domains = taskService.searchNextWeekPlanCompleteTaskZS(context) ;
+        Page<Task> domains = taskService.searchNextWeekPlanCompleteTask(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -3120,12 +3120,12 @@ public class SubTaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTaskZS-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTask-all')")
 	@ApiOperation(value = "根据项目任务获取下周计划完成任务(汇报)", tags = {"任务" } ,notes = "根据项目任务获取下周计划完成任务(汇报)")
-    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/subtasks/fetchnextweekplancompletetaskzs")
-	public ResponseEntity<List<SubTaskDTO>> fetchSubTaskNextWeekPlanCompleteTaskZSByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/subtasks/fetchnextweekplancompletetask")
+	public ResponseEntity<List<SubTaskDTO>> fetchSubTaskNextWeekPlanCompleteTaskByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<Task> domains = taskService.searchNextWeekPlanCompleteTaskZS(context) ;
+        Page<Task> domains = taskService.searchNextWeekPlanCompleteTask(context) ;
         List<SubTaskDTO> list = subtaskMapping.toDto(domains.getContent());
 	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
@@ -3134,12 +3134,12 @@ public class SubTaskResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTaskZS-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTask-all')")
 	@ApiOperation(value = "根据项目任务查询下周计划完成任务(汇报)", tags = {"任务" } ,notes = "根据项目任务查询下周计划完成任务(汇报)")
-    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/subtasks/searchnextweekplancompletetaskzs")
-	public ResponseEntity<Page<SubTaskDTO>> searchSubTaskNextWeekPlanCompleteTaskZSByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/subtasks/searchnextweekplancompletetask")
+	public ResponseEntity<Page<SubTaskDTO>> searchSubTaskNextWeekPlanCompleteTaskByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<Task> domains = taskService.searchNextWeekPlanCompleteTaskZS(context) ;
+        Page<Task> domains = taskService.searchNextWeekPlanCompleteTask(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -3937,12 +3937,12 @@ public class SubTaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTaskZS-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTask-all')")
 	@ApiOperation(value = "根据产品需求任务获取下周计划完成任务(汇报)", tags = {"任务" } ,notes = "根据产品需求任务获取下周计划完成任务(汇报)")
-    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/fetchnextweekplancompletetaskzs")
-	public ResponseEntity<List<SubTaskDTO>> fetchSubTaskNextWeekPlanCompleteTaskZSByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/fetchnextweekplancompletetask")
+	public ResponseEntity<List<SubTaskDTO>> fetchSubTaskNextWeekPlanCompleteTaskByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<Task> domains = taskService.searchNextWeekPlanCompleteTaskZS(context) ;
+        Page<Task> domains = taskService.searchNextWeekPlanCompleteTask(context) ;
         List<SubTaskDTO> list = subtaskMapping.toDto(domains.getContent());
 	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
@@ -3951,12 +3951,12 @@ public class SubTaskResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTaskZS-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTask-all')")
 	@ApiOperation(value = "根据产品需求任务查询下周计划完成任务(汇报)", tags = {"任务" } ,notes = "根据产品需求任务查询下周计划完成任务(汇报)")
-    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/searchnextweekplancompletetaskzs")
-	public ResponseEntity<Page<SubTaskDTO>> searchSubTaskNextWeekPlanCompleteTaskZSByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/searchnextweekplancompletetask")
+	public ResponseEntity<Page<SubTaskDTO>> searchSubTaskNextWeekPlanCompleteTaskByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<Task> domains = taskService.searchNextWeekPlanCompleteTaskZS(context) ;
+        Page<Task> domains = taskService.searchNextWeekPlanCompleteTask(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

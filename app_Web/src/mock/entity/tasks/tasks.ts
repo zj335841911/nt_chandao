@@ -5804,9 +5804,9 @@ mock.onGet(new RegExp(/^\/tasks\/fetchmytomorrowplantask(\?[\w-./?%&=,]*)*$/)).r
 });
 
 
-// FetchNextWeekPlanCompleteTaskZS
-mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextweekplancompletetaskzs$/)).reply((config: any) => {
-    console.groupCollapsed("实体:task 方法: FetchNextWeekPlanCompleteTaskZS");
+// FetchNextWeekPlanCompleteTask
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextweekplancompletetask$/)).reply((config: any) => {
+    console.groupCollapsed("实体:task 方法: FetchNextWeekPlanCompleteTask");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -5814,7 +5814,7 @@ mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-
     }
     const paramArray:Array<any> = ['id','id'];
     let tempValue: any = {};
-    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextweekplancompletetaskzs$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextweekplancompletetask$/).exec(config.url);
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
             Object.defineProperty(tempValue, item, {
@@ -5849,9 +5849,9 @@ mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-
 });
 
 
-// FetchNextWeekPlanCompleteTaskZS
-mock.onGet(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextweekplancompletetaskzs$/)).reply((config: any) => {
-    console.groupCollapsed("实体:task 方法: FetchNextWeekPlanCompleteTaskZS");
+// FetchNextWeekPlanCompleteTask
+mock.onGet(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextweekplancompletetask$/)).reply((config: any) => {
+    console.groupCollapsed("实体:task 方法: FetchNextWeekPlanCompleteTask");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -5859,7 +5859,7 @@ mock.onGet(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextwee
     }
     const paramArray:Array<any> = ['id'];
     let tempValue: any = {};
-    const matchArray:any = new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextweekplancompletetaskzs$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextweekplancompletetask$/).exec(config.url);
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
             Object.defineProperty(tempValue, item, {
@@ -5894,9 +5894,9 @@ mock.onGet(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextwee
 });
 
 
-// FetchNextWeekPlanCompleteTaskZS
-mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextweekplancompletetaskzs$/)).reply((config: any) => {
-    console.groupCollapsed("实体:task 方法: FetchNextWeekPlanCompleteTaskZS");
+// FetchNextWeekPlanCompleteTask
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextweekplancompletetask$/)).reply((config: any) => {
+    console.groupCollapsed("实体:task 方法: FetchNextWeekPlanCompleteTask");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -5904,7 +5904,7 @@ mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextweek
     }
     const paramArray:Array<any> = ['id'];
     let tempValue: any = {};
-    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextweekplancompletetaskzs$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextweekplancompletetask$/).exec(config.url);
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
             Object.defineProperty(tempValue, item, {
@@ -5938,9 +5938,9 @@ mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/tasks\/fetchnextweek
     return [status, items];
 });
     
-// FetchNextWeekPlanCompleteTaskZS
-mock.onGet(new RegExp(/^\/tasks\/fetchnextweekplancompletetaskzs$/)).reply((config: any) => {
-    console.groupCollapsed("实体:task 方法: FetchNextWeekPlanCompleteTaskZS");
+// FetchNextWeekPlanCompleteTask
+mock.onGet(new RegExp(/^\/tasks\/fetchnextweekplancompletetask$/)).reply((config: any) => {
+    console.groupCollapsed("实体:task 方法: FetchNextWeekPlanCompleteTask");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -5953,9 +5953,9 @@ mock.onGet(new RegExp(/^\/tasks\/fetchnextweekplancompletetaskzs$/)).reply((conf
     return [status, mockDatas ? mockDatas : []];
 });
 
-// FetchNextWeekPlanCompleteTaskZS
-mock.onGet(new RegExp(/^\/tasks\/fetchnextweekplancompletetaskzs(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:task 方法: FetchNextWeekPlanCompleteTaskZS");
+// FetchNextWeekPlanCompleteTask
+mock.onGet(new RegExp(/^\/tasks\/fetchnextweekplancompletetask(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:task 方法: FetchNextWeekPlanCompleteTask");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];

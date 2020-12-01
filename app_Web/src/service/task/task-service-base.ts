@@ -9051,7 +9051,7 @@ export default class TaskServiceBase extends EntityService {
     }
 
     /**
-     * FetchNextWeekPlanCompleteTaskZS接口方法
+     * FetchNextWeekPlanCompleteTask接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -9059,29 +9059,29 @@ export default class TaskServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof TaskServiceBase
      */
-    public async FetchNextWeekPlanCompleteTaskZS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async FetchNextWeekPlanCompleteTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchnextweekplancompletetaskzs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchnextweekplancompletetask`,tempData,isloading);
             return res;
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchnextweekplancompletetaskzs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchnextweekplancompletetask`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchnextweekplancompletetaskzs`,tempData,isloading);
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchnextweekplancompletetask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/tasks/fetchnextweekplancompletetaskzs`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/tasks/fetchnextweekplancompletetask`,tempData,isloading);
         return res;
     }
 
     /**
-     * searchNextWeekPlanCompleteTaskZS接口方法
+     * searchNextWeekPlanCompleteTask接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -9089,21 +9089,21 @@ export default class TaskServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof TaskServiceBase
      */
-    public async searchNextWeekPlanCompleteTaskZS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async searchNextWeekPlanCompleteTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchnextweekplancompletetaskzs`,tempData,isloading);
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchnextweekplancompletetask`,tempData,isloading);
         }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return await Http.getInstance().post(`/projects/${context.project}/tasks/searchnextweekplancompletetaskzs`,tempData,isloading);
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/searchnextweekplancompletetask`,tempData,isloading);
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            return await Http.getInstance().post(`/stories/${context.story}/tasks/searchnextweekplancompletetaskzs`,tempData,isloading);
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/searchnextweekplancompletetask`,tempData,isloading);
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return await Http.getInstance().post(`/tasks/searchnextweekplancompletetaskzs`,tempData,isloading);
+        return await Http.getInstance().post(`/tasks/searchnextweekplancompletetask`,tempData,isloading);
     }
 
     /**
@@ -9626,7 +9626,7 @@ export default class TaskServiceBase extends EntityService {
     }
 
     /**
-     * FetchTempNextWeekPlanCompleteTaskZS接口方法
+     * FetchTempNextWeekPlanCompleteTask接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -9634,7 +9634,7 @@ export default class TaskServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof TaskServiceBase
      */
-    public async FetchTempNextWeekPlanCompleteTaskZS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async FetchTempNextWeekPlanCompleteTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

@@ -81,10 +81,6 @@ export default {
 			caption: "指派任务",
       		title: "指派任务",
 		},
-		gridview9: {
-			caption: "任务",
-      		title: "任务表格视图",
-		},
 		treeexpview: {
 			caption: "任务",
       		title: "任务树导航视图",
@@ -1507,8 +1503,6 @@ export default {
 			caption: "Filter",
 			tip: "Filter",
 		},
-	},
-	gridview9toolbar_toolbar: {
 	},
 	myfavoritegridviewtoolbar_toolbar: {
 		deuiaction2: {

@@ -160,7 +160,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '9ed41cee96088630f3d4b0a91e705930',
-                '1298308705423c553b0b67c7d661c4e1',
                 '6af549668ff8757cf378a5a50d8917e4',
                 'aeee411b8bffcf0c30d65557a8deeeee',
             ],
@@ -361,16 +360,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
-            ],
-        },
-        {
-            viewtag: '1298308705423c553b0b67c7d661c4e1',
-            viewmodule: 'zentao',
-            viewname: 'TaskGridView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'ea141fddc78fd1af4d06e494baf12cc1',
             ],
         },
         {

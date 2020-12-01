@@ -530,13 +530,13 @@
     :context="context"
     :viewparams="viewparams"
     :localContext ='{}'
-    :localParam ='{nextweektask:"%nextweektask%"}'
+    :localParam ='{thisweektask:"%nextweektask%"}'
     parameterName="ibzweekly"
     parentName="IBZWEEKLY"  
     refviewtype="DEGRIDVIEW9" 
     refreshitems="" 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname="task-grid-view9" 
+    viewname="task-zs-grid-view9-week" 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">

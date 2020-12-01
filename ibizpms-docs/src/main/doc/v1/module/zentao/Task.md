@@ -6588,7 +6588,7 @@ FAVORITES
 | 11 | [我完成的任务（汇报）](#数据查询-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
 | 12 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
 | 13 | [我计划参与的任务（汇报）](#数据查询-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
-| 14 | [下周计划完成任务(汇报)](#数据查询-下周计划完成任务(汇报)（NextWeekPlanCompleteTaskZS）) | NextWeekPlanCompleteTaskZS | 否 |
+| 14 | [下周计划完成任务(汇报)](#数据查询-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
 | 15 | [项目任务](#数据查询-项目任务（ProjectTask）) | ProjectTask | 否 |
 | 16 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
 | 17 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
@@ -7540,7 +7540,7 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 
 ```
-### 数据查询-下周计划完成任务(汇报)（NextWeekPlanCompleteTaskZS）
+### 数据查询-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）
 #### 说明
 下周计划完成任务(汇报)
 
@@ -8130,7 +8130,7 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 | 11 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
 | 12 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
 | 13 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
-| 14 | [下周计划完成任务(汇报)](#数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTaskZS）) | NextWeekPlanCompleteTaskZS | 否 |
+| 14 | [下周计划完成任务(汇报)](#数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
 | 15 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
 | 16 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
 | 17 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
@@ -8320,7 +8320,7 @@ DefaultRow
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我计划参与的任务（汇报）（MyTomorrowPlanTask）](#数据查询-我计划参与的任务（汇报）（MyTomorrowPlanTask）) |
-### 数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTaskZS）
+### 数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）
 #### 说明
 下周计划完成任务(汇报)
 
@@ -8333,7 +8333,7 @@ DefaultRow
 #### 关联的数据查询
 | 序号 | 数据查询 |
 | ---- | ---- |
-| 1 | [下周计划完成任务(汇报)（NextWeekPlanCompleteTaskZS）](#数据查询-下周计划完成任务(汇报)（NextWeekPlanCompleteTaskZS）) |
+| 1 | [下周计划完成任务(汇报)（NextWeekPlanCompleteTask）](#数据查询-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) |
 ### 数据集合-项目任务（ProjectTask）
 #### 说明
 项目任务

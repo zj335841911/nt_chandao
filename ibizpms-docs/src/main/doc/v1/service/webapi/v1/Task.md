@@ -1091,7 +1091,7 @@ POST
 
 ### 获取下周计划完成任务(汇报)
 #### 访问路径
-/tasks/fetchnextweekplancompletetaskzs
+/tasks/fetchnextweekplancompletetask
 
 #### 请求方法
 GET
@@ -1109,7 +1109,7 @@ GET
 
 ### 查询下周计划完成任务(汇报)
 #### 访问路径
-/tasks/searchnextweekplancompletetaskzs
+/tasks/searchnextweekplancompletetask
 
 #### 请求方法
 POST
@@ -2488,7 +2488,7 @@ POST
 
 ### 根据获取下周计划完成任务(汇报)
 #### 访问路径
-/stories/{story_id}/tasks/fetchnextweekplancompletetaskzs
+/stories/{story_id}/tasks/fetchnextweekplancompletetask
 
 #### 请求方法
 GET
@@ -2507,7 +2507,7 @@ GET
 
 ### 根据查询下周计划完成任务(汇报)
 #### 访问路径
-/stories/{story_id}/tasks/searchnextweekplancompletetaskzs
+/stories/{story_id}/tasks/searchnextweekplancompletetask
 
 #### 请求方法
 POST
@@ -3899,7 +3899,7 @@ POST
 
 ### 根据获取下周计划完成任务(汇报)
 #### 访问路径
-/projects/{project_id}/tasks/fetchnextweekplancompletetaskzs
+/projects/{project_id}/tasks/fetchnextweekplancompletetask
 
 #### 请求方法
 GET
@@ -3918,7 +3918,7 @@ GET
 
 ### 根据查询下周计划完成任务(汇报)
 #### 访问路径
-/projects/{project_id}/tasks/searchnextweekplancompletetaskzs
+/projects/{project_id}/tasks/searchnextweekplancompletetask
 
 #### 请求方法
 POST
@@ -5310,7 +5310,7 @@ POST
 
 ### 根据获取下周计划完成任务(汇报)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/fetchnextweekplancompletetaskzs
+/products/{product_id}/stories/{story_id}/tasks/fetchnextweekplancompletetask
 
 #### 请求方法
 GET
@@ -5329,7 +5329,7 @@ GET
 
 ### 根据查询下周计划完成任务(汇报)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/searchnextweekplancompletetaskzs
+/products/{product_id}/stories/{story_id}/tasks/searchnextweekplancompletetask
 
 #### 请求方法
 POST

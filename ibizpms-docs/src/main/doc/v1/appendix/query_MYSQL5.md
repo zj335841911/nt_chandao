@@ -16348,7 +16348,7 @@ WHERE t1.DELETED = '0'
 ( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} ) 
 
 ```
-### 下周计划完成任务(汇报)(NextWeekPlanCompleteTaskZS)<div id="Task_NextWeekPlanCompleteTaskZS"></div>
+### 下周计划完成任务(汇报)(NextWeekPlanCompleteTask)<div id="Task_NextWeekPlanCompleteTask"></div>
 ```sql
 SELECT
 t1.`ASSIGNEDDATE`,
@@ -16413,7 +16413,7 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 
 WHERE t1.DELETED = '0' 
-( t1.`ID` IN (${srfwebcontext('nextweektask','{"defname":"ID","dename":"ZT_TASK"}')}) ) 
+( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} ) 
 
 ```
 ### 项目任务(ProjectTask)<div id="Task_ProjectTask"></div>
