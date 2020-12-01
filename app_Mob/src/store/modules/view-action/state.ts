@@ -883,6 +883,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5cf685aa2765b112906a6b8ed57cdfc1',
+            viewmodule: 'report',
+            viewname: 'IbzDailyDailyMobTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6f4d3a18069e7238c39f460398aff856',
+                '7cd2b519699b48228f6e321b3ec5987d',
+                '983fc79effc6ccd4d63f0b957c37efe1',
+            ],
+        },
+        {
             viewtag: '5cfddd273247bd1dc4c940fae4671f14',
             viewmodule: 'ibiz',
             viewname: 'ReleaseMobEditView',
@@ -912,7 +924,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '4b79a827dad435d82d3f9cdaec51f166',
+                '7ef67652765553e5d81c39ae576780a8',
             ],
         },
         {
@@ -1059,6 +1071,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '6f4d3a18069e7238c39f460398aff856',
+            viewmodule: 'report',
+            viewname: 'IbzDailyDailyPlansTomorrowTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '22e33232ac91bca7826742f9c85720dc',
+            ],
+        },
+        {
             viewtag: '70d570ae5cafd7af092084e6d0e6b2f7',
             viewmodule: 'ibiz',
             viewname: 'IbzMyTerritoryMobDashboardView',
@@ -1165,6 +1187,18 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '22e33232ac91bca7826742f9c85720dc',
+            ],
+        },
+        {
+            viewtag: '7ef67652765553e5d81c39ae576780a8',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyMainInfoMobTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e903ad26a5f15974177800895703623c',
+                '9e582670d841ba6cfb310f7e56ab1784',
+                '4b79a827dad435d82d3f9cdaec51f166',
             ],
         },
         {
@@ -1395,6 +1429,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '5cf685aa2765b112906a6b8ed57cdfc1',
                 '22e33232ac91bca7826742f9c85720dc',
             ],
         },
@@ -1603,6 +1638,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '5cf685aa2765b112906a6b8ed57cdfc1',
                 '22e33232ac91bca7826742f9c85720dc',
             ],
         },
@@ -2032,6 +2068,15 @@ export const viewstate: any = {
                 '1a957197655fae1ce44ceccda6f65852',
                 '4a68a7fca37b1f7d3cf396c66fd2347a',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
+            viewtag: 'df36c08961d3d1737f2f8d55a53fa46c',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

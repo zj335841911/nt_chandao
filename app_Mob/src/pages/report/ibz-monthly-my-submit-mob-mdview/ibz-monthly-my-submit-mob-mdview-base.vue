@@ -537,7 +537,7 @@ export default class IbzMonthlyMySubmitMobMDViewBase extends Vue {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-            { pathName: 'maininfomobeditview', parameterName: 'maininfomobeditview' },
+            { pathName: 'maininfomobtabexpview', parameterName: 'maininfomobtabexpview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);

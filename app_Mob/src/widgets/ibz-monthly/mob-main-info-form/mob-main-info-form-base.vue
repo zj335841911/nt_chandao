@@ -233,7 +233,7 @@
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
-    :navigateParam ='{ "objecttype": "monthly" } ' 
+    :navigateParam ='{ "srfparentkey": "%ibz_monthlyid%", "objecttype": "monthly" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
@@ -277,7 +277,7 @@
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
-    :navigateParam ='{ "objecttype": "monthly" } ' 
+    :navigateParam ='{ "srfparentkey": "%ibz_monthlyid%", "objecttype": "monthly" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>

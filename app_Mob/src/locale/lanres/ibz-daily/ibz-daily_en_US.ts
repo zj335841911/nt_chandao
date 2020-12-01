@@ -28,11 +28,17 @@ export default {
 		reportreceivedmobmdview: {
 			caption: '日报',
 		},
+		dailymobtabexpview: {
+			caption: '日报',
+		},
 		dailymobeditview: {
 			caption: '日报',
 		},
+		dailyplanstomorrowtaskmobmdview: {
+			caption: '完成任务',
+		},
 		dailycompletetaskmobmdview: {
-			caption: '日报',
+			caption: '完成任务',
 		},
 		dailymobmdview: {
 			caption: '日报',
@@ -121,6 +127,8 @@ export default {
 	},
 	dailyreportsubmitmobmdviewrighttoolbar_toolbar: {
 	},
+	dailyplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
+	},
 	dailymobmdviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'New',
@@ -128,5 +136,7 @@ export default {
 		},
 	},
 	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
+	},
+	dailymobtabexpviewrighttoolbar_toolbar: {
 	},
 };

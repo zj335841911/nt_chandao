@@ -3338,6 +3338,13 @@ const datas: Array<any> = [
                 value: 'read',
                 disabled: false,
             },
+            {
+                id: 'remind',
+                label: '提醒',
+                text: '提醒',
+                value: 'remind',
+                disabled: false,
+            },
         ]
     },
     {

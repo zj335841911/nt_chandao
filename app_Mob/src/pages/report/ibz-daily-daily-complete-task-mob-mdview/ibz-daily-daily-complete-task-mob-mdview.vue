@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import IbzDailyDailyCompleteTaskMobMDViewBase from './ibz-daily-daily-complete-task-mob-mdview-base.vue';
 
-import view_mdctrl from '@widgets/ibz-daily/mob-mobmdctrl/mob-mobmdctrl.vue';
+import view_mdctrl from '@widgets/task/my-complete-task-mob-mobmdctrl/my-complete-task-mob-mobmdctrl.vue';
 @Component({
     components: {
         view_mdctrl, 
