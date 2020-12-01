@@ -3156,6 +3156,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '7ae5b669ec5f5284763927aee60efde1',
+                'cc0f54a8db5b9c161ec9f3d6b86e2a27',
             ],
         },
         {
@@ -4232,6 +4233,18 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'cc0f54a8db5b9c161ec9f3d6b86e2a27',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyEditViewMainMyweekly',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
+                '6af549668ff8757cf378a5a50d8917e4',
+                'aeee411b8bffcf0c30d65557a8deeeee',
             ],
         },
         {

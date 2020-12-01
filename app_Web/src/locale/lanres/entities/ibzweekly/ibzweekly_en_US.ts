@@ -42,6 +42,10 @@ export default {
 			caption: "周报",
       		title: "实体2表格视图",
 		},
+		editviewmainmyweekly: {
+			caption: "周报",
+      		title: "实体2编辑视图",
+		},
 	},
 	weeklymsg_form: {
 		details: {
@@ -116,6 +120,7 @@ export default {
 			reportstatus: "状态",
 		},
 		uiactions: {
+        ibzweekly_haveread: "已读",
 		},
 	},
 	main_grid: {

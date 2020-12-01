@@ -9982,6 +9982,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/doc-more-my-favourites-tree-view/doc-more-my-favourites-tree-view.vue'),
                 },
                 {
+                    path: 'ibzweeklies/:ibzweekly?/editviewmainmyweekly/:editviewmainmyweekly?',
+                    meta: {
+                        caption: 'entities.ibzweekly.views.editviewmainmyweekly.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+                            { pathName: 'editviewmainmyweekly', parameterName: 'editviewmainmyweekly' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-weekly-edit-view-main-myweekly/ibz-weekly-edit-view-main-myweekly.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/maindashboardview_link/:maindashboardview_link?',
                     meta: {
                         caption: 'entities.story.views.maindashboardview_link.caption',

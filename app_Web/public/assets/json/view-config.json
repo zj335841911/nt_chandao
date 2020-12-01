@@ -4719,6 +4719,16 @@
         "viewtag": "cbd1280e0ec2cd69ffa85cf60ece100d",
         "memo": ""
     },
+    "ibzweeklyeditviewmainmyweekly": {
+        "title": "实体2编辑视图",
+        "caption": "周报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzWeeklyEditViewMainMyweekly",
+        "viewfilename": "ibz-weekly-edit-view-main-myweekly",
+        "viewtag": "cc0f54a8db5b9c161ec9f3d6b86e2a27",
+        "memo": ""
+    },
     "projectportalview": {
         "title": "项目主页",
         "caption": "项目主页",
