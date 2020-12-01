@@ -1,4 +1,4 @@
-# 日报
+# 日报（新建）
 
 日报移动端编辑视图（编辑）(IbzDailyDailyMobEditView)
 
@@ -6,7 +6,7 @@
 
 digraph IbzDailyDailyMobEditView {
 
-label="日报";    
+label="日报（新建）";    
 
 #rankdir=LR;
 
@@ -19,7 +19,7 @@ own [shape=none, margin=0,size="6,6", label=<
 <TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
 </TR>
 <TR>
-<TD BORDER="0" COLSPAN="4" CELLPADDING="10">日报<BR/><BR/></TD>
+<TD BORDER="0" COLSPAN="4" CELLPADDING="10">日报（新建）<BR/><BR/></TD>
 </TR>
 </TABLE>
 >];

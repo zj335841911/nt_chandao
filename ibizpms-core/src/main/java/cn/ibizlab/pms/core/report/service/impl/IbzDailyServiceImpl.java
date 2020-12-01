@@ -126,6 +126,12 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
         return et;
     }
 
+        @Override
+    @Transactional
+    public IbzDaily pushUserDaily(IbzDaily et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzDailyHelper.class).pushUserDaily(et);
+    }
+
     @Override
     @Transactional
     public boolean save(IbzDaily et) {
@@ -181,6 +187,15 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
     @Override
     public Page<IbzDaily> searchMyDaily(IbzDailySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzDaily> pages=baseMapper.searchMyDaily(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzDaily>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我提交的日报
+     */
+    @Override
+    public Page<IbzDaily> searchMySubmitDaily(IbzDailySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzDaily> pages=baseMapper.searchMySubmitDaily(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzDaily>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

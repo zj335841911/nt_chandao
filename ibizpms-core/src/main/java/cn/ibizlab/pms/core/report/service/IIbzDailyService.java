@@ -47,11 +47,13 @@ public interface IIbzDailyService extends IService<IbzDaily> {
     IbzDaily createUserDaily(IbzDaily et);
     IbzDaily haveRead(IbzDaily et);
     IbzDaily linkCompleteTask(IbzDaily et);
+    IbzDaily pushUserDaily(IbzDaily et);
     boolean save(IbzDaily et);
     void saveBatch(List<IbzDaily> list);
     IbzDaily submit(IbzDaily et);
     Page<IbzDaily> searchDefault(IbzDailySearchContext context);
     Page<IbzDaily> searchMyDaily(IbzDailySearchContext context);
+    Page<IbzDaily> searchMySubmitDaily(IbzDailySearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

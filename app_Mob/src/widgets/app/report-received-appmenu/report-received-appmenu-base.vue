@@ -432,7 +432,7 @@ export default class ReportReceivedBase extends Vue implements ControlInterface 
 
     
     /**
-     * 我收到的日报
+     * 日报（我收到的）
      *
      * @param {*} [item={}]
      * @memberof ReportReceived

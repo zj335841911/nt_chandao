@@ -811,8 +811,9 @@ String
 | 7 | [定时生成用户日报](#实体行为-定时生成用户日报（CreateUserDaily）) | CreateUserDaily | 用户自定义 | 后台及前台 |
 | 8 | [已读](#实体行为-已读（HaveRead）) | HaveRead | 用户自定义 | 后台及前台 |
 | 9 | [关联完成任务](#实体行为-关联完成任务（LinkCompleteTask）) | LinkCompleteTask | 用户自定义 | 后台及前台 |
-| 10 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 11 | [提交](#实体行为-提交（Submit）) | submit | 用户自定义 | 后台及前台 |
+| 10 | [定时推送待阅提醒用户日报](#实体行为-定时推送待阅提醒用户日报（PushUserDaily）) | PushUserDaily | 用户自定义 | 后台及前台 |
+| 11 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 12 | [提交](#实体行为-提交（Submit）) | submit | 用户自定义 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -922,6 +923,18 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-定时推送待阅提醒用户日报（PushUserDaily）
+#### 说明
+定时推送待阅提醒用户日报
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -971,7 +984,8 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 2 | [我收到的日报](#数据查询-我收到的日报（MyDaily）) | MyDaily | 否 |
-| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [我提交的日报](#数据查询-我提交的日报（MySubmitDaily）) | MySubmitDaily | 否 |
+| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -1038,6 +1052,33 @@ t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`
 FROM `T_IBZ_DAILY` t1 left join zt_action t11 on t11.objectID = t1.IBZ_DAILYID and t11.objectType = 'daily' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 ```
+### 数据查询-我提交的日报（MySubmitDaily）
+#### 说明
+我提交的日报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1. IBZ_DAILYID,
+	t1.IBZ_DAILYNAME,
+	t1.ACCOUNT,
+	t1.DATE,
+	t1.ISSUBMIT,
+	t1.REPORTTO,
+	t1.REPORTSTATUS
+FROM
+	t_ibz_daily t1 
+WHERE
+	t1.ACCOUNT = 'csd123_123'
+
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -1080,6 +1121,7 @@ FROM `T_IBZ_DAILY` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 2 | [我收到的日报](#数据集合-我收到的日报（MyDaily）) | MyDaily | 否 |
+| 3 | [我提交的日报](#数据集合-我提交的日报（MySubmitDaily）) | MySubmitDaily | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1109,6 +1151,20 @@ FROM `T_IBZ_DAILY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我收到的日报（MyDaily）](#数据查询-我收到的日报（MyDaily）) |
+### 数据集合-我提交的日报（MySubmitDaily）
+#### 说明
+我提交的日报
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我提交的日报（MySubmitDaily）](#数据查询-我提交的日报（MySubmitDaily）) |
 
 ## 数据导入
 无

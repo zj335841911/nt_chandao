@@ -71,6 +71,7 @@
 |定时生成用户日报|用户自定义|&nbsp;|
 |已读|用户自定义|&nbsp;|
 |关联完成任务|用户自定义|&nbsp;|
+|定时推送待阅提醒用户日报|用户自定义|&nbsp;|
 |Save|内置方法|&nbsp;|
 |提交|用户自定义|&nbsp;|
 
@@ -85,6 +86,7 @@
 | --------  | --------   | --------   | ----- |
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IbzDaily_Default))|否|&nbsp;|
 |MyDaily|我收到的日报([MYSQL5](../../appendix/query_MYSQL5.md#IbzDaily_MyDaily))|否|&nbsp;|
+|MySubmitDaily|我提交的日报([MYSQL5](../../appendix/query_MYSQL5.md#IbzDaily_MySubmitDaily))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzDaily_View))|否|&nbsp;|
 
 * **数据集合**
@@ -93,6 +95,7 @@
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |MyDaily|我收到的日报|MyDaily|否|&nbsp;|
+|MySubmitDaily|我提交的日报|MySubmitDaily|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

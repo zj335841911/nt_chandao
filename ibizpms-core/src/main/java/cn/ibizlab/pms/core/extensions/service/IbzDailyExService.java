@@ -52,6 +52,16 @@ public class IbzDailyExService extends IbzDailyServiceImpl {
         return super.linkCompleteTask(et);
     }
     /**
+     * [PushUserDaily:定时推送待阅提醒用户日报] 行为扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public IbzDaily pushUserDaily(IbzDaily et) {
+        return super.pushUserDaily(et);
+    }
+    /**
      * [Submit:提交] 行为扩展
      * @param et
      * @return

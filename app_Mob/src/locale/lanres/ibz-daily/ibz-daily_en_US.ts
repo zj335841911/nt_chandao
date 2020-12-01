@@ -37,6 +37,9 @@ export default {
 		dailymobmdview: {
 			caption: '日报',
 		},
+		dailyreportsubmitmobmdview: {
+			caption: '日报',
+		},
 	},
 	mobdailyedit_form: {
 		details: {
@@ -115,6 +118,8 @@ export default {
 			caption: 'Save And Close',
 			tip: 'tbitem1',
 		},
+	},
+	dailyreportsubmitmobmdviewrighttoolbar_toolbar: {
 	},
 	dailymobmdviewrighttoolbar_toolbar: {
 		tbitem1: {

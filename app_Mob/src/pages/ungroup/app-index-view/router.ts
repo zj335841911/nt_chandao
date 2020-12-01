@@ -1808,6 +1808,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-module-mob-pickup-view/product-module-mob-pickup-view.vue'),
                 },
                 {
+                    path: 'ibzmonthlies/:ibzmonthly?/mysubmitmobmdview',
+                    name: 'ibzmonthly_mysubmitmobmdview',
+                    meta: {
+                        caption: 'ibzmonthly.views.mysubmitmobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'mysubmitmobmdview', parameterName: 'mysubmitmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-my-submit-mob-mdview/ibz-monthly-my-submit-mob-mdview.vue'),
+                },
+                {
                     path: 'products/:product?/mobpickupmdview',
                     name: 'product_mobpickupmdview',
                     meta: {
@@ -5569,6 +5583,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-mob-pickup-view/story-mob-pickup-view.vue'),
                 },
                 {
+                    path: 'ibzdailies/:ibzdaily?/dailyreportsubmitmobmdview',
+                    name: 'ibzdaily_dailyreportsubmitmobmdview',
+                    meta: {
+                        caption: 'ibzdaily.views.dailyreportsubmitmobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'dailyreportsubmitmobmdview', parameterName: 'dailyreportsubmitmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-daily-report-submit-mob-mdview/ibz-daily-daily-report-submit-mob-mdview.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mobeditview',
                     name: 'bug_mobeditview',
                     meta: {
@@ -6562,20 +6590,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-usr3-mob-mpickup-view/bug-usr3-mob-mpickup-view.vue'),
                 },
                 {
-                    path: 'todos/:todo?/moboptionview',
-                    name: 'todo_moboptionview',
-                    meta: {
-                        caption: 'todo.views.moboptionview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'todos', parameterName: 'todo' },
-                            { pathName: 'moboptionview', parameterName: 'moboptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/todo-mob-option-view/todo-mob-option-view.vue'),
-                },
-                {
                     path: 'projects/:project?/closemobeditview',
                     name: 'project_closemobeditview',
                     meta: {
@@ -6588,6 +6602,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/project-close-mob-edit-view/project-close-mob-edit-view.vue'),
+                },
+                {
+                    path: 'todos/:todo?/moboptionview',
+                    name: 'todo_moboptionview',
+                    meta: {
+                        caption: 'todo.views.moboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'moboptionview', parameterName: 'moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/todo-mob-option-view/todo-mob-option-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/usr2mobpickupmdview',

@@ -93,6 +93,7 @@
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |MyReceivedMonthly|我收到的月报|MyReceivedMonthly|否|&nbsp;|
+|MySubmitMonthly|我提交的月报|MySubmitMonthly|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |
