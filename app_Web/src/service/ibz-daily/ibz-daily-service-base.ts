@@ -197,6 +197,20 @@ export default class IbzDailyServiceBase extends EntityService {
     }
 
     /**
+     * PushUserDaily接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async PushUserDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/pushuserdaily`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -283,5 +297,34 @@ export default class IbzDailyServiceBase extends EntityService {
     public async searchMyDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/ibzdailies/searchmydaily`,tempData,isloading);
+    }
+
+    /**
+     * FetchMySubmitDaily接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async FetchMySubmitDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzdailies/fetchmysubmitdaily`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchMySubmitDaily接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async searchMySubmitDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzdailies/searchmysubmitdaily`,tempData,isloading);
     }
 }

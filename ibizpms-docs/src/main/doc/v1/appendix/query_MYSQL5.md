@@ -7219,6 +7219,25 @@ WHERE t1.issubmit = '1'
 (t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO)) 
 
 ```
+### 我提交的日报(MySubmitDaily)<div id="IbzDaily_MySubmitDaily"></div>
+```sql
+SELECT
+	t1. IBZ_DAILYID,
+	t1.IBZ_DAILYNAME,
+	t1.ACCOUNT,
+	t1.DATE,
+	t1.ISSUBMIT,
+	t1.REPORTTO,
+	t1.REPORTSTATUS
+FROM
+	t_ibz_daily t1 
+WHERE
+	t1.ACCOUNT = 'csd123_123'
+
+WHERE t1.issubmit='1' 
+t1.account=#{srf.sessioncontext.srfloginname} 
+
+```
 ### 默认（全部数据）(VIEW)<div id="IbzDaily_View"></div>
 ```sql
 SELECT
