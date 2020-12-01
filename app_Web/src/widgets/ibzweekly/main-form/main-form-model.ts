@@ -83,7 +83,7 @@ export default class MainModel {
       {
         name: 'plannextweek',
         prop: 'plannextweek',
-        dataType: 'HTMLTEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'comment',

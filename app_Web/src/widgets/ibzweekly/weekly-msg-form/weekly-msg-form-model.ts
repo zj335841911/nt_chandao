@@ -73,7 +73,7 @@ export default class WeeklyMsgModel {
       {
         name: 'plannextweek',
         prop: 'plannextweek',
-        dataType: 'HTMLTEXT',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'comment',

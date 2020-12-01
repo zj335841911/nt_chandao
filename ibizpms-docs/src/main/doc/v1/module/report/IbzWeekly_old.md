@@ -23,7 +23,7 @@
 |其他事项|COMMENT|TEXT|&nbsp;|
 |日期|DATE|DATE|&nbsp;|
 |本周工作|WORKTHISWEEK|HTMLTEXT|&nbsp;|
-|下周计划|PLANNEXTWEEK|HTMLTEXT|&nbsp;|
+|下周计划|PLANNEXTWEEK|SMCODELIST|&nbsp;|
 |本周完成任务|THISWEEKTASK|SMCODELIST|&nbsp;|
 |下周计划任务|NEXTWEEKTASK|SMCODELIST|&nbsp;|
 |更新人名称|UPDATEMANNAME|TEXT|&nbsp;|
@@ -47,7 +47,7 @@
 |其他事项|默认规则|内容长度必须小于等于[100]|
 |日期|默认规则|默认规则|
 |本周工作|默认规则|内容长度必须小于等于[1048576]|
-|下周计划|默认规则|内容长度必须小于等于[1048576]|
+|下周计划|默认规则|内容长度必须小于等于[4000]|
 |本周完成任务|默认规则|内容长度必须小于等于[100]|
 |下周计划任务|默认规则|内容长度必须小于等于[100]|
 |更新人名称|默认规则|内容长度必须小于等于[60]|

@@ -1353,7 +1353,7 @@
                 </column>
                 <column name="WORKTHISWEEK" remarks="" type="TEXT(1048576)">
                 </column>
-                <column name="PLANNEXTWEEK" remarks="" type="TEXT(1048576)">
+                <column name="PLANNEXTWEEK" remarks="" type="VARCHAR(4000)">
                 </column>
                 <column name="THISWEEKTASK" remarks="" type="VARCHAR(100)">
                 </column>

@@ -60500,7 +60500,7 @@ CREATE TABLE `T_IBZ_TOP`(
 | COMMENT        | 其他事项  | VARCHAR      |   100   | &nbsp; |
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
 | WORKTHISWEEK        | 本周工作  | CLOB      |   1,048,576   | &nbsp; |
-| PLANNEXTWEEK        | 下周计划  | CLOB      |   1,048,576   | &nbsp; |
+| PLANNEXTWEEK        | 下周计划  | VARCHAR      |   4,000   | &nbsp; |
 | ACCOUNT        | 用户  | VARCHAR      |   60   | &nbsp; |
 | REPORTSTATUS        | 状态  | VARCHAR      |   60   | &nbsp; |
 
@@ -60621,7 +60621,7 @@ CREATE TABLE `T_IBZ_WEEKLY`(
 ,`COMMENT`  VARCHAR(100) COMMENT '其他事项' 
 ,`DATE`  DATETIME COMMENT '日期' 
 ,`WORKTHISWEEK`  MEDIUMTEXT COMMENT '本周工作' 
-,`PLANNEXTWEEK`  MEDIUMTEXT COMMENT '下周计划' 
+,`PLANNEXTWEEK`  VARCHAR(4000) COMMENT '下周计划' 
 ,`THISWEEKTASK`  VARCHAR(100) COMMENT '本周完成任务' 
 ,`NEXTWEEKTASK`  VARCHAR(100) COMMENT '下周计划任务' 
 ,`UPDATEMANNAME`  VARCHAR(60) COMMENT '更新人名称' 

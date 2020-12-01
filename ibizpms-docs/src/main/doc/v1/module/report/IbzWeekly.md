@@ -30,7 +30,7 @@
 | 12 | [其他事项](#属性-其他事项（COMMENT）) | COMMENT | 文本，可指定长度 | 否 | 否 | 是 |
 | 13 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
 | 14 | [本周工作](#属性-本周工作（WORKTHISWEEK）) | WORKTHISWEEK | HTML文本，没有长度限制 | 否 | 否 | 是 |
-| 15 | [下周计划](#属性-下周计划（PLANNEXTWEEK）) | PLANNEXTWEEK | HTML文本，没有长度限制 | 否 | 否 | 是 |
+| 15 | [下周计划](#属性-下周计划（PLANNEXTWEEK）) | PLANNEXTWEEK | 多项选择(文本值) | 否 | 否 | 是 |
 | 16 | [本周完成任务](#属性-本周完成任务（THISWEEKTASK）) | THISWEEKTASK | 多项选择(文本值) | 否 | 否 | 是 |
 | 17 | [下周计划任务](#属性-下周计划任务（NEXTWEEKTASK）) | NEXTWEEKTASK | 多项选择(文本值) | 否 | 否 | 是 |
 | 18 | [更新人名称](#属性-更新人名称（UPDATEMANNAME）) | UPDATEMANNAME | 文本，可指定长度 | 否 | 否 | 否 |
@@ -574,7 +574,7 @@ String
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-HTML文本，没有长度限制
+多项选择(文本值)
 
 - Java类型
 String
@@ -952,6 +952,7 @@ t1.`IBZ_WEEKLYNAME`,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
 t1.`NEXTWEEKTASK`,
+t1.`PLANNEXTWEEK`,
 t1.`REPORTSTATUS`,
 t1.`REPORTTO`,
 t1.`THISWEEKTASK`,
