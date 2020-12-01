@@ -61,35 +61,30 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
     public void createBatch(List<IbzMonthly> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean update(IbzMonthly et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibz_monthlyid", et.getIbzmonthlyid()))) {
-            return false;
-        }
-        CachedBeanCopier.copy(get(et.getIbzmonthlyid()), et);
-        return true;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).edit(et);
     }
 
     @Override
-    @Transactional
     public void updateBatch(List<IbzMonthly> list) {
-        updateBatchById(list, batchSize);
-    }
 
-    @Override
+    }
+        @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result = removeById(key);
-        return result;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).delete(key);
     }
 
     @Override
-    @Transactional
-    public void removeBatch(Collection<Long> idList) {
-        removeByIds(idList);
+    public void removeBatch(Collection<Long> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (Long id : idList) {
+                this.remove(id);
+            }
+        }
     }
-
     @Override
     @Transactional
     public IbzMonthly get(Long key) {
