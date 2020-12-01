@@ -81,6 +81,11 @@ export default class ForwardModel {
         dataType: 'TEXT',
       },
       {
+        name: 'status',
+        prop: 'status',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'noticeusers',
         prop: 'noticeusers',
         dataType: 'TEXT',

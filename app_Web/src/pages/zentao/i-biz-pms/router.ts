@@ -7797,6 +7797,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-project-pickup-grid-view/story-project-pickup-grid-view.vue'),
                 },
                 {
+                    path: 'ibzmonthlies/:ibzmonthly?/myreceivededitview/:myreceivededitview?',
+                    meta: {
+                        caption: 'entities.ibzmonthly.views.myreceivededitview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'myreceivededitview', parameterName: 'myreceivededitview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-my-received-edit-view/ibz-monthly-my-received-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/myfavoritegridview/:myfavoritegridview?',
                     meta: {
                         caption: 'entities.task.views.myfavoritegridview.caption',
@@ -10584,6 +10598,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-activation-view/bug-activation-view.vue'),
+                },
+                {
+                    path: 'ibzmonthlies/:ibzmonthly?/myreceivedgridview/:myreceivedgridview?',
+                    meta: {
+                        caption: 'entities.ibzmonthly.views.myreceivedgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'myreceivedgridview', parameterName: 'myreceivedgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-my-received-grid-view/ibz-monthly-my-received-grid-view.vue'),
                 },
                 {
                     path: 'productlives/:productlife?/roadmapslistview9/:roadmapslistview9?',

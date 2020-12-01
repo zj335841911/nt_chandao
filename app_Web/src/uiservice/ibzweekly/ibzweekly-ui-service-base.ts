@@ -207,7 +207,7 @@ export default class IBZWEEKLYUIServiceBase extends UIService {
         let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
           actionContext.$Modal.confirm({
               title: '警告',
-              content: '确认提交吗',
+              content: '确认要马上提交吗？',
               onOk: () => {resolve(true);},
               onCancel: () => {resolve(false);}
           });
@@ -219,6 +219,7 @@ export default class IBZWEEKLYUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(params,{mailto:"%MAILTO%",files:"%files%",tomorrowplanstask:"%tomorrowplanstask%",worktoday:"%worktoday%",todaytask:"%todaytask%",planstomorrow:"%planstomorrow%",comment:"%comment%",reportto:"%REPORTTO%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { ibzweekly: '%ibzweekly%' });

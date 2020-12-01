@@ -576,6 +576,7 @@ export default {
 			left: "预计剩余", 
 			id: "编号", 
 			multiple: "多人任务", 
+			status: "任务状态", 
 			noticeusers: "消息通知用户", 
 			comment: "备注", 
 		},
