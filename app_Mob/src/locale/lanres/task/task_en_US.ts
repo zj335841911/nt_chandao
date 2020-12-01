@@ -520,11 +520,11 @@ export default {
 			tip: 'deuiaction1',
 		},
 	},
-	mycompletetaskmobmdviewrighttoolbar_toolbar: {
-	},
 	myplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
 	},
 	mycompletetaskmobmdview1righttoolbar_toolbar: {
+	},
+	mycompletetaskmobmdviewrighttoolbar_toolbar: {
 	},
 	assmobmdviewmdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {

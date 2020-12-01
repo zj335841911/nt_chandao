@@ -1,13 +1,13 @@
 <template>
     <div class='app-tab-view-panel ibzmyterritory-tabviewpanel ' v-if='isActivied' >
-        <ibz-daily-daily-mob-mdview 
+        <ibz-my-territory-daily-mob-tab-exp-view 
             :_context="JSON.stringify(_context)" 
             :_viewparams="JSON.stringify(_viewparams)" 
             :isChildView="true"
             :panelNavParam="panelNavParam"
             :panelNavContext="panelNavContext"
             viewDefaultUsage="includedView" >
-        </ibz-daily-daily-mob-mdview>
+        </ibz-my-territory-daily-mob-tab-exp-view>
     </div>
 </template>
 
