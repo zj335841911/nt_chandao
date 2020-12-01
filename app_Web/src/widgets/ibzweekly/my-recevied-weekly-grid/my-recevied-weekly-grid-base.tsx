@@ -3,7 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import IBZWEEKLYService from '@/service/ibzweekly/ibzweekly-service';
-import MainService from './main-grid-service';
+import MyReceviedWeeklyService from './my-recevied-weekly-grid-service';
 import IBZWEEKLYUIService from '@/uiservice/ibzweekly/ibzweekly-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
@@ -12,31 +12,31 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class GridControlBase
- * @extends {MainGridBase}
+ * @extends {MyReceviedWeeklyGridBase}
  */
-export class MainGridBase extends GridControlBase {
+export class MyReceviedWeeklyGridBase extends GridControlBase {
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof MainGridBase
+     * @memberof MyReceviedWeeklyGridBase
      */
     protected controlType: string = 'GRID';
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainService}
-     * @memberof MainGridBase
+     * @type {MyReceviedWeeklyService}
+     * @memberof MyReceviedWeeklyGridBase
      */
-    public service: MainService = new MainService({ $store: this.$store });
+    public service: MyReceviedWeeklyService = new MyReceviedWeeklyService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {IBZWEEKLYService}
-     * @memberof MainGridBase
+     * @memberof MyReceviedWeeklyGridBase
      */
     public appEntityService: IBZWEEKLYService = new IBZWEEKLYService({ $store: this.$store });
 
@@ -45,7 +45,7 @@ export class MainGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainGridBase
+     * @memberof MyReceviedWeeklyGridBase
      */
     protected appDeName: string = 'ibzweekly';
 
@@ -54,7 +54,7 @@ export class MainGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainGridBase
+     * @memberof MyReceviedWeeklyGridBase
      */
     protected appDeLogicName: string = '周报';
 
@@ -62,78 +62,65 @@ export class MainGridBase extends GridControlBase {
      * 界面UI服务对象
      *
      * @type {IBZWEEKLYUIService}
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */  
     public appUIService: IBZWEEKLYUIService = new IBZWEEKLYUIService(this.$store);
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u1b66b37_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:IBZWEEKLYUIService  = new IBZWEEKLYUIService();
-        curUIService.IbzWeekly_edit(datas,contextJO, paramJO,  $event, xData,this,"IBZWEEKLY");
-    }
 
 
     /**
      * 界面行为模型
      *
      * @type {*}
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */  
     public ActionModel: any = {
-        edit: { name: 'edit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
      * 主信息表格列
      *
      * @type {string}
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */  
     public majorInfoColName:string = "ibz_weeklyname";
 
+    /**
+     * 列主键属性名称
+     *
+     * @type {string}
+     * @memberof MyReceviedWeeklyGridBase
+     */
+    public columnKeyName: string = "ibz_weeklyid";
 
     /**
      * 本地缓存标识
      *
      * @protected
      * @type {string}
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
-    protected localStorageTag: string = 'ibz_weekly_main_grid';
+    protected localStorageTag: string = 'ibz_weekly_myreceviedweekly_grid';
 
     /**
      * 所有列成员
      *
      * @type {any[]}
-     * @memberof MainGridBase
+     * @memberof MyReceviedWeeklyGridBase
      */
     public allColumns: any[] = [
         {
+            name: 'ibz_weeklyid',
+            label: '编号',
+            langtag: 'entities.ibzweekly.myreceviedweekly_grid.columns.ibz_weeklyid',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'ibz_weeklyname',
             label: '周报名称',
-            langtag: 'entities.ibzweekly.main_grid.columns.ibz_weeklyname',
+            langtag: 'entities.ibzweekly.myreceviedweekly_grid.columns.ibz_weeklyname',
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
@@ -142,7 +129,7 @@ export class MainGridBase extends GridControlBase {
         {
             name: 'account',
             label: '用户',
-            langtag: 'entities.ibzweekly.main_grid.columns.account',
+            langtag: 'entities.ibzweekly.myreceviedweekly_grid.columns.account',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -151,7 +138,7 @@ export class MainGridBase extends GridControlBase {
         {
             name: 'date',
             label: '日期',
-            langtag: 'entities.ibzweekly.main_grid.columns.date',
+            langtag: 'entities.ibzweekly.myreceviedweekly_grid.columns.date',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -160,16 +147,16 @@ export class MainGridBase extends GridControlBase {
         {
             name: 'reportto',
             label: '汇报给',
-            langtag: 'entities.ibzweekly.main_grid.columns.reportto',
+            langtag: 'entities.ibzweekly.myreceviedweekly_grid.columns.reportto',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'uagridcolumn1',
-            label: '操作',
-            langtag: 'entities.ibzweekly.main_grid.columns.uagridcolumn1',
+            name: 'reportstatus',
+            label: '状态',
+            langtag: 'entities.ibzweekly.myreceviedweekly_grid.columns.reportstatus',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -181,7 +168,7 @@ export class MainGridBase extends GridControlBase {
      * 获取表格行模型
      *
      * @type {*}
-     * @memberof MainGridBase
+     * @memberof MyReceviedWeeklyGridBase
      */
     public getGridRowModel(){
         return {
@@ -193,7 +180,7 @@ export class MainGridBase extends GridControlBase {
      * 是否启用分组
      *
      * @type {boolean}
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public isEnableGroup:boolean = false;
 
@@ -201,7 +188,7 @@ export class MainGridBase extends GridControlBase {
      * 分组属性
      *
      * @type {string}
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public groupAppField:string ="";
 
@@ -209,7 +196,7 @@ export class MainGridBase extends GridControlBase {
      * 分组属性代码表标识
      *
      * @type {string}
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public groupAppFieldCodelistTag:string ="";
 
@@ -217,7 +204,7 @@ export class MainGridBase extends GridControlBase {
      * 分组属性代码表类型
      * 
      * @type {string}
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public groupAppFieldCodelistType: string = "";
 
@@ -225,7 +212,7 @@ export class MainGridBase extends GridControlBase {
      * 分组模式
      *
      * @type {string}
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public groupMode:string ="NONE";
 
@@ -233,7 +220,7 @@ export class MainGridBase extends GridControlBase {
      * 分组代码表标识
      * 
      * @type {string}
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public codelistTag: string = "";
 
@@ -241,7 +228,7 @@ export class MainGridBase extends GridControlBase {
      * 分组代码表类型
      * 
      * @type {string}
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public codelistType: string = "";
 
@@ -249,7 +236,7 @@ export class MainGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainGridBase
+     * @memberof MyReceviedWeeklyGridBase
      */
     public rules() {
         return {
@@ -264,7 +251,7 @@ export class MainGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public deRules:any = {
     };
@@ -273,14 +260,15 @@ export class MainGridBase extends GridControlBase {
      * 获取对应列class
      *
      * @type {*}
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public hasRowEdit: any = {
+        'ibz_weeklyid':false,
         'ibz_weeklyname':false,
         'account':false,
         'date':false,
         'reportto':false,
-        'uagridcolumn1':false,
+        'reportstatus':false,
     };
 
     /**
@@ -288,7 +276,7 @@ export class MainGridBase extends GridControlBase {
      *
      * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
      * @returns {void}
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
         let className: string = '';
@@ -346,7 +334,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} jsonData
      * @param {any[]} [codelistColumns=[]]
      * @returns {Promise<any>}
-     * @memberof MainGridBase
+     * @memberof MyReceviedWeeklyGridBase
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
@@ -366,29 +354,22 @@ export class MainGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+            {
+                name: 'reportstatus',
+                srfkey: 'ReportStatus',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
         ]);
     }
 
 
     /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof MainGridBase
-     */
-	public uiAction(row: any, tag: any, $event: any): void {
-        $event.stopPropagation();
-        if(Object.is('edit', tag)) {
-            this.grid_uagridcolumn1_u1b66b37_click(row, tag, $event);
-        }
-    }
-
-    /**
      * 更新默认值
      * @param {*}  row 行数据
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public updateDefault(row: any){                    
     }
@@ -396,10 +377,10 @@ export class MainGridBase extends GridControlBase {
     /**
     * 合并分组行
     * 
-    * @memberof MainBase
+    * @memberof MyReceviedWeeklyBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ibz_weeklyname','account','date','reportto','uagridcolumn1'];
+        let allColumns:Array<any> = ['ibz_weeklyid','ibz_weeklyname','account','date','reportto','reportstatus'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -412,7 +393,7 @@ export class MainGridBase extends GridControlBase {
 	/**
      * 分组方法
      * 
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public group(){
         if(Object.is(this.groupMode,"AUTO")){
@@ -427,7 +408,7 @@ export class MainGridBase extends GridControlBase {
      * 
      * @param {string}  codelistType 代码表类型
      * @param {string}  codelistTag 代码表标识
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public async getGroupCodelist(codelistType: string,codelistTag:string){
         let codelist: Array<any> = [];
@@ -444,7 +425,7 @@ export class MainGridBase extends GridControlBase {
     /**
      * 根据分组代码表绘制分组列表
      * 
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public async drawCodelistGroup(){
         if(!this.isEnableGroup) return;
@@ -478,13 +459,12 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
+                ibz_weeklyid:'',
                 ibz_weeklyname:'',
                 account:'',
                 date:'',
                 reportto:'',
-                edit:{
-                    visible: false
-                },
+                reportstatus:'',
                 children: children
             }
             groupTree.push(tree);
@@ -509,13 +489,12 @@ export class MainGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
+            ibz_weeklyid:'',
             ibz_weeklyname:'',
             account:'',
             date:'',
             reportto:'',
-            edit:{
-                visible: false
-            },
+            reportstatus:'',
             children: child
         }
         if(child && child.length > 0){
@@ -532,7 +511,7 @@ export class MainGridBase extends GridControlBase {
     /**
      * 绘制分组
      * 
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public async drawGroup(){
         if(!this.isEnableGroup) return;
@@ -576,13 +555,12 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
+                ibz_weeklyid:'',
                 ibz_weeklyname:'',
                 account:'',
                 date:'',
                 reportto:'',
-                edit:{
-                    visible: false
-                },
+                reportstatus:'',
                 children: children,
             }
             groupTree.push(tree);
@@ -600,7 +578,7 @@ export class MainGridBase extends GridControlBase {
      * @param {string}  action 行为
      * @param {string}  param 默认值参数
      * @param {*}  data 当前行数据
-     * @memberof MainBase
+     * @memberof MyReceviedWeeklyBase
      */
     public computeDefaultValueWithParam(action:string,param:string,data:any){
         if(Object.is(action,"UPDATE")){

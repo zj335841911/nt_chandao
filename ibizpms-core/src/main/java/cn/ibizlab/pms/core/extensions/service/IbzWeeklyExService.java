@@ -32,6 +32,16 @@ public class IbzWeeklyExService extends IbzWeeklyServiceImpl {
         return super.createEveryWeekReport(et);
     }
     /**
+     * [HaveRead:已读] 行为扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public IbzWeekly haveRead(IbzWeekly et) {
+        return super.haveRead(et);
+    }
+    /**
      * [Submit:提交] 行为扩展
      * @param et
      * @return

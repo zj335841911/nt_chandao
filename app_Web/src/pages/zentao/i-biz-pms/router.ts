@@ -5740,6 +5740,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-pickup-view/product-pickup-view.vue'),
                 },
                 {
+                    path: 'ibzweeklies/:ibzweekly?/usr3gridview/:usr3gridview?',
+                    meta: {
+                        caption: 'entities.ibzweekly.views.usr3gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+                            { pathName: 'usr3gridview', parameterName: 'usr3gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-weekly-usr3-grid-view/ibz-weekly-usr3-grid-view.vue'),
+                },
+                {
                     path: 'projects/:project?/planaddeditview/:planaddeditview?',
                     meta: {
                         caption: 'entities.project.views.planaddeditview.caption',
@@ -15166,74 +15180,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/test-module-grid-view-main/test-module-grid-view-main.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/cases/:case?/optionview/:optionview?',
-                    meta: {
-                        caption: 'entities.case.views.optionview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'optionview', parameterName: 'optionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/case-option-view/case-option-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/cases/:case?/optionview/:optionview?',
-                    meta: {
-                        caption: 'entities.case.views.optionview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'optionview', parameterName: 'optionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/case-option-view/case-option-view.vue'),
-                },
-                {
-                    path: 'products/:product?/cases/:case?/optionview/:optionview?',
-                    meta: {
-                        caption: 'entities.case.views.optionview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'optionview', parameterName: 'optionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/case-option-view/case-option-view.vue'),
-                },
-                {
-                    path: 'cases/:case?/optionview/:optionview?',
-                    meta: {
-                        caption: 'entities.case.views.optionview.caption',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'cases', parameterName: 'case' },
-                            { pathName: 'optionview', parameterName: 'optionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/case-option-view/case-option-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
                     meta: {
                         caption: 'entities.bug.views.releasesubgridview_done.caption',
@@ -15317,6 +15263,74 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/cases/:case?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.case.views.optionview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-option-view/case-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/cases/:case?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.case.views.optionview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-option-view/case-option-view.vue'),
+                },
+                {
+                    path: 'products/:product?/cases/:case?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.case.views.optionview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-option-view/case-option-view.vue'),
+                },
+                {
+                    path: 'cases/:case?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.case.views.optionview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-option-view/case-option-view.vue'),
                 },
                 {
                     path: 'ibzmyterritories/:ibzmyterritory?/tabexpview/:tabexpview?',

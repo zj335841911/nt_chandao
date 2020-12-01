@@ -30,6 +30,10 @@ export default {
 			caption: "周报",
       		title: "实体2编辑视图",
 		},
+		usr3gridview: {
+			caption: "周报",
+      		title: "周报表格视图",
+		},
 		usr2gridview: {
 			caption: "周报",
       		title: "周报表格视图",
@@ -101,6 +105,19 @@ export default {
 		uiactions: {
 		},
 	},
+	myreceviedweekly_grid: {
+		nodata: "",
+		columns: {
+			ibz_weeklyid: "编号",
+			ibz_weeklyname: "周报名称",
+			account: "用户",
+			date: "日期",
+			reportto: "汇报给",
+			reportstatus: "状态",
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		nodata: "",
 		columns: {
@@ -108,7 +125,7 @@ export default {
 			account: "用户",
 			date: "日期",
 			reportto: "汇报给",
-			uagridcolumn1: "修改",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
 			ibzweekly_edit: "修改",

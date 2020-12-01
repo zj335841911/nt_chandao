@@ -18,18 +18,30 @@
             ref="multipleTable" :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
-                {{$t('entities.ibzweekly.main_grid.nodata')}} 
+                {{$t('entities.ibzweekly.myreceviedweekly_grid.nodata')}} 
                 <span class="quick-toolbar">
                 </span>
             </template>
             <template v-if="!isSingleSelect">
                 <el-table-column align="center" type="selection" :width="checkboxColWidth"></el-table-column>
             </template>
-            <template v-if="getColumnState('ibz_weeklyname')">
-                <el-table-column show-overflow-tooltip :prop="'ibz_weeklyname'" :label="$t('entities.ibzweekly.main_grid.columns.ibz_weeklyname')" :min-width="150"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('ibz_weeklyid')">
+                <el-table-column show-overflow-tooltip :prop="'ibz_weeklyid'" :label="$t('entities.ibzweekly.myreceviedweekly_grid.columns.ibz_weeklyid')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzweekly.main_grid.columns.ibz_weeklyname')}}
+                        {{$t('entities.ibzweekly.myreceviedweekly_grid.columns.ibz_weeklyid')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                            <span>{{row.ibz_weeklyid}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('ibz_weeklyname')">
+                <el-table-column show-overflow-tooltip :prop="'ibz_weeklyname'" :label="$t('entities.ibzweekly.myreceviedweekly_grid.columns.ibz_weeklyname')" :min-width="150"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.ibzweekly.myreceviedweekly_grid.columns.ibz_weeklyname')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -52,10 +64,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('account')">
-                <el-table-column show-overflow-tooltip :prop="'account'" :label="$t('entities.ibzweekly.main_grid.columns.account')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'account'" :label="$t('entities.ibzweekly.myreceviedweekly_grid.columns.account')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzweekly.main_grid.columns.account')}}
+                        {{$t('entities.ibzweekly.myreceviedweekly_grid.columns.account')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -66,10 +78,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('date')">
-                <el-table-column show-overflow-tooltip :prop="'date'" :label="$t('entities.ibzweekly.main_grid.columns.date')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'date'" :label="$t('entities.ibzweekly.myreceviedweekly_grid.columns.date')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzweekly.main_grid.columns.date')}}
+                        {{$t('entities.ibzweekly.myreceviedweekly_grid.columns.date')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -78,10 +90,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('reportto')">
-                <el-table-column show-overflow-tooltip :prop="'reportto'" :label="$t('entities.ibzweekly.main_grid.columns.reportto')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'reportto'" :label="$t('entities.ibzweekly.myreceviedweekly_grid.columns.reportto')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzweekly.main_grid.columns.reportto')}}
+                        {{$t('entities.ibzweekly.myreceviedweekly_grid.columns.reportto')}}
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -91,20 +103,17 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.ibzweekly.main_grid.columns.uagridcolumn1')" :width="200"  :align="'center'">
+            <template v-if="getColumnState('reportstatus')">
+                <el-table-column show-overflow-tooltip :prop="'reportstatus'" :label="$t('entities.ibzweekly.myreceviedweekly_grid.columns.reportstatus')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
-                        {{$t('entities.ibzweekly.main_grid.columns.uagridcolumn1')}}
+                        {{$t('entities.ibzweekly.myreceviedweekly_grid.columns.reportstatus')}}
                        </span>
                     </template>
-                    <template slot-scope="scope">
-                        <div style="text-align: center;">
-                            <a v-show="scope.row.edit.visible" :disabled="scope.row.edit.disabled" @click="uiAction(scope.row, 'edit', $event)" :title="$t('entities.ibzweekly.main_grid.uiactions.ibzweekly_edit')">
-                                
-                                {{$t('entities.ibzweekly.main_grid.uiactions.ibzweekly_edit')}}
-                            </a>
-                        </div>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.reportstatus" tag="ReportStatus" codelistType="STATIC" ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>

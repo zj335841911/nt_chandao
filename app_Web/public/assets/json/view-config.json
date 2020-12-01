@@ -3489,6 +3489,16 @@
         "viewtag": "985c8eb7591e5e00de8e3cda638d5727",
         "memo": "视图参数转换"
     },
+    "ibzweeklyusr3gridview": {
+        "title": "周报表格视图",
+        "caption": "周报",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzWeeklyUsr3GridView",
+        "viewfilename": "ibz-weekly-usr3-grid-view",
+        "viewtag": "991e5ef3e406f063f981865759d0857f",
+        "memo": ""
+    },
     "ibzlibmodulecasetreeexpview": {
         "title": "用例",
         "caption": "用例",

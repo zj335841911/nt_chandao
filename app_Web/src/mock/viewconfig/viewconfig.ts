@@ -2799,6 +2799,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductLifeRoadMapListView9",
             "viewtag": "985c8eb7591e5e00de8e3cda638d5727"
         },
+        "ibzweeklyusr3gridview": {
+            "title": "周报表格视图",
+            "caption": "周报",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzWeeklyUsr3GridView",
+            "viewtag": "991e5ef3e406f063f981865759d0857f"
+        },
         "ibzlibmodulecasetreeexpview": {
             "title": "用例",
             "caption": "用例",

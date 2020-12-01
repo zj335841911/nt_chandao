@@ -69,6 +69,7 @@
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
 |定时生成每周周报|用户自定义|&nbsp;|
+|已读|用户自定义|&nbsp;|
 |Save|内置方法|&nbsp;|
 |提交|用户自定义|&nbsp;|
 

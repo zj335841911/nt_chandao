@@ -3149,6 +3149,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '991e5ef3e406f063f981865759d0857f',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyUsr3GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '7ae5b669ec5f5284763927aee60efde1',
+            ],
+        },
+        {
             viewtag: '99b83386d61eab84cd7d65a445def4ed',
             viewmodule: 'ibiz',
             viewname: 'IbzLibModuleCaseTreeExpView',
@@ -4255,6 +4265,7 @@ export const viewstate: any = {
             refviews: [
                 'ff73d748d9fbc7cd4d59a714d7be6ad7',
                 'becc7b01bce4e44c2fbad7d10e02080e',
+                '991e5ef3e406f063f981865759d0857f',
             ],
         },
         {
