@@ -62,5 +62,15 @@ export default {
 		mobdashboardview: {
 			caption: '我的地盘',
 		},
+		dailymobtabexpview: {
+			caption: '我的地盘',
+		},
+		reportmobtabexpview: {
+			caption: '我的地盘',
+		},
+	},
+	dailymobtabexpviewrighttoolbar_toolbar: {
+	},
+	reportmobtabexpviewrighttoolbar_toolbar: {
 	},
 };

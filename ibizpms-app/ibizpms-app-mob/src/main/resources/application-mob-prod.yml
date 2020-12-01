@@ -71,6 +71,10 @@ zuul:
       path: /dynadashboards/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_monthly:
+      path: /ibzmonthlies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_storyspec:
       path: /storyspecs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

@@ -167,6 +167,15 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
         return new PageImpl<IbzWeekly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 我收到的周报
+     */
+    @Override
+    public Page<IbzWeekly> searchMyWeekly(IbzWeeklySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzWeekly> pages=baseMapper.searchMyWeekly(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzWeekly>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

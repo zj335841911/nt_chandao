@@ -76,6 +76,11 @@ export class AssignFormMobModel {
                 dataType: 'HTMLTEXT',
             },
             {
+                name: 'status',
+                prop: 'status',
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'noticeusers',
                 prop: 'noticeusers',
                 dataType: 'TEXT',

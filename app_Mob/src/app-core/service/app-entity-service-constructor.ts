@@ -32,6 +32,7 @@ export class AppEntityServiceConstructor extends ServiceConstructorBase {
         this.allService.set('module', () => import('@/app-core/service/module/module-service'));
         this.allService.set('product', () => import('@/app-core/service/product/product-service'));
         this.allService.set('dynadashboard', () => import('@/app-core/service/dyna-dashboard/dyna-dashboard-service'));
+        this.allService.set('ibzmonthly', () => import('@/app-core/service/ibz-monthly/ibz-monthly-service'));
         this.allService.set('storyspec', () => import('@/app-core/service/story-spec/story-spec-service'));
         this.allService.set('action', () => import('@/app-core/service/action/action-service'));
         this.allService.set('casestep', () => import('@/app-core/service/case-step/case-step-service'));

@@ -348,6 +348,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '22e33232ac91bca7826742f9c85720dc',
+            viewmodule: 'report',
+            viewname: 'IbzDailyMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '236b858424b0a6f5b0c05f6d689741a1',
             viewmodule: 'ibiz',
             viewname: 'TestSuiteNewMobEditView',
@@ -426,6 +435,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '2b408f1790371e0b35d449bb39d68b09',
+            viewmodule: 'zentao',
+            viewname: 'TaskMyCompleteTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
         {
@@ -877,6 +896,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '61b07d6ba0ff1c6a96f09f0fcbb4cda7',
+            viewmodule: 'report',
+            viewname: 'IbzDailyDailyMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '61b907edfc7822d020b6b2c2246ee8e0',
             viewmodule: 'ibiz',
             viewname: 'ProductMobPickupView',
@@ -1056,6 +1084,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '75722e2318eeb643b91480d5221d16b5',
+            viewmodule: 'report',
+            viewname: 'IbzMyTerritoryDailyMobTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e903ad26a5f15974177800895703623c',
+                '983fc79effc6ccd4d63f0b957c37efe1',
+                '9e582670d841ba6cfb310f7e56ab1784',
+            ],
+        },
+        {
             viewtag: '75af8ee328e72edea074420d8daace01',
             viewmodule: 'ibiz',
             viewname: 'ProjectMobPickupMDView',
@@ -1084,6 +1124,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: '7cd2b519699b48228f6e321b3ec5987d',
+            viewmodule: 'report',
+            viewname: 'IbzDailyDailyCompleteTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '22e33232ac91bca7826742f9c85720dc',
             ],
         },
         {
@@ -1308,6 +1358,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '983fc79effc6ccd4d63f0b957c37efe1',
+            viewmodule: 'report',
+            viewname: 'IbzDailyDailyMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '22e33232ac91bca7826742f9c85720dc',
+            ],
+        },
+        {
             viewtag: '984a4d5ce6ca2ede5539d44590ef20a6',
             viewmodule: 'ibiz',
             viewname: 'ProductMobEditView',
@@ -1358,6 +1418,16 @@ export const viewstate: any = {
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 'eef4931ab99bfda807489700470bad47',
+            ],
+        },
+        {
+            viewtag: '9e582670d841ba6cfb310f7e56ab1784',
+            viewmodule: 'zentao',
+            viewname: 'TaskMyCompleteTaskMobMDView1',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
         {
@@ -1798,6 +1868,26 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'D3037883-E4BF-4F1D-86D1-E9965B6315D4',
+            viewmodule: 'Ungroup',
+            viewname: 'AppPortalView2',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'd5c7609394e36976dbc09c76264450f5',
+            viewmodule: 'zentao',
+            viewname: 'IbzMyTerritoryReportMobTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '983fc79effc6ccd4d63f0b957c37efe1',
+                '02782347d5218671bacac4c3b853f82f',
+            ],
+        },
+        {
             viewtag: 'd739ee414172cbfdc3d6e2d2e01e3676',
             viewmodule: 'ibiz',
             viewname: 'TaskMobOptionView',
@@ -1994,6 +2084,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: 'e903ad26a5f15974177800895703623c',
+            viewmodule: 'report',
+            viewname: 'TaskMyPlansTomorrowTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
         {

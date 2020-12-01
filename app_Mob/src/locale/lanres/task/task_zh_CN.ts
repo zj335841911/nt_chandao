@@ -85,6 +85,9 @@ export default {
 		stopmoboptionview: {
 			caption: '暂停',
 		},
+		mycompletetaskmobmdview: {
+			caption: '任务',
+		},
 		editmobeditview: {
 			caption: '任务',
 		},
@@ -121,6 +124,9 @@ export default {
 		assmobmdview: {
 			caption: '任务',
 		},
+		mycompletetaskmobmdview1: {
+			caption: '任务',
+		},
 		moboptionview: {
 			caption: '指派',
 		},
@@ -131,6 +137,9 @@ export default {
 			caption: '任务',
 		},
 		newmobeditview: {
+			caption: '任务',
+		},
+		myplanstomorrowtaskmobmdview: {
 			caption: '任务',
 		},
 		usr2moboptionview: {
@@ -180,6 +189,7 @@ export default {
 			multiple: '多人任务', 
 			left: '预计剩余', 
 			comment: '备注', 
+			status: '任务状态', 
 			noticeusers: '消息通知用户', 
 			id: '编号', 
 		},
@@ -509,6 +519,12 @@ export default {
 			caption: '更多',
 			tip: '更多',
 		},
+	},
+	mycompletetaskmobmdviewrighttoolbar_toolbar: {
+	},
+	myplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
+	},
+	mycompletetaskmobmdview1righttoolbar_toolbar: {
 	},
 	assmobmdviewmdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {

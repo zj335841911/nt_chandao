@@ -7855,6 +7855,33 @@ t1.`UPDATEMANNAME`
 FROM `T_IBZ_WEEKLY` t1 
 
 ```
+### 我收到的周报(MyWeekly)<div id="IbzWeekly_MyWeekly"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_WEEKLYID`,
+t1.`IBZ_WEEKLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`NEXTWEEKTASK`,
+t1.`PLANNEXTWEEK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.`THISWEEKTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_WEEKLY` t1 
+left join zt_action t11 on t11.objectID = t1.IBZ_DAILYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+WHERE t1.issubmit = '1' 
+(t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO)) 
+
+```
 ### 默认（全部数据）(VIEW)<div id="IbzWeekly_View"></div>
 ```sql
 SELECT

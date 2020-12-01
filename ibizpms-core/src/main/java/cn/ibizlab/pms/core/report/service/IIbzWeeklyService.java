@@ -49,6 +49,7 @@ public interface IIbzWeeklyService extends IService<IbzWeekly> {
     void saveBatch(List<IbzWeekly> list);
     IbzWeekly submit(IbzWeekly et);
     Page<IbzWeekly> searchDefault(IbzWeeklySearchContext context);
+    Page<IbzWeekly> searchMyWeekly(IbzWeeklySearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

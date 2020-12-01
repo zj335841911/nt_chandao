@@ -59,6 +59,9 @@ export default {
         'active': '未解决',
         empty: '',
     },
+    MyPlanTask: {
+        empty: '',
+    },
     Project__status: {
         'wait': '未开始',
         'doing': '进行中',
@@ -720,6 +723,9 @@ export default {
         empty: '',
     },
     CurStory: {
+        empty: '',
+    },
+    MyCompleteTask: {
         empty: '',
     },
     Testrun__result: {

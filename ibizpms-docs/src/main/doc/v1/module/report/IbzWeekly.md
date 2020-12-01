@@ -938,7 +938,8 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [我收到的周报](#数据查询-我收到的周报（MyWeekly）) | MyWeekly | 否 |
+| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -974,6 +975,41 @@ t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`
 FROM `T_IBZ_WEEKLY` t1 
 
+```
+### 数据查询-我收到的周报（MyWeekly）
+#### 说明
+我收到的周报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_WEEKLYID`,
+t1.`IBZ_WEEKLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`NEXTWEEKTASK`,
+t1.`PLANNEXTWEEK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.`THISWEEKTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_WEEKLY` t1 
+left join zt_action t11 on t11.objectID = t1.IBZ_DAILYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -1016,6 +1052,7 @@ FROM `T_IBZ_WEEKLY` t1
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 2 | [我收到的周报](#数据集合-我收到的周报（MyWeekly）) | MyWeekly | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1031,6 +1068,20 @@ FROM `T_IBZ_WEEKLY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（Default）](#数据查询-数据查询（Default）) |
+### 数据集合-我收到的周报（MyWeekly）
+#### 说明
+我收到的周报
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我收到的周报（MyWeekly）](#数据查询-我收到的周报（MyWeekly）) |
 
 ## 数据导入
 无

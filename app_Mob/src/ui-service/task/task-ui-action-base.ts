@@ -94,6 +94,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'assmoremobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'stopmoboptionview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'mycompletetaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'editmobeditview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'activemobtask',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'cancelmoboptionview',srfappde:'tasks'});
@@ -106,10 +107,12 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'favoritemobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'commoboptionview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'assmobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'mycompletetaskmobmdview1',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'moboptionview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'gsmoboptionview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'assmobmdview9',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'myplanstomorrowtaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'usr2moboptionview',srfappde:'tasks'});
     }
 

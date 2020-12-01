@@ -30,6 +30,7 @@ export class AuthServiceConstructor extends ServiceConstructorBase {
         this.allService.set('module', () => import('@/app-core/auth-service/module/module-auth-service'));
         this.allService.set('product', () => import('@/app-core/auth-service/product/product-auth-service'));
         this.allService.set('dynadashboard', () => import('@/app-core/auth-service/dyna-dashboard/dyna-dashboard-auth-service'));
+        this.allService.set('ibzmonthly', () => import('@/app-core/auth-service/ibz-monthly/ibz-monthly-auth-service'));
         this.allService.set('storyspec', () => import('@/app-core/auth-service/story-spec/story-spec-auth-service'));
         this.allService.set('action', () => import('@/app-core/auth-service/action/action-auth-service'));
         this.allService.set('casestep', () => import('@/app-core/auth-service/case-step/case-step-auth-service'));

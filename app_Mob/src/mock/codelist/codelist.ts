@@ -287,6 +287,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "MyPlanTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyTomorrowPlanTask",
+        "items": []
+    },
+    {
         srfkey: 'Project__status',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -4055,6 +4063,14 @@ const datas: Array<any> = [
         "codelisttype":"dynamic",
         "appdataentity":"StorySpec",
         "appdedataset":"FetchVersion",
+        "items": []
+    },
+    {
+        "srfkey": "MyCompleteTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyCompleteTask",
         "items": []
     },
     {

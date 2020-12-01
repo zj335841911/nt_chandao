@@ -100,6 +100,7 @@
 |-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务模块移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
+|-|我的地盘分页导航视图（汇报）|DEMOBTABEXPVIEW|&nbsp;|
 |-|项目移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|发布移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|任务选项操作视图（完成）|DEMOBOPTVIEW|&nbsp;|
@@ -130,6 +131,7 @@
 |-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务团队移动端编辑视图|DEMOBEDITVIEW9|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|任务移动端多数据视图(我的已完成任务)|DEMOBMDVIEW|&nbsp;|
 |-|Bug移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
 |-|产品图表视图|DEMOBCHARTVIEW|&nbsp;|
 |-|测试套件移动端多数据视图|DEMOBMDVIEW|&nbsp;|
@@ -172,6 +174,7 @@
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|产品统计移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|应用门户视图2|APPPORTALVIEW|&nbsp;|
+|-|我的地盘分页导航视图（汇报）|DEMOBTABEXPVIEW|&nbsp;|
 |-|任务选项操作视图（指派）|DEMOBOPTVIEW|&nbsp;|
 |-|任务选项操作视图（工时）|DEMOBOPTVIEW|&nbsp;|
 |-|发布移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
@@ -189,6 +192,7 @@
 |-|任务移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|任务团队移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|待办事宜表移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|任务移动端多数据视图(我的已完成任务)|DEMOBMDVIEW|&nbsp;|
 |-|版本移动端编辑视图（更新日志）|DEMOBEDITVIEW|&nbsp;|
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|Bug选项操作视图（关闭Bug）|DEMOBOPTVIEW|&nbsp;|
@@ -566,6 +570,7 @@ SRFNAVPARAM.project=%project%|
 |-|文档库树视图|DETREEVIEW|&nbsp;|
 |-|发布编辑视图|DEEDITVIEW|&nbsp;|
 |-|路线图|DELISTVIEW9|&nbsp;视图参数转换|
+|-|周报表格视图|DEGRIDVIEW|&nbsp;|
 |-|用例|DETREEEXPVIEW|&nbsp;|
 |-|版本表格视图（轮次）|DEGRIDVIEW|&nbsp;|
 |-|项目|DEEDITVIEW|&nbsp;|

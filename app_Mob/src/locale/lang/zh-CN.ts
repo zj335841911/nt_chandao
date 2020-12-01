@@ -14,6 +14,7 @@ import systeammember_zh_CN from '@locale/lanres/sys-team-member/sys-team-member_
 import module_zh_CN from '@locale/lanres/module/module_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/dyna-dashboard/dyna-dashboard_zh_CN';
+import ibzmonthly_zh_CN from '@locale/lanres/ibz-monthly/ibz-monthly_zh_CN';
 import storyspec_zh_CN from '@locale/lanres/story-spec/story-spec_zh_CN';
 import action_zh_CN from '@locale/lanres/action/action_zh_CN';
 import casestep_zh_CN from '@locale/lanres/case-step/case-step_zh_CN';
@@ -77,6 +78,9 @@ export default {
         views: {
             appindexview: {
                 caption: 'iBiz软件生产管理',
+            },
+            appportalview2: {
+                caption: '',
             },
             appportalview: {
                 caption: '工作台',
@@ -201,6 +205,7 @@ export default {
     module: module_zh_CN,
     product: product_zh_CN,
     dynadashboard: dynadashboard_zh_CN,
+    ibzmonthly: ibzmonthly_zh_CN,
     storyspec: storyspec_zh_CN,
     action: action_zh_CN,
     casestep: casestep_zh_CN,

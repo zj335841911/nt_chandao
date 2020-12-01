@@ -94,6 +94,84 @@ export default class GlobalUiServiceBase extends UIActionBase {
     }
 
     /**
+     * 保存并新建
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName]
+     * @returns {Promise<any>}
+     * @memberof 
+     */
+    public async SaveAndNew(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        let response: any;
+        if (xData && xData.saveAndNew instanceof Function) {
+            const _data = {};
+            response = await xData.saveAndNew(_data);
+        }
+        if (response && response.status === 200) {
+            container.$emit('viewdataschange', [{ ...response.data }]);
+            if (xData.autoLoad instanceof Function) {
+                xData.autoLoad({});
+            }
+        }
+        return response;
+    }
+
+    /**
+     * 保存
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName]
+     * @returns {Promise<any>}
+     * @memberof 
+     */
+    public async Save(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        let response: any;
+        if (xData && xData.save instanceof Function) {
+            const _data = {};
+            response = await xData.save(_data);
+            if (response || response.status === 200) {
+                container.$emit('viewdataschange', [{ ...response.data }]);
+            }
+        } else if (container.save && container.save instanceof Function) {
+            response = await container.save();
+        }
+        return response;
+    }
+
+
+    /**
+     * 开始流程
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName]
+     * @returns {Promise<any>}
+     * @memberof 
+     */
+    public async SaveAndStart(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        let response: any;
+        if (xData && xData.wfstart instanceof Function) {
+            const _data = {};
+            response = await xData.wfstart(args);
+        }
+        return response;
+    }
+
+    /**
      * 返回
      *
      * @param {any[]} args 数据
@@ -110,6 +188,28 @@ export default class GlobalUiServiceBase extends UIActionBase {
         container.closeView(args);
     }
 
+
+    /**
+     * 当前流程步骤
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName]
+     * @returns {Promise<any>}
+     * @memberof 
+     */
+    public async ViewWFStep(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        let response: any;
+        if (xData && xData.wfsubmit instanceof Function) {
+            const _data = {};
+            response = await xData.wfsubmit(args);
+        }
+        return response;
+    }
 
     /**
      * 新建
@@ -174,5 +274,30 @@ export default class GlobalUiServiceBase extends UIActionBase {
             container.refresh_parent();
             return;
         }
+    }
+
+    /**
+     * 删除
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName]
+     * @returns {Promise<any>}
+     * @memberof 
+     */
+    public async RemoveAndExit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        let response: any;
+        if (xData && xData.removeAndExit instanceof Function) {
+            const _data = {};
+            response = await xData.removeAndExit(args);
+        }
+        if (response && response.status === 200) {
+            container.$emit('viewdataschange', [{ ...response.data }]);
+        }
+        return response;
     }
 }

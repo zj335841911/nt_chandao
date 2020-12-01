@@ -21,6 +21,7 @@ import './entity/sys-team-members/sys-team-members';
 import './entity/modules/modules';
 import './entity/products/products';
 import './entity/dyna-dashboards/dyna-dashboards';
+import './entity/ibz-monthlys/ibz-monthlys';
 import './entity/story-specs/story-specs';
 import './entity/actions/actions';
 import './entity/case-steps/case-steps';
