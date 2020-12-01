@@ -10,12 +10,6 @@
                 </ion-button>
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                    </div>
-                </div>
-            </ion-buttons>
         </ion-toolbar>
 
     
@@ -258,7 +252,6 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      */
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
-        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
@@ -279,25 +272,12 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
-
-   /**
-    * 工具栏 IbzMonthlyMainInfoMobEditView 模型
-    *
-    * @type {*}
-    * @memberof IbzMonthlyMainInfoMobEditView
-    */
-    public righttoolbarModels: any = {
-    };
-
-    
-
-
     /**
      * 工具栏模型集合名
      *
      * @memberof IbzMonthlyMainInfoMobEditViewBase
      */
-    public toolbarModelList:any = ['righttoolbarModels',]
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数

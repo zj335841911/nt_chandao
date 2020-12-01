@@ -35,35 +35,6 @@ export default {
 			caption: '月报',
 		},
 	},
-	mobnew_form: {
-		details: {
-			grouppanel1: '分组面板', 
-			formpage1: '基本信息', 
-			srfupdatedate: '更新时间', 
-			srforikey: '', 
-			srfkey: '月报标识', 
-			srfmajortext: '月报名称', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			ibz_monthlyname: '月报名称', 
-			date: '日期', 
-			thismonthtask: '本月完成任务', 
-			workthismonth: '本月工作', 
-			nextmonthplanstask: '下月计划任务', 
-			plansnextmonth: '下月计划', 
-			comment: '其他事项', 
-			files: '附件', 
-			reportto: '汇报给', 
-			mailto: '抄送给', 
-			ibz_monthlyid: '月报标识', 
-			account: '用户', 
-			issubmit: '是否提交', 
-		},
-		uiactions: {
-		},
-	},
 	mobmaininfo_form: {
 		details: {
 			druipart1: '', 
@@ -96,8 +67,35 @@ export default {
 		uiactions: {
 		},
 	},
-	createmobeditviewrighttoolbar_toolbar: {
+	mobnew_form: {
+		details: {
+			grouppanel1: '分组面板', 
+			formpage1: '基本信息', 
+			srfupdatedate: '更新时间', 
+			srforikey: '', 
+			srfkey: '月报标识', 
+			srfmajortext: '月报名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			ibz_monthlyname: '月报名称', 
+			date: '日期', 
+			thismonthtask: '本月完成任务', 
+			workthismonth: '本月工作', 
+			nextmonthplanstask: '下月计划任务', 
+			plansnextmonth: '下月计划', 
+			comment: '其他事项', 
+			files: '附件', 
+			reportto: '汇报给', 
+			mailto: '抄送给', 
+			ibz_monthlyid: '月报标识', 
+			account: '用户', 
+			issubmit: '是否提交', 
+		},
+		uiactions: {
+		},
 	},
-	maininfomobeditviewrighttoolbar_toolbar: {
+	createmobeditviewrighttoolbar_toolbar: {
 	},
 };
