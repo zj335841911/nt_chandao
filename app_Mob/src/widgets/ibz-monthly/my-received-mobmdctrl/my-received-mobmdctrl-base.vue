@@ -4,24 +4,24 @@
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
+                        <ion-item>
+                            <!-- 列表视图样式 -->
+                            <app-list-index-text :dataItemNames = "[]" :item="item" :index="index" major="ibzmonthlyname" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
+                                <!-- 图标视图样式 -->
+                            <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
+                        </ion-item>
                     </ion-item-sliding>
                 </template>
             </ion-list>
             <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
+                        <ion-item>
+                            <!-- 列表视图样式 -->
+                            <app-list-index-text :dataItemNames = "[]" :item="item" :index="index" major="ibzmonthlyname" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
+                            <!-- 图标视图样式 -->
+                            <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
+                        </ion-item>                      
                       </ion-item-sliding>
                 </template>
                 <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
@@ -57,23 +57,15 @@
                 <template v-else>
                     <ion-list  v-model="selectedArray"   v-if="isMutli" class="pickUpList">
                         <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item" >
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
+                            <ion-checkbox color="secondary" :checked="item.checked" :value="item.srfkey" @ionChange="checkboxChange"  slot="end"></ion-checkbox>
+                            <ion-label>{{item.ibzmonthlyname}}</ion-label>
                         </ion-item>
                     </ion-list>
                     <div class="pickUpList">
                     <ion-radio-group  :value="selectedValue" v-if="!isMutli">
                         <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
+                            <ion-label>{{item.ibzmonthlyname}}</ion-label>
+                            <ion-radio slot="end" :checked="item.checked" :value="item.srfkey"></ion-radio>
                         </ion-item>
                     </ion-radio-group>
                     </div>
