@@ -1077,6 +1077,7 @@ export default {
         "deletechildrenstory": "删除子需求",
         "submit": "提交",
         "read": "已读了",
+        "remind": "提醒",
         "empty": ""
     },
     User__gender: {

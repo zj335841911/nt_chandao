@@ -9222,6 +9222,18 @@
                 "disabled": false,
                 "default": false
             }
+            , {
+                "id": "remind",
+                "label": "提醒",
+                "text": "提醒",
+                "class":"",
+                "data":"",
+                "codename":"Remind",
+                "value": "remind",
+                
+                "disabled": false,
+                "default": false
+            }
         ]
     }, 
     {

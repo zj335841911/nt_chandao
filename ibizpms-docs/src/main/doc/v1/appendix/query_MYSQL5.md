@@ -7534,8 +7534,7 @@ FROM
 	AND t11.objectType = 'monthly' 
 	AND t11.action = 'read' 
 	AND t11.actor = #{srf.sessioncontext.srfloginname}
-WHERE t1.issubmit = '1' 
-t1.account = #{srf.sessioncontext.srfloginname} 
+WHERE t1.account = #{srf.sessioncontext.srfloginname} 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzMonthly_View"></div>

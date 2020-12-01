@@ -7868,6 +7868,16 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 
                 disabled: false,
             },
+            {
+                id: "remind",
+                label: "提醒",
+                text: "提醒",
+                "data":"",
+                "codename":"Remind",
+                value: "remind",
+                
+                disabled: false,
+            },
         ]
     },
     {
