@@ -7231,8 +7231,7 @@ SELECT
 	t1.REPORTSTATUS
 FROM
 	t_ibz_daily t1 
-WHERE
-	t1.ACCOUNT = 'csd123_123'
+
 
 WHERE t1.account=#{srf.sessioncontext.srfloginname} 
 

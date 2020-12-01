@@ -1075,8 +1075,7 @@ SELECT
 	t1.REPORTSTATUS
 FROM
 	t_ibz_daily t1 
-WHERE
-	t1.ACCOUNT = 'csd123_123'
+
 
 ```
 ### 数据查询-默认（全部数据）（View）
