@@ -806,8 +806,9 @@ String
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 8 | [提交](#实体行为-提交（Submit）) | Submit | 用户自定义 | 后台及前台 |
+| 7 | [已读](#实体行为-已读（HaveRead）) | HaveRead | 用户自定义 | 后台及前台 |
+| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 9 | [提交](#实体行为-提交（Submit）) | Submit | 用户自定义 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -881,6 +882,18 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-已读（HaveRead）
+#### 说明
+已读
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -928,7 +941,8 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [我的待阅月报](#数据查询-我的待阅月报（MyDaily）) | MyDaily | 否 |
+| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -962,6 +976,43 @@ t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`
 FROM `T_IBZ_MONTHLY` t1 
 
+```
+### 数据查询-我的待阅月报（MyDaily）
+#### 说明
+我的待阅月报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.`ACCOUNT`,
+	t1.`CREATEDATE`,
+	t1.`CREATEMAN`,
+	t1.`CREATEMANNAME`,
+	t1.`DATE`,
+	t1.`IBZ_MONTHLYID`,
+	t1.`IBZ_MONTHLYNAME`,
+	t1.`ISSUBMIT`,
+	t1.`MAILTO`,
+	( CASE WHEN t11.id IS NOT NULL THEN '1' ELSE '0' END ) AS `REPORTSTATUS`,
+	t1.`REPORTTO`,
+	t1.`THISMONTHTASK`,
+	t1.`NEXTMONTHPLANSTASK`,
+	t1.`UPDATEDATE`,
+	t1.`UPDATEMAN`,
+	t1.`UPDATEMANNAME` 
+FROM
+	`t_ibz_monthly` t1
+	LEFT JOIN zt_action t11 ON t11.objectID = t1.IBZ_MONTHLYID 
+	AND t11.objectType = 'monthly' 
+	AND t11.action = 'read' 
+	AND t11.actor = #{srf.sessioncontext.srfloginname}
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -1004,6 +1055,7 @@ FROM `T_IBZ_MONTHLY` t1
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 2 | [我的待阅月报](#数据集合-我的待阅月报（MyDaily）) | MyDaily | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1019,6 +1071,20 @@ FROM `T_IBZ_MONTHLY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（Default）](#数据查询-数据查询（Default）) |
+### 数据集合-我的待阅月报（MyDaily）
+#### 说明
+我的待阅月报
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我的待阅月报（MyDaily）](#数据查询-我的待阅月报（MyDaily）) |
 
 ## 数据导入
 无

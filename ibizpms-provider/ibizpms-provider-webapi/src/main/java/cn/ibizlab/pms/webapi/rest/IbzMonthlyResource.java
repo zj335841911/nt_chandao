@@ -121,6 +121,17 @@ public class IbzMonthlyResource {
         return  ResponseEntity.status(HttpStatus.OK).body(ibzmonthlyService.checkKey(ibzmonthlyMapping.toDomain(ibzmonthlydto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-HaveRead-all')")
+    @ApiOperation(value = "已读", tags = {"月报" },  notes = "已读")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/{ibzmonthly_id}/haveread")
+    public ResponseEntity<IbzMonthlyDTO> haveRead(@PathVariable("ibzmonthly_id") Long ibzmonthly_id, @RequestBody IbzMonthlyDTO ibzmonthlydto) {
+        IbzMonthly domain = ibzmonthlyMapping.toDomain(ibzmonthlydto);
+        domain.setIbzmonthlyid(ibzmonthly_id);
+        domain = ibzmonthlyService.haveRead(domain);
+        ibzmonthlydto = ibzmonthlyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlydto);
+    }
+
     @PreAuthorize("hasPermission(this.ibzmonthlyMapping.toDomain(#ibzmonthlydto),'pms-IbzMonthly-Save')")
     @ApiOperation(value = "保存月报", tags = {"月报" },  notes = "保存月报")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/save")
@@ -165,6 +176,28 @@ public class IbzMonthlyResource {
     @RequestMapping(method= RequestMethod.POST , value="/ibzmonthlies/searchdefault")
 	public ResponseEntity<Page<IbzMonthlyDTO>> searchDefault(@RequestBody IbzMonthlySearchContext context) {
         Page<IbzMonthly> domains = ibzmonthlyService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzmonthlyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-searchMyDaily-all') and hasPermission(#context,'pms-IbzMonthly-Get')")
+	@ApiOperation(value = "获取我的待阅月报", tags = {"月报" } ,notes = "获取我的待阅月报")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzmonthlies/fetchmydaily")
+	public ResponseEntity<List<IbzMonthlyDTO>> fetchMyDaily(IbzMonthlySearchContext context) {
+        Page<IbzMonthly> domains = ibzmonthlyService.searchMyDaily(context) ;
+        List<IbzMonthlyDTO> list = ibzmonthlyMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-searchMyDaily-all') and hasPermission(#context,'pms-IbzMonthly-Get')")
+	@ApiOperation(value = "查询我的待阅月报", tags = {"月报" } ,notes = "查询我的待阅月报")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzmonthlies/searchmydaily")
+	public ResponseEntity<Page<IbzMonthlyDTO>> searchMyDaily(@RequestBody IbzMonthlySearchContext context) {
+        Page<IbzMonthly> domains = ibzmonthlyService.searchMyDaily(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzmonthlyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

@@ -33,6 +33,7 @@
 |-|任务选项操作视图（暂停）|DEMOBOPTVIEW|&nbsp;|
 |-|系统日志移动端地图视图|DEMOBMAPVIEW|&nbsp;|
 |-|测试用例移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|日报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|测试套件移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|项目移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
@@ -83,6 +84,7 @@
 |-|发布移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|我的收藏|DEMOBTABEXPVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|日报移动端编辑视图（编辑）|DEMOBEDITVIEW|&nbsp;|
 |-|产品移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|Bug移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
@@ -120,6 +122,7 @@
 |-|需求选项操作视图（关闭）|DEMOBOPTVIEW|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|系统更新功能移动端多数据视图（功能增强）|DEMOBMDVIEW9|&nbsp;|
+|-|日报移动端多数据视图（主数据）|DEMOBMDVIEW|&nbsp;|
 |-|产品移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|测试套件分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
@@ -166,6 +169,7 @@
 |-|需求移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|产品统计移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|应用门户视图2|APPPORTALVIEW|&nbsp;|
 |-|任务选项操作视图（指派）|DEMOBOPTVIEW|&nbsp;|
 |-|任务选项操作视图（工时）|DEMOBOPTVIEW|&nbsp;|
 |-|发布移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
@@ -648,6 +652,7 @@ SRFNAVPARAM.project=%project%|
 |-|按照计划关联|DEOPTVIEW|&nbsp;|
 |-|模块选择|DEPICKUPGRIDVIEW|&nbsp;|
 |-|bug选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
+|-|月报表格视图|DEGRIDVIEW|&nbsp;|
 |-|待办事宜表格视图|DEGRIDVIEW|&nbsp;|
 |-|我的地盘树导航视图（测试统计）|DETREEEXPVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW|&nbsp;|

@@ -104,10 +104,10 @@ export default {
 	main_grid: {
 		nodata: "",
 		columns: {
-			ibz_weeklyid: "周报标识",
 			ibz_weeklyname: "周报名称",
-			updateman: "更新人",
-			updatedate: "更新时间",
+			account: "用户",
+			date: "日期",
+			reportto: "汇报给",
 			uagridcolumn1: "提交修改",
 		},
 		uiactions: {

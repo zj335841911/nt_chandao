@@ -148,6 +148,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
+### 已读
+#### 访问路径
+/ibzmonthlies/{ibzmonthly_id}/haveread
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzmonthly_id | Long | 月报主键ID |
+| 2 | ibzmonthlydto | [IbzMonthlyDTO](#IbzMonthlyDTO) | 月报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbzMonthlyDTO](#IbzMonthlyDTO)：月报实体传输对象 |
+
 ### 保存月报
 #### 访问路径
 /ibzmonthlies/save
@@ -224,6 +243,42 @@ GET
 ### 查询数据集
 #### 访问路径
 /ibzmonthlies/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzMonthlySearchContext](#IbzMonthlySearchContext) | 月报查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[IbzMonthlyDTO](#IbzMonthlyDTO)>：月报实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取我的待阅月报
+#### 访问路径
+/ibzmonthlies/fetchmydaily
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzMonthlySearchContext](#IbzMonthlySearchContext) | 月报查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[IbzMonthlyDTO](#IbzMonthlyDTO)>：月报实体传输对象列表 |
+
+### 查询我的待阅月报
+#### 访问路径
+/ibzmonthlies/searchmydaily
 
 #### 请求方法
 POST

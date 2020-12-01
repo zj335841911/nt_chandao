@@ -3503,6 +3503,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugPickupGridView5",
             "viewtag": "becbcfda999bc9082dd51a7629f00dd7"
         },
+        "ibzmonthlymyreceivedgridview": {
+            "title": "月报表格视图",
+            "caption": "月报实体表格视图",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzMonthlyMyReceivedGridView",
+            "viewtag": "becc7b01bce4e44c2fbad7d10e02080e"
+        },
         "todogridview": {
             "title": "待办事宜表格视图",
             "caption": "待办",

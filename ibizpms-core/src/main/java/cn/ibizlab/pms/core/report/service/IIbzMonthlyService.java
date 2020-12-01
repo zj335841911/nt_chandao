@@ -44,10 +44,12 @@ public interface IIbzMonthlyService extends IService<IbzMonthly> {
     IbzMonthly get(Long key);
     IbzMonthly getDraft(IbzMonthly et);
     boolean checkKey(IbzMonthly et);
+    IbzMonthly haveRead(IbzMonthly et);
     boolean save(IbzMonthly et);
     void saveBatch(List<IbzMonthly> list);
     IbzMonthly submit(IbzMonthly et);
     Page<IbzMonthly> searchDefault(IbzMonthlySearchContext context);
+    Page<IbzMonthly> searchMyDaily(IbzMonthlySearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

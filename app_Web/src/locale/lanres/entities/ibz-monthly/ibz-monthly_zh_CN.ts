@@ -26,6 +26,10 @@ export default {
 			caption: "月报实体编辑视图",
       		title: "月报编辑视图",
 		},
+		myreceivedgridview: {
+			caption: "月报实体表格视图",
+      		title: "月报表格视图",
+		},
 		newmonthlyeditview: {
 			caption: "月报",
       		title: "月报编辑视图",
@@ -112,6 +116,19 @@ export default {
 		},
 		uiactions: {
 			ibzmonthly_edit: "修改",
+		},
+	},
+	myreceived_grid: {
+		nodata: "",
+		columns: {
+			ibz_monthlyid: "编号",
+			ibz_monthlyname: "月报名称",
+			account: "用户",
+			date: "日期",
+			reportto: "汇报给",
+			reportstatus: "状态",
+		},
+		uiactions: {
 		},
 	},
 	default_searchform: {

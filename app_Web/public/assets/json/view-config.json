@@ -4369,6 +4369,16 @@
         "viewtag": "becbcfda999bc9082dd51a7629f00dd7",
         "memo": ""
     },
+    "ibzmonthlymyreceivedgridview": {
+        "title": "月报表格视图",
+        "caption": "月报实体表格视图",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMonthlyMyReceivedGridView",
+        "viewfilename": "ibz-monthly-my-received-grid-view",
+        "viewtag": "becc7b01bce4e44c2fbad7d10e02080e",
+        "memo": ""
+    },
     "todogridview": {
         "title": "待办事宜表格视图",
         "caption": "待办",

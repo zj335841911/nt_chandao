@@ -107,6 +107,12 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
     public boolean checkKey(IbzMonthly et) {
         return (!ObjectUtils.isEmpty(et.getIbzmonthlyid())) && (!Objects.isNull(this.getById(et.getIbzmonthlyid())));
     }
+        @Override
+    @Transactional
+    public IbzMonthly haveRead(IbzMonthly et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).haveRead(et);
+    }
+
     @Override
     @Transactional
     public boolean save(IbzMonthly et) {
@@ -153,6 +159,15 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
     @Override
     public Page<IbzMonthly> searchDefault(IbzMonthlySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的待阅月报
+     */
+    @Override
+    public Page<IbzMonthly> searchMyDaily(IbzMonthlySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchMyDaily(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

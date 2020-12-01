@@ -77,7 +77,7 @@ export class TaskZsGridView9WeekBase extends GridView9Base {
 	 * @memberof TaskZsGridView9WeekBase
 	 */
     protected customViewParams: any = {
-        'todaytask': {
+        'thisweektask': {
             isRawValue: false,
             value: 'thisweektask',
         },
