@@ -154,7 +154,15 @@ export default {
 		},
 	},
 	mainmonthlygridviewtoolbar_toolbar: {
-		deuiaction1_create: {
+		deuiaction1_createusermonthly: {
+			caption: "生成月报",
+			tip: "生成月报",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2_create: {
 			caption: "新建",
 			tip: "新建",
 		},

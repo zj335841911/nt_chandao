@@ -126,6 +126,9 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
      * @memberof IbzWeeklyUsr2GridView
      */
     public toolBarModels: any = {
+        deuiaction3_createeveryweekreport: { name: 'deuiaction3_createeveryweekreport', caption: '生成周报', 'isShowCaption': true, 'isShowIcon': true, tooltip: '生成周报', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__ADMIN', uiaction: { tag: 'createEveryWeekReport', target: 'NONE', class: '' } },
+
+        seperator2: {  name: 'seperator2', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
         deuiaction1: { name: 'deuiaction1', caption: '新建', 'isShowCaption': false, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
@@ -211,6 +214,9 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
      * @memberof IbzWeeklyUsr2GridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction3_createeveryweekreport')) {
+            this.toolbar_deuiaction3_createeveryweekreport_click(null, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction1')) {
             this.toolbar_deuiaction1_click(null, '', $event2);
         }
@@ -311,6 +317,35 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
      */
     public searchform_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('searchform', 'load', $event);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction3_createeveryweekreport_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IBZWEEKLYUIService  = new IBZWEEKLYUIService();
+        curUIService.IbzWeekly_createEveryWeekReport(datas,contextJO, paramJO,  $event, xData,this,"IBZWEEKLY");
     }
 
     /**

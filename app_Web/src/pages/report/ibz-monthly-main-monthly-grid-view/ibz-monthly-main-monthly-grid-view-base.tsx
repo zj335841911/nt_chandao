@@ -112,7 +112,10 @@ export class IbzMonthlyMainMonthlyGridViewBase extends GridViewBase {
      * @memberof IbzMonthlyMainMonthlyGridView
      */
     public toolBarModels: any = {
-        deuiaction1_create: { name: 'deuiaction1_create', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
+        deuiaction1_createusermonthly: { name: 'deuiaction1_createusermonthly', caption: '生成月报', 'isShowCaption': true, 'isShowIcon': true, tooltip: '生成月报', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'CreateUserMonthly', target: 'NONE', class: '' } },
+
+        seperator1: {  name: 'seperator1', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
+        deuiaction2_create: { name: 'deuiaction2_create', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
 
     };
 
@@ -188,8 +191,11 @@ export class IbzMonthlyMainMonthlyGridViewBase extends GridViewBase {
      * @memberof IbzMonthlyMainMonthlyGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction1_create')) {
-            this.toolbar_deuiaction1_create_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction1_createusermonthly')) {
+            this.toolbar_deuiaction1_createusermonthly_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2_create')) {
+            this.toolbar_deuiaction2_create_click(null, '', $event2);
         }
     }
 
@@ -289,7 +295,36 @@ export class IbzMonthlyMainMonthlyGridViewBase extends GridViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_deuiaction1_create_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction1_createusermonthly_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzMonthlyUIService  = new IbzMonthlyUIService();
+        curUIService.IbzMonthly_CreateUserMonthly(datas,contextJO, paramJO,  $event, xData,this,"IbzMonthly");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction2_create_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];

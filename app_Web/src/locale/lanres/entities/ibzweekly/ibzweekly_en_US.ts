@@ -134,6 +134,14 @@ export default {
 		},
 	},
 	usr2gridviewtoolbar_toolbar: {
+		deuiaction3_createeveryweekreport: {
+			caption: "生成周报",
+			tip: "生成周报",
+		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
 		deuiaction1: {
 			caption: "New",
 			tip: "New",
