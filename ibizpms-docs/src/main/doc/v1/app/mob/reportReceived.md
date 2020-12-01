@@ -17,6 +17,6 @@
 | 菜单项      |  功能  |
 | --------   |   ----  |
 |日报|[查看功能](func/IbzDailyReportReceivedMobMDView.md)|
-|周报|-|
+|周报|[查看功能](func/IbzWeeklyMobMDView.md)|
 |月报|[查看功能](func/IbzMonthlyMyReceivedMobMDView.md)|
 

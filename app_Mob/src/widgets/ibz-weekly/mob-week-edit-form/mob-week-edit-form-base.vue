@@ -10,7 +10,7 @@
     v-show="detailsModel.group1.visible" 
     :uiActionGroup="detailsModel.group1.uiActionGroup" 
     :caption="$t('ibzweekly.mobweekedit_form.details.group1')" 
-    :isShowCaption="true" 
+    :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
     :data="transformData(data)"
@@ -623,6 +623,14 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
      * @memberof MobWeekEdit
      */
     protected rules: any = {
+        workthisweek: [
+            { required: true, type: 'string', message: '本周工作 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '本周工作 值不能为空', trigger: 'blur' },
+        ],
+        plannextweek: [
+            { required: true, type: 'string', message: '下周计划 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '下周计划 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -712,7 +720,7 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
      * @memberof MobWeekEdit
      */
     protected detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '周报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'ibzweekly.mobweekedit_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: '周报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzweekly.mobweekedit_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
