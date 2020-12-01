@@ -86,9 +86,9 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <a v-show="scope.row.Submit.visible" :disabled="scope.row.Submit.disabled" @click="uiAction(scope.row, 'Submit', $event)" :title="$t('entities.ibzmonthly.main_grid.uiactions.ibzmonthly_submit')">
+                            <a v-show="scope.row.Edit.visible" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.ibzmonthly.main_grid.uiactions.ibzmonthly_edit')">
+                                <i class="fa fa-edit"></i>
                                 
-                                {{$t('entities.ibzmonthly.main_grid.uiactions.ibzmonthly_submit')}}
                             </a>
                         </div>
                     </template>

@@ -111,7 +111,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-        ibzmonthly_submit: "提交",
+        ibzmonthly_edit: "修改",
 		},
 	},
 	default_searchform: {
@@ -127,8 +127,8 @@ export default {
 			tip: "提交",
 		},
 		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
+			caption: "Save",
+			tip: "Save",
 		},
 	},
 	mainmonthlygridviewtoolbar_toolbar: {

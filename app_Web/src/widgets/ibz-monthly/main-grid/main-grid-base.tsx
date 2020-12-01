@@ -74,7 +74,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ud39f2a2_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u4a1c111_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -91,7 +91,7 @@ export class MainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:IbzMonthlyUIService  = new IbzMonthlyUIService();
-        curUIService.IbzMonthly_Submit(datas,contextJO, paramJO,  $event, xData,this,"IbzMonthly");
+        curUIService.IbzMonthly_Edit(datas,contextJO, paramJO,  $event, xData,this,"IbzMonthly");
     }
 
 
@@ -102,7 +102,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        Submit: { name: 'Submit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
+        Edit: { name: 'Edit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -380,8 +380,8 @@ export class MainGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
-        if(Object.is('Submit', tag)) {
-            this.grid_uagridcolumn1_ud39f2a2_click(row, tag, $event);
+        if(Object.is('Edit', tag)) {
+            this.grid_uagridcolumn1_u4a1c111_click(row, tag, $event);
         }
     }
 
@@ -482,7 +482,7 @@ export class MainGridBase extends GridControlBase {
                 account:'',
                 date:'',
                 reportto:'',
-                Submit:{
+                Edit:{
                     visible: false
                 },
                 children: children
@@ -513,7 +513,7 @@ export class MainGridBase extends GridControlBase {
             account:'',
             date:'',
             reportto:'',
-            Submit:{
+            Edit:{
                 visible: false
             },
             children: child
@@ -580,7 +580,7 @@ export class MainGridBase extends GridControlBase {
                 account:'',
                 date:'',
                 reportto:'',
-                Submit:{
+                Edit:{
                     visible: false
                 },
                 children: children,
