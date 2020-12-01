@@ -19,9 +19,6 @@
                             <ion-segment-button value="tabviewpanel">
                             
                             日报</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel2">
-                            
-                            产品</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -283,7 +280,6 @@ export default class IbzMyTerritoryReportMobTabExpViewBase extends Vue {
     };
 
     
-
 
 
 
