@@ -13,6 +13,9 @@
                             <ion-segment-button value="tabviewpanel">
                             
                             日报</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel2">
+                            
+                            完成任务</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -261,6 +264,7 @@ export default class IbzMyTerritoryDailyMobTabExpViewBase extends Vue {
      * @memberof IbzMyTerritoryDailyMobTabExpViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
 

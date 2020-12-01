@@ -3,19 +3,13 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'ibz-my-territory-report-mob-tab-exp-view': true }">
     
     <ion-header>
-        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
-            <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
-            </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-        </ion-toolbar>
 
     
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
+                            <ion-segment-button value="tabviewpanel">
+                            
+                            日报</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -266,6 +260,7 @@ export default class IbzMyTerritoryReportMobTabExpViewBase extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
+
     /**
      * 工具栏模型集合名
      *
@@ -324,7 +319,7 @@ export default class IbzMyTerritoryReportMobTabExpViewBase extends Vue {
      * @type {string}
      * @memberof  IbzMyTerritoryReportMobTabExpViewBase
      */
-    protected activiedTabViewPanel: string = '';
+    protected activiedTabViewPanel: string = 'tabviewpanel';
 
     /**
      * 分页导航栏激活
@@ -383,7 +378,7 @@ export default class IbzMyTerritoryReportMobTabExpViewBase extends Vue {
         if (info.name && info.name == 'ibzmyterritory' && info.id && info.id == this.context.ibzmyterritory) {
           this.activiedTabViewPanel = info.value;
         } else { 
-          this.activiedTabViewPanel = '';
+          this.activiedTabViewPanel = 'tabviewpanel';
         }
         }
     }
