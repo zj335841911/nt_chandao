@@ -69,24 +69,6 @@ export class IbzDailyMyDailyGridViewBase extends GridViewBase {
      */
     public appUIService: IbzDailyUIService = new IbzDailyUIService(this.$store);
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof IbzDailyMyDailyGridViewBase
-	 */
-    protected customViewParams: any = {
-        'n_reportto_eq': {
-            isRawValue: false,
-            value: 'srfloginname',
-        },
-        'n_issubmit_eq': {
-            isRawValue: true,
-            value: '1',
-        }
-    };
-
     /**
      * 视图模型数据
      *
