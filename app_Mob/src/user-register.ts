@@ -12,5 +12,7 @@ export const UserComponent = {
         v.component('app-pms-update-log-info',() => import('@/ibiz-core/components/app-pms-update-log-info/app-pms-update-log-info.vue'));
         // 更新日志列表组件
         v.component('app-update-log-list',() => import('@/ibiz-core/components/app-update-log-list/app-update-log-list.vue'));
+        // 文档树
+        v.component('app-tree-word',() => import('@/ibiz-core/components/app-tree-word/app-tree-word.vue'));
     }
 };
