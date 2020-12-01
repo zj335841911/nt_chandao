@@ -35,7 +35,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchMyDaily" 
+            fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
             :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 

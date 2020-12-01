@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import IbzMonthlyMySubmitMobMDViewBase from './ibz-monthly-my-submit-mob-mdview-base.vue';
 
-import view_mdctrl from '@widgets/ibz-monthly/mob-mobmdctrl/mob-mobmdctrl.vue';
+import view_mdctrl from '@widgets/ibz-monthly/my-submit-mobmdctrl/my-submit-mobmdctrl.vue';
 @Component({
     components: {
         view_mdctrl, 
