@@ -3295,6 +3295,20 @@ const datas: Array<any> = [
                 value: 'deletechildrenstory',
                 disabled: false,
             },
+            {
+                id: 'submit',
+                label: '提交',
+                text: '提交',
+                value: 'submit',
+                disabled: false,
+            },
+            {
+                id: 'read',
+                label: '已读了',
+                text: '已读了',
+                value: 'read',
+                disabled: false,
+            },
         ]
     },
     {

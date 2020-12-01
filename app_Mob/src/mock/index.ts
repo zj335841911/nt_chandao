@@ -10,6 +10,7 @@ import './entity/branchs/branchs';
 import './entity/sys-organizations/sys-organizations';
 import './entity/files/files';
 import './entity/users/users';
+import './entity/ibz-dailys/ibz-dailys';
 import './entity/ibz-favoritess/ibz-favoritess';
 import './entity/project-teams/project-teams';
 import './entity/builds/builds';

@@ -5002,6 +5002,28 @@
                 
                 "disabled": false
             }
+            , {
+                "id": "submit",
+                "label": "提交",
+                "text": "提交",
+                "default": false,
+                "data": "",
+                "value": "submit",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "read",
+                "label": "已读了",
+                "text": "已读了",
+                "default": false,
+                "data": "",
+                "value": "read",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
         ]
     }, 
     {

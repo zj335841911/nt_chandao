@@ -576,6 +576,8 @@ export default {
         'linkparentstory': '关联到父需求',
         'unlinkparentstory': '从父需求取消关联',
         'deletechildrenstory': '删除子需求',
+        'submit': '提交',
+        'read': '已读了',
         empty: '',
     },
     CurCaseVersion: {

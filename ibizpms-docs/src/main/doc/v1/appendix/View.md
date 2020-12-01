@@ -24,7 +24,6 @@
 |-|我的地盘移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|Bug移动端多数据视图（计划下属）|DEMOBMDVIEW9|&nbsp;|
 |-|Bug选项操作视图（确认Bug）|DEMOBOPTVIEW|&nbsp;|
-|-|日报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|项目图表视图|DEMOBCHARTVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|系统更新功能移动端多数据视图（优化）|DEMOBMDVIEW9|&nbsp;|

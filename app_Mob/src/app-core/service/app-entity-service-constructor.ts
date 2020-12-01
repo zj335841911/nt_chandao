@@ -21,6 +21,7 @@ export class AppEntityServiceConstructor extends ServiceConstructorBase {
         this.allService.set('sysorganization', () => import('@/app-core/service/sys-organization/sys-organization-service'));
         this.allService.set('file', () => import('@/app-core/service/file/file-service'));
         this.allService.set('user', () => import('@/app-core/service/user/user-service'));
+        this.allService.set('ibzdaily', () => import('@/app-core/service/ibz-daily/ibz-daily-service'));
         this.allService.set('ibzfavorites', () => import('@/app-core/service/ibz-favorites/ibz-favorites-service'));
         this.allService.set('projectteam', () => import('@/app-core/service/project-team/project-team-service'));
         this.allService.set('build', () => import('@/app-core/service/build/build-service'));
