@@ -322,6 +322,7 @@
     * 应用功能
       * [我的任务](app/Mob/func/TaskMobMDView.md)
       * [产品](app/Mob/func/ProductMobMDView.md)
+      * [周报(我收到的)](app/Mob/func/IbzWeeklyMobMDView.md)
       * [我的工作](app/Mob/func/IbzMyTerritoryMobCalendarView.md)
       * [产品总览](app/Mob/func/ProductMobChartView.md)
       * [月报（我提交的）](app/Mob/func/IbzMonthlyMySubmitMobMDView.md)

@@ -43,7 +43,7 @@ mock.onGet('v7/report-receivedappmenu').reply((config: any) => {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: 'AppFunc10',
 	resourcetag: '',
 },
             {

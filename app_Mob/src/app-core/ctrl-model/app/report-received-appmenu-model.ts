@@ -48,7 +48,7 @@ export class ReportReceivedModel {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: 'AppFunc10',
 	resourcetag: '',
 	authtag:'Mob-reportReceived-menuitem2',
 },
