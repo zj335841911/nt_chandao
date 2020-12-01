@@ -193,13 +193,12 @@ export class AppIndexViewModel {
             appfunctag: 'Auto22',
             appfuncyype: 'APPVIEW',
             openmode: '', 
-            componentname: 'ibz-my-territory-mob-tab-exp-view', 
-            codename: 'ibzmyterritorymobtabexpview',
+            componentname: 'app-portal-view2', 
+            codename: 'appportalview2',
             deResParameters: [],
-            routepath: '/appindexview/:appindexview?/ibzmyterritories/:ibzmyterritory?/mobtabexpview/:mobtabexpview?',
+            routepath: '/appindexview/:appindexview?/appportalview2/:appportalview2?',
             parameters: [
-                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-                { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                { pathName: 'appportalview2', parameterName: 'appportalview2' },
             ],
         },
         {

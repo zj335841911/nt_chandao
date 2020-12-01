@@ -87,12 +87,6 @@ export default {
 		uiactions: {
 		},
 	},
-	dailymobmdviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: '新建',
-			tip: '新建',
-		},
-	},
 	mobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',
@@ -115,6 +109,12 @@ export default {
 		tbitem7: {
 			caption: '删除',
 			tip: '删除',
+		},
+	},
+	dailymobmdviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '新建',
+			tip: '新建',
 		},
 	},
 	dailycompletetaskmobmdviewrighttoolbar_toolbar: {

@@ -24,7 +24,7 @@
 |产品|[查看功能](func/ProductMobMDView.md)|
 |项目|[查看功能](func/ProjectMobMDView.md)|
 |测试|[查看功能](func/ProductTestMobMDView.md)|
-|我的|[查看功能](func/IbzMyTerritoryMobTabExpView.md)|
+|我的|[查看功能](func/AppPortalView2.md)|
 |个人中心|[查看功能](func/UserUserCenterMobEditView.md)|
 |用户选择|[查看功能](func/UserMobPickupView.md)|
 |更新日志|[查看功能](func/SysUpdateLogMobMDView.md)|
