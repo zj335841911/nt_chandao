@@ -132,10 +132,10 @@ export class MainGridBase extends GridControlBase {
     public allColumns: any[] = [
         {
             name: 'ibz_monthlyname',
-            label: '名称',
+            label: '月报名称',
             langtag: 'entities.ibzmonthly.main_grid.columns.ibz_monthlyname',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },

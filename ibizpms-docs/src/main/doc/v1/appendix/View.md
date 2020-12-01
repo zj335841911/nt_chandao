@@ -252,6 +252,7 @@
 |-|待办事宜表编辑视图|DEEDITVIEW9|&nbsp;|
 |-|Bug编辑|DEEDITVIEW|&nbsp;主信息编辑|
 |-|指派任务|DEOPTVIEW|&nbsp;|
+|-|任务表格视图|DEGRIDVIEW9|&nbsp;|
 |-|需求看板视图|DEKANBANVIEW|&nbsp;|
 |-|测试结果多表单编辑视图|DEMEDITVIEW9|&nbsp;|
 |-|所有产品|DEGRIDVIEW|&nbsp;|

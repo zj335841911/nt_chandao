@@ -47,6 +47,11 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'issubmit',
+          prop: 'issubmit',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'ibz_monthlyid',
           prop: 'ibzmonthlyid',
           dataType: 'ACID',

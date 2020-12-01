@@ -547,7 +547,7 @@ String
 无
 
 - 取值范围/公式
-参照数据字典【[所有任务（AllTask）](../../codelist/AllTask)】
+参照数据字典【[我完成的任务（汇报）（MyCompleteTask）](../../codelist/MyCompleteTask)】
 
 - 数据格式
 无
@@ -584,7 +584,7 @@ String
 无
 
 - 取值范围/公式
-参照数据字典【[所有任务（AllTask）](../../codelist/AllTask)】
+参照数据字典【[我计划参与的任务（汇报）（MyPlanTask）](../../codelist/MyPlanTask)】
 
 - 数据格式
 无
@@ -655,7 +655,10 @@ String
 是
 
 - 默认值
-无
+| 项目 | 说明 |
+| ---- | ---- |
+| 类型 |  |
+| 值 | 0 |
 
 - 取值范围/公式
 参照数据字典【[是否（YesNo）](../../codelist/YesNo)】

@@ -104,7 +104,7 @@ export default {
 	main_grid: {
 		nodata: "",
 		columns: {
-			ibz_monthlyname: "名称",
+			ibz_monthlyname: "月报名称",
 			account: "用户",
 			date: "日期",
 			reportto: "汇报给",
