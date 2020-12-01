@@ -45,7 +45,9 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
+                        <a v-show="row.HaveRead.visible" :disabled="row.HaveRead.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'HaveRead', $event)">
                             <span>{{row.ibz_monthlyname}}</span>
+                        </a>
                     </template>
                 </el-table-column>
             </template>

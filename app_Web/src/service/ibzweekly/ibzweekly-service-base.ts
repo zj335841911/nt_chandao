@@ -155,6 +155,20 @@ export default class IBZWEEKLYServiceBase extends EntityService {
     }
 
     /**
+     * CreateEveryWeekReport接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async CreateEveryWeekReport(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/createeveryweekreport`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

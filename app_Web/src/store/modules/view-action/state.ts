@@ -3925,6 +3925,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'becc7b01bce4e44c2fbad7d10e02080e',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyMyReceivedGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd5ec786202a86196d23c7c7275c351e4',
+            ],
+        },
+        {
             viewtag: 'bedf1f50199b74a65c2e17771144329c',
             viewmodule: 'zentao',
             viewname: 'TodoGridView',
@@ -4445,6 +4455,18 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'd5ec786202a86196d23c7c7275c351e4',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyMyReceivedEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
+                '371c02ab5108f29501f89e273ebd39d1',
+                'aeee411b8bffcf0c30d65557a8deeeee',
             ],
         },
         {

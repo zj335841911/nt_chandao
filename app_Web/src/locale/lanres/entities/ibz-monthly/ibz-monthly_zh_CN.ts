@@ -120,6 +120,7 @@ export default {
 			reportstatus: "状态",
 		},
 		uiactions: {
+			ibzmonthly_haveread: "已读",
 		},
 	},
 	main_grid: {

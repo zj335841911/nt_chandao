@@ -112,6 +112,12 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
     public boolean checkKey(IbzWeekly et) {
         return (!ObjectUtils.isEmpty(et.getIbzweeklyid())) && (!Objects.isNull(this.getById(et.getIbzweeklyid())));
     }
+        @Override
+    @Transactional
+    public IbzWeekly createEveryWeekReport(IbzWeekly et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzWeeklyHelper.class).createEveryWeekReport(et);
+    }
+
     @Override
     @Transactional
     public boolean save(IbzWeekly et) {

@@ -42,6 +42,7 @@
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|发布移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|产品移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
+|-|任务移动端多数据视图（我的已完成任务）（部件视图）|DEMOBMDVIEW9|&nbsp;|
 |-|需求选项操作视图（评审）|DEMOBOPTVIEW|&nbsp;|
 |-|测试用例移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
 |-|任务预计移动端编辑视图|DEMOBEDITVIEW9|&nbsp;|

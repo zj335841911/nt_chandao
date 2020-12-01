@@ -44,6 +44,7 @@ public interface IIbzWeeklyService extends IService<IbzWeekly> {
     IbzWeekly get(Long key);
     IbzWeekly getDraft(IbzWeekly et);
     boolean checkKey(IbzWeekly et);
+    IbzWeekly createEveryWeekReport(IbzWeekly et);
     boolean save(IbzWeekly et);
     void saveBatch(List<IbzWeekly> list);
     IbzWeekly submit(IbzWeekly et);

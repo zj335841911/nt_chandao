@@ -135,7 +135,7 @@ export class MainGridBase extends GridControlBase {
             label: '周报名称',
             langtag: 'entities.ibzweekly.main_grid.columns.ibz_weeklyname',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },

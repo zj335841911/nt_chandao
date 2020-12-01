@@ -66,6 +66,34 @@ export class MyReceivedGridBase extends GridControlBase {
      */  
     public appUIService: IbzMonthlyUIService = new IbzMonthlyUIService(this.$store);
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_ibz_monthlyname_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzMonthlyUIService  = new IbzMonthlyUIService();
+        curUIService.IbzMonthly_HaveRead(datas,contextJO, paramJO,  $event, xData,this,"IbzMonthly");
+    }
+
 
     /**
      * 界面行为模型
@@ -74,6 +102,7 @@ export class MyReceivedGridBase extends GridControlBase {
      * @memberof MyReceivedBase
      */  
     public ActionModel: any = {
+        HaveRead: { name: 'HaveRead',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -100,6 +129,22 @@ export class MyReceivedGridBase extends GridControlBase {
      * @memberof MyReceivedBase
      */
     protected localStorageTag: string = 'ibz_monthly_myreceived_grid';
+
+    /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof MyReceivedGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof MyReceivedGridBase
+     */
+    public minorSortPSDEF: string = 'date';
 
     /**
      * 所有列成员
@@ -367,6 +412,21 @@ export class MyReceivedGridBase extends GridControlBase {
 
 
     /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MyReceivedGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('HaveRead', tag)) {
+            this.grid_ibz_monthlyname_click(row, tag, $event);
+        }
+    }
+
+    /**
      * 更新默认值
      * @param {*}  row 行数据
      * @memberof MyReceivedBase
@@ -460,6 +520,9 @@ export class MyReceivedGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 ibz_monthlyid:'',
+                HaveRead:{
+                    visible: false
+                },
                 ibz_monthlyname:'',
                 account:'',
                 date:'',
@@ -490,6 +553,9 @@ export class MyReceivedGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
             ibz_monthlyid:'',
+            HaveRead:{
+                visible: false
+            },
             ibz_monthlyname:'',
             account:'',
             date:'',
@@ -556,6 +622,9 @@ export class MyReceivedGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 ibz_monthlyid:'',
+                HaveRead:{
+                    visible: false
+                },
                 ibz_monthlyname:'',
                 account:'',
                 date:'',
