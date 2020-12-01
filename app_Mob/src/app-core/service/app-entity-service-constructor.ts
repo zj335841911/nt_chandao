@@ -30,6 +30,7 @@ export class AppEntityServiceConstructor extends ServiceConstructorBase {
         this.allService.set('ibzdoc', () => import('@/app-core/service/ibz-doc/ibz-doc-service'));
         this.allService.set('systeammember', () => import('@/app-core/service/sys-team-member/sys-team-member-service'));
         this.allService.set('module', () => import('@/app-core/service/module/module-service'));
+        this.allService.set('ibzweekly', () => import('@/app-core/service/ibz-weekly/ibz-weekly-service'));
         this.allService.set('product', () => import('@/app-core/service/product/product-service'));
         this.allService.set('dynadashboard', () => import('@/app-core/service/dyna-dashboard/dyna-dashboard-service'));
         this.allService.set('ibzmonthly', () => import('@/app-core/service/ibz-monthly/ibz-monthly-service'));

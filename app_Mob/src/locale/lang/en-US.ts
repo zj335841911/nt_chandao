@@ -12,6 +12,7 @@ import taskestimate_en_US from '@locale/lanres/task-estimate/task-estimate_en_US
 import ibzdoc_en_US from '@locale/lanres/ibz-doc/ibz-doc_en_US';
 import systeammember_en_US from '@locale/lanres/sys-team-member/sys-team-member_en_US';
 import module_en_US from '@locale/lanres/module/module_en_US';
+import ibzweekly_en_US from '@locale/lanres/ibz-weekly/ibz-weekly_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
 import dynadashboard_en_US from '@locale/lanres/dyna-dashboard/dyna-dashboard_en_US';
 import ibzmonthly_en_US from '@locale/lanres/ibz-monthly/ibz-monthly_en_US';
@@ -222,6 +223,7 @@ export default {
     ibzdoc: ibzdoc_en_US,
     systeammember: systeammember_en_US,
     module: module_en_US,
+    ibzweekly: ibzweekly_en_US,
     product: product_en_US,
     dynadashboard: dynadashboard_en_US,
     ibzmonthly: ibzmonthly_en_US,

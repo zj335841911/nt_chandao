@@ -12,6 +12,7 @@ import taskestimate_zh_CN from '@locale/lanres/task-estimate/task-estimate_zh_CN
 import ibzdoc_zh_CN from '@locale/lanres/ibz-doc/ibz-doc_zh_CN';
 import systeammember_zh_CN from '@locale/lanres/sys-team-member/sys-team-member_zh_CN';
 import module_zh_CN from '@locale/lanres/module/module_zh_CN';
+import ibzweekly_zh_CN from '@locale/lanres/ibz-weekly/ibz-weekly_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/dyna-dashboard/dyna-dashboard_zh_CN';
 import ibzmonthly_zh_CN from '@locale/lanres/ibz-monthly/ibz-monthly_zh_CN';
@@ -223,6 +224,7 @@ export default {
     ibzdoc: ibzdoc_zh_CN,
     systeammember: systeammember_zh_CN,
     module: module_zh_CN,
+    ibzweekly: ibzweekly_zh_CN,
     product: product_zh_CN,
     dynadashboard: dynadashboard_zh_CN,
     ibzmonthly: ibzmonthly_zh_CN,

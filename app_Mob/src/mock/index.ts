@@ -19,6 +19,7 @@ import './entity/task-estimates/task-estimates';
 import './entity/ibz-docs/ibz-docs';
 import './entity/sys-team-members/sys-team-members';
 import './entity/modules/modules';
+import './entity/ibz-weeklys/ibz-weeklys';
 import './entity/products/products';
 import './entity/dyna-dashboards/dyna-dashboards';
 import './entity/ibz-monthlys/ibz-monthlys';

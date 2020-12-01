@@ -63,6 +63,10 @@ zuul:
       path: /modules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_weekly:
+      path: /ibzweeklies/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_product:
       path: /products/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
