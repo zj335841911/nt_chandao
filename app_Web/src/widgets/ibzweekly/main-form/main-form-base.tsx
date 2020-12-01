@@ -94,17 +94,18 @@ export class MainEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         ibz_weeklyname: null,
+        date: null,
         thisweektask1: null,
         workthisweek: null,
         nextweektask: null,
         plannextweek: null,
         comment: null,
-        date: null,
         files: null,
-        mailto: null,
         reportto: null,
+        mailto: null,
         ibz_weeklyid: null,
         account: null,
+        issubmit: null,
         ibzweekly: null,
     };
 
@@ -114,7 +115,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainEditFormBase
      */
-    public majorMessageField: string = 'ibz_weeklyname';
+    public majorMessageField: string = '';
 
     /**
      * 属性值规则
@@ -124,20 +125,6 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
-            ibz_weeklyname: [
-                {
-                    required: this.detailsModel.ibz_weeklyname.required,
-                    type: 'string',
-                    message: '周报名称 值不能为空',
-                    trigger: 'change',
-                },
-                {
-                    required: this.detailsModel.ibz_weeklyname.required,
-                    type: 'string',
-                    message: '周报名称 值不能为空',
-                    trigger: 'blur',
-                },
-        ],
             workthisweek: [
                 {
                     required: this.detailsModel.workthisweek.required,
@@ -236,6 +223,13 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        date: new FormItemModel({
+    caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         thisweektask1: new FormItemModel({
     caption: '本周完成任务', detailType: 'FORMITEM', name: 'thisweektask1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -271,13 +265,6 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        date: new FormItemModel({
-    caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
         files: new FormItemModel({
     caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -285,15 +272,15 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        mailto: new FormItemModel({
-    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        reportto: new FormItemModel({
+    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
 }),
 
-        reportto: new FormItemModel({
-    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+        mailto: new FormItemModel({
+    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -313,6 +300,13 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        issubmit: new FormItemModel({
+    caption: '是否提交', detailType: 'FORMITEM', name: 'issubmit', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
     };
 
     /**
@@ -320,6 +314,9 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public createDefault() {                    
+        if (this.data.hasOwnProperty('ibz_weeklyname')) {
+            this.data['ibz_weeklyname'] = this.context['srfusername'];
+        }
         if (this.data.hasOwnProperty('date')) {
             this.data['date'] = this.$util.dateFormat(new Date());
         }
