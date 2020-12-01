@@ -520,10 +520,6 @@ export default {
 			tip: '更多',
 		},
 	},
-	myplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
-	},
-	mycompletetaskmobmdview1righttoolbar_toolbar: {
-	},
 	mycompletetaskmobmdviewrighttoolbar_toolbar: {
 	},
 	assmobmdviewmdctrl_quicktoolbar_toolbar: {
@@ -545,5 +541,9 @@ export default {
 			caption: '过滤',
 			tip: '过滤',
 		},
+	},
+	mycompletetaskmobmdview1righttoolbar_toolbar: {
+	},
+	myplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
 	},
 };

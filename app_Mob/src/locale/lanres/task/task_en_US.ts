@@ -520,10 +520,6 @@ export default {
 			tip: 'deuiaction1',
 		},
 	},
-	myplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
-	},
-	mycompletetaskmobmdview1righttoolbar_toolbar: {
-	},
 	mycompletetaskmobmdviewrighttoolbar_toolbar: {
 	},
 	assmobmdviewmdctrl_quicktoolbar_toolbar: {
@@ -545,5 +541,9 @@ export default {
 			caption: 'Filter',
 			tip: 'deuiaction1',
 		},
+	},
+	mycompletetaskmobmdview1righttoolbar_toolbar: {
+	},
+	myplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
 	},
 };

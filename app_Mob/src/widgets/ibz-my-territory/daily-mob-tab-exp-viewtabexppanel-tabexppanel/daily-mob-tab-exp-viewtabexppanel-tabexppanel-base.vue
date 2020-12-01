@@ -1,38 +1,5 @@
 <template>
     <span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel3'">
-                        <view_tabviewpanel3
-                :viewState="viewState"
-                viewName="IbzMyTerritoryDailyMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel3"  
-                ref='tabviewpanel3' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel3>
-        </span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel'">
-                        <view_tabviewpanel
-                :viewState="viewState"
-                viewName="IbzMyTerritoryDailyMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel"  
-                ref='tabviewpanel' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel>
-        </span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
-                        <view_tabviewpanel2
-                :viewState="viewState"
-                viewName="IbzMyTerritoryDailyMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel2"  
-                ref='tabviewpanel2' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel2>
-        </span>
     </span>
 </template>
 
@@ -239,7 +206,7 @@ export default class DailyMobTabExpViewtabexppanelBase extends Vue implements Co
      * @type {string}
      * @memberof DailyMobTabExpViewtabexppanel
      */
-    @Prop({ default: 'tabviewpanel3' }) protected activiedTabViewPanel?: string;     
+    @Prop({ default: '' }) protected activiedTabViewPanel?: string;     
 
     /**
      * 是否开启点击重新渲染

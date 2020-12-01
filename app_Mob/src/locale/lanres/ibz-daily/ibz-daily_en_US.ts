@@ -87,12 +87,6 @@ export default {
 		uiactions: {
 		},
 	},
-	dailymobmdviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: 'New',
-			tip: 'tbitem1',
-		},
-	},
 	mobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
@@ -118,5 +112,11 @@ export default {
 		},
 	},
 	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
+	},
+	dailymobmdviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'New',
+			tip: 'tbitem1',
+		},
 	},
 };
