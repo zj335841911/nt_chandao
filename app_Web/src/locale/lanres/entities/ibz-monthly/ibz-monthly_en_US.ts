@@ -38,6 +38,10 @@ export default {
 			caption: "月报实体表格视图",
       		title: "月报表格视图",
 		},
+		myreceivededitview: {
+			caption: "月报实体编辑视图",
+      		title: "月报编辑视图",
+		},
 	},
 	new_form: {
 		details: {

@@ -4969,6 +4969,16 @@
         "viewtag": "d5171a52df7b22d69c6a5ca34699233a",
         "memo": "临时充当主信息展示页面"
     },
+    "ibzmonthlymyreceivededitview": {
+        "title": "月报编辑视图",
+        "caption": "月报实体编辑视图",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMonthlyMyReceivedEditView",
+        "viewfilename": "ibz-monthly-my-received-edit-view",
+        "viewtag": "d5ec786202a86196d23c7c7275c351e4",
+        "memo": ""
+    },
     "projectmoreundoneprogridview": {
         "title": "项目表格视图",
         "caption": "未完成项目",

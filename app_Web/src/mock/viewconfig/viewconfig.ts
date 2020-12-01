@@ -3983,6 +3983,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugCaseToBugEditView",
             "viewtag": "d5171a52df7b22d69c6a5ca34699233a"
         },
+        "ibzmonthlymyreceivededitview": {
+            "title": "月报编辑视图",
+            "caption": "月报实体编辑视图",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzMonthlyMyReceivedEditView",
+            "viewtag": "d5ec786202a86196d23c7c7275c351e4"
+        },
         "projectmoreundoneprogridview": {
             "title": "项目表格视图",
             "caption": "未完成项目",
