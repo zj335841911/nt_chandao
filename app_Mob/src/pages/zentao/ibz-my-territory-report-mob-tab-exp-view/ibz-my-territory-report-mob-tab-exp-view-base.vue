@@ -16,9 +16,6 @@
     
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel">
-                            
-                            日报</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -269,7 +266,6 @@ export default class IbzMyTerritoryReportMobTabExpViewBase extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
-
     /**
      * 工具栏模型集合名
      *
@@ -328,7 +324,7 @@ export default class IbzMyTerritoryReportMobTabExpViewBase extends Vue {
      * @type {string}
      * @memberof  IbzMyTerritoryReportMobTabExpViewBase
      */
-    protected activiedTabViewPanel: string = 'tabviewpanel';
+    protected activiedTabViewPanel: string = '';
 
     /**
      * 分页导航栏激活
@@ -387,7 +383,7 @@ export default class IbzMyTerritoryReportMobTabExpViewBase extends Vue {
         if (info.name && info.name == 'ibzmyterritory' && info.id && info.id == this.context.ibzmyterritory) {
           this.activiedTabViewPanel = info.value;
         } else { 
-          this.activiedTabViewPanel = 'tabviewpanel';
+          this.activiedTabViewPanel = '';
         }
         }
     }

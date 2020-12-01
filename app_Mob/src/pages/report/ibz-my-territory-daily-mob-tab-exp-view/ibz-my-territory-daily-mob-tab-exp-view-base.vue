@@ -7,6 +7,15 @@
     
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
+                            <ion-segment-button value="tabviewpanel3">
+                            
+                            明日计划及计划参与</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel">
+                            
+                            日报</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel2">
+                            
+                            完成任务</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -257,6 +266,9 @@ export default class IbzMyTerritoryDailyMobTabExpViewBase extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
+
+
+
     /**
      * 工具栏模型集合名
      *
@@ -315,7 +327,7 @@ export default class IbzMyTerritoryDailyMobTabExpViewBase extends Vue {
      * @type {string}
      * @memberof  IbzMyTerritoryDailyMobTabExpViewBase
      */
-    protected activiedTabViewPanel: string = '';
+    protected activiedTabViewPanel: string = 'tabviewpanel3';
 
     /**
      * 分页导航栏激活
@@ -374,7 +386,7 @@ export default class IbzMyTerritoryDailyMobTabExpViewBase extends Vue {
         if (info.name && info.name == 'ibzmyterritory' && info.id && info.id == this.context.ibzmyterritory) {
           this.activiedTabViewPanel = info.value;
         } else { 
-          this.activiedTabViewPanel = '';
+          this.activiedTabViewPanel = 'tabviewpanel3';
         }
         }
     }

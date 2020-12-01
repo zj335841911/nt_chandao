@@ -111,12 +111,12 @@ export default {
 			tip: '删除',
 		},
 	},
-	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
-	},
 	dailymobmdviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '新建',
 			tip: '新建',
 		},
+	},
+	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
 	},
 };

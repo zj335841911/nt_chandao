@@ -1,16 +1,5 @@
 <template>
     <span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel'">
-                        <view_tabviewpanel
-                :viewState="viewState"
-                viewName="IbzMyTerritoryReportMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel"  
-                ref='tabviewpanel' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel>
-        </span>
     </span>
 </template>
 
@@ -217,7 +206,7 @@ export default class ReportMobTabExpViewtabexppanelBase extends Vue implements C
      * @type {string}
      * @memberof ReportMobTabExpViewtabexppanel
      */
-    @Prop({ default: 'tabviewpanel' }) protected activiedTabViewPanel?: string;     
+    @Prop({ default: '' }) protected activiedTabViewPanel?: string;     
 
     /**
      * 是否开启点击重新渲染

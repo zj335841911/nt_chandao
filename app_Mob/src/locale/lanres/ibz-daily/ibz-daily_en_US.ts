@@ -111,12 +111,12 @@ export default {
 			tip: 'tbitem7',
 		},
 	},
-	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
-	},
 	dailymobmdviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'New',
 			tip: 'tbitem1',
 		},
+	},
+	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
 	},
 };
