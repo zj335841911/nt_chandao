@@ -20,8 +20,6 @@
 }
 
 
-
-
 // this is less
 .srf_empty_class {
     width: 100%;
@@ -64,6 +62,43 @@ ion-backdrop {
   position: relative;
 }
 
+.group-button{
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+}
+
+.app-view-righttoolbar,
+.app-view-lefttoolbar {
+  .toolbar_group_right {
+    border-radius: @toolbar-group-border-radius;
+    position: absolute;
+    right: @toolbar-toptoolbar-offset-x;
+    top: @toolbar-toptoolbar-offset-y;
+  }
+  .toolbar_group_left {
+    border-radius: @toolbar-group-border-radius;
+    position: absolute;
+    left:@toolbar-toptoolbar-offset-x;
+    top: @toolbar-toptoolbar-offset-y;
+  }
+  .van-cell__title,
+  .van-cell__value {
+    text-align: left;
+  }
+  .van-cell {
+    border-radius: @toolbar-group-border-radius;
+  }
+  .van-hairline--top-bottom::after, .van-hairline-unset--top-bottom::after {
+    border-width: 0;
+  }
+  .van-button--default {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: #fff;
+  }
+}
 
 
 
@@ -90,35 +125,13 @@ ion-backdrop {
 }
 
 
-.demobtabexpview{
-  ion-header{
-    ion-segment{      
-      ion-segment-button{
-        line-height: 20px;
-        position:relative;
-        ion-badge{
-          position: absolute;
-          top: -5px;
-          right: -20px !important;
-          min-width: 15px;
-          height: 15px;
-          font-size:10px;
-          text-align: center;
-          line-height: 15px;
-          --padding-end:5px;
-          --padding-start:5px;
-          --padding-top:1px;
+.ibz-daily-daily-info-mob-edit-view {
+    .view-footer {
+        text-align: center;
+        .van-button {
+            height: 2.5rem;
+            line-height: 2.5rem;
+            width: 40%;
         }
-        ion-icon{
-          font-size: 20px;
-          position: absolute;
-          top: -1px;
-          left: -28px;
-        }
-      }
     }
-  }
-  .toolbar-segment{
-    height: 42px;
-  }
 }

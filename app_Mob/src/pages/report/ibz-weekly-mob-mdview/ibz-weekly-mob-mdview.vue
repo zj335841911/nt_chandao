@@ -1,11 +1,11 @@
 <script lang='ts'>
 import { Component } from 'vue-property-decorator';
-import IbzWeeklyMobEditViewBase from './ibz-weekly-mob-edit-view-base.vue';
+import IbzWeeklyMobMDViewBase from './ibz-weekly-mob-mdview-base.vue';
 
-import view_form from '@widgets/ibz-weekly/mob-week-edit-form/mob-week-edit-form.vue';
+import view_mdctrl from '@widgets/ibz-weekly/mob-mobmdctrl/mob-mobmdctrl.vue';
 @Component({
     components: {
-        view_form, 
+        view_mdctrl, 
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
@@ -13,7 +13,7 @@ import view_form from '@widgets/ibz-weekly/mob-week-edit-form/mob-week-edit-form
         });
     },
 })
-export default class IbzWeeklyMobEditView extends IbzWeeklyMobEditViewBase {
+export default class IbzWeeklyMobMDView extends IbzWeeklyMobMDViewBase {
 
 }
 </script>

@@ -889,9 +889,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '6a9fceec3db94743835d7d4858424dda',
                 '6f4d3a18069e7238c39f460398aff856',
                 '7cd2b519699b48228f6e321b3ec5987d',
-                '983fc79effc6ccd4d63f0b957c37efe1',
             ],
         },
         {
@@ -1032,6 +1032,16 @@ export const viewstate: any = {
                 '99e39da3cdfea07b8886a4dd13680b02',
                 '5831fe43122c3d5778cce24bbaa52740',
                 '72d73b7f458439bc2355414e5a810ad5',
+            ],
+        },
+        {
+            viewtag: '6a9fceec3db94743835d7d4858424dda',
+            viewmodule: 'report',
+            viewname: 'IbzDailyDailyInfoMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b52bf86837838dcfd5b787fad0350f22',
             ],
         },
         {
@@ -1764,6 +1774,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'c18e8afb20aa65bc1b26322170cfd189',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'c2ab529c7d645ca0bace6b925ea02c99',
             viewmodule: 'ibiz',
             viewname: 'TaskEstimateMobMDView',
@@ -1962,6 +1981,7 @@ export const viewstate: any = {
             refviews: [
                 '5653288057279c196b979f0f43fc520a',
                 'bb00037ee518e24c062310bc79031627',
+                'df36c08961d3d1737f2f8d55a53fa46c',
                 '899ab4d4cfc33b089a9c4aa5118acbf3',
                 '5fe25d42c90a7c54a91c4b284851f70e',
                 '70d570ae5cafd7af092084e6d0e6b2f7',

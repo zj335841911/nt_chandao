@@ -97,6 +97,7 @@
 |-|测试用例移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|版本移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|日报移动端编辑视图(日报描述)|DEMOBEDITVIEW|&nbsp;|
 |-|项目移动端编辑视图挂起）|DEMOBEDITVIEW|&nbsp;|
 |-|项目|DEMOBTABEXPVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
@@ -163,6 +164,7 @@
 |-|需求模块移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|月报移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|Bug移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
+|-|周报移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|任务预计移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|用户移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|

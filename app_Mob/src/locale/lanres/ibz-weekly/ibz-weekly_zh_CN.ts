@@ -22,12 +22,17 @@ export default {
     reportstatus: "状态",
   },
 	views: {
+		mobmdview: {
+			caption: '周报',
+		},
 		mobeditview: {
 			caption: '周报',
 		},
 	},
-	form_form: {
+	mobweekedit_form: {
 		details: {
+			group1: '周报基本信息', 
+			formpage1: '基本信息', 
 			srfupdatedate: '更新时间', 
 			srforikey: '', 
 			srfkey: '周报标识', 
@@ -36,11 +41,25 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
+			ibz_weeklyname: '周报名称', 
+			date: '日期', 
+			thisweektask: '本周完成任务', 
+			workthisweek: '本周工作', 
+			nextweektask: '下周计划任务', 
+			plannextweek: '下周计划', 
+			comment: '其他事项', 
+			files: '附件', 
+			reportto: '汇报给', 
+			mailto: '抄送给', 
 			ibz_weeklyid: '周报标识', 
+			account: '用户', 
+			issubmit: '是否提交', 
 		},
 		uiactions: {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+	},
+	mobmdviewrighttoolbar_toolbar: {
 	},
 };

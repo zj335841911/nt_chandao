@@ -7,15 +7,15 @@
     
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel3">
-                            
-                            明日计划及计划参与</ion-segment-button>
                             <ion-segment-button value="tabviewpanel">
                             
                             日报</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
                             
                             完成任务</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel3">
+                            
+                            明日计划及计划参与</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -268,6 +268,8 @@ export default class IbzDailyDailyMobTabExpViewBase extends Vue {
 
 
 
+
+
    /**
     * 工具栏 IbzDailyDailyMobTabExpView 模型
     *
@@ -278,8 +280,6 @@ export default class IbzDailyDailyMobTabExpViewBase extends Vue {
     };
 
     
-
-
 
 
 
@@ -341,7 +341,7 @@ export default class IbzDailyDailyMobTabExpViewBase extends Vue {
      * @type {string}
      * @memberof  IbzDailyDailyMobTabExpViewBase
      */
-    protected activiedTabViewPanel: string = 'tabviewpanel3';
+    protected activiedTabViewPanel: string = 'tabviewpanel';
 
     /**
      * 分页导航栏激活
@@ -400,7 +400,7 @@ export default class IbzDailyDailyMobTabExpViewBase extends Vue {
         if (info.name && info.name == 'ibzdaily' && info.id && info.id == this.context.ibzdaily) {
           this.activiedTabViewPanel = info.value;
         } else { 
-          this.activiedTabViewPanel = 'tabviewpanel3';
+          this.activiedTabViewPanel = 'tabviewpanel';
         }
         }
     }

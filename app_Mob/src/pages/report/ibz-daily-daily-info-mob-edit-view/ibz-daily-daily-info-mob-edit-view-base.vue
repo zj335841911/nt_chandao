@@ -1,7 +1,22 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'ibz-monthly-main-info-mob-edit-view': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'ibz-daily-daily-info-mob-edit-view': true }">
     
     <ion-header>
+        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
+            <ion-buttons slot="start">
+                <ion-button v-show="isShowBackButton" @click="closeView">
+                    <ion-icon name="chevron-back"></ion-icon>
+                    {{$t('app.button.back')}}
+                </ion-button>
+            </ion-buttons>
+            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <ion-buttons slot="end">
+                                <div class="app-toolbar-container ">
+                    <div class="app-quick-toolbar toolbar-right-bottons">
+                    </div>
+                </div>
+            </ion-buttons>
+        </ion-toolbar>
 
     
     </ion-header>
@@ -9,7 +24,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="IbzMonthlyMainInfoMobEditView"  
+            viewName="IbzDailyDailyInfoMobEditView"  
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
@@ -40,48 +55,48 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMonthlyService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
+import IbzDailyService from '@/app-core/service/ibz-daily/ibz-daily-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-import IbzMonthlyUIService from '@/ui-service/ibz-monthly/ibz-monthly-ui-action';
+import IbzDailyUIService from '@/ui-service/ibz-daily/ibz-daily-ui-action';
 import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
     },
 })
-export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
+export default class IbzDailyDailyInfoMobEditViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 实体服务对象
      *
-     * @type {IbzMonthlyService}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @type {IbzDailyService}
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
-    protected appEntityService: IbzMonthlyService = new IbzMonthlyService();
+    protected appEntityService: IbzDailyService = new IbzDailyService();
 
     /**
      * 实体UI服务对象
      *
-     * @type IbzMonthlyUIService
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @type IbzDailyUIService
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
-    public appUIService: IbzMonthlyUIService = new IbzMonthlyUIService(this.$store);
+    public appUIService: IbzDailyUIService = new IbzDailyUIService(this.$store);
 
     /**
      * 数据变化
      *
      * @param {*} val
      * @returns {*}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -92,7 +107,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     @Prop() protected _context!: string;
 
@@ -100,7 +115,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -108,7 +123,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -116,15 +131,15 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof IbzMonthlyMainInfoMobEditViewBase
+	 * @memberof IbzDailyDailyInfoMobEditViewBase
 	 */
-	protected viewtag: string = '4b79a827dad435d82d3f9cdaec51f166';
+	protected viewtag: string = '6a9fceec3db94743835d7d4858424dda';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected context: any = {};
 
@@ -132,7 +147,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected viewparams: any = {};
 
@@ -140,7 +155,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
@@ -148,14 +163,14 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * 是否为门户嵌入视图
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     public titleStatus :boolean = true;
 
@@ -164,7 +179,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected navContext: any = {};
 
@@ -173,7 +188,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected navParam: any = {};
 
@@ -181,14 +196,14 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected model: any = {
-        srfTitle: '月报移动端编辑视图',
-        srfCaption: 'ibzmonthly.views.maininfomobeditview.caption',
+        srfTitle: '日报移动端编辑视图(日报描述)',
+        srfCaption: 'ibzdaily.views.dailyinfomobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'ibzmonthly.maininfomobeditview',
+        viewname:'ibzdaily.dailyinfomobeditview',
         iconcls: '',
         icon: ''
     }
@@ -198,7 +213,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  IbzMonthlyMainInfoMobEditViewBase
+     * @memberof  IbzDailyDailyInfoMobEditViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -226,7 +241,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -239,17 +254,18 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
+        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -258,22 +274,35 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
+
+
+   /**
+    * 工具栏 IbzDailyDailyInfoMobEditView 模型
+    *
+    * @type {*}
+    * @memberof IbzDailyDailyInfoMobEditView
+    */
+    public righttoolbarModels: any = {
+    };
+
+    
 
 
     /**
      * 工具栏模型集合名
      *
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
-    public toolbarModelList:any = []
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
      *
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -286,7 +315,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -300,21 +329,21 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected engine: MobEditViewEngine = new MobEditViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected engineInit(): void {
         this.engine.init({
             view: this,
             form: this.$refs.form,
-            keyPSDEField: 'ibzmonthly',
-            majorPSDEField: 'ibzmonthlyname',
+            keyPSDEField: 'ibzdaily',
+            majorPSDEField: 'ibzdailyname',
             isLoadDefault: true,
         });
     }
@@ -322,7 +351,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected created() {
         this.afterCreated();
@@ -331,7 +360,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -351,7 +380,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -360,7 +389,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     public activated() {
         this.thirdPartyInit();
@@ -371,7 +400,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -381,7 +410,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -396,7 +425,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
     /**
      * 第三方容器初始化
      * 
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -408,7 +437,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -417,7 +446,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -435,7 +464,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected form_save($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'save', $event);
@@ -446,7 +475,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected form_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforeload', $event);
@@ -457,7 +486,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected form_remove($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'remove', $event);
@@ -468,7 +497,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected form_beforesave($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforesave', $event);
@@ -479,7 +508,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected form_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'load', $event);
@@ -490,7 +519,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -514,7 +543,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.$store.state.searchformStatus){
@@ -544,7 +573,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -556,7 +585,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -578,7 +607,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * @param {*} val
      * @param {boolean} isCreate
      * @returns
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
@@ -590,7 +619,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      * 保存
      *
      * @protected
-     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     * @memberof IbzDailyDailyInfoMobEditViewBase
      */
     protected defSave(): void {
         const _this: any = this;
@@ -634,5 +663,5 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './ibz-monthly-main-info-mob-edit-view.less';
+@import './ibz-daily-daily-info-mob-edit-view.less';
 </style>
