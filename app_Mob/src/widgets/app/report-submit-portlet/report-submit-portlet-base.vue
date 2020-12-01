@@ -15,7 +15,7 @@
     :viewparams="viewparams" 
     :context="context" 
     :showBusyIndicator="true" 
-    controlStyle=""
+    controlStyle="ICONVIEW"
     name="db_appmenu4_appmenu"  
     ref='db_appmenu4_appmenu' 
     @closeview="closeView($event)">
