@@ -71,6 +71,4 @@ export default {
 	},
 	reportmobtabexpviewrighttoolbar_toolbar: {
 	},
-	dailymobtabexpviewrighttoolbar_toolbar: {
-	},
 };

@@ -254,7 +254,6 @@ export default class IbzMyTerritoryDailyMobTabExpViewBase extends Vue {
      * @memberof IbzMyTerritoryDailyMobTabExpViewBase
      */
     protected containerModel: any = {
-        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
         view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
     };
 
@@ -277,19 +276,6 @@ export default class IbzMyTerritoryDailyMobTabExpViewBase extends Vue {
 
 
 
-   /**
-    * 工具栏 IbzMyTerritoryDailyMobTabExpView 模型
-    *
-    * @type {*}
-    * @memberof IbzMyTerritoryDailyMobTabExpView
-    */
-    public righttoolbarModels: any = {
-    };
-
-    
-
-
-
 
 
     /**
@@ -297,7 +283,7 @@ export default class IbzMyTerritoryDailyMobTabExpViewBase extends Vue {
      *
      * @memberof IbzMyTerritoryDailyMobTabExpViewBase
      */
-    public toolbarModelList:any = ['righttoolbarModels',]
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数
