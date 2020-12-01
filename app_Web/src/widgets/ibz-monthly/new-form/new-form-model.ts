@@ -56,6 +56,16 @@ export default class NewModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'ibz_monthlyname',
+        prop: 'ibzmonthlyname',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'date',
+        prop: 'date',
+        dataType: 'DATE',
+      },
+      {
         name: 'thismonthtask',
         prop: 'thismonthtask',
         dataType: 'SMCODELIST',

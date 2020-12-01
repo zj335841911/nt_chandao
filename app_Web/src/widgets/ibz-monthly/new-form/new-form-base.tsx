@@ -93,6 +93,8 @@ export class NewEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        ibz_monthlyname: null,
+        date: null,
         thismonthtask: null,
         workthismonth: null,
         nextmonthplanstask: null,
@@ -230,6 +232,20 @@ export class NewEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        ibz_monthlyname: new FormItemModel({
+    caption: '月报名称', detailType: 'FORMITEM', name: 'ibz_monthlyname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        date: new FormItemModel({
+    caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         thismonthtask: new FormItemModel({
     caption: '本月完成任务', detailType: 'FORMITEM', name: 'thismonthtask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:true,
@@ -308,6 +324,22 @@ export class NewEditFormBase extends EditFormControlBase {
 }),
 
     };
+
+    /**
+     * 新建默认值
+     * @memberof NewEditFormBase
+     */
+    public createDefault() {                    
+        if (this.data.hasOwnProperty('ibz_monthlyname')) {
+            this.data['ibz_monthlyname'] = this.context['srfusername'];
+        }
+        if (this.data.hasOwnProperty('date')) {
+            this.data['date'] = this.$util.dateFormat(new Date());
+        }
+        if (this.data.hasOwnProperty('account')) {
+            this.data['account'] = this.context['srfloginname'];
+        }
+    }
 
     /**
      * 面板数据变化处理事件

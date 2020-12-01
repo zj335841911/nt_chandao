@@ -47,6 +47,8 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			ibz_monthlyname: "月报名称", 
+			date: "日期", 
 			thismonthtask: "本月完成任务", 
 			workthismonth: "本月工作", 
 			nextmonthplanstask: "下月计划任务", 
