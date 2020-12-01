@@ -137,6 +137,9 @@ export default {
                 menuitem7: '更多',
             },
             reportsubmit: {
+                menuitem1: '日报',
+                menuitem2: '周报',
+                menuitem3: '月报',
             },
             imgswipestylemenu: {
                 menuitem1: '京东',
