@@ -87,6 +87,16 @@ export default {
             },
         },
         menus: {
+            reportreceived: {
+                menuitem1: '日报',
+                menuitem2: '周报',
+                menuitem3: '月报',
+            },
+            reportnew: {
+                menuitem1: '日报',
+                menuitem2: '周报',
+                menuitem3: '月报',
+            },
             iconstylemenu: {
                 menuitem1: '我的需求',
                 menuitem2: '我的任务',
@@ -112,20 +122,9 @@ export default {
                 menuitem9: '登录地图test',
             },
             my: {
-                menuitem6: '我的工作',
-                menuitem5: '汇报',
-                menuitem1: '新建',
-                menuitem2: '日报',
-                menuitem7: '周报',
-                menuitem8: '月报',
-                menuitem3: '我提交的',
-                menuitem9: '日报',
-                menuitem10: '周报',
-                menuitem11: '月报',
-                menuitem4: '我收到的',
-                menuitem12: '日报',
-                menuitem13: '月报',
-                menuitem14: '周报',
+                menuitem6: '我的代办',
+                menuitem5: '仪表盘',
+                menuitem15: '我的工作',
             },
             listmenu: {
                 menuitem1: '电脑',
@@ -136,6 +135,8 @@ export default {
                 menuitem5: '相机',
                 menuitem6: '望远镜',
                 menuitem7: '更多',
+            },
+            reportsubmit: {
             },
             imgswipestylemenu: {
                 menuitem1: '京东',

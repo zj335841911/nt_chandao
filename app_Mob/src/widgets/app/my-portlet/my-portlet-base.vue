@@ -3,7 +3,7 @@
         <ion-list class='app-mob-portlet  '>
             <ion-list-header v-if="editTitle"  class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
-                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>汇报</span></span>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>我的地盘</span></span>
                 <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
                     <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
                 </div>
@@ -338,7 +338,7 @@ export default class MyBase extends Vue implements ControlInterface {
         if(this.customizeTitle){
             return this.customizeTitle
         }
-        return '汇报'
+        return '我的地盘'
     }
 
     /**

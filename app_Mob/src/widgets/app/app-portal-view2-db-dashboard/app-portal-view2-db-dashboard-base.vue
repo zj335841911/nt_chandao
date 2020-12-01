@@ -12,6 +12,39 @@
     @closeview="closeView($event)">
 </view_db_appmenu1>
             </ion-card>
+            <ion-card class="dashboard-item appmenu"  v-if="!isEnableCustomized">
+            <view_db_appmenu2
+    :viewState="viewState"
+    viewName="AppPortalView2"  
+    :viewparams="viewparams" 
+    :context="context" 
+    name="db_appmenu2"  
+    ref='db_appmenu2' 
+    @closeview="closeView($event)">
+</view_db_appmenu2>
+            </ion-card>
+            <ion-card class="dashboard-item appmenu"  v-if="!isEnableCustomized">
+            <view_db_appmenu3
+    :viewState="viewState"
+    viewName="AppPortalView2"  
+    :viewparams="viewparams" 
+    :context="context" 
+    name="db_appmenu3"  
+    ref='db_appmenu3' 
+    @closeview="closeView($event)">
+</view_db_appmenu3>
+            </ion-card>
+            <ion-card class="dashboard-item appmenu"  v-if="!isEnableCustomized">
+            <view_db_appmenu4
+    :viewState="viewState"
+    viewName="AppPortalView2"  
+    :viewparams="viewparams" 
+    :context="context" 
+    name="db_appmenu4"  
+    ref='db_appmenu4' 
+    @closeview="closeView($event)">
+</view_db_appmenu4>
+            </ion-card>
             <template v-for="item in customizeModel">
                 <ion-card class="dashboard-item userCustomize ios hydrated" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
                     <component :is="item.componentName" :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @enableCustomizedEvent="enableCustomizedEvent"></component>

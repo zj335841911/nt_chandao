@@ -4,10 +4,13 @@
 
 | 菜单编号   |  菜单名称     |   备注 |
 | --------  | ------------ | ------------|
+|-|[汇报（我收到）](reportReceived.md)|&nbsp;|
+|-|[汇报新建](reportNew.md)|&nbsp;|
 |-|[图标菜单](IconStyleMenu.md)|&nbsp;|
 |-|[应用首页视图默认菜单](AppIndexView.md)|&nbsp;|
 |-|[我的](My.md)|&nbsp;|
 |-|[列表菜单](ListMenu.md)|&nbsp;|
+|-|[汇报（我提交）](reportSubmit.md)|&nbsp;|
 |-|[图片滑动菜单](ImgswipeStyleMenu.md)|&nbsp;|
 
 ## 应用功能
@@ -19,6 +22,8 @@
 ||我的工作|打开应用视图|&nbsp;|
 ||产品总览|打开应用视图|&nbsp;|
 ||更新日志|打开应用视图|&nbsp;|
+||仪表盘|打开应用视图|&nbsp;|
+||我的待办|打开应用视图|&nbsp;|
 ||日报|打开应用视图|&nbsp;|
 ||打开看板|打开应用视图|&nbsp;|
 ||个人中心|打开应用视图|&nbsp;|

@@ -2,11 +2,17 @@
 import { Component } from 'vue-property-decorator';
 import AppPortalView2_dbBase from './app-portal-view2-db-dashboard-base.vue';
 import view_db_appmenu1 from '@widgets/app/my-portlet/my-portlet.vue';
+import view_db_appmenu2 from '@widgets/app/report-new-portlet/report-new-portlet.vue';
+import view_db_appmenu3 from '@widgets/app/report-received-portlet/report-received-portlet.vue';
+import view_db_appmenu4 from '@widgets/app/report-submit-portlet/report-submit-portlet.vue';
 
  
 @Component({
     components: {
         view_db_appmenu1, 
+        view_db_appmenu2, 
+        view_db_appmenu3, 
+        view_db_appmenu4, 
          
     }
 })

@@ -303,6 +303,10 @@
 
   * [iBiz软件生产管理（Mob）](app/Mob/app_index.md) 
 
+    * [汇报（我收到）](app/Mob/reportReceived.md)
+  
+    * [汇报新建](app/Mob/reportNew.md)
+  
     * [图标菜单](app/Mob/IconStyleMenu.md)
   
     * [应用首页视图默认菜单](app/Mob/AppIndexView.md)
@@ -311,14 +315,18 @@
   
     * [列表菜单](app/Mob/ListMenu.md)
   
+    * [汇报（我提交）](app/Mob/reportSubmit.md)
+  
     * [图片滑动菜单](app/Mob/ImgswipeStyleMenu.md)
   
     * 应用功能
       * [我的任务](app/Mob/func/TaskMobMDView.md)
       * [产品](app/Mob/func/ProductMobMDView.md)
-      * [我的工作](app/Mob/func/IbzMyTerritoryMobTabExpView.md)
+      * [我的工作](app/Mob/func/IbzMyTerritoryMobCalendarView.md)
       * [产品总览](app/Mob/func/ProductMobChartView.md)
       * [更新日志](app/Mob/func/SysUpdateLogMobMDView.md)
+      * [仪表盘](app/Mob/func/IbzMyTerritoryMobDashboardView.md)
+      * [我的待办](app/Mob/func/TodoMobMDView.md)
       * [日报](app/Mob/func/IbzDailyMobEditView.md)
       * [打开看板](app/Mob/func/AppPortalView.md)
       * [个人中心](app/Mob/func/UserUserCenterMobEditView.md)
