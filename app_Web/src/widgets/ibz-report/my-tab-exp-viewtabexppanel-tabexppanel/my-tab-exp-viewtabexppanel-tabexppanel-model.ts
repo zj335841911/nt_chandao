@@ -81,6 +81,9 @@ export default class MyTabExpViewtabexppanelModel {
       {
         name: 'dailycnt',
       },
+      {
+        name: 'monthlycnt',
+      },
     ]
   }
 

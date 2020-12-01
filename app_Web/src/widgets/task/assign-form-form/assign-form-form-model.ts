@@ -86,6 +86,11 @@ export default class AssignFormModel {
         dataType: 'HTMLTEXT',
       },
       {
+        name: 'status',
+        prop: 'status',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

@@ -210,6 +210,13 @@ public class IbzReport extends EntityMP implements Serializable {
     @JSONField(name = "dailycnt")
     @JsonProperty("dailycnt")
     private Integer dailycnt;
+    /**
+     * 未读月报数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "monthlycnt")
+    @JsonProperty("monthlycnt")
+    private Integer monthlycnt;
 
 
 

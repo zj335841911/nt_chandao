@@ -266,7 +266,8 @@ POST
 | 20 | ibzdailyname | String | 允许 | 汇报名称 |
 | 21 | type | String | 允许 | 类型 |
 | 22 | dailycnt | Integer | 允许 | 未读日报数 |
-| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 23 | monthlycnt | Integer | 允许 | 未读月报数 |
+| 24 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzReportSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

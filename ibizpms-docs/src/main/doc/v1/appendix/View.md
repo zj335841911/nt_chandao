@@ -102,6 +102,7 @@
 |-|项目移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|发布移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|任务选项操作视图（完成）|DEMOBOPTVIEW|&nbsp;|
+|-|日报移动端多数据视图(完成任务)|DEMOBMDVIEW|&nbsp;|
 |-|任务预计选项操作视图|DEMOBOPTVIEW|&nbsp;|
 |-|产品计划移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|产品详情|DEMOBTABEXPVIEW|&nbsp;|

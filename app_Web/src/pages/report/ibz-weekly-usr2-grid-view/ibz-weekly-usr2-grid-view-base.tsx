@@ -499,14 +499,28 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
-            { pathName: 'usr2editview', parameterName: 'usr2editview' },
         ];
         const _this: any = this;
-        const openIndexViewTab = (data: any) => {
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
-            this.$router.push(routePath);
+        const openDrawer = (view: any, data: any) => {
+            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                if (!xData || !(xData.refresh instanceof Function)) {
+                    return;
+                }
+                xData.refresh(result.datas);
+            });
         }
-        openIndexViewTab(data);
+        const view: any = {
+            viewname: 'ibz-weekly-usr2-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: this.$t('entities.ibzweekly.views.usr2editview.title'),
+            placement: 'DRAWER_TOP',
+        };
+        openDrawer(view, data);
     }
 
 

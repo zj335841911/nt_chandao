@@ -181,4 +181,12 @@ export interface IbzReport {
      * @memberof IbzReport
      */
     dailycnt?: any;
+
+    /**
+     * 未读月报数
+     *
+     * @returns {*}
+     * @memberof IbzReport
+     */
+    monthlycnt?: any;
 }

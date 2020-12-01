@@ -108,10 +108,9 @@ export default {
 			account: "用户",
 			date: "日期",
 			reportto: "汇报给",
-			uagridcolumn1: "提交修改",
+			uagridcolumn1: "修改",
 		},
 		uiactions: {
-			ibzweekly_submit: "提交",
 			ibzweekly_edit: "修改",
 		},
 	},
@@ -125,9 +124,13 @@ export default {
 	usr2editviewtoolbar_toolbar: {
 	},
 	editviewtoolbar_toolbar: {
+		deuiaction3_submit: {
+			caption: "提交",
+			tip: "提交",
+		},
 		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
+			caption: "保存",
+			tip: "保存",
 		},
 	},
 	usr2gridviewtoolbar_toolbar: {

@@ -226,6 +226,14 @@ public class IbzReportDTO extends DTOBase implements Serializable {
     @JsonProperty("dailycnt")
     private Integer dailycnt;
 
+    /**
+     * 属性 [MONTHLYCNT]
+     *
+     */
+    @JSONField(name = "monthlycnt")
+    @JsonProperty("monthlycnt")
+    private Integer monthlycnt;
+
 
     /**
      * 设置 [WORKTODAY]

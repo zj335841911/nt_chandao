@@ -81,6 +81,9 @@ export default class MyReportModel {
       {
         name: 'dailycnt',
       },
+      {
+        name: 'monthlycnt',
+      },
     ]
   }
 

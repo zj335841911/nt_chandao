@@ -38,7 +38,7 @@
                             :context="JSON.parse(JSON.stringify(context))"
                             :viewparams="JSON.parse(JSON.stringify(viewparams))"
                             :data="row"
-                            :linkview="{viewname: 'ibz-weekly-usr2-edit-view', height: 0,width: 0,title: $t('entities.ibzweekly.views.usr2editview.title'),placement: '', isRedirectView: false,deResParameters: [
+                            :linkview="{viewname: 'ibz-weekly-usr2-edit-view', height: 0,width: 0,title: $t('entities.ibzweekly.views.usr2editview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             ]
             ,parameters: [
             { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
@@ -100,11 +100,6 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                            <a v-show="scope.row.submit.visible" :disabled="scope.row.submit.disabled" @click="uiAction(scope.row, 'submit', $event)" :title="$t('entities.ibzweekly.main_grid.uiactions.ibzweekly_submit')">
-                                
-                                {{$t('entities.ibzweekly.main_grid.uiactions.ibzweekly_submit')}}
-                            </a>
-                            <divider v-show="scope.row.edit.visible" type="vertical"></divider>
                             <a v-show="scope.row.edit.visible" :disabled="scope.row.edit.disabled" @click="uiAction(scope.row, 'edit', $event)" :title="$t('entities.ibzweekly.main_grid.uiactions.ibzweekly_edit')">
                                 
                                 {{$t('entities.ibzweekly.main_grid.uiactions.ibzweekly_edit')}}

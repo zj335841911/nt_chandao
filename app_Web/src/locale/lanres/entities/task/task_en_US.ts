@@ -290,6 +290,7 @@ export default {
 			left: "预计剩余", 
 			noticeusers: "消息通知用户", 
 			comment: "备注", 
+			status: "任务状态", 
 			id: "编号", 
 		},
 		uiactions: {

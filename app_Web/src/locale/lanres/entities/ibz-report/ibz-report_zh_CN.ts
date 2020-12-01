@@ -22,6 +22,7 @@ export default {
     ibzdailyname: "汇报名称",
     type: "类型",
     dailycnt: "未读日报数",
+    monthlycnt: "未读月报数",
   },
 	views: {
 		mytabexpview: {
