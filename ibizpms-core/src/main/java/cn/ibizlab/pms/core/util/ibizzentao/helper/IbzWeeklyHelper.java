@@ -96,7 +96,7 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
         IbzDaily old = new IbzDaily();
         CachedBeanCopier.copy(get(et.getIbzweeklyid()), old);
         String files = et.getFiles();
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("Ibz_dailyid", et.getIbzweeklyid()))) {
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("Ibz_Weeklyid", et.getIbzweeklyid()))) {
             return et;
         }
         CachedBeanCopier.copy(get(et.getIbzweeklyid()), et);
