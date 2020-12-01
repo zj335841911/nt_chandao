@@ -16,15 +16,15 @@
     
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel3">
-                            
-                            下月计划</ion-segment-button>
                             <ion-segment-button value="tabviewpanel">
                             
                             本月已完成任务</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
                             
                             主信息</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel3">
+                            
+                            下月计划</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -336,7 +336,7 @@ export default class IbzMonthlyMainInfoMobTabExpViewBase extends Vue {
      * @type {string}
      * @memberof  IbzMonthlyMainInfoMobTabExpViewBase
      */
-    protected activiedTabViewPanel: string = 'tabviewpanel3';
+    protected activiedTabViewPanel: string = 'tabviewpanel';
 
     /**
      * 分页导航栏激活
@@ -395,7 +395,7 @@ export default class IbzMonthlyMainInfoMobTabExpViewBase extends Vue {
         if (info.name && info.name == 'ibzmonthly' && info.id && info.id == this.context.ibzmonthly) {
           this.activiedTabViewPanel = info.value;
         } else { 
-          this.activiedTabViewPanel = 'tabviewpanel3';
+          this.activiedTabViewPanel = 'tabviewpanel';
         }
         }
     }

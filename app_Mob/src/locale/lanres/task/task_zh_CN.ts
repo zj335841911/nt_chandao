@@ -514,6 +514,10 @@ export default {
 			tip: '删除',
 		},
 	},
+	mycompletetaskmobmdview1righttoolbar_toolbar: {
+	},
+	myplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
+	},
 	assmobmdview9mdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {
 			caption: '更多',
@@ -521,10 +525,6 @@ export default {
 		},
 	},
 	mycompletetaskmobmdviewrighttoolbar_toolbar: {
-	},
-	myplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
-	},
-	mycompletetaskmobmdview1righttoolbar_toolbar: {
 	},
 	assmobmdviewmdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {
