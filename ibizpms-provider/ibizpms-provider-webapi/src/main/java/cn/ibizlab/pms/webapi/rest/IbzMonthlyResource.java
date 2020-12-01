@@ -191,11 +191,11 @@ public class IbzMonthlyResource {
                 .body(new PageImpl(ibzmonthlyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-searchMyDaily-all') and hasPermission(#context,'pms-IbzMonthly-Get')")
-	@ApiOperation(value = "获取我的待阅月报", tags = {"月报" } ,notes = "获取我的待阅月报")
-    @RequestMapping(method= RequestMethod.GET , value="/ibzmonthlies/fetchmydaily")
-	public ResponseEntity<List<IbzMonthlyDTO>> fetchMyDaily(IbzMonthlySearchContext context) {
-        Page<IbzMonthly> domains = ibzmonthlyService.searchMyDaily(context) ;
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-searchMyReceivedMonthly-all') and hasPermission(#context,'pms-IbzMonthly-Get')")
+	@ApiOperation(value = "获取我收到的月报", tags = {"月报" } ,notes = "获取我收到的月报")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzmonthlies/fetchmyreceivedmonthly")
+	public ResponseEntity<List<IbzMonthlyDTO>> fetchMyReceivedMonthly(IbzMonthlySearchContext context) {
+        Page<IbzMonthly> domains = ibzmonthlyService.searchMyReceivedMonthly(context) ;
         List<IbzMonthlyDTO> list = ibzmonthlyMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
@@ -204,11 +204,11 @@ public class IbzMonthlyResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-searchMyDaily-all') and hasPermission(#context,'pms-IbzMonthly-Get')")
-	@ApiOperation(value = "查询我的待阅月报", tags = {"月报" } ,notes = "查询我的待阅月报")
-    @RequestMapping(method= RequestMethod.POST , value="/ibzmonthlies/searchmydaily")
-	public ResponseEntity<Page<IbzMonthlyDTO>> searchMyDaily(@RequestBody IbzMonthlySearchContext context) {
-        Page<IbzMonthly> domains = ibzmonthlyService.searchMyDaily(context) ;
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-searchMyReceivedMonthly-all') and hasPermission(#context,'pms-IbzMonthly-Get')")
+	@ApiOperation(value = "查询我收到的月报", tags = {"月报" } ,notes = "查询我收到的月报")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzmonthlies/searchmyreceivedmonthly")
+	public ResponseEntity<Page<IbzMonthlyDTO>> searchMyReceivedMonthly(@RequestBody IbzMonthlySearchContext context) {
+        Page<IbzMonthly> domains = ibzmonthlyService.searchMyReceivedMonthly(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzmonthlyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

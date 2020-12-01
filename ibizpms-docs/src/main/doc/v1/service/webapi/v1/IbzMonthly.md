@@ -277,9 +277,9 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[IbzMonthlyDTO](#IbzMonthlyDTO)>：月报实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
-### 获取我的待阅月报
+### 获取我收到的月报
 #### 访问路径
-/ibzmonthlies/fetchmydaily
+/ibzmonthlies/fetchmyreceivedmonthly
 
 #### 请求方法
 GET
@@ -295,9 +295,9 @@ GET
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[IbzMonthlyDTO](#IbzMonthlyDTO)>：月报实体传输对象列表 |
 
-### 查询我的待阅月报
+### 查询我收到的月报
 #### 访问路径
-/ibzmonthlies/searchmydaily
+/ibzmonthlies/searchmyreceivedmonthly
 
 #### 请求方法
 POST

@@ -418,12 +418,36 @@ export default class ReportReceivedBase extends Vue implements ControlInterface 
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
+                case 'DailyReportReceived': 
+                    this.clickDailyReportReceived(item);
+                    return;
                 default:
                     console.warn('未指定应用功能');
             }
         }
     }
 
+    
+    /**
+     * 我收到的日报
+     *
+     * @param {*} [item={}]
+     * @memberof ReportReceived
+     */
+    protected clickDailyReportReceived(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+            { pathName: 'reportreceivedmobmdview', parameterName: 'reportreceivedmobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
 
     /**
      * 数据加载

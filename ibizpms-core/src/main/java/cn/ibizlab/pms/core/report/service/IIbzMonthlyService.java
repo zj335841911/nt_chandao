@@ -50,7 +50,7 @@ public interface IIbzMonthlyService extends IService<IbzMonthly> {
     void saveBatch(List<IbzMonthly> list);
     IbzMonthly submit(IbzMonthly et);
     Page<IbzMonthly> searchDefault(IbzMonthlySearchContext context);
-    Page<IbzMonthly> searchMyDaily(IbzMonthlySearchContext context);
+    Page<IbzMonthly> searchMyReceivedMonthly(IbzMonthlySearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

@@ -626,6 +626,27 @@ const datas: Array<any> = [
         "items": []
     },
     {
+        srfkey: 'ReportStatus',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '0',
+                label: '未读',
+                text: '未读',
+                value: '0',
+                disabled: false,
+            },
+            {
+                id: '1',
+                label: '已读',
+                text: '已读',
+                value: '1',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'YesNo',
         emptytext: '未定义',
         "codelisttype":"static",

@@ -954,8 +954,9 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [我的待阅月报](#数据查询-我的待阅月报（MyDaily）) | MyDaily | 否 |
-| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [我收到的月报](#数据查询-我收到的月报（MyReceivedMonthly）) | MyReceivedMonthly | 否 |
+| 3 | [我提交的月报](#数据查询-我提交的月报（MySubmitMonthly）) | MySubmitMonthly | 否 |
+| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -990,9 +991,9 @@ t1.`UPDATEMANNAME`
 FROM `T_IBZ_MONTHLY` t1 
 
 ```
-### 数据查询-我的待阅月报（MyDaily）
+### 数据查询-我收到的月报（MyReceivedMonthly）
 #### 说明
-我的待阅月报
+我收到的月报
 
 - 默认查询
 否
@@ -1026,6 +1027,21 @@ FROM
 	AND t11.objectType = 'monthly' 
 	AND t11.action = 'read' 
 	AND t11.actor = #{srf.sessioncontext.srfloginname}
+```
+### 数据查询-我提交的月报（MySubmitMonthly）
+#### 说明
+我提交的月报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -1068,7 +1084,7 @@ FROM `T_IBZ_MONTHLY` t1
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
-| 2 | [我的待阅月报](#数据集合-我的待阅月报（MyDaily）) | MyDaily | 否 |
+| 2 | [我收到的月报](#数据集合-我收到的月报（MyReceivedMonthly）) | MyReceivedMonthly | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1084,9 +1100,9 @@ FROM `T_IBZ_MONTHLY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（Default）](#数据查询-数据查询（Default）) |
-### 数据集合-我的待阅月报（MyDaily）
+### 数据集合-我收到的月报（MyReceivedMonthly）
 #### 说明
-我的待阅月报
+我收到的月报
 
 - 默认集合
 否
@@ -1097,7 +1113,7 @@ FROM `T_IBZ_MONTHLY` t1
 #### 关联的数据查询
 | 序号 | 数据查询 |
 | ---- | ---- |
-| 1 | [我的待阅月报（MyDaily）](#数据查询-我的待阅月报（MyDaily）) |
+| 1 | [我收到的月报（MyReceivedMonthly）](#数据查询-我收到的月报（MyReceivedMonthly）) |
 
 ## 数据导入
 无

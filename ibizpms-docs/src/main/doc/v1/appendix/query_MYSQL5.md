@@ -7463,7 +7463,7 @@ t1.`UPDATEMANNAME`
 FROM `T_IBZ_MONTHLY` t1 
 
 ```
-### 我的待阅月报(MyDaily)<div id="IbzMonthly_MyDaily"></div>
+### 我收到的月报(MyReceivedMonthly)<div id="IbzMonthly_MyReceivedMonthly"></div>
 ```sql
 SELECT
 	t1.`ACCOUNT`,
@@ -7490,6 +7490,10 @@ FROM
 	AND t11.actor = #{srf.sessioncontext.srfloginname}
 WHERE t1.issubmit = '1' 
 (t1.REPORTTO = #{srf.sessioncontext.srfloginname} OR FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.MAILTO )) 
+
+```
+### 我提交的月报(MySubmitMonthly)<div id="IbzMonthly_MySubmitMonthly"></div>
+```sql
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzMonthly_View"></div>

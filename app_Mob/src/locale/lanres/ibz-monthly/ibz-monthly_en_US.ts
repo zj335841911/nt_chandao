@@ -22,6 +22,9 @@ export default {
     createManName: "建立人名称",
   },
 	views: {
+		myreceivedmobmdview: {
+			caption: '月报',
+		},
 		createmobeditview: {
 			caption: '月报',
 		},

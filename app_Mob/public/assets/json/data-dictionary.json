@@ -913,6 +913,36 @@
         "items": []
     }, 
     {
+        "srfkey": "ReportStatus",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "0",
+                "label": "未读",
+                "text": "未读",
+                "default": false,
+                "data": "",
+                "value": "0",
+                "isValueNumber":false,
+                
+                "color": "rgba(244, 15, 15, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "1",
+                "label": "已读",
+                "text": "已读",
+                "default": false,
+                "data": "",
+                "value": "1",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "YesNo",
         "emptytext": "未定义",
         "codelisttype":"static",

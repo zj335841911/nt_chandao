@@ -791,6 +791,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5653288057279c196b979f0f43fc520a',
+            viewmodule: 'report',
+            viewname: 'IbzDailyReportReceivedMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '22e33232ac91bca7826742f9c85720dc',
+            ],
+        },
+        {
             viewtag: '5831fe43122c3d5778cce24bbaa52740',
             viewmodule: 'zentao',
             viewname: 'BuildMobTabExpView',
@@ -1669,6 +1679,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'bb00037ee518e24c062310bc79031627',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyMyReceivedMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'bbd1f1ee06963455848eadd5a6f530e4',
             viewmodule: 'zentao',
             viewname: 'BugUsr3MobPickupBuildResolvedMDView',
@@ -1874,6 +1893,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '5653288057279c196b979f0f43fc520a',
                 '899ab4d4cfc33b089a9c4aa5118acbf3',
                 '70d570ae5cafd7af092084e6d0e6b2f7',
                 '053879e9b47bc845598b68abbdbb2e0a',

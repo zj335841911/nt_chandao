@@ -121,6 +121,11 @@ export default {
     SysOperator: {
         empty: '',
     },
+    ReportStatus: {
+        '0': '未读',
+        '1': '已读',
+        empty: '',
+    },
     YesNo: {
         '1': '是',
         '0': '否',

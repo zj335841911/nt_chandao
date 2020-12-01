@@ -25,6 +25,9 @@ export default {
 		mobeditview: {
 			caption: '日报',
 		},
+		reportreceivedmobmdview: {
+			caption: '日报',
+		},
 		dailymobeditview: {
 			caption: '日报',
 		},
@@ -104,6 +107,8 @@ export default {
 			caption: 'Remove And Close',
 			tip: 'tbitem7',
 		},
+	},
+	reportreceivedmobmdviewrighttoolbar_toolbar: {
 	},
 	mobeditviewrighttoolbar_toolbar: {
 		tbitem1: {

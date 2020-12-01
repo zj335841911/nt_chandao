@@ -330,6 +330,7 @@
       * [日报](app/Mob/func/IbzDailyDailyMobEditView.md)
       * [打开看板](app/Mob/func/AppPortalView.md)
       * [个人中心](app/Mob/func/UserUserCenterMobEditView.md)
+      * [我收到的日报](app/Mob/func/IbzDailyReportReceivedMobMDView.md)
       * [用户选择](app/Mob/func/UserMobPickupView.md)
       * [我的地盘](app/Mob/func/AppPortalView2.md)
       * [人员登录地图](app/Mob/func/ActionMobMapView.md)

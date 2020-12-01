@@ -29,7 +29,7 @@ export class ReportReceivedModel {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: 'DailyReportReceived',
 	resourcetag: '',
 	authtag:'Mob-reportReceived-menuitem1',
 },

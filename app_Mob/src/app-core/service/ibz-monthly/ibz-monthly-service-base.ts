@@ -228,7 +228,7 @@ export class IbzMonthlyServiceBase extends EntityService {
     }
 
     /**
-     * FetchMyDaily接口方法
+     * FetchMyReceivedMonthly接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -236,9 +236,9 @@ export class IbzMonthlyServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof IbzMonthlyServiceBase
      */
-    public async FetchMyDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async FetchMyReceivedMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmonthlies/fetchmydaily`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/ibzmonthlies/fetchmyreceivedmonthly`,tempData,isloading);
         return res;
     }
 }

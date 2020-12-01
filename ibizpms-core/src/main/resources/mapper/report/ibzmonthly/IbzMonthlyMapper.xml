@@ -26,10 +26,10 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
-    <!--数据集合[MyDaily]-->
-	 <select id="searchMyDaily"  parameterType="cn.ibizlab.pms.core.report.filter.IbzMonthlySearchContext"  resultMap="IbzMonthlyResultMap">
+    <!--数据集合[MyReceivedMonthly]-->
+	 <select id="searchMyReceivedMonthly"  parameterType="cn.ibizlab.pms.core.report.filter.IbzMonthlySearchContext"  resultMap="IbzMonthlyResultMap">
          select t1.* from (
-                <include refid="MyDaily" />
+                <include refid="MyReceivedMonthly" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
@@ -40,11 +40,16 @@
 		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`CREATEDATE`, t1.`CREATEMAN`, t1.`CREATEMANNAME`, t1.`DATE`, t1.`IBZ_MONTHLYID`, t1.`IBZ_MONTHLYNAME`, t1.`ISSUBMIT`, t1.`MAILTO`, t1.`NEXTMONTHPLANSTASK`, t1.`REPORTSTATUS`, t1.`REPORTTO`, t1.`THISMONTHTASK`, t1.`UPDATEDATE`, t1.`UPDATEMAN`, t1.`UPDATEMANNAME` FROM `T_IBZ_MONTHLY` t1  
 			]]>
     </sql>
-    <!--数据查询[MyDaily]-->
-    <sql id="MyDaily" databaseId="mysql">
+    <!--数据查询[MyReceivedMonthly]-->
+    <sql id="MyReceivedMonthly" databaseId="mysql">
 		<![CDATA[ SELECT 	t1.`ACCOUNT`, 	t1.`CREATEDATE`, 	t1.`CREATEMAN`, 	t1.`CREATEMANNAME`, 	t1.`DATE`, 	t1.`IBZ_MONTHLYID`, 	t1.`IBZ_MONTHLYNAME`, 	t1.`ISSUBMIT`, 	t1.`MAILTO`, 	( CASE WHEN t11.id IS NOT NULL THEN '1' ELSE '0' END ) AS `REPORTSTATUS`, 	t1.`REPORTTO`, 	t1.`THISMONTHTASK`, 	t1.`NEXTMONTHPLANSTASK`, 	t1.`UPDATEDATE`, 	t1.`UPDATEMAN`, 	t1.`UPDATEMANNAME`  FROM 	`t_ibz_monthly` t1 	LEFT JOIN zt_action t11 ON t11.objectID = t1.IBZ_MONTHLYID  	AND t11.objectType = 'monthly'  	AND t11.action = 'read'  	AND t11.actor = #{srf.sessioncontext.srfloginname}
 					 WHERE 	t1.issubmit = '1'
 						 AND (t1.REPORTTO = #{srf.sessioncontext.srfloginname} OR FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.MAILTO ))
+			]]>
+    </sql>
+    <!--数据查询[MySubmitMonthly]-->
+    <sql id="MySubmitMonthly" databaseId="mysql">
+		<![CDATA[ 
 			]]>
     </sql>
     <!--数据查询[View]-->
