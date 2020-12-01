@@ -181,7 +181,7 @@ export default class IbzMonthlyMySubmitMobMDViewBase extends Vue {
      * @type {*}
      * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
-    protected navContext: any = { 'srfparentkey': '%ibz_monthlyid%' };
+    protected navContext: any = {};
 
     /**
      * 视图导航参数
@@ -190,7 +190,7 @@ export default class IbzMonthlyMySubmitMobMDViewBase extends Vue {
      * @type {*}
      * @memberof IbzMonthlyMySubmitMobMDViewBase
      */
-    protected navParam: any = { 'srfparentkey': '%ibz_monthlyid%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据
