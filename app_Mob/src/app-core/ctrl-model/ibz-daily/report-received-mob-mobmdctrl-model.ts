@@ -18,6 +18,9 @@ export class ReportReceivedMobModel {
 				name: 'account',
 			},
 			{
+				name: 'issubmit',
+			},
+			{
 				name: 'ibz_dailyid',
 			},
 			{

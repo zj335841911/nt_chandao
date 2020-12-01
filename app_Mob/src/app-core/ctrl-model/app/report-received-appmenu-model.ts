@@ -67,7 +67,7 @@ export class ReportReceivedModel {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: 'MyReceivedMonthly',
 	resourcetag: '',
 	authtag:'Mob-reportReceived-menuitem3',
 },

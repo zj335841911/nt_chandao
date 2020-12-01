@@ -421,6 +421,9 @@ export default class ReportReceivedBase extends Vue implements ControlInterface 
                 case 'DailyReportReceived': 
                     this.clickDailyReportReceived(item);
                     return;
+                case 'MyReceivedMonthly': 
+                    this.clickMyReceivedMonthly(item);
+                    return;
                 default:
                     console.warn('未指定应用功能');
             }
@@ -444,6 +447,27 @@ export default class ReportReceivedBase extends Vue implements ControlInterface 
         const parameters: any[] = [
             { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
             { pathName: 'reportreceivedmobmdview', parameterName: 'reportreceivedmobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 月报（我收到的）
+     *
+     * @param {*} [item={}]
+     * @memberof ReportReceived
+     */
+    protected clickMyReceivedMonthly(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+            { pathName: 'myreceivedmobmdview', parameterName: 'myreceivedmobmdview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);
