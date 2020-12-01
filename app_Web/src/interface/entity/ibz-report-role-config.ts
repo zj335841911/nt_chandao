@@ -61,4 +61,12 @@ export interface IbzReportRoleConfig {
      * @memberof IbzReportRoleConfig
      */
     report_role?: any;
+
+    /**
+     * 类型
+     *
+     * @returns {*}
+     * @memberof IbzReportRoleConfig
+     */
+    type?: any;
 }

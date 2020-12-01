@@ -34,6 +34,13 @@ public class IbzReportRoleConfigSearchContext extends QueryWrapperContext<IbzRep
             this.getSearchCond().like("`ibz_report_role_configname`", n_ibz_report_role_configname_like);
         }
     }
+	private String n_type_eq;//[类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("`type`", n_type_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

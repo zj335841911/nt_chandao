@@ -103,8 +103,17 @@ export class MainGridBase extends GridControlBase {
     public allColumns: any[] = [
         {
             name: 'ibz_report_role_configname',
-            label: '汇报角色配置名称',
+            label: '名称',
             langtag: 'entities.ibzreportroleconfig.main_grid.columns.ibz_report_role_configname',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'type',
+            label: '类型',
+            langtag: 'entities.ibzreportroleconfig.main_grid.columns.type',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -239,6 +248,7 @@ export class MainGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'ibz_report_role_configname':false,
+        'type':false,
         'report_role':false,
         'updateman':false,
         'updatedate':false,
@@ -312,6 +322,14 @@ export class MainGridBase extends GridControlBase {
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
             {
+                name: 'type',
+                srfkey: 'ReportType',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
                 name: 'report_role',
                 srfkey: 'AllRole',
                 codelistType : 'DYNAMIC',
@@ -345,7 +363,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['ibz_report_role_configname','report_role','updateman','updatedate'];
+        let allColumns:Array<any> = ['ibz_report_role_configname','type','report_role','updateman','updatedate'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -425,6 +443,7 @@ export class MainGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 ibz_report_role_configname:'',
+                type:'',
                 report_role:'',
                 updateman:'',
                 updatedate:'',
@@ -453,6 +472,7 @@ export class MainGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
             ibz_report_role_configname:'',
+            type:'',
             report_role:'',
             updateman:'',
             updatedate:'',
@@ -517,6 +537,7 @@ export class MainGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 ibz_report_role_configname:'',
+                type:'',
                 report_role:'',
                 updateman:'',
                 updatedate:'',

@@ -16,6 +16,7 @@
 |更新人|UPDATEMAN|TEXT|&nbsp;|
 |更新时间|UPDATEDATE|DATETIME|&nbsp;|
 |角色|REPORT_ROLE|SMCODELIST|&nbsp;|
+|类型|TYPE|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -27,6 +28,7 @@
 |更新人|默认规则|内容长度必须小于等于[60]|
 |更新时间|默认规则|默认规则|
 |角色|默认规则|内容长度必须小于等于[2000]|
+|类型|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 
@@ -66,6 +68,7 @@
 | 属性      |    搜索模式     |
 | --------   |------------|
 |汇报角色配置名称(IBZ_REPORT_ROLE_CONFIGNAME)|LIKE|
+|类型(TYPE)|EQ|
 
 ## 导入模式
 无

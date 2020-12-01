@@ -92,6 +92,15 @@ public class IbzReportRoleConfigDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
     private String reportRole;
 
+    /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String type;
+
 
     /**
      * 设置 [IBZ_REPORT_ROLE_CONFIGNAME]
@@ -107,6 +116,14 @@ public class IbzReportRoleConfigDTO extends DTOBase implements Serializable {
     public void setReportRole(String  reportRole){
         this.reportRole = reportRole ;
         this.modify("report_role",reportRole);
+    }
+
+    /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
     }
 
 

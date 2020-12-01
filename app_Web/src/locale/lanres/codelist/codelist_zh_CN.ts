@@ -651,6 +651,12 @@ export default {
         "public": "公开",
         "empty": "",
     },
+    ReportType: {
+        "weekly": "周报",
+        "daily": "日报",
+        "monthly": "月报",
+        "empty": "",
+    },
     RelatedStory: {
         "empty": "",
     },

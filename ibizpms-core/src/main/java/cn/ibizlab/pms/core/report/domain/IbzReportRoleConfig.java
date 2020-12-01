@@ -101,6 +101,13 @@ public class IbzReportRoleConfig extends EntityMP implements Serializable {
     @JSONField(name = "report_role")
     @JsonProperty("report_role")
     private String reportRole;
+    /**
+     * 类型
+     */
+    @TableField(value = "`type`")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
 
 
 
@@ -118,6 +125,14 @@ public class IbzReportRoleConfig extends EntityMP implements Serializable {
     public void setReportRole(String reportRole) {
         this.reportRole = reportRole;
         this.modify("report_role", reportRole);
+    }
+
+    /**
+     * 设置 [类型]
+     */
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
 

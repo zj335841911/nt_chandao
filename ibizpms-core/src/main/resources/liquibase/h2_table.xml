@@ -1296,7 +1296,7 @@
 
 
     <!--输出实体[IBZ_REPORT_ROLE_CONFIG]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_report_role_config-17-45">
+    <changeSet author="zentao" id="tab-ibz_report_role_config-22-45">
         <createTable tableName="T_IBZ_REPORT_ROLE_CONFIG">
                 <column name="IBZ_REPORT_ROLE_CONFIGNAME" remarks="" type="VARCHAR(200)">
                 </column>
@@ -1312,6 +1312,8 @@
                 <column name="UPDATEDATE" remarks="" type="DATETIME">
                 </column>
                 <column name="REPORT_ROLE" remarks="" type="VARCHAR(2000)">
+                </column>
+                <column name="TYPE" remarks="" type="VARCHAR(60)">
                 </column>
         </createTable>
     </changeSet>

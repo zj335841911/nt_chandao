@@ -13344,6 +13344,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"TYPE" ,
+    "codename":"Type",
+    "field_logic_name":"类型",
+    "entity_name":"IbzReportRoleConfig",
+    "field_type":"SSCODELIST",
+    "dict":"ReportType",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

@@ -94,6 +94,7 @@ export class MainEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         ibz_report_role_configname: null,
+        type: null,
         report_role: null,
         ibz_report_role_configid: null,
         ibzreportroleconfig: null,
@@ -209,7 +210,14 @@ export class MainEditFormBase extends EditFormControlBase {
 }),
 
         ibz_report_role_configname: new FormItemModel({
-    caption: '汇报角色配置名称', detailType: 'FORMITEM', name: 'ibz_report_role_configname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '名称', detailType: 'FORMITEM', name: 'ibz_report_role_configname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        type: new FormItemModel({
+    caption: '类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

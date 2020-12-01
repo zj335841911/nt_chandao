@@ -37,6 +37,20 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('type')">
+                <el-table-column show-overflow-tooltip :prop="'type'" :label="$t('entities.ibzreportroleconfig.main_grid.columns.type')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                       <span class="column-header ">
+                        {{$t('entities.ibzreportroleconfig.main_grid.columns.type')}}
+                       </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.type" tag="ReportType" codelistType="STATIC" ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('report_role')">
                 <el-table-column show-overflow-tooltip :prop="'report_role'" :label="$t('entities.ibzreportroleconfig.main_grid.columns.report_role')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">

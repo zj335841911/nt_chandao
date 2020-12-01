@@ -7,6 +7,7 @@ export default {
     updateman: "更新人",
     updatedate: "更新时间",
     report_role: "角色",
+    type: "类型",
   },
 	views: {
 		gridview: {
@@ -30,7 +31,8 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			ibz_report_role_configname: "汇报角色配置名称", 
+			ibz_report_role_configname: "名称", 
+			type: "类型", 
 			report_role: "角色", 
 			ibz_report_role_configid: "汇报角色配置标识", 
 		},
@@ -40,7 +42,8 @@ export default {
 	main_grid: {
 		nodata: "",
 		columns: {
-			ibz_report_role_configname: "汇报角色配置名称",
+			ibz_report_role_configname: "名称",
+			type: "类型",
 			report_role: "角色",
 			updateman: "更新人",
 			updatedate: "更新时间",
