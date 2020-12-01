@@ -42,6 +42,7 @@ export class EntityServiceRegister {
                 this.allEntityService.set('productplan', () => import('@/service/product-plan/product-plan-service'));
         this.allEntityService.set('projectproduct', () => import('@/service/project-product/project-product-service'));
         this.allEntityService.set('case', () => import('@/service/case/case-service'));
+        this.allEntityService.set('sysuser', () => import('@/service/sys-user/sys-user-service'));
         this.allEntityService.set('ibztaskteam', () => import('@/service/ibztask-team/ibztask-team-service'));
         this.allEntityService.set('product', () => import('@/service/product/product-service'));
         this.allEntityService.set('taskteam', () => import('@/service/task-team/task-team-service'));
@@ -90,10 +91,12 @@ export class EntityServiceRegister {
         this.allEntityService.set('productmodule', () => import('@/service/product-module/product-module-service'));
         this.allEntityService.set('module', () => import('@/service/module/module-service'));
         this.allEntityService.set('testmodule', () => import('@/service/test-module/test-module-service'));
+        this.allEntityService.set('sysuserrole', () => import('@/service/sys-user-role/sys-user-role-service'));
         this.allEntityService.set('ibizprokeyword', () => import('@/service/ibizpro-keyword/ibizpro-keyword-service'));
         this.allEntityService.set('doclibmodule', () => import('@/service/doc-lib-module/doc-lib-module-service'));
         this.allEntityService.set('productlife', () => import('@/service/product-life/product-life-service'));
         this.allEntityService.set('usercontact', () => import('@/service/user-contact/user-contact-service'));
+        this.allEntityService.set('sysrole', () => import('@/service/sys-role/sys-role-service'));
         this.allEntityService.set('task', () => import('@/service/task/task-service'));
         this.allEntityService.set('build', () => import('@/service/build/build-service'));
         this.allEntityService.set('testresult', () => import('@/service/test-result/test-result-service'));

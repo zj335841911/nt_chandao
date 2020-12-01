@@ -266,6 +266,12 @@
 
   * [uaa权限模块](module/uaa.md) 
 
+    * [系统角色](module/uaa/SysRole.md) 
+
+    * [系统用户](module/uaa/SysUser.md) 
+
+    * [用户角色关系](module/uaa/SysUserRole.md) 
+
   * [ou组织用户管理模块](module/ou.md) 
 
     * [部门](module/ou/SysDepartment.md) 
@@ -284,6 +290,8 @@
 * [第三方接口](client/client_index.md)
   
   * [插件接入接口](client/PluginClientAPI.md) 
+
+  * [ibzuaa-api](client/IbzUaaSysAPI.md) 
 
   * [iBiz平台系统模型接口](client/iBizPSSysModelAPI.md) 
 

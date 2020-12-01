@@ -42,6 +42,7 @@ export class AuthServiceRegister {
                 this.allAuthService.set('productplan', () => import('@/authservice/product-plan/product-plan-auth-service'));
         this.allAuthService.set('projectproduct', () => import('@/authservice/project-product/project-product-auth-service'));
         this.allAuthService.set('case', () => import('@/authservice/case/case-auth-service'));
+        this.allAuthService.set('sysuser', () => import('@/authservice/sys-user/sys-user-auth-service'));
         this.allAuthService.set('ibztaskteam', () => import('@/authservice/ibztask-team/ibztask-team-auth-service'));
         this.allAuthService.set('product', () => import('@/authservice/product/product-auth-service'));
         this.allAuthService.set('taskteam', () => import('@/authservice/task-team/task-team-auth-service'));
@@ -90,10 +91,12 @@ export class AuthServiceRegister {
         this.allAuthService.set('productmodule', () => import('@/authservice/product-module/product-module-auth-service'));
         this.allAuthService.set('module', () => import('@/authservice/module/module-auth-service'));
         this.allAuthService.set('testmodule', () => import('@/authservice/test-module/test-module-auth-service'));
+        this.allAuthService.set('sysuserrole', () => import('@/authservice/sys-user-role/sys-user-role-auth-service'));
         this.allAuthService.set('ibizprokeyword', () => import('@/authservice/ibizpro-keyword/ibizpro-keyword-auth-service'));
         this.allAuthService.set('doclibmodule', () => import('@/authservice/doc-lib-module/doc-lib-module-auth-service'));
         this.allAuthService.set('productlife', () => import('@/authservice/product-life/product-life-auth-service'));
         this.allAuthService.set('usercontact', () => import('@/authservice/user-contact/user-contact-auth-service'));
+        this.allAuthService.set('sysrole', () => import('@/authservice/sys-role/sys-role-auth-service'));
         this.allAuthService.set('task', () => import('@/authservice/task/task-auth-service'));
         this.allAuthService.set('build', () => import('@/authservice/build/build-auth-service'));
         this.allAuthService.set('testresult', () => import('@/authservice/test-result/test-result-auth-service'));

@@ -3,6 +3,7 @@ import { Util } from '@/utils/util/util';
 import productplan_en_US from '@locale/lanres/entities/product-plan/product-plan_en_US';
 import projectproduct_en_US from '@locale/lanres/entities/project-product/project-product_en_US';
 import case_en_US from '@locale/lanres/entities/case/case_en_US';
+import sysuser_en_US from '@locale/lanres/entities/sys-user/sys-user_en_US';
 import ibztaskteam_en_US from '@locale/lanres/entities/ibztask-team/ibztask-team_en_US';
 import product_en_US from '@locale/lanres/entities/product/product_en_US';
 import taskteam_en_US from '@locale/lanres/entities/task-team/task-team_en_US';
@@ -51,10 +52,12 @@ import doclib_en_US from '@locale/lanres/entities/doc-lib/doc-lib_en_US';
 import productmodule_en_US from '@locale/lanres/entities/product-module/product-module_en_US';
 import module_en_US from '@locale/lanres/entities/module/module_en_US';
 import testmodule_en_US from '@locale/lanres/entities/test-module/test-module_en_US';
+import sysuserrole_en_US from '@locale/lanres/entities/sys-user-role/sys-user-role_en_US';
 import ibizprokeyword_en_US from '@locale/lanres/entities/ibizpro-keyword/ibizpro-keyword_en_US';
 import doclibmodule_en_US from '@locale/lanres/entities/doc-lib-module/doc-lib-module_en_US';
 import productlife_en_US from '@locale/lanres/entities/product-life/product-life_en_US';
 import usercontact_en_US from '@locale/lanres/entities/user-contact/user-contact_en_US';
+import sysrole_en_US from '@locale/lanres/entities/sys-role/sys-role_en_US';
 import task_en_US from '@locale/lanres/entities/task/task_en_US';
 import build_en_US from '@locale/lanres/entities/build/build_en_US';
 import testresult_en_US from '@locale/lanres/entities/test-result/test-result_en_US';
@@ -352,6 +355,7 @@ const data: any = {
         productplan: productplan_en_US,
         projectproduct: projectproduct_en_US,
         case: case_en_US,
+        sysuser: sysuser_en_US,
         ibztaskteam: ibztaskteam_en_US,
         product: product_en_US,
         taskteam: taskteam_en_US,
@@ -400,10 +404,12 @@ const data: any = {
         productmodule: productmodule_en_US,
         module: module_en_US,
         testmodule: testmodule_en_US,
+        sysuserrole: sysuserrole_en_US,
         ibizprokeyword: ibizprokeyword_en_US,
         doclibmodule: doclibmodule_en_US,
         productlife: productlife_en_US,
         usercontact: usercontact_en_US,
+        sysrole: sysrole_en_US,
         task: task_en_US,
         build: build_en_US,
         testresult: testresult_en_US,

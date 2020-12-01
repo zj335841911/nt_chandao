@@ -1261,6 +1261,14 @@
     "datascope":[{"id":"all","name":"全部数据"}]
     }
     ,    {
+    "dename":"SysRole",
+    "delogicname":"系统角色",
+    "sysmoudle":{"id":"UAA","name":"uaa权限模块"},
+    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
+    }
+    ,    {
     "dename":"SysTeam",
     "delogicname":"组",
     "sysmoudle":{"id":"OU","name":"ou组织用户管理模块"},
@@ -1291,6 +1299,22 @@
     "dedataset":[{"id":"Default" , "name":"数据集"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"GetLastUpdateInfo" , "name":"获取最新更新信息" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
+    }
+    ,    {
+    "dename":"SysUser",
+    "delogicname":"系统用户",
+    "sysmoudle":{"id":"UAA","name":"uaa权限模块"},
+    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"curorg","name":"当前单位"},{"id":"porg","name":"上级单位"},{"id":"sorg","name":"下级单位"} ]
+    }
+    ,    {
+    "dename":"SysUserRole",
+    "delogicname":"用户角色关系",
+    "sysmoudle":{"id":"UAA","name":"uaa权限模块"},
+    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
     }
     ,    {
     "dename":"Task",

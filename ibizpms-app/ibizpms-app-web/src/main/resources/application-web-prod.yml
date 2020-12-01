@@ -19,6 +19,10 @@ zuul:
       path: /cases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    sys_user:
+      path: /sysusers/**
+      serviceId: ${ibiz.ref.service.ibzuaa-api:ibzuaa-api}
+      stripPrefix: false
     ibz_taskteam:
       path: /ibztaskteams/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -211,6 +215,10 @@ zuul:
       path: /testmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    sys_user_role:
+      path: /sysuserroles/**
+      serviceId: ${ibiz.ref.service.ibzuaa-api:ibzuaa-api}
+      stripPrefix: false
     ibizpro_keyword:
       path: /ibizprokeywords/**
       serviceId: ${ibiz.ref.service.pmspro-pluginserviceapi:pmspro-pluginserviceapi}
@@ -226,6 +234,10 @@ zuul:
     zt_usercontact:
       path: /usercontacts/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    sys_role:
+      path: /sysroles/**
+      serviceId: ${ibiz.ref.service.ibzuaa-api:ibzuaa-api}
       stripPrefix: false
     zt_task:
       path: /tasks/**

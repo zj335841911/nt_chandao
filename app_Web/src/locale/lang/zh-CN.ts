@@ -3,6 +3,7 @@ import zhCNUser from '../user/zh-CN.user';
 import productplan_zh_CN from '@locale/lanres/entities/product-plan/product-plan_zh_CN';
 import projectproduct_zh_CN from '@locale/lanres/entities/project-product/project-product_zh_CN';
 import case_zh_CN from '@locale/lanres/entities/case/case_zh_CN';
+import sysuser_zh_CN from '@locale/lanres/entities/sys-user/sys-user_zh_CN';
 import ibztaskteam_zh_CN from '@locale/lanres/entities/ibztask-team/ibztask-team_zh_CN';
 import product_zh_CN from '@locale/lanres/entities/product/product_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/entities/task-team/task-team_zh_CN';
@@ -51,10 +52,12 @@ import doclib_zh_CN from '@locale/lanres/entities/doc-lib/doc-lib_zh_CN';
 import productmodule_zh_CN from '@locale/lanres/entities/product-module/product-module_zh_CN';
 import module_zh_CN from '@locale/lanres/entities/module/module_zh_CN';
 import testmodule_zh_CN from '@locale/lanres/entities/test-module/test-module_zh_CN';
+import sysuserrole_zh_CN from '@locale/lanres/entities/sys-user-role/sys-user-role_zh_CN';
 import ibizprokeyword_zh_CN from '@locale/lanres/entities/ibizpro-keyword/ibizpro-keyword_zh_CN';
 import doclibmodule_zh_CN from '@locale/lanres/entities/doc-lib-module/doc-lib-module_zh_CN';
 import productlife_zh_CN from '@locale/lanres/entities/product-life/product-life_zh_CN';
 import usercontact_zh_CN from '@locale/lanres/entities/user-contact/user-contact_zh_CN';
+import sysrole_zh_CN from '@locale/lanres/entities/sys-role/sys-role_zh_CN';
 import task_zh_CN from '@locale/lanres/entities/task/task_zh_CN';
 import build_zh_CN from '@locale/lanres/entities/build/build_zh_CN';
 import testresult_zh_CN from '@locale/lanres/entities/test-result/test-result_zh_CN';
@@ -351,6 +354,7 @@ const data: any = {
         productplan: productplan_zh_CN,
         projectproduct: projectproduct_zh_CN,
         case: case_zh_CN,
+        sysuser: sysuser_zh_CN,
         ibztaskteam: ibztaskteam_zh_CN,
         product: product_zh_CN,
         taskteam: taskteam_zh_CN,
@@ -399,10 +403,12 @@ const data: any = {
         productmodule: productmodule_zh_CN,
         module: module_zh_CN,
         testmodule: testmodule_zh_CN,
+        sysuserrole: sysuserrole_zh_CN,
         ibizprokeyword: ibizprokeyword_zh_CN,
         doclibmodule: doclibmodule_zh_CN,
         productlife: productlife_zh_CN,
         usercontact: usercontact_zh_CN,
+        sysrole: sysrole_zh_CN,
         task: task_zh_CN,
         build: build_zh_CN,
         testresult: testresult_zh_CN,
