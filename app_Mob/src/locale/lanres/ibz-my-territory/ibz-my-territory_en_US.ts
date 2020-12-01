@@ -69,8 +69,8 @@ export default {
 			caption: '我的地盘',
 		},
 	},
-	dailymobtabexpviewrighttoolbar_toolbar: {
-	},
 	reportmobtabexpviewrighttoolbar_toolbar: {
+	},
+	dailymobtabexpviewrighttoolbar_toolbar: {
 	},
 };
