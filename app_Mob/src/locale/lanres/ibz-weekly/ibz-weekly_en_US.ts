@@ -21,4 +21,26 @@ export default {
     createManName: "建立人名称",
     reportstatus: "状态",
   },
+	views: {
+		mobeditview: {
+			caption: '周报',
+		},
+	},
+	form_form: {
+		details: {
+			srfupdatedate: '更新时间', 
+			srforikey: '', 
+			srfkey: '周报标识', 
+			srfmajortext: '周报名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			ibz_weeklyid: '周报标识', 
+		},
+		uiactions: {
+		},
+	},
+	mobeditviewrighttoolbar_toolbar: {
+	},
 };

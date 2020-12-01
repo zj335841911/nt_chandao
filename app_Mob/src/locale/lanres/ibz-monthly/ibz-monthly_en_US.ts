@@ -28,6 +28,9 @@ export default {
 		mysubmitmobmdview: {
 			caption: '月报',
 		},
+		maininfomobtabexpview: {
+			caption: '月报',
+		},
 		myreceivedmobmdview: {
 			caption: '月报',
 		},

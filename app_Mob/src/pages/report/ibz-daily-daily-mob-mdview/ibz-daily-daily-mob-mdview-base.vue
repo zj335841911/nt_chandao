@@ -611,7 +611,7 @@ export default class IbzDailyDailyMobMDViewBase extends Vue {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+            { pathName: 'dailymobtabexpview', parameterName: 'dailymobtabexpview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);

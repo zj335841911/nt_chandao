@@ -90,6 +90,7 @@ export default class IbzWeeklyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzWeeklyUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'mobeditview',srfappde:'ibzweeklies'});
     }
 
     /**
