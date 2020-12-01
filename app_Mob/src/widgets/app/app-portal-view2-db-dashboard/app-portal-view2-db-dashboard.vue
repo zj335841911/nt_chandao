@@ -1,10 +1,12 @@
 <script lang='ts'>
 import { Component } from 'vue-property-decorator';
 import AppPortalView2_dbBase from './app-portal-view2-db-dashboard-base.vue';
+import view_db_appmenu1 from '@widgets/app/my-portlet/my-portlet.vue';
 
  
 @Component({
     components: {
+        view_db_appmenu1, 
          
     }
 })

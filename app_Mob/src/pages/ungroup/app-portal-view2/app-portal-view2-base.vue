@@ -252,6 +252,8 @@ export default class AppPortalView2Base extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
+
+
     /**
      * 工具栏模型集合名
      *

@@ -307,6 +307,8 @@
   
     * [应用首页视图默认菜单](app/Mob/AppIndexView.md)
   
+    * [我的](app/Mob/My.md)
+  
     * [列表菜单](app/Mob/ListMenu.md)
   
     * [图片滑动菜单](app/Mob/ImgswipeStyleMenu.md)
@@ -314,12 +316,14 @@
     * 应用功能
       * [我的任务](app/Mob/func/TaskMobMDView.md)
       * [产品](app/Mob/func/ProductMobMDView.md)
+      * [我的工作](app/Mob/func/IbzMyTerritoryMobTabExpView.md)
       * [产品总览](app/Mob/func/ProductMobChartView.md)
       * [更新日志](app/Mob/func/SysUpdateLogMobMDView.md)
+      * [日报](app/Mob/func/IbzDailyMobEditView.md)
       * [打开看板](app/Mob/func/AppPortalView.md)
       * [个人中心](app/Mob/func/UserUserCenterMobEditView.md)
       * [用户选择](app/Mob/func/UserMobPickupView.md)
-      * [我的地盘](app/Mob/func/IbzMyTerritoryMobDashboardView.md)
+      * [我的地盘](app/Mob/func/AppPortalView2.md)
       * [人员登录地图](app/Mob/func/ActionMobMapView.md)
       * [我的需求](app/Mob/func/StoryMobMDView.md)
       * [项目](app/Mob/func/ProjectMobMDView.md)

@@ -111,6 +111,14 @@ export default {
                 menuitem8: '更新日志',
                 menuitem9: '登录地图test',
             },
+            my: {
+                menuitem6: '我的工作',
+                menuitem5: '汇报',
+                menuitem1: '新建',
+                menuitem2: '日报',
+                menuitem3: '我提交的',
+                menuitem4: '我收到的',
+            },
             listmenu: {
                 menuitem1: '电脑',
                 menuitem8: '个人信息',

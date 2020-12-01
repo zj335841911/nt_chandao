@@ -1,0 +1,28 @@
+# 我的
+
+
+
+{% plantuml %}
+@startmindmap
+* 我的
+** 我的工作
+** 汇报
+*** 新建
+**** 日报
+*** 我提交的
+*** 我收到的
+@endmindmap
+{% endplantuml %}
+
+
+
+
+| 菜单项      |  功能  |
+| --------   |   ----  |
+|我的工作|[查看功能](func/IbzMyTerritoryMobTabExpView.md)|
+|汇报|-|
+|新建|-|
+|日报|[查看功能](func/IbzDailyMobEditView.md)|
+|我提交的|-|
+|我收到的|-|
+
