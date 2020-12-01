@@ -1,8 +1,8 @@
 <script lang='ts'>
 import { Component } from 'vue-property-decorator';
-import IbzWeeklyMobEditViewBase from './ibz-weekly-mob-edit-view-base.vue';
+import IbzDailyDailyInfoMobEditViewBase from './ibz-daily-daily-info-mob-edit-view-base.vue';
 
-import view_form from '@widgets/ibz-weekly/mob-week-edit-form/mob-week-edit-form.vue';
+import view_form from '@widgets/ibz-daily/daily-info-mob-form/daily-info-mob-form.vue';
 @Component({
     components: {
         view_form, 
@@ -13,7 +13,7 @@ import view_form from '@widgets/ibz-weekly/mob-week-edit-form/mob-week-edit-form
         });
     },
 })
-export default class IbzWeeklyMobEditView extends IbzWeeklyMobEditViewBase {
+export default class IbzDailyDailyInfoMobEditView extends IbzDailyDailyInfoMobEditViewBase {
 
 }
 </script>

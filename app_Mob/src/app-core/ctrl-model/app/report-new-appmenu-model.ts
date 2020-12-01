@@ -48,7 +48,7 @@ export class ReportNewModel {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: 'AppFunc9',
 	resourcetag: '',
 	authtag:'Mob-reportNew-menuitem2',
 },

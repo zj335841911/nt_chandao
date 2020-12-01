@@ -94,6 +94,7 @@ export default class IbzDailyUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'reportreceivedmobmdview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailymobtabexpview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailymobeditview',srfappde:'ibzdailies'});
+        this.allViewMap.set(':',{viewname:'dailyinfomobeditview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailyplanstomorrowtaskmobmdview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailycompletetaskmobmdview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailymobmdview',srfappde:'ibzdailies'});
