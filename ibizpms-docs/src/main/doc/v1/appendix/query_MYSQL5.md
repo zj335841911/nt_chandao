@@ -7234,8 +7234,7 @@ FROM
 WHERE
 	t1.ACCOUNT = 'csd123_123'
 
-WHERE t1.issubmit='1' 
-t1.account=#{srf.sessioncontext.srfloginname} 
+WHERE t1.account=#{srf.sessioncontext.srfloginname} 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzDaily_View"></div>

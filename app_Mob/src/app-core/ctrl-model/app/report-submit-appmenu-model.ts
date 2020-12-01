@@ -29,7 +29,7 @@ export class ReportSubmitModel {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: '',
+	appfunctag: 'DailyReportSubmit',
 	resourcetag: '',
 	authtag:'Mob-reportSubmit-menuitem1',
 },

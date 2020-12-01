@@ -418,6 +418,9 @@ export default class ReportSubmitBase extends Vue implements ControlInterface {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
+                case 'DailyReportSubmit': 
+                    this.clickDailyReportSubmit(item);
+                    return;
                 case 'MySubmitMonthly': 
                     this.clickMySubmitMonthly(item);
                     return;
@@ -427,6 +430,27 @@ export default class ReportSubmitBase extends Vue implements ControlInterface {
         }
     }
 
+    
+    /**
+     * 日报（我提交的）
+     *
+     * @param {*} [item={}]
+     * @memberof ReportSubmit
+     */
+    protected clickDailyReportSubmit(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+            { pathName: 'dailyreportsubmitmobmdview', parameterName: 'dailyreportsubmitmobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
     
     /**
      * 月报（我提交的）

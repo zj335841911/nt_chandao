@@ -475,7 +475,7 @@ export default class MySubmitBase extends Vue implements ControlInterface {
     * @type {number}
     * @memberof MySubmit
     */
-    public pageSize: number = 1000;
+    public pageSize: number = 5;
 
     /**
     * 总页数
@@ -573,7 +573,7 @@ export default class MySubmitBase extends Vue implements ControlInterface {
     * @param {object} 
     * @memberof MySubmit
     */
-    public sort: any = { };
+    public sort: any = { sort:'ibz_monthlyid,desc'};
     
 
     /**

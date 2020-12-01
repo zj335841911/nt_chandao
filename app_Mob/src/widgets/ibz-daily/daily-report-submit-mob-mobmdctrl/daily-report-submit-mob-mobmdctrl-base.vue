@@ -1,12 +1,12 @@
 <template>
-    <div  class="app-mob-mdctrl ibzmonthly-mdctrl ">
+    <div  class="app-mob-mdctrl ibzdaily-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item>
                             <!-- 列表视图样式 -->
-                            <app-list-index-text :dataItemNames = "[]" :item="item" :index="index" major="ibzmonthlyname" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
+                            <app-list-index-text :dataItemNames = "[]" :item="item" :index="index" major="ibzdailyname" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
                                 <!-- 图标视图样式 -->
                             <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
                         </ion-item>
@@ -18,7 +18,7 @@
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item>
                             <!-- 列表视图样式 -->
-                            <app-list-index-text :dataItemNames = "[]" :item="item" :index="index" major="ibzmonthlyname" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
+                            <app-list-index-text :dataItemNames = "[]" :item="item" :index="index" major="ibzdailyname" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
                             <!-- 图标视图样式 -->
                             <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
                         </ion-item>                      
@@ -58,13 +58,13 @@
                     <ion-list  v-model="selectedArray"   v-if="isMutli" class="pickUpList">
                         <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item" >
                             <ion-checkbox color="secondary" :checked="item.checked" :value="item.srfkey" @ionChange="checkboxChange"  slot="end"></ion-checkbox>
-                            <ion-label>{{item.ibzmonthlyname}}</ion-label>
+                            <ion-label>{{item.ibzdailyname}}</ion-label>
                         </ion-item>
                     </ion-list>
                     <div class="pickUpList">
                     <ion-radio-group  :value="selectedValue" v-if="!isMutli">
                         <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
-                            <ion-label>{{item.ibzmonthlyname}}</ion-label>
+                            <ion-label>{{item.ibzdailyname}}</ion-label>
                             <ion-radio slot="end" :checked="item.checked" :value="item.srfkey"></ion-radio>
                         </ion-item>
                     </ion-radio-group>
@@ -89,24 +89,24 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMonthlyService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
-import MyReceivedService from '@/app-core/ctrl-service/ibz-monthly/my-received-mobmdctrl-service';
+import IbzDailyService from '@/app-core/service/ibz-daily/ibz-daily-service';
+import DailyReportSubmitMobService from '@/app-core/ctrl-service/ibz-daily/daily-report-submit-mob-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
-import IbzMonthlyUIService from '@/ui-service/ibz-monthly/ibz-monthly-ui-action';
+import IbzDailyUIService from '@/ui-service/ibz-daily/ibz-daily-ui-action';
 
 
 
 @Component({
     components: { }
 })
-export default class MyReceivedBase extends Vue implements ControlInterface {
+export default class DailyReportSubmitMobBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop() protected name?: string;
 
@@ -114,7 +114,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 视图名称
      *
      * @type {string}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop() protected viewName!: string;
 
@@ -123,7 +123,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -131,7 +131,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -139,7 +139,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -148,7 +148,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -156,7 +156,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     protected getControlType(): string {
         return 'MOBMDCTRL'
@@ -166,7 +166,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -175,7 +175,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 转化数据
      *
      * @param {any} args
-     * @memberof  MyReceivedBase
+     * @memberof  DailyReportSubmitMobBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -187,33 +187,33 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
      * 建构部件服务对象
      *
-     * @type {MyReceivedService}
-     * @memberof MyReceived
+     * @type {DailyReportSubmitMobService}
+     * @memberof DailyReportSubmitMob
      */
-    protected service: MyReceivedService = new MyReceivedService({$store:this.$store});
+    protected service: DailyReportSubmitMobService = new DailyReportSubmitMobService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
-     * @type {IbzMonthlyService}
-     * @memberof MyReceived
+     * @type {IbzDailyService}
+     * @memberof DailyReportSubmitMob
      */
-    protected appEntityService: IbzMonthlyService = new IbzMonthlyService();
+    protected appEntityService: IbzDailyService = new IbzDailyService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {IbzMonthlyUIService}
-     * @memberof MyReceivedBase
+     * @type {IbzDailyUIService}
+     * @memberof DailyReportSubmitMobBase
      */  
-    public deUIService:IbzMonthlyUIService = new IbzMonthlyUIService(this.$store);
+    public deUIService:IbzDailyUIService = new IbzDailyUIService(this.$store);
     
 
     /**
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -225,7 +225,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 视图类型
      *
      * @type {string}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop() protected viewType?: string | 'DEMOBMDVIEW' | 'DEMOBMDVIEW9' | 'DEMOBWFMDVIEW';
 
@@ -233,7 +233,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop({ default: true }) protected showBusyIndicator?: boolean;
 
@@ -241,7 +241,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop() protected updateAction!: string;
     
@@ -249,7 +249,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop() protected fetchAction!: string;
     
@@ -257,7 +257,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop() protected removeAction!: string;
     
@@ -265,7 +265,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop() protected loadAction!: string;
     
@@ -273,7 +273,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop() protected loaddraftAction!: string;
     
@@ -281,7 +281,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop() protected createAction!: string;
 
@@ -289,14 +289,14 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 部件样式
      *
      * @type {string}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop({default: 'LISTVIEW'}) protected controlStyle!: string | 'ICONVIEW'  | 'LISTVIEW' | 'SWIPERVIEW' | 'LISTVIEW2' | 'LISTVIEW3' | 'LISTVIEW4';
 
     /**
     *上级传递的选中项
     *@type {Array}
-    *@memberof MyReceived
+    *@memberof DailyReportSubmitMob
     */
      @Prop() public selectedData?:Array<any>;
 
@@ -304,7 +304,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     @Prop({default: true}) protected needLoadMore?: boolean;
 
@@ -312,7 +312,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 新建打开视图
     *
     * @type {Function}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     @Prop() public newdata?: Function; 
 
@@ -321,7 +321,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 打开视图
     *
     * @type {Function}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     @Prop() public opendata?: Function; 
 
@@ -330,7 +330,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 当前选中数组
     *
     * @type {array}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public  selectdata :any = [];
 
@@ -338,7 +338,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 关闭行为
     *
     * @type {Function}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     @Prop() public close?:Function;
 
@@ -346,7 +346,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 是否显示加载文字
     *
     * @type {boolean}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     @Prop({ default: true}) public isNeedLoaddingText?:boolean;
 
@@ -354,7 +354,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 是否为临时模式
     *
     * @type {boolean}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     @Prop({ default: false}) public isTempMode?:boolean;
 
@@ -362,7 +362,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 存放多数据选择数组（多选）
     *
     * @type {array}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public checkboxList:Array<string> = [];
 
@@ -370,7 +370,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 是否为分组模式
     *
     * @type {boolean}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public isEnableGroup:boolean =  false;
 
@@ -378,7 +378,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 代码表分组细节
     *
     * @type {Object}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public group_detail:any = [];
 
@@ -386,7 +386,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 分组模式
     *
     * @type {string}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public group_mode = 'NONE';
 
@@ -394,7 +394,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 分组数据
     *
     * @type {array}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public group_data?:any = [];
 
@@ -403,7 +403,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof MyReceivedBase
+     * @memberof DailyReportSubmitMobBase
      */
     public appStateEvent: Subscription | undefined;
 
@@ -411,14 +411,14 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 分组标识
     *
     * @type {array}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public group_field:string = '';
 
     /**
      * 分组方法
      *
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     public group(){
       let _this:any = this;
@@ -434,7 +434,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 存放数据选择数组(单选)
     *
     * @type {object}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public radio:any = '';
 
@@ -443,7 +443,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 点击多选按钮触发
     *
     *
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public change(){
         if(this.isMutli){
@@ -465,7 +465,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 列表键值对
     *
     * @type {Map}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public listMap: any = new Map();
 
@@ -473,15 +473,15 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 分页大小
     *
     * @type {number}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
-    public pageSize: number = 5;
+    public pageSize: number = 1000;
 
     /**
     * 总页数
     *
     * @type {number}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
      public pageTotal: number = 0;
 
@@ -489,7 +489,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 当前页数
     *
     * @type {number}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
      public pageNumber: number = 1;
 
@@ -497,7 +497,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 判断底部数据是否全部加载完成，若为真，则 bottomMethod 不会被再次触发
     *
     * @type {number}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     get allLoaded() {
         return ((this.pageNumber + 1) * this.pageSize) >= this.pageTotal ? true : false;
@@ -507,7 +507,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * searchKey 搜索关键字
     *
     * @type {string}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
      public searchKey:string = '';
 
@@ -515,7 +515,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 列表数组
     *
     * @param {Array<any>}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public items:Array<any> =[];
 
@@ -523,7 +523,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 选中数组
     *
     * @param {Array<any>}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public selectedArray:Array<any> = [];
 
@@ -531,7 +531,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 多选计数
     *
     * @param {number}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public selectednumber:number =0;
 
@@ -539,7 +539,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 搜索行为
     *
     * @param {string}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     @Prop() public searchAction?:string;
 
@@ -547,7 +547,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 是否为选择视图
     *
     * @param {boolean} 
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     @Prop() public isSelected?:boolean;
 
@@ -555,7 +555,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 是否多选
     *
     * @type {boolean}
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     @Prop({default:false}) public isMutli?: boolean;
 
@@ -563,7 +563,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 单选选择值
     *
     * @param {string} 
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public selectedValue:string = ""; 
 
@@ -571,15 +571,15 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     * 部件排序对象
     *
     * @param {object} 
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
-    public sort: any = { sort:'ibz_monthlyid,desc'};
+    public sort: any = { };
     
 
     /**
      * 上拉加载更多数据
      *
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     public async loadBottom(): Promise<any> {
         if (this.allLoaded) {
@@ -610,12 +610,12 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
         let keys: Array<string> = [];
         let infoStr: string = '';
         datas.forEach((data: any, index: number) => {
-            keys.push(data.ibzmonthlyid);
+            keys.push(data.ibzdailyid);
             if (index < 5) {
                 if (!Object.is(infoStr, '')) {
                     infoStr += '、';
                 }
-                infoStr += data.ibzmonthlyname;
+                infoStr += data.ibzdailyname;
             }
         });
         if(datas.length <= 0 ){
@@ -629,7 +629,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
         }
         return new Promise((resolve, reject) => {
             const _remove = async () => {
-                let _context: any = { ibzmonthly: keys.join(';') }
+                let _context: any = { ibzdaily: keys.join(';') }
                 const response: any = await this.service.delete(this.removeAction, Object.assign({}, this.context, _context), arg, this.showBusyIndicator);
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
@@ -672,7 +672,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
      * 长按状态改变事件
      *
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     public onCheackChange(){
         this.$emit('isChooseChange', !this.isChoose);
@@ -683,7 +683,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      *
      * @param {string} query
      * @returns {Promise<any>}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     public async quickSearch(query: string): Promise<any> {
         this.searchKey = query;
@@ -699,7 +699,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * @param {*} [data={}]
      * @param {string} [type=""]
      * @returns {Promise<any>}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     private async load(data: any = {}, type: string = "",isloadding = this.showBusyIndicator): Promise<any> {
         if (!data.page) {
@@ -768,7 +768,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      *
      * @param {*} data
      * @returns
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     public checkboxChange(data: any) {
         let { detail } = data;
@@ -781,7 +781,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
             if (item.value) {
                 this.selectednumber++;
             }
-            if (Object.is(item.ibzmonthlyid, value)) {
+            if (Object.is(item.ibzdailyid, value)) {
                 if (detail.checked) {
                     this.selectdata.push(this.items[index]);
                 } else {
@@ -796,7 +796,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 下拉刷新
      *
      * @returns {Promise<any>}
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     public async pullDownToRefresh(): Promise<any> {
         this.pageNumber = 0;
@@ -812,7 +812,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
     * 点击回调事件
     *
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public item_click(item:any){
         if(this.isChoose){
@@ -832,7 +832,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
     * 点击列表数据跳转
     *
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public goPage(item: any) {
         this.$emit('rowclick',item);
@@ -841,7 +841,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
     * 获取多项数据
     *
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public getDatas(): any[] {
       return this.selectedArray;
@@ -850,7 +850,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
     * 获取单项数据
     *
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public getData(): any {
         return this.selectedArray[0];
@@ -859,7 +859,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
     * vue生命周期created
     *
-    * @memberof MyReceived
+    * @memberof DailyReportSubmitMob
     */
     public created() {
         this.afterCreated();
@@ -868,7 +868,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MyReceived
+     *  @memberof DailyReportSubmitMob
      */    
     protected afterCreated(){
         if (this.viewState) {
@@ -896,7 +896,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
         }
         if(AppCenterService && AppCenterService.getMessageCenter()){
             this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
-                if(!Object.is(name,"IbzMonthly")){
+                if(!Object.is(name,"IbzDaily")){
                     return;
                 }
                 if(Object.is(action,'appRefresh')){
@@ -909,7 +909,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
      * ion-item-sliding拖动事件
      *
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     public ionDrag(){
       this.$store.commit('setPopupStatus',false)
@@ -918,7 +918,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
      * 滚动条事件（计算是否到底部）
      *
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     public scroll(e:any){
         let list:any = this.$refs.mdctrl;
@@ -938,14 +938,14 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
      * 底部加载状态
      *
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     public bottomLoadding = false;
 
     /**
      * vue 生命周期
      *
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     public beforeDestroy(){
       let list:any = this.$refs.mdctrl;
@@ -959,7 +959,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     public destroyed() {
         this.afterDestroy();
@@ -968,7 +968,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -983,7 +983,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期 activated
      *
-     * @memberof MyReceived
+     * @memberof DailyReportSubmitMob
      */
     public activated() {
         this.closeSlidings()
@@ -1049,7 +1049,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      */
     public checkboxSelect(item:any){
         let count = this.selectedArray.findIndex((i) => {
-            return i.ibzmonthlyid == item.ibzmonthlyid;
+            return i.ibzdailyid == item.ibzdailyid;
         });
         let tempFalg = false;
         if(count == -1){
@@ -1059,7 +1059,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
             this.selectedArray.splice(count,1);
         }
         this.items.forEach((_item:any,index:number)=>{
-            if(_item.ibzmonthlyid == item.ibzmonthlyid){
+            if(_item.ibzdailyid == item.ibzdailyid){
                 this.items[index].checked = tempFalg;
             }
         });
@@ -1093,7 +1093,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * 界面行为模型
      *
      * @type {*}
-     * @memberof MyReceivedBase
+     * @memberof DailyReportSubmitMobBase
      */  
     public ActionModel:any ={
     };
@@ -1103,7 +1103,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
      * 获取界面行为权限状态
      *
-     * @memberof MyReceivedBase
+     * @memberof DailyReportSubmitMobBase
      */
     public getActionState(data:any){
         //let targetData:any = this.transformData(data);
@@ -1115,7 +1115,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
     * 判断列表项左滑右滑禁用状态
     *
-    * @memberof MyReceivedBase
+    * @memberof DailyReportSubmitMobBase
     */
     public setSlidingDisabled(item:any){
         item.sliding_disabled = true;
@@ -1130,14 +1130,14 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
     /**
      * 长按定时器
      *
-     * @memberof MyReceivedBase
+     * @memberof DailyReportSubmitMobBase
      */
     public timeOutEvent :number = 0;
 
     /**
      * 开始长按
      *
-     * @memberof MyReceivedBase
+     * @memberof DailyReportSubmitMobBase
      */
     public gotouchstart(){
         let _this = this;
@@ -1156,7 +1156,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * touchmove
      *  如果手指有移动，则取消所有事件，此时说明用户只是要移动而不是长按
      *
-     * @memberof MyReceivedBase
+     * @memberof DailyReportSubmitMobBase
      */
     public gotouchmove() {
         clearTimeout(this.timeOutEvent); //清除定时器
@@ -1167,7 +1167,7 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
      * touchend
      * 结束长按
      *
-     * @memberof MyReceivedBase
+     * @memberof DailyReportSubmitMobBase
      */
     public gotouchend() {
         this.timeOutEvent = 0;
@@ -1177,5 +1177,5 @@ export default class MyReceivedBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './my-received-mobmdctrl.less';
+@import './daily-report-submit-mob-mobmdctrl.less';
 </style>

@@ -1,12 +1,12 @@
-# 日报（我收到的）
+# 日报（我提交的）
 
-日报移动端多数据视图(我收到的日报)(IbzDailyReportReceivedMobMDView)
+日报移动端多数据视图(我收到的日报)(IbzDailyDailyReportSubmitMobMDView)
 
 {% plantuml %}
 
-digraph IbzDailyReportReceivedMobMDView {
+digraph IbzDailyDailyReportSubmitMobMDView {
 
-label="日报（我收到的）";    
+label="日报（我提交的）";    
 
 #rankdir=LR;
 
@@ -19,7 +19,7 @@ own [shape=none, margin=0,size="6,6", label=<
 <TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
 </TR>
 <TR>
-<TD BORDER="0" COLSPAN="4" CELLPADDING="10">日报（我收到的）<BR/><BR/></TD>
+<TD BORDER="0" COLSPAN="4" CELLPADDING="10">日报（我提交的）<BR/><BR/></TD>
 </TR>
 </TABLE>
 >];

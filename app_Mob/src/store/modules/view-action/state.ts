@@ -687,6 +687,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '4b79a827dad435d82d3f9cdaec51f166',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyMainInfoMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'b52bf86837838dcfd5b787fad0350f22',
+            ],
+        },
+        {
             viewtag: '4d55ffb47e24eefc46ccb9daeb763957',
             viewmodule: 'ibiz',
             viewname: 'SysUpdateFeaturesMobMDView',
@@ -1585,6 +1596,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b03b0e8272d1352e690add1fa2dc936f',
+            viewmodule: 'report',
+            viewname: 'IbzDailyDailyReportSubmitMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '22e33232ac91bca7826742f9c85720dc',
+            ],
+        },
+        {
             viewtag: 'b1c76392040ff2e9ed2e3ae2b0260602',
             viewmodule: 'ibiz',
             viewname: 'ProjectMobPickupView',
@@ -1909,6 +1930,7 @@ export const viewstate: any = {
                 '70d570ae5cafd7af092084e6d0e6b2f7',
                 '053879e9b47bc845598b68abbdbb2e0a',
                 '61b07d6ba0ff1c6a96f09f0fcbb4cda7',
+                'b03b0e8272d1352e690add1fa2dc936f',
                 'd5dfb8e49ac109dec6ea502b80cb4419',
             ],
         },
