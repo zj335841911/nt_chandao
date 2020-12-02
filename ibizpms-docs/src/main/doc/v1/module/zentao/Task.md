@@ -6585,17 +6585,18 @@ FAVORITES
 | 8 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 9 | [DefaultRow](#数据查询-DefaultRow（DefaultRow）) | DefaultRow | 否 |
 | 10 | [我完成的任务（汇报）](#数据查询-我完成的任务（汇报）（MyCompleteTask）) | MyCompleteTask | 否 |
-| 11 | [我完成的任务（汇报）](#数据查询-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
-| 12 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 13 | [我计划参与的任务（汇报）](#数据查询-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
-| 14 | [下周计划完成任务(汇报)](#数据查询-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
-| 15 | [项目任务](#数据查询-项目任务（ProjectTask）) | ProjectTask | 否 |
-| 16 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
-| 17 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
-| 18 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
-| 19 | [todo任务列表查询](#数据查询-todo任务列表查询（TodoListTask）) | TodoListTask | 否 |
-| 20 | [任务类型分组](#数据查询-任务类型分组（TypeGroup）) | TypeGroup | 否 |
-| 21 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 11 | [已完成任务（移动端）](#数据查询-已完成任务（移动端）（MyCompleteTaskMob）) | MyCompleteTaskMob | 否 |
+| 12 | [我完成的任务（汇报）](#数据查询-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
+| 13 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 14 | [我计划参与的任务（汇报）](#数据查询-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
+| 15 | [下周计划完成任务(汇报)](#数据查询-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
+| 16 | [项目任务](#数据查询-项目任务（ProjectTask）) | ProjectTask | 否 |
+| 17 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
+| 18 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
+| 19 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
+| 20 | [todo任务列表查询](#数据查询-todo任务列表查询（TodoListTask）) | TodoListTask | 否 |
+| 21 | [任务类型分组](#数据查询-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 22 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-指派给我任务（AssignedToMyTask）
 #### 说明
@@ -7315,6 +7316,21 @@ LEFT JOIN zt_story t21 ON t1.STORY = t21.ID
 LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
 LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
+
+```
+### 数据查询-已完成任务（移动端）（MyCompleteTaskMob）
+#### 说明
+已完成任务（移动端）
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
 
 ```
 ### 数据查询-我完成的任务（汇报）（MyCompleteTaskZS）

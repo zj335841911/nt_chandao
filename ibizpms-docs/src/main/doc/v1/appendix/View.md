@@ -10,6 +10,7 @@
 |-|我的地盘移动端日历视图|DEMOBCALENDARVIEW|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|日报移动端编辑视图（我收到的）|DEMOBEDITVIEW|&nbsp;|
 |-|发布分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|需求模块移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|Bug移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
@@ -102,6 +103,7 @@
 |-|日报移动端编辑视图(日报描述)|DEMOBEDITVIEW|&nbsp;|
 |-|项目移动端编辑视图挂起）|DEMOBEDITVIEW|&nbsp;|
 |-|项目|DEMOBTABEXPVIEW|&nbsp;|
+|-|日报分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|日报移动端多数据视图(完成任务)|DEMOBMDVIEW|&nbsp;|
 |-|我的地盘移动端数据看板视图|DEMOBPORTALVIEW|&nbsp;|

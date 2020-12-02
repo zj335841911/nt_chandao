@@ -134,10 +134,11 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzWeeklyHelper.class).haveRead(et);
     }
 
-        @Override
+    @Override
     @Transactional
     public IbzWeekly jugThisWeekCreateWeekly(IbzWeekly et) {
-  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzWeeklyHelper.class).jugThisWeekCreateWeekly(et);
+        //自定义代码
+        return et;
     }
 
         @Override
