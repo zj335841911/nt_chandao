@@ -7220,6 +7220,32 @@ WHERE t1.issubmit = '1'
 (t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO)) 
 
 ```
+### 我的日报(MyNotSubmit)<div id="IbzDaily_MyNotSubmit"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.SUBMITTIME as `SUBMITTIME`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','今日工作：',case when t1.WORKTODAY is null then '无' else t1.WORKTODAY end) as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','明日计划：',case when t1.PLANSTOMORROW is null then '无' else t1.PLANSTOMORROW end) AS PLANSTOMORROW,
+'daily' as type 
+FROM `T_IBZ_DAILY` t1
+```
 ### 我提交的日报(MySubmitDaily)<div id="IbzDaily_MySubmitDaily"></div>
 ```sql
 SELECT
@@ -7510,6 +7536,32 @@ FROM
 	AND t11.actor = #{srf.sessioncontext.srfloginname}
 WHERE t1.account = #{srf.sessioncontext.srfloginname} 
 
+```
+### 我的月报（移动端）(MyNotSubmit)<div id="IbzMonthly_MyNotSubmit"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_MONTHLYID` AS IBZ_DAILYID,
+t1.`IBZ_MONTHLYNAME` AS IBZ_DAILYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.SUBMITTIME as `SUBMITTIME`,
+t1.`THISMONTHTASK` AS TODAYTASK,
+t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','本月工作：',case when t1.WORKTHISMONTH is null then '无' else t1.WORKTHISMONTH end)  as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' else t1.PLANSNEXTMONTH end) as PLANSTOMORROW,
+'monthly' as type 
+FROM `T_IBZ_MONTHLY` t1
 ```
 ### 我收到的月报(MyReceivedMonthly)<div id="IbzMonthly_MyReceivedMonthly"></div>
 ```sql

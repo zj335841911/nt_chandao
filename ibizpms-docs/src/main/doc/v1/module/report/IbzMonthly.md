@@ -1060,9 +1060,10 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 2 | [我的月报](#数据查询-我的月报（MyMonthly）) | MyMonthly | 否 |
-| 3 | [我收到的月报](#数据查询-我收到的月报（MyReceivedMonthly）) | MyReceivedMonthly | 否 |
-| 4 | [我提交的月报](#数据查询-我提交的月报（MySubmitMonthly）) | MySubmitMonthly | 否 |
-| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [我的月报（移动端）](#数据查询-我的月报（移动端）（MyNotSubmit）) | MyNotSubmit | 否 |
+| 4 | [我收到的月报](#数据查询-我收到的月报（MyReceivedMonthly）) | MyReceivedMonthly | 否 |
+| 5 | [我提交的月报](#数据查询-我提交的月报（MySubmitMonthly）) | MySubmitMonthly | 否 |
+| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -1134,6 +1135,43 @@ FROM
 	AND t11.objectType = 'monthly' 
 	AND t11.action = 'read' 
 	AND t11.actor = #{srf.sessioncontext.srfloginname}
+```
+### 数据查询-我的月报（移动端）（MyNotSubmit）
+#### 说明
+我的月报（移动端）
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_MONTHLYID` AS IBZ_DAILYID,
+t1.`IBZ_MONTHLYNAME` AS IBZ_DAILYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.SUBMITTIME as `SUBMITTIME`,
+t1.`THISMONTHTASK` AS TODAYTASK,
+t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','本月工作：',case when t1.WORKTHISMONTH is null then '无' else t1.WORKTHISMONTH end)  as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' else t1.PLANSNEXTMONTH end) as PLANSTOMORROW,
+'monthly' as type 
+FROM `T_IBZ_MONTHLY` t1
 ```
 ### 数据查询-我收到的月报（MyReceivedMonthly）
 #### 说明
@@ -1252,8 +1290,9 @@ FROM `T_IBZ_MONTHLY` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 2 | [我的月报](#数据集合-我的月报（MyMonthly）) | MyMonthly | 否 |
-| 3 | [我收到的月报](#数据集合-我收到的月报（MyReceivedMonthly）) | MyReceivedMonthly | 否 |
-| 4 | [我提交的月报](#数据集合-我提交的月报（MySubmitMonthly）) | MySubmitMonthly | 否 |
+| 3 | [我的月报（移动端）](#数据集合-我的月报（移动端）（MyNotSubmit）) | MyNotSubmit | 否 |
+| 4 | [我收到的月报](#数据集合-我收到的月报（MyReceivedMonthly）) | MyReceivedMonthly | 否 |
+| 5 | [我提交的月报](#数据集合-我提交的月报（MySubmitMonthly）) | MySubmitMonthly | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1283,6 +1322,20 @@ FROM `T_IBZ_MONTHLY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我的月报（MyMonthly）](#数据查询-我的月报（MyMonthly）) |
+### 数据集合-我的月报（移动端）（MyNotSubmit）
+#### 说明
+我的月报（移动端）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我的月报（移动端）（MyNotSubmit）](#数据查询-我的月报（移动端）（MyNotSubmit）) |
 ### 数据集合-我收到的月报（MyReceivedMonthly）
 #### 说明
 我收到的月报

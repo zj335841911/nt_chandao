@@ -1076,8 +1076,9 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 2 | [我收到的日报](#数据查询-我收到的日报（MyDaily）) | MyDaily | 否 |
-| 3 | [我提交的日报](#数据查询-我提交的日报（MySubmitDaily）) | MySubmitDaily | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [我的日报](#数据查询-我的日报（MyNotSubmit）) | MyNotSubmit | 否 |
+| 4 | [我提交的日报](#数据查询-我提交的日报（MySubmitDaily）) | MySubmitDaily | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -1144,6 +1145,43 @@ t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`
 FROM `T_IBZ_DAILY` t1 left join zt_action t11 on t11.objectID = t1.IBZ_DAILYID and t11.objectType = 'daily' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+```
+### 数据查询-我的日报（MyNotSubmit）
+#### 说明
+我的日报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.SUBMITTIME as `SUBMITTIME`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','今日工作：',case when t1.WORKTODAY is null then '无' else t1.WORKTODAY end) as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','明日计划：',case when t1.PLANSTOMORROW is null then '无' else t1.PLANSTOMORROW end) AS PLANSTOMORROW,
+'daily' as type 
+FROM `T_IBZ_DAILY` t1
 ```
 ### 数据查询-我提交的日报（MySubmitDaily）
 #### 说明
@@ -1214,7 +1252,8 @@ FROM `T_IBZ_DAILY` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 2 | [我收到的日报](#数据集合-我收到的日报（MyDaily）) | MyDaily | 否 |
-| 3 | [我提交的日报](#数据集合-我提交的日报（MySubmitDaily）) | MySubmitDaily | 否 |
+| 3 | [我的日报](#数据集合-我的日报（MyNotSubmit）) | MyNotSubmit | 否 |
+| 4 | [我提交的日报](#数据集合-我提交的日报（MySubmitDaily）) | MySubmitDaily | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1244,6 +1283,20 @@ FROM `T_IBZ_DAILY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我收到的日报（MyDaily）](#数据查询-我收到的日报（MyDaily）) |
+### 数据集合-我的日报（MyNotSubmit）
+#### 说明
+我的日报
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我的日报（MyNotSubmit）](#数据查询-我的日报（MyNotSubmit）) |
 ### 数据集合-我提交的日报（MySubmitDaily）
 #### 说明
 我提交的日报

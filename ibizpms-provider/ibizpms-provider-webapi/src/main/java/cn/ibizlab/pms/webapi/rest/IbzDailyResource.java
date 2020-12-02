@@ -235,6 +235,28 @@ public class IbzDailyResource {
                 .body(new PageImpl(ibzdailyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzDaily-searchMyNotSubmit-all') and hasPermission(#context,'pms-IbzDaily-Get')")
+	@ApiOperation(value = "获取我的日报", tags = {"日报" } ,notes = "获取我的日报")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzdailies/fetchmynotsubmit")
+	public ResponseEntity<List<IbzDailyDTO>> fetchMyNotSubmit(IbzDailySearchContext context) {
+        Page<IbzDaily> domains = ibzdailyService.searchMyNotSubmit(context) ;
+        List<IbzDailyDTO> list = ibzdailyMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzDaily-searchMyNotSubmit-all') and hasPermission(#context,'pms-IbzDaily-Get')")
+	@ApiOperation(value = "查询我的日报", tags = {"日报" } ,notes = "查询我的日报")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzdailies/searchmynotsubmit")
+	public ResponseEntity<Page<IbzDailyDTO>> searchMyNotSubmit(@RequestBody IbzDailySearchContext context) {
+        Page<IbzDaily> domains = ibzdailyService.searchMyNotSubmit(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzdailyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzDaily-searchMySubmitDaily-all') and hasPermission(#context,'pms-IbzDaily-Get')")
 	@ApiOperation(value = "获取我提交的日报", tags = {"日报" } ,notes = "获取我提交的日报")
     @RequestMapping(method= RequestMethod.GET , value="/ibzdailies/fetchmysubmitdaily")
