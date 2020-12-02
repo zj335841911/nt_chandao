@@ -7905,7 +7905,7 @@ t1.`IBZ_DAILYID`,
 t1.`IBZ_DAILYNAME`,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
-'1' as `REPORTSTATUS`,
+(case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
 t1.`REPORTTO`,
 DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`TODAYTASK`,
@@ -7918,6 +7918,7 @@ t1.`COMMENT`,
 CONCAT_WS('','明日计划：',case when t1.PLANSTOMORROW is null then '无' else t1.PLANSTOMORROW end) AS PLANSTOMORROW,
 'daily' as type 
 FROM `T_IBZ_DAILY` t1 
+left join zt_action t11 on t11.objectID = t1.IBZ_DAILYID and t11.objectType = 'daily' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 where t1.ISSUBMIT = '1'
 UNION
 SELECT
@@ -7930,7 +7931,7 @@ t1.`IBZ_WEEKLYID` as IBZ_DAILYID,
 t1.`IBZ_WEEKLYNAME` as IBZ_DAILYNAME,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
-'1' as `REPORTSTATUS`,
+(case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
 t1.`REPORTTO`,
 DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
 t1.`THISWEEKTASK` as TODAYTASK,
@@ -7942,7 +7943,7 @@ CONCAT_WS('','本周工作：',case when t1.WORKTHISWEEK is null then '无' else
 t1.`COMMENT`,
 CONCAT_WS('','下周计划：',case when t1.PLANNEXTWEEK is null then '无' else t1.PLANNEXTWEEK end) as PLANSTOMORROW,
 'weekly' as type 
-FROM `T_IBZ_WEEKLY` t1 
+FROM `T_IBZ_WEEKLY` t1 left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'daily' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 where t1.ISSUBMIT = '1'
 UNION
 SELECT
@@ -7955,7 +7956,7 @@ t1.`IBZ_MONTHLYID` AS IBZ_DAILYID,
 t1.`IBZ_MONTHLYNAME` AS IBZ_DAILYNAME,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
-'1' as `REPORTSTATUS`,
+(case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
 t1.`REPORTTO`,
 DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
 t1.`THISMONTHTASK` AS TODAYTASK,
@@ -7968,8 +7969,11 @@ t1.`COMMENT`,
 CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' else t1.PLANSNEXTMONTH end) as PLANSTOMORROW,
 'monthly' as type 
 FROM `T_IBZ_MONTHLY` t1
+left join zt_action t11 on t11.objectID = t1.IBZ_MONTHLYID and t11.objectType = 'daily' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 where t1.ISSUBMIT = '1'
 ) t1
+WHERE (t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO)) 
+
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzReport_View"></div>
 ```sql

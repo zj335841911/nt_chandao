@@ -175,10 +175,6 @@ export default {
 			caption: "生成周报",
 			tip: "生成周报",
 		},
-		deuiaction3_create: {
-			caption: "新建",
-			tip: "新建",
-		},
 		seperator2: {
 			caption: "",
 			tip: "",
