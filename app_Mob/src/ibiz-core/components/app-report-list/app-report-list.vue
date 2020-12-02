@@ -4,7 +4,7 @@
             <div :key="item.date" class="app-report-list-item">
                 <div class="date">{{item.date}}</div>
                 <template v-for="_item in item.items">
-                    <div class="item_content" :key="_item.id" @click="onClick">
+                    <div class="item_content" :key="_item.id" @click="onClick(_item)">
                         <div class="img">
                             <img  v-if="_item.reliconUrl" :src="_item.reliconUrl" alt="">
                             <ion-icon v-else name="person-outline" ></ion-icon>
