@@ -42,6 +42,20 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
+    <ion-footer class="view-footer">
+                <div  class = "fab_container">
+            <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
+                <div :class="{'sub-item':true,'disabled':toolbarModels.tbitem1.disabled}" v-show="toolbarModels.tbitem1.visabled">
+                <ion-button :disabled="toolbarModels.tbitem1.disabled" @click="toolbar_click({ tag: 'tbitem1' }, $event)" size="large">
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                
+                </ion-button>
+                
+            </div>
+        
+            </div>
+        </div>
+    </ion-footer>
 </ion-page>
 </template>
 
@@ -281,15 +295,54 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
     * @memberof IbzDailyDailyMobEditView
     */
     public toolbarModels: any = {
-            tbitem3: { name: 'tbitem3', caption: '保存', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'Save', target: '' } },
-
-            tbitem4: { name: 'tbitem4', caption: '保存并新建', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndNew', target: '' } },
-
-            tbitem5: { name: 'tbitem5', caption: '保存并关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '' } },
-
-            tbitem7: { name: 'tbitem7', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', uiaction: { tag: 'RemoveAndExit', target: 'SINGLEKEY' } },
+            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '' } },
 
     };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof IbzDailyDailyMobEditView 
+     */
+    public toolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof IbzDailyDailyMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof IbzDailyDailyMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof IbzDailyDailyMobEditView 
+     */
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
+    }
 
     
 
@@ -395,6 +448,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * @memberof IbzDailyDailyMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -409,6 +463,12 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
         this.afterMounted();
     }
 
+    /**
+     * 底部按钮样式
+     * 
+     * @memberof IbzDailyDailyMobEditViewBase
+     */
+    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
@@ -423,6 +483,8 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
         }
         this.thirdPartyInit();
 
+        // 拖动样式
+        AnimationService.draggable(document.getElementById(this.viewtag+'_bottom_button'),(style:any)=>{this.button_style = style});
     }
 
     /**
@@ -470,23 +532,8 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * @memberof IbzDailyDailyMobEditViewBase
      */
     protected toolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'tbitem3')) {
-            this.toolbar_tbitem3_click($event, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem4')) {
-            this.toolbar_tbitem4_click($event, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem5')) {
-            this.toolbar_tbitem5_click($event, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem7')) {
-            this.toolbar_tbitem7_click($event, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem9')) {
-            this.toolbar_tbitem9_click($event, '', $event2);
-        }
-        if (Object.is($event.tag, 'tbitem10')) {
-            this.toolbar_tbitem10_click($event, '', $event2);
+        if (Object.is($event.tag, 'tbitem1')) {
+            this.toolbar_tbitem1_click($event, '', $event2);
         }
     }
 
@@ -556,65 +603,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * @returns {Promise<any>}
      * @memberof IbzDailyDailyMobEditViewBase
      */
-    protected async toolbar_tbitem3_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        this.globaluiservice.Save(datas, contextJO, paramJO, $event, xData, this);
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof IbzDailyDailyMobEditViewBase
-     */
-    protected async toolbar_tbitem4_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        this.globaluiservice.SaveAndNew(datas, contextJO, paramJO, $event, xData, this);
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof IbzDailyDailyMobEditViewBase
-     */
-    protected async toolbar_tbitem5_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async toolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -631,93 +620,6 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
         }
         // 界面行为
         this.globaluiservice.SaveAndExit(datas, contextJO, paramJO, $event, xData, this);
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof IbzDailyDailyMobEditViewBase
-     */
-    protected async toolbar_tbitem7_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        this.globaluiservice.RemoveAndExit(datas, contextJO, paramJO, $event, xData, this);
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof IbzDailyDailyMobEditViewBase
-     */
-    protected async toolbar_tbitem9_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        this.globaluiservice.SaveAndStart(datas, contextJO, paramJO, $event, xData, this);
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof IbzDailyDailyMobEditViewBase
-     */
-    protected async toolbar_tbitem10_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        this.globaluiservice.ViewWFStep(datas, contextJO, paramJO, $event, xData, this);
     }
 
     /**
