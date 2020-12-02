@@ -11,7 +11,7 @@
         
         </ion-col>
         
-        <ion-col v-show="detailsModel.ibz_weeklyname.visible"  :lg="12" :size="24" style="" class="app-layoutpanel-field">
+        <ion-col v-show="detailsModel.ibz_weeklyname.visible"  :size="24" style="" class="app-layoutpanel-field">
             <div class="item-field ">
             <ion-label class="item-field-label ">周报名</ion-label>
             <app-mob-span  v-if="data.ibz_weeklyname" :context="context" :value="data.ibz_weeklyname" :itemParam="{}"  ></app-mob-span>
