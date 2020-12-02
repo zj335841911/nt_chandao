@@ -112,7 +112,7 @@ export class IbzMonthlyNewMonthlyEditViewBase extends EditViewBase {
      * @memberof IbzMonthlyNewMonthlyEditView
      */
     public toolBarModels: any = {
-        deuiaction3_submit: { name: 'deuiaction3_submit', caption: '提交', 'isShowCaption': true, 'isShowIcon': true, tooltip: '提交', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Submit', target: 'SINGLEKEY', class: '' } },
+        deuiaction3_submit: { name: 'deuiaction3_submit', caption: '提交', 'isShowCaption': true, 'isShowIcon': true, tooltip: '提交', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__MONTHLY_SUBMIT_BUT', uiaction: { tag: 'Submit', target: 'SINGLEKEY', class: '' } },
 
         deuiaction1: { name: 'deuiaction1', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'Save', target: '', class: '' } },
 

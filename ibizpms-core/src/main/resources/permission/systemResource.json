@@ -454,7 +454,7 @@
         ,
        {
             "unirescode":"MONTHLY_SUBMIT_BUT",
-            "uniresname":"月报已提交"
+            "uniresname":"月报提交"
        }
         ,
        {
@@ -530,11 +530,6 @@
        {
             "unirescode":"TASK_START_BUT",
             "uniresname":"任务开始"
-       }
-        ,
-       {
-            "unirescode":"MONTHLY_NSUBMIT_BUT",
-            "uniresname":"月报未提交"
        }
         ,
        {

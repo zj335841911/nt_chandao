@@ -104,8 +104,8 @@ export default class IbzMonthlyUIServiceBase extends UIService {
      * @memberof  IbzMonthlyUIServiceBase
      */  
     public initDeMainStateMap(){
-        this.allDeMainStateMap.set('1','1');
         this.allDeMainStateMap.set('0','0');
+        this.allDeMainStateMap.set('1','1');
     }
 
     /**
@@ -114,8 +114,8 @@ export default class IbzMonthlyUIServiceBase extends UIService {
      * @memberof  IbzMonthlyUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
         this.allDeMainStateOPPrivsMap.set('0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
+        this.allDeMainStateOPPrivsMap.set('1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__MONTHLY_SUBMIT_BUT':0,}));
     }
 
     /**
@@ -229,6 +229,18 @@ export default class IbzMonthlyUIServiceBase extends UIService {
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '提交成功！' });
                 const _this: any = actionContext;
+                const { data: result } = response;
+                let _args: any[] = [];
+                if (Object.is(actionContext.$util.typeOf(result), 'array')) {
+                    _args = [...result];
+                } else if (Object.is(actionContext.$util.typeOf(result), 'object')) {
+                    _args = [{...result}];
+                } else {
+                    _args = [...args];
+                }
+                if (_this.Exit && _this.Exit instanceof Function) {
+                    _this.Exit(_args,context, params, $event, xData,actionContext);
+                }
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
