@@ -74,7 +74,7 @@
     name='worktoday' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="worktoday_item"  
     :itemValue="this.data.worktoday" 
     v-show="detailsModel.worktoday.visible" 
@@ -85,15 +85,8 @@
     :disabled="detailsModel.worktoday.disabled"
     :error="detailsModel.worktoday.error" 
     :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.worktoday"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.worktoday" 
-    :itemParam="{}"/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.worktoday" @change="(val) =>{this.data.worktoday =val}" :disabled="detailsModel.worktoday.disabled" :data="JSON.stringify(this.data)"  name="worktoday" :uploadparams='{objecttype:"daily",version:"editor"}' :exportparams='{objecttype:"daily",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+
 </app-form-item>
 
 
@@ -102,7 +95,7 @@
     name='planstomorrow' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="planstomorrow_item"  
     :itemValue="this.data.planstomorrow" 
     v-show="detailsModel.planstomorrow.visible" 
@@ -113,15 +106,8 @@
     :disabled="detailsModel.planstomorrow.disabled"
     :error="detailsModel.planstomorrow.error" 
     :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.planstomorrow"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.planstomorrow" 
-    :itemParam="{}"/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.planstomorrow" @change="(val) =>{this.data.planstomorrow =val}" :disabled="detailsModel.planstomorrow.disabled" :data="JSON.stringify(this.data)"  name="planstomorrow" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+
 </app-form-item>
 
 
@@ -130,7 +116,7 @@
     name='comment' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="comment_item"  
     :itemValue="this.data.comment" 
     v-show="detailsModel.comment.visible" 
@@ -141,15 +127,8 @@
     :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.comment"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.comment" 
-    :itemParam="{}"/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"daily",version:"editor"}' :exportparams='{objecttype:"daily",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+
 </app-form-item>
 
 
