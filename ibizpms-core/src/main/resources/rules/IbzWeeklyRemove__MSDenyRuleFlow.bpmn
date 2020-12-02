@@ -26,7 +26,7 @@
             $ibzweeklyremove__msdenydefault:IbzWeekly();
             $ibzweeklyremove__msdenytemp:IbzWeekly();
             eval($ibzweeklyremove__msdenydefault==ibzweeklyremove__msdenydefault && $ibzweeklyremove__msdenytemp==ibzweeklyremove__msdenytemp);
-                eval((RuleUtils.test($ibzweeklyremove__msdenytemp.get("issubmit"),"EQ","０")))
+                eval((RuleUtils.test($ibzweeklyremove__msdenytemp.get("issubmit"),"EQ","0")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -35,7 +35,7 @@
             $ibzweeklyremove__msdenydefault:IbzWeekly();
             $ibzweeklyremove__msdenytemp:IbzWeekly();
             eval($ibzweeklyremove__msdenydefault==ibzweeklyremove__msdenydefault && $ibzweeklyremove__msdenytemp==ibzweeklyremove__msdenytemp);
-                eval((RuleUtils.test($ibzweeklyremove__msdenytemp.get("issubmit"),"EQ","１")))
+                eval((RuleUtils.test($ibzweeklyremove__msdenytemp.get("issubmit"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>

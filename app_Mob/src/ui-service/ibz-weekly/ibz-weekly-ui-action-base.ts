@@ -101,8 +101,8 @@ export default class IbzWeeklyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzWeeklyUIServiceBase
      */  
     public initDeMainStateMap(){
-        this.allDeMainStateMap.set('０','０');
-        this.allDeMainStateMap.set('１','１');
+        this.allDeMainStateMap.set('0','0');
+        this.allDeMainStateMap.set('1','1');
     }
 
     /**
@@ -111,8 +111,8 @@ export default class IbzWeeklyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzWeeklyUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('０',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__WEEKLY_NSUBMIT_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('１',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__WEEKLY_SUBMIT_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__WEEKLY_NSUBMIT_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__WEEKLY_SUBMIT_BUT':0,}));
     }
 
 

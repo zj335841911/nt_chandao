@@ -88,6 +88,8 @@ export default {
 			group1: '日报基本信息', 
 			druipart1: '', 
 			grouppanel1: '附件', 
+			druipart2: '', 
+			grouppanel2: '操作记录', 
 			formpage1: '基本信息', 
 			srfupdatedate: '更新时间', 
 			srforikey: '', 
