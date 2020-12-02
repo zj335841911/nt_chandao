@@ -60,12 +60,15 @@
     :disabled="detailsModel.date.disabled"
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    displayFormat="YYYY-MM-DD"
-    class="app-form-item-datetime" 
+        <app-mob-span  
+    v-if="data.date"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.date" 
-    :disabled="detailsModel.date.disabled"
-    @change="($event)=>this.data.date = $event"/>
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -231,8 +234,8 @@
     tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
+    :navigateContext ='{ "srfparentkey": "%ibzdaily%" } ' 
+    :navigateParam ='{ "srfparentkey": "%ibzdaily%", "objecttype": "daily" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
@@ -275,8 +278,8 @@
     tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
+    :navigateContext ='{ "srfparentkey": "%ibzdaily%" } ' 
+    :navigateParam ='{ "srfparentkey": "%ibzdaily%", "objecttype": "daily" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>

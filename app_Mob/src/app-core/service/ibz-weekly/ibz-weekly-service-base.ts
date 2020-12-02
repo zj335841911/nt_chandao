@@ -182,6 +182,20 @@ export class IbzWeeklyServiceBase extends EntityService {
     }
 
     /**
+     * JugThisWeekCreateWeekly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzWeeklyServiceBase
+     */
+    public async JugThisWeekCreateWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/jugthisweekcreateweekly`,data,isloading);
+            return res;
+    }
+
+    /**
      * PushUserWeekly接口方法
      *
      * @param {*} [context={}]
