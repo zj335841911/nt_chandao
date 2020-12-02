@@ -1021,9 +1021,10 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [我收到的月报](#数据查询-我收到的月报（MyReceivedMonthly）) | MyReceivedMonthly | 否 |
-| 3 | [我提交的月报](#数据查询-我提交的月报（MySubmitMonthly）) | MySubmitMonthly | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [我的月报](#数据查询-我的月报（MyMonthly）) | MyMonthly | 否 |
+| 3 | [我收到的月报](#数据查询-我收到的月报（MyReceivedMonthly）) | MyReceivedMonthly | 否 |
+| 4 | [我提交的月报](#数据查询-我提交的月报（MySubmitMonthly）) | MySubmitMonthly | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -1057,6 +1058,43 @@ t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`
 FROM `T_IBZ_MONTHLY` t1 
 
+```
+### 数据查询-我的月报（MyMonthly）
+#### 说明
+我的月报
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.`ACCOUNT`,
+	t1.`CREATEDATE`,
+	t1.`CREATEMAN`,
+	t1.`CREATEMANNAME`,
+	t1.`DATE`,
+	t1.`IBZ_MONTHLYID`,
+	t1.`IBZ_MONTHLYNAME`,
+	t1.`ISSUBMIT`,
+	t1.`MAILTO`,
+	( CASE WHEN t11.id IS NOT NULL THEN '1' ELSE '0' END ) AS `REPORTSTATUS`,
+	t1.`REPORTTO`,
+	t1.`THISMONTHTASK`,
+	t1.`NEXTMONTHPLANSTASK`,
+	t1.`UPDATEDATE`,
+	t1.`UPDATEMAN`,
+	t1.`UPDATEMANNAME` 
+FROM
+	`t_ibz_monthly` t1
+	LEFT JOIN zt_action t11 ON t11.objectID = t1.IBZ_MONTHLYID 
+	AND t11.objectType = 'monthly' 
+	AND t11.action = 'read' 
+	AND t11.actor = #{srf.sessioncontext.srfloginname}
 ```
 ### 数据查询-我收到的月报（MyReceivedMonthly）
 #### 说明
@@ -1173,8 +1211,9 @@ FROM `T_IBZ_MONTHLY` t1
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
-| 2 | [我收到的月报](#数据集合-我收到的月报（MyReceivedMonthly）) | MyReceivedMonthly | 否 |
-| 3 | [我提交的月报](#数据集合-我提交的月报（MySubmitMonthly）) | MySubmitMonthly | 否 |
+| 2 | [我的月报](#数据集合-我的月报（MyMonthly）) | MyMonthly | 否 |
+| 3 | [我收到的月报](#数据集合-我收到的月报（MyReceivedMonthly）) | MyReceivedMonthly | 否 |
+| 4 | [我提交的月报](#数据集合-我提交的月报（MySubmitMonthly）) | MySubmitMonthly | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1190,6 +1229,20 @@ FROM `T_IBZ_MONTHLY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（Default）](#数据查询-数据查询（Default）) |
+### 数据集合-我的月报（MyMonthly）
+#### 说明
+我的月报
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我的月报（MyMonthly）](#数据查询-我的月报（MyMonthly）) |
 ### 数据集合-我收到的月报（MyReceivedMonthly）
 #### 说明
 我收到的月报
