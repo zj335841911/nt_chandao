@@ -135,6 +135,7 @@ export default {
 		},
 		uiactions: {
         ibzdaily_edit: "修改",
+        ibzdaily_submitcz: "提交",
 		},
 	},
 	default_searchform: {

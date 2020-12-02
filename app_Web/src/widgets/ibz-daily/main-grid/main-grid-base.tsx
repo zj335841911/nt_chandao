@@ -94,6 +94,34 @@ export class MainGridBase extends GridControlBase {
         curUIService.IbzDaily_Edit(datas,contextJO, paramJO,  $event, xData,this,"IbzDaily");
     }
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u79011c8_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IbzDailyUIService  = new IbzDailyUIService();
+        curUIService.IbzDaily_submitCz(datas,contextJO, paramJO,  $event, xData,this,"IbzDaily");
+    }
+
 
     /**
      * 界面行为模型
@@ -102,7 +130,8 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        Edit: { name: 'Edit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT', actiontarget: 'SINGLEKEY'}
+        Edit: { name: 'Edit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT', actiontarget: 'SINGLEKEY'},
+        submitCz: { name: 'submitCz',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -383,6 +412,9 @@ export class MainGridBase extends GridControlBase {
         if(Object.is('Edit', tag)) {
             this.grid_uagridcolumn1_u1275901_click(row, tag, $event);
         }
+        if(Object.is('submitCz', tag)) {
+            this.grid_uagridcolumn1_u79011c8_click(row, tag, $event);
+        }
     }
 
     /**
@@ -485,6 +517,9 @@ export class MainGridBase extends GridControlBase {
                 Edit:{
                     visible: false
                 },
+                submitCz:{
+                    visible: false
+                },
                 children: children
             }
             groupTree.push(tree);
@@ -514,6 +549,9 @@ export class MainGridBase extends GridControlBase {
             date:'',
             reportto:'',
             Edit:{
+                visible: false
+            },
+            submitCz:{
                 visible: false
             },
             children: child
@@ -581,6 +619,9 @@ export class MainGridBase extends GridControlBase {
                 date:'',
                 reportto:'',
                 Edit:{
+                    visible: false
+                },
+                submitCz:{
                     visible: false
                 },
                 children: children,

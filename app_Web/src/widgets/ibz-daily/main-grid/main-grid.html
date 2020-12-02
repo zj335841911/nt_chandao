@@ -101,8 +101,13 @@
                     <template slot-scope="scope">
                         <div style="text-align: center;">
                             <a v-show="scope.row.Edit.visible" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.ibzdaily.main_grid.uiactions.ibzdaily_edit')">
-                                <i class=""></i>
-                                {{$t('entities.ibzdaily.main_grid.uiactions.ibzdaily_edit')}}
+                                <i class="fa fa-edit"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.submitCz.visible" type="vertical"></divider>
+                            <a v-show="scope.row.submitCz.visible" :disabled="scope.row.submitCz.disabled" @click="uiAction(scope.row, 'submitCz', $event)" :title="$t('entities.ibzdaily.main_grid.uiactions.ibzdaily_submitcz')">
+                                <i class="fa fa-check"></i>
+                                
                             </a>
                         </div>
                     </template>
