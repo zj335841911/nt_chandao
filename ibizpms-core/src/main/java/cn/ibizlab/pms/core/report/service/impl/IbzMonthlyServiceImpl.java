@@ -119,6 +119,12 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).haveRead(et);
     }
 
+        @Override
+    @Transactional
+    public IbzMonthly pushUserMonthly(IbzMonthly et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).pushUserMonthly(et);
+    }
+
     @Override
     @Transactional
     public boolean save(IbzMonthly et) {

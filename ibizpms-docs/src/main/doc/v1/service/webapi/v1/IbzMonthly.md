@@ -186,6 +186,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzMonthlyDTO](#IbzMonthlyDTO)：月报实体传输对象 |
 
+### 定时推送待阅提醒用户月报
+#### 访问路径
+/ibzmonthlies/{ibzmonthly_id}/pushusermonthly
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzmonthly_id | Long | 月报主键ID |
+| 2 | ibzmonthlydto | [IbzMonthlyDTO](#IbzMonthlyDTO) | 月报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbzMonthlyDTO](#IbzMonthlyDTO)：月报实体传输对象 |
+
 ### 保存月报
 #### 访问路径
 /ibzmonthlies/save
@@ -227,7 +246,7 @@ POST
 /ibzmonthlies/{ibzmonthly_id}/submit
 
 #### 请求方法
-POST
+PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |

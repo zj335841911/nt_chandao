@@ -143,6 +143,17 @@ public class IbzMonthlyResource {
         return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-PushUserMonthly-all')")
+    @ApiOperation(value = "定时推送待阅提醒用户月报", tags = {"月报" },  notes = "定时推送待阅提醒用户月报")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/{ibzmonthly_id}/pushusermonthly")
+    public ResponseEntity<IbzMonthlyDTO> pushUserMonthly(@PathVariable("ibzmonthly_id") Long ibzmonthly_id, @RequestBody IbzMonthlyDTO ibzmonthlydto) {
+        IbzMonthly domain = ibzmonthlyMapping.toDomain(ibzmonthlydto);
+        domain.setIbzmonthlyid(ibzmonthly_id);
+        domain = ibzmonthlyService.pushUserMonthly(domain);
+        ibzmonthlydto = ibzmonthlyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlydto);
+    }
+
     @PreAuthorize("hasPermission(this.ibzmonthlyMapping.toDomain(#ibzmonthlydto),'pms-IbzMonthly-Save')")
     @ApiOperation(value = "保存月报", tags = {"月报" },  notes = "保存月报")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/save")
@@ -160,7 +171,7 @@ public class IbzMonthlyResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-Submit-all')")
     @ApiOperation(value = "提交", tags = {"月报" },  notes = "提交")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/{ibzmonthly_id}/submit")
+	@RequestMapping(method = RequestMethod.PUT, value = "/ibzmonthlies/{ibzmonthly_id}/submit")
     public ResponseEntity<IbzMonthlyDTO> submit(@PathVariable("ibzmonthly_id") Long ibzmonthly_id, @RequestBody IbzMonthlyDTO ibzmonthlydto) {
         IbzMonthly domain = ibzmonthlyMapping.toDomain(ibzmonthlydto);
         domain.setIbzmonthlyid(ibzmonthly_id);

@@ -42,6 +42,16 @@ public class IbzMonthlyExService extends IbzMonthlyServiceImpl {
         return super.haveRead(et);
     }
     /**
+     * [PushUserMonthly:定时推送待阅提醒用户月报] 行为扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public IbzMonthly pushUserMonthly(IbzMonthly et) {
+        return super.pushUserMonthly(et);
+    }
+    /**
      * [Submit:提交] 行为扩展
      * @param et
      * @return

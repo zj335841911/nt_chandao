@@ -183,6 +183,20 @@ export default class IbzMonthlyServiceBase extends EntityService {
     }
 
     /**
+     * PushUserMonthly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async PushUserMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/pushusermonthly`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -209,7 +223,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      * @memberof IbzMonthlyServiceBase
      */
     public async Submit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/submit`,data,isloading);
+            let res:any = Http.getInstance().put(`/ibzmonthlies/${context.ibzmonthly}/submit`,data,isloading);
             return res;
     }
 
