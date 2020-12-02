@@ -29,6 +29,7 @@
 |更新人名称|UPDATEMANNAME|TEXT|&nbsp;|
 |状态|REPORTSTATUS|SSCODELIST|&nbsp;|
 |建立人名称|CREATEMANNAME|TEXT|&nbsp;|
+|提交时间|SUBMITTIME|TIME|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -53,6 +54,7 @@
 |更新人名称|默认规则|内容长度必须小于等于[60]|
 |状态|默认规则|内容长度必须小于等于[60]|
 |建立人名称|默认规则|内容长度必须小于等于[60]|
+|提交时间|默认规则|默认规则|
 
 ## 状态控制
 

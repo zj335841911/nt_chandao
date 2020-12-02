@@ -20,6 +20,7 @@ export default {
     updateManName: "更新人名称",
     reportstatus: "状态",
     createManName: "建立人名称",
+    submittime: "提交时间",
   },
 	views: {
 		maininfomobeditview: {
