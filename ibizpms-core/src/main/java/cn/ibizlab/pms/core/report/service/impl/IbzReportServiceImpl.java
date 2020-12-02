@@ -51,6 +51,10 @@ public class IbzReportServiceImpl extends ServiceImpl<IbzReportMapper, IbzReport
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.report.service.logic.IIbzReportMyReportINotSubmitLogic myreportinotsubmitLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.report.service.logic.IIbzReportReportIReceivedLogic reportireceivedLogic;
 
     protected int batchSize = 500;
@@ -122,6 +126,13 @@ public class IbzReportServiceImpl extends ServiceImpl<IbzReportMapper, IbzReport
     public boolean checkKey(IbzReport et) {
         return (!ObjectUtils.isEmpty(et.getIbzdailyid())) && (!Objects.isNull(this.getById(et.getIbzdailyid())));
     }
+    @Override
+    @Transactional
+    public IbzReport myReportINotSubmit(IbzReport et) {
+        myreportinotsubmitLogic.execute(et);
+         return et;
+    }
+
     @Override
     @Transactional
     public IbzReport reportIReceived(IbzReport et) {

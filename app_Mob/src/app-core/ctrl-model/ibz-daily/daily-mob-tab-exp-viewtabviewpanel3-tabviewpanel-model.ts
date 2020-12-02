@@ -75,6 +75,9 @@ export class DailyMobTabExpViewtabviewpanel3Model {
       {
         name: 'reportstatus',
       },
+      {
+        name: 'submittime',
+      },
     ]
   }
 

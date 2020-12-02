@@ -470,7 +470,7 @@ export default class ReportNewBase extends Vue implements ControlInterface {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
-            { pathName: 'dailymobeditview', parameterName: 'dailymobeditview' },
+            { pathName: 'mymobmdview', parameterName: 'mymobmdview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);

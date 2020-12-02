@@ -1,6 +1,28 @@
 <template>
     <div class='view-container'>
     <ion-row class="app-layoutpanel">
+        <ion-col v-show="detailsModel.container1.visible"  :size="12" style="" class="app-layoutpanel-container">
+            <ion-row style="height:100%;">
+                
+                <ion-col v-show="detailsModel.account.visible"  :lg="6" :size="12" style="" class="app-layoutpanel-field">
+                    <div class="item-field ">
+                    <ion-label class="item-field-label ">用户</ion-label>
+                    <app-mob-span  v-if="data.account" :context="context" :value="data.account" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+                </div>
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.submittime.visible"  :lg="3" :size="12" style="" class="app-layoutpanel-field">
+                    <div class="item-field ">
+                    
+                    <app-mob-span  v-if="data.submittime" :context="context" :value="data.submittime" :itemParam="{}"  ></app-mob-span>
+                </div>
+                
+                
+                </ion-col>
+            </ion-row>
+        </ion-col>
     </ion-row>
 </div>
 </template>
@@ -261,6 +283,9 @@ export default class MobBase extends Vue implements ControlInterface {
      */
     private panelLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
     }
 
    /**
@@ -270,6 +295,12 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     protected detailsModel: any = {
+        account: new PanelFieldModel({ caption: '用户', itemType: 'FIELD', name: 'account', panel: this, visible: true  })
+, 
+        submittime: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'submittime', panel: this, visible: true  })
+, 
+        container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container1', panel: this, visible: true  })
+, 
     };
 
 }

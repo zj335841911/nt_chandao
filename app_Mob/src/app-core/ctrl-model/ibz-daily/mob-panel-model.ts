@@ -75,6 +75,9 @@ export class MobModel {
       {
         name: 'reportstatus',
       },
+      {
+        name: 'submittime',
+      },
     ]
   }
 

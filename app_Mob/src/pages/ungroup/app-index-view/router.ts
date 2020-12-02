@@ -2588,20 +2588,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/case-mob-mdview-test-suite/case-mob-mdview-test-suite.vue'),
                 },
                 {
-                    path: 'projects/:project?/mobtabexpview',
-                    name: 'project_mobtabexpview',
-                    meta: {
-                        caption: 'project.views.mobtabexpview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-mob-tab-exp-view/project-mob-tab-exp-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/gsmoboptionview',
                     name: 'task_gsmoboptionview',
                     meta: {
@@ -2668,6 +2654,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/task-gsmob-option-view/task-gsmob-option-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/mobtabexpview',
+                    name: 'project_mobtabexpview',
+                    meta: {
+                        caption: 'project.views.mobtabexpview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-mob-tab-exp-view/project-mob-tab-exp-view.vue'),
                 },
                 {
                     path: 'projects/:project?/builds/:build?/newmobeditview',
@@ -6387,6 +6387,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-mob-mdview/project-mob-mdview.vue'),
                 },
                 {
+                    path: 'ibzdailies/:ibzdaily?/mymobmdview',
+                    name: 'ibzdaily_mymobmdview',
+                    meta: {
+                        caption: 'ibzdaily.views.mymobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'mymobmdview', parameterName: 'mymobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-my-mob-mdview/ibz-daily-my-mob-mdview.vue'),
+                },
+                {
                     path: 'ibzweeklies/:ibzweekly?/mobeditview',
                     name: 'ibzweekly_mobeditview',
                     meta: {
@@ -6755,6 +6769,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-usr2-mob-mpickup-view/bug-usr2-mob-mpickup-view.vue'),
+                },
+                {
+                    path: 'ibzdailies/:ibzdaily?/mobeditview',
+                    name: 'ibzdaily_mobeditview',
+                    meta: {
+                        caption: 'ibzdaily.views.mobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-mob-edit-view/ibz-daily-mob-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/usr2mobpickupmdbuildview',

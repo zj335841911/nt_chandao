@@ -244,6 +244,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '18b9f914b5fa7aa6e485660e3e5f2aaa',
+            viewmodule: 'report',
+            viewname: 'IbzDailyMyMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '22e33232ac91bca7826742f9c85720dc',
+                '61b07d6ba0ff1c6a96f09f0fcbb4cda7',
+            ],
+        },
+        {
             viewtag: '19024f5f57e716e3a36b513ea2a64dab',
             viewmodule: 'zentao',
             viewname: 'ProjectMobChartView',
@@ -1980,10 +1991,10 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'df36c08961d3d1737f2f8d55a53fa46c',
+                '18b9f914b5fa7aa6e485660e3e5f2aaa',
                 '899ab4d4cfc33b089a9c4aa5118acbf3',
                 '70d570ae5cafd7af092084e6d0e6b2f7',
                 '053879e9b47bc845598b68abbdbb2e0a',
-                '61b07d6ba0ff1c6a96f09f0fcbb4cda7',
                 'd5dfb8e49ac109dec6ea502b80cb4419',
             ],
         },

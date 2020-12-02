@@ -922,8 +922,9 @@ Integer
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [我收到的汇报（计数器）](#实体行为-我收到的汇报（计数器）（ReportIReceived）) | ReportIReceived | 实体处理逻辑 | 后台 |
-| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 7 | [我未提交的（计数器）](#实体行为-我未提交的（计数器）（MyReportINotSubmit）) | MyReportINotSubmit | 实体处理逻辑 | 后台 |
+| 8 | [我收到的汇报（计数器）](#实体行为-我收到的汇报（计数器）（ReportIReceived）) | ReportIReceived | 实体处理逻辑 | 后台 |
+| 9 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -997,6 +998,18 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-我未提交的（计数器）（MyReportINotSubmit）
+#### 说明
+我未提交的（计数器）
+
+- 行为类型
+实体处理逻辑
+
+- 行为持有者
+后台
+
+#### 逻辑附加
+无
 ### 实体行为-我收到的汇报（计数器）（ReportIReceived）
 #### 说明
 我收到的汇报（计数器）
@@ -1025,8 +1038,21 @@ Save
 ## 逻辑处理
 | 序号 | 逻辑 | 逻辑名 | 逻辑持有者 |
 | ---- | ---- | ---- | ---- |
-| 1 | [我收到的汇报（计数器）](#逻辑处理-我收到的汇报（计数器）（ReportIReceived）) | ReportIReceived | 后台 |
+| 1 | [我未提交的（计数器）](#逻辑处理-我未提交的（计数器）（MyReportINotSubmit）) | MyReportINotSubmit | 后台 |
+| 2 | [我收到的汇报（计数器）](#逻辑处理-我收到的汇报（计数器）（ReportIReceived）) | ReportIReceived | 后台 |
 
+### 逻辑处理-我未提交的（计数器）（MyReportINotSubmit）
+#### 说明
+我未提交的（计数器）
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 统计我收到的日报数 | Rawsqlcall1 | 直接SQL调用 |
+| 2 | 开始 | Begin | 开始 |
 ### 逻辑处理-我收到的汇报（计数器）（ReportIReceived）
 #### 说明
 我收到的汇报（计数器）

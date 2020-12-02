@@ -20,8 +20,12 @@ export default {
     createmanname: "建立人名称",
     updatemanname: "更新人名称",
     reportstatus: "状态",
+    submittime: "提交时间",
   },
 	views: {
+		mymobmdview: {
+			caption: '我的',
+		},
 		mobeditview: {
 			caption: '日报',
 		},
@@ -149,13 +153,19 @@ export default {
 			tip: '删除',
 		},
 	},
-	reportreceivedmobmdviewrighttoolbar_toolbar: {
+	mymobmdviewrighttoolbar_toolbar: {
+		deuiaction1_mobcreate: {
+			caption: '新建',
+			tip: '新建',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',
 			tip: '保存',
 		},
+	},
+	reportreceivedmobmdviewrighttoolbar_toolbar: {
 	},
 	dailyreportsubmitmobmdviewrighttoolbar_toolbar: {
 	},
