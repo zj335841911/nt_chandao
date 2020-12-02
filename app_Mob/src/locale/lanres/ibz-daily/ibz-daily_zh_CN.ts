@@ -27,7 +27,7 @@ export default {
 			caption: '我收到的',
 		},
 		mymobmdview: {
-			caption: '我的',
+			caption: '日报',
 		},
 		mobeditview: {
 			caption: '日报',

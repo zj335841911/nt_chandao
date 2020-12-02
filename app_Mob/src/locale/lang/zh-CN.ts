@@ -82,7 +82,7 @@ export default {
                 caption: 'iBiz软件生产管理',
             },
             appportalview2: {
-                caption: '',
+                caption: '我的',
             },
             appportalview: {
                 caption: '工作台',

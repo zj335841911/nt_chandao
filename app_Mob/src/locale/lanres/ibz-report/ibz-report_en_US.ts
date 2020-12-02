@@ -30,7 +30,7 @@ export default {
 			caption: '我提交的',
 		},
 		myremobmdview: {
-			caption: '我提交的',
+			caption: '我收到的',
 		},
 	},
 	mobdef_searchform: {

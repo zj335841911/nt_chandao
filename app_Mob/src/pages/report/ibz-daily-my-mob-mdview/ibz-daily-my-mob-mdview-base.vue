@@ -54,9 +54,9 @@
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobcreate.disabled}" v-show="righttoolbarModels.deuiaction1_mobcreate.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1_mobcreate.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobcreate' }, $event)" size="large">
                     <ion-icon name="plus"></ion-icon>
-                <span class="btn-inner-text">{{$t('ibzdaily.mymobmdviewrighttoolbar_toolbar.deuiaction1_mobcreate.caption')}}</span>
+                
                 </ion-button>
-                <span class="btn-out-text">{{$t('ibzdaily.mymobmdviewrighttoolbar_toolbar.deuiaction1_mobcreate.caption')}}</span>
+                
             </div>
         
             </div>
@@ -302,7 +302,7 @@ export default class IbzDailyMyMobMDViewBase extends Vue {
     * @memberof IbzDailyMyMobMDView
     */
     public righttoolbarModels: any = {
-            deuiaction1_mobcreate: { name: 'deuiaction1_mobcreate', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MobCreate', target: 'NONE' } },
+            deuiaction1_mobcreate: { name: 'deuiaction1_mobcreate', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MobCreate', target: 'NONE' } },
 
     };
 

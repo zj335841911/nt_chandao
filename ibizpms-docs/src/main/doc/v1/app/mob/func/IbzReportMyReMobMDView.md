@@ -1,6 +1,6 @@
 # 我收到的
 
-汇报移动端多数据视图（我提交的）(IbzReportMyReMobMDView)
+汇报移动端多数据视图（我收到的）(IbzReportMyReMobMDView)
 
 {% plantuml %}
 
