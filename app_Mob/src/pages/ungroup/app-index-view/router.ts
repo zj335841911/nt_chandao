@@ -3356,6 +3356,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-ass-more-mob-mdview/story-ass-more-mob-mdview.vue'),
                 },
                 {
+                    path: 'ibzweeklies/:ibzweekly?/usr2mobeditview',
+                    name: 'ibzweekly_usr2mobeditview',
+                    meta: {
+                        caption: 'ibzweekly.views.usr2mobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+                            { pathName: 'usr2mobeditview', parameterName: 'usr2mobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-weekly-usr2-mob-edit-view/ibz-weekly-usr2-mob-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/releases/:release?/newmobeditview',
                     name: 'release_newmobeditview',
                     meta: {
@@ -5411,6 +5425,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-new-mob-edit-view/project-new-mob-edit-view.vue'),
+                },
+                {
+                    path: 'ibzweeklies/:ibzweekly?/usr2mobtabexpview',
+                    name: 'ibzweekly_usr2mobtabexpview',
+                    meta: {
+                        caption: 'ibzweekly.views.usr2mobtabexpview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+                            { pathName: 'usr2mobtabexpview', parameterName: 'usr2mobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-weekly-usr2-mob-tab-exp-view/ibz-weekly-usr2-mob-tab-exp-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/usr3mobpickupmdview1',

@@ -4,6 +4,9 @@
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="start">
+                            <ion-item-option v-show="item.mobEdit1.visabled" :disabled="item.mobEdit1.disabled"  color="primary" @click="mdctrl_click($event, 'uc5644e8', item)"><ion-icon v-if="item.mobEdit1.icon && item.mobEdit1.isShowIcon" :name="item.mobEdit1.icon"></ion-icon><ion-label v-if="item.mobEdit1.isShowCaption">编辑</ion-label></ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -16,6 +19,9 @@
             <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="start">
+                            <ion-item-option v-show="item.mobEdit1.visabled" :disabled="item.mobEdit1.disabled"  color="primary" @click="mdctrl_click($event, 'uc5644e8', item)"><ion-icon v-if="item.mobEdit1.icon && item.mobEdit1.isShowIcon" :name="item.mobEdit1.icon"></ion-icon><ion-label v-if="item.mobEdit1.isShowCaption">编辑</ion-label></ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -216,6 +222,37 @@ export default class MyWeeklyBase extends Vue implements ControlInterface {
      */  
     public deUIService:IbzWeeklyUIService = new IbzWeeklyUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_uc5644e8_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzweekly_ui_action');
+        if (curUIService) {
+            curUIService.IbzWeekly_mobEdit1(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图
@@ -1009,6 +1046,9 @@ export default class MyWeeklyBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'uc5644e8')) {
+            this.mdctrl_uc5644e8_click();
+        }
         this.closeSlidings();
     }
 
@@ -1104,6 +1144,7 @@ export default class MyWeeklyBase extends Vue implements ControlInterface {
      * @memberof MyWeeklyBase
      */  
     public ActionModel:any ={
+        mobEdit1: { name: 'mobEdit1',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'edit',}
     };
 
     
