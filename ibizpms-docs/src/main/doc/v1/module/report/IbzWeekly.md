@@ -1022,7 +1022,7 @@ t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`
 FROM `T_IBZ_WEEKLY` t1 
-left join zt_action t11 on t11.objectID = t1.IBZ_DAILYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明

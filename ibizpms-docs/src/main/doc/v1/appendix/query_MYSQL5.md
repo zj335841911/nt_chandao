@@ -7955,7 +7955,7 @@ t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`
 FROM `T_IBZ_WEEKLY` t1 
-left join zt_action t11 on t11.objectID = t1.IBZ_DAILYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
 WHERE t1.issubmit = '1' 
 (t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO)) 
 
