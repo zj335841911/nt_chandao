@@ -146,13 +146,9 @@ export default {
 		},
 	},
 	dailyeditviewtoolbar_toolbar: {
-		deuiaction3_submit: {
-			caption: "提交",
-			tip: "提交",
-		},
 		deuiaction1: {
-			caption: "保存",
-			tip: "保存",
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 	dailygridviewtoolbar_toolbar: {
