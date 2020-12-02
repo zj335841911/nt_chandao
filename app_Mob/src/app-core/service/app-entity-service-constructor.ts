@@ -52,6 +52,7 @@ export class AppEntityServiceConstructor extends ServiceConstructorBase {
         this.allService.set('doclibmodule', () => import('@/app-core/service/doc-lib-module/doc-lib-module-service'));
         this.allService.set('sysupdatefeatures', () => import('@/app-core/service/sys-update-features/sys-update-features-service'));
         this.allService.set('doccontent', () => import('@/app-core/service/doc-content/doc-content-service'));
+        this.allService.set('ibzreport', () => import('@/app-core/service/ibz-report/ibz-report-service'));
         this.allService.set('productplan', () => import('@/app-core/service/product-plan/product-plan-service'));
         this.allService.set('ibztaskestimate', () => import('@/app-core/service/ibz-taskestimate/ibz-taskestimate-service'));
         this.allService.set('projectstats', () => import('@/app-core/service/project-stats/project-stats-service'));

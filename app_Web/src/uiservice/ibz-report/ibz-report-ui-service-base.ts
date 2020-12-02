@@ -25,7 +25,7 @@ export default class IbzReportUIServiceBase extends UIService {
      * 
      * @memberof  IbzReportUIServiceBase
      */
-    public isEnableDEMainState:boolean = false;
+    public isEnableDEMainState:boolean = true;
 
     /**
      * 当前UI服务对应的数据服务对象
@@ -60,7 +60,7 @@ export default class IbzReportUIServiceBase extends UIService {
      * 
      * @memberof  IbzReportUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['type'];
 
     /**
      * 主状态集合Map
@@ -104,6 +104,9 @@ export default class IbzReportUIServiceBase extends UIService {
      * @memberof  IbzReportUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('daily','daily');
+        this.allDeMainStateMap.set('monthly','monthly');
+        this.allDeMainStateMap.set('weekly','weekly');
     }
 
     /**
@@ -112,6 +115,9 @@ export default class IbzReportUIServiceBase extends UIService {
      * @memberof  IbzReportUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('daily',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'WEEKLY':0,'MONTHLY':0,}));
+        this.allDeMainStateOPPrivsMap.set('monthly',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DAILY':0,'WEEKLY':0,}));
+        this.allDeMainStateOPPrivsMap.set('weekly',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DAILY':0,'MONTHLY':0,}));
     }
 
 

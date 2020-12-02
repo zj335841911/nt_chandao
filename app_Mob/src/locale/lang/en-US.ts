@@ -34,6 +34,7 @@ import testmodule_en_US from '@locale/lanres/test-module/test-module_en_US';
 import doclibmodule_en_US from '@locale/lanres/doc-lib-module/doc-lib-module_en_US';
 import sysupdatefeatures_en_US from '@locale/lanres/sys-update-features/sys-update-features_en_US';
 import doccontent_en_US from '@locale/lanres/doc-content/doc-content_en_US';
+import ibzreport_en_US from '@locale/lanres/ibz-report/ibz-report_en_US';
 import productplan_en_US from '@locale/lanres/product-plan/product-plan_en_US';
 import ibztaskestimate_en_US from '@locale/lanres/ibz-taskestimate/ibz-taskestimate_en_US';
 import projectstats_en_US from '@locale/lanres/project-stats/project-stats_en_US';
@@ -248,6 +249,7 @@ export default {
     doclibmodule: doclibmodule_en_US,
     sysupdatefeatures: sysupdatefeatures_en_US,
     doccontent: doccontent_en_US,
+    ibzreport: ibzreport_en_US,
     productplan: productplan_en_US,
     ibztaskestimate: ibztaskestimate_en_US,
     projectstats: projectstats_en_US,

@@ -41,6 +41,7 @@ import './entity/test-modules/test-modules';
 import './entity/doc-lib-modules/doc-lib-modules';
 import './entity/sys-update-featuress/sys-update-featuress';
 import './entity/doc-contents/doc-contents';
+import './entity/ibz-reports/ibz-reports';
 import './entity/product-plans/product-plans';
 import './entity/ibz-taskestimates/ibz-taskestimates';
 import './entity/project-statss/project-statss';

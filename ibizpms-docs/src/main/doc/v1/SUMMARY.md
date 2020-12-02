@@ -343,6 +343,7 @@
       * [月报（新建）](app/Mob/func/IbzMonthlyCreateMobEditView.md)
       * [打开看板](app/Mob/func/AppPortalView.md)
       * [个人中心](app/Mob/func/UserUserCenterMobEditView.md)
+      * [汇报（我提交的）](app/Mob/func/IbzReportMobMDView.md)
       * [日报（我收到的）](app/Mob/func/IbzDailyReportReceivedMobMDView.md)
       * [用户选择](app/Mob/func/UserMobPickupView.md)
       * [我的地盘](app/Mob/func/AppPortalView2.md)

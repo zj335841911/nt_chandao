@@ -167,6 +167,46 @@
         ]
     }, 
     {
+        "srfkey": "ReportType",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "weekly",
+                "label": "周报",
+                "text": "周报",
+                "default": false,
+                "data": "",
+                "value": "weekly",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "daily",
+                "label": "日报",
+                "text": "日报",
+                "default": false,
+                "data": "",
+                "value": "daily",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "monthly",
+                "label": "月报",
+                "text": "月报",
+                "default": false,
+                "data": "",
+                "value": "monthly",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "RelatedStory",
         "emptytext": "",
         "codelisttype":"dynamic",

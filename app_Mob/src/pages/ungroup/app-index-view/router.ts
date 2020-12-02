@@ -593,6 +593,74 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-usr3-mob-mpickup-left-view/bug-usr3-mob-mpickup-left-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/mycompletetaskmobmdview1',
+                    name: 'task_mycompletetaskmobmdview1',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdview1.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdview1', parameterName: 'mycompletetaskmobmdview1' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-my-complete-task-mob-mdview1/task-my-complete-task-mob-mdview1.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/mycompletetaskmobmdview1',
+                    name: 'task_mycompletetaskmobmdview1',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdview1.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdview1', parameterName: 'mycompletetaskmobmdview1' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-my-complete-task-mob-mdview1/task-my-complete-task-mob-mdview1.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/mycompletetaskmobmdview1',
+                    name: 'task_mycompletetaskmobmdview1',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdview1.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdview1', parameterName: 'mycompletetaskmobmdview1' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-my-complete-task-mob-mdview1/task-my-complete-task-mob-mdview1.vue'),
+                },
+                {
+                    path: 'tasks/:task?/mycompletetaskmobmdview1',
+                    name: 'task_mycompletetaskmobmdview1',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdview1.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdview1', parameterName: 'mycompletetaskmobmdview1' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-my-complete-task-mob-mdview1/task-my-complete-task-mob-mdview1.vue'),
+                },
+                {
                     path: 'ibzdailies/:ibzdaily?/dailyinfomobeditview',
                     name: 'ibzdaily_dailyinfomobeditview',
                     meta: {
@@ -1006,6 +1074,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/test-task-edit-new-mob-edit-view/test-task-edit-new-mob-edit-view.vue'),
+                },
+                {
+                    path: 'ibzreports/:ibzreport?/mobmdview',
+                    name: 'ibzreport_mobmdview',
+                    meta: {
+                        caption: 'ibzreport.views.mobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzreports', parameterName: 'ibzreport' },
+                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-report-mob-mdview/ibz-report-mob-mdview.vue'),
                 },
                 {
                     path: 'projects/:project?/builds/:build?/mobeditview',
@@ -3093,6 +3175,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/task-estimate-mob-edit-view9/task-estimate-mob-edit-view9.vue'),
+                },
+                {
+                    path: 'ibzmonthlies/:ibzmonthly?/maininfomobeditview',
+                    name: 'ibzmonthly_maininfomobeditview',
+                    meta: {
+                        caption: 'ibzmonthly.views.maininfomobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'maininfomobeditview', parameterName: 'maininfomobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-main-info-mob-edit-view/ibz-monthly-main-info-mob-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/productplans/:productplan?/mobmdview',
@@ -5247,6 +5343,74 @@ const router = new Router({
                     component: () => import('@pages/ibiz/build-mob-pickup-mdview/build-mob-pickup-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/myplanstomorrowtaskmobmdview',
+                    name: 'task_myplanstomorrowtaskmobmdview',
+                    meta: {
+                        caption: 'task.views.myplanstomorrowtaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'myplanstomorrowtaskmobmdview', parameterName: 'myplanstomorrowtaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-plans-tomorrow-task-mob-mdview/task-my-plans-tomorrow-task-mob-mdview.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/myplanstomorrowtaskmobmdview',
+                    name: 'task_myplanstomorrowtaskmobmdview',
+                    meta: {
+                        caption: 'task.views.myplanstomorrowtaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'myplanstomorrowtaskmobmdview', parameterName: 'myplanstomorrowtaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-plans-tomorrow-task-mob-mdview/task-my-plans-tomorrow-task-mob-mdview.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/myplanstomorrowtaskmobmdview',
+                    name: 'task_myplanstomorrowtaskmobmdview',
+                    meta: {
+                        caption: 'task.views.myplanstomorrowtaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'myplanstomorrowtaskmobmdview', parameterName: 'myplanstomorrowtaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-plans-tomorrow-task-mob-mdview/task-my-plans-tomorrow-task-mob-mdview.vue'),
+                },
+                {
+                    path: 'tasks/:task?/myplanstomorrowtaskmobmdview',
+                    name: 'task_myplanstomorrowtaskmobmdview',
+                    meta: {
+                        caption: 'task.views.myplanstomorrowtaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'myplanstomorrowtaskmobmdview', parameterName: 'myplanstomorrowtaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-plans-tomorrow-task-mob-mdview/task-my-plans-tomorrow-task-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/newmobeditview',
                     name: 'project_newmobeditview',
                     meta: {
@@ -6415,6 +6579,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-my-territory-mob-dashboard-view/ibz-my-territory-mob-dashboard-view.vue'),
                 },
                 {
+                    path: 'ibzweeklies/:ibzweekly?/mobtabexpview',
+                    name: 'ibzweekly_mobtabexpview',
+                    meta: {
+                        caption: 'ibzweekly.views.mobtabexpview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-weekly-mob-tab-exp-view/ibz-weekly-mob-tab-exp-view.vue'),
+                },
+                {
                     path: 'doclibs/:doclib?/projectdoclibmobtreeview',
                     name: 'doclib_projectdoclibmobtreeview',
                     meta: {
@@ -7453,6 +7631,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/test-suite-mob-edit-view/test-suite-mob-edit-view.vue'),
+                },
+                {
+                    path: 'ibzmonthlies/:ibzmonthly?/maininfomobtabexpview',
+                    name: 'ibzmonthly_maininfomobtabexpview',
+                    meta: {
+                        caption: 'ibzmonthly.views.maininfomobtabexpview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'maininfomobtabexpview', parameterName: 'maininfomobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-main-info-mob-tab-exp-view/ibz-monthly-main-info-mob-tab-exp-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/usr3mobpickupmdview',

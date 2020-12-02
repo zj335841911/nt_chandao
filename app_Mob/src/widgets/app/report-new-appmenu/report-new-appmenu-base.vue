@@ -3,7 +3,7 @@
     <app-mob-menu-ionic-view 
         class="" 
         menuName="reportnew"  
-        counterName=""  
+        counterName="mysubmitreporttcounter"  
         :items="menus" 
         :menuModels="menuMode.getAppFuncs()" 
         @select="select($event)"  
@@ -14,7 +14,7 @@
     <app-mob-menu-list-view 
         class="" 
         menuName="reportnew" 
-        counterName="" 
+        counterName="mysubmitreporttcounter" 
         :items="menus" 
         :menuModels="menuMode.getAppFuncs()" 
         @select="select($event)" 
@@ -25,7 +25,7 @@
     <app-mob-menu-swiper-view 
         class="" 
         menuName="reportnew" 
-        counterName="" 
+        counterName="mysubmitreporttcounter" 
         :items="menus" 
         :menuModels="menuMode.getAppFuncs()" 
         @select="select($event)" 
@@ -36,7 +36,7 @@
     <app-mob-menu-sideslip-view 
         class="" 
         menuName="reportnew" 
-        counterName="" 
+        counterName="mysubmitreporttcounter" 
         :items="menus" 
         :menuModels="menuMode.getAppFuncs()" 
         v-model="defaultActive"
@@ -48,7 +48,7 @@
     <app-mob-menu-default-view 
         class="" 
         menuName="reportnew" 
-        counterName="" 
+        counterName="mysubmitreporttcounter" 
         :items="menus" 
         :menuModels="menuMode.getAppFuncs()" 
         v-model="defaultActive"
@@ -424,6 +424,9 @@ export default class ReportNewBase extends Vue implements ControlInterface {
                 case 'AppFunc5': 
                     this.clickAppFunc5(item);
                     return;
+                case 'AppFunc11': 
+                    this.clickAppFunc11(item);
+                    return;
                 case 'CreateMonthly': 
                     this.clickCreateMonthly(item);
                     return;
@@ -471,6 +474,27 @@ export default class ReportNewBase extends Vue implements ControlInterface {
         const parameters: any[] = [
             { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
             { pathName: 'mymobmdview', parameterName: 'mymobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 汇报（我提交的）
+     *
+     * @param {*} [item={}]
+     * @memberof ReportNew
+     */
+    protected clickAppFunc11(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzreports', parameterName: 'ibzreport' },
+            { pathName: 'mobmdview', parameterName: 'mobmdview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);

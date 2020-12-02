@@ -559,6 +559,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '35bd5c967f7ff8d253e10cf7b12dde28',
+            viewmodule: 'report',
+            viewname: 'IbzReportMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '5cf685aa2765b112906a6b8ed57cdfc1',
+                'b6ecf21481870e7c0b0f9397897bbadb',
+                '7ef67652765553e5d81c39ae576780a8',
+            ],
+        },
+        {
             viewtag: '36115bf8c98ba37034812624719bb492',
             viewmodule: 'ibiz',
             viewname: 'SysUpdateLogMobMDView',
@@ -1741,6 +1753,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b6ecf21481870e7c0b0f9397897bbadb',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyMobTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'df36c08961d3d1737f2f8d55a53fa46c',
+            ],
+        },
+        {
             viewtag: 'b731c5d991dcb4695d925bb8749fa6fc',
             viewmodule: 'zentao',
             viewname: 'DocLibProjectDocLibMobTreeView',
@@ -1996,6 +2018,7 @@ export const viewstate: any = {
                 '899ab4d4cfc33b089a9c4aa5118acbf3',
                 '70d570ae5cafd7af092084e6d0e6b2f7',
                 '053879e9b47bc845598b68abbdbb2e0a',
+                '35bd5c967f7ff8d253e10cf7b12dde28',
                 'd5dfb8e49ac109dec6ea502b80cb4419',
             ],
         },

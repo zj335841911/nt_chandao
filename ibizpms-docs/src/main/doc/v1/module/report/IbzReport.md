@@ -911,7 +911,95 @@ Integer
 
 
 ## 业务状态
+| 序号 | 状态名称 | [类型](#属性-类型（TYPE）)<br>（TYPE） | 默认 |
+| ---- | ---- | ---- | ---- |
+| 1 | [日报](#业务状态-日报（daily）) | daily |  |  | 否 |
+| 2 | [月报](#业务状态-月报（monthly）) | monthly |  |  | 否 |
+| 3 | [周报](#业务状态-周报（weekly）) | weekly |  |  | 否 |
+### 业务状态-日报（daily）
+#### 状态说明
+日报
+
+- 是否是默认状态
+否
+
+- 状态值
+| 属性名 | 状态值 |
+| ---- | ---- |
+| [类型](#属性-类型（TYPE）)<br>（TYPE） | daily |
+
+
+
+- 流程相关状态
 无
+
+#### 实体行为控制
+允许模式：允许
+
+
+#### 操作权限控制
+允许模式：拒绝
+拒绝提示信息：无
+| 序号 | 操作权限 |
+| ---- | ---- |
+| 1 | [周报](#操作权限-周报（WEEKLY）)<br>（WEEKLY） |
+| 2 | [月报](#操作权限-月报（MONTHLY）)<br>（MONTHLY） |
+### 业务状态-月报（monthly）
+#### 状态说明
+月报
+
+- 是否是默认状态
+否
+
+- 状态值
+| 属性名 | 状态值 |
+| ---- | ---- |
+| [类型](#属性-类型（TYPE）)<br>（TYPE） | monthly |
+
+
+
+- 流程相关状态
+无
+
+#### 实体行为控制
+允许模式：允许
+
+
+#### 操作权限控制
+允许模式：拒绝
+拒绝提示信息：无
+| 序号 | 操作权限 |
+| ---- | ---- |
+| 1 | [日报](#操作权限-日报（DAILY）)<br>（DAILY） |
+| 2 | [周报](#操作权限-周报（WEEKLY）)<br>（WEEKLY） |
+### 业务状态-周报（weekly）
+#### 状态说明
+周报
+
+- 是否是默认状态
+否
+
+- 状态值
+| 属性名 | 状态值 |
+| ---- | ---- |
+| [类型](#属性-类型（TYPE）)<br>（TYPE） | weekly |
+
+
+
+- 流程相关状态
+无
+
+#### 实体行为控制
+允许模式：允许
+
+
+#### 操作权限控制
+允许模式：拒绝
+拒绝提示信息：无
+| 序号 | 操作权限 |
+| ---- | ---- |
+| 1 | [日报](#操作权限-日报（DAILY）)<br>（DAILY） |
+| 2 | [月报](#操作权限-月报（MONTHLY）)<br>（MONTHLY） |
 
 ## 实体行为
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
@@ -1063,9 +1151,10 @@ Save
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
 | ---- | ---- | ---- | ---- |
-| 1 | 统计我收到的日报数 | Rawsqlcall1 | 直接SQL调用 |
-| 2 | 统计我收到的月报数 | Rawsqlcall2 | 直接SQL调用 |
-| 3 | 开始 | Begin | 开始 |
+| 1 | 获取未读周报 | Rawsqlcall3 | 直接SQL调用 |
+| 2 | 统计我收到的日报数 | Rawsqlcall1 | 直接SQL调用 |
+| 3 | 统计我收到的月报数 | Rawsqlcall2 | 直接SQL调用 |
+| 4 | 开始 | Begin | 开始 |
 
 ## 实体搜索
 ### 快速搜索项
@@ -1121,9 +1210,9 @@ t1.`TOMORROWPLANSTASK`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`,
-t1.WORKTODAY,
+CONCAT_WS('','今日工作：',case when t1.WORKTODAY is null then '无' else t1.WORKTODAY end) as WORKTODAY,
 t1.`COMMENT`,
-t1.PLANSTOMORROW,
+CONCAT_WS('','明日计划：',case when t1.PLANSTOMORROW is null then '无' else t1.PLANSTOMORROW end) AS PLANSTOMORROW,
 'daily' as type 
 FROM `T_IBZ_DAILY` t1 
 where t1.ISSUBMIT = '1'
@@ -1146,9 +1235,9 @@ t1.`NEXTWEEKTASK` as TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`,
-t1.WORKTHISWEEK as WORKTODAY,
+CONCAT_WS('','本周工作：',case when t1.WORKTHISWEEK is null then '无' else t1.WORKTHISWEEK end)  as WORKTODAY,
 t1.`COMMENT`,
-t1.PLANNEXTWEEK as PLANSTOMORROW,
+CONCAT_WS('','下周计划：',case when t1.PLANNEXTWEEK is null then '无' else t1.PLANNEXTWEEK end) as PLANSTOMORROW,
 'weekly' as type 
 FROM `T_IBZ_WEEKLY` t1 
 where t1.ISSUBMIT = '1'
@@ -1171,9 +1260,9 @@ t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`,
-t1.WORKTHISMONTH as WORKTODAY,
+CONCAT_WS('','本月工作：',case when t1.WORKTHISMONTH is null then '无' else t1.WORKTHISMONTH end)  as WORKTODAY,
 t1.`COMMENT`,
-t1.PLANSNEXTMONTH as PLANSTOMORROW,
+CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' else t1.PLANSNEXTMONTH end) as PLANSTOMORROW,
 'monthly' as type 
 FROM `T_IBZ_MONTHLY` t1
 where t1.ISSUBMIT = '1'
