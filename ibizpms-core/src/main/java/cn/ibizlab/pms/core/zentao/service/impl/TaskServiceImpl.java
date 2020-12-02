@@ -509,6 +509,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     }
 
     /**
+     * 查询集合 我完成的任务（移动端日报）
+     */
+    @Override
+    public Page<Task> searchMyCompleteTaskMobDaily(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyCompleteTaskMobDaily(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 我完成的任务（移动端月报）
      */
     @Override

@@ -8219,17 +8219,18 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 | 8 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 9 | [DefaultRow](#数据集合-DefaultRow（DefaultRow）) | DefaultRow | 否 |
 | 10 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTask）) | MyCompleteTask | 否 |
-| 11 | [我完成的任务（移动端月报）](#数据集合-我完成的任务（移动端月报）（MyCompleteTaskMobMonthly）) | MyCompleteTaskMobMonthly | 否 |
-| 12 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
-| 13 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 14 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
-| 15 | [下周计划完成任务(汇报)](#数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
-| 16 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
-| 17 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
-| 18 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
-| 19 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
-| 20 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
-| 21 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 11 | [我完成的任务（移动端日报）](#数据集合-我完成的任务（移动端日报）（MyCompleteTaskMobDaily）) | MyCompleteTaskMobDaily | 否 |
+| 12 | [我完成的任务（移动端月报）](#数据集合-我完成的任务（移动端月报）（MyCompleteTaskMobMonthly）) | MyCompleteTaskMobMonthly | 否 |
+| 13 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
+| 14 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 15 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
+| 16 | [下周计划完成任务(汇报)](#数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
+| 17 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
+| 18 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
+| 19 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
+| 20 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
+| 21 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
+| 22 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
 
 ### 数据集合-指派给我任务（AssignedToMyTask）
 #### 说明
@@ -8371,6 +8372,20 @@ DefaultRow
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我完成的任务（汇报）（MyCompleteTask）](#数据查询-我完成的任务（汇报）（MyCompleteTask）) |
+### 数据集合-我完成的任务（移动端日报）（MyCompleteTaskMobDaily）
+#### 说明
+我完成的任务（移动端日报）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [已完成任务（移动端）（MyCompleteTaskMob）](#数据查询-已完成任务（移动端）（MyCompleteTaskMob）) |
 ### 数据集合-我完成的任务（移动端月报）（MyCompleteTaskMobMonthly）
 #### 说明
 我完成的任务（移动端月报）
