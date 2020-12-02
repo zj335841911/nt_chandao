@@ -14,5 +14,7 @@ export const UserComponent = {
         v.component('app-update-log-list',() => import('@/ibiz-core/components/app-update-log-list/app-update-log-list.vue'));
         // 文档树
         v.component('app-tree-word',() => import('@/ibiz-core/components/app-tree-word/app-tree-word.vue'));
+        // 汇报列表组件
+        v.component('app-report-list',() => import('@/ibiz-core/components/app-report-list/app-report-list.vue'));
     }
 };
