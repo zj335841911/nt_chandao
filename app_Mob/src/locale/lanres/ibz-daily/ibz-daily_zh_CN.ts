@@ -143,6 +143,10 @@ export default {
 			caption: '编辑',
 			tip: '编辑',
 		},
+		deuiaction1_submitmob: {
+			caption: '提交',
+			tip: '提交',
+		},
 	},
 	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
 	},
