@@ -198,5 +198,14 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
 
         return notaccount;
     }
+
+    public IbzDaily pushUserDaily(IbzDaily et) {
+        List<IbzDaily> list = this.list(new QueryWrapper<IbzDaily>().eq("issubmit", StaticDict.YesNo.ITEM_0.getValue()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = DATE_FORMAT(now(),'%Y-%m-%d')"));
+        for (IbzDaily ibzDaily : list) {
+            actionHelper.sendToread(ibzDaily.getIbzdailyid(), "您的"+ibzDaily.getDate()+"的日报还未提交，请及时填写！", ibzDaily.getAccount(), "", "", IIbzDailyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.DAILY.getValue(), IIbzDailyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
+        }
+
+        return et;
+    }
 }
 
