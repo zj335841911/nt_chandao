@@ -178,7 +178,7 @@ export default class IbzDailyDailyMobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof IbzDailyDailyMobTabExpViewBase
      */
-    protected navParam: any = { 'ibzdailyid': '%ibzdaily%' };
+    protected navParam: any = { 'srfparentkey': '%ibzdailyid%' };
 
     /**
      * 视图模型数据
