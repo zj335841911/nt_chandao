@@ -554,6 +554,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     }
 
     /**
+     * 查询集合 我计划参与的任务（汇报）
+     */
+    @Override
+    public Page<Task> searchMyTomorrowPlanTaskMobDaily(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyTomorrowPlanTaskMobDaily(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 下周计划完成任务(汇报)
      */
     @Override

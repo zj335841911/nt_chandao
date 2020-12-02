@@ -719,6 +719,28 @@ public class SubTaskResource {
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchMyTomorrowPlanTaskMobDaily-all')")
+	@ApiOperation(value = "获取我计划参与的任务（汇报）", tags = {"任务" } ,notes = "获取我计划参与的任务（汇报）")
+    @RequestMapping(method= RequestMethod.GET , value="/subtasks/fetchmytomorrowplantaskmobdaily")
+	public ResponseEntity<List<SubTaskDTO>> fetchMyTomorrowPlanTaskMobDaily(TaskSearchContext context) {
+        Page<Task> domains = taskService.searchMyTomorrowPlanTaskMobDaily(context) ;
+        List<SubTaskDTO> list = subtaskMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchMyTomorrowPlanTaskMobDaily-all')")
+	@ApiOperation(value = "查询我计划参与的任务（汇报）", tags = {"任务" } ,notes = "查询我计划参与的任务（汇报）")
+    @RequestMapping(method= RequestMethod.POST , value="/subtasks/searchmytomorrowplantaskmobdaily")
+	public ResponseEntity<Page<SubTaskDTO>> searchMyTomorrowPlanTaskMobDaily(@RequestBody TaskSearchContext context) {
+        Page<Task> domains = taskService.searchMyTomorrowPlanTaskMobDaily(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTask-all')")
 	@ApiOperation(value = "获取下周计划完成任务(汇报)", tags = {"任务" } ,notes = "获取下周计划完成任务(汇报)")
     @RequestMapping(method= RequestMethod.GET , value="/subtasks/fetchnextweekplancompletetask")
@@ -1573,6 +1595,29 @@ public class SubTaskResource {
 	public ResponseEntity<Page<SubTaskDTO>> searchSubTaskMyTomorrowPlanTaskByTask(@PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
         context.setN_parent_eq(task_id);
         Page<Task> domains = taskService.searchMyTomorrowPlanTask(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchMyTomorrowPlanTaskMobDaily-all')")
+	@ApiOperation(value = "根据任务获取我计划参与的任务（汇报）", tags = {"任务" } ,notes = "根据任务获取我计划参与的任务（汇报）")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/subtasks/fetchmytomorrowplantaskmobdaily")
+	public ResponseEntity<List<SubTaskDTO>> fetchSubTaskMyTomorrowPlanTaskMobDailyByTask(@PathVariable("task_id") Long task_id,TaskSearchContext context) {
+        context.setN_parent_eq(task_id);
+        Page<Task> domains = taskService.searchMyTomorrowPlanTaskMobDaily(context) ;
+        List<SubTaskDTO> list = subtaskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchMyTomorrowPlanTaskMobDaily-all')")
+	@ApiOperation(value = "根据任务查询我计划参与的任务（汇报）", tags = {"任务" } ,notes = "根据任务查询我计划参与的任务（汇报）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/subtasks/searchmytomorrowplantaskmobdaily")
+	public ResponseEntity<Page<SubTaskDTO>> searchSubTaskMyTomorrowPlanTaskMobDailyByTask(@PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+        context.setN_parent_eq(task_id);
+        Page<Task> domains = taskService.searchMyTomorrowPlanTaskMobDaily(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -2439,6 +2484,29 @@ public class SubTaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchMyTomorrowPlanTaskMobDaily-all')")
+	@ApiOperation(value = "根据需求任务获取我计划参与的任务（汇报）", tags = {"任务" } ,notes = "根据需求任务获取我计划参与的任务（汇报）")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/subtasks/fetchmytomorrowplantaskmobdaily")
+	public ResponseEntity<List<SubTaskDTO>> fetchSubTaskMyTomorrowPlanTaskMobDailyByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
+        context.setN_parent_eq(task_id);
+        Page<Task> domains = taskService.searchMyTomorrowPlanTaskMobDaily(context) ;
+        List<SubTaskDTO> list = subtaskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchMyTomorrowPlanTaskMobDaily-all')")
+	@ApiOperation(value = "根据需求任务查询我计划参与的任务（汇报）", tags = {"任务" } ,notes = "根据需求任务查询我计划参与的任务（汇报）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/subtasks/searchmytomorrowplantaskmobdaily")
+	public ResponseEntity<Page<SubTaskDTO>> searchSubTaskMyTomorrowPlanTaskMobDailyByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+        context.setN_parent_eq(task_id);
+        Page<Task> domains = taskService.searchMyTomorrowPlanTaskMobDaily(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTask-all')")
 	@ApiOperation(value = "根据需求任务获取下周计划完成任务(汇报)", tags = {"任务" } ,notes = "根据需求任务获取下周计划完成任务(汇报)")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/subtasks/fetchnextweekplancompletetask")
@@ -3302,6 +3370,29 @@ public class SubTaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchMyTomorrowPlanTaskMobDaily-all')")
+	@ApiOperation(value = "根据项目任务获取我计划参与的任务（汇报）", tags = {"任务" } ,notes = "根据项目任务获取我计划参与的任务（汇报）")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/subtasks/fetchmytomorrowplantaskmobdaily")
+	public ResponseEntity<List<SubTaskDTO>> fetchSubTaskMyTomorrowPlanTaskMobDailyByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
+        context.setN_parent_eq(task_id);
+        Page<Task> domains = taskService.searchMyTomorrowPlanTaskMobDaily(context) ;
+        List<SubTaskDTO> list = subtaskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchMyTomorrowPlanTaskMobDaily-all')")
+	@ApiOperation(value = "根据项目任务查询我计划参与的任务（汇报）", tags = {"任务" } ,notes = "根据项目任务查询我计划参与的任务（汇报）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/subtasks/searchmytomorrowplantaskmobdaily")
+	public ResponseEntity<Page<SubTaskDTO>> searchSubTaskMyTomorrowPlanTaskMobDailyByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+        context.setN_parent_eq(task_id);
+        Page<Task> domains = taskService.searchMyTomorrowPlanTaskMobDaily(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchNextWeekPlanCompleteTask-all')")
 	@ApiOperation(value = "根据项目任务获取下周计划完成任务(汇报)", tags = {"任务" } ,notes = "根据项目任务获取下周计划完成任务(汇报)")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/subtasks/fetchnextweekplancompletetask")
@@ -4162,6 +4253,29 @@ public class SubTaskResource {
 	public ResponseEntity<Page<SubTaskDTO>> searchSubTaskMyTomorrowPlanTaskByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
         context.setN_parent_eq(task_id);
         Page<Task> domains = taskService.searchMyTomorrowPlanTask(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchMyTomorrowPlanTaskMobDaily-all')")
+	@ApiOperation(value = "根据产品需求任务获取我计划参与的任务（汇报）", tags = {"任务" } ,notes = "根据产品需求任务获取我计划参与的任务（汇报）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/fetchmytomorrowplantaskmobdaily")
+	public ResponseEntity<List<SubTaskDTO>> fetchSubTaskMyTomorrowPlanTaskMobDailyByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
+        context.setN_parent_eq(task_id);
+        Page<Task> domains = taskService.searchMyTomorrowPlanTaskMobDaily(context) ;
+        List<SubTaskDTO> list = subtaskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchMyTomorrowPlanTaskMobDaily-all')")
+	@ApiOperation(value = "根据产品需求任务查询我计划参与的任务（汇报）", tags = {"任务" } ,notes = "根据产品需求任务查询我计划参与的任务（汇报）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/searchmytomorrowplantaskmobdaily")
+	public ResponseEntity<Page<SubTaskDTO>> searchSubTaskMyTomorrowPlanTaskMobDailyByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+        context.setN_parent_eq(task_id);
+        Page<Task> domains = taskService.searchMyTomorrowPlanTaskMobDaily(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(subtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
