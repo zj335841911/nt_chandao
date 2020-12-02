@@ -88,6 +88,9 @@ export default {
 		mycompletetaskmobmdview: {
 			caption: '任务',
 		},
+		monthlymycompletetaskmobmdview: {
+			caption: '任务',
+		},
 		editmobeditview: {
 			caption: '任务',
 		},
@@ -514,8 +517,6 @@ export default {
 			tip: '删除',
 		},
 	},
-	mycompletetaskmobmdview1righttoolbar_toolbar: {
-	},
 	myplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
 	},
 	assmobmdview9mdctrl_quicktoolbar_toolbar: {
@@ -525,6 +526,8 @@ export default {
 		},
 	},
 	mycompletetaskmobmdviewrighttoolbar_toolbar: {
+	},
+	mycompletetaskmobmdview1righttoolbar_toolbar: {
 	},
 	assmobmdviewmdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {

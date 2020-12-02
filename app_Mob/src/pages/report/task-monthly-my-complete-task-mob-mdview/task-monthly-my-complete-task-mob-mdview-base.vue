@@ -1,16 +1,7 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'ibz-monthly-monthly-mob-mdview': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'task-monthly-my-complete-task-mob-mdview': true }">
     
     <ion-header>
-        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
-            <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
-            </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-        </ion-toolbar>
         <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="false"></app-search-history>
 
     
@@ -19,7 +10,7 @@
     <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="IbzMonthlyMonthlyMobMDView"  
+            viewName="TaskMonthlyMyCompleteTaskMobMDView"  
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"
@@ -29,7 +20,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchMyMonthly" 
+            fetchAction="FetchMyCompleteTaskMobMonthly" 
             :isMutli="!isSingleSelect"
             :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
@@ -46,11 +37,6 @@
         </view_mdctrl>
     </ion-content>
     <ion-footer class="view-footer">
-                <div v-show="!isChoose" class = "fab_container">
-            <div class="scroll_tool">
-                <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
-            </div>
-        </div>
         
     </ion-footer>
 </ion-page>
@@ -60,48 +46,48 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMonthlyService from '@/app-core/service/ibz-monthly/ibz-monthly-service';
+import TaskService from '@/app-core/service/task/task-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-import IbzMonthlyUIService from '@/ui-service/ibz-monthly/ibz-monthly-ui-action';
+import TaskUIService from '@/ui-service/task/task-ui-action';
 import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
     },
 })
-export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
+export default class TaskMonthlyMyCompleteTaskMobMDViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 实体服务对象
      *
-     * @type {IbzMonthlyService}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @type {TaskService}
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
-    protected appEntityService: IbzMonthlyService = new IbzMonthlyService();
+    protected appEntityService: TaskService = new TaskService();
 
     /**
      * 实体UI服务对象
      *
-     * @type IbzMonthlyUIService
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @type TaskUIService
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
-    public appUIService: IbzMonthlyUIService = new IbzMonthlyUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 数据变化
      *
      * @param {*} val
      * @returns {*}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -112,7 +98,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     @Prop() protected _context!: string;
 
@@ -120,7 +106,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -128,7 +114,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -136,15 +122,15 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof IbzMonthlyMonthlyMobMDViewBase
+	 * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
 	 */
-	protected viewtag: string = 'b6260b6fc6e77dc269f79d39d0b33e25';
+	protected viewtag: string = '2fbad11497e0fa5fbb9e5cc3db6029ff';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected context: any = {};
 
@@ -152,7 +138,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected viewparams: any = {};
 
@@ -160,7 +146,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
@@ -168,14 +154,14 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 是否为门户嵌入视图
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public titleStatus :boolean = true;
 
@@ -184,7 +170,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected navContext: any = {};
 
@@ -193,24 +179,24 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
-    protected navParam: any = { 'n_issubmit_eq': '0' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据
      *
      * @type {*}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected model: any = {
-        srfTitle: '月报移动端多数据视图',
-        srfCaption: 'ibzmonthly.views.monthlymobmdview.caption',
+        srfTitle: '任务移动端多数据视图(我的已完成任务)',
+        srfCaption: 'task.views.monthlymycompletetaskmobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'ibzmonthly.monthlymobmdview',
+        viewname:'task.monthlymycompletetaskmobmdview',
         iconcls: '',
-        icon: ''
+        icon: 'tasks'
     }
 
     /**
@@ -218,7 +204,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  IbzMonthlyMonthlyMobMDViewBase
+     * @memberof  TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -246,7 +232,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -259,18 +245,17 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected containerModel: any = {
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
-        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -279,80 +264,22 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
-
-
-
-   /**
-    * 工具栏 IbzMonthlyMonthlyMobMDView 模型
-    *
-    * @type {*}
-    * @memberof IbzMonthlyMonthlyMobMDView
-    */
-    public righttoolbarModels: any = {
-    };
-
-    /**
-     * 工具栏显示状态
-     *
-     * @type {boolean}
-     * @memberof IbzMonthlyMonthlyMobMDView 
-     */
-    public righttoolbarShowState: boolean = false;
-
-    /**
-     * 工具栏权限
-     *
-     * @type {boolean}
-     * @memberof IbzMonthlyMonthlyMobMDView 
-     */
-    get getToolBarLimit() {
-        let toolBarVisable:boolean = false;
-        if(this.righttoolbarModels){
-            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
-                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
-                    toolBarVisable = true;
-                    return;
-                }
-            })
-        }
-        return toolBarVisable;
-    }
-
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof IbzMonthlyMonthlyMobMDView 
-     */
-    public showGrop = false;
-
-    /**
-     * 工具栏分组是否显示的方法
-     *
-     * @type {boolean}
-     * @memberof IbzMonthlyMonthlyMobMDView 
-     */
-    public popUpGroup (falg:boolean = false) {
-        this.showGrop = falg;
-    }
-
-    
 
 
     /**
      * 工具栏模型集合名
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
-    public toolbarModelList:any = ['righttoolbarModels',]
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -365,7 +292,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -379,14 +306,14 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected engine: MobMDViewEngine = new MobMDViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected engineInit(): void {
         this.engine.init({
@@ -398,8 +325,8 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
             newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
-            keyPSDEField: 'ibzmonthly',
-            majorPSDEField: 'ibzmonthlyname',
+            keyPSDEField: 'task',
+            majorPSDEField: 'name',
             isLoadDefault: true,
         });
     }
@@ -407,7 +334,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected created() {
         this.afterCreated();
@@ -416,7 +343,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -432,7 +359,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -441,10 +368,9 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public activated() {
-        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -453,23 +379,17 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected mounted() {
         this.afterMounted();
     }
 
-    /**
-     * 底部按钮样式
-     * 
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
-     */
-    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -479,14 +399,12 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
         }
         this.thirdPartyInit();
 
-        // 拖动样式
-        AnimationService.draggable(document.getElementById(this.viewtag+'_bottom_button'),(style:any)=>{this.button_style = style});
     }
 
     /**
      * 第三方容器初始化
      * 
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -498,7 +416,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -507,7 +425,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -525,7 +443,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected mdctrl_selectionchange($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'selectionchange', $event);
@@ -536,7 +454,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected mdctrl_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'beforeload', $event);
@@ -547,7 +465,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected mdctrl_rowclick($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'rowclick', $event);
@@ -558,7 +476,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected mdctrl_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
@@ -576,10 +494,52 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * @param {*} [container]
      * @param {string} [srfParentDeName]
      * @returns {Promise<any>}
-     * @memberof IbzMonthlyMonthlyMobMDView
+     * @memberof TaskMonthlyMyCompleteTaskMobMDView
      */
     public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        //this.$notice.warning('未指定关系视图');
+        const params: any = { ...paramJO };
+        let context = { ...this.context, ...contextJO };
+        if (args.length > 0) {
+            Object.assign(context, args[0]);
+        }
+        let response: any = null;
+        let panelNavParam = { } ;
+        let panelNavContext = { } ;
+        //导航参数处理
+        const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        response = await this.globaluiservice.openService.openView(routeParam);
+        if (response) {
+            if (!response || !Object.is(response.ret, 'OK')) {
+                return;
+            }
+            if (!xData || !(xData.refresh instanceof Function)) {
+                return;
+            }
+            xData.refresh(response.datas);
+        }
     }
 
 
@@ -594,7 +554,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * @param {*} [container]
      * @param {string} [srfParentDeName]
      * @returns {Promise<any>}
-     * @memberof IbzMonthlyMonthlyMobMDView
+     * @memberof TaskMonthlyMyCompleteTaskMobMDView
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
@@ -607,10 +567,27 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+
         const parameters: any[] = [
-            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-            { pathName: 'maininfomobtabexpview', parameterName: 'maininfomobtabexpview' },
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);
@@ -630,7 +607,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -654,7 +631,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.$store.state.searchformStatus){
@@ -684,7 +661,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -696,7 +673,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -718,7 +695,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * @param {*} val
      * @param {boolean} isCreate
      * @returns
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
@@ -727,7 +704,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * onScroll滚动事件
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public async onScroll(e:any){
         this.isScrollStop = false;
@@ -757,7 +734,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * onScroll滚动结束事件
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public onScrollEnd(){
         this.isScrollStop = true;
@@ -766,7 +743,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * 返回顶部
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public onScrollToTop() {
         let ionScroll:any = this.$refs.ionScroll;
@@ -778,14 +755,14 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * 是否应该显示返回顶部按钮
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public isShouleBackTop = false;
 
     /**
      * 当前滚动条是否是停止状态
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public isScrollStop = true;
 
@@ -794,7 +771,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 搜索值
      *
      * @type {string}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public query: string = '';
 
@@ -803,7 +780,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      *
      * @param {*} event
      * @returns
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public async quickValueChange(event: any) {
         let { detail } = event;
@@ -823,7 +800,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
 
@@ -831,7 +808,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 能否上拉加载
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */ 
     @Prop({ default: true }) public isEnablePullUp?: boolean;
 
@@ -841,7 +818,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 分类值
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public categoryValue :any = {};
 
@@ -849,14 +826,14 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 排序值
      *
      * @type {boolean}
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public sortValue :any = {};
 
     /**
      * 刷新视图
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public onRefreshView() {
         let mdctrl: any = this.$refs.mdctrl;
@@ -868,10 +845,10 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * 打开搜索表单
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public openSearchform() {
-      let search :any = this.$refs.searchformibzmonthlymonthlymobmdview;
+      let search :any = this.$refs.searchformtaskmonthlymycompletetaskmobmdview;
       if(search){
           search.open();
       }
@@ -880,10 +857,10 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * 关闭搜索表单
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public closeSearchform(){
-      let search :any = this.$refs.searchformibzmonthlymonthlymobmdview;
+      let search :any = this.$refs.searchformtaskmonthlymycompletetaskmobmdview;
       if(search){
           search.close();
       }
@@ -892,7 +869,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * 多选状态改变事件
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public isChooseChange(value:any){
         this.isChoose = value;
@@ -901,13 +878,13 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     /**
      * 多选状态
      *
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public isChoose = false;
 
     /**
      * 取消选择状态
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public cancelSelect() {
         this.isChooseChange(false);
@@ -915,7 +892,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
 
     /**
      * 视图加载（排序|分类）
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public onViewLoad() {
         let value = Object.assign(this.categoryValue,this.sortValue);
@@ -926,7 +903,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
     public onCategory(value:any){
         Object.assign(this.categoryValue,value);
@@ -939,5 +916,5 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './ibz-monthly-monthly-mob-mdview.less';
+@import './task-monthly-my-complete-task-mob-mdview.less';
 </style>

@@ -24,7 +24,7 @@
                             主信息</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
                             
-                            下月计划</ion-segment-button>
+                            下月计划的任务</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>

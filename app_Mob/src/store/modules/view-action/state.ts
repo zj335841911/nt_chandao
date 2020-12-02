@@ -501,6 +501,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '2fbad11497e0fa5fbb9e5cc3db6029ff',
+            viewmodule: 'report',
+            viewname: 'TaskMonthlyMyCompleteTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
             viewtag: '2fc984d9ca86500b55682a3a297f3e97',
             viewmodule: 'zentao',
             viewname: 'TestTaskMobOptionViewClose',
@@ -1255,7 +1265,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e903ad26a5f15974177800895703623c',
-                '9e582670d841ba6cfb310f7e56ab1784',
+                '2fbad11497e0fa5fbb9e5cc3db6029ff',
                 '4b79a827dad435d82d3f9cdaec51f166',
             ],
         },
@@ -1792,6 +1802,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '7ef67652765553e5d81c39ae576780a8',
             ],
         },
         {
