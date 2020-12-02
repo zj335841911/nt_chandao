@@ -847,7 +847,7 @@ export default class MySubmitBase extends Vue implements ControlInterface {
     * @param {object} 
     * @memberof MySubmit
     */
-    public sort: any = { };
+    public sort: any = { sort:'date,desc'};
     
 
     /**
