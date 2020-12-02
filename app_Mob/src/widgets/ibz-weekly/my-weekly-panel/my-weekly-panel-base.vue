@@ -13,7 +13,7 @@
         
         <ion-col v-show="detailsModel.ibz_weeklyname.visible"  :lg="12" :size="24" style="" class="app-layoutpanel-field">
             <div class="item-field ">
-            
+            <ion-label class="item-field-label ">周报名</ion-label>
             <app-mob-span  v-if="data.ibz_weeklyname" :context="context" :value="data.ibz_weeklyname" :itemParam="{}"  ></app-mob-span>
         </div>
         
@@ -40,8 +40,8 @@
         
         <ion-col v-show="detailsModel.reportto.visible"  :lg="8" :size="24" style="" class="app-layoutpanel-field">
             <div class="item-field ">
-            
-            <app-mob-span  v-if="data.reportto" :context="context" :value="data.reportto" :itemParam="{}"  ></app-mob-span>
+            <ion-label class="item-field-label ">汇报给</ion-label>
+            <app-mob-span  v-if="data.reportto" :context="context" :value="data.reportto" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
         </div>
         
         
@@ -322,13 +322,13 @@ export default class MyWeeklyBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         ibz_weeklyid: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'ibz_weeklyid', panel: this, visible: true  })
 , 
-        ibz_weeklyname: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'ibz_weeklyname', panel: this, visible: true  })
+        ibz_weeklyname: new PanelFieldModel({ caption: '周报名', itemType: 'FIELD', name: 'ibz_weeklyname', panel: this, visible: true  })
 , 
         account: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'account', panel: this, visible: true  })
 , 
         date: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'date', panel: this, visible: true  })
 , 
-        reportto: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'reportto', panel: this, visible: true  })
+        reportto: new PanelFieldModel({ caption: '汇报给', itemType: 'FIELD', name: 'reportto', panel: this, visible: true  })
 , 
     };
 
