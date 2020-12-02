@@ -54,7 +54,7 @@ export default class IbzWeeklyUIActionBase extends EntityUIActionBase {
      * 
      * @memberof  IbzWeeklyUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['issubmit'];
 
     /**
      * 主状态集合Map
@@ -101,6 +101,7 @@ export default class IbzWeeklyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzWeeklyUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('ISSUBMIT','ISSUBMIT');
     }
 
     /**
@@ -109,6 +110,7 @@ export default class IbzWeeklyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzWeeklyUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('ISSUBMIT',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__WEEKLY_SUBMIT_BUT':0,}));
     }
 
 

@@ -63,6 +63,11 @@
        }
         ,
        {
+            "unirescode":"WEEKLY_SUBMIT_BUT",
+            "uniresname":"周报已提交"
+       }
+        ,
+       {
             "unirescode":"CASE_CASECOF_BUT",
             "uniresname":"测试用例（用例确认）"
        }
@@ -165,6 +170,11 @@
        {
             "unirescode":"PRODSTA_PROJCRT_BUT",
             "uniresname":"产品统计创建项目"
+       }
+        ,
+       {
+            "unirescode":"WEEKLY_NSUBMIT_BUT",
+            "uniresname":"周报待提交"
        }
         ,
        {

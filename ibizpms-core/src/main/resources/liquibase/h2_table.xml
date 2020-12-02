@@ -1252,7 +1252,7 @@
 
 
     <!--输出实体[IBZ_REPORT]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_report-84-44">
+    <changeSet author="zentao" id="tab-ibz_report-97-44">
         <createTable tableName="t_ibz_daily">
                 <column name="UPDATEDATE" remarks="" type="DATETIME">
                 </column>
@@ -1350,7 +1350,7 @@
 
 
     <!--输出实体[IBZ_WEEKLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_weekly-228-47">
+    <changeSet author="zentao" id="tab-ibz_weekly-235-47">
         <createTable tableName="T_IBZ_WEEKLY">
                 <column name="IBZ_WEEKLYNAME" remarks="" type="VARCHAR(200)">
                 </column>
