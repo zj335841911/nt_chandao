@@ -29,6 +29,9 @@ export default {
 		usr2mobmdview: {
 			caption: '周报',
 		},
+		usr2mobeditview: {
+			caption: '周报',
+		},
 		mobtabexpview: {
 			caption: '周报',
 		},
@@ -85,5 +88,7 @@ export default {
 		},
 	},
 	usr2mobtabexpviewrighttoolbar_toolbar: {
+	},
+	usr2mobeditviewrighttoolbar_toolbar: {
 	},
 };

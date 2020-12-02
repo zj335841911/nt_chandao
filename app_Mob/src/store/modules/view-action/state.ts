@@ -1818,6 +1818,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b6cf4424d051d03f2547d739dac7120d',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyUsr2MobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'b6ecf21481870e7c0b0f9397897bbadb',
             viewmodule: 'report',
             viewname: 'IbzWeeklyMobTabExpView',

@@ -112,6 +112,7 @@ export default class CurProductPlan {
             Object.assign(itemdata,{value:item.id});
             Object.assign(itemdata,{text:item.title});
             Object.assign(itemdata,{label:item.title});
+            Object.assign(itemdata,{icon:''});
             
             _items.push(itemdata);
         });
