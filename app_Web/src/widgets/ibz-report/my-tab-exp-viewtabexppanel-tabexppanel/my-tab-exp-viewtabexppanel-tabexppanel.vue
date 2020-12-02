@@ -4,8 +4,8 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MyTabExpViewtabexppanelTabexppanelBase } from './my-tab-exp-viewtabexppanel-tabexppanel-base';
 import view_tabviewpanel from '@widgets/ibz-report/my-tab-exp-viewtabviewpanel-tabviewpanel/my-tab-exp-viewtabviewpanel-tabviewpanel.vue';
-import view_tabviewpanel3 from '@widgets/ibz-report/my-tab-exp-viewtabviewpanel3-tabviewpanel/my-tab-exp-viewtabviewpanel3-tabviewpanel.vue';
 import view_tabviewpanel2 from '@widgets/ibz-report/my-tab-exp-viewtabviewpanel2-tabviewpanel/my-tab-exp-viewtabviewpanel2-tabviewpanel.vue';
+import view_tabviewpanel3 from '@widgets/ibz-report/my-tab-exp-viewtabviewpanel3-tabviewpanel/my-tab-exp-viewtabviewpanel3-tabviewpanel.vue';
  
 
 /**
@@ -18,8 +18,8 @@ import view_tabviewpanel2 from '@widgets/ibz-report/my-tab-exp-viewtabviewpanel2
 @Component({
     components: {
         view_tabviewpanel,
-        view_tabviewpanel3,
         view_tabviewpanel2,
+        view_tabviewpanel3,
          
     },
 })

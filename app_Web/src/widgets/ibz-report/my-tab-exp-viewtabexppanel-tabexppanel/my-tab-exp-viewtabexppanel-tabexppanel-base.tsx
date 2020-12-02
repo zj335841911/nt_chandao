@@ -93,8 +93,8 @@ export class MyTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBa
      */
     protected isInit: any = {
         tabviewpanel:  true ,
-        tabviewpanel3:  false ,
         tabviewpanel2:  false ,
+        tabviewpanel3:  false ,
     }
 
     /**
@@ -122,7 +122,7 @@ export class MyTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBa
      * @type {*}
      * @memberof MyTabExpViewtabexppanelBase
      */
-    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visible: true,disabled: false},'tabviewpanel3':{resourcetag:null,visible: true,disabled: false},'tabviewpanel2':{resourcetag:null,visible: true,disabled: false}};
+    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visible: true,disabled: false},'tabviewpanel2':{resourcetag:null,visible: true,disabled: false},'tabviewpanel3':{resourcetag:null,visible: true,disabled: false}};
 
     /**
      * 组件创建完毕
