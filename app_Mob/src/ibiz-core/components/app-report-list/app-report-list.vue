@@ -12,7 +12,6 @@
                         <div class="item_content_content">
                             <div class="item_content_content_header">
                                 <div class="relname">{{_item.relname}}</div>
-                                
                                 <div class="submittime">{{_item.submittime}}</div>
                             </div>
                             <div class="item_content_content_text">
@@ -75,7 +74,6 @@ export default class AppReportList extends Vue {
 
     @Watch('items',{immediate: true, deep: true})
     on_items_change(newVal:any,oldVal:any){
-        console.log(newVal);
        this.on_parse_item(newVal).then((res:any)=>{
            this.data = res;
        });
@@ -102,10 +100,15 @@ export default class AppReportList extends Vue {
     }
 
     /**
-     * text
+     * 获取文本
+     *
+     * @returns {void}
+     * @memberof AppReportList
      */
     public getText(str:string) {
-
+        if(!str){
+            return "";
+        }
         str = str.replace(/\<[^>]*\>(([^<])*)/g, function() {
             let mark = "";
             return arguments[1];
@@ -117,7 +120,7 @@ export default class AppReportList extends Vue {
     /**
      * 获取用户真实姓名
      *
-     * @returns {void}
+     * @returns {string}
      * @memberof AppReportList
      */
     public getUserReName(id: string): string {
@@ -128,7 +131,7 @@ export default class AppReportList extends Vue {
     /**
      * 获取用户头像Url
      *
-     * @returns {void}
+     * @returns {string}
      * @memberof AppReportList
      */
     public getUserReIconUrl(id: string): string {
@@ -142,7 +145,7 @@ export default class AppReportList extends Vue {
     /**
      * 日期分组
      *
-     * @returns {void}
+     * @returns {any}
      * @memberof AppReportList
      */
     public parseDataGroup(items:any):any{
