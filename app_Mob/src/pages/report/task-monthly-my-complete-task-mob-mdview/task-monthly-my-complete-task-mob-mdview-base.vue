@@ -181,7 +181,7 @@ export default class TaskMonthlyMyCompleteTaskMobMDViewBase extends Vue {
      * @type {*}
      * @memberof TaskMonthlyMyCompleteTaskMobMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%ibzmonthlyid%' };
 
     /**
      * 视图模型数据

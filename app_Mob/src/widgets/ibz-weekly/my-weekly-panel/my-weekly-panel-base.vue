@@ -23,7 +23,16 @@
         <ion-col v-show="detailsModel.account.visible"  :lg="5" :size="24" style="" class="app-layoutpanel-field">
             <div class="item-field ">
             
-            <app-mob-span  v-if="data.account" :context="context" :value="data.account" :itemParam="{}"  ></app-mob-span>
+            <app-mob-span  v-if="data.account" :context="context" :value="data.account" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
+        </div>
+        
+        
+        </ion-col>
+        
+        <ion-col v-show="detailsModel.reportstatus.visible"  :size="24" style="" class="app-layoutpanel-field">
+            <div class="item-field ">
+            
+            <app-mob-span  v-if="data.reportstatus" :context="context" :value="data.reportstatus" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="ReportStatus"></app-mob-span>
         </div>
         
         
@@ -291,6 +300,7 @@ export default class MyWeeklyBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
    /**
@@ -305,6 +315,8 @@ export default class MyWeeklyBase extends Vue implements ControlInterface {
         ibz_weeklyname: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'ibz_weeklyname', panel: this, visible: true  })
 , 
         account: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'account', panel: this, visible: true  })
+, 
+        reportstatus: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'reportstatus', panel: this, visible: true  })
 , 
     };
 
