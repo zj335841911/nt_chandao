@@ -2,9 +2,11 @@
 import { Component } from 'vue-property-decorator';
 import MyCompleteTaskMobBase from './my-complete-task-mob-mobmdctrl-base.vue';
 
+import layout_mdctrl_itempanel from '@widgets/ibz-daily/mob-panel/mob-panel.vue';
  
 @Component({
     components: {
+        layout_mdctrl_itempanel,
          
     }
 })
