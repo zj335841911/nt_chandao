@@ -10,9 +10,9 @@
     v-show="detailsModel.group1.visible" 
     :uiActionGroup="detailsModel.group1.uiActionGroup" 
     :caption="$t('ibzdaily.dailyinfomob_form.details.group1')" 
-    :isShowCaption="true" 
+    :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -27,18 +27,20 @@
     v-show="detailsModel.ibz_dailyname.visible" 
     :itemRules="this.rules.ibz_dailyname" 
     :caption="$t('ibzdaily.dailyinfomob_form.details.ibz_dailyname')"  
-    :labelWidth="130"  
+    :labelWidth="90"  
     :isShowCaption="true"
     :disabled="detailsModel.ibz_dailyname.disabled"
     :error="detailsModel.ibz_dailyname.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.ibz_dailyname"
-    unit=""
-    :disabled="detailsModel.ibz_dailyname.disabled" 
-    @change="($event)=>this.data.ibz_dailyname = $event" />
+        <app-mob-span  
+    v-if="data.ibz_dailyname"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.ibz_dailyname" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -53,15 +55,15 @@
     v-show="detailsModel.date.visible" 
     :itemRules="this.rules.date" 
     :caption="$t('ibzdaily.dailyinfomob_form.details.date')"  
-    :labelWidth="130"  
+    :labelWidth="90"  
     :isShowCaption="true"
     :disabled="detailsModel.date.disabled"
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-datetime-picker 
+    displayFormat="YYYY-MM-DD"
     class="app-form-item-datetime" 
     :value="data.date" 
-    displayFormat="YYYY-MM-DD HH:mm:ss"
     :disabled="detailsModel.date.disabled"
     @change="($event)=>this.data.date = $event"/>
 </app-form-item>
@@ -78,13 +80,20 @@
     v-show="detailsModel.worktoday.visible" 
     :itemRules="this.rules.worktoday" 
     :caption="$t('ibzdaily.dailyinfomob_form.details.worktoday')"  
-    :labelWidth="130"  
+    :labelWidth="90"  
     :isShowCaption="true"
     :disabled="detailsModel.worktoday.disabled"
     :error="detailsModel.worktoday.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.worktoday" @change="(val) =>{this.data.worktoday =val}" :disabled="detailsModel.worktoday.disabled" :data="JSON.stringify(this.data)"  name="worktoday" :uploadparams='{objecttype:"daily",version:"editor"}' :exportparams='{objecttype:"daily",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
-
+        <app-mob-span  
+    v-if="data.worktoday"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.worktoday" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -99,13 +108,20 @@
     v-show="detailsModel.planstomorrow.visible" 
     :itemRules="this.rules.planstomorrow" 
     :caption="$t('ibzdaily.dailyinfomob_form.details.planstomorrow')"  
-    :labelWidth="130"  
+    :labelWidth="90"  
     :isShowCaption="true"
     :disabled="detailsModel.planstomorrow.disabled"
     :error="detailsModel.planstomorrow.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.planstomorrow" @change="(val) =>{this.data.planstomorrow =val}" :disabled="detailsModel.planstomorrow.disabled" :data="JSON.stringify(this.data)"  name="planstomorrow" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
-
+        <app-mob-span  
+    v-if="data.planstomorrow"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.planstomorrow" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -120,13 +136,20 @@
     v-show="detailsModel.comment.visible" 
     :itemRules="this.rules.comment" 
     :caption="$t('ibzdaily.dailyinfomob_form.details.comment')"  
-    :labelWidth="130"  
+    :labelWidth="90"  
     :isShowCaption="true"
     :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"daily",version:"editor"}' :exportparams='{objecttype:"daily",version:"editor"}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
-
+        <app-mob-span  
+    v-if="data.comment"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.comment" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -141,23 +164,23 @@
     v-show="detailsModel.reportto.visible" 
     :itemRules="this.rules.reportto" 
     :caption="$t('ibzdaily.dailyinfomob_form.details.reportto')"  
-    :labelWidth="130"  
+    :labelWidth="90"  
     :isShowCaption="true"
     :disabled="detailsModel.reportto.disabled"
     :error="detailsModel.reportto.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
+        <app-mob-span  
     codeListType="DYNAMIC" 
+    tag="UserRealName"
     :isCache="false" 
-    :disabled="detailsModel.reportto.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.reportto"  
+    v-if="data.reportto"
     :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.reportto = $event" />
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.reportto" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -172,25 +195,23 @@
     v-show="detailsModel.mailto.visible" 
     :itemRules="this.rules.mailto" 
     :caption="$t('ibzdaily.dailyinfomob_form.details.mailto')"  
-    :labelWidth="130"  
+    :labelWidth="90"  
     :isShowCaption="true"
     :disabled="detailsModel.mailto.disabled"
     :error="detailsModel.mailto.error" 
     :isEmptyCaption="false">
-        <app-mob-check-list 
-    orMode="str"
-    valueSeparator=","
-    textSeparator=","
-    type="dynamic"  
+        <app-mob-span  
+    codeListType="DYNAMIC" 
     tag="UserRealName"
-    :disabled="detailsModel.mailto.disabled" 
+    :isCache="false" 
+    v-if="data.mailto"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.mailto"   
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.mailto = $event"/>
+    :value="data.mailto" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -209,7 +230,7 @@
     :caption="$t('ibzdaily.dailyinfomob_form.details.grouppanel1')" 
     :isShowCaption="true" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -712,7 +733,7 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
      * @memberof DailyInfoMob
      */
     protected detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '日报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'ibzdaily.dailyinfomob_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: '日报基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'ibzdaily.dailyinfomob_form', extractMode: 'ITEM', details: [] } })
 , 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 
@@ -738,7 +759,7 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
 , 
         ibz_dailyname: new FormItemModel({ caption: '日报名称', detailType: 'FORMITEM', name: 'ibz_dailyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         worktoday: new FormItemModel({ caption: '今日工作', detailType: 'FORMITEM', name: 'worktoday', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1821,9 +1842,6 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
      * @memberof DailyInfoMob
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('date')) {
-                this.data['date'] = this.$util.dateFormat(new Date());
-                }
     }
 
         /**
