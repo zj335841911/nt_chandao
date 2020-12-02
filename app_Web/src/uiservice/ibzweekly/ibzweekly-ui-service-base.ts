@@ -266,7 +266,7 @@ export default class IBZWEEKLYUIServiceBase extends UIService {
     }
 
     /**
-     * 新建检查
+     * 新建
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -284,10 +284,7 @@ export default class IBZWEEKLYUIServiceBase extends UIService {
         const _this: any = actionContext;
         Object.assign(params,{actioninfo:"%1$s-%2$s月第%3$s周的周报已存在!"});
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { ibzweekly: '%ibzweekly%' });
-        Object.assign(params, { ibzweeklyid: '%ibzweekly%' });
-        Object.assign(params, { ibzweeklyname: '%ibzweeklyname%' });
+        const actionTarget: string | null = 'NONE';
         if(_this.context){
             parentContext = _this.context;
         }

@@ -128,7 +128,7 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
     public toolBarModels: any = {
         deuiaction1_createeveryweekreport: { name: 'deuiaction1_createeveryweekreport', caption: '生成周报', 'isShowCaption': true, 'isShowIcon': true, tooltip: '生成周报', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__ADMIN', uiaction: { tag: 'createEveryWeekReport', target: 'NONE', class: '' } },
 
-        deuiaction2_jugcreate: { name: 'deuiaction2_jugcreate', caption: '新建检查', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建检查', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'jugCreate', target: 'SINGLEKEY', class: '' } },
+        deuiaction2_jugcreate: { name: 'deuiaction2_jugcreate', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'jugCreate', target: 'NONE', class: '' } },
 
         deuiaction7: { name: 'deuiaction7', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 

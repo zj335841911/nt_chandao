@@ -184,8 +184,8 @@ export default {
 			tip: "生成周报",
 		},
 		deuiaction2_jugcreate: {
-			caption: "新建检查",
-			tip: "新建检查",
+			caption: "新建",
+			tip: "新建",
 		},
 		deuiaction7: {
 			caption: "导出",
