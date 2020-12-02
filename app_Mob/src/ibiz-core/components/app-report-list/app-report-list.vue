@@ -4,7 +4,7 @@
             <div :key="item.date" class="app-report-list-item">
                 <div class="date">{{item.date}}</div>
                 <template v-for="_item in item.items">
-                    <div class="item_content" :key="_item.id">
+                    <div class="item_content" :key="_item.id" @click="onClick">
                         <div class="img">
                             <img  v-if="_item.reliconUrl" :src="_item.reliconUrl" alt="">
                             <ion-icon v-else name="person-outline" ></ion-icon>
@@ -16,8 +16,8 @@
                                 <div class="submittime">{{_item.submittime}}</div>
                             </div>
                             <div class="item_content_content_text">
-                                <div class="worktoday" v-html="_item.worktoday"></div>
-                                <div class="planstomorrow" v-html="_item.planstomorrow"></div>
+                                <div class="worktoday" v-html="_item.worktoday_html"></div>
+                                <div class="planstomorrow" v-html="_item.planstomorrow_html"></div>
                             </div>
                         </div>
                     </div>
@@ -92,11 +92,26 @@ export default class AppReportList extends Vue {
         for (let index = 0; index < items.length; index++) {
             const temp = items[index];
             temp.relname = this.getUserReName(temp.account)
-            temp.reliconUrl = this.getUserReIconUrl(temp.account)
+            temp.reliconUrl = this.getUserReIconUrl(temp.account);
+            temp.worktoday_html = this.getText(temp.worktoday);
+            temp.planstomorrow_html = this.getText(temp.planstomorrow);
             temp_items.push(temp);
         }
         
         return this.parseDataGroup(temp_items);
+    }
+
+    /**
+     * text
+     */
+    public getText(str:string) {
+
+        str = str.replace(/\<[^>]*\>(([^<])*)/g, function() {
+            let mark = "";
+            return arguments[1];
+        });
+        return str.substring(0, str.length);
+
     }
 
     /**
@@ -142,9 +157,19 @@ export default class AppReportList extends Vue {
             }
         }
         temp.sort(function(now:any, next:any) {
-            return new Date(now.date).getTime() - new Date(next.date).getTime() 
+            return  new Date(next.date).getTime() - new Date(now.date).getTime();
         });
         return temp;
+    }
+
+    /**
+     * 点击
+     *
+     * @returns {void}
+     * @memberof AppReportList
+     */
+    public onClick(item:any) {
+        this.$emit("item_click",item);
     }
 
 }
