@@ -180,16 +180,8 @@ export default {
 			tip: "",
 		},
 		deuiaction4: {
-			caption: "导出",
-			tip: "导出",
-		},
-		seperator4: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
-			caption: "过滤",
-			tip: "过滤",
+			caption: "导出数据模型",
+			tip: "导出数据模型",
 		},
 	},
 };
