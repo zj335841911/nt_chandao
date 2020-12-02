@@ -2,11 +2,9 @@
 import { Component } from 'vue-property-decorator';
 import MySubmitBase from './my-submit-mobmdctrl-base.vue';
 
-import layout_mdctrl_itempanel from '@widgets/ibz-report/my-submit-panel/my-submit-panel.vue';
  
 @Component({
     components: {
-        layout_mdctrl_itempanel,
          
     }
 })

@@ -5,7 +5,7 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.editMob.visabled" :disabled="item.editMob.disabled" color="primary" @click="mdctrl_click($event, 'ufd20f37', item)"><ion-icon v-if="item.editMob.icon && item.editMob.isShowIcon" :name="item.editMob.icon"></ion-icon><ion-label v-if="item.editMob.isShowCaption">编辑（移动端）</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobEdit.visabled" :disabled="item.MobEdit.disabled" color="primary" @click="mdctrl_click($event, 'u33edb64', item)"><ion-icon v-if="item.MobEdit.icon && item.MobEdit.isShowIcon" :name="item.MobEdit.icon"></ion-icon><ion-label v-if="item.MobEdit.isShowCaption">编辑</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -20,7 +20,7 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.editMob.visabled" :disabled="item.editMob.disabled" color="primary" @click="mdctrl_click($event, 'ufd20f37', item)"><ion-icon v-if="item.editMob.icon && item.editMob.isShowIcon" :name="item.editMob.icon"></ion-icon><ion-label v-if="item.editMob.isShowCaption">编辑（移动端）</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobEdit.visabled" :disabled="item.MobEdit.disabled" color="primary" @click="mdctrl_click($event, 'u33edb64', item)"><ion-icon v-if="item.MobEdit.icon && item.MobEdit.isShowIcon" :name="item.MobEdit.icon"></ion-icon><ion-label v-if="item.MobEdit.isShowCaption">编辑</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -233,7 +233,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ufd20f37_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u33edb64_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -250,7 +250,7 @@ export default class MobBase extends Vue implements ControlInterface {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('ibzdaily_ui_action');
         if (curUIService) {
-            curUIService.IbzDaily_editMob(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.IbzDaily_MobEdit(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -1046,8 +1046,8 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'ufd20f37')) {
-            this.mdctrl_ufd20f37_click();
+        if (Object.is(tag, 'u33edb64')) {
+            this.mdctrl_u33edb64_click();
         }
         this.closeSlidings();
     }
@@ -1144,7 +1144,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        editMob: { name: 'editMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'edit',isShowCaption:false,isShowIcon:true}
+        MobEdit: { name: 'MobEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT', target: 'SINGLEKEY',icon:'edit',isShowCaption:true,isShowIcon:true}
     };
 
     
