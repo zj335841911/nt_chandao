@@ -43,6 +43,10 @@ export default {
 			caption: "周报",
       		title: "实体2表格视图",
 		},
+		editviewedit: {
+			caption: "周报",
+      		title: "实体2编辑视图",
+		},
 		editviewmainmyweekly: {
 			caption: "周报",
       		title: "实体2编辑视图",
@@ -147,6 +151,16 @@ export default {
 	usr2editviewtoolbar_toolbar: {
 	},
 	editviewtoolbar_toolbar: {
+		deuiaction3_submit: {
+			caption: "提交",
+			tip: "提交",
+		},
+		deuiaction1: {
+			caption: "保存",
+			tip: "保存",
+		},
+	},
+	editviewedittoolbar_toolbar: {
 		deuiaction3_submit: {
 			caption: "提交",
 			tip: "提交",

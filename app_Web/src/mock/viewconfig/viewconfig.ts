@@ -3767,6 +3767,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryProjectEditView",
             "viewtag": "cad4ce05432f03f140d6ee3ad5dfe8c5"
         },
+        "ibzweeklyeditviewedit": {
+            "title": "实体2编辑视图",
+            "caption": "周报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzWeeklyEditViewEdit",
+            "viewtag": "cae188c0626835fabf7a9b27431c9461"
+        },
         "modulepickupview": {
             "title": "模块选择",
             "caption": "模块",

@@ -900,9 +900,10 @@ HH:mm:ss
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [定时生成每周周报](#实体行为-定时生成每周周报（CreateEveryWeekReport）) | createEveryWeekReport | 用户自定义 | 后台及前台 |
 | 8 | [已读](#实体行为-已读（HaveRead）) | haveRead | 用户自定义 | 后台及前台 |
-| 9 | [定时推送待阅提醒用户周报提交](#实体行为-定时推送待阅提醒用户周报提交（PushUserWeekly）) | pushUserWeekly | 用户自定义 | 后台及前台 |
-| 10 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 11 | [提交](#实体行为-提交（Submit）) | submit | 用户自定义 | 后台及前台 |
+| 9 | [判断本周是否创建过周报](#实体行为-判断本周是否创建过周报（JugThisWeekCreateWeekly）) | JugThisWeekCreateWeekly | 用户自定义 | 后台及前台 |
+| 10 | [定时推送待阅提醒用户周报提交](#实体行为-定时推送待阅提醒用户周报提交（PushUserWeekly）) | pushUserWeekly | 用户自定义 | 后台及前台 |
+| 11 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 12 | [提交](#实体行为-提交（Submit）) | submit | 用户自定义 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -995,6 +996,18 @@ CheckKey
 ### 实体行为-已读（HaveRead）
 #### 说明
 已读
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-判断本周是否创建过周报（JugThisWeekCreateWeekly）
+#### 说明
+判断本周是否创建过周报
 
 - 行为类型
 用户自定义

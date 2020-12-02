@@ -186,10 +186,10 @@ export default class IBZWEEKLYUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'ibz-weekly-edit-view', 
+                viewname: 'ibz-weekly-edit-view-edit', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.ibzweekly.views.editview.title'),
+                title: actionContext.$t('entities.ibzweekly.views.editviewedit.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);

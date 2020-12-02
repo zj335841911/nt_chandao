@@ -706,6 +706,7 @@ SRFNAVPARAM.project=%project%|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
 |-|关闭|DEOPTVIEW|&nbsp;|
 |-|需求|DEEDITVIEW|&nbsp;|
+|-|实体2编辑视图|DEEDITVIEW|&nbsp;|
 |-|模块选择|DEPICKUPVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|实体2编辑视图|DEEDITVIEW|&nbsp;|

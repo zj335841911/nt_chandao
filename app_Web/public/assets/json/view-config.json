@@ -4699,6 +4699,16 @@
         "viewtag": "cad4ce05432f03f140d6ee3ad5dfe8c5",
         "memo": ""
     },
+    "ibzweeklyeditviewedit": {
+        "title": "实体2编辑视图",
+        "caption": "周报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzWeeklyEditViewEdit",
+        "viewfilename": "ibz-weekly-edit-view-edit",
+        "viewtag": "cae188c0626835fabf7a9b27431c9461",
+        "memo": ""
+    },
     "modulepickupview": {
         "title": "模块选择",
         "caption": "模块",

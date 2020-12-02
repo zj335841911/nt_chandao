@@ -3560,6 +3560,7 @@ export const viewstate: any = {
             refviews: [
                 '08b9cfa3e53e34fdb6a8533b1ebcc0ff',
                 '7ae5b669ec5f5284763927aee60efde1',
+                'cae188c0626835fabf7a9b27431c9461',
             ],
         },
         {
@@ -4212,6 +4213,15 @@ export const viewstate: any = {
             viewtag: 'cad4ce05432f03f140d6ee3ad5dfe8c5',
             viewmodule: 'zentao',
             viewname: 'StoryProjectEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'cae188c0626835fabf7a9b27431c9461',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyEditViewEdit',
             viewaction: '',
             viewdatachange: false,
             refviews: [
