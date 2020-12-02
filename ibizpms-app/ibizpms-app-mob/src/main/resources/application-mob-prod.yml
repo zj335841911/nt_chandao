@@ -151,6 +151,10 @@ zuul:
       path: /doccontents/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_report:
+      path: /ibzreports/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_productplan:
       path: /productplans/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

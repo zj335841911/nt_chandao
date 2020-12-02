@@ -19,6 +19,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface IbzReportMapper extends BaseMapper<IbzReport> {
 
+    Page<IbzReport> searchAllReport(IPage page, @Param("srf") IbzReportSearchContext context, @Param("ew") Wrapper<IbzReport> wrapper);
     Page<IbzReport> searchDefault(IPage page, @Param("srf") IbzReportSearchContext context, @Param("ew") Wrapper<IbzReport> wrapper);
     @Override
     IbzReport selectById(Serializable id);

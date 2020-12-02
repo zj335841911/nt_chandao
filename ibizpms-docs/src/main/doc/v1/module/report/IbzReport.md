@@ -1086,9 +1086,99 @@ Save
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 1 | [汇报汇总](#数据查询-汇报汇总（AllReport）) | AllReport | 否 |
+| 2 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
+| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
+### 数据查询-汇报汇总（AllReport）
+#### 说明
+汇报汇总
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+select t1.* from (SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+t1.WORKTODAY,
+t1.`COMMENT`,
+t1.PLANSTOMORROW,
+'daily' as type 
+FROM `T_IBZ_DAILY` t1 
+where t1.ISSUBMIT = '1'
+UNION
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_WEEKLYID` as IBZ_DAILYID,
+t1.`IBZ_WEEKLYNAME` as IBZ_DAILYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+t1.`THISWEEKTASK` as TODAYTASK,
+t1.`NEXTWEEKTASK` as TOMORROWPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+t1.WORKTHISWEEK as WORKTODAY,
+t1.`COMMENT`,
+t1.PLANNEXTWEEK as PLANSTOMORROW,
+'weekly' as type 
+FROM `T_IBZ_WEEKLY` t1 
+where t1.ISSUBMIT = '1'
+UNION
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_MONTHLYID` AS IBZ_DAILYID,
+t1.`IBZ_MONTHLYNAME` AS IBZ_DAILYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+t1.`THISMONTHTASK` AS TODAYTASK,
+t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+t1.WORKTHISMONTH as WORKTODAY,
+t1.`COMMENT`,
+t1.PLANSNEXTMONTH as PLANSTOMORROW,
+'monthly' as type 
+FROM `T_IBZ_MONTHLY` t1
+where t1.ISSUBMIT = '1'
+) t1
+```
 ### 数据查询-数据查询（Default）
 #### 说明
 数据查询
@@ -1162,8 +1252,23 @@ FROM `t_ibz_daily` t1
 ## 数据集合
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 1 | [汇报汇总](#数据集合-汇报汇总（AllReport）) | AllReport | 否 |
+| 2 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 
+### 数据集合-汇报汇总（AllReport）
+#### 说明
+汇报汇总
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [汇报汇总（AllReport）](#数据查询-汇报汇总（AllReport）) |
 ### 数据集合-数据集（Default）
 #### 说明
 数据集

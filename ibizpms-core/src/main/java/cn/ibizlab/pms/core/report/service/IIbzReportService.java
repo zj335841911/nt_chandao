@@ -48,6 +48,7 @@ public interface IIbzReportService extends IService<IbzReport> {
     IbzReport reportIReceived(IbzReport et);
     boolean save(IbzReport et);
     void saveBatch(List<IbzReport> list);
+    Page<IbzReport> searchAllReport(IbzReportSearchContext context);
     Page<IbzReport> searchDefault(IbzReportSearchContext context);
     /**
      * 自定义查询SQL
