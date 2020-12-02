@@ -50,6 +50,7 @@ public interface IIbzReportService extends IService<IbzReport> {
     void saveBatch(List<IbzReport> list);
     Page<IbzReport> searchAllReport(IbzReportSearchContext context);
     Page<IbzReport> searchDefault(IbzReportSearchContext context);
+    Page<IbzReport> searchMyReAllReport(IbzReportSearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

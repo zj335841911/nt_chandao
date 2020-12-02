@@ -202,6 +202,28 @@ public class IbzReportResource {
                 .body(new PageImpl(ibzreportMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReport-searchMyReAllReport-all') and hasPermission(#context,'pms-IbzReport-Get')")
+	@ApiOperation(value = "获取汇报汇总（我收到的）", tags = {"汇报" } ,notes = "获取汇报汇总（我收到的）")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzreports/fetchmyreallreport")
+	public ResponseEntity<List<IbzReportDTO>> fetchMyReAllReport(IbzReportSearchContext context) {
+        Page<IbzReport> domains = ibzreportService.searchMyReAllReport(context) ;
+        List<IbzReportDTO> list = ibzreportMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReport-searchMyReAllReport-all') and hasPermission(#context,'pms-IbzReport-Get')")
+	@ApiOperation(value = "查询汇报汇总（我收到的）", tags = {"汇报" } ,notes = "查询汇报汇总（我收到的）")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzreports/searchmyreallreport")
+	public ResponseEntity<Page<IbzReportDTO>> searchMyReAllReport(@RequestBody IbzReportSearchContext context) {
+        Page<IbzReport> domains = ibzreportService.searchMyReAllReport(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzreportMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

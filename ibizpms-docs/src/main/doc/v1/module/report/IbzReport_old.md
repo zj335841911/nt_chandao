@@ -135,6 +135,7 @@ hide footbox
 | --------  | --------   | --------   | ----- |
 |AllReport|汇报汇总([MYSQL5](../../appendix/query_MYSQL5.md#IbzReport_AllReport))|否|&nbsp;|
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IbzReport_Default))|否|&nbsp;|
+|MyReAllReport|汇报汇总（我收到的）([MYSQL5](../../appendix/query_MYSQL5.md#IbzReport_MyReAllReport))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzReport_View))|否|&nbsp;|
 
 * **数据集合**
@@ -143,6 +144,7 @@ hide footbox
 | --------  | --------   | -------- | --------   | ----- |
 |AllReport|汇报汇总|AllReport|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
+|MyReAllReport|汇报汇总（我收到的）|MyReAllReport|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

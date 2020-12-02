@@ -192,6 +192,15 @@ public class IbzReportServiceImpl extends ServiceImpl<IbzReportMapper, IbzReport
         return new PageImpl<IbzReport>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 汇报汇总（我收到的）
+     */
+    @Override
+    public Page<IbzReport> searchMyReAllReport(IbzReportSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzReport> pages=baseMapper.searchMyReAllReport(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzReport>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

@@ -256,4 +256,33 @@ export default class IbzReportServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/ibzreports/searchdefault`,tempData,isloading);
     }
+
+    /**
+     * FetchMyReAllReport接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzReportServiceBase
+     */
+    public async FetchMyReAllReport(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzreports/fetchmyreallreport`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchMyReAllReport接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzReportServiceBase
+     */
+    public async searchMyReAllReport(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzreports/searchmyreallreport`,tempData,isloading);
+    }
 }

@@ -157,15 +157,11 @@ export default {
 			tip: "提交",
 		},
 		deuiaction1: {
-			caption: "保存",
-			tip: "保存",
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 	mainmonthlygridviewtoolbar_toolbar: {
-		deuiaction1_createusermonthly: {
-			caption: "生成月报",
-			tip: "生成月报",
-		},
 		deuiaction2_create: {
 			caption: "新建",
 			tip: "新建",

@@ -1215,7 +1215,8 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [汇报汇总](#数据查询-汇报汇总（AllReport）) | AllReport | 否 |
 | 2 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [汇报汇总（我收到的）](#数据查询-汇报汇总（我收到的）（MyReAllReport）) | MyReAllReport | 否 |
+| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-汇报汇总（AllReport）
 #### 说明
@@ -1240,7 +1241,7 @@ t1.`IBZ_DAILYID`,
 t1.`IBZ_DAILYNAME`,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
-t1.`REPORTSTATUS`,
+'1' as `REPORTSTATUS`,
 t1.`REPORTTO`,
 DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
 t1.`TODAYTASK`,
@@ -1265,7 +1266,7 @@ t1.`IBZ_WEEKLYID` as IBZ_DAILYID,
 t1.`IBZ_WEEKLYNAME` as IBZ_DAILYNAME,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
-t1.`REPORTSTATUS`,
+'1' as `REPORTSTATUS`,
 t1.`REPORTTO`,
 DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
 t1.`THISWEEKTASK` as TODAYTASK,
@@ -1290,7 +1291,7 @@ t1.`IBZ_MONTHLYID` AS IBZ_DAILYID,
 t1.`IBZ_MONTHLYNAME` AS IBZ_DAILYNAME,
 t1.`ISSUBMIT`,
 t1.`MAILTO`,
-t1.`REPORTSTATUS`,
+'1' as `REPORTSTATUS`,
 t1.`REPORTTO`,
 DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
 t1.`THISMONTHTASK` AS TODAYTASK,
@@ -1339,6 +1340,95 @@ t1.`UPDATEMANNAME`
 FROM `t_ibz_daily` t1 
 
 ```
+### 数据查询-汇报汇总（我收到的）（MyReAllReport）
+#### 说明
+汇报汇总（我收到的）
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+select t1.* from (SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','今日工作：',case when t1.WORKTODAY is null then '无' else t1.WORKTODAY end) as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','明日计划：',case when t1.PLANSTOMORROW is null then '无' else t1.PLANSTOMORROW end) AS PLANSTOMORROW,
+'daily' as type 
+FROM `T_IBZ_DAILY` t1 
+where t1.ISSUBMIT = '1'
+UNION
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_WEEKLYID` as IBZ_DAILYID,
+t1.`IBZ_WEEKLYNAME` as IBZ_DAILYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+t1.`THISWEEKTASK` as TODAYTASK,
+t1.`NEXTWEEKTASK` as TOMORROWPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','本周工作：',case when t1.WORKTHISWEEK is null then '无' else t1.WORKTHISWEEK end)  as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','下周计划：',case when t1.PLANNEXTWEEK is null then '无' else t1.PLANNEXTWEEK end) as PLANSTOMORROW,
+'weekly' as type 
+FROM `T_IBZ_WEEKLY` t1 
+where t1.ISSUBMIT = '1'
+UNION
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_MONTHLYID` AS IBZ_DAILYID,
+t1.`IBZ_MONTHLYNAME` AS IBZ_DAILYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+t1.`THISMONTHTASK` AS TODAYTASK,
+t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','本月工作：',case when t1.WORKTHISMONTH is null then '无' else t1.WORKTHISMONTH end)  as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' else t1.PLANSNEXTMONTH end) as PLANSTOMORROW,
+'monthly' as type 
+FROM `T_IBZ_MONTHLY` t1
+where t1.ISSUBMIT = '1'
+) t1
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -1381,6 +1471,7 @@ FROM `t_ibz_daily` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [汇报汇总](#数据集合-汇报汇总（AllReport）) | AllReport | 否 |
 | 2 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 3 | [汇报汇总（我收到的）](#数据集合-汇报汇总（我收到的）（MyReAllReport）) | MyReAllReport | 否 |
 
 ### 数据集合-汇报汇总（AllReport）
 #### 说明
@@ -1410,6 +1501,20 @@ FROM `t_ibz_daily` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（Default）](#数据查询-数据查询（Default）) |
+### 数据集合-汇报汇总（我收到的）（MyReAllReport）
+#### 说明
+汇报汇总（我收到的）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [汇报汇总（我收到的）（MyReAllReport）](#数据查询-汇报汇总（我收到的）（MyReAllReport）) |
 
 ## 数据导入
 无
