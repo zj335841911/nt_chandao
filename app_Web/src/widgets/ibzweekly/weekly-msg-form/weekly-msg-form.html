@@ -233,19 +233,10 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     labelPos="LEFT"
 >
     
-<dropdown-list-mpicker 
-  v-model="data.mailto"
-  :data="data" 
-  :context="context"
-  :viewparams="viewparams" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.mailto.disabled"
-  tag='UserRealName' 
-  codelistType='DYNAMIC' 
-  valueSeparator=","
-  placeholder='请选择...' style="">
-</dropdown-list-mpicker>
+<app-span name='mailto' :value="data.mailto" dataType="SMCODELIST"     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
 </app-form-item>
 
