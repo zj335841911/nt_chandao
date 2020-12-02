@@ -58,6 +58,11 @@
        }
         ,
        {
+            "unirescode":"DAILY_SUBMIT_BUT",
+            "uniresname":"日报提交"
+       }
+        ,
+       {
             "unirescode":"REPORT_EDIT_BUT",
             "uniresname":"测试报告编辑"
        }

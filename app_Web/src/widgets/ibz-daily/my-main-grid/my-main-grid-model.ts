@@ -62,6 +62,9 @@ export default class MyMainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'ibzdailyname',
           dataType: 'TEXT',

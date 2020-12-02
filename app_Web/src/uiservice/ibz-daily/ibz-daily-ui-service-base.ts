@@ -25,7 +25,7 @@ export default class IbzDailyUIServiceBase extends UIService {
      * 
      * @memberof  IbzDailyUIServiceBase
      */
-    public isEnableDEMainState:boolean = false;
+    public isEnableDEMainState:boolean = true;
 
     /**
      * 当前UI服务对应的数据服务对象
@@ -60,7 +60,7 @@ export default class IbzDailyUIServiceBase extends UIService {
      * 
      * @memberof  IbzDailyUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['issubmit'];
 
     /**
      * 主状态集合Map
@@ -104,6 +104,8 @@ export default class IbzDailyUIServiceBase extends UIService {
      * @memberof  IbzDailyUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('1','1');
+        this.allDeMainStateMap.set('0','0');
     }
 
     /**
@@ -112,6 +114,8 @@ export default class IbzDailyUIServiceBase extends UIService {
      * @memberof  IbzDailyUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DAILY_SUBMIT_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
     }
 
     /**

@@ -57,6 +57,9 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'ibzdailyname',
           dataType: 'TEXT',
