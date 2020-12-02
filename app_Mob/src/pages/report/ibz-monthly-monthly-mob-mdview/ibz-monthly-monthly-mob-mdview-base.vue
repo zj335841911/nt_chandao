@@ -50,6 +50,16 @@
             <div class="scroll_tool">
                 <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
             </div>
+            <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+                    <ion-icon name="plus"></ion-icon>
+                
+                </ion-button>
+                
+            </div>
+        
+            </div>
         </div>
         
     </ion-footer>
@@ -293,6 +303,8 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
     * @memberof IbzMonthlyMonthlyMobMDView
     */
     public righttoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MobCreate', target: 'NONE' } },
+
     };
 
     /**
@@ -565,6 +577,51 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.righttoolbar_deuiaction1_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyMonthlyMobMDViewBase
+     */
+    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.mdctrl;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzmonthly_ui_action');
+        if (curUIService) {
+            curUIService.IbzMonthly_MobCreate(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 打开新建数据视图

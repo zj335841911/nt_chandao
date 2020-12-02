@@ -3810,6 +3810,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-favorite-more-mob-mdview/story-favorite-more-mob-mdview.vue'),
                 },
                 {
+                    path: 'ibzmonthlies/:ibzmonthly?/createmobeditview',
+                    name: 'ibzmonthly_createmobeditview',
+                    meta: {
+                        caption: 'ibzmonthly.views.createmobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'createmobeditview', parameterName: 'createmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-create-mob-edit-view/ibz-monthly-create-mob-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobeditview9',
                     name: 'ibztaskteam_mobeditview9',
                     meta: {

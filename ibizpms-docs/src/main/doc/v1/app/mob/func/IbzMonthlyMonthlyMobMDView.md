@@ -31,14 +31,34 @@ part [shape=none, margin=0, label=<
 </TR>
 <TR>
 <TD BORDER="0" COLSPAN="4" CELLPADDING="10">
+新建<BR/>
 <BR/></TD>
 </TR>
 </TABLE>
 >];
 
 
+MobCreate [shape=none, margin=0, label=<
+<TABLE WIDTH="150" BORDER="1" CELLBORDER="1" >
+<TR>
+<TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
+</TR>
+<TR>
+<TD BORDER="0" COLSPAN="4" CELLPADDING="10">新建<BR/><BR/></TD>
+</TR>
+</TABLE>
+>];
+
+
+
 start -> own ;
 own -> part [style=dashed,arrowhead=diamond,label="<包含>"] ;
+
+
+part -> MobCreate [style=dashed,label=<新建<BR/>(迁移/popup)>];
+
+MobCreate -> end ;
+
 
 
 }

@@ -105,5 +105,9 @@ export default {
 	createmobeditviewrighttoolbar_toolbar: {
 	},
 	monthlymobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: 'deuiaction1',
+		},
 	},
 };
