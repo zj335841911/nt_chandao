@@ -8123,6 +8123,31 @@ t1.`UPDATEMANNAME`
 FROM `T_IBZ_WEEKLY` t1 
 
 ```
+### 我的周报(MyNotSubmit)<div id="IbzWeekly_MyNotSubmit"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_WEEKLYID`,
+t1.`IBZ_WEEKLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`NEXTWEEKTASK`,
+CONCAT_WS('','下周计划：',case when t1.PLANNEXTWEEK is null then '无' else t1.PLANNEXTWEEK end) AS `PLANNEXTWEEK`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.`SUBMITTIME`,
+t1.`THISWEEKTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','本周工作：',case when t1.WORKTHISWEEK is null then '无' else t1.WORKTHISWEEK end)  as WORKTHISWEEK
+FROM `T_IBZ_WEEKLY` t1
+```
 ### 我收到的周报(MyWeekly)<div id="IbzWeekly_MyWeekly"></div>
 ```sql
 SELECT

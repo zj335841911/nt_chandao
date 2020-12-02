@@ -1067,7 +1067,7 @@
 
 
     <!--输出实体[IBZ_DAILY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_daily-329-35">
+    <changeSet author="zentao" id="tab-ibz_daily-334-35">
         <createTable tableName="T_IBZ_DAILY">
                 <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
                 </column>
@@ -1191,7 +1191,7 @@
 
 
     <!--输出实体[IBZ_MONTHLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_monthly-274-41">
+    <changeSet author="zentao" id="tab-ibz_monthly-275-41">
         <createTable tableName="T_IBZ_MONTHLY">
                 <column name="IBZ_MONTHLYID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_MONTHLY_IBZ_MONTHLYID"/>
@@ -1252,7 +1252,7 @@
 
 
     <!--输出实体[IBZ_REPORT]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_report-119-44">
+    <changeSet author="zentao" id="tab-ibz_report-121-44">
         <createTable tableName="t_ibz_daily">
                 <column name="UPDATEDATE" remarks="" type="DATETIME">
                 </column>
@@ -1350,7 +1350,7 @@
 
 
     <!--输出实体[IBZ_WEEKLY]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_weekly-322-47">
+    <changeSet author="zentao" id="tab-ibz_weekly-329-47">
         <createTable tableName="T_IBZ_WEEKLY">
                 <column name="IBZ_WEEKLYNAME" remarks="" type="VARCHAR(200)">
                 </column>
