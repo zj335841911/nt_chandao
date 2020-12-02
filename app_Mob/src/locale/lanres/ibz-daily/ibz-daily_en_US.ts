@@ -120,12 +120,6 @@ export default {
 		uiactions: {
 		},
 	},
-	dailymobeditviewtoolbar_toolbar: {
-		tbitem1: {
-			caption: 'Save And Close',
-			tip: 'tbitem1',
-		},
-	},
 	mymobmdviewrighttoolbar_toolbar: {
 		deuiaction1_mobcreate: {
 			caption: '新建',

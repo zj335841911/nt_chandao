@@ -15,7 +15,12 @@ export class MyMonthlyModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'plansnextmonth',
+				name: 'planstomorrow',
+				prop: 'plansnextmonth',
+				dataType: 'HTMLTEXT',
+			},
+			{
+				name: 'submittime',
 			},
 			{
 				name: 'date',
@@ -24,7 +29,12 @@ export class MyMonthlyModel {
 				name: 'account',
 			},
 			{
-				name: 'workthismonth',
+				name: 'worktoday',
+				prop: 'workthismonth',
+				dataType: 'HTMLTEXT',
+			},
+			{
+				name: 'reportstatus',
 			},
 			{
 				name: 'ibz_monthlyname',

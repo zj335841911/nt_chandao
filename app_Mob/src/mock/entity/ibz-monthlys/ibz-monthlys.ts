@@ -511,6 +511,50 @@ mock.onGet(new RegExp(/^\/ibzmonthlies\/fetchmymonthly(\?[\w-./?%&=,]*)*$/)).rep
     return [status, records ?  records : []];
 });
     
+// FetchMyNotSubmit
+mock.onGet(new RegExp(/^\/ibzmonthlies\/fetchmynotsubmit$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzmonthly 方法: FetchMyNotSubmit");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchMyNotSubmit
+mock.onGet(new RegExp(/^\/ibzmonthlies\/fetchmynotsubmit(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzmonthly 方法: FetchMyNotSubmit");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchMyReceivedMonthly
 mock.onGet(new RegExp(/^\/ibzmonthlies\/fetchmyreceivedmonthly$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzmonthly 方法: FetchMyReceivedMonthly");
