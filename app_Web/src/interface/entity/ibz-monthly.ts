@@ -165,4 +165,12 @@ export interface IbzMonthly {
      * @memberof IbzMonthly
      */
     createmanname?: any;
+
+    /**
+     * 提交时间
+     *
+     * @returns {*}
+     * @memberof IbzMonthly
+     */
+    submittime?: any;
 }
