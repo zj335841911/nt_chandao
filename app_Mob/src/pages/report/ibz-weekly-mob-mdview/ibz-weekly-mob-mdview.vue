@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import IbzWeeklyMobMDViewBase from './ibz-weekly-mob-mdview-base.vue';
 
-import view_mdctrl from '@widgets/ibz-weekly/mob-mobmdctrl/mob-mobmdctrl.vue';
+import view_mdctrl from '@widgets/ibz-weekly/weekly-my-recevied-mobmdctrl/weekly-my-recevied-mobmdctrl.vue';
 @Component({
     components: {
         view_mdctrl, 
