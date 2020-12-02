@@ -4,8 +4,8 @@
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="start">
-                            <ion-item-option v-show="item.mobEdit1.visabled" :disabled="item.mobEdit1.disabled"  color="primary" @click="mdctrl_click($event, 'uc5644e8', item)"><ion-icon v-if="item.mobEdit1.icon && item.mobEdit1.isShowIcon" :name="item.mobEdit1.icon"></ion-icon><ion-label v-if="item.mobEdit1.isShowCaption">编辑</ion-label></ion-item-option>
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.mobEdit1.visabled" :disabled="item.mobEdit1.disabled" color="primary" @click="mdctrl_click($event, 'uc5644e8', item)"><ion-icon v-if="item.mobEdit1.icon && item.mobEdit1.isShowIcon" :name="item.mobEdit1.icon"></ion-icon><ion-label v-if="item.mobEdit1.isShowCaption">编辑</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -19,8 +19,8 @@
             <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="start">
-                            <ion-item-option v-show="item.mobEdit1.visabled" :disabled="item.mobEdit1.disabled"  color="primary" @click="mdctrl_click($event, 'uc5644e8', item)"><ion-icon v-if="item.mobEdit1.icon && item.mobEdit1.isShowIcon" :name="item.mobEdit1.icon"></ion-icon><ion-label v-if="item.mobEdit1.isShowCaption">编辑</ion-label></ion-item-option>
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.mobEdit1.visabled" :disabled="item.mobEdit1.disabled" color="primary" @click="mdctrl_click($event, 'uc5644e8', item)"><ion-icon v-if="item.mobEdit1.icon && item.mobEdit1.isShowIcon" :name="item.mobEdit1.icon"></ion-icon><ion-label v-if="item.mobEdit1.isShowCaption">编辑</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -1144,7 +1144,7 @@ export default class MyWeeklyBase extends Vue implements ControlInterface {
      * @memberof MyWeeklyBase
      */  
     public ActionModel:any ={
-        mobEdit1: { name: 'mobEdit1',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'edit',}
+        mobEdit1: { name: 'mobEdit1',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'edit',isShowCaption:false,isShowIcon:true}
     };
 
     
