@@ -99,6 +99,7 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
+			account: '', 
 			ibz_dailyname: '日报名称', 
 			date: '日期', 
 			worktoday: '今日工作', 
@@ -108,7 +109,6 @@ export default {
 			mailto: '抄送给', 
 			ibz_dailyid: '日报标识', 
 			todaytask: '完成任务', 
-			account: '用户', 
 			issubmit: '是否提交', 
 		},
 		uiactions: {

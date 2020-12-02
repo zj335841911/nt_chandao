@@ -18,28 +18,31 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='ibz_dailyname' 
+    name='account' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
-    ref="ibz_dailyname_item"  
-    :itemValue="this.data.ibz_dailyname" 
-    v-show="detailsModel.ibz_dailyname.visible" 
-    :itemRules="this.rules.ibz_dailyname" 
-    :caption="$t('ibzdaily.dailyinfomob_form.details.ibz_dailyname')"  
-    :labelWidth="90"  
-    :isShowCaption="true"
-    :disabled="detailsModel.ibz_dailyname.disabled"
-    :error="detailsModel.ibz_dailyname.error" 
-    :isEmptyCaption="false">
+    labelPos="NONE" 
+    ref="account_item"  
+    :itemValue="this.data.account" 
+    v-show="detailsModel.account.visible" 
+    :itemRules="this.rules.account" 
+    :caption="$t('ibzdaily.dailyinfomob_form.details.account')"  
+    :labelWidth="0"  
+    :isShowCaption="false"
+    :disabled="detailsModel.account.disabled"
+    :error="detailsModel.account.error" 
+    :isEmptyCaption="true">
         <app-mob-span  
-    v-if="data.ibz_dailyname"
+    codeListType="DYNAMIC" 
+    tag="UserRealName"
+    :isCache="false" 
+    v-if="data.account"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.ibz_dailyname" 
+    :value="data.account" 
     :itemParam="{}"/>
 </app-form-item>
 
@@ -617,6 +620,7 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        account: null,
         ibz_dailyname: null,
         date: null,
         worktoday: null,
@@ -626,7 +630,6 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
         mailto: null,
         ibz_dailyid: null,
         todaytask: null,
-        account: null,
         issubmit: null,
         ibzdaily: null,
     };
@@ -787,6 +790,8 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        account: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
+, 
         ibz_dailyname: new FormItemModel({ caption: '日报名称', detailType: 'FORMITEM', name: 'ibz_dailyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -804,8 +809,6 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
         ibz_dailyid: new FormItemModel({ caption: '日报标识', detailType: 'FORMITEM', name: 'ibz_dailyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         todaytask: new FormItemModel({ caption: '完成任务', detailType: 'FORMITEM', name: 'todaytask', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        account: new FormItemModel({ caption: '用户', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         issubmit: new FormItemModel({ caption: '是否提交', detailType: 'FORMITEM', name: 'issubmit', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -905,6 +908,18 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'srfsourcekey', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 account 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof DailyInfoMob
+     */
+    @Watch('data.account')
+    onAccountChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'account', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1013,18 +1028,6 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
     @Watch('data.todaytask')
     onTodaytaskChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'todaytask', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 account 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof DailyInfoMob
-     */
-    @Watch('data.account')
-    onAccountChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'account', newVal: newVal, oldVal: oldVal });
     }
 
     /**

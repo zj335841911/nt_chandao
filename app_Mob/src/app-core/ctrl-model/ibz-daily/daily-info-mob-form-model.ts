@@ -51,6 +51,11 @@ export class DailyInfoMobModel {
                 name: 'srfsourcekey',
             },
             {
+                name: 'account',
+                prop: 'account',
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'ibz_dailyname',
                 prop: 'ibzdailyname',
                 dataType: 'TEXT',
@@ -94,11 +99,6 @@ export class DailyInfoMobModel {
                 name: 'todaytask',
                 prop: 'todaytask',
                 dataType: 'SMCODELIST',
-            },
-            {
-                name: 'account',
-                prop: 'account',
-                dataType: 'SSCODELIST',
             },
             {
                 name: 'issubmit',
