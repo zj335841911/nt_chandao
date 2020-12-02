@@ -178,7 +178,7 @@ export default class IbzMonthlyMainInfoMobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof IbzMonthlyMainInfoMobTabExpViewBase
      */
-    protected navContext: any = { 'srfparentkey': '%ibzmonthlyid%' };
+    protected navContext: any = {};
 
     /**
      * 视图导航参数
