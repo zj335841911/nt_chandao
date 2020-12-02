@@ -21,7 +21,7 @@
     name='ibz_dailyname' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="ibz_dailyname_item"  
     :itemValue="this.data.ibz_dailyname" 
     v-show="detailsModel.ibz_dailyname.visible" 
@@ -49,7 +49,7 @@
     name='date' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="date_item"  
     :itemValue="this.data.date" 
     v-show="detailsModel.date.visible" 
@@ -137,7 +137,7 @@
     name='reportto' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="reportto_item"  
     :itemValue="this.data.reportto" 
     v-show="detailsModel.reportto.visible" 
@@ -168,7 +168,7 @@
     name='mailto' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="mailto_item"  
     :itemValue="this.data.mailto" 
     v-show="detailsModel.mailto.visible" 
