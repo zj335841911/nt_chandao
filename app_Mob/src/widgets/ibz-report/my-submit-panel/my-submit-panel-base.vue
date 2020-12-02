@@ -6,7 +6,7 @@
                 <ion-col v-show="detailsModel.container1.visible"  :size="12" style="" class="app-layoutpanel-container">
                     <ion-row style="height:100%;">
                         
-                        <ion-col v-show="detailsModel.account.visible"  :lg="6" :size="12" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.account.visible"  :lg="5" :size="12" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
                             <app-mob-span  v-if="data.account" :context="context" :value="data.account" :itemParam="{}"   :isCache="false" codeListType="DYNAMIC" tag="UserRealName"></app-mob-span>
