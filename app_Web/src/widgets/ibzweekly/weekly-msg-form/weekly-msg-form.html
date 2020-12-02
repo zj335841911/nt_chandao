@@ -1,6 +1,6 @@
 <i-form
     :model="this.data"
-    class="app-form"
+    class="app-form info-form-mode"
     ref="form"
     id="ibzweekly_weeklymsg"
     style=""
@@ -28,7 +28,7 @@
     :isShowCaption="false"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -61,14 +61,11 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <input-box 
-    v-model="data.ibz_weeklyname"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.ibz_weeklyname.disabled" 
-    type='text' 
-    style="">
-</input-box>
+    
+<app-span name='ibz_weeklyname' :value="data.ibz_weeklyname" dataType="TEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
 </app-form-item>
 
@@ -95,7 +92,11 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
+    
+<app-span name='date' :value="data.date" dataType="DATE" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
 </app-form-item>
 
@@ -201,21 +202,11 @@
     labelPos="LEFT"
 >
     
-<dropdown-list 
-    v-model="data.reportto"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext='{ }' 
-    :localParam='{ }' 
-    :disabled="detailsModel.reportto.disabled"
-    valueType="string"
-    tag="UserRealName"
-    codelistType="DYNAMIC"
-    placeholder="请选择..."
+<app-span name='reportto' :value="data.reportto" dataType="SSCODELIST"     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+>  
+</app-span>
 
-></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -279,7 +270,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -348,7 +339,7 @@
     :isShowCaption="false"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -422,7 +413,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
@@ -495,7 +486,7 @@
     :isShowCaption="true"
     uiStyle="DEFAULT"
     :titleBarCloseMode="0"
-    :isInfoGroupMode="false"
+    :isInfoGroupMode="true"
 
 >    
     <app-form-group-data-panel
