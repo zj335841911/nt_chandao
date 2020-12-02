@@ -4,6 +4,9 @@
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.MobEdit.visabled" :disabled="item.MobEdit.disabled" color="primary" @click="mdctrl_click($event, 'uc969861', item)"><ion-icon v-if="item.MobEdit.icon && item.MobEdit.isShowIcon" :name="item.MobEdit.icon"></ion-icon><ion-label v-if="item.MobEdit.isShowCaption">修改</ion-label></ion-item-option>
+                        </ion-item-options>
                         <ion-item>
                             <!-- 列表视图样式 -->
                             <app-list-index-text :dataItemNames = "[]" :item="item" :index="index" major="ibzmonthlyname" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
@@ -16,6 +19,9 @@
             <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.MobEdit.visabled" :disabled="item.MobEdit.disabled" color="primary" @click="mdctrl_click($event, 'uc969861', item)"><ion-icon v-if="item.MobEdit.icon && item.MobEdit.isShowIcon" :name="item.MobEdit.icon"></ion-icon><ion-label v-if="item.MobEdit.isShowCaption">修改</ion-label></ion-item-option>
+                        </ion-item-options>
                         <ion-item>
                             <!-- 列表视图样式 -->
                             <app-list-index-text :dataItemNames = "[]" :item="item" :index="index" major="ibzmonthlyname" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
@@ -208,6 +214,37 @@ export default class MyMonthlyBase extends Vue implements ControlInterface {
      */  
     public deUIService:IbzMonthlyUIService = new IbzMonthlyUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_uc969861_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzmonthly_ui_action');
+        if (curUIService) {
+            curUIService.IbzMonthly_MobEdit(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图
@@ -1001,6 +1038,9 @@ export default class MyMonthlyBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'uc969861')) {
+            this.mdctrl_uc969861_click();
+        }
         this.closeSlidings();
     }
 
@@ -1096,6 +1136,7 @@ export default class MyMonthlyBase extends Vue implements ControlInterface {
      * @memberof MyMonthlyBase
      */  
     public ActionModel:any ={
+        MobEdit: { name: 'MobEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'edit',isShowCaption:false,isShowIcon:true}
     };
 
     

@@ -103,6 +103,10 @@ export default {
 		},
 	},
 	createmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
 	},
 	monthlymobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {

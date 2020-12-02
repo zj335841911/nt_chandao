@@ -103,6 +103,10 @@ export default {
 		},
 	},
 	createmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
+		},
 	},
 	monthlymobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
