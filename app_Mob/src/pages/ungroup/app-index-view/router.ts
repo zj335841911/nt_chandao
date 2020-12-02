@@ -3349,6 +3349,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-mob-mdview-cur-project/story-mob-mdview-cur-project.vue'),
                 },
                 {
+                    path: 'ibzdailies/:ibzdaily?/myremobeditview',
+                    name: 'ibzdaily_myremobeditview',
+                    meta: {
+                        caption: 'ibzdaily.views.myremobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'myremobeditview', parameterName: 'myremobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-my-re-mob-edit-view/ibz-daily-my-re-mob-edit-view.vue'),
+                },
+                {
                     path: 'projects/:project?/mobeditview',
                     name: 'project_mobeditview',
                     meta: {
@@ -3773,6 +3787,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/module-mob-pickup-view/module-mob-pickup-view.vue'),
+                },
+                {
+                    path: 'ibzdailies/:ibzdaily?/mydailymobtabexpview',
+                    name: 'ibzdaily_mydailymobtabexpview',
+                    meta: {
+                        caption: 'ibzdaily.views.mydailymobtabexpview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'mydailymobtabexpview', parameterName: 'mydailymobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-my-daily-mob-tab-exp-view/ibz-daily-my-daily-mob-tab-exp-view.vue'),
                 },
                 {
                     path: 'products/:product?/closemobeditview',

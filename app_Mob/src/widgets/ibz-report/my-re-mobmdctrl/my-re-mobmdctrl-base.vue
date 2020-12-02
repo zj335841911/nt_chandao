@@ -4,6 +4,11 @@
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="start">
+                            <ion-item-option v-show="item.MyReDaily.visabled" :disabled="item.MyReDaily.disabled"  color="primary" @click="mdctrl_click($event, 'udc8b3e6', item)"><ion-icon v-if="item.MyReDaily.icon && item.MyReDaily.isShowIcon" :name="item.MyReDaily.icon"></ion-icon><ion-label v-if="item.MyReDaily.isShowCaption">查收</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MyReWeekly.visabled" :disabled="item.MyReWeekly.disabled"  color="primary" @click="mdctrl_click($event, 'uc168ebb', item)"><ion-icon v-if="item.MyReWeekly.icon && item.MyReWeekly.isShowIcon" :name="item.MyReWeekly.icon"></ion-icon><ion-label v-if="item.MyReWeekly.isShowCaption">查收</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MyReMonthy.visabled" :disabled="item.MyReMonthy.disabled"  color="primary" @click="mdctrl_click($event, 'ub3137fd', item)"><ion-icon v-if="item.MyReMonthy.icon && item.MyReMonthy.isShowIcon" :name="item.MyReMonthy.icon"></ion-icon><ion-label v-if="item.MyReMonthy.isShowCaption">查收</ion-label></ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -22,6 +27,11 @@
                             <div>{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
                           </template>
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="start">
+                            <ion-item-option v-show="item.MyReDaily.visabled" :disabled="item.MyReDaily.disabled"  color="primary" @click="mdctrl_click($event, 'udc8b3e6', item)"><ion-icon v-if="item.MyReDaily.icon && item.MyReDaily.isShowIcon" :name="item.MyReDaily.icon"></ion-icon><ion-label v-if="item.MyReDaily.isShowCaption">查收</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MyReWeekly.visabled" :disabled="item.MyReWeekly.disabled"  color="primary" @click="mdctrl_click($event, 'uc168ebb', item)"><ion-icon v-if="item.MyReWeekly.icon && item.MyReWeekly.isShowIcon" :name="item.MyReWeekly.icon"></ion-icon><ion-label v-if="item.MyReWeekly.isShowCaption">查收</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MyReMonthy.visabled" :disabled="item.MyReMonthy.disabled"  color="primary" @click="mdctrl_click($event, 'ub3137fd', item)"><ion-icon v-if="item.MyReMonthy.icon && item.MyReMonthy.isShowIcon" :name="item.MyReMonthy.icon"></ion-icon><ion-label v-if="item.MyReMonthy.isShowCaption">查收</ion-label></ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -226,6 +236,99 @@ export default class MyReBase extends Vue implements ControlInterface {
      */  
     public deUIService:IbzReportUIService = new IbzReportUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_udc8b3e6_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzreport_ui_action');
+        if (curUIService) {
+            curUIService.IbzReport_MyReDaily(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_uc168ebb_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzreport_ui_action');
+        if (curUIService) {
+            curUIService.IbzReport_MyReWeekly(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ub3137fd_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzreport_ui_action');
+        if (curUIService) {
+            curUIService.IbzReport_MyReMonthy(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图
@@ -1066,6 +1169,15 @@ export default class MyReBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'udc8b3e6')) {
+            this.mdctrl_udc8b3e6_click();
+        }
+        if (Object.is(tag, 'uc168ebb')) {
+            this.mdctrl_uc168ebb_click();
+        }
+        if (Object.is(tag, 'ub3137fd')) {
+            this.mdctrl_ub3137fd_click();
+        }
         this.closeSlidings();
     }
 
@@ -1161,6 +1273,9 @@ export default class MyReBase extends Vue implements ControlInterface {
      * @memberof MyReBase
      */  
     public ActionModel:any ={
+        MyReDaily: { name: 'MyReDaily',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'',},
+        MyReWeekly: { name: 'MyReWeekly',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'',},
+        MyReMonthy: { name: 'MyReMonthy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'',}
     };
 
     

@@ -136,6 +136,7 @@
 |-|需求选项操作视图（关闭）|DEMOBOPTVIEW|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|系统更新功能移动端多数据视图（功能增强）|DEMOBMDVIEW9|&nbsp;|
+|-|周报移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|日报移动端多数据视图（主数据）|DEMOBMDVIEW|&nbsp;|
 |-|产品移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|测试套件分页导航视图|DEMOBTABEXPVIEW|&nbsp;|

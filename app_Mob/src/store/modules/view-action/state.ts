@@ -1481,6 +1481,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '97fc60f1aea801d2daea0e40338400d8',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyUsr2MobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '983fc79effc6ccd4d63f0b957c37efe1',
             viewmodule: 'report',
             viewname: 'IbzDailyDailyMobMDView',
@@ -2427,6 +2436,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '6e4746425c0ac72e63db9efe5e592d40',
+                'b6ecf21481870e7c0b0f9397897bbadb',
+                '7ef67652765553e5d81c39ae576780a8',
             ],
         },
         {

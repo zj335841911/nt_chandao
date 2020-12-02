@@ -23,6 +23,9 @@ export default {
     submittime: "提交时间",
   },
 	views: {
+		usr2mobmdview: {
+			caption: '周报',
+		},
 		mobtabexpview: {
 			caption: '周报',
 		},
@@ -67,5 +70,7 @@ export default {
 	mobeditviewrighttoolbar_toolbar: {
 	},
 	mobtabexpviewrighttoolbar_toolbar: {
+	},
+	usr2mobmdviewrighttoolbar_toolbar: {
 	},
 };

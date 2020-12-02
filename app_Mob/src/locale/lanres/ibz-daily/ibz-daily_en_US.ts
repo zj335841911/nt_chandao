@@ -183,9 +183,9 @@ export default {
 	},
 	reportreceivedmobmdviewrighttoolbar_toolbar: {
 	},
-	dailyreportsubmitmobmdviewrighttoolbar_toolbar: {
-	},
 	mydailymobtabexpviewrighttoolbar_toolbar: {
+	},
+	dailyreportsubmitmobmdviewrighttoolbar_toolbar: {
 	},
 	dailymobmdviewrighttoolbar_toolbar: {
 		tbitem1: {
