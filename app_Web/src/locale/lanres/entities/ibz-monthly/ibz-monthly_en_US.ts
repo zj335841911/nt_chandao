@@ -35,7 +35,7 @@ export default {
       		title: "月报编辑视图",
 		},
 		mainmonthlygridview: {
-			caption: "月报实体表格视图",
+			caption: "月报",
       		title: "月报表格视图",
 		},
 		myreceivededitview: {

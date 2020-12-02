@@ -165,4 +165,12 @@ export interface IbzDaily {
      * @memberof IbzDaily
      */
     reportstatus?: any;
+
+    /**
+     * 提交时间
+     *
+     * @returns {*}
+     * @memberof IbzDaily
+     */
+    submittime?: any;
 }

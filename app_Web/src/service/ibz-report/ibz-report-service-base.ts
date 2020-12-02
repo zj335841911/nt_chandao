@@ -155,6 +155,20 @@ export default class IbzReportServiceBase extends EntityService {
     }
 
     /**
+     * MyReportINotSubmit接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzReportServiceBase
+     */
+    public async MyReportINotSubmit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/ibzreports/${context.ibzreport}/myreportinotsubmit`,data,isloading);
+            return res;
+    }
+
+    /**
      * ReportIReceived接口方法
      *
      * @param {*} [context={}]

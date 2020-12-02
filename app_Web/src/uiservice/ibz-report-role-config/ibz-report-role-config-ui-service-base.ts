@@ -109,7 +109,7 @@ export default class IbzReportRoleConfigUIServiceBase extends UIService {
             viewname: 'editview',
             srfappde: 'ibzreportroleconfigs',
             component: 'ibz-report-role-config-edit-view',
-            openmode: '',
+            openmode: 'DRAWER_RIGHT',
             title: '汇报角色配置',
             width: 0,
             height: 0

@@ -241,7 +241,7 @@ const data: any = {
                 menuitem7: "iBiz软件生产管理",
                 menuitem8: "更新日志",
                 menuitem17: "插件管理",
-                menuitem19: "汇报角色管理",
+                menuitem19: "汇报角色角色",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
                 menuitem5: "项目",

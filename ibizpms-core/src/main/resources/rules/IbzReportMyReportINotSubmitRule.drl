@@ -12,7 +12,7 @@ global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
 
 no-loop
 
-//逻辑处理节点[统计我收到的日报数]
+//逻辑处理节点[统计我未提交的日报数]
 rule "rawsqlcall1"
 ruleflow-group "ibzreportmyreportinotsubmitrawsqlcall1"
     when

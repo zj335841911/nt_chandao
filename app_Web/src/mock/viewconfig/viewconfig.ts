@@ -3889,7 +3889,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "ibzmonthlymainmonthlygridview": {
             "title": "月报表格视图",
-            "caption": "月报实体表格视图",
+            "caption": "月报",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "report",
             "viewname": "IbzMonthlyMainMonthlyGridView",

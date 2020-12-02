@@ -20,6 +20,7 @@ export default {
     createmanname: "建立人名称",
     updatemanname: "更新人名称",
     reportstatus: "状态",
+    submittime: "提交时间",
   },
 	views: {
 		dailyeditview: {
