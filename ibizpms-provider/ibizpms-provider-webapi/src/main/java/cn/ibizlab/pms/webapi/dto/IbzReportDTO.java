@@ -234,6 +234,15 @@ public class IbzReportDTO extends DTOBase implements Serializable {
     @JsonProperty("monthlycnt")
     private Integer monthlycnt;
 
+    /**
+     * 属性 [SUBMITTIME]
+     *
+     */
+    @JsonFormat(pattern="HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "submittime" , format="HH:mm:ss")
+    @JsonProperty("submittime")
+    private Timestamp submittime;
+
 
     /**
      * 设置 [WORKTODAY]
@@ -329,6 +338,14 @@ public class IbzReportDTO extends DTOBase implements Serializable {
     public void setIbzdailyname(String  ibzdailyname){
         this.ibzdailyname = ibzdailyname ;
         this.modify("ibz_dailyname",ibzdailyname);
+    }
+
+    /**
+     * 设置 [SUBMITTIME]
+     */
+    public void setSubmittime(Timestamp  submittime){
+        this.submittime = submittime ;
+        this.modify("submittime",submittime);
     }
 
 

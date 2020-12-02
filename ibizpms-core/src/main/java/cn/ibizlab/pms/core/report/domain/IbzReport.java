@@ -217,6 +217,14 @@ public class IbzReport extends EntityMP implements Serializable {
     @JSONField(name = "monthlycnt")
     @JsonProperty("monthlycnt")
     private Integer monthlycnt;
+    /**
+     * 提交时间
+     */
+    @TableField(value = "`submittime`")
+    @JsonFormat(pattern = "HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "submittime", format = "HH:mm:ss")
+    @JsonProperty("submittime")
+    private Timestamp submittime;
 
 
 
@@ -326,6 +334,24 @@ public class IbzReport extends EntityMP implements Serializable {
         this.modify("ibz_dailyname", ibzdailyname);
     }
 
+    /**
+     * 设置 [提交时间]
+     */
+    public void setSubmittime(Timestamp submittime) {
+        this.submittime = submittime;
+        this.modify("submittime", submittime);
+    }
+
+    /**
+     * 格式化日期 [提交时间]
+     */
+    public String formatSubmittime() {
+        if (this.submittime == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        return sdf.format(submittime);
+    }
 
     @Override
     public Serializable getDefaultKey(boolean gen) {

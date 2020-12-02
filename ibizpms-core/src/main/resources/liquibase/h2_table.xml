@@ -1293,6 +1293,8 @@
                 </column>
                 <column name="IBZ_DAILYNAME" remarks="" type="VARCHAR(200)">
                 </column>
+                <column name="SUBMITTIME" remarks="" type="DATETIME">
+                </column>
         </createTable>
     </changeSet>
 

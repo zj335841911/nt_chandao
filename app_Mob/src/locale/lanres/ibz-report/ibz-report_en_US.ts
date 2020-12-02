@@ -23,6 +23,7 @@ export default {
     type: "类型",
     dailycnt: "未读日报数",
     monthlyCnt: "未读月报数",
+    submittime: "提交时间",
   },
 	views: {
 		mobmdview: {

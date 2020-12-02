@@ -84,6 +84,9 @@ export class MySubmitModel {
       {
         name: 'monthlycnt',
       },
+      {
+        name: 'submittime',
+      },
     ]
   }
 
