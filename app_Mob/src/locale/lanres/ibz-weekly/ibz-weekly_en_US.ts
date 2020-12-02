@@ -72,5 +72,9 @@ export default {
 	mobtabexpviewrighttoolbar_toolbar: {
 	},
 	usr2mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: 'deuiaction1',
+		},
 	},
 };
