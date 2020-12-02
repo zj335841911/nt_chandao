@@ -350,6 +350,7 @@
       * [人员登录地图](app/Mob/func/ActionMobMapView.md)
       * [我的需求](app/Mob/func/StoryMobMDView.md)
       * [项目](app/Mob/func/ProjectMobMDView.md)
+      * [我收到的](app/Mob/func/IbzReportMyReMobMDView.md)
       * [我的收藏](app/Mob/func/IbzFavoritesMobTabExpView.md)
       * [测试](app/Mob/func/ProductTestMobMDView.md)
       * [月报](app/Mob/func/IbzMonthlyMonthlyMobMDView.md)

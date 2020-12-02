@@ -171,31 +171,15 @@ export default {
 		},
 	},
 	usr2gridviewtoolbar_toolbar: {
-		deuiaction3_createeveryweekreport: {
+		deuiaction1_createeveryweekreport: {
 			caption: "生成周报",
 			tip: "生成周报",
 		},
-		seperator2: {
-			caption: "",
-			tip: "",
+		deuiaction2_jugcreate: {
+			caption: "新建检查",
+			tip: "新建检查",
 		},
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction4: {
+		deuiaction7: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},

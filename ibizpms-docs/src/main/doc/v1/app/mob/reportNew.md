@@ -23,6 +23,6 @@
 |周报|[查看功能](func/IbzWeeklyMobEditView.md)|
 |月报|[查看功能](func/IbzMonthlyMonthlyMobMDView.md)|
 |汇报|-|
-|我收到的|-|
+|我收到的|[查看功能](func/IbzReportMyReMobMDView.md)|
 |我提交的|[查看功能](func/IbzReportMobMDView.md)|
 
