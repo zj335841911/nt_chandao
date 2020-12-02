@@ -533,6 +533,11 @@
        }
         ,
        {
+            "unirescode":"MONTHLY_NSUBMIT_BUT",
+            "uniresname":"月报未提交"
+       }
+        ,
+       {
             "unirescode":"CASE_CONFIRM_BUT",
             "uniresname":"测试用例确认"
        }
