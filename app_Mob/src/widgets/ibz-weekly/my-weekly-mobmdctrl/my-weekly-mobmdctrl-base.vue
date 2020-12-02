@@ -1144,7 +1144,7 @@ export default class MyWeeklyBase extends Vue implements ControlInterface {
      * @memberof MyWeeklyBase
      */  
     public ActionModel:any ={
-        mobEdit1: { name: 'mobEdit1',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'edit',isShowCaption:false,isShowIcon:true}
+        mobEdit1: { name: 'mobEdit1',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'',isShowCaption:false,isShowIcon:true}
     };
 
     
