@@ -427,8 +427,8 @@ export default class ReportNewBase extends Vue implements ControlInterface {
                 case 'AppFunc11': 
                     this.clickAppFunc11(item);
                     return;
-                case 'CreateMonthly': 
-                    this.clickCreateMonthly(item);
+                case 'Monthly': 
+                    this.clickMonthly(item);
                     return;
                 default:
                     console.warn('未指定应用功能');
@@ -501,12 +501,12 @@ export default class ReportNewBase extends Vue implements ControlInterface {
     }
     
     /**
-     * 月报（新建）
+     * 月报
      *
      * @param {*} [item={}]
      * @memberof ReportNew
      */
-    protected clickCreateMonthly(item: any = {}) {
+    protected clickMonthly(item: any = {}) {
         let navigateParam: any = { } ;
         let navigateContext: any = { } ;
         const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
@@ -515,7 +515,7 @@ export default class ReportNewBase extends Vue implements ControlInterface {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-            { pathName: 'createmobeditview', parameterName: 'createmobeditview' },
+            { pathName: 'monthlymobmdview', parameterName: 'monthlymobmdview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);

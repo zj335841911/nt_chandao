@@ -46,6 +46,9 @@ export class ReportReceivedMobModel {
 				dataType: 'TEXT',
 			},
 			{
+				name: 'srfmstag',
+			},
+			{
 				name: 'ibzdaily',
 				prop: 'ibzdailyid',
 				dataType: 'FONTKEY',

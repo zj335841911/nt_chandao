@@ -352,6 +352,7 @@
       * [项目](app/Mob/func/ProjectMobMDView.md)
       * [我的收藏](app/Mob/func/IbzFavoritesMobTabExpView.md)
       * [测试](app/Mob/func/ProductTestMobMDView.md)
+      * [月报](app/Mob/func/IbzMonthlyMonthlyMobMDView.md)
       * [产品统计](app/Mob/func/ProductStatsMobMDView.md)
       * [我的地盘](app/Mob/func/AppPortalView2.md)
       * [周报(新建)](app/Mob/func/IbzWeeklyMobEditView.md)

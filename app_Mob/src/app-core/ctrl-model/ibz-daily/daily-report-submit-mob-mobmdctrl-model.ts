@@ -46,6 +46,9 @@ export class DailyReportSubmitMobModel {
 				dataType: 'TEXT',
 			},
 			{
+				name: 'srfmstag',
+			},
+			{
 				name: 'ibzdaily',
 				prop: 'ibzdailyid',
 				dataType: 'FONTKEY',

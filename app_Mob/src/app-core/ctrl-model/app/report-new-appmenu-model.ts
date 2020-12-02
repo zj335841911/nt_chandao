@@ -67,7 +67,7 @@ export class ReportNewModel {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: 'CreateMonthly',
+	appfunctag: 'Monthly',
 	resourcetag: '',
 	authtag:'Mob-reportNew-menuitem3',
 },

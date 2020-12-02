@@ -31,6 +31,9 @@ export default {
 		maininfomobtabexpview: {
 			caption: '月报',
 		},
+		monthlymobmdview: {
+			caption: '月报',
+		},
 		myreceivedmobmdview: {
 			caption: '月报',
 		},
@@ -100,5 +103,7 @@ export default {
 		},
 	},
 	createmobeditviewrighttoolbar_toolbar: {
+	},
+	monthlymobmdviewrighttoolbar_toolbar: {
 	},
 };

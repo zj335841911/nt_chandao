@@ -54,7 +54,7 @@ export default class IbzDailyUIActionBase extends EntityUIActionBase {
      * 
      * @memberof  IbzDailyUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['issubmit'];
 
     /**
      * 主状态集合Map
@@ -90,12 +90,14 @@ export default class IbzDailyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzDailyUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'myremobeditview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'mymobmdview',srfappde:'ibzdailies'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'reportreceivedmobmdview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailymobtabexpview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailymobeditview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailyinfomobeditview',srfappde:'ibzdailies'});
+        this.allViewMap.set(':',{viewname:'mydailymobtabexpview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailyplanstomorrowtaskmobmdview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailycompletetaskmobmdview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailymobmdview',srfappde:'ibzdailies'});
@@ -108,6 +110,8 @@ export default class IbzDailyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzDailyUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('1','1');
+        this.allDeMainStateMap.set('0','0');
     }
 
     /**
@@ -116,6 +120,8 @@ export default class IbzDailyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzDailyUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DAILY_SUBMIT_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
     }
 
     /**

@@ -91,6 +91,7 @@ export default class IbzReportUIActionBase extends EntityUIActionBase {
      */  
     public initViewMap(){
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'ibzreports'});
+        this.allViewMap.set(':',{viewname:'myremobmdview',srfappde:'ibzreports'});
     }
 
     /**

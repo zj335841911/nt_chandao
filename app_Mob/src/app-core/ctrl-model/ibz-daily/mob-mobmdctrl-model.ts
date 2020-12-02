@@ -43,6 +43,9 @@ export class MobModel {
 				dataType: 'TEXT',
 			},
 			{
+				name: 'srfmstag',
+			},
+			{
 				name: 'ibzdaily',
 				prop: 'ibzdailyid',
 				dataType: 'FONTKEY',

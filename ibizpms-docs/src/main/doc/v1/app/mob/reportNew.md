@@ -21,7 +21,7 @@
 | --------   |   ----  |
 |日报|[查看功能](func/IbzDailyMyMobMDView.md)|
 |周报|[查看功能](func/IbzWeeklyMobEditView.md)|
-|月报|[查看功能](func/IbzMonthlyCreateMobEditView.md)|
+|月报|[查看功能](func/IbzMonthlyMonthlyMobMDView.md)|
 |汇报|-|
 |我收到的|-|
 |我提交的|[查看功能](func/IbzReportMobMDView.md)|

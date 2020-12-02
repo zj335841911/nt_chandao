@@ -61,7 +61,7 @@ mock.onGet('v7/report-newappmenu').reply((config: any) => {
 	iconcls: '',
 	icon: '',
 	textcls: '',
-	appfunctag: 'CreateMonthly',
+	appfunctag: 'Monthly',
 	resourcetag: '',
 },
             {

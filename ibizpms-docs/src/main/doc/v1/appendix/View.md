@@ -223,6 +223,7 @@
 |-|任务选项操作视图(继续)|DEMOBOPTVIEW|&nbsp;|
 |-|版本移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
 |-|需求移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
+|-|汇报移动端多数据视图（我提交的）|DEMOBMDVIEW|&nbsp;|
 |-|测试版本选项操作视图（阻塞）|DEMOBOPTVIEW|&nbsp;|
 |-|产品计划移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|

@@ -2095,6 +2095,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/action-mob-map-view/action-mob-map-view.vue'),
                 },
                 {
+                    path: 'ibzmonthlies/:ibzmonthly?/monthlymobmdview',
+                    name: 'ibzmonthly_monthlymobmdview',
+                    meta: {
+                        caption: 'ibzmonthly.views.monthlymobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'monthlymobmdview', parameterName: 'monthlymobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-monthly-mob-mdview/ibz-monthly-monthly-mob-mdview.vue'),
+                },
+                {
                     path: 'ibzdailies/:ibzdaily?/dailymobeditview',
                     name: 'ibzdaily_dailymobeditview',
                     meta: {
@@ -3806,20 +3820,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/story-favorite-more-mob-mdview/story-favorite-more-mob-mdview.vue'),
-                },
-                {
-                    path: 'ibzmonthlies/:ibzmonthly?/createmobeditview',
-                    name: 'ibzmonthly_createmobeditview',
-                    meta: {
-                        caption: 'ibzmonthly.views.createmobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-                            { pathName: 'createmobeditview', parameterName: 'createmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/report/ibz-monthly-create-mob-edit-view/ibz-monthly-create-mob-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobeditview9',
