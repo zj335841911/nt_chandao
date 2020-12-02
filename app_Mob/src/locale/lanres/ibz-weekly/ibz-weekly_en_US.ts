@@ -23,6 +23,9 @@ export default {
     submittime: "提交时间",
   },
 	views: {
+		usr2mobtabexpview: {
+			caption: '周报',
+		},
 		usr2mobmdview: {
 			caption: '周报',
 		},
@@ -80,5 +83,7 @@ export default {
 			caption: '新建',
 			tip: 'deuiaction1',
 		},
+	},
+	usr2mobtabexpviewrighttoolbar_toolbar: {
 	},
 };

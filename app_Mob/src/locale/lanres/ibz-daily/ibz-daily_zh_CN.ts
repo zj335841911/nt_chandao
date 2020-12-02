@@ -120,29 +120,6 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmain_form: {
-		details: {
-			group1: '日报基本信息', 
-			group2: '操作信息', 
-			formpage1: '基本信息', 
-			srfupdatedate: '更新时间', 
-			srforikey: '', 
-			srfkey: '日报标识', 
-			srfmajortext: '日报名称', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			ibz_dailyname: '日报名称', 
-			createman: '建立人', 
-			createdate: '建立时间', 
-			updateman: '更新人', 
-			updatedate: '更新时间', 
-			ibz_dailyid: '日报标识', 
-		},
-		uiactions: {
-		},
-	},
 	dailymobeditviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: '保存',
@@ -167,15 +144,19 @@ export default {
 			tip: '新建',
 		},
 	},
-	dailyinfomobeditviewrighttoolbar_toolbar: {
-	},
-	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
-	},
 	mobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
+		deuiaction1: {
 			caption: '保存',
 			tip: '保存',
 		},
+	},
+	dailyinfomobeditviewrighttoolbar_toolbar: {
+		deuiaction1_mobedit: {
+			caption: '编辑',
+			tip: '编辑',
+		},
+	},
+	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
 	},
 	dailyplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
 	},

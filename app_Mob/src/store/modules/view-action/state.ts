@@ -580,6 +580,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '339eb0f210b333b047528dcd30df2dde',
+            viewmodule: 'report',
+            viewname: 'IbzWeeklyUsr2MobTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'df36c08961d3d1737f2f8d55a53fa46c',
+            ],
+        },
+        {
             viewtag: '35bd5c967f7ff8d253e10cf7b12dde28',
             viewmodule: 'report',
             viewname: 'IbzReportMobMDView',
@@ -1086,6 +1096,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '22e33232ac91bca7826742f9c85720dc',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 'b52bf86837838dcfd5b787fad0350f22',
             ],

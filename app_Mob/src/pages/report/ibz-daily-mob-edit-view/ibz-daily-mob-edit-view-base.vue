@@ -10,17 +10,6 @@
                 </ion-button>
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="checkmark-outline"> </ion-icon>
-                    
-                    </ion-button>
-                
-                    </div>
-                </div>
-            </ion-buttons>
         </ion-toolbar>
 
     
@@ -38,7 +27,7 @@
             updateAction="Update"
             removeAction="Remove"
             loaddraftAction="GetDraft"
-            loadAction="Get"
+            loadAction="HaveRead"
             createAction="Create"
             WFSubmitAction=""
             WFStartAction=""
@@ -53,6 +42,20 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
+    <ion-footer class="view-footer">
+                <div  class = "fab_container">
+            <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+                    <ion-icon name="save"></ion-icon>
+                <span class="btn-inner-text">{{$t('ibzdaily.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('ibzdaily.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
+            </div>
+        
+            </div>
+        </div>
+    </ion-footer>
 </ion-page>
 </template>
 
@@ -292,9 +295,54 @@ export default class IbzDailyMobEditViewBase extends Vue {
     * @memberof IbzDailyMobEditView
     */
     public righttoolbarModels: any = {
-            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '' } },
+            deuiaction1: { name: 'deuiaction1', caption: '保存', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'Save', target: '' } },
 
     };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof IbzDailyMobEditView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof IbzDailyMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof IbzDailyMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof IbzDailyMobEditView 
+     */
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
+    }
 
     
 
@@ -399,6 +447,7 @@ export default class IbzDailyMobEditViewBase extends Vue {
      * @memberof IbzDailyMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -413,6 +462,12 @@ export default class IbzDailyMobEditViewBase extends Vue {
         this.afterMounted();
     }
 
+    /**
+     * 底部按钮样式
+     * 
+     * @memberof IbzDailyMobEditViewBase
+     */
+    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
@@ -427,6 +482,8 @@ export default class IbzDailyMobEditViewBase extends Vue {
         }
         this.thirdPartyInit();
 
+        // 拖动样式
+        AnimationService.draggable(document.getElementById(this.viewtag+'_bottom_button'),(style:any)=>{this.button_style = style});
     }
 
     /**
@@ -529,8 +586,8 @@ export default class IbzDailyMobEditViewBase extends Vue {
      * @memberof IbzDailyMobEditViewBase
      */
     protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'tbitem1')) {
-            this.righttoolbar_tbitem1_click($event, '', $event2);
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.righttoolbar_deuiaction1_click($event, '', $event2);
         }
     }
 
@@ -545,7 +602,7 @@ export default class IbzDailyMobEditViewBase extends Vue {
      * @returns {Promise<any>}
      * @memberof IbzDailyMobEditViewBase
      */
-    protected async righttoolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -561,7 +618,7 @@ export default class IbzDailyMobEditViewBase extends Vue {
             datas = [...xData.getDatas()];
         }
         // 界面行为
-        this.globaluiservice.SaveAndExit(datas, contextJO, paramJO, $event, xData, this);
+        this.globaluiservice.Save(datas, contextJO, paramJO, $event, xData, this);
     }
 
     /**
