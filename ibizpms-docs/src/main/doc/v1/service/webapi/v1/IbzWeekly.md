@@ -186,7 +186,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzWeeklyDTO](#IbzWeeklyDTO)：周报实体传输对象 |
 
-### 定时推送每周周报
+### 定时推送待阅提醒用户周报提交
 #### 访问路径
 /ibzweeklies/{ibzweekly_id}/pushuserweekly
 

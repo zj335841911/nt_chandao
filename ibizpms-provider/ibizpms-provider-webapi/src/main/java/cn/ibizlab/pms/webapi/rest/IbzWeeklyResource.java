@@ -144,7 +144,7 @@ public class IbzWeeklyResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-PushUserWeekly-all')")
-    @ApiOperation(value = "定时推送每周周报", tags = {"周报" },  notes = "定时推送每周周报")
+    @ApiOperation(value = "定时推送待阅提醒用户周报提交", tags = {"周报" },  notes = "定时推送待阅提醒用户周报提交")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/pushuserweekly")
     public ResponseEntity<IbzWeeklyDTO> pushUserWeekly(@PathVariable("ibzweekly_id") Long ibzweekly_id, @RequestBody IbzWeeklyDTO ibzweeklydto) {
         IbzWeekly domain = ibzweeklyMapping.toDomain(ibzweeklydto);

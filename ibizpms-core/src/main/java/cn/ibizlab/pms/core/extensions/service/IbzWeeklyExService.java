@@ -42,7 +42,7 @@ public class IbzWeeklyExService extends IbzWeeklyServiceImpl {
         return super.haveRead(et);
     }
     /**
-     * [PushUserWeekly:定时推送每周周报] 行为扩展
+     * [PushUserWeekly:定时推送待阅提醒用户周报提交] 行为扩展
      * @param et
      * @return
      */

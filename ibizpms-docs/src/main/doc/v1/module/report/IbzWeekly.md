@@ -843,7 +843,7 @@ HH:mm:ss
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [定时生成每周周报](#实体行为-定时生成每周周报（CreateEveryWeekReport）) | createEveryWeekReport | 用户自定义 | 后台及前台 |
 | 8 | [已读](#实体行为-已读（HaveRead）) | haveRead | 用户自定义 | 后台及前台 |
-| 9 | [定时推送每周周报](#实体行为-定时推送每周周报（PushUserWeekly）) | pushUserWeekly | 用户自定义 | 后台及前台 |
+| 9 | [定时推送待阅提醒用户周报提交](#实体行为-定时推送待阅提醒用户周报提交（PushUserWeekly）) | pushUserWeekly | 用户自定义 | 后台及前台 |
 | 10 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 | 11 | [提交](#实体行为-提交（Submit）) | submit | 用户自定义 | 后台及前台 |
 
@@ -943,9 +943,9 @@ CheckKey
 
 #### 逻辑附加
 无
-### 实体行为-定时推送每周周报（PushUserWeekly）
+### 实体行为-定时推送待阅提醒用户周报提交（PushUserWeekly）
 #### 说明
-定时推送每周周报
+定时推送待阅提醒用户周报提交
 
 - 行为类型
 用户自定义

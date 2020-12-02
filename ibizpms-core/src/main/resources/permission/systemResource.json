@@ -1073,7 +1073,7 @@
     "delogicname":"周报",
     "sysmoudle":{"id":"REPORT","name":"汇报模块"},
     "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"MyWeekly" , "name":"我收到的周报"}],
-    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"CreateEveryWeekReport" , "name":"定时生成每周周报" , "type":"USERCUSTOM" },{"id":"HaveRead" , "name":"已读" , "type":"USERCUSTOM" },{"id":"PushUserWeekly" , "name":"定时推送每周周报" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Submit" , "name":"提交" , "type":"USERCUSTOM" }],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"CreateEveryWeekReport" , "name":"定时生成每周周报" , "type":"USERCUSTOM" },{"id":"HaveRead" , "name":"已读" , "type":"USERCUSTOM" },{"id":"PushUserWeekly" , "name":"定时推送待阅提醒用户周报提交" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Submit" , "name":"提交" , "type":"USERCUSTOM" }],
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
     }
     ,    {

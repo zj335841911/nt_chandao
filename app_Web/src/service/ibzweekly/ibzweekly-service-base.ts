@@ -183,6 +183,20 @@ export default class IBZWEEKLYServiceBase extends EntityService {
     }
 
     /**
+     * PushUserWeekly接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async PushUserWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/pushuserweekly`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
