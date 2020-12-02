@@ -209,6 +209,15 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String reportstatus;
 
+    /**
+     * 属性 [SUBMITTIME]
+     *
+     */
+    @JsonFormat(pattern="HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "submittime" , format="HH:mm:ss")
+    @JsonProperty("submittime")
+    private Timestamp submittime;
+
 
     /**
      * 设置 [IBZ_WEEKLYNAME]
@@ -304,6 +313,14 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     public void setReportstatus(String  reportstatus){
         this.reportstatus = reportstatus ;
         this.modify("reportstatus",reportstatus);
+    }
+
+    /**
+     * 设置 [SUBMITTIME]
+     */
+    public void setSubmittime(Timestamp  submittime){
+        this.submittime = submittime ;
+        this.modify("submittime",submittime);
     }
 
 

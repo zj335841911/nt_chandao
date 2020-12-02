@@ -165,4 +165,12 @@ export interface IBZWEEKLY {
      * @memberof IBZWEEKLY
      */
     reportstatus?: any;
+
+    /**
+     * 提交时间
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    submittime?: any;
 }
