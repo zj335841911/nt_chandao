@@ -54,7 +54,7 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
      * 
      * @memberof  IbzMonthlyUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['issubmit'];
 
     /**
      * 主状态集合Map
@@ -103,6 +103,8 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzMonthlyUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('0','0');
+        this.allDeMainStateMap.set('1','1');
     }
 
     /**
@@ -111,6 +113,8 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzMonthlyUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
+        this.allDeMainStateOPPrivsMap.set('1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
     }
 
 

@@ -43,6 +43,9 @@ export class MyReceivedModel {
 				dataType: 'TEXT',
 			},
 			{
+				name: 'srfmstag',
+			},
+			{
 				name: 'ibzmonthly',
 				prop: 'ibzmonthlyid',
 				dataType: 'FONTKEY',
