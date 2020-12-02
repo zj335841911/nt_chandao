@@ -137,6 +137,14 @@ export default {
 			reportto: "汇报给",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			ibz_weeklyid: "周报标识",
+			ibz_weeklyname: "周报名称",
+			account: "用户",
+			date: "日期",
+			reportto: "汇报给",
+			issubmit: "是否提交",
+    },
 		uiactions: {
 			ibzweekly_edit: "修改",
 		},

@@ -340,6 +340,60 @@ export class MainGridBase extends GridControlBase {
     }
 
     /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof MainGridBase
+     */
+    protected isDeExport: boolean = true;
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof MainGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'ibz_weeklyid',
+            label: '周报标识',
+            langtag: 'entities.ibzweekly.main_grid.exportColumns.ibz_weeklyid',
+            show: true,
+        },
+        {
+            name: 'ibz_weeklyname',
+            label: '周报名称',
+            langtag: 'entities.ibzweekly.main_grid.exportColumns.ibz_weeklyname',
+            show: true,
+        },
+        {
+            name: 'account',
+            label: '用户',
+            langtag: 'entities.ibzweekly.main_grid.exportColumns.account',
+            show: true,
+        },
+        {
+            name: 'date',
+            label: '日期',
+            langtag: 'entities.ibzweekly.main_grid.exportColumns.date',
+            show: true,
+        },
+        {
+            name: 'reportto',
+            label: '汇报给',
+            langtag: 'entities.ibzweekly.main_grid.exportColumns.reportto',
+            show: true,
+        },
+        {
+            name: 'issubmit',
+            label: '是否提交',
+            langtag: 'entities.ibzweekly.main_grid.exportColumns.issubmit',
+            show: true,
+        },
+    ]
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -365,6 +419,14 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: ',',
                 renderMode: 'string',
                 valueSeparator: ",",
+            },
+            {
+                name: 'issubmit',
+                srfkey: 'YesNo',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
             },
         ]);
     }
