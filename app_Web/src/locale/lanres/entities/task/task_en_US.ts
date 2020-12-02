@@ -1374,8 +1374,8 @@ export default {
 			tip: "",
 		},
 		deuiaction4: {
-			caption: "Export Data Model",
-			tip: "导出数据模型",
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	typetaskgroupgridviewtoolbar_toolbar: {
@@ -1396,8 +1396,8 @@ export default {
 			tip: "",
 		},
 		deuiaction4: {
-			caption: "Export Data Model",
-			tip: "导出数据模型",
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	taskgroupgridviewtoolbar_toolbar: {
@@ -1418,8 +1418,8 @@ export default {
 			tip: "",
 		},
 		deuiaction4: {
-			caption: "Export Data Model",
-			tip: "导出数据模型",
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	pritaskgroupgridviewtoolbar_toolbar: {
@@ -1440,8 +1440,8 @@ export default {
 			tip: "",
 		},
 		deuiaction4: {
-			caption: "Export Data Model",
-			tip: "导出数据模型",
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	storytaskgroupgridviewtoolbar_toolbar: {
@@ -1462,8 +1462,8 @@ export default {
 			tip: "",
 		},
 		deuiaction4: {
-			caption: "Export Data Model",
-			tip: "导出数据模型",
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	myfavoritegridviewtoolbar_toolbar: {

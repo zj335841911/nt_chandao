@@ -182,8 +182,8 @@ export default {
 			tip: "",
 		},
 		deuiaction4: {
-			caption: "导出数据模型",
-			tip: "导出数据模型",
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 	gridviewtoolbar_toolbar: {

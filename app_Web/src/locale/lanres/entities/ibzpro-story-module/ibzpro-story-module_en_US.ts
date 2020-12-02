@@ -117,8 +117,8 @@ export default {
 			tip: "",
 		},
 		deuiaction4: {
-			caption: "Export Data Model",
-			tip: "导出数据模型",
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	editviewtoolbar_toolbar: {

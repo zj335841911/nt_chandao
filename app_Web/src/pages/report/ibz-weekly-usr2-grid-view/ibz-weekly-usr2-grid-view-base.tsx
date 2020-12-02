@@ -135,7 +135,7 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': false, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
         seperator3: {  name: 'seperator3', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
-        deuiaction4: { name: 'deuiaction4', caption: '导出数据模型', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出数据模型', iconcls: 'fa fa-download', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportModel', target: '', class: '' } },
+        deuiaction4: { name: 'deuiaction4', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
     };
 
@@ -423,7 +423,7 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
           datas = [params];
         }
         // 界面行为
-        this.ExportModel(datas, contextJO,paramJO,  $event, xData,this,"IBZWEEKLY");
+        this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"IBZWEEKLY");
     }
 
     /**
@@ -565,7 +565,7 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
         }
     }
     /**
-     * 导出数据模型
+     * 导出
      *
      * @param {any[]} args 当前数据
      * @param {any} contextJO 行为附加上下文
@@ -575,8 +575,12 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
      * @param {*} [actionContext]  执行行为上下文
      * @memberof IbzWeeklyUsr2GridViewBase
      */
-    public ExportModel(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.$Notice.error({ title: '错误', desc: '导出数据模型未支持' });
+    public ExportExcel(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        const _this: any = this;
+        if (!xData || !(xData.exportExcel instanceof Function) || !$event) {
+            return ;
+        }
+        xData.exportExcel($event.exportparms);
     }
 
     /**
