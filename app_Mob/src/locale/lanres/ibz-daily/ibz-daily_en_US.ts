@@ -120,7 +120,7 @@ export default {
 		uiactions: {
 		},
 	},
-	dailymobeditviewtoolbar_toolbar: {
+	dailymobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
 			tip: 'tbitem1',

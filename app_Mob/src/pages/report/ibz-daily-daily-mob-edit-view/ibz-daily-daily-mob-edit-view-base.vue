@@ -45,8 +45,8 @@
     <ion-footer class="view-footer">
                 <div  class = "fab_container">
             <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
-                <div :class="{'sub-item':true,'disabled':toolbarModels.tbitem1.disabled}" v-show="toolbarModels.tbitem1.visabled">
-                <ion-button :disabled="toolbarModels.tbitem1.disabled" @click="toolbar_click({ tag: 'tbitem1' }, $event)" size="large">
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
+                <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" size="large">
                     <ion-icon name="checkmark-outline"></ion-icon>
                 
                 </ion-button>
@@ -266,7 +266,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * @memberof IbzDailyDailyMobEditViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
+        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
         view_form: { name: 'form', type: 'FORM' },
     };
 
@@ -294,7 +294,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
     * @type {*}
     * @memberof IbzDailyDailyMobEditView
     */
-    public toolbarModels: any = {
+    public righttoolbarModels: any = {
             tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '' } },
 
     };
@@ -305,7 +305,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof IbzDailyDailyMobEditView 
      */
-    public toolbarShowState: boolean = false;
+    public righttoolbarShowState: boolean = false;
 
     /**
      * 工具栏权限
@@ -353,7 +353,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      *
      * @memberof IbzDailyDailyMobEditViewBase
      */
-    public toolbarModelList:any = ['toolbarModels',]
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
@@ -525,15 +525,15 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
     }
 
     /**
-     * toolbar 部件 click 事件
+     * righttoolbar 部件 click 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
      * @memberof IbzDailyDailyMobEditViewBase
      */
-    protected toolbar_click($event: any, $event2?: any) {
+    protected righttoolbar_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'tbitem1')) {
-            this.toolbar_tbitem1_click($event, '', $event2);
+            this.righttoolbar_tbitem1_click($event, '', $event2);
         }
     }
 
@@ -603,7 +603,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * @returns {Promise<any>}
      * @memberof IbzDailyDailyMobEditViewBase
      */
-    protected async toolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async righttoolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
