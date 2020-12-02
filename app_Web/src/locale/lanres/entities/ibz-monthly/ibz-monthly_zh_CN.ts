@@ -132,6 +132,14 @@ export default {
 			reportto: "汇报给",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			ibz_monthlyid: "月报标识",
+			ibz_monthlyname: "月报名称",
+			account: "用户",
+			date: "日期",
+			reportto: "汇报给",
+			issubmit: "是否提交",
+    },
 		uiactions: {
 			ibzmonthly_edit: "修改",
 		},
