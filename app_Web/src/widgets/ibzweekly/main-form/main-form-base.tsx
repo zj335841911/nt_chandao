@@ -323,6 +323,9 @@ export class MainEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('account')) {
             this.data['account'] = this.context['srfloginname'];
         }
+        if (this.data.hasOwnProperty('issubmit')) {
+            this.data['issubmit'] = '0';
+        }
     }
 
     /**

@@ -265,10 +265,10 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 		{
 	id: '80D6A552-4F24-4273-B535-1685F0A22CBF',
 	name: 'menuitem19',
-	text: '汇报角色管理',
+	text: '汇报角色角色',
 	type: 'MENUITEM',
 	counterid: '',
-	tooltip: '汇报角色管理',
+	tooltip: '汇报角色角色',
 	expanded: false,
 	separator: false,
 	hidden: false,
