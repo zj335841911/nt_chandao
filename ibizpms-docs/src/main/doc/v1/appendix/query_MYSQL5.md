@@ -16670,7 +16670,7 @@ LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID
 LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
-FIND_IN_SET(t1.id,(select thismonthtask from t_ibz_monthly where IBZ_MONTHLYID = #{srf.datacontext.srfloginname})) 
+FIND_IN_SET(t1.id,(select thismonthtask from t_ibz_monthly where IBZ_MONTHLYID = ${srfdatacontext('srfparentkey')} )) 
 
 ```
 ### 我完成的任务（汇报）(MyCompleteTaskZS)<div id="Task_MyCompleteTaskZS"></div>
