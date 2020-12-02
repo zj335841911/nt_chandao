@@ -286,7 +286,7 @@ export default class IbzDailyDailyInfoMobEditViewBase extends Vue {
     * @memberof IbzDailyDailyInfoMobEditView
     */
     public righttoolbarModels: any = {
-            deuiaction1_mobedit: { name: 'deuiaction1_mobedit', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MobEdit', target: 'SINGLEKEY' } },
+            deuiaction1_mobedit: { name: 'deuiaction1_mobedit', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT', uiaction: { tag: 'MobEdit', target: 'SINGLEKEY' } },
 
     };
 
