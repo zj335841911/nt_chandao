@@ -126,6 +126,13 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
 
     @Override
     @Transactional
+    public IbzWeekly pushUserWeekly(IbzWeekly et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(IbzWeekly et) {
         if (!saveOrUpdate(et)) {
             return false;

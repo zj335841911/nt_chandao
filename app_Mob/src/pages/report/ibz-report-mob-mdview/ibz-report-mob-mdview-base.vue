@@ -5,6 +5,17 @@
         <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="false"></app-search-history>
 
     
+                    <div class="mdview-tools">
+                <div class="ibz-report-mob-mdview-toolbar default-sort">
+                    <div class="view-tool">
+                        <div class="view-tool-sorts">
+                        </div>
+                    </div>
+                </div>
+                <div class="mdview-tools-select">
+                    <app-van-select  name="n_type_eq" title="类型" :items="[{value:'weekly',label:'周报'},{value:'daily',label:'日报'},{value:'monthly',label:'月报'},]" @onConfirm="onCategory"></app-van-select>
+                </div>
+            </div>
     </ion-header>
 
     <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
@@ -748,6 +759,50 @@ export default class IbzReportMobMDViewBase extends Vue {
     @Prop({ default: true }) public isEnablePullUp?: boolean;
 
 
+
+    /**
+     * 排序对象
+     *
+     * @type {*}
+     * @memberof IbzReportMobMDViewBase
+     */
+    public sort: any = { asc: "", desc: "" };
+
+    /**
+     * 点击优先级加主题色
+     *
+     * @memberof IbzReportMobMDViewBase
+     */
+    public hasColor:boolean = false;
+
+    /**
+     * 排序
+     *
+     * @param {*} field
+     * @memberof IbzReportMobMDViewBase
+     */
+    public onSort(field: any) {
+        if (this.sort.desc == field) {
+            this.sort.desc = "";
+            this.sortValue = {};
+            this.onViewLoad();
+            this.hasColor = false; 
+            return
+        }
+        if (this.sort.asc == field) {
+            this.sort.asc = "";
+            this.sort.desc = field;
+            this.sortValue = { sort: field + ",desc" };
+            this.onViewLoad();
+            this.hasColor = true;
+        } else {
+            this.sort.asc = field;
+            this.sort.desc = "";
+            this.sortValue = { sort: field + ",asc" };
+            this.onViewLoad();
+            this.hasColor = true;
+        }
+    }
 
     /**
      * 分类值
