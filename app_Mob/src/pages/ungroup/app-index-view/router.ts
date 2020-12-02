@@ -1072,6 +1072,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/build-mob-edit-view/build-mob-edit-view.vue'),
                 },
                 {
+                    path: 'ibzweeklies/:ibzweekly?/usr2mobmdview',
+                    name: 'ibzweekly_usr2mobmdview',
+                    meta: {
+                        caption: 'ibzweekly.views.usr2mobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+                            { pathName: 'usr2mobmdview', parameterName: 'usr2mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-weekly-usr2-mob-mdview/ibz-weekly-usr2-mob-mdview.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/editnewmobeditview',
                     name: 'bug_editnewmobeditview',
                     meta: {
@@ -6609,20 +6623,6 @@ const router = new Router({
                     component: () => import('@pages/report/ibz-daily-my-mob-mdview/ibz-daily-my-mob-mdview.vue'),
                 },
                 {
-                    path: 'ibzweeklies/:ibzweekly?/mobeditview',
-                    name: 'ibzweekly_mobeditview',
-                    meta: {
-                        caption: 'ibzweekly.views.mobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
-                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/report/ibz-weekly-mob-edit-view/ibz-weekly-mob-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/assmobmdview9',
                     name: 'story_assmobmdview9',
                     meta: {
@@ -6654,6 +6654,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-ass-mob-mdview9/story-ass-mob-mdview9.vue'),
+                },
+                {
+                    path: 'ibzweeklies/:ibzweekly?/mobeditview',
+                    name: 'ibzweekly_mobeditview',
+                    meta: {
+                        caption: 'ibzweekly.views.mobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-weekly-mob-edit-view/ibz-weekly-mob-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/productmodules/:productmodule?/mobpickupmdview',

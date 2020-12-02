@@ -356,7 +356,7 @@
       * [月报](app/Mob/func/IbzMonthlyMonthlyMobMDView.md)
       * [产品统计](app/Mob/func/ProductStatsMobMDView.md)
       * [我的地盘](app/Mob/func/AppPortalView2.md)
-      * [周报(新建)](app/Mob/func/IbzWeeklyMobEditView.md)
+      * [我的周报](app/Mob/func/IbzWeeklyUsr2MobMDView.md)
       * [日报（我提交的）](app/Mob/func/IbzDailyDailyReportSubmitMobMDView.md)
       * [月报（我收到的）](app/Mob/func/IbzMonthlyMyReceivedMobMDView.md)
 

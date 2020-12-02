@@ -20,7 +20,7 @@
 | 菜单项      |  功能  |
 | --------   |   ----  |
 |日报|[查看功能](func/IbzDailyMyMobMDView.md)|
-|周报|[查看功能](func/IbzWeeklyMobEditView.md)|
+|周报|[查看功能](func/IbzWeeklyUsr2MobMDView.md)|
 |月报|[查看功能](func/IbzMonthlyMonthlyMobMDView.md)|
 |汇报|-|
 |我收到的|[查看功能](func/IbzReportMyReMobMDView.md)|

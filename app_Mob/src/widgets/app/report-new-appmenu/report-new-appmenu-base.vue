@@ -441,7 +441,7 @@ export default class ReportNewBase extends Vue implements ControlInterface {
 
     
     /**
-     * 周报(新建)
+     * 我的周报
      *
      * @param {*} [item={}]
      * @memberof ReportNew
@@ -455,7 +455,7 @@ export default class ReportNewBase extends Vue implements ControlInterface {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+            { pathName: 'usr2mobmdview', parameterName: 'usr2mobmdview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);
