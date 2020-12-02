@@ -69,10 +69,26 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
     @Transactional(rollbackFor = Exception.class)
     public boolean create(IbzWeekly et) {
         String files = et.getFiles();
+        Date today = new Date();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date());
-        int week = calendar.get(Calendar.WEEK_OF_MONTH); //第几周
+        calendar.setTime(today);
+        int week = calendar.get(Calendar.WEEK_OF_MONTH); //当月第几周
+
+
+        int weekday = getMondayAndSunday(calendar,today);
+        calendar.add(Calendar.DAY_OF_MONTH,weekday == 0 ? 0 : (8-weekday));
+        Date sunday = calendar.getTime();
+        calendar.add(Calendar.DAY_OF_MONTH,-6);
+        Date monday = calendar.getTime();
+        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().last("where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date"));
+        for (IbzWeekly ibzWeekly : list) {
+            if (AuthenticationUser.getAuthenticationUser().getUsername().equals(ibzWeekly.getAccount()) && ibzWeekly.getDate().getTime() >= monday.getTime() && ibzWeekly.getDate().getTime() <= sunday.getTime()){
+                throw new RuntimeException("您本周已有周报，请勿重新创建");
+            }
+        }
+
+
         et.setIbzweeklyname(String.format("%1$s-%2$s月第%3$s周的周报" ,et.getIbzweeklyname(), dateFormat.format(et.getDate()),week));
         if (!SqlHelper.retBool(this.baseMapper.insert(et))){
             return false;
