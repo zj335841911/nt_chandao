@@ -21,6 +21,21 @@ export class IbzReportService extends IbzReportServiceBase {
         super(opts);
     }
 
+    /**
+     * MyReportINotSubmit接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzReportServiceBase
+     */
+    public async MyReportINotSubmit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        context.ibzreport = 0;
+        let res:any = Http.getInstance().post(`/ibzreports/${context.ibzreport}/myreportinotsubmit`,data,isloading);
+        return res;
+    }
+
 }
 // 默认导出
 export default IbzReportService;
