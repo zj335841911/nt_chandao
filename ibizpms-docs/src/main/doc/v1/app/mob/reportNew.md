@@ -24,5 +24,5 @@
 |月报|[查看功能](func/IbzMonthlyCreateMobEditView.md)|
 |汇报|-|
 |我收到的|-|
-|我提交的|-|
+|我提交的|[查看功能](func/IbzReportMobMDView.md)|
 

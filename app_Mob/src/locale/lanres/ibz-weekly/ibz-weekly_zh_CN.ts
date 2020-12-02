@@ -20,8 +20,12 @@ export default {
     updatemanname: "更新人名称",
     createmanname: "建立人名称",
     reportstatus: "状态",
+    submittime: "提交时间",
   },
 	views: {
+		mobtabexpview: {
+			caption: '周报',
+		},
 		mobmdview: {
 			caption: '周报',
 		},
@@ -61,5 +65,7 @@ export default {
 	mobmdviewrighttoolbar_toolbar: {
 	},
 	mobeditviewrighttoolbar_toolbar: {
+	},
+	mobtabexpviewrighttoolbar_toolbar: {
 	},
 };
