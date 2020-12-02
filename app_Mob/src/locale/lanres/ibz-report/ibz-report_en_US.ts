@@ -29,6 +29,14 @@ export default {
 			caption: '我提交的',
 		},
 	},
+	mobdef_searchform: {
+		details: {
+			formpage1: '常规条件', 
+			n_type_eq: '模板', 
+		},
+		uiactions: {
+		},
+	},
 	mobmdviewmdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {
 			caption: '详情',

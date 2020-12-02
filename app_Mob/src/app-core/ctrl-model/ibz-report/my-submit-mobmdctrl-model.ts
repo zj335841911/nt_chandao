@@ -62,6 +62,12 @@ export class MySubmitModel {
 				prop: 'ibzdailyid',
 				dataType: 'FONTKEY',
 			},
+            {
+                name: 'n_type_eq',
+                prop: 'n_type_eq', 
+                dataType: 'SSCODELIST',
+            },
+
 			{
 				name: 'size',
 				prop: 'size'

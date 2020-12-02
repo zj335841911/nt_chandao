@@ -2,7 +2,7 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'ibz-report-mob-mdview': true }">
     
     <ion-header>
-        <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="false"></app-search-history>
+        <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="true"></app-search-history>
 
     
                     <div class="mdview-tools">
@@ -18,7 +18,59 @@
             </div>
     </ion-header>
 
+    <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
+        <ion-header>
+            <ion-toolbar translucent>
+                <ion-title>条件搜索</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <div class="searchform_content">
+            <view_searchform
+    :viewState="viewState"
+    viewName="IbzReportMobMDView"  
+    :viewparams="viewparams" 
+    :context="context" 
+     
+    :viewtag="viewtag"
+    :showBusyIndicator="true"
+    updateAction=""
+    removeAction=""
+    loaddraftAction="FilterGetDraft"
+    loadAction="FilterGet"
+    createAction=""
+    WFSubmitAction=""
+    WFStartAction=""
+    style='' 
+    name="searchform"  
+    ref='searchform' 
+    @search="searchform_search($event)"  
+    @load="searchform_load($event)"  
+    @closeview="closeView($event)">
+</view_searchform>
+        </div>
+        <ion-footer>
+        <div class="search-btn">
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
+        </div>
+        </ion-footer>
+    </van-popup>
+    <div id="searchformibzreportmobmdview"></div>
     <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
+        <ion-refresher 
+            slot="fixed" 
+            ref="loadmore" 
+            pull-factor="0.5" 
+            pull-min="50" 
+            pull-max="100" 
+            @ionRefresh="pullDownToRefresh($event)">
+            <ion-refresher-content
+                pulling-icon="arrow-down-outline"
+                :pulling-text="$t('app.pulling_text')"
+                refreshing-spinner="circles"
+                refreshing-text="">
+            </ion-refresher-content>
+        </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
             viewName="IbzReportMobMDView"  
@@ -192,7 +244,7 @@ export default class IbzReportMobMDViewBase extends Vue {
      * @type {*}
      * @memberof IbzReportMobMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'n_account_eq': '%srfloginname%' };
 
     /**
      * 视图模型数据
@@ -259,6 +311,7 @@ export default class IbzReportMobMDViewBase extends Vue {
      * @memberof IbzReportMobMDViewBase
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
     };
 
@@ -278,6 +331,7 @@ export default class IbzReportMobMDViewBase extends Vue {
      * @memberof IbzReportMobMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
 
@@ -333,6 +387,23 @@ export default class IbzReportMobMDViewBase extends Vue {
     }
 
     /**
+     * 下拉刷新
+     *
+     * @param {*} $event
+     * @returns {Promise<any>}
+     * @memberof IbzReportMobMDViewBase
+     */
+    public async pullDownToRefresh($event: any): Promise<any> {
+        let mdctrl: any = this.$refs.mdctrl;
+        if (mdctrl && mdctrl.pullDownToRefresh instanceof Function) {
+            const response: any = await mdctrl.pullDownToRefresh();
+            if (response) {
+                $event.srcElement.complete();
+            }
+        }
+    }
+
+    /**
      * 视图引擎
      *
      * @type {Engine}
@@ -355,6 +426,7 @@ export default class IbzReportMobMDViewBase extends Vue {
             newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
+            searchform: this.$refs.searchform,
             keyPSDEField: 'ibzreport',
             majorPSDEField: 'ibzdailyname',
             isLoadDefault: true,
@@ -466,6 +538,28 @@ export default class IbzReportMobMDViewBase extends Vue {
             });
         }
 
+    }
+
+    /**
+     * searchform 部件 search 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof IbzReportMobMDViewBase
+     */
+    protected searchform_search($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('searchform', 'search', $event);
+    }
+
+    /**
+     * searchform 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof IbzReportMobMDViewBase
+     */
+    protected searchform_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
     /**
@@ -712,6 +806,65 @@ export default class IbzReportMobMDViewBase extends Vue {
      */
     public isScrollStop = true;
 
+
+
+    /**
+     * 搜索表单状态
+     *
+     * @type {get}
+     * @memberof IbzReportMobMDViewBase
+     */
+    get searchformState(){
+        return this.$store.state.searchformStatus;
+    }
+
+    /**
+     * 搜索表单状态
+     *
+     * @type {set}
+     * @memberof IbzReportMobMDViewBase
+     */
+    set searchformState(val:any){
+        this.$store.commit('setSearchformStatus',val); 
+    }
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @type {boolean}
+     * @memberof IbzReportMobMDViewBase
+     */
+    public isExpandSearchForm: boolean = false;
+
+    /**
+     * 执行搜索表单
+     *
+     * @memberof IbzReportMobMDViewBase
+     */
+    public onSearch(): void {
+        this.$store.commit('setSearchformStatus',false); 
+        this.isExpandSearchForm = true;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onSearch();
+        }
+        this.closeSearchform();
+    }
+
+    /**
+     * 重置搜索表单
+     *
+     * @memberof IbzReportMobMDViewBase
+     */
+    public onReset(): void {
+        this.$store.commit('setSearchformStatus',false); 
+        this.isExpandSearchForm = false;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onReset();
+        }
+        this.closeSearchform();
+    }
 
     /**
      * 搜索值

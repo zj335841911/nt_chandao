@@ -28,7 +28,7 @@
                 <ion-col v-show="detailsModel.container3.visible"  :size="12" style="" class="app-layoutpanel-container">
                     <ion-row style="height:100%;">
                         
-                        <ion-col v-show="detailsModel.worktoday.visible"  :size="12" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.worktoday.visible"  :lg="11" :size="12" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
                             <app-mob-span  v-if="data.worktoday" :context="context" :value="data.worktoday" :itemParam="{}"  ></app-mob-span>
@@ -41,7 +41,7 @@
                 <ion-col v-show="detailsModel.container4.visible"  :size="12" style="" class="app-layoutpanel-container">
                     <ion-row style="height:100%;">
                         
-                        <ion-col v-show="detailsModel.planstomorrow.visible"  :size="12" style="" class="app-layoutpanel-field">
+                        <ion-col v-show="detailsModel.planstomorrow.visible"  :lg="11" :size="12" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
                             <app-mob-span  v-if="data.planstomorrow" :context="context" :value="data.planstomorrow" :itemParam="{}"  ></app-mob-span>
