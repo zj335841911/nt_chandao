@@ -37,18 +37,4 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmdviewmdctrl_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '详情',
-			tip: '详情',
-		},
-		deuiaction2: {
-			caption: '详情',
-			tip: '详情',
-		},
-		deuiaction3: {
-			caption: '详情',
-			tip: '详情',
-		},
-	},
 };

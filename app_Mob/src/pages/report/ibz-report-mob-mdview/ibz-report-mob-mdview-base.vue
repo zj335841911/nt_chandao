@@ -334,31 +334,12 @@ export default class IbzReportMobMDViewBase extends Vue {
 
 
 
-
-   /**
-    * 工具栏 IbzReportMobMDView 模型
-    *
-    * @type {*}
-    * @memberof IbzReportMobMDView
-    */
-    public mdctrl_quicktoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', caption: '详情', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'DAILY', uiaction: { tag: 'LookDaily', target: 'SINGLEKEY' } },
-
-            deuiaction2: { name: 'deuiaction2', caption: '详情', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'WEEKLY', uiaction: { tag: 'LookWeekly', target: 'SINGLEKEY' } },
-
-            deuiaction3: { name: 'deuiaction3', caption: '详情', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'MONTHLY', uiaction: { tag: 'LookMonthy', target: 'SINGLEKEY' } },
-
-    };
-
-    
-
-
     /**
      * 工具栏模型集合名
      *
      * @memberof IbzReportMobMDViewBase
      */
-    public toolbarModelList:any = ['mdctrl_quicktoolbarModels',]
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数

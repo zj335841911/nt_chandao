@@ -101,22 +101,6 @@
             </ion-list>
              <div  v-if="items.length == 0" class="no-data">
                 <div>暂无数据</div>
-                              <div class="app-toolbar-container ">
-                <div class="app-quick-toolbar toolbar-left-bottons">
-                        <ion-button class="app-view-toolbar-button" v-show="mdctrl_quicktoolbarModels.deuiaction1.visabled" :disabled="mdctrl_quicktoolbarModels.deuiaction1.disabled" @click="mdctrl_quicktoolbar_click({ tag: 'deuiaction1' }, $event)" >
-                {{$t('ibzreport.mobmdviewmdctrl_quicktoolbar_toolbar.deuiaction1.caption')}}
-                </ion-button>
-            
-                        <ion-button class="app-view-toolbar-button" v-show="mdctrl_quicktoolbarModels.deuiaction2.visabled" :disabled="mdctrl_quicktoolbarModels.deuiaction2.disabled" @click="mdctrl_quicktoolbar_click({ tag: 'deuiaction2' }, $event)" >
-                {{$t('ibzreport.mobmdviewmdctrl_quicktoolbar_toolbar.deuiaction2.caption')}}
-                </ion-button>
-            
-                        <ion-button class="app-view-toolbar-button" v-show="mdctrl_quicktoolbarModels.deuiaction3.visabled" :disabled="mdctrl_quicktoolbarModels.deuiaction3.disabled" @click="mdctrl_quicktoolbar_click({ tag: 'deuiaction3' }, $event)" >
-                {{$t('ibzreport.mobmdviewmdctrl_quicktoolbar_toolbar.deuiaction3.caption')}}
-                </ion-button>
-            
-                </div>
-            </div>
             </div>
             <div v-show="!allLoaded && isNeedLoaddingText && viewType == 'DEMOBMDVIEW' &&  !isEnableGroup" class="loadding" >
                     <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
@@ -251,122 +235,7 @@ export default class MySubmitBase extends Vue implements ControlInterface {
      * @memberof MySubmitBase
      */  
     public deUIService:IbzReportUIService = new IbzReportUIService(this.$store);
-
-    /**
-     * mdctrl_quicktoolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof MySubmit
-     */
-    protected mdctrl_quicktoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.mdctrl_quicktoolbar_deuiaction1_click($event, 'mdctrl_quicktoolbar', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.mdctrl_quicktoolbar_deuiaction2_click($event, 'mdctrl_quicktoolbar', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction3')) {
-            this.mdctrl_quicktoolbar_deuiaction3_click($event, 'mdctrl_quicktoolbar', $event2);
-        }
-    }
     
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_quicktoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('ibzreport_ui_action');
-        if (curUIService) {
-            curUIService.IbzReport_LookDaily(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_quicktoolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('ibzreport_ui_action');
-        if (curUIService) {
-            curUIService.IbzReport_LookWeekly(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_quicktoolbar_deuiaction3_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('ibzreport_ui_action');
-        if (curUIService) {
-            curUIService.IbzReport_LookMonthy(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
 
     /**
      * 逻辑事件
@@ -941,24 +810,6 @@ export default class MySubmitBase extends Vue implements ControlInterface {
             })
         })
     }
-
-      
-   /**
-    * 工具栏 IbzReportMobMDView 模型
-    *
-    * @type {*}
-    * @memberof IbzReportMobMDView
-    */
-    public mdctrl_quicktoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', caption: '详情', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'DAILY', uiaction: { tag: 'LookDaily', target: 'SINGLEKEY' } },
-
-            deuiaction2: { name: 'deuiaction2', caption: '详情', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'WEEKLY', uiaction: { tag: 'LookWeekly', target: 'SINGLEKEY' } },
-
-            deuiaction3: { name: 'deuiaction3', caption: '详情', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'MONTHLY', uiaction: { tag: 'LookMonthy', target: 'SINGLEKEY' } },
-
-    };
-
-    
 
 
     /**
