@@ -121,21 +121,9 @@ export default {
 		},
 	},
 	dailymobeditviewtoolbar_toolbar: {
-		tbitem3: {
-			caption: 'Save',
-			tip: 'tbitem3',
-		},
-		tbitem4: {
-			caption: 'Save And New',
-			tip: 'tbitem4',
-		},
-		tbitem5: {
+		tbitem1: {
 			caption: 'Save And Close',
-			tip: 'tbitem5',
-		},
-		tbitem7: {
-			caption: 'Remove And Close',
-			tip: 'tbitem7',
+			tip: 'tbitem1',
 		},
 	},
 	mymobmdviewrighttoolbar_toolbar: {
