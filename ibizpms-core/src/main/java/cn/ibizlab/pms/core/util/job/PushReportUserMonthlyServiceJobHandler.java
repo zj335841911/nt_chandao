@@ -12,9 +12,16 @@ import lombok.extern.slf4j.Slf4j;
 @Component("PushReportUserMonthlyServiceJobHandler")
 public class PushReportUserMonthlyServiceJobHandler implements IJobsHandler {
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.report.service.IIbzMonthlyService ibzmonthlyService;
 
     @Override
     public JobsResponse execute(String tenantId, String param) throws JobsException {
+        cn.ibizlab.pms.core.report.domain.IbzMonthly entity=new cn.ibizlab.pms.core.report.domain.IbzMonthly();
+        entity.set("tenantid",tenantId);
+        entity.set("param",param);
+        ibzmonthlyService.pushUserMonthly(entity);
         log.info("执行 DemoJobHandler tenantId=" + tenantId + ",param=" + param);
         return JobsResponse.ok();
     }

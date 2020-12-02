@@ -31,7 +31,8 @@
                         <ion-col v-show="detailsModel.worktoday.visible"  :lg="11" :size="12" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
-                            <app-mob-span  v-if="data.worktoday" :context="context" :value="data.worktoday" :itemParam="{}"  ></app-mob-span>
+                            <app-mob-rich-text-editor-pms :formState="formState"  :value="data.worktoday" @change="(val) =>{this.data.worktoday =val}" :disabled="detailsModel.worktoday.disabled" :data="JSON.stringify(this.data)"  name="worktoday" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+                        
                         </div>
                         
                         
@@ -44,7 +45,8 @@
                         <ion-col v-show="detailsModel.planstomorrow.visible"  :lg="11" :size="12" style="" class="app-layoutpanel-field">
                             <div class="item-field ">
                             
-                            <app-mob-span  v-if="data.planstomorrow" :context="context" :value="data.planstomorrow" :itemParam="{}"  ></app-mob-span>
+                            <app-mob-rich-text-editor-pms :formState="formState"  :value="data.planstomorrow" @change="(val) =>{this.data.planstomorrow =val}" :disabled="detailsModel.planstomorrow.disabled" :data="JSON.stringify(this.data)"  name="planstomorrow" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
+                        
                         </div>
                         
                         
