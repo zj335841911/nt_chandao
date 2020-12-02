@@ -4,8 +4,13 @@ import cn.ibizlab.pms.core.ou.domain.SysEmployee;
 import cn.ibizlab.pms.core.ou.filter.SysEmployeeSearchContext;
 import cn.ibizlab.pms.core.ou.service.ISysEmployeeService;
 import cn.ibizlab.pms.core.report.domain.IbzDaily;
+import cn.ibizlab.pms.core.report.domain.IbzReportRoleConfig;
 import cn.ibizlab.pms.core.report.mapper.IbzDailyMapper;
 import cn.ibizlab.pms.core.report.service.IIbzDailyService;
+import cn.ibizlab.pms.core.report.service.IIbzReportRoleConfigService;
+import cn.ibizlab.pms.core.uaa.domain.SysUserRole;
+import cn.ibizlab.pms.core.uaa.filter.SysUserRoleSearchContext;
+import cn.ibizlab.pms.core.uaa.service.ISysUserRoleService;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.Action;
@@ -44,14 +49,20 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
     @Autowired
     ISysEmployeeService iSysEmployeeService;
 
+    @Autowired
+    IIbzReportRoleConfigService iIbzReportRoleConfigService;
+
+    @Autowired
+    ISysUserRoleService iSysUserRoleService;
+
     String[] diffAttrs = {"worktoday", "comment", "planstomorrow"};
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean create(IbzDaily et) {
         String files = et.getFiles();
-        DateFormat dateFormat = new SimpleDateFormat("yyyyy-MM-dd");
-        et.setIbzdailyname(String.format("%1$s-%2$s的日报" ,et.getIbzdailyname(), dateFormat.format(et.getDate())));
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        et.setIbzdailyname(String.format("%1$s-%2$s的日报", et.getIbzdailyname(), dateFormat.format(et.getDate())));
         if (!SqlHelper.retBool(this.baseMapper.insert(et))) {
             return false;
         }
@@ -92,6 +103,7 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
         IbzDaily old = new IbzDaily();
         CachedBeanCopier.copy(get(et.getIbzdailyid()), old);
         String files = et.getFiles();
+        et.setSubmittime(ZTDateUtil.now());
         if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("Ibz_dailyid", et.getIbzdailyid()))) {
             return et;
         }
@@ -123,23 +135,52 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
 
     @Transactional(rollbackFor = Exception.class)
     public IbzDaily createUserDaily(IbzDaily et) {
-        SysEmployeeSearchContext sysEmployeeSearchContext = new SysEmployeeSearchContext();
-        String notAccount = notAccount();
-        if(!"".equals(notAccount)) {
-            sysEmployeeSearchContext.setN_username_notin(notAccount);
+        List<IbzReportRoleConfig> reportRoleConfigList = iIbzReportRoleConfigService.list(new QueryWrapper<IbzReportRoleConfig>().eq(ZTBaseHelper.FIELD_TYPE, StaticDict.ReportType.DAILY.getValue()).orderByDesc("updatedate"));
+        if (reportRoleConfigList.size() == 0 || reportRoleConfigList.get(0).getReportRole() == null) {
+            return et;
         }
-        sysEmployeeSearchContext.setSize(1000);
-        Page<SysEmployee> page = iSysEmployeeService.searchDefault(sysEmployeeSearchContext);
-        List<SysEmployee> list = page.getContent();
-        Timestamp now = ZTDateUtil.now();
-        for(SysEmployee sysEmployee : list) {
-            IbzDaily ibzDaily = new IbzDaily();
-            ibzDaily.setIbzdailyname(sysEmployee.getPersonname());
-            ibzDaily.setAccount(sysEmployee.getUsername());
-            ibzDaily.setDate(now);
-            ibzDaily.setIssubmit(StaticDict.YesNo.ITEM_0.getValue());
-            ibzDaily.setReportstatus(StaticDict.ReportStatus.ITEM_0.getValue());
-            this.create(ibzDaily);
+        String[] roleIds = reportRoleConfigList.get(0).getReportRole().split(",");
+        for (String roleId : roleIds) {
+            SysUserRoleSearchContext sysUserRoleSearchContext = new SysUserRoleSearchContext();
+            sysUserRoleSearchContext.setN_sys_roleid_eq(roleId);
+            Page<SysUserRole> sysUserRoles = iSysUserRoleService.searchDefault(sysUserRoleSearchContext);
+            List<SysUserRole> sysUserRoleList = sysUserRoles.getContent();
+            if (sysUserRoleList.size() == 0) {
+                continue;
+            }
+            String account = "";
+            for (SysUserRole sysUserRole : sysUserRoleList) {
+                if (sysUserRole.getLoginname() == null) {
+                    continue;
+                }
+                if ("".equals(account)) {
+                    account += sysUserRole.getLoginname();
+                    continue;
+                }
+                account += ";" + sysUserRole.getLoginname();
+            }
+            if ("".equals(account)) {
+                continue;
+            }
+            SysEmployeeSearchContext sysEmployeeSearchContext = new SysEmployeeSearchContext();
+            String notAccount = notAccount();
+            if (!"".equals(notAccount)) {
+                sysEmployeeSearchContext.setN_username_notin(notAccount);
+            }
+            sysEmployeeSearchContext.setN_username_in(account);
+            sysEmployeeSearchContext.setSize(1000);
+            Page<SysEmployee> page = iSysEmployeeService.searchDefault(sysEmployeeSearchContext);
+            List<SysEmployee> list = page.getContent();
+            Timestamp now = ZTDateUtil.now();
+            for (SysEmployee sysEmployee : list) {
+                IbzDaily ibzDaily = new IbzDaily();
+                ibzDaily.setIbzdailyname(sysEmployee.getPersonname());
+                ibzDaily.setAccount(sysEmployee.getUsername());
+                ibzDaily.setDate(now);
+                ibzDaily.setIssubmit(StaticDict.YesNo.ITEM_0.getValue());
+                ibzDaily.setReportstatus(StaticDict.ReportStatus.ITEM_0.getValue());
+                this.create(ibzDaily);
+            }
         }
         return et;
     }
@@ -147,8 +188,8 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
     public String notAccount() {
         String notaccount = "";
         List<IbzDaily> list = this.list(new QueryWrapper<IbzDaily>().last(" where DATE_FORMAT(date,'%Y-%m-%d') = DATE_FORMAT(now(),'%Y-%m-%d')"));
-        for(IbzDaily ibzDaily : list) {
-            if("".equals(notaccount)) {
+        for (IbzDaily ibzDaily : list) {
+            if ("".equals(notaccount)) {
                 notaccount += ibzDaily.getAccount();
                 continue;
             }
