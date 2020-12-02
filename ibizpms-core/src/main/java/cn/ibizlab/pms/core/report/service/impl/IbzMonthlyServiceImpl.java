@@ -175,6 +175,15 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
     }
 
     /**
+     * 查询集合 我的月报
+     */
+    @Override
+    public Page<IbzMonthly> searchMyMonthly(IbzMonthlySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchMyMonthly(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 我收到的月报
      */
     @Override

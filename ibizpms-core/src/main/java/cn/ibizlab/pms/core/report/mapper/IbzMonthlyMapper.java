@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface IbzMonthlyMapper extends BaseMapper<IbzMonthly> {
 
     Page<IbzMonthly> searchDefault(IPage page, @Param("srf") IbzMonthlySearchContext context, @Param("ew") Wrapper<IbzMonthly> wrapper);
+    Page<IbzMonthly> searchMyMonthly(IPage page, @Param("srf") IbzMonthlySearchContext context, @Param("ew") Wrapper<IbzMonthly> wrapper);
     Page<IbzMonthly> searchMyReceivedMonthly(IPage page, @Param("srf") IbzMonthlySearchContext context, @Param("ew") Wrapper<IbzMonthly> wrapper);
     Page<IbzMonthly> searchMySubmitMonthly(IPage page, @Param("srf") IbzMonthlySearchContext context, @Param("ew") Wrapper<IbzMonthly> wrapper);
     @Override
