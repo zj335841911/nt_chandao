@@ -238,10 +238,10 @@ public class IbzReportDTO extends DTOBase implements Serializable {
      * 属性 [SUBMITTIME]
      *
      */
-    @JsonFormat(pattern="HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "submittime" , format="HH:mm:ss")
+    @JSONField(name = "submittime")
     @JsonProperty("submittime")
-    private Timestamp submittime;
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String submittime;
 
 
     /**
@@ -338,14 +338,6 @@ public class IbzReportDTO extends DTOBase implements Serializable {
     public void setIbzdailyname(String  ibzdailyname){
         this.ibzdailyname = ibzdailyname ;
         this.modify("ibz_dailyname",ibzdailyname);
-    }
-
-    /**
-     * 设置 [SUBMITTIME]
-     */
-    public void setSubmittime(Timestamp  submittime){
-        this.submittime = submittime ;
-        this.modify("submittime",submittime);
     }
 
 

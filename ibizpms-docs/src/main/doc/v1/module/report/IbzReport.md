@@ -39,7 +39,7 @@
 | 21 | [类型](#属性-类型（TYPE）) | TYPE | 单项选择(文本值) | 否 | 否 | 是 |
 | 22 | [未读日报数](#属性-未读日报数（DAILYCNT）) | DAILYCNT | 整型 | 否 | 否 | 是 |
 | 23 | [未读月报数](#属性-未读月报数（MONTHLYCNT）) | MONTHLYCNT | 整型 | 否 | 否 | 是 |
-| 24 | [提交时间](#属性-提交时间（SUBMITTIME）) | SUBMITTIME | 时间型 | 否 | 否 | 是 |
+| 24 | [提交时间](#属性-提交时间（SUBMITTIME）) | SUBMITTIME | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-更新时间（UPDATEDATE）
 #### 属性说明
@@ -918,13 +918,13 @@ Integer
 否
 
 - 属性类型
-物理字段[来自当前实体物理表字段]
+应用界面字段[无存储]
 
 - 数据类型
-时间型
+文本，可指定长度
 
 - Java类型
-Timestamp
+String
 
 - 是否允许为空
 是
@@ -936,7 +936,7 @@ Timestamp
 无
 
 - 数据格式
-HH:mm:ss
+无
 
 - 是否支持快速搜索
 否
@@ -1366,7 +1366,6 @@ t1.`MAILTO`,
 t1.`PLANSTOMORROW`,
 t1.`REPORTSTATUS`,
 t1.`REPORTTO`,
-t1.`SUBMITTIME`,
 t1.`TODAYTASK`,
 t1.`TOMORROWPLANSTASK`,
 t1.`UPDATEDATE`,
