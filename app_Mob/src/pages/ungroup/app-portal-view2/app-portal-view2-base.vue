@@ -256,10 +256,6 @@ export default class AppPortalView2Base extends Vue {
 
 
 
-
-
-
-
     /**
      * 工具栏模型集合名
      *

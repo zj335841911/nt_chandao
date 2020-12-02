@@ -315,7 +315,7 @@
 
     * [汇报（我收到）](app/Mob/reportReceived.md)
   
-    * [汇报新建](app/Mob/reportNew.md)
+    * [汇报](app/Mob/reportNew.md)
   
     * [图标菜单](app/Mob/IconStyleMenu.md)
   

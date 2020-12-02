@@ -5,7 +5,7 @@
 | 菜单编号   |  菜单名称     |   备注 |
 | --------  | ------------ | ------------|
 |-|[汇报（我收到）](reportReceived.md)|&nbsp;|
-|-|[汇报新建](reportNew.md)|&nbsp;|
+|-|[汇报](reportNew.md)|&nbsp;|
 |-|[图标菜单](IconStyleMenu.md)|&nbsp;|
 |-|[应用首页视图默认菜单](AppIndexView.md)|&nbsp;|
 |-|[我的](My.md)|&nbsp;|

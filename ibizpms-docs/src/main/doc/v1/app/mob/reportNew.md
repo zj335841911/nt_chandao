@@ -1,13 +1,15 @@
-# 汇报新建
+# 汇报
 
 
 
 {% plantuml %}
 @startmindmap
-* 汇报新建
+* 汇报
 ** 日报
 ** 周报
 ** 月报
+** 我收到的
+** 我提交的
 @endmindmap
 {% endplantuml %}
 
@@ -19,4 +21,6 @@
 |日报|[查看功能](func/IbzDailyDailyMobEditView.md)|
 |周报|[查看功能](func/IbzWeeklyMobEditView.md)|
 |月报|[查看功能](func/IbzMonthlyCreateMobEditView.md)|
+|我收到的|-|
+|我提交的|-|
 
