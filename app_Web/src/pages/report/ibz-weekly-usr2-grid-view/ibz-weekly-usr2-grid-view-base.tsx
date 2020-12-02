@@ -128,7 +128,7 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
     public toolBarModels: any = {
         deuiaction1_createeveryweekreport: { name: 'deuiaction1_createeveryweekreport', caption: '生成周报', 'isShowCaption': true, 'isShowIcon': true, tooltip: '生成周报', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__ADMIN', uiaction: { tag: 'createEveryWeekReport', target: 'NONE', class: '' } },
 
-        deuiaction2_jugcreate: { name: 'deuiaction2_jugcreate', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'jugCreate', target: 'NONE', class: '' } },
+        deuiaction2_create: { name: 'deuiaction2_create', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'create', target: 'SINGLEKEY', class: '' } },
 
         deuiaction7: { name: 'deuiaction7', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
@@ -209,8 +209,8 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
         if (Object.is($event.tag, 'deuiaction1_createeveryweekreport')) {
             this.toolbar_deuiaction1_createeveryweekreport_click(null, '', $event2);
         }
-        if (Object.is($event.tag, 'deuiaction2_jugcreate')) {
-            this.toolbar_deuiaction2_jugcreate_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction2_create')) {
+            this.toolbar_deuiaction2_create_click(null, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction7')) {
             this.toolbar_deuiaction7_click(null, '', $event2);
@@ -342,7 +342,7 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_deuiaction2_jugcreate_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction2_create_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -360,7 +360,7 @@ export class IbzWeeklyUsr2GridViewBase extends GridViewBase {
         }
         // 界面行为
         const curUIService:IBZWEEKLYUIService  = new IBZWEEKLYUIService();
-        curUIService.IbzWeekly_jugCreate(datas,contextJO, paramJO,  $event, xData,this,"IBZWEEKLY");
+        curUIService.IbzWeekly_create(datas,contextJO, paramJO,  $event, xData,this,"IBZWEEKLY");
     }
 
     /**

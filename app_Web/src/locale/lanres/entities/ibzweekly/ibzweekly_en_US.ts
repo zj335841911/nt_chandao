@@ -183,7 +183,7 @@ export default {
 			caption: "生成周报",
 			tip: "生成周报",
 		},
-		deuiaction2_jugcreate: {
+		deuiaction2_create: {
 			caption: "新建",
 			tip: "新建",
 		},
