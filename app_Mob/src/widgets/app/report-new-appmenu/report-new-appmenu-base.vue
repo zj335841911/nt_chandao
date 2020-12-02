@@ -424,6 +424,9 @@ export default class ReportNewBase extends Vue implements ControlInterface {
                 case 'AppFunc5': 
                     this.clickAppFunc5(item);
                     return;
+                case 'AppFunc12': 
+                    this.clickAppFunc12(item);
+                    return;
                 case 'AppFunc11': 
                     this.clickAppFunc11(item);
                     return;
@@ -474,6 +477,27 @@ export default class ReportNewBase extends Vue implements ControlInterface {
         const parameters: any[] = [
             { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
             { pathName: 'mymobmdview', parameterName: 'mymobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 我收到的
+     *
+     * @param {*} [item={}]
+     * @memberof ReportNew
+     */
+    protected clickAppFunc12(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzreports', parameterName: 'ibzreport' },
+            { pathName: 'myremobmdview', parameterName: 'myremobmdview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);

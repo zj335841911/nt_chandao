@@ -2557,39 +2557,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-usr3-mob-mdview/bug-usr3-mob-mdview.vue'),
                 },
                 {
-                    path: 'projects/:project?/projectteams/:projectteam?/mobmdview',
-                    name: 'projectteam_mobmdview',
-                    meta: {
-                        caption: 'projectteam.views.mobmdview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-users',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'projectteams', parameterName: 'projectteam' },
-                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/project-team-mob-mdview/project-team-mob-mdview.vue'),
-                },
-                {
-                    path: 'projectteams/:projectteam?/mobmdview',
-                    name: 'projectteam_mobmdview',
-                    meta: {
-                        caption: 'projectteam.views.mobmdview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-users',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'projectteams', parameterName: 'projectteam' },
-                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/project-team-mob-mdview/project-team-mob-mdview.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/moboptionview',
                     name: 'task_moboptionview',
                     meta: {
@@ -2656,6 +2623,39 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/task-mob-option-view/task-mob-option-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/projectteams/:projectteam?/mobmdview',
+                    name: 'projectteam_mobmdview',
+                    meta: {
+                        caption: 'projectteam.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-users',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'projectteams', parameterName: 'projectteam' },
+                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-team-mob-mdview/project-team-mob-mdview.vue'),
+                },
+                {
+                    path: 'projectteams/:projectteam?/mobmdview',
+                    name: 'projectteam_mobmdview',
+                    meta: {
+                        caption: 'projectteam.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-users',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projectteams', parameterName: 'projectteam' },
+                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-team-mob-mdview/project-team-mob-mdview.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/mobmdview_testsuite',
@@ -4012,6 +4012,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/test-task-mob-tab-exp-view/test-task-mob-tab-exp-view.vue'),
+                },
+                {
+                    path: 'ibzreports/:ibzreport?/myremobmdview',
+                    name: 'ibzreport_myremobmdview',
+                    meta: {
+                        caption: 'ibzreport.views.myremobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzreports', parameterName: 'ibzreport' },
+                            { pathName: 'myremobmdview', parameterName: 'myremobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-report-my-re-mob-mdview/ibz-report-my-re-mob-mdview.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/newmobeditview',
