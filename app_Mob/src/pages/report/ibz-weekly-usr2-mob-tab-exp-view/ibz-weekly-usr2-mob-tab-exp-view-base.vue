@@ -18,7 +18,7 @@
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel">
                             
-                            111</ion-segment-button>
+                            主信息</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>

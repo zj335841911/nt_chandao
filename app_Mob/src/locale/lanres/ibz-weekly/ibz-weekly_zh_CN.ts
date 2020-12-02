@@ -116,8 +116,8 @@ export default {
 			tip: '新建',
 		},
 	},
-	usr2mobtabexpviewrighttoolbar_toolbar: {
-	},
 	usr2mobeditviewrighttoolbar_toolbar: {
+	},
+	usr2mobtabexpviewrighttoolbar_toolbar: {
 	},
 };
