@@ -453,6 +453,11 @@
        }
         ,
        {
+            "unirescode":"MONTHLY_SUBMIT_BUT",
+            "uniresname":"月报已提交"
+       }
+        ,
+       {
             "unirescode":"DOCLIBMODULE_EDIT_BUT",
             "uniresname":"文档库分类编辑"
        }

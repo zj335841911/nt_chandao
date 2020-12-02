@@ -189,4 +189,12 @@ export interface IbzReport {
      * @memberof IbzReport
      */
     monthlycnt?: any;
+
+    /**
+     * 提交时间
+     *
+     * @returns {*}
+     * @memberof IbzReport
+     */
+    submittime?: any;
 }

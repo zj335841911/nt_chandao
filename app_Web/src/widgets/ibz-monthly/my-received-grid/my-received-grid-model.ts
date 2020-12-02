@@ -62,6 +62,9 @@ export default class MyReceivedModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'ibzmonthlyname',
           dataType: 'TEXT',

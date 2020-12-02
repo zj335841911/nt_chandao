@@ -25,7 +25,7 @@ export default class IBZWEEKLYUIServiceBase extends UIService {
      * 
      * @memberof  IBZWEEKLYUIServiceBase
      */
-    public isEnableDEMainState:boolean = false;
+    public isEnableDEMainState:boolean = true;
 
     /**
      * 当前UI服务对应的数据服务对象
@@ -60,7 +60,7 @@ export default class IBZWEEKLYUIServiceBase extends UIService {
      * 
      * @memberof  IBZWEEKLYUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['issubmit'];
 
     /**
      * 主状态集合Map
@@ -122,6 +122,8 @@ export default class IBZWEEKLYUIServiceBase extends UIService {
      * @memberof  IBZWEEKLYUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('０','０');
+        this.allDeMainStateMap.set('１','１');
     }
 
     /**
@@ -130,6 +132,8 @@ export default class IBZWEEKLYUIServiceBase extends UIService {
      * @memberof  IBZWEEKLYUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('０',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__WEEKLY_NSUBMIT_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('１',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__WEEKLY_SUBMIT_BUT':0,}));
     }
 
     /**

@@ -84,6 +84,9 @@ export default class MyReportModel {
       {
         name: 'monthlycnt',
       },
+      {
+        name: 'submittime',
+      },
     ]
   }
 

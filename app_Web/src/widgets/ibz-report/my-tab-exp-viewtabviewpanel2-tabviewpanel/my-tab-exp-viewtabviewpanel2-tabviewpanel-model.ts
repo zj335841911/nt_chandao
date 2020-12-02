@@ -84,6 +84,9 @@ export default class MyTabExpViewtabviewpanel2Model {
       {
         name: 'monthlycnt',
       },
+      {
+        name: 'submittime',
+      },
     ]
   }
 

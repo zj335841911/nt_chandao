@@ -60,6 +60,7 @@
 
 |是否提交|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
 | --------   | ------------|------------|------------|------------|
+|Value| 允许|  | 不允许 | SRFUR__WEEKLY_NSUBMIT_BUT<br> |
 |Value| 允许|  | 不允许 | SRFUR__WEEKLY_SUBMIT_BUT<br> |
 
 是否提交
@@ -95,6 +96,7 @@ hide footbox
 周报 -> 周报: 准备临时参数
 周报 -> 周报: 获取数据
 周报 -> : 状态[未提交]拒绝[Update]操作
+周报 -> : 状态[已提交]拒绝[Update]操作
 {% endplantuml %}
 
 | 步骤       | 操作        |
@@ -103,6 +105,7 @@ hide footbox
 |1|准备临时参数 |
 |2|获取数据 |
 |3|状态[未提交]拒绝[Update]操作 |
+|4|状态[已提交]拒绝[Update]操作 |
 <center>行为[Update]主状态拒绝逻辑</center>
 * 行为[Remove]主状态拒绝逻辑 (Remove__MSDeny)
   
@@ -114,6 +117,7 @@ hide footbox
 周报 -> 周报: 准备临时参数
 周报 -> 周报: 获取数据
 周报 -> : 状态[未提交]拒绝[Remove]操作
+周报 -> : 状态[已提交]拒绝[Remove]操作
 {% endplantuml %}
 
 | 步骤       | 操作        |
@@ -122,6 +126,7 @@ hide footbox
 |1|准备临时参数 |
 |2|获取数据 |
 |3|状态[未提交]拒绝[Remove]操作 |
+|4|状态[已提交]拒绝[Remove]操作 |
 <center>行为[Remove]主状态拒绝逻辑</center>
 
 ## 查询集合

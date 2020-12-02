@@ -21,6 +21,15 @@ ruleflow-group "ibzweeklyremove__msdenybegin"
     then
     end
 
+//逻辑处理节点[状态[已提交]拒绝[remove]操作]
+rule "denybysubmit"
+ruleflow-group "ibzweeklyremove__msdenydenybysubmit"
+    when
+    then
+    update(ibzweeklyremove__msdenydefault);//更新fact中变量值
+    update(ibzweeklyremove__msdenytemp);//更新fact中变量值
+    end
+
 //逻辑处理节点[准备临时参数]
 rule "preparetemp"
 ruleflow-group "ibzweeklyremove__msdenypreparetemp"
@@ -31,21 +40,21 @@ ruleflow-group "ibzweeklyremove__msdenypreparetemp"
     update(ibzweeklyremove__msdenytemp);//更新fact中变量值
     end
 
-//逻辑处理节点[状态[未提交]拒绝[remove]操作]
-rule "denybynsubmit"
-ruleflow-group "ibzweeklyremove__msdenydenybynsubmit"
-    when
-    then
-    update(ibzweeklyremove__msdenydefault);//更新fact中变量值
-    update(ibzweeklyremove__msdenytemp);//更新fact中变量值
-    end
-
 //逻辑处理节点[获取数据]
 rule "get"
 ruleflow-group "ibzweeklyremove__msdenyget"
     when
     then
     cn.ibizlab.pms.util.helper.CachedBeanCopier.copy(ibzweeklyservice.get(ibzweeklyremove__msdenytemp.getIbzweeklyid()),ibzweeklyremove__msdenytemp);
+    update(ibzweeklyremove__msdenydefault);//更新fact中变量值
+    update(ibzweeklyremove__msdenytemp);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[未提交]拒绝[remove]操作]
+rule "denybynsunbmit"
+ruleflow-group "ibzweeklyremove__msdenydenybynsunbmit"
+    when
+    then
     update(ibzweeklyremove__msdenydefault);//更新fact中变量值
     update(ibzweeklyremove__msdenytemp);//更新fact中变量值
     end

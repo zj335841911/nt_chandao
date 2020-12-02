@@ -52,6 +52,9 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'ibz_monthlyid',
           prop: 'ibzmonthlyid',
           dataType: 'ACID',

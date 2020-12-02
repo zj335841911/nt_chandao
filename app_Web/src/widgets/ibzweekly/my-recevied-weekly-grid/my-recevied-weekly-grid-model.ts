@@ -62,6 +62,9 @@ export default class MyReceviedWeeklyModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'srfmstag',
+        },
+        {
           name: 'srfmajortext',
           prop: 'ibzweeklyname',
           dataType: 'TEXT',

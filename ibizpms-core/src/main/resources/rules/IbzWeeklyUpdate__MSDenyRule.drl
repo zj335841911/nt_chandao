@@ -24,9 +24,18 @@ ruleflow-group "ibzweeklyupdate__msdenypreparetemp"
     update(ibzweeklyupdate__msdenydefault);//更新fact中变量值
     end
 
+//逻辑处理节点[状态[已提交]拒绝[update]操作]
+rule "denybysubmit"
+ruleflow-group "ibzweeklyupdate__msdenydenybysubmit"
+    when
+    then
+    update(ibzweeklyupdate__msdenytemp);//更新fact中变量值
+    update(ibzweeklyupdate__msdenydefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[状态[未提交]拒绝[update]操作]
-rule "denybynsubmit"
-ruleflow-group "ibzweeklyupdate__msdenydenybynsubmit"
+rule "denybynsunbmit"
+ruleflow-group "ibzweeklyupdate__msdenydenybynsunbmit"
     when
     then
     update(ibzweeklyupdate__msdenytemp);//更新fact中变量值
