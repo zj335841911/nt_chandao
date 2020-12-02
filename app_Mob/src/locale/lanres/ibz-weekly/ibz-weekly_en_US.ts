@@ -68,6 +68,10 @@ export default {
 	mobmdviewrighttoolbar_toolbar: {
 	},
 	mobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
+		},
 	},
 	mobtabexpviewrighttoolbar_toolbar: {
 	},

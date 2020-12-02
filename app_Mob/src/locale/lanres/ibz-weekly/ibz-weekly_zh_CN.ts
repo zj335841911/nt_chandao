@@ -68,6 +68,10 @@ export default {
 	mobmdviewrighttoolbar_toolbar: {
 	},
 	mobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
 	},
 	mobtabexpviewrighttoolbar_toolbar: {
 	},

@@ -256,7 +256,7 @@ export default class MyReBase extends Vue implements ControlInterface {
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
@@ -1273,7 +1273,7 @@ export default class MyReBase extends Vue implements ControlInterface {
      * @memberof MyReBase
      */  
     public ActionModel:any ={
-        MyReDaily: { name: 'MyReDaily',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'',},
+        MyReDaily: { name: 'MyReDaily',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DAILY', target: 'SINGLEKEY',icon:'',},
         MyReWeekly: { name: 'MyReWeekly',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'',},
         MyReMonthy: { name: 'MyReMonthy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'',}
     };
