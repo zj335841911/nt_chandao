@@ -4,19 +4,32 @@ import cn.ibizlab.pms.core.ou.domain.SysEmployee;
 import cn.ibizlab.pms.core.ou.filter.SysEmployeeSearchContext;
 import cn.ibizlab.pms.core.ou.service.ISysEmployeeService;
 import cn.ibizlab.pms.core.report.domain.IbzDaily;
+import cn.ibizlab.pms.core.report.domain.IbzReportRoleConfig;
 import cn.ibizlab.pms.core.report.domain.IbzWeekly;
 import cn.ibizlab.pms.core.report.mapper.IbzWeeklyMapper;
 import cn.ibizlab.pms.core.report.service.IIbzDailyService;
+import cn.ibizlab.pms.core.report.service.IIbzReportRoleConfigService;
+import cn.ibizlab.pms.core.report.service.IIbzWeeklyService;
+import cn.ibizlab.pms.core.report.service.impl.IbzReportRoleConfigServiceImpl;
+import cn.ibizlab.pms.core.uaa.domain.SysRole;
+import cn.ibizlab.pms.core.uaa.domain.SysUser;
+import cn.ibizlab.pms.core.uaa.domain.SysUserRole;
+import cn.ibizlab.pms.core.uaa.filter.SysRoleSearchContext;
+import cn.ibizlab.pms.core.uaa.filter.SysUserRoleSearchContext;
+import cn.ibizlab.pms.core.uaa.service.ISysRoleService;
+import cn.ibizlab.pms.core.uaa.service.ISysUserRoleService;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.Action;
 import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.util.dict.StaticDict;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
+import com.google.gag.annotation.remark.Facepalm;
 import liquibase.pro.packaged.c;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +56,12 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
     FileHelper fileHelper;
     @Autowired
     ISysEmployeeService iSysEmployeeService;
+
+    @Autowired
+    ISysUserRoleService iSysUserRoleService;
+    @Autowired
+    IIbzReportRoleConfigService iIbzReportRoleConfigService;
+
     String[] diffAttrs = {"workthisweek", "comment", "plannextweek"};
 
 
@@ -50,7 +69,7 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
     @Transactional(rollbackFor = Exception.class)
     public boolean create(IbzWeekly et) {
         String files = et.getFiles();
-        DateFormat dateFormat = new SimpleDateFormat("yyyyy-MM");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         int week = calendar.get(Calendar.WEEK_OF_MONTH); //第几周
@@ -60,7 +79,7 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
         }
         CachedBeanCopier.copy(get(et.getIbzweeklyid()), et);
         fileHelper.updateObjectID(et.getIbzweeklyid(), StaticDict.File__object_type.WEEKLY.getValue(), files, "");
-        actionHelper.create(StaticDict.Action__object_type.WEEKLY.getValue(), et.getIbzweeklyid(), StaticDict.Action__type.OPENED.getValue(), "", "", et.getCreateman() == null ? "admin" : et.getCreateman(), true);
+        actionHelper.create(StaticDict.Action__object_type.WEEKLY.getValue(), et.getIbzweeklyid(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
         return true;
     }
 
@@ -93,6 +112,9 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
     @Transactional(rollbackFor = Exception.class)
     public IbzWeekly submit(IbzWeekly et) {
         et.setIssubmit(StaticDict.YesNo.ITEM_1.getValue());
+        if (et.getSubmittime() == null){
+            et.setSubmittime(ZTDateUtil.now());
+        }
         IbzDaily old = new IbzDaily();
         CachedBeanCopier.copy(get(et.getIbzweeklyid()), old);
         String files = et.getFiles();
@@ -117,49 +139,67 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
 
     @Transactional(rollbackFor = Exception.class)
     public IbzWeekly createEveryWeekReport(IbzWeekly et){
-        SysEmployeeSearchContext sysEmployeeSearchContext = new SysEmployeeSearchContext();
-        String notAccount = notAccount();
-        if(!"".equals(notAccount)) {
-            sysEmployeeSearchContext.setN_username_notin(notAccount);
+        //获取角色id
+        List<IbzReportRoleConfig> ibzReportRoleConfigList = iIbzReportRoleConfigService.list(new QueryWrapper<IbzReportRoleConfig>().eq("type",StaticDict.Action__object_type.WEEKLY.getValue()).orderByDesc("updatedate"));
+        if (ibzReportRoleConfigList.size() == 0 || ibzReportRoleConfigList.get(0).getReportRole() == null){
+            return et;
         }
-        sysEmployeeSearchContext.setSize(1000);
-        Page<SysEmployee> page = iSysEmployeeService.searchDefault(sysEmployeeSearchContext);
-        List<SysEmployee> list = page.getContent();
-        Timestamp now = ZTDateUtil.now();
-        for(SysEmployee sysEmployee : list) {
-            IbzWeekly ibzWeekly = new IbzWeekly();
-            ibzWeekly.setIbzweeklyname(sysEmployee.getPersonname());
-            ibzWeekly.setAccount(sysEmployee.getUsername());
-            ibzWeekly.setDate(now);
-            ibzWeekly.setIssubmit(StaticDict.YesNo.ITEM_0.getValue());
-            ibzWeekly.setReportstatus(StaticDict.ReportStatus.ITEM_0.getValue());
-            this.create(ibzWeekly);
+        String[] reportRoleIds = ibzReportRoleConfigList.get(0).getReportRole().split(",");
+        for (String roleId : reportRoleIds) {
+            SysUserRoleSearchContext sysRoleSearchContext = new SysUserRoleSearchContext();
+            sysRoleSearchContext.setN_sys_roleid_eq(roleId);
+            Page<SysUserRole> page1 = iSysUserRoleService.searchDefault(sysRoleSearchContext);
+            List<SysUserRole> sysRolesList = page1.getContent();
+            String allRoles = "";
+            for (SysUserRole role : sysRolesList) {
+                if (role.getLoginname() == null){
+                    continue;
+                }
+                if ("".equals(allRoles)){
+                    allRoles += role.getLoginname();
+                    continue;
+                }
+                allRoles += ";" +role.getLoginname();
+            }
+            if ("".equals(allRoles)) {
+                continue;
+            }
+
+            SysEmployeeSearchContext sysEmployeeSearchContext = new SysEmployeeSearchContext();
+            String notAccount = notAccount();
+            if (!"".equals(notAccount)) {
+                sysEmployeeSearchContext.setN_username_notin(notAccount);
+            }
+            sysEmployeeSearchContext.setN_username_in(allRoles);
+            sysEmployeeSearchContext.setSize(1000);
+            Page<SysEmployee> page = iSysEmployeeService.searchDefault(sysEmployeeSearchContext);
+            List<SysEmployee> list = page.getContent();
+            Timestamp now = ZTDateUtil.now();
+            for (SysEmployee sysEmployee : list) {
+                IbzWeekly ibzWeekly = new IbzWeekly();
+                ibzWeekly.setIbzweeklyname(sysEmployee.getPersonname());
+                ibzWeekly.setAccount(sysEmployee.getUsername());
+                ibzWeekly.setDate(now);
+                ibzWeekly.setIssubmit(StaticDict.YesNo.ITEM_0.getValue());
+                ibzWeekly.setReportstatus(StaticDict.ReportStatus.ITEM_0.getValue());
+                this.create(ibzWeekly);
+            }
         }
         return et;
     }
 
     public String notAccount() {
         Date today = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String strDate = sdf.format(today);
-        try {
-            today = sdf.parse(strDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-
         Calendar c=Calendar.getInstance();
         c.setTime(today);
-        int weekday=c.get(Calendar.DAY_OF_WEEK);  //今天是周几
+        int weekday= getMondayAndSunday(c,today);  //今天是周几
         c.add(Calendar.DAY_OF_MONTH,weekday == 0 ? 0 : (8-weekday));
         Date sunday = c.getTime();
         c.add(Calendar.DAY_OF_MONTH,-6);
         Date monday = c.getTime();
 
-//        String sql = String.format(" where date >= %1$s && date <= %2$s",monday,sunday);
+
         String notaccount = "";
-//        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().last(" where DATE_FORMAT(date,'%Y-%m-%d') >= DATE_FORMAT("+monday+",'%Y-%m-%d') && DATE_FORMAT(date,'%Y-%m-%d') <= DATE_FORMAT("+sunday+",'%Y-%m-%d')"));
         List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().last("where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date"));
         for(IbzWeekly ibzWeekly : list) {
             long date = ibzWeekly.getDate().getTime();
@@ -184,4 +224,42 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
         }
         return et;
     }
+
+
+    public IbzWeekly pushUserWeekly(IbzWeekly et) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        int weekday = getMondayAndSunday(c,new Date());
+        c.add(Calendar.DAY_OF_MONTH,weekday == 0 ? 0 : (8-weekday));
+        Date sunday = c.getTime();
+        c.add(Calendar.DAY_OF_MONTH,-6);
+        Date monday = c.getTime();
+
+
+        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().last("where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date").eq("issubmit", StaticDict.YesNo.ITEM_0.getValue()));
+        for (IbzWeekly ibzWeekly : list) {
+            long date = ibzWeekly.getDate().getTime();
+            if (date >= monday.getTime() && date <= sunday.getTime()){
+                actionHelper.sendToread(ibzWeekly.getIbzweeklyid(), "您的"+ibzWeekly.getDate()+"的周报还未提交，请及时填写！", ibzWeekly.getAccount(), "", "", IIbzWeeklyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.WEEKLY.getValue(), IIbzDailyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
+            }
+        }
+
+        return et;
+    }
+
+
+    public int getMondayAndSunday(Calendar c,Date today){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String strDate = sdf.format(today);
+        try {
+            today = sdf.parse(strDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        c.setTime(today);
+        int weekday = c.get(Calendar.DAY_OF_WEEK);  //今天是周几
+        return weekday;
+    }
+
+
 }

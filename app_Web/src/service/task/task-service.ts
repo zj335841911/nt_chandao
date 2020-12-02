@@ -151,8 +151,8 @@ export default class TaskService extends TaskServiceBase {
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        if(!tempData.todaytask) {
-            tempData.todaytask = '0';
+        if(!tempData.thisweektask) {
+            tempData.thisweektask = '0';
         }
         let res:any = Http.getInstance().get(`/tasks/fetchthisweekcompletetaskzs`,tempData,isloading);
         return res;
