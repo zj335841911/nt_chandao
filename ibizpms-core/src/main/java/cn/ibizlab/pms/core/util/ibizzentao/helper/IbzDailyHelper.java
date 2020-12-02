@@ -104,6 +104,10 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
         CachedBeanCopier.copy(get(et.getIbzdailyid()), old);
         String files = et.getFiles();
         et.setSubmittime(ZTDateUtil.now());
+        boolean flag = (old.getWorktoday() == null && old.getTodaytask() == null) || old.getReportto() == null;
+        if(flag) {
+            throw new RuntimeException("请填写今日工作或今日完成任务并且指定汇报人后提交！");
+        }
         if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("Ibz_dailyid", et.getIbzdailyid()))) {
             return et;
         }
@@ -126,9 +130,16 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
     @Transactional(rollbackFor = Exception.class)
     public IbzDaily haveRead(IbzDaily et) {
         CachedBeanCopier.copy(get(et.getIbzdailyid()), et);
-        List<Action> list = actionHelper.list(new QueryWrapper<Action>().eq("objecttype", StaticDict.Action__object_type.DAILY.getValue()).eq("action", StaticDict.Action__type.READ.getValue()).eq("actor", AuthenticationUser.getAuthenticationUser().getUsername()).eq("objectid", et.getIbzdailyid()));
-        if(list.size() == 0) {
-            actionHelper.create(StaticDict.Action__object_type.DAILY.getValue(), et.getIbzdailyid(), StaticDict.Action__type.READ.getValue(), "", "", null, true);
+        String curAccount = AuthenticationUser.getAuthenticationUser().getUsername();
+        if (curAccount == null) {
+            return et;
+        }
+        boolean exits = curAccount.equals(et.getReportto()) || (et.getMailto() != null && et.getMailto().contains(curAccount));
+        if(exits) {
+            List<Action> list = actionHelper.list(new QueryWrapper<Action>().eq("objecttype", StaticDict.Action__object_type.DAILY.getValue()).eq("action", StaticDict.Action__type.READ.getValue()).eq("actor", AuthenticationUser.getAuthenticationUser().getUsername()).eq("objectid", et.getIbzdailyid()));
+            if (list.size() == 0) {
+                actionHelper.create(StaticDict.Action__object_type.DAILY.getValue(), et.getIbzdailyid(), StaticDict.Action__type.READ.getValue(), "", "", null, true);
+            }
         }
         return et;
     }
