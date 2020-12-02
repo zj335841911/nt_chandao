@@ -2,7 +2,7 @@
     <div class='view-container'>
     <ion-row class="app-layoutpanel">
         
-        <ion-col v-show="detailsModel.ibz_weeklyid.visible"  :lg="4" :size="24" style="" class="app-layoutpanel-field">
+        <ion-col v-show="detailsModel.ibz_weeklyid.visible"  :lg="6" :size="24" style="" class="app-layoutpanel-field">
             <div class="item-field ">
             
             <app-mob-span  v-if="data.ibz_weeklyid" :context="context" :value="data.ibz_weeklyid" :itemParam="{}"  ></app-mob-span>
@@ -29,10 +29,19 @@
         
         </ion-col>
         
-        <ion-col v-show="detailsModel.reportstatus.visible"  :size="24" style="" class="app-layoutpanel-field">
+        <ion-col v-show="detailsModel.date.visible"  :lg="8" :size="24" style="" class="app-layoutpanel-field">
             <div class="item-field ">
             
-            <app-mob-span  v-if="data.reportstatus" :context="context" :value="data.reportstatus" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="ReportStatus"></app-mob-span>
+            <app-mob-span  v-if="data.date" :context="context" :value="data.date" :itemParam="{}"  ></app-mob-span>
+        </div>
+        
+        
+        </ion-col>
+        
+        <ion-col v-show="detailsModel.reportto.visible"  :lg="8" :size="24" style="" class="app-layoutpanel-field">
+            <div class="item-field ">
+            
+            <app-mob-span  v-if="data.reportto" :context="context" :value="data.reportto" :itemParam="{}"  ></app-mob-span>
         </div>
         
         
@@ -301,6 +310,7 @@ export default class MyWeeklyBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
    /**
@@ -316,7 +326,9 @@ export default class MyWeeklyBase extends Vue implements ControlInterface {
 , 
         account: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'account', panel: this, visible: true  })
 , 
-        reportstatus: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'reportstatus', panel: this, visible: true  })
+        date: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'date', panel: this, visible: true  })
+, 
+        reportto: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'reportto', panel: this, visible: true  })
 , 
     };
 
