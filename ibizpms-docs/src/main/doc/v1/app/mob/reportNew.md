@@ -8,6 +8,7 @@
 ** 日报
 ** 周报
 ** 月报
+** 汇报
 ** 我收到的
 ** 我提交的
 @endmindmap
@@ -21,6 +22,7 @@
 |日报|[查看功能](func/IbzDailyDailyMobEditView.md)|
 |周报|[查看功能](func/IbzWeeklyMobEditView.md)|
 |月报|[查看功能](func/IbzMonthlyCreateMobEditView.md)|
+|汇报|-|
 |我收到的|-|
 |我提交的|-|
 

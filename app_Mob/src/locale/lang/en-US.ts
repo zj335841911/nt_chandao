@@ -97,6 +97,7 @@ export default {
                 menuitem1: '日报',
                 menuitem2: '周报',
                 menuitem3: '月报',
+                menuitem6: '汇报',
                 menuitem4: '我收到的',
                 menuitem5: '我提交的',
             },
