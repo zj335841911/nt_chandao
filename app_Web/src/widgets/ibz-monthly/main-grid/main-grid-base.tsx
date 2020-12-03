@@ -122,25 +122,6 @@ export class MainGridBase extends GridControlBase {
         curUIService.IbzMonthly_Submit(datas,contextJO, paramJO,  $event, xData,this,"IbzMonthly");
     }
 
-    /**
-     * 返回
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof IbzMonthlyMainMonthlyGridViewBase
-     */
-    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.closeView(args);
-        if(window.parent){
-            window.parent.postMessage([{ ...args }],'*');
-        }
-    }
-
-
 
     /**
      * 界面行为模型
@@ -150,8 +131,7 @@ export class MainGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         Edit: { name: 'Edit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__MONTHLY_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        Submit: { name: 'Submit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__MONTHLY_SUBMIT_BUT', actiontarget: 'SINGLEKEY'},
-        Exit: { name: 'Exit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: ''}
+        Submit: { name: 'Submit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__MONTHLY_SUBMIT_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
