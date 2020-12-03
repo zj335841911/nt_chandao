@@ -131,7 +131,7 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
         if (et.getSubmittime() == null){
             et.setSubmittime(ZTDateUtil.now());
         }
-        IbzDaily old = new IbzDaily();
+        IbzWeekly old = new IbzWeekly();
         CachedBeanCopier.copy(get(et.getIbzweeklyid()), old);
         String files = et.getFiles();
         if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("Ibz_Weeklyid", et.getIbzweeklyid()))) {
