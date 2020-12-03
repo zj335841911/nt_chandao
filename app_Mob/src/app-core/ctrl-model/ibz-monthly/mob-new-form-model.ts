@@ -51,7 +51,7 @@ export class MobNewModel {
                 name: 'srfsourcekey',
             },
             {
-                name: 'ibz_monthlyname',
+                name: 'ibzmonthlyname',
                 prop: 'ibzmonthlyname',
                 dataType: 'TEXT',
             },
