@@ -21,6 +21,8 @@ export default {
     updatemanname: "更新人名称",
     reportstatus: "状态",
     submittime: "提交时间",
+    reporttopk: "汇报给（选择）",
+    mailtopk: "抄送给（选择）",
   },
 	views: {
 		myremobeditview: {

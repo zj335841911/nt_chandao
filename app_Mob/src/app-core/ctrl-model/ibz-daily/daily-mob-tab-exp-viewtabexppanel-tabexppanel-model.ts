@@ -78,6 +78,12 @@ export class DailyMobTabExpViewtabexppanelModel {
       {
         name: 'submittime',
       },
+      {
+        name: 'reporttopk',
+      },
+      {
+        name: 'mailtopk',
+      },
     ]
   }
 

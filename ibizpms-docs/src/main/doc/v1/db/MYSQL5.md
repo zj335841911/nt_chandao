@@ -47619,6 +47619,7 @@ CREATE TABLE `zt_case`(
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
+| REPORTTOPK        | 汇报给（选择）  | VARCHAR      |   200   | &nbsp; |
 | UPDATEMANNAME        | 更新人名称  | VARCHAR      |   60   | &nbsp; |
 | TODAYTASK        | 完成任务  | VARCHAR      |   2,000   | &nbsp; |
 | IBZ_DAILYID        | 日报标识  |       |   100   | 主键&nbsp; |
@@ -47639,6 +47640,7 @@ CREATE TABLE `zt_case`(
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | SUBMITTIME        | 提交时间  | DATETIME      |   -1   | &nbsp; |
+| MAILTOPK        | 抄送给（选择）  | VARCHAR      |   200   | &nbsp; |
 
 
 
