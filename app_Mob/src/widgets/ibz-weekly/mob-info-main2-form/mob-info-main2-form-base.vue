@@ -277,8 +277,8 @@
     tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
-    :navigateContext ='{ "srfparentkey": "%ibzweekly%" } ' 
-    :navigateParam ='{ "srfparentkey": "%ibzweekly%", "objecttype": "weekly" } ' 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ "objecttype": "weekly" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
