@@ -200,7 +200,7 @@ export default class IbzDailyDailyInfoMobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzDailyDailyInfoMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%ibzdaily%' };
 
     /**
      * 视图模型数据
