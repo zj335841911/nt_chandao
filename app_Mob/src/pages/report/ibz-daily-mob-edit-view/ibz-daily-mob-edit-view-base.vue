@@ -27,7 +27,7 @@
             updateAction="Update"
             removeAction="Remove"
             loaddraftAction="GetDraft"
-            loadAction="Get"
+            loadAction="HaveRead"
             createAction="Create"
             WFSubmitAction=""
             WFStartAction=""
@@ -44,16 +44,6 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div  class = "fab_container">
-            <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
-                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
-                    <ion-icon name="save"></ion-icon>
-                <span class="btn-inner-text">{{$t('ibzdaily.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('ibzdaily.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
-            </div>
-        
-            </div>
         </div>
     </ion-footer>
 </ion-page>
@@ -296,8 +286,6 @@ export default class IbzDailyMobEditViewBase extends Vue {
     * @memberof IbzDailyMobEditView
     */
     public righttoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', caption: '保存', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'Save', target: '' } },
-
     };
 
     /**
@@ -579,48 +567,6 @@ export default class IbzDailyMobEditViewBase extends Vue {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
-    /**
-     * righttoolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof IbzDailyMobEditViewBase
-     */
-    protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.righttoolbar_deuiaction1_click($event, '', $event2);
-        }
-    }
-
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof IbzDailyMobEditViewBase
-     */
-    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        this.globaluiservice.Save(datas, contextJO, paramJO, $event, xData, this);
-    }
 
     /**
      * 第三方关闭视图

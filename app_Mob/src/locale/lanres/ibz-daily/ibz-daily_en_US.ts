@@ -136,12 +136,6 @@ export default {
 			tip: 'deuiaction1_mobcreate',
 		},
 	},
-	mobeditviewrighttoolbar_toolbar: {
-		deuiaction1: {
-			caption: 'Save',
-			tip: 'deuiaction1',
-		},
-	},
 	dailyinfomobeditviewrighttoolbar_toolbar: {
 		deuiaction1_mobedit: {
 			caption: '编辑',
@@ -153,6 +147,8 @@ export default {
 		},
 	},
 	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
+	},
+	mobeditviewrighttoolbar_toolbar: {
 	},
 	dailyplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
 	},

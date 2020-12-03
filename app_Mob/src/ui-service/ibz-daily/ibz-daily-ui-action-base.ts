@@ -217,7 +217,7 @@ export default class IbzDailyUIActionBase extends EntityUIActionBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+            { pathName: 'dailymobeditview', parameterName: 'dailymobeditview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
