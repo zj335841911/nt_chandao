@@ -1287,8 +1287,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'e903ad26a5f15974177800895703623c',
                 '2fbad11497e0fa5fbb9e5cc3db6029ff',
+                'd37be393a71ef140b65a9b75e0a2658e',
                 '4b79a827dad435d82d3f9cdaec51f166',
             ],
         },
@@ -2218,6 +2218,16 @@ export const viewstate: any = {
                 '78beacb29481bfa83dfce62ac4bd9d13',
                 '1a957197655fae1ce44ceccda6f65852',
                 '4a68a7fca37b1f7d3cf396c66fd2347a',
+                '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
+            viewtag: 'dca81c1a74e59de75d199229ca890abb',
+            viewmodule: 'report',
+            viewname: 'TaskMyCompleteTaskMobMDViewNextPlanWeekly',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },

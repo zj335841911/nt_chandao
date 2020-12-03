@@ -145,6 +145,9 @@ export default {
 		assmobmdview9: {
 			caption: '任务',
 		},
+		mycompletetaskmobmdviewnextplanweekly: {
+			caption: '计划参与',
+		},
 		newmobeditview: {
 			caption: '任务',
 		},
@@ -523,8 +526,6 @@ export default {
 			tip: 'deuiaction1_deletemob',
 		},
 	},
-	myplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
-	},
 	assmobmdview9mdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {
 			caption: '更多',
@@ -532,6 +533,8 @@ export default {
 		},
 	},
 	mycompletetaskmobmdviewrighttoolbar_toolbar: {
+	},
+	myplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
 	},
 	mycompletetaskmobmdview1righttoolbar_toolbar: {
 	},
