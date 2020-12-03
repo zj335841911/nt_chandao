@@ -139,6 +139,20 @@ export class MainEditFormBase extends EditFormControlBase {
                     trigger: 'blur',
                 },
         ],
+            reportto: [
+                {
+                    required: this.detailsModel.reportto.required,
+                    type: 'string',
+                    message: '汇报给 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.reportto.required,
+                    type: 'string',
+                    message: '汇报给 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
         }
     }
 
@@ -274,7 +288,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         reportto: new FormItemModel({
     caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
