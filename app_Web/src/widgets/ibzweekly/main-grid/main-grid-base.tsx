@@ -130,7 +130,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        submitZZZ: { name: 'submitZZZ',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        submitZZZ: { name: 'submitZZZ',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__WEEKLY_SUBMIT_BUT', actiontarget: 'SINGLEKEY'},
         edit: { name: 'edit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
