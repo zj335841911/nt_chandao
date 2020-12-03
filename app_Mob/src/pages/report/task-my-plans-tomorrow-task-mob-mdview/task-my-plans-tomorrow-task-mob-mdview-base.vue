@@ -20,7 +20,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchMyTomorrowPlanTask" 
+            fetchAction="FetchMyTomorrowPlanTaskMobDaily" 
             :isMutli="!isSingleSelect"
             :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
