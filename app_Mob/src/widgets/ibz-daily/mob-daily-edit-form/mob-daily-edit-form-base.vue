@@ -209,19 +209,19 @@
 
 
 <app-form-item 
-    name='mailto' 
+    name='mailto1' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="mailto_item"  
-    :itemValue="this.data.mailto" 
-    v-show="detailsModel.mailto.visible" 
-    :itemRules="this.rules.mailto" 
-    :caption="$t('ibzdaily.mobdailyedit_form.details.mailto')"  
+    ref="mailto1_item"  
+    :itemValue="this.data.mailto1" 
+    v-show="detailsModel.mailto1.visible" 
+    :itemRules="this.rules.mailto1" 
+    :caption="$t('ibzdaily.mobdailyedit_form.details.mailto1')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.mailto.disabled"
-    :error="detailsModel.mailto.error" 
+    :disabled="detailsModel.mailto1.disabled"
+    :error="detailsModel.mailto1.error" 
     :isEmptyCaption="false">
         <app-mob-check-list 
     orMode="str"
@@ -229,14 +229,14 @@
     textSeparator=","
     type="dynamic"  
     tag="UserRealName"
-    :disabled="detailsModel.mailto.disabled" 
+    :disabled="detailsModel.mailto1.disabled" 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.mailto"   
+    :value="data.mailto1"   
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.mailto = $event"/>
+    @change="($event)=>this.data.mailto1 = $event"/>
 </app-form-item>
 
 
@@ -577,7 +577,9 @@ export default class MobDailyEditBase extends Vue implements ControlInterface {
         comment: null,
         files: null,
         reportto: null,
+        reportto1: null,
         mailto: null,
+        mailto1: null,
         ibz_dailyid: null,
         account: null,
         issubmit: null,
@@ -750,7 +752,11 @@ export default class MobDailyEditBase extends Vue implements ControlInterface {
 , 
         reportto: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        reportto1: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reportto1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        mailto1: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         ibz_dailyid: new FormItemModel({ caption: '日报标识', detailType: 'FORMITEM', name: 'ibz_dailyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -965,6 +971,18 @@ export default class MobDailyEditBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 reportto1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobDailyEdit
+     */
+    @Watch('data.reportto1')
+    onReportto1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'reportto1', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 mailto 值
      *
      * @param {*} newVal
@@ -974,6 +992,18 @@ export default class MobDailyEditBase extends Vue implements ControlInterface {
     @Watch('data.mailto')
     onMailtoChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 mailto1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobDailyEdit
+     */
+    @Watch('data.mailto1')
+    onMailto1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailto1', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1048,6 +1078,8 @@ export default class MobDailyEditBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
 
 
 

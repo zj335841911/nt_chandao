@@ -96,7 +96,17 @@ export class MobDailyEditModel {
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'reportto1',
+                prop: 'reportto',
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'mailto',
+                prop: 'mailto',
+                dataType: 'SMCODELIST',
+            },
+            {
+                name: 'mailto1',
                 prop: 'mailto',
                 dataType: 'SMCODELIST',
             },
