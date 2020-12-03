@@ -51,6 +51,15 @@ export default class MyRe extends MyReBase {
         }
         this.closeSlidings();
     }
+
+    /**
+     * vue 生命周期 activated
+     *
+     * @memberof MyRe
+     */
+    public activated() {
+        this.refresh()
+    }
     
 }
 </script>

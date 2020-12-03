@@ -11,7 +11,7 @@
                             </div>
                         <div class="item_content_content">
                             <div class="item_content_content_header">
-                                <div class="relname">{{_item.relname}}</div>
+                                <div class="relname"><div v-show="_item.reportstatus == 0" class="print"></div>{{_item.relname}}</div>
                                 <div class="submittime">{{_item.submittime}}</div>
                             </div>
                             <div class="item_content_content_text">
