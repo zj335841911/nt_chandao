@@ -17230,7 +17230,7 @@ WHERE t1.DELETED = '0'
 ( t1.`ID` IN (   
 case when  ${srfwebcontext('nextweektask','{"defname":"ID","dename":"ZT_TASK"}')} is null then 0
 else ${srfwebcontext('nextweektask','{"defname":"ID","dename":"ZT_TASK"}')} end 
-) 
+) ) 
 
 ```
 ### 下周计划完成任务(汇报)(NextWeekPlanCompleteTask)<div id="Task_NextWeekPlanCompleteTask"></div>
