@@ -237,8 +237,8 @@
     tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
-    :navigateContext ='{ "srfparentkey": "%ibzdaily%" } ' 
-    :navigateParam ='{ "srfparentkey": "%ibzdaily%", "objecttype": "daily" } ' 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ "objecttype": "daily" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
@@ -281,8 +281,8 @@
     tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
-    :navigateContext ='{ "srfparentkey": "%ibzdaily%" } ' 
-    :navigateParam ='{ "srfparentkey": "%ibzdaily%", "objecttype": "daily" } ' 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ "objecttype": "daily" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
