@@ -96,9 +96,9 @@ export class MobDailyEditModel {
                 dataType: 'SSCODELIST',
             },
             {
-                name: 'reportto1',
-                prop: 'reportto',
-                dataType: 'SSCODELIST',
+                name: 'reporttopk',
+                prop: 'reporttopk',
+                dataType: 'TEXT',
             },
             {
                 name: 'mailto',
@@ -106,9 +106,9 @@ export class MobDailyEditModel {
                 dataType: 'SMCODELIST',
             },
             {
-                name: 'mailto1',
-                prop: 'mailto',
-                dataType: 'SMCODELIST',
+                name: 'mailtopk',
+                prop: 'mailtopk',
+                dataType: 'TEXT',
             },
             {
                 name: 'ibz_dailyid',

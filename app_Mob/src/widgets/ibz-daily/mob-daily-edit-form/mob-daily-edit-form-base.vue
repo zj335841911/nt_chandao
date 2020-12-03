@@ -178,65 +178,63 @@
 
 
 <app-form-item 
-    name='reportto' 
+    name='reporttopk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="reportto_item"  
-    :itemValue="this.data.reportto" 
-    v-show="detailsModel.reportto.visible" 
-    :itemRules="this.rules.reportto" 
-    :caption="$t('ibzdaily.mobdailyedit_form.details.reportto')"  
+    ref="reporttopk_item"  
+    :itemValue="this.data.reporttopk" 
+    v-show="detailsModel.reporttopk.visible" 
+    :itemRules="this.rules.reporttopk" 
+    :caption="$t('ibzdaily.mobdailyedit_form.details.reporttopk')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.reportto.disabled"
-    :error="detailsModel.reportto.error" 
+    :disabled="detailsModel.reporttopk.disabled"
+    :error="detailsModel.reporttopk.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
+        <app-mob-span  
     codeListType="DYNAMIC" 
+    tag="UserRealName"
     :isCache="false" 
-    :disabled="detailsModel.reportto.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.reportto"  
+    v-if="data.reporttopk"
     :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.reportto = $event" />
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.reporttopk" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
 
 <app-form-item 
-    name='mailto1' 
+    name='mailtopk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="mailto1_item"  
-    :itemValue="this.data.mailto1" 
-    v-show="detailsModel.mailto1.visible" 
-    :itemRules="this.rules.mailto1" 
-    :caption="$t('ibzdaily.mobdailyedit_form.details.mailto1')"  
+    ref="mailtopk_item"  
+    :itemValue="this.data.mailtopk" 
+    v-show="detailsModel.mailtopk.visible" 
+    :itemRules="this.rules.mailtopk" 
+    :caption="$t('ibzdaily.mobdailyedit_form.details.mailtopk')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.mailto1.disabled"
-    :error="detailsModel.mailto1.error" 
+    :disabled="detailsModel.mailtopk.disabled"
+    :error="detailsModel.mailtopk.error" 
     :isEmptyCaption="false">
-        <app-mob-check-list 
-    orMode="str"
-    valueSeparator=","
-    textSeparator=","
-    type="dynamic"  
+        <app-mob-span  
+    codeListType="DYNAMIC" 
     tag="UserRealName"
-    :disabled="detailsModel.mailto1.disabled" 
+    :isCache="false" 
+    v-if="data.mailtopk"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.mailto1"   
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.mailto1 = $event"/>
+    :value="data.mailtopk" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -577,9 +575,9 @@ export default class MobDailyEditBase extends Vue implements ControlInterface {
         comment: null,
         files: null,
         reportto: null,
-        reportto1: null,
+        reporttopk: null,
         mailto: null,
-        mailto1: null,
+        mailtopk: null,
         ibz_dailyid: null,
         account: null,
         issubmit: null,
@@ -752,11 +750,11 @@ export default class MobDailyEditBase extends Vue implements ControlInterface {
 , 
         reportto: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        reportto1: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reportto1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        reporttopk: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reporttopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        mailto1: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        mailtopk: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         ibz_dailyid: new FormItemModel({ caption: '日报标识', detailType: 'FORMITEM', name: 'ibz_dailyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -971,15 +969,15 @@ export default class MobDailyEditBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 reportto1 值
+     * 监控表单属性 reporttopk 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobDailyEdit
      */
-    @Watch('data.reportto1')
-    onReportto1Change(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'reportto1', newVal: newVal, oldVal: oldVal });
+    @Watch('data.reporttopk')
+    onReporttopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'reporttopk', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -995,15 +993,15 @@ export default class MobDailyEditBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 mailto1 值
+     * 监控表单属性 mailtopk 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobDailyEdit
      */
-    @Watch('data.mailto1')
-    onMailto1Change(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'mailto1', newVal: newVal, oldVal: oldVal });
+    @Watch('data.mailtopk')
+    onMailtopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailtopk', newVal: newVal, oldVal: oldVal });
     }
 
     /**
