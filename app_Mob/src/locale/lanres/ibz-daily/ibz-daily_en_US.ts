@@ -132,23 +132,11 @@ export default {
 			tip: 'deuiaction1_mobcreate',
 		},
 	},
-	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
-	},
 	mobeditviewrighttoolbar_toolbar: {
 		deuiaction1: {
 			caption: 'Save',
 			tip: 'deuiaction1',
 		},
-	},
-	dailyplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
-	},
-	dailymobtabexpviewrighttoolbar_toolbar: {
-	},
-	reportreceivedmobmdviewrighttoolbar_toolbar: {
-	},
-	mydailymobtabexpviewrighttoolbar_toolbar: {
-	},
-	dailyreportsubmitmobmdviewrighttoolbar_toolbar: {
 	},
 	dailyinfomobeditviewrighttoolbar_toolbar: {
 		deuiaction1_mobedit: {
@@ -159,6 +147,18 @@ export default {
 			caption: '提交',
 			tip: 'deuiaction1_submitmob',
 		},
+	},
+	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
+	},
+	dailyplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
+	},
+	dailymobtabexpviewrighttoolbar_toolbar: {
+	},
+	reportreceivedmobmdviewrighttoolbar_toolbar: {
+	},
+	mydailymobtabexpviewrighttoolbar_toolbar: {
+	},
+	dailyreportsubmitmobmdviewrighttoolbar_toolbar: {
 	},
 	dailymobmdviewrighttoolbar_toolbar: {
 		tbitem1: {

@@ -132,23 +132,11 @@ export default {
 			tip: '新建',
 		},
 	},
-	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
-	},
 	mobeditviewrighttoolbar_toolbar: {
 		deuiaction1: {
 			caption: '保存',
 			tip: '保存',
 		},
-	},
-	dailyplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
-	},
-	dailymobtabexpviewrighttoolbar_toolbar: {
-	},
-	reportreceivedmobmdviewrighttoolbar_toolbar: {
-	},
-	mydailymobtabexpviewrighttoolbar_toolbar: {
-	},
-	dailyreportsubmitmobmdviewrighttoolbar_toolbar: {
 	},
 	dailyinfomobeditviewrighttoolbar_toolbar: {
 		deuiaction1_mobedit: {
@@ -159,6 +147,18 @@ export default {
 			caption: '提交',
 			tip: '提交',
 		},
+	},
+	dailycompletetaskmobmdviewrighttoolbar_toolbar: {
+	},
+	dailyplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
+	},
+	dailymobtabexpviewrighttoolbar_toolbar: {
+	},
+	reportreceivedmobmdviewrighttoolbar_toolbar: {
+	},
+	mydailymobtabexpviewrighttoolbar_toolbar: {
+	},
+	dailyreportsubmitmobmdviewrighttoolbar_toolbar: {
 	},
 	dailymobmdviewrighttoolbar_toolbar: {
 		tbitem1: {

@@ -10,6 +10,7 @@ export const PageComponents = {
         Vue.component('bug-mob-mdview', () => import('@pages/ibiz/bug-mob-mdview/bug-mob-mdview.vue'));
         Vue.component('sys-employee-mob-pickup-tree-view', () => import('@pages/ou/sys-employee-mob-pickup-tree-view/sys-employee-mob-pickup-tree-view.vue'));
         Vue.component('bug-usr3-mob-mpickup-left-view', () => import('@pages/zentao/bug-usr3-mob-mpickup-left-view/bug-usr3-mob-mpickup-left-view.vue'));
+        Vue.component('ibz-daily-daily-info-mob-edit-view', () => import('@pages/report/ibz-daily-daily-info-mob-edit-view/ibz-daily-daily-info-mob-edit-view.vue'));
         Vue.component('task-usr2-mob-option-view', () => import('@pages/zentao/task-usr2-mob-option-view/task-usr2-mob-option-view.vue'));
         Vue.component('project-mob-pickup-mdview', () => import('@pages/ibiz/project-mob-pickup-mdview/project-mob-pickup-mdview.vue'));
         Vue.component('sys-update-log-mob-edit-view', () => import('@pages/ibiz/sys-update-log-mob-edit-view/sys-update-log-mob-edit-view.vue'));
