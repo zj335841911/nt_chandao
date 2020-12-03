@@ -91,6 +91,11 @@ export class MobWeekEditModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'mailto',
+                prop: 'mailto',
+                dataType: 'SMCODELIST',
+            },
+            {
                 name: 'reportto',
                 prop: 'reportto',
                 dataType: 'SSCODELIST',
@@ -101,9 +106,9 @@ export class MobWeekEditModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'mailto',
-                prop: 'mailto',
-                dataType: 'SMCODELIST',
+                name: 'mailtopk',
+                prop: 'mailtopk',
+                dataType: 'TEXT',
             },
             {
                 name: 'ibz_weeklyid',

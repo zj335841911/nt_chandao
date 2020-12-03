@@ -81,6 +81,9 @@ export class Usr2MobTabExpViewtabexppanelModel {
       {
         name: 'reporttopk',
       },
+      {
+        name: 'mailtopk',
+      },
     ]
   }
 

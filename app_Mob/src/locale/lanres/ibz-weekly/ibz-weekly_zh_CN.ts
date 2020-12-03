@@ -22,6 +22,7 @@ export default {
     reportstatus: "状态",
     submittime: "提交时间",
     reporttopk: "汇报给(选择)",
+    mailtopk: "抄送给(选择)",
   },
 	views: {
 		usr2mobtabexpview: {
@@ -63,9 +64,10 @@ export default {
 			plannextweek: '下周计划', 
 			comment: '其他事项', 
 			files: '附件', 
+			mailto: '抄送给', 
 			reportto: '汇报给', 
 			reporttopk: '汇报给', 
-			mailto: '抄送给', 
+			mailtopk: '抄送给', 
 			ibz_weeklyid: '周报标识', 
 			account: '用户', 
 			issubmit: '是否提交', 

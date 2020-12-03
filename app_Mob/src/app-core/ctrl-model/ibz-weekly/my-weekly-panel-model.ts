@@ -81,6 +81,9 @@ export class MyWeeklyModel {
       {
         name: 'reporttopk',
       },
+      {
+        name: 'mailtopk',
+      },
     ]
   }
 

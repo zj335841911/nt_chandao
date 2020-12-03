@@ -205,19 +205,19 @@
 
 
 <app-form-item 
-    name='mailto' 
+    name='mailtopk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="mailto_item"  
-    :itemValue="this.data.mailto" 
-    v-show="detailsModel.mailto.visible" 
-    :itemRules="this.rules.mailto" 
-    :caption="$t('ibzweekly.mobweekedit_form.details.mailto')"  
+    ref="mailtopk_item"  
+    :itemValue="this.data.mailtopk" 
+    v-show="detailsModel.mailtopk.visible" 
+    :itemRules="this.rules.mailtopk" 
+    :caption="$t('ibzweekly.mobweekedit_form.details.mailtopk')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.mailto.disabled"
-    :error="detailsModel.mailto.error" 
+    :disabled="detailsModel.mailtopk.disabled"
+    :error="detailsModel.mailtopk.error" 
     :isEmptyCaption="false">
         <app-mob-check-list 
     orMode="str"
@@ -225,14 +225,14 @@
     textSeparator=","
     type="dynamic"  
     tag="UserRealName"
-    :disabled="detailsModel.mailto.disabled" 
+    :disabled="detailsModel.mailtopk.disabled" 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.mailto"   
+    :value="data.mailtopk"   
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.mailto = $event"/>
+    @change="($event)=>this.data.mailtopk = $event"/>
 </app-form-item>
 
 
@@ -576,9 +576,10 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
         plannextweek: null,
         comment: null,
         files: null,
+        mailto: null,
         reportto: null,
         reporttopk: null,
-        mailto: null,
+        mailtopk: null,
         ibz_weeklyid: null,
         account: null,
         issubmit: null,
@@ -761,11 +762,13 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
 , 
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         reportto: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         reporttopk: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reporttopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        mailtopk: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         ibz_weeklyid: new FormItemModel({ caption: '周报标识', detailType: 'FORMITEM', name: 'ibz_weeklyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -968,6 +971,18 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 mailto 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobWeekEdit
+     */
+    @Watch('data.mailto')
+    onMailtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 reportto 值
      *
      * @param {*} newVal
@@ -992,15 +1007,15 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 mailto 值
+     * 监控表单属性 mailtopk 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobWeekEdit
      */
-    @Watch('data.mailto')
-    onMailtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
+    @Watch('data.mailtopk')
+    onMailtopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailtopk', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1075,6 +1090,7 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

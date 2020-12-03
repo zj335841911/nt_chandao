@@ -78,6 +78,12 @@ export class MainInfoMobTabExpViewtabviewpanel3Model {
       {
         name: 'submittime',
       },
+      {
+        name: 'reporttopk',
+      },
+      {
+        name: 'mailtopk',
+      },
     ]
   }
 

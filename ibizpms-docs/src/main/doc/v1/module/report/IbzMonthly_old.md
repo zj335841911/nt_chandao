@@ -30,8 +30,8 @@
 |状态|REPORTSTATUS|SSCODELIST|&nbsp;|
 |建立人名称|CREATEMANNAME|TEXT|&nbsp;|
 |提交时间|SUBMITTIME|TIME|&nbsp;|
-|汇报给（选择）|REPORTTOPK|TEXT|&nbsp;|
-|抄送给（选择）|MAILTOPK|TEXT|&nbsp;|
+|汇报给（选择）|REPORTTOPK|SSCODELIST|&nbsp;|
+|抄送给（选择）|MAILTOPK|SMCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
