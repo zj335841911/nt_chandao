@@ -83,7 +83,7 @@ export default {
 			caption: '指派给我的任务',
 		},
 		mycompletetaskmobmdviewweekly: {
-			caption: '任务',
+			caption: '计划参与',
 		},
 		stopmoboptionview: {
 			caption: '暂停',

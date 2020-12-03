@@ -1290,6 +1290,7 @@ hide footbox
 |MyCompleteTaskMobMonthly|我完成的任务（移动端月报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskMobMonthly))|否|&nbsp;|
 |MyCompleteTaskZS|我完成的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskZS))|否|&nbsp;|
 |MyFavorites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyFavorites))|否|&nbsp;|
+|MyPlansTaskMobMonthly|我计划参与的任务（移动端月报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyPlansTaskMobMonthly))|否|&nbsp;|
 |MyTomorrowPlanTask|我计划参与的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyTomorrowPlanTask))|否|&nbsp;|
 |MyTomorrowPlanTaskMobDaily|我计划参与的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyTomorrowPlanTaskMobDaily))|否|&nbsp;|
 |NextWeekPlanCompleteTask|下周计划完成任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_NextWeekPlanCompleteTask))|否|&nbsp;|
@@ -1319,6 +1320,7 @@ hide footbox
 |MyCompleteTaskMobMonthly|我完成的任务（移动端月报）|MyCompleteTaskMobMonthly|否|&nbsp;|
 |MyCompleteTaskZS|我完成的任务（汇报）|MyCompleteTaskZS|否|&nbsp;|
 |MyFavorites|我的收藏|MyFavorites|否|&nbsp;|
+|MyPlansTaskMobMonthly|我计划参与的任务（移动端月报）|MyPlansTaskMobMonthly|否|&nbsp;|
 |MyTomorrowPlanTask|我计划参与的任务（汇报）|MyTomorrowPlanTask|否|&nbsp;|
 |MyTomorrowPlanTaskMobDaily|我计划参与的任务（汇报）|MyTomorrowPlanTaskMobDaily|否|&nbsp;|
 |NextWeekPlanCompleteTask|下周计划完成任务(汇报)|NextWeekPlanCompleteTask|否|&nbsp;|
