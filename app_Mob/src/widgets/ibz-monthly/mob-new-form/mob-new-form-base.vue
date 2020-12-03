@@ -1901,7 +1901,7 @@ export default class MobNewBase extends Vue implements ControlInterface {
      */
     public createDefault(){                    
             if (this.data.hasOwnProperty('ibzmonthlyname')) {
-                    this.data['ibzmonthlyname'] = this.context['srfusername'];
+                    this.data['ibzmonthlyname'] = this.context['srfpersonname'];
             }
             if (this.data.hasOwnProperty('date')) {
                     this.data['date'] = this.$util.dateFormat(new Date());
