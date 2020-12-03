@@ -100,6 +100,11 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
+                            <a v-show="scope.row.submitZZZ.visible" :disabled="scope.row.submitZZZ.disabled" @click="uiAction(scope.row, 'submitZZZ', $event)" :title="$t('entities.ibzweekly.main_grid.uiactions.ibzweekly_submitzzz')">
+                                <i class=""></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.edit.visible" type="vertical"></divider>
                             <a v-show="scope.row.edit.visible" :disabled="scope.row.edit.disabled" @click="uiAction(scope.row, 'edit', $event)" :title="$t('entities.ibzweekly.main_grid.uiactions.ibzweekly_edit')">
                                 
                                 {{$t('entities.ibzweekly.main_grid.uiactions.ibzweekly_edit')}}

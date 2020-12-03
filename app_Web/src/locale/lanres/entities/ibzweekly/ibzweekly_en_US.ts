@@ -148,6 +148,7 @@ export default {
 			issubmit: "是否提交",
     },
 		uiactions: {
+        ibzweekly_submitzzz: "提交",
         ibzweekly_edit: "修改",
 		},
 	},

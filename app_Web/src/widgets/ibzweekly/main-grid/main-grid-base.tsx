@@ -74,6 +74,34 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_u0bd2791_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:IBZWEEKLYUIService  = new IBZWEEKLYUIService();
+        curUIService.IbzWeekly_submitZZZ(datas,contextJO, paramJO,  $event, xData,this,"IBZWEEKLY");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_u1b66b37_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -102,6 +130,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
+        submitZZZ: { name: 'submitZZZ',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
         edit: { name: 'edit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
@@ -458,6 +487,9 @@ export class MainGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
+        if(Object.is('submitZZZ', tag)) {
+            this.grid_uagridcolumn1_u0bd2791_click(row, tag, $event);
+        }
         if(Object.is('edit', tag)) {
             this.grid_uagridcolumn1_u1b66b37_click(row, tag, $event);
         }
@@ -560,6 +592,9 @@ export class MainGridBase extends GridControlBase {
                 account:'',
                 date:'',
                 reportto:'',
+                submitZZZ:{
+                    visible: false
+                },
                 edit:{
                     visible: false
                 },
@@ -591,6 +626,9 @@ export class MainGridBase extends GridControlBase {
             account:'',
             date:'',
             reportto:'',
+            submitZZZ:{
+                visible: false
+            },
             edit:{
                 visible: false
             },
@@ -658,6 +696,9 @@ export class MainGridBase extends GridControlBase {
                 account:'',
                 date:'',
                 reportto:'',
+                submitZZZ:{
+                    visible: false
+                },
                 edit:{
                     visible: false
                 },
