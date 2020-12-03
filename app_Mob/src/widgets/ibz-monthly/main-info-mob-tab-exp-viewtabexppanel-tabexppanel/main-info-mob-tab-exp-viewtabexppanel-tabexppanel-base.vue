@@ -1,16 +1,5 @@
 <template>
     <span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel'">
-                        <view_tabviewpanel
-                :viewState="viewState"
-                viewName="IbzMonthlyMainInfoMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel"  
-                ref='tabviewpanel' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel>
-        </span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
                         <view_tabviewpanel2
                 :viewState="viewState"
@@ -21,6 +10,17 @@
                 ref='tabviewpanel2' 
                 @closeview="closeView($event)">
             </view_tabviewpanel2>
+        </span>
+        <span v-show="activiedTabViewPanel == 'tabviewpanel'">
+                        <view_tabviewpanel
+                :viewState="viewState"
+                viewName="IbzMonthlyMainInfoMobTabExpView"  
+                :viewparams="viewparams" 
+                :context="context" 
+                name="tabviewpanel"  
+                ref='tabviewpanel' 
+                @closeview="closeView($event)">
+            </view_tabviewpanel>
         </span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel3'">
                         <view_tabviewpanel3
@@ -239,7 +239,7 @@ export default class MainInfoMobTabExpViewtabexppanelBase extends Vue implements
      * @type {string}
      * @memberof MainInfoMobTabExpViewtabexppanel
      */
-    @Prop({ default: 'tabviewpanel' }) protected activiedTabViewPanel?: string;     
+    @Prop({ default: 'tabviewpanel2' }) protected activiedTabViewPanel?: string;     
 
     /**
      * 是否开启点击重新渲染
