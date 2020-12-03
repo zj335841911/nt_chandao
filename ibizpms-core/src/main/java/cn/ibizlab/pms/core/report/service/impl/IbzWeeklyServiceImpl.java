@@ -69,37 +69,30 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
     public void createBatch(List<IbzWeekly> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean update(IbzWeekly et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibz_weeklyid", et.getIbzweeklyid()))) {
-            return false;
-        }
-        CachedBeanCopier.copy(get(et.getIbzweeklyid()), et);
-        return true;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzWeeklyHelper.class).edit(et);
     }
 
     @Override
-    @Transactional
     public void updateBatch(List<IbzWeekly> list) {
-        updateBatchById(list, batchSize);
-    }
 
-    @Override
+    }
+        @Override
     @Transactional
     public boolean remove(Long key) {
-        IbzWeekly et = new IbzWeekly();
-        et.set("ibzweeklyid", key);
-        boolean result = removeById(key);
-        return result;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzWeeklyHelper.class).delete(key);
     }
 
     @Override
-    @Transactional
-    public void removeBatch(Collection<Long> idList) {
-        removeByIds(idList);
+    public void removeBatch(Collection<Long> idList){
+        if (idList != null && !idList.isEmpty()) {
+            for (Long id : idList) {
+                this.remove(id);
+            }
+        }
     }
-
     @Override
     @Transactional
     public IbzWeekly get(Long key) {
