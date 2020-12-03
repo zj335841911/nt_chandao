@@ -192,18 +192,7 @@
     :disabled="detailsModel.reporttopk.disabled"
     :error="detailsModel.reporttopk.error" 
     :isEmptyCaption="false">
-        <app-mob-span  
-    codeListType="DYNAMIC" 
-    tag="UserRealName"
-    :isCache="false" 
-    v-if="data.reporttopk"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.reporttopk" 
-    :itemParam="{}"/>
+        
 </app-form-item>
 
 
@@ -223,18 +212,7 @@
     :disabled="detailsModel.mailtopk.disabled"
     :error="detailsModel.mailtopk.error" 
     :isEmptyCaption="false">
-        <app-mob-span  
-    codeListType="DYNAMIC" 
-    tag="UserRealName"
-    :isCache="false" 
-    v-if="data.mailtopk"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.mailtopk" 
-    :itemParam="{}"/>
+        
 </app-form-item>
 
 

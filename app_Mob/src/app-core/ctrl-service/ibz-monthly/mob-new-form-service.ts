@@ -51,6 +51,12 @@ export class MobNewService extends FormServiceBase {
      * @memberof  MobNewService
      */
     public async getItems(serviceName: string, interfaceName: string, context?: any, data?: any, isLoading?: boolean): Promise<any[]> {
+        if (Object.is(serviceName, 'SysEmployeeService') && Object.is(interfaceName, 'FetchDefault')) {
+            const service: any = await this.getService('sysemployee');
+            await this.onBeforeAction(interfaceName, context, data, isLoading);
+            const response: any = await service.FetchDefault(data);
+            return this.doItems(response);
+        }
         return [];
     }
 
