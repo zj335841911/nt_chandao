@@ -82,6 +82,9 @@ export default {
 		assmoremobmdview: {
 			caption: '指派给我的任务',
 		},
+		mycompletetaskmobmdviewweekly: {
+			caption: '任务',
+		},
 		stopmoboptionview: {
 			caption: '暂停',
 		},

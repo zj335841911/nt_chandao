@@ -315,6 +315,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1bd9873e7212574f35571116edb7da0b',
+            viewmodule: 'report',
+            viewname: 'TaskMyCompleteTaskMobMDViewWeekly',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
             viewtag: '1d574776cd9473839f14855ebebd5a5a',
             viewmodule: 'ibiz',
             viewname: 'BugEditNewMobEditView',
@@ -587,6 +597,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'b6cf4424d051d03f2547d739dac7120d',
+                '1bd9873e7212574f35571116edb7da0b',
             ],
         },
         {

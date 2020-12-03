@@ -7479,6 +7479,74 @@ const router = new Router({
                     component: () => import('@pages/zentao/build-mob-tab-exp-view/build-mob-tab-exp-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/mycompletetaskmobmdviewweekly',
+                    name: 'task_mycompletetaskmobmdviewweekly',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdviewweekly.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdviewweekly', parameterName: 'mycompletetaskmobmdviewweekly' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-complete-task-mob-mdview-weekly/task-my-complete-task-mob-mdview-weekly.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/mycompletetaskmobmdviewweekly',
+                    name: 'task_mycompletetaskmobmdviewweekly',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdviewweekly.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdviewweekly', parameterName: 'mycompletetaskmobmdviewweekly' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-complete-task-mob-mdview-weekly/task-my-complete-task-mob-mdview-weekly.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/mycompletetaskmobmdviewweekly',
+                    name: 'task_mycompletetaskmobmdviewweekly',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdviewweekly.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdviewweekly', parameterName: 'mycompletetaskmobmdviewweekly' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-complete-task-mob-mdview-weekly/task-my-complete-task-mob-mdview-weekly.vue'),
+                },
+                {
+                    path: 'tasks/:task?/mycompletetaskmobmdviewweekly',
+                    name: 'task_mycompletetaskmobmdviewweekly',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdviewweekly.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdviewweekly', parameterName: 'mycompletetaskmobmdviewweekly' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-complete-task-mob-mdview-weekly/task-my-complete-task-mob-mdview-weekly.vue'),
+                },
+                {
                     path: 'projects/:project?/builds/:build?/mobmdview',
                     name: 'build_mobmdview',
                     meta: {

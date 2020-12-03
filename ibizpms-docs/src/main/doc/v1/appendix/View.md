@@ -30,6 +30,7 @@
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|系统更新功能移动端多数据视图（优化）|DEMOBMDVIEW9|&nbsp;|
 |-|我的地盘分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
+|-|任务移动端多数据视图(我的已完成任务)|DEMOBMDVIEW|&nbsp;|
 |-|Bug移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|Bug选项操作视图（解决Bug）|DEMOBOPTVIEW|&nbsp;|
 |-|任务选项操作视图（暂停）|DEMOBOPTVIEW|&nbsp;|
