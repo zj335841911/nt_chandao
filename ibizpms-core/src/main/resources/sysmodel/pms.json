@@ -12956,6 +12956,22 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"TEAMEMBERS" ,
+    "codename":"Teamembers",
+    "field_logic_name":"全部成员",
+    "entity_name":"IbzProjectMember",
+    "field_type":"SMCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"(select GROUP_CONCAT(t.account order by t.`order` asc) from zt_team t where t.type = 'project' and t.root = t1.id GROUP BY t.root)",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

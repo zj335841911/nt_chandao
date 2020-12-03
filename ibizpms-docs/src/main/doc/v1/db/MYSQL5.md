@@ -57515,6 +57515,7 @@ CREATE TABLE `zt_user`(
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
 | THIRDMEMBER        | 团队成员（三）  | VARCHAR      |   200   | &nbsp; |
+| TEAMEMBERS        | 全部成员  | VARCHAR      |   200   | &nbsp; |
 | QD        | 测试负责人  | VARCHAR      |   200   | &nbsp; |
 | SIXTHMEMBER        | 团队成员（六）  | VARCHAR      |   200   | &nbsp; |
 | PM        | 项目负责人  | VARCHAR      |   200   | &nbsp; |

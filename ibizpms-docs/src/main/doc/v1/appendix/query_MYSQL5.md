@@ -7861,6 +7861,7 @@ t1.QD AS `QD`,
 t1.RD AS `RD`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 1,1) AS `SECONDMEMBER`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 5,1) AS `SIXTHMEMBER`,
+(select GROUP_CONCAT(t.account order by t.`order` asc) from zt_team t where t.type = 'project' and t.root = t1.id GROUP BY t.root) AS `TEAMEMBERS`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 2,1) AS `THIRDMEMBER`
 FROM `zt_project` t1 
 
@@ -7879,6 +7880,7 @@ t1.QD AS `QD`,
 t1.RD AS `RD`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 1,1) AS `SECONDMEMBER`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 5,1) AS `SIXTHMEMBER`,
+(select GROUP_CONCAT(t.account order by t.`order` asc) from zt_team t where t.type = 'project' and t.root = t1.id GROUP BY t.root) AS `TEAMEMBERS`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 2,1) AS `THIRDMEMBER`
 FROM `zt_project` t1 
 

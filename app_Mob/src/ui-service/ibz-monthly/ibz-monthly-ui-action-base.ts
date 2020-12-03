@@ -163,6 +163,10 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
             const response: any = await curUIService.Submit(_context, _params);
             if (response && response.status === 200) {
                 this.notice.success('提交成功！');
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"IbzMonthly",action:'appRefresh',data:args});
+                }
             } else {
                 this.notice.error('系统异常！');
             }
@@ -208,6 +212,11 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
         return response;
     }
 
@@ -251,6 +260,11 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
         return response;
     }
 

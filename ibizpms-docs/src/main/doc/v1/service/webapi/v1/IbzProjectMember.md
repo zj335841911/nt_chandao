@@ -237,7 +237,8 @@ POST
 | 10 | fourthmember | String | 允许 | 团队成员（四） |
 | 11 | fifthmember | String | 允许 | 团队成员（五） |
 | 12 | sixthmember | String | 允许 | 团队成员（六） |
-| 13 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 13 | teamembers | String | 允许 | 全部成员 |
+| 14 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzProjectMemberSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
