@@ -188,18 +188,20 @@
     :disabled="detailsModel.reporttopk.disabled"
     :error="detailsModel.reporttopk.error" 
     :isEmptyCaption="false">
-        <app-mob-span  
-    codeListType="DYNAMIC" 
+        <app-mob-check-list 
+    orMode="str"
+    valueSeparator=","
+    textSeparator=","
+    type="dynamic"  
     tag="UserRealName"
-    :isCache="false" 
-    v-if="data.reporttopk"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
+    :disabled="detailsModel.reporttopk.disabled" 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.reporttopk" 
-    :itemParam="{}"/>
+    :value="data.reporttopk"   
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.reporttopk = $event"/>
 </app-form-item>
 
 
