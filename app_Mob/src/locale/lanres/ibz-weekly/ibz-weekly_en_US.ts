@@ -117,6 +117,14 @@ export default {
 		},
 	},
 	usr2mobeditviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '编辑',
+			tip: 'deuiaction1',
+		},
+		deuiaction2: {
+			caption: '提交',
+			tip: 'deuiaction2',
+		},
 	},
 	usr2mobtabexpviewrighttoolbar_toolbar: {
 	},
