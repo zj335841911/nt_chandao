@@ -82,12 +82,12 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
         Date sunday = calendar.getTime();
         calendar.add(Calendar.DAY_OF_MONTH,-6);
         Date monday = calendar.getTime();
-        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().last("where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date"));
-        for (IbzWeekly ibzWeekly : list) {
-            if (AuthenticationUser.getAuthenticationUser().getUsername().equals(ibzWeekly.getAccount()) && ibzWeekly.getDate().getTime() >= monday.getTime() && ibzWeekly.getDate().getTime() <= sunday.getTime()){
-                throw new RuntimeException("您本周已有周报，请勿重新创建");
-            }
-        }
+//        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().last("where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date"));
+//        for (IbzWeekly ibzWeekly : list) {
+//            if (AuthenticationUser.getAuthenticationUser().getUsername().equals(ibzWeekly.getAccount()) && ibzWeekly.getDate().getTime() >= monday.getTime() && ibzWeekly.getDate().getTime() <= sunday.getTime()){
+//                throw new BadRequestAlertException(String.format("%1$s-%2$s月第%3$s周的周报" ,et.getIbzweeklyname(), dateFormat.format(et.getDate()),week)+"已经存在，请勿重复创建！", StaticDict.ReportType.WEEKLY.getValue(), "");
+//            }
+//        }
 
 
         et.setIbzweeklyname(String.format("%1$s-%2$s月第%3$s周的周报" ,et.getIbzweeklyname(), dateFormat.format(et.getDate()),week));
