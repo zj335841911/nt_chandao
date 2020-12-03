@@ -657,8 +657,8 @@
     :disabled="detailsModel.files.disabled" 
     :context="context" 
     :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}' 
+    :uploadParam='{objecttype:"bug",objectid:"0"}' 
+    :exportParam='{objecttype:"bug",objectid:"0"}' 
     @formitemvaluechange="onFormItemValueChange" />
 </app-form-item>
 

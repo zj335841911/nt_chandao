@@ -170,8 +170,8 @@
     :disabled="detailsModel.files.disabled" 
     :context="context" 
     :viewparams="viewparams" 
-    :uploadParam='{objecttype:"daily",objectid:"0",version:"1"}' 
-    :exportParam='{objecttype:"daily",objectid:"0",version:"1"}' 
+    :uploadParam='{}' 
+    :exportParam='{}' 
     @formitemvaluechange="onFormItemValueChange" />
 </app-form-item>
 

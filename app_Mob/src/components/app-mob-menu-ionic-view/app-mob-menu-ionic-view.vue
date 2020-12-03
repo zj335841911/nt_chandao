@@ -4,7 +4,7 @@
             <ion-grid>
                 <ion-row>
                     <template v-for="item in items">
-                        <ion-col size="3" :key="item.id">
+                        <ion-col :size="size" :key="item.id">
                             <ion-tab-button @click="selectItem(item.name)" :class="item.textcls?item.textcls:''">
                                 <template v-if="item.icon != ''">
                                     <img :src="item.icon" />
@@ -124,6 +124,18 @@ export default class AppMobMenuIonicView extends Vue {
             this.counterdata = counterServide.counterData;
         }
     }
+
+    
+
+    /**
+     * 动态栅格
+     *
+     * @memberof AppMobMenuIonicView
+     */
+    get size() {
+        return document.body.scrollWidth > 365?3:4;
+    }
+
 }
 </script>
 

@@ -1016,8 +1016,8 @@
     :disabled="detailsModel.files.disabled" 
     :context="context" 
     :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}' 
+    :uploadParam='{objecttype:"task",objectid:"0",version:"1"}' 
+    :exportParam='{objecttype:"task",objectid:"0",version:"1"}' 
     @formitemvaluechange="onFormItemValueChange" />
 </app-form-item>
 
