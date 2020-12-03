@@ -587,8 +587,8 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
         plannextweek: null,
         comment: null,
         files: null,
-        mailto: null,
         reportto: null,
+        mailto: null,
         reporttopk: null,
         mailtopk: null,
         ibz_weeklyid: null,
@@ -773,9 +773,9 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
 , 
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         reportto: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         reporttopk: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reporttopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -982,18 +982,6 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 mailto 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobWeekEdit
-     */
-    @Watch('data.mailto')
-    onMailtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 reportto 值
      *
      * @param {*} newVal
@@ -1003,6 +991,18 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
     @Watch('data.reportto')
     onReporttoChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'reportto', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 mailto 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobWeekEdit
+     */
+    @Watch('data.mailto')
+    onMailtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
     }
 
     /**
