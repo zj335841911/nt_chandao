@@ -581,7 +581,6 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
         ibz_weeklyid: null,
         account: null,
         issubmit: null,
-         reportto: null,
         ibzweekly: null,
     };
 
@@ -770,8 +769,6 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
         account: new FormItemModel({ caption: '用户', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         issubmit: new FormItemModel({ caption: '是否提交', detailType: 'FORMITEM', name: 'issubmit', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-         reportto: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: ' reportto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -1027,18 +1024,6 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'issubmit', newVal: newVal, oldVal: oldVal });
     }
 
-    /**
-     * 监控表单属性  reportto 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobWeekEdit
-     */
-    @Watch('data. reportto')
-    on reporttoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: ' reportto', newVal: newVal, oldVal: oldVal });
-    }
-
 
     /**
      * 重置表单项值
@@ -1075,7 +1060,6 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
 
 
 
