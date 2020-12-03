@@ -232,22 +232,20 @@
     :disabled="detailsModel.mailtopk.disabled"
     :error="detailsModel.mailtopk.error" 
     :isEmptyCaption="false">
-        <app-mob-mpicker 
+        <app-mob-check-list 
+    orMode="str"
+    valueSeparator=","
+    textSeparator=","
+    type="dynamic"  
+    tag="UserRealName"
+    :disabled="detailsModel.mailtopk.disabled" 
     :data="data"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    :disabled="detailsModel.mailtopk.disabled"
-    :value="data.mailtopk"
-    name="mailtopk"
     :context="context"
     :viewparams="viewparams"
-    :service="service"
-    deMajorField='personname'
-    deKeyField='sysemployee'
-    :pickupView="{ viewname: 'sys-employee-user-tree-mob-mpickup-view', title: '人员移动端多数据选择视图（人员树）', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange" 
-    style=""/>
-
+    :value="data.mailtopk"   
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.mailtopk = $event"/>
 </app-form-item>
 
 

@@ -2196,9 +2196,61 @@
 
 
     <!--输出实体[SYS_UPDATE_FEATURES]数据结构 -->
+    <changeSet author="zentao" id="tab-sys_update_features-80-85">
+        <createTable tableName="T_SYS_UPDATE_FEATURES">
+                <column name="SYS_UPDATE_FEATURESNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="SYS_UPDATE_FEATURESID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_UPDATE_FEATURES_SYS_UPD"/>
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="SYS_UPDATE_LOGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPFEATURES" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="FEATURESDESC" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="TYPE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="DISPLAYORDER" remarks="" type="INT">
+                </column>
+        </createTable>
+    </changeSet>
 
 
     <!--输出实体[SYS_UPDATE_LOG]数据结构 -->
+    <changeSet author="zentao" id="tab-sys_update_log-108-86">
+        <createTable tableName="T_SYS_UPDATE_LOG">
+                <column name="SYS_UPDATE_LOGID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_UPDATE_LOG_SYS_UPDATE_L"/>
+                </column>
+                <column name="SYS_UPDATE_LOGNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDESC" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="LATESTUPDATE" remarks="" type="INT">
+                </column>
+                <column name="UPDATEBRANCH" remarks="" type="VARCHAR(60)">
+                </column>
+        </createTable>
+    </changeSet>
 
 
 
