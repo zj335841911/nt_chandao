@@ -661,8 +661,8 @@ export default class IbzWeeklyUsr2MobMDViewBase extends Vue {
             Object.assign(context, args[0]);
         }
         let response: any = null;
-        let panelNavParam = { "objecttype": "weekly", "thisweektask": "%thisweektask%", "nextweektask": "%nextweektask%" } ;
-        let panelNavContext = { "thisweektask": "%thisweektask%", "nextweektask": "%nextweektask%", "objecttype": "weekly" } ;
+        let panelNavParam = { "objecttype": "weekly", "objectid": "%ibzweekly%", "thisweektask": "%thisweektask%", "nextweektask": "%nextweektask%" } ;
+        let panelNavContext = { "thisweektask": "%thisweektask%", "nextweektask": "%nextweektask%", "objecttype": "weekly", "objectid": "%ibzweekly%" } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         const deResParameters: any[] = [];
