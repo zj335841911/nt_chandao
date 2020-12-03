@@ -58,6 +58,7 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
+			account: '', 
 			ibz_monthlyname: '月报名称', 
 			date: '日期', 
 			workthismonth: '本月工作', 
@@ -68,7 +69,6 @@ export default {
 			thismonthtask: '本月完成任务', 
 			nextmonthplanstask: '下月计划任务', 
 			ibz_monthlyid: '月报标识', 
-			account: '用户', 
 			issubmit: '是否提交', 
 		},
 		uiactions: {

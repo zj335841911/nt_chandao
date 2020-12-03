@@ -51,6 +51,11 @@ export class MobMainInfoModel {
                 name: 'srfsourcekey',
             },
             {
+                name: 'account',
+                prop: 'account',
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'ibz_monthlyname',
                 prop: 'ibzmonthlyname',
                 dataType: 'TEXT',
@@ -99,11 +104,6 @@ export class MobMainInfoModel {
                 name: 'ibz_monthlyid',
                 prop: 'ibzmonthlyid',
                 dataType: 'ACID',
-            },
-            {
-                name: 'account',
-                prop: 'account',
-                dataType: 'SSCODELIST',
             },
             {
                 name: 'issubmit',

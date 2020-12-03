@@ -24,7 +24,7 @@
                             本周完成任务</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
                             
-                            计划</ion-segment-button>
+                            下周计划参与</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>

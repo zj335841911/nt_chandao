@@ -18,28 +18,31 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='ibz_monthlyname' 
+    name='account' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="ibz_monthlyname_item"  
-    :itemValue="this.data.ibz_monthlyname" 
-    v-show="detailsModel.ibz_monthlyname.visible" 
-    :itemRules="this.rules.ibz_monthlyname" 
-    :caption="$t('ibzmonthly.mobmaininfo_form.details.ibz_monthlyname')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.ibz_monthlyname.disabled"
-    :error="detailsModel.ibz_monthlyname.error" 
-    :isEmptyCaption="false">
+    labelPos="NONE" 
+    ref="account_item"  
+    :itemValue="this.data.account" 
+    v-show="detailsModel.account.visible" 
+    :itemRules="this.rules.account" 
+    :caption="$t('ibzmonthly.mobmaininfo_form.details.account')"  
+    :labelWidth="0"  
+    :isShowCaption="false"
+    :disabled="detailsModel.account.disabled"
+    :error="detailsModel.account.error" 
+    :isEmptyCaption="true">
         <app-mob-span  
-    v-if="data.ibz_monthlyname"
+    codeListType="DYNAMIC" 
+    tag="UserRealName"
+    :isCache="false" 
+    v-if="data.account"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.ibz_monthlyname" 
+    :value="data.account" 
     :itemParam="{}"/>
 </app-form-item>
 
@@ -49,7 +52,7 @@
     name='date' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="date_item"  
     :itemValue="this.data.date" 
     v-show="detailsModel.date.visible" 
@@ -77,7 +80,7 @@
     name='workthismonth' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="workthismonth_item"  
     :itemValue="this.data.workthismonth" 
     v-show="detailsModel.workthismonth.visible" 
@@ -98,7 +101,7 @@
     name='plansnextmonth' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="plansnextmonth_item"  
     :itemValue="this.data.plansnextmonth" 
     v-show="detailsModel.plansnextmonth.visible" 
@@ -119,7 +122,7 @@
     name='comment' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="comment_item"  
     :itemValue="this.data.comment" 
     v-show="detailsModel.comment.visible" 
@@ -140,7 +143,7 @@
     name='reportto' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="reportto_item"  
     :itemValue="this.data.reportto" 
     v-show="detailsModel.reportto.visible" 
@@ -171,7 +174,7 @@
     name='mailto' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="TOP" 
     ref="mailto_item"  
     :itemValue="this.data.mailto" 
     v-show="detailsModel.mailto.visible" 
@@ -619,6 +622,7 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        account: null,
         ibz_monthlyname: null,
         date: null,
         workthismonth: null,
@@ -629,7 +633,6 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
         thismonthtask: null,
         nextmonthplanstask: null,
         ibz_monthlyid: null,
-        account: null,
         issubmit: null,
         ibzmonthly: null,
     };
@@ -790,6 +793,8 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        account: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
+, 
         ibz_monthlyname: new FormItemModel({ caption: '月报名称', detailType: 'FORMITEM', name: 'ibz_monthlyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -809,8 +814,6 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
         nextmonthplanstask: new FormItemModel({ caption: '下月计划任务', detailType: 'FORMITEM', name: 'nextmonthplanstask', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         ibz_monthlyid: new FormItemModel({ caption: '月报标识', detailType: 'FORMITEM', name: 'ibz_monthlyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        account: new FormItemModel({ caption: '用户', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         issubmit: new FormItemModel({ caption: '是否提交', detailType: 'FORMITEM', name: 'issubmit', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -910,6 +913,18 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'srfsourcekey', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 account 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainInfo
+     */
+    @Watch('data.account')
+    onAccountChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'account', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1030,18 +1045,6 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
     @Watch('data.ibz_monthlyid')
     onIbz_monthlyidChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'ibz_monthlyid', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 account 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMainInfo
-     */
-    @Watch('data.account')
-    onAccountChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'account', newVal: newVal, oldVal: oldVal });
     }
 
     /**
