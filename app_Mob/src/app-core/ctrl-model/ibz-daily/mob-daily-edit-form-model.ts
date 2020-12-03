@@ -106,11 +106,6 @@ export class MobDailyEditModel {
                 dataType: 'SMCODELIST',
             },
             {
-                name: 'mailtopk',
-                prop: 'mailtopk',
-                dataType: 'TEXT',
-            },
-            {
                 name: 'ibz_dailyid',
                 prop: 'ibzdailyid',
                 dataType: 'ACID',

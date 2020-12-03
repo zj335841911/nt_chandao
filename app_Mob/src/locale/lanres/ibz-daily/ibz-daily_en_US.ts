@@ -116,7 +116,6 @@ export default {
 			reportto: '汇报给', 
 			reporttopk: '汇报给', 
 			mailto: '抄送给', 
-			mailtopk: '抄送给', 
 			ibz_dailyid: '日报标识', 
 			account: '用户', 
 			issubmit: '是否提交', 
