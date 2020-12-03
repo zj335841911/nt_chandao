@@ -10858,7 +10858,7 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":200,
-    "expression":"t1.MAILTOPK",
+    "expression":"t1.MAILTO",
     "key_field":0,
     "show_order":1000,
     "major_field":0
