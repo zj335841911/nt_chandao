@@ -49,34 +49,6 @@
 
 
 <app-form-item 
-    name='ibz_monthlyname' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="TOP" 
-    ref="ibz_monthlyname_item"  
-    :itemValue="this.data.ibz_monthlyname" 
-    v-show="detailsModel.ibz_monthlyname.visible" 
-    :itemRules="this.rules.ibz_monthlyname" 
-    :caption="$t('ibzmonthly.mobmaininfo_form.details.ibz_monthlyname')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.ibz_monthlyname.disabled"
-    :error="detailsModel.ibz_monthlyname.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.ibz_monthlyname"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.ibz_monthlyname" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
     name='date' 
     class='' 
     uiStyle="DEFAULT"  
@@ -213,20 +185,18 @@
     :disabled="detailsModel.mailto.disabled"
     :error="detailsModel.mailto.error" 
     :isEmptyCaption="false">
-        <app-mob-check-list 
-    orMode="str"
-    valueSeparator=","
-    textSeparator=","
-    type="dynamic"  
+        <app-mob-span  
+    codeListType="DYNAMIC" 
     tag="UserRealName"
-    :disabled="detailsModel.mailto.disabled" 
+    :isCache="false" 
+    v-if="data.mailto"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.mailto"   
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.mailto = $event"/>
+    :value="data.mailto" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
