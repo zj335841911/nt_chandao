@@ -214,36 +214,34 @@
 
 
 <app-form-item 
-    name='mailtopk' 
+    name='mailto' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="mailtopk_item"  
-    :itemValue="this.data.mailtopk" 
-    v-show="detailsModel.mailtopk.visible" 
-    :itemRules="this.rules.mailtopk" 
-    :caption="$t('ibzmonthly.mobnew_form.details.mailtopk')"  
+    ref="mailto_item"  
+    :itemValue="this.data.mailto" 
+    v-show="detailsModel.mailto.visible" 
+    :itemRules="this.rules.mailto" 
+    :caption="$t('ibzmonthly.mobnew_form.details.mailto')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.mailtopk.disabled"
-    :error="detailsModel.mailtopk.error" 
+    :disabled="detailsModel.mailto.disabled"
+    :error="detailsModel.mailto.error" 
     :isEmptyCaption="false">
-        <app-mob-mpicker 
+        <app-mob-check-list 
+    orMode="str"
+    valueSeparator=","
+    textSeparator=","
+    type="dynamic"  
+    tag="UserRealName"
+    :disabled="detailsModel.mailto.disabled" 
     :data="data"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    :disabled="detailsModel.mailtopk.disabled"
-    :value="data.mailtopk"
-    name="mailtopk"
     :context="context"
     :viewparams="viewparams"
-    :service="service"
-    deMajorField='personname'
-    deKeyField='sysemployee'
-    :pickupView="{ viewname: 'sys-employee-user-tree-mob-mpickup-view', title: '人员移动端多数据选择视图（人员树）', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange" 
-    style=""/>
-
+    :value="data.mailto"   
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.mailto = $event"/>
 </app-form-item>
 
 
@@ -590,7 +588,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
         reportto: null,
         reporttopk: null,
         mailto: null,
-        mailtopk: null,
         ibz_monthlyid: null,
         account: null,
         issubmit: null,
@@ -778,8 +775,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
         reporttopk: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reporttopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        mailtopk: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         ibz_monthlyid: new FormItemModel({ caption: '月报标识', detailType: 'FORMITEM', name: 'ibz_monthlyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1018,18 +1013,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 mailtopk 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNew
-     */
-    @Watch('data.mailtopk')
-    onMailtopkChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'mailtopk', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 ibz_monthlyid 值
      *
      * @param {*} newVal
@@ -1101,7 +1084,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
 
 
 

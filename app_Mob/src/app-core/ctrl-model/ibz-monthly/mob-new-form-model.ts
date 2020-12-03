@@ -106,11 +106,6 @@ export class MobNewModel {
                 dataType: 'SMCODELIST',
             },
             {
-                name: 'mailtopk',
-                prop: 'mailtopk',
-                dataType: 'SMCODELIST',
-            },
-            {
                 name: 'ibz_monthlyid',
                 prop: 'ibzmonthlyid',
                 dataType: 'ACID',
