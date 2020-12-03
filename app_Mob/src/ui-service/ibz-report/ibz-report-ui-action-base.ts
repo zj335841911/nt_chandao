@@ -232,7 +232,7 @@ export default class IbzReportUIActionBase extends EntityUIActionBase {
         Object.assign(context, parentObj);
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
-        let panelNavContext= { } ;
+        let panelNavContext= { "ibzweekly": "%ibzreport%" } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         const deResParameters: any[] = [];
@@ -318,7 +318,7 @@ export default class IbzReportUIActionBase extends EntityUIActionBase {
         Object.assign(context, parentObj);
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
-        let panelNavContext= { } ;
+        let panelNavContext= { "ibzymonthly": "%ibzreport%" } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         const deResParameters: any[] = [];
