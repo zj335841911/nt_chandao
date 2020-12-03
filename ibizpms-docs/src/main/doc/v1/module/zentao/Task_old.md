@@ -1324,6 +1324,7 @@ hide footbox
 |MyPlansTaskMobMonthly|我计划参与的任务（移动端月报）|MyPlansTaskMobMonthly|否|&nbsp;|
 |MyTomorrowPlanTask|我计划参与的任务（汇报）|MyTomorrowPlanTask|否|&nbsp;|
 |MyTomorrowPlanTaskMobDaily|我计划参与的任务（汇报）|MyTomorrowPlanTaskMobDaily|否|&nbsp;|
+|NextWeekCompleteTaskZS|本周完成的任务(汇报)|NextWeekCompleteTaskZS|否|&nbsp;|
 |NextWeekPlanCompleteTask|下周计划完成任务(汇报)|NextWeekPlanCompleteTask|否|&nbsp;|
 |ProjectTask|项目任务|ProjectTask|否|&nbsp;|
 |RootTask|根任务|RootTask|否|&nbsp;|

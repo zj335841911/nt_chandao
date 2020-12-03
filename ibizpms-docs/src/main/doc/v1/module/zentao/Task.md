@@ -8516,13 +8516,14 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 | 15 | [我计划参与的任务（移动端月报）](#数据集合-我计划参与的任务（移动端月报）（MyPlansTaskMobMonthly）) | MyPlansTaskMobMonthly | 否 |
 | 16 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
 | 17 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTaskMobDaily）) | MyTomorrowPlanTaskMobDaily | 否 |
-| 18 | [下周计划完成任务(汇报)](#数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
-| 19 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
-| 20 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
-| 21 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
-| 22 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
-| 23 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
-| 24 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 18 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（NextWeekCompleteTaskZS）) | NextWeekCompleteTaskZS | 否 |
+| 19 | [下周计划完成任务(汇报)](#数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
+| 20 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
+| 21 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
+| 22 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
+| 23 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
+| 24 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
+| 25 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
 
 ### 数据集合-指派给我任务（AssignedToMyTask）
 #### 说明
@@ -8762,6 +8763,20 @@ DefaultRow
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我计划参与的任务（汇报）（MyTomorrowPlanTaskMobDaily）](#数据查询-我计划参与的任务（汇报）（MyTomorrowPlanTaskMobDaily）) |
+### 数据集合-本周完成的任务(汇报)（NextWeekCompleteTaskZS）
+#### 说明
+本周完成的任务(汇报)
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [本周完成的任务(汇报)（NextWeekCompleteTaskZS）](#数据查询-本周完成的任务(汇报)（NextWeekCompleteTaskZS）) |
 ### 数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）
 #### 说明
 下周计划完成任务(汇报)

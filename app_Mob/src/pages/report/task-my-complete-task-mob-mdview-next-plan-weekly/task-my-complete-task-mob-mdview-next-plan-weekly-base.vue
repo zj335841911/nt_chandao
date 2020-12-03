@@ -20,7 +20,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchThisWeekCompleteTaskZS" 
+            fetchAction="FetchNextWeekCompleteTaskZS" 
             :isMutli="!isSingleSelect"
             :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
@@ -181,7 +181,7 @@ export default class TaskMyCompleteTaskMobMDViewNextPlanWeeklyBase extends Vue {
      * @type {*}
      * @memberof TaskMyCompleteTaskMobMDViewNextPlanWeeklyBase
      */
-    protected navParam: any = { 'thisweektask': '%nexttask%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据

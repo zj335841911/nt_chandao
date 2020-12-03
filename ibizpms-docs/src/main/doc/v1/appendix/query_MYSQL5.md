@@ -17211,6 +17211,7 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 
 WHERE t1.DELETED = '0' 
+( t1.`ID` IN (${srfwebcontext('nextweektask','{"defname":"ID","dename":"ZT_TASK"}')}) ) 
 
 ```
 ### 下周计划完成任务(汇报)(NextWeekPlanCompleteTask)<div id="Task_NextWeekPlanCompleteTask"></div>

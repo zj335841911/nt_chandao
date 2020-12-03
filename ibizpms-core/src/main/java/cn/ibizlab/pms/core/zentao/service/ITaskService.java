@@ -86,6 +86,7 @@ public interface ITaskService extends IService<Task> {
     Page<Task> searchMyPlansTaskMobMonthly(TaskSearchContext context);
     Page<Task> searchMyTomorrowPlanTask(TaskSearchContext context);
     Page<Task> searchMyTomorrowPlanTaskMobDaily(TaskSearchContext context);
+    Page<Task> searchNextWeekCompleteTaskZS(TaskSearchContext context);
     Page<Task> searchNextWeekPlanCompleteTask(TaskSearchContext context);
     Page<Task> searchProjectTask(TaskSearchContext context);
     Page<Task> searchRootTask(TaskSearchContext context);
