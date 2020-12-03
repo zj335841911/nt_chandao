@@ -21,6 +21,7 @@ export default {
     createmanname: "建立人名称",
     reportstatus: "状态",
     submittime: "提交时间",
+    reporttopk: "汇报给(选择)",
   },
 	views: {
 		usr2mobtabexpview: {
@@ -63,6 +64,7 @@ export default {
 			comment: '其他事项', 
 			files: '附件', 
 			reportto: '汇报给', 
+			reporttopk: '汇报给', 
 			mailto: '抄送给', 
 			ibz_weeklyid: '周报标识', 
 			account: '用户', 

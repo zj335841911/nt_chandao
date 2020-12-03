@@ -96,6 +96,11 @@ export class MobWeekEditModel {
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'reporttopk',
+                prop: 'reporttopk',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'mailto',
                 prop: 'mailto',
                 dataType: 'SMCODELIST',

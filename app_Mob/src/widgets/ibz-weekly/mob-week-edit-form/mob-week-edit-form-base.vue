@@ -174,32 +174,32 @@
 
 
 <app-form-item 
-    name='reportto' 
+    name='reporttopk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="reportto_item"  
-    :itemValue="this.data.reportto" 
-    v-show="detailsModel.reportto.visible" 
-    :itemRules="this.rules.reportto" 
-    :caption="$t('ibzweekly.mobweekedit_form.details.reportto')"  
+    ref="reporttopk_item"  
+    :itemValue="this.data.reporttopk" 
+    v-show="detailsModel.reporttopk.visible" 
+    :itemRules="this.rules.reporttopk" 
+    :caption="$t('ibzweekly.mobweekedit_form.details.reporttopk')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.reportto.disabled"
-    :error="detailsModel.reportto.error" 
+    :disabled="detailsModel.reporttopk.disabled"
+    :error="detailsModel.reporttopk.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
+        <app-mob-span  
     codeListType="DYNAMIC" 
+    tag="UserRealName"
     :isCache="false" 
-    :disabled="detailsModel.reportto.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.reportto"  
+    v-if="data.reporttopk"
     :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.reportto = $event" />
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.reporttopk" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -577,6 +577,7 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
         comment: null,
         files: null,
         reportto: null,
+        reporttopk: null,
         mailto: null,
         ibz_weeklyid: null,
         account: null,
@@ -761,6 +762,8 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         reportto: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        reporttopk: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reporttopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -977,6 +980,18 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 reporttopk 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobWeekEdit
+     */
+    @Watch('data.reporttopk')
+    onReporttopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'reporttopk', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 mailto 值
      *
      * @param {*} newVal
@@ -1060,6 +1075,7 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

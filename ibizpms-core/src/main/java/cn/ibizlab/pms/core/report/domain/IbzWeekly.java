@@ -203,6 +203,13 @@ public class IbzWeekly extends EntityMP implements Serializable {
     @JSONField(name = "submittime", format = "HH:mm:ss")
     @JsonProperty("submittime")
     private Timestamp submittime;
+    /**
+     * 汇报给(选择)
+     */
+    @TableField(exist = false)
+    @JSONField(name = "reporttopk")
+    @JsonProperty("reporttopk")
+    private String reporttopk;
 
 
 

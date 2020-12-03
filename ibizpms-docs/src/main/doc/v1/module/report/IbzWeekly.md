@@ -37,6 +37,7 @@
 | 19 | [建立人名称](#属性-建立人名称（CREATEMANNAME）) | CREATEMANNAME | 文本，可指定长度 | 否 | 否 | 否 |
 | 20 | [状态](#属性-状态（REPORTSTATUS）) | REPORTSTATUS | 单项选择(文本值) | 否 | 否 | 是 |
 | 21 | [提交时间](#属性-提交时间（SUBMITTIME）) | SUBMITTIME | 时间型 | 否 | 否 | 是 |
+| 22 | [汇报给(选择)](#属性-汇报给(选择)（REPORTTOPK）) | REPORTTOPK | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-周报名称（IBZ_WEEKLYNAME）
 #### 属性说明
@@ -828,6 +829,45 @@ HH:mm:ss
 #### 关系属性
 无
 
+### 属性-汇报给(选择)（REPORTTOPK）
+#### 属性说明
+汇报给(选择)
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+t1.reportto
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 | 序号 | 状态名称 | [是否提交](#属性-是否提交（ISSUBMIT）)<br>（ISSUBMIT） | 默认 |
@@ -1142,6 +1182,7 @@ t1.`NEXTWEEKTASK`,
 t1.`PLANNEXTWEEK`,
 t1.`REPORTSTATUS`,
 t1.`REPORTTO`,
+t1.reportto AS `REPORTTOPK`,
 t1.`SUBMITTIME`,
 t1.`THISWEEKTASK`,
 t1.`UPDATEDATE`,
@@ -1249,6 +1290,7 @@ t1.`NEXTWEEKTASK`,
 t1.`PLANNEXTWEEK`,
 t1.`REPORTSTATUS`,
 t1.`REPORTTO`,
+t1.reportto AS `REPORTTOPK`,
 t1.`SUBMITTIME`,
 t1.`THISWEEKTASK`,
 t1.`UPDATEDATE`,

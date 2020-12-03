@@ -78,6 +78,9 @@ export class MyWeeklyModel {
       {
         name: 'submittime',
       },
+      {
+        name: 'reporttopk',
+      },
     ]
   }
 

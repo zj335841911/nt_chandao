@@ -218,6 +218,15 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     @JsonProperty("submittime")
     private Timestamp submittime;
 
+    /**
+     * 属性 [REPORTTOPK]
+     *
+     */
+    @JSONField(name = "reporttopk")
+    @JsonProperty("reporttopk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String reporttopk;
+
 
     /**
      * 设置 [IBZ_WEEKLYNAME]

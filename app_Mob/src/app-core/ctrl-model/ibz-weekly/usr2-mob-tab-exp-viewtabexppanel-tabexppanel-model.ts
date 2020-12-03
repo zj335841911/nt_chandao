@@ -78,6 +78,9 @@ export class Usr2MobTabExpViewtabexppanelModel {
       {
         name: 'submittime',
       },
+      {
+        name: 'reporttopk',
+      },
     ]
   }
 

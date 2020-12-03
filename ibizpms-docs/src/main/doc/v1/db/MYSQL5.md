@@ -62320,6 +62320,7 @@ CREATE TABLE `T_IBZ_TOP`(
 | CREATEMANNAME        | 建立人名称  | VARCHAR      |   60   | &nbsp; |
 | REPORTTO        | 汇报给  | VARCHAR      |   60   | &nbsp; |
 | COMMENT        | 其他事项  | VARCHAR      |   100   | &nbsp; |
+| REPORTTOPK        | 汇报给(选择)  | VARCHAR      |   200   | &nbsp; |
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
 | WORKTHISWEEK        | 本周工作  | CLOB      |   1,048,576   | &nbsp; |
 | PLANNEXTWEEK        | 下周计划  | VARCHAR      |   4,000   | &nbsp; |
