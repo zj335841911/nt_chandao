@@ -94,7 +94,6 @@ export default {
 			plansnextmonth: '下月计划', 
 			comment: '其他事项', 
 			files: '附件', 
-			formitem: '汇报', 
 			reportto: '汇报给', 
 			mailto: '抄送给', 
 			ibz_monthlyid: '月报标识', 

@@ -228,20 +228,22 @@
     :disabled="detailsModel.mailto.disabled"
     :error="detailsModel.mailto.error" 
     :isEmptyCaption="false">
-        <app-mob-check-list 
-    orMode="str"
-    valueSeparator=","
-    textSeparator=","
-    type="dynamic"  
-    tag="UserRealName"
-    :disabled="detailsModel.mailto.disabled" 
+        <app-mob-mpicker 
     :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.mailto"   
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.mailto = $event"/>
+    :disabled="detailsModel.mailto.disabled"
+    :value="data.mailto"
+    name="mailto"
+    :context="context"
+    :viewparams="viewparams"
+    :service="service"
+    deMajorField='personname'
+    deKeyField='sysemployee'
+    :pickupView="{ viewname: 'sys-employee-user-tree-mob-mpickup-view', title: '人员移动端多数据选择视图（人员树）', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange" 
+    style=""/>
+
 </app-form-item>
 
 
@@ -585,7 +587,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
         plansnextmonth: null,
         comment: null,
         files: null,
-        formitem: null,
         reportto: null,
         mailto: null,
         ibz_monthlyid: null,
@@ -765,8 +766,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
         comment: new FormItemModel({ caption: '其他事项', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        formitem: new FormItemModel({ caption: '汇报', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         reportto: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -973,18 +972,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 formitem 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobNew
-     */
-    @Watch('data.formitem')
-    onFormitemChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'formitem', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 reportto 值
      *
      * @param {*} newVal
@@ -1080,7 +1067,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
 
 
 

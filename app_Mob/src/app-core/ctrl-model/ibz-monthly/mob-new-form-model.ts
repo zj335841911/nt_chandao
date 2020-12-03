@@ -91,9 +91,6 @@ export class MobNewModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'formitem',
-            },
-            {
                 name: 'reportto',
                 prop: 'reportto',
                 dataType: 'SSCODELIST',
