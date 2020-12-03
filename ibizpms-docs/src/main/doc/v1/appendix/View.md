@@ -195,6 +195,7 @@
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|产品统计移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|应用门户视图2|APPPORTALVIEW|&nbsp;|
+|-|任务移动端多数据视图(我的计划参与任务)|DEMOBMDVIEW|&nbsp;|
 |-|我的地盘分页导航视图（汇报）|DEMOBTABEXPVIEW|&nbsp;|
 |-|月报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务选项操作视图（指派）|DEMOBOPTVIEW|&nbsp;|

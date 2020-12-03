@@ -133,6 +133,9 @@ export default {
 		mycompletetaskmobmdview1: {
 			caption: '任务',
 		},
+		monthlymyplanstaskmobmdview: {
+			caption: '任务',
+		},
 		moboptionview: {
 			caption: '指派',
 		},

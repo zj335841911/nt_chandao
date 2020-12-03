@@ -2113,6 +2113,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd37be393a71ef140b65a9b75e0a2658e',
+            viewmodule: 'report',
+            viewname: 'TaskMonthlyMyPlansTaskMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
             viewtag: 'd5c7609394e36976dbc09c76264450f5',
             viewmodule: 'zentao',
             viewname: 'IbzMyTerritoryReportMobTabExpView',
