@@ -16,12 +16,12 @@
     
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel2">
-                            
-                            本周完成任务</ion-segment-button>
                             <ion-segment-button value="tabviewpanel">
                             
                             主信息</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel2">
+                            
+                            本周完成任务</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -275,6 +275,7 @@ export default class IbzWeeklyUsr2MobTabExpViewBase extends Vue {
 
 
 
+
    /**
     * 工具栏 IbzWeeklyUsr2MobTabExpView 模型
     *
@@ -285,7 +286,6 @@ export default class IbzWeeklyUsr2MobTabExpViewBase extends Vue {
     };
 
     
-
 
 
 
@@ -347,7 +347,7 @@ export default class IbzWeeklyUsr2MobTabExpViewBase extends Vue {
      * @type {string}
      * @memberof  IbzWeeklyUsr2MobTabExpViewBase
      */
-    protected activiedTabViewPanel: string = 'tabviewpanel2';
+    protected activiedTabViewPanel: string = 'tabviewpanel';
 
     /**
      * 分页导航栏激活
@@ -406,7 +406,7 @@ export default class IbzWeeklyUsr2MobTabExpViewBase extends Vue {
         if (info.name && info.name == 'ibzweekly' && info.id && info.id == this.context.ibzweekly) {
           this.activiedTabViewPanel = info.value;
         } else { 
-          this.activiedTabViewPanel = 'tabviewpanel2';
+          this.activiedTabViewPanel = 'tabviewpanel';
         }
         }
     }
