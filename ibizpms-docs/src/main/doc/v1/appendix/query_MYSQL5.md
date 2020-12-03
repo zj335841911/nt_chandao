@@ -23,7 +23,7 @@ FROM `zt_action` t1
 ```
 ### 动态(根据类型过滤)(MobType)<div id="Action_MobType"></div>
 ```sql
-SELECT t1.`ACTION`, t1.`actor` as actor, t1.`DATE`, t1.`ID`, t1.`OBJECTID`, t1.id as srfkey,(case when t1.`OBJECTTYPE` in ('daily','weekly','monthly') then CONCAT_WS('_','ibz',t1.objectType) else t1.objectType end ) as OBJECTTYPE, t1.`PRODUCT`, t1.`PROJECT`, t1.`READ`, t1.`comment`, t1.extra, case when t1.objectType in ('bug','story','release') and t1.action in ('changestatus','resolved','closed', 'reviewed') and t1.extra <> '' then CONCAT_WS('_',t1.objectType,t1.action,t1.extra) else '' end as ActionManner FROM `zt_action` t1  WHERE ( t1.`OBJECTID` = ${srfdatacontext('srfparentkey','{"defname":"OBJECTID","dename":"ZT_ACTION"}')} AND t1.`OBJECTTYPE` = ${srfdatacontext('objecttype','{"defname":"OBJECTTYPE","dename":"ZT_ACTION"}')} )
+SELECT t1.`ACTION`, t1.`actor` as actor, t1.`DATE`, t1.`ID`, t1.`OBJECTID`, t1.id as srfkey,(case when t1.`OBJECTTYPE` in ('daily','weekly','monthly') then CONCAT_WS('','ibz',t1.objectType) else t1.objectType end ) as OBJECTTYPE, t1.`PRODUCT`, t1.`PROJECT`, t1.`READ`, t1.`comment`, t1.extra, case when t1.objectType in ('bug','story','release') and t1.action in ('changestatus','resolved','closed', 'reviewed') and t1.extra <> '' then CONCAT_WS('_',t1.objectType,t1.action,t1.extra) else '' end as ActionManner FROM `zt_action` t1  WHERE ( t1.`OBJECTID` = ${srfdatacontext('srfparentkey','{"defname":"OBJECTID","dename":"ZT_ACTION"}')} AND t1.`OBJECTTYPE` = ${srfdatacontext('objecttype','{"defname":"OBJECTTYPE","dename":"ZT_ACTION"}')} )
 ```
 ### 项目动态(我的)(MyTrends)<div id="Action_MyTrends"></div>
 ```sql
@@ -177,7 +177,7 @@ t1.`DATE`,
 t1.`ID`,
 t1.id as srfkey,
 t1.`OBJECTID`,
-(case when t1.`OBJECTTYPE` in ('daily','weekly','monthly') then CONCAT_WS('_','ibz',t1.objectType) else t1.objectType end ) as OBJECTTYPE,
+(case when t1.`OBJECTTYPE` in ('daily','weekly','monthly') then CONCAT_WS('','ibz',t1.objectType) else t1.objectType end ) as OBJECTTYPE,
 t1.`PRODUCT`,
 t1.`PROJECT`,
 t1.`READ`,
