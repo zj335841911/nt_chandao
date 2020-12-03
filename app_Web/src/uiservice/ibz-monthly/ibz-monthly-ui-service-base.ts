@@ -115,7 +115,7 @@ export default class IbzMonthlyUIServiceBase extends UIService {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
-        this.allDeMainStateOPPrivsMap.set('1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__MONTHLY_SUBMIT_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__MONTHLY_EDIT_BUT':0,'SRFUR__MONTHLY_SUBMIT_BUT':0,}));
     }
 
     /**

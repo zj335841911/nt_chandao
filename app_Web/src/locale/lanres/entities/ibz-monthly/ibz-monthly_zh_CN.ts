@@ -145,6 +145,8 @@ export default {
     },
 		uiactions: {
 			ibzmonthly_edit: "修改",
+			ibzmonthly_submit: "提交",
+			exit: "返回",
 		},
 	},
 	default_searchform: {
@@ -155,10 +157,6 @@ export default {
 		},
 	},
 	newmonthlyeditviewtoolbar_toolbar: {
-		deuiaction3_submit: {
-			caption: "提交",
-			tip: "提交",
-		},
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",

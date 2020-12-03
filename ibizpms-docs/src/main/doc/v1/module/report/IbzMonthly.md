@@ -967,7 +967,8 @@ t1.MAILTO
 拒绝提示信息：无
 | 序号 | 操作权限 |
 | ---- | ---- |
-| 1 | [月报提交](#操作权限-月报提交（SRFUR__MONTHLY_SUBMIT_BUT）)<br>（SRFUR__MONTHLY_SUBMIT_BUT） |
+| 1 | [月报编辑](#操作权限-月报编辑（SRFUR__MONTHLY_EDIT_BUT）)<br>（SRFUR__MONTHLY_EDIT_BUT） |
+| 2 | [月报提交](#操作权限-月报提交（SRFUR__MONTHLY_SUBMIT_BUT）)<br>（SRFUR__MONTHLY_SUBMIT_BUT） |
 
 ## 实体行为
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
