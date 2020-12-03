@@ -581,6 +581,7 @@ export default class MobInfoMain2Base extends Vue implements ControlInterface {
         thisweektask: null,
         nextweektask: null,
         ibz_weeklyid: null,
+        issubmit: null,
         ibzweekly: null,
     };
 
@@ -757,6 +758,8 @@ export default class MobInfoMain2Base extends Vue implements ControlInterface {
         nextweektask: new FormItemModel({ caption: '下周计划任务', detailType: 'FORMITEM', name: 'nextweektask', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         ibz_weeklyid: new FormItemModel({ caption: '周报标识', detailType: 'FORMITEM', name: 'ibz_weeklyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        issubmit: new FormItemModel({ caption: '是否提交', detailType: 'FORMITEM', name: 'issubmit', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -988,6 +991,18 @@ export default class MobInfoMain2Base extends Vue implements ControlInterface {
         this.formDataChange({ name: 'ibz_weeklyid', newVal: newVal, oldVal: oldVal });
     }
 
+    /**
+     * 监控表单属性 issubmit 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobInfoMain2
+     */
+    @Watch('data.issubmit')
+    onIssubmitChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'issubmit', newVal: newVal, oldVal: oldVal });
+    }
+
 
     /**
      * 重置表单项值
@@ -1024,6 +1039,7 @@ export default class MobInfoMain2Base extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
