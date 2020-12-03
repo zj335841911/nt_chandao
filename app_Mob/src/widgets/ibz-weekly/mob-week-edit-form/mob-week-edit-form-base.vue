@@ -188,20 +188,27 @@
     :disabled="detailsModel.reporttopk.disabled"
     :error="detailsModel.reporttopk.error" 
     :isEmptyCaption="false">
-        <app-mob-check-list 
-    orMode="str"
-    valueSeparator=","
-    textSeparator=","
-    type="dynamic"  
-    tag="UserRealName"
-    :disabled="detailsModel.reporttopk.disabled" 
+        <app-mob-picker
+    name='reporttopk'
+    deMajorField='personname'
+    deKeyField='username'
+    valueitem='reportto' 
+    style=""  
+    :formState="formState"
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :value="data.reporttopk"   
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.reporttopk = $event"/>
+    :itemParam='{ }' 
+    :disabled="detailsModel.reporttopk.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'sysemployee', interfaceName: 'FetchDefault'}"
+    :value="data.reporttopk" 
+    :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
 </app-form-item>
 
 
@@ -221,20 +228,22 @@
     :disabled="detailsModel.mailtopk.disabled"
     :error="detailsModel.mailtopk.error" 
     :isEmptyCaption="false">
-        <app-mob-check-list 
-    orMode="str"
-    valueSeparator=","
-    textSeparator=","
-    type="dynamic"  
-    tag="UserRealName"
-    :disabled="detailsModel.mailtopk.disabled" 
+        <app-mob-mpicker 
     :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.mailtopk"   
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.mailtopk = $event"/>
+    :disabled="detailsModel.mailtopk.disabled"
+    :value="data.mailtopk"
+    name="mailtopk"
+    :context="context"
+    :viewparams="viewparams"
+    :service="service"
+    deMajorField='personname'
+    deKeyField='sysemployee'
+    :pickupView="{ viewname: 'sys-employee-user-tree-mob-mpickup-view', title: '人员移动端多数据选择视图（人员树）', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange" 
+    style=""/>
+
 </app-form-item>
 
 
