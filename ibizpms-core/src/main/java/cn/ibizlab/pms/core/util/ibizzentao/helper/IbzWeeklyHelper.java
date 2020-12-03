@@ -254,10 +254,10 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
         Date monday = c.getTime();
 
 
-        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().last("where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date").eq("issubmit", StaticDict.YesNo.ITEM_0.getValue()));
+        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().last("where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date"));
         for (IbzWeekly ibzWeekly : list) {
             long date = ibzWeekly.getDate().getTime();
-            if (date >= monday.getTime() && date <= sunday.getTime()){
+            if (StaticDict.YesNo.ITEM_0.getValue().equals(ibzWeekly.getIssubmit()) && date >= monday.getTime() && date <= sunday.getTime()){
                 actionHelper.sendToread(ibzWeekly.getIbzweeklyid(), "您的"+ibzWeekly.getDate()+"的周报还未提交，请及时填写！", ibzWeekly.getAccount(), "", "", IIbzWeeklyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.WEEKLY.getValue(), IIbzDailyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
             }
         }
