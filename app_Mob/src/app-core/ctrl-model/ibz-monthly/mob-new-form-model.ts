@@ -98,7 +98,7 @@ export class MobNewModel {
             {
                 name: 'reporttopk',
                 prop: 'reporttopk',
-                dataType: 'SSCODELIST',
+                dataType: 'TEXT',
             },
             {
                 name: 'mailto',
