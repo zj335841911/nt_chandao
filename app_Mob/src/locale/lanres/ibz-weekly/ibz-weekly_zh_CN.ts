@@ -127,6 +127,4 @@ export default {
 			tip: '提交',
 		},
 	},
-	usr2mobtabexpviewrighttoolbar_toolbar: {
-	},
 };

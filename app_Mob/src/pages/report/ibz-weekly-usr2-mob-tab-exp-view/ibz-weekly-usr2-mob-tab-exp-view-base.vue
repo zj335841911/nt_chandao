@@ -184,7 +184,7 @@ export default class IbzWeeklyUsr2MobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof IbzWeeklyUsr2MobTabExpViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'thisweektask': '%thisweektask%' };
 
     /**
      * 视图模型数据
@@ -252,7 +252,6 @@ export default class IbzWeeklyUsr2MobTabExpViewBase extends Vue {
      * @memberof IbzWeeklyUsr2MobTabExpViewBase
      */
     protected containerModel: any = {
-        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
         view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
     };
 
@@ -276,25 +275,12 @@ export default class IbzWeeklyUsr2MobTabExpViewBase extends Vue {
 
 
 
-   /**
-    * 工具栏 IbzWeeklyUsr2MobTabExpView 模型
-    *
-    * @type {*}
-    * @memberof IbzWeeklyUsr2MobTabExpView
-    */
-    public righttoolbarModels: any = {
-    };
-
-    
-
-
-
     /**
      * 工具栏模型集合名
      *
      * @memberof IbzWeeklyUsr2MobTabExpViewBase
      */
-    public toolbarModelList:any = ['righttoolbarModels',]
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数

@@ -127,6 +127,4 @@ export default {
 			tip: 'deuiaction2',
 		},
 	},
-	usr2mobtabexpviewrighttoolbar_toolbar: {
-	},
 };
