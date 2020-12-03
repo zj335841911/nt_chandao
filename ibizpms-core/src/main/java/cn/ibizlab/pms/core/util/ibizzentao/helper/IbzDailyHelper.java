@@ -16,6 +16,7 @@ import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.Action;
 import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.util.dict.StaticDict;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
@@ -55,13 +56,20 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
     @Autowired
     ISysUserRoleService iSysUserRoleService;
 
+    @Autowired
+    IIbzDailyService ibzDailyService;
+
     String[] diffAttrs = {"worktoday", "comment", "planstomorrow"};
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean create(IbzDaily et) {
-        String files = et.getFiles();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+       List<IbzDaily> dailyList = ibzDailyService.list(new QueryWrapper<IbzDaily>().eq("account",et.getAccount()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = DATE_FORMAT(now(),'%Y-%m-%d')"));
+        if (dailyList.size()>0){
+            throw new BadRequestAlertException(dateFormat.format(et.getDate())+"的日报已经存在,请勿重复创建！",StaticDict.ReportType.DAILY.getValue(),"");
+        }
+        String files = et.getFiles();
         et.setIbzdailyname(String.format("%1$s-%2$s的日报", et.getIbzdailyname(), dateFormat.format(et.getDate())));
         if (!SqlHelper.retBool(this.baseMapper.insert(et))) {
             return false;
