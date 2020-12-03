@@ -173,4 +173,20 @@ export interface IBZWEEKLY {
      * @memberof IBZWEEKLY
      */
     submittime?: any;
+
+    /**
+     * 汇报给(选择)
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    reporttopk?: any;
+
+    /**
+     * 抄送给(选择)
+     *
+     * @returns {*}
+     * @memberof IBZWEEKLY
+     */
+    mailtopk?: any;
 }

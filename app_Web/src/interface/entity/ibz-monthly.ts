@@ -173,4 +173,20 @@ export interface IbzMonthly {
      * @memberof IbzMonthly
      */
     submittime?: any;
+
+    /**
+     * 汇报给（选择）
+     *
+     * @returns {*}
+     * @memberof IbzMonthly
+     */
+    reporttopk?: any;
+
+    /**
+     * 抄送给（选择）
+     *
+     * @returns {*}
+     * @memberof IbzMonthly
+     */
+    mailtopk?: any;
 }

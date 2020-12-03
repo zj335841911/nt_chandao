@@ -173,4 +173,20 @@ export interface IbzDaily {
      * @memberof IbzDaily
      */
     submittime?: any;
+
+    /**
+     * 汇报给（选择）
+     *
+     * @returns {*}
+     * @memberof IbzDaily
+     */
+    reporttopk?: any;
+
+    /**
+     * 抄送给（选择）
+     *
+     * @returns {*}
+     * @memberof IbzDaily
+     */
+    mailtopk?: any;
 }

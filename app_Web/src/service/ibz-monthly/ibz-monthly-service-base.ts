@@ -286,7 +286,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
     }
 
     /**
-     * FetchMyNotSubmit接口方法
+     * FetchMyMonthlyMob接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -294,14 +294,14 @@ export default class IbzMonthlyServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof IbzMonthlyServiceBase
      */
-    public async FetchMyNotSubmit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async FetchMyMonthlyMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmonthlies/fetchmynotsubmit`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/ibzmonthlies/fetchmymonthlymob`,tempData,isloading);
         return res;
     }
 
     /**
-     * searchMyNotSubmit接口方法
+     * searchMyMonthlyMob接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -309,9 +309,9 @@ export default class IbzMonthlyServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof IbzMonthlyServiceBase
      */
-    public async searchMyNotSubmit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async searchMyMonthlyMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        return await Http.getInstance().post(`/ibzmonthlies/searchmynotsubmit`,tempData,isloading);
+        return await Http.getInstance().post(`/ibzmonthlies/searchmymonthlymob`,tempData,isloading);
     }
 
     /**

@@ -21,6 +21,8 @@ export default {
     reportstatus: "状态",
     createmanname: "建立人名称",
     submittime: "提交时间",
+    reporttopk: "汇报给（选择）",
+    mailtopk: "抄送给（选择）",
   },
 	views: {
 		monthlymainmsgeditview: {

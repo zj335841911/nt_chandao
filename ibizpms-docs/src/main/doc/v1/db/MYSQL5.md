@@ -54913,6 +54913,7 @@ CREATE TABLE `zt_testsuite`(
 | CREATEMANNAME        | 建立人名称  | VARCHAR      |   60   | &nbsp; |
 | IBZ_MONTHLYID        | 月报标识  |       |   100   | 主键&nbsp; |
 | ISSUBMIT        | 是否提交  | VARCHAR      |   100   | &nbsp; |
+| MAILTOPK        | 抄送给（选择）  | VARCHAR      |   200   | &nbsp; |
 | DATE        | 日期  | DATETIME      |   -1   | &nbsp; |
 | NEXTMONTHPLANSTASK        | 下月计划任务  | VARCHAR      |   2,000   | &nbsp; |
 | PLANSNEXTMONTH        | 下月计划  | CLOB      |   1,048,576   | &nbsp; |
@@ -54930,6 +54931,7 @@ CREATE TABLE `zt_testsuite`(
 | COMMENT        | 其他事项  | CLOB      |   1,048,576   | &nbsp; |
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
 | UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
+| REPORTTOPK        | 汇报给（选择）  | VARCHAR      |   200   | &nbsp; |
 
 
 
@@ -62316,6 +62318,7 @@ CREATE TABLE `T_IBZ_TOP`(
 | ISSUBMIT        | 是否提交  | VARCHAR      |   60   | &nbsp; |
 | DATE        | 日期  | DATETIME      |   -1   | &nbsp; |
 | UPDATEMANNAME        | 更新人名称  | VARCHAR      |   60   | &nbsp; |
+| MAILTOPK        | 抄送给(选择)  | VARCHAR      |   200   | &nbsp; |
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | CREATEMANNAME        | 建立人名称  | VARCHAR      |   60   | &nbsp; |
 | REPORTTO        | 汇报给  | VARCHAR      |   60   | &nbsp; |

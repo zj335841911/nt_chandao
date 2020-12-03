@@ -414,7 +414,8 @@ POST
 | 20 | reportstatus | String | 允许 | 状态 |
 | 21 | submittime | Timestamp | 允许 | 提交时间<br>时间格式：HH:mm:ss |
 | 22 | reporttopk | String | 允许 | 汇报给(选择) |
-| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 23 | mailtopk | String | 允许 | 抄送给(选择) |
+| 24 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzWeeklySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
