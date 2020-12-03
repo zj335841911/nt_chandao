@@ -154,6 +154,7 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
         for (String roleId : roleIds) {
             SysUserRoleSearchContext sysUserRoleSearchContext = new SysUserRoleSearchContext();
             sysUserRoleSearchContext.setN_sys_roleid_eq(roleId);
+            sysUserRoleSearchContext.setSize(100);
             Page<SysUserRole> sysUserRoles = iSysUserRoleService.searchDefault(sysUserRoleSearchContext);
             List<SysUserRole> sysUserRoleList = sysUserRoles.getContent();
             if (sysUserRoleList.size() == 0) {
