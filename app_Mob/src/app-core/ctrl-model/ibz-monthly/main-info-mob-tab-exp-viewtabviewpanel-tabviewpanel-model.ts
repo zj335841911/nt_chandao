@@ -75,6 +75,9 @@ export class MainInfoMobTabExpViewtabviewpanelModel {
       {
         name: 'createmanname',
       },
+      {
+        name: 'submittime',
+      },
     ]
   }
 

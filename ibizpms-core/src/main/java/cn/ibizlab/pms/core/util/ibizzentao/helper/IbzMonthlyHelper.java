@@ -107,6 +107,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
     @Transactional(rollbackFor = Exception.class)
     public IbzMonthly submit(IbzMonthly et) {
         et.setIssubmit(StaticDict.YesNo.ITEM_1.getValue());
+        et.setSubmittime(ZTDateUtil.now());
         IbzMonthly old = new IbzMonthly();
         CachedBeanCopier.copy(get(et.getIbzmonthlyid()), old);
         String files = et.getFiles();

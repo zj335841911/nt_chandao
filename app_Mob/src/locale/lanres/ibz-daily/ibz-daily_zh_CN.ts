@@ -120,7 +120,7 @@ export default {
 		uiactions: {
 		},
 	},
-	dailymobeditviewtoolbar_toolbar: {
+	dailymobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',
 			tip: '保存',
@@ -142,6 +142,10 @@ export default {
 		deuiaction1_mobedit: {
 			caption: '编辑',
 			tip: '编辑',
+		},
+		deuiaction1_submitmob: {
+			caption: '提交',
+			tip: '提交',
 		},
 	},
 	dailycompletetaskmobmdviewrighttoolbar_toolbar: {

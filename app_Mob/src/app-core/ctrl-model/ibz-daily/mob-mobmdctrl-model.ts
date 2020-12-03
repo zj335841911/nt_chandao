@@ -18,7 +18,13 @@ export class MobModel {
 				name: 'account',
 			},
 			{
+				name: 'reportstatus',
+			},
+			{
 				name: 'worktoday',
+			},
+			{
+				name: 'submittime',
 			},
 			{
 				name: 'ibz_dailyname',

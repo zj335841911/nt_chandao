@@ -106,6 +106,11 @@ export class MobInfoMain2Model {
                 dataType: 'ACID',
             },
             {
+                name: 'issubmit',
+                prop: 'issubmit',
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'ibzweekly',
                 prop: 'ibzweeklyid',
                 dataType: 'FONTKEY',

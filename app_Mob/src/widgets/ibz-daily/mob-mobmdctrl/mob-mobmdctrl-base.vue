@@ -1,92 +1,8 @@
 <template>
     <div  class="app-mob-mdctrl ibzdaily-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
-            <ion-list class="items" ref="ionlist">
-                <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                    <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.MobEdit.visabled" :disabled="item.MobEdit.disabled" color="primary" @click="mdctrl_click($event, 'u33edb64', item)"><ion-icon v-if="item.MobEdit.icon && item.MobEdit.isShowIcon" :name="item.MobEdit.icon"></ion-icon><ion-label v-if="item.MobEdit.isShowCaption">编辑</ion-label></ion-item-option>
-                        </ion-item-options>
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                    </ion-item-sliding>
-                </template>
-            </ion-list>
-            <ion-list class="items" ref="ionlist" >
-                <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                      <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.MobEdit.visabled" :disabled="item.MobEdit.disabled" color="primary" @click="mdctrl_click($event, 'u33edb64', item)"><ion-icon v-if="item.MobEdit.icon && item.MobEdit.isShowIcon" :name="item.MobEdit.icon"></ion-icon><ion-label v-if="item.MobEdit.isShowCaption">编辑</ion-label></ion-item-option>
-                        </ion-item-options>
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                      </ion-item-sliding>
-                </template>
-                <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
-                </template>
-                <template v-else-if="(viewType == 'DEMOBMDVIEW' || viewType == 'DEMOBMDVIEW9') && controlStyle === 'SWIPERVIEW'">
-                    <app-list-swipe :items="items"></app-list-swipe>
-                </template>
-                <template v-else-if="viewType == 'DEMOBWFMDVIEW' || viewType == 'DEMOBWFDYNAEXPMDVIEW'">
-                    <li v-for="item in items" @click="goPage(item)" :key="item.srfkey" class="app-mob-mdctrl-item">
-                        <van-panel :title="item.srfmajortext ">
-                            <div class="van-cell van-panel__header" >
-                                <div class="van-cell__title time">
-                                    <div class="van-cell__label">
-                                        {{ item.starttime }}
-                                    </div>
-                                </div>
-                                <div class="van-cell__title subtitle">
-                                    <span>步骤</span>
-                                    <div class="van-cell__label">
-                                        {{ item.wfstep }}
-                                    </div>
-                                </div>
-                                <div class="van-cell__title content" >
-                                    <span>{{item.startusername}}</span>
-                                    <div class="van-cell__label">
-                                        {{ item.documentcentername }}
-                                    </div>
-                                </div>
-                            </div>
-                        </van-panel>
-                    </li>
-                </template>
-                <template v-else>
-                    <ion-list  v-model="selectedArray"   v-if="isMutli" class="pickUpList">
-                        <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item" >
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                        </ion-item>
-                    </ion-list>
-                    <div class="pickUpList">
-                    <ion-radio-group  :value="selectedValue" v-if="!isMutli">
-                        <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
-                        <div style="width:100%;">
-                            <ion-item class="ibz-ionic-item">
-                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
-                                <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
-                            </ion-item>
-                        </div>
-                        </ion-item>
-                    </ion-radio-group>
-                    </div>
-                </template>
-            </ion-list>
+                    <app-report-list :items="items" @item_click="item_click"></app-report-list>
              <div  v-if="items.length == 0" class="no-data">
-                <div>暂无数据</div>
             </div>
             <div v-show="!allLoaded && isNeedLoaddingText && viewType == 'DEMOBMDVIEW' &&  !isEnableGroup" class="loadding" >
                     <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
@@ -251,6 +167,37 @@ export default class MobBase extends Vue implements ControlInterface {
         const curUIService: any = await this.globaluiservice.getService('ibzdaily_ui_action');
         if (curUIService) {
             curUIService.IbzDaily_MobEdit(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ua123b72_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzdaily_ui_action');
+        if (curUIService) {
+            curUIService.IbzDaily_submitMob(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -1049,6 +996,9 @@ export default class MobBase extends Vue implements ControlInterface {
         if (Object.is(tag, 'u33edb64')) {
             this.mdctrl_u33edb64_click();
         }
+        if (Object.is(tag, 'ua123b72')) {
+            this.mdctrl_ua123b72_click();
+        }
         this.closeSlidings();
     }
 
@@ -1144,7 +1094,8 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        MobEdit: { name: 'MobEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT', target: 'SINGLEKEY',icon:'edit',isShowCaption:true,isShowIcon:true}
+        MobEdit: { name: 'MobEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT', target: 'SINGLEKEY',icon:'edit',isShowCaption:false,isShowIcon:true},
+        submitMob: { name: 'submitMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT', target: 'SINGLEKEY',icon:'check',isShowCaption:false,isShowIcon:true}
     };
 
     

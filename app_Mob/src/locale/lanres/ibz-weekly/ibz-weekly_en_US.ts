@@ -96,6 +96,7 @@ export default {
 			thisweektask: '本周完成任务', 
 			nextweektask: '下周计划任务', 
 			ibz_weeklyid: '周报标识', 
+			issubmit: '是否提交', 
 		},
 		uiactions: {
 		},
@@ -117,6 +118,14 @@ export default {
 		},
 	},
 	usr2mobeditviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '编辑',
+			tip: 'deuiaction1',
+		},
+		deuiaction2: {
+			caption: '提交',
+			tip: 'deuiaction2',
+		},
 	},
 	usr2mobtabexpviewrighttoolbar_toolbar: {
 	},

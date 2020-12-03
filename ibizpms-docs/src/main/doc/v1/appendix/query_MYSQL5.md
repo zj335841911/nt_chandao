@@ -7220,6 +7220,32 @@ WHERE t1.issubmit = '1'
 (t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO)) 
 
 ```
+### 我的日报(MyNotSubmit)<div id="IbzDaily_MyNotSubmit"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.SUBMITTIME as `SUBMITTIME`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','今日工作：',case when t1.WORKTODAY is null then '无' else t1.WORKTODAY end) as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','明日计划：',case when t1.PLANSTOMORROW is null then '无' else t1.PLANSTOMORROW end) AS PLANSTOMORROW,
+'daily' as type 
+FROM `T_IBZ_DAILY` t1
+```
 ### 我提交的日报(MySubmitDaily)<div id="IbzDaily_MySubmitDaily"></div>
 ```sql
 SELECT
@@ -7475,6 +7501,7 @@ t1.`MAILTO`,
 t1.`NEXTMONTHPLANSTASK`,
 t1.`REPORTSTATUS`,
 t1.`REPORTTO`,
+t1.`SUBMITTIME`,
 t1.`THISMONTHTASK`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
@@ -7509,6 +7536,32 @@ FROM
 	AND t11.actor = #{srf.sessioncontext.srfloginname}
 WHERE t1.account = #{srf.sessioncontext.srfloginname} 
 
+```
+### 我的月报（移动端）(MyNotSubmit)<div id="IbzMonthly_MyNotSubmit"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_MONTHLYID` AS IBZ_MONTHLYID,
+t1.`IBZ_MONTHLYNAME` AS IBZ_MONTHLYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.SUBMITTIME as `SUBMITTIME`,
+t1.`THISMONTHTASK` AS THISMONTHTASK,
+t1.`NEXTMONTHPLANSTASK` AS NEXTMONTHPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','本月工作：',case when t1.WORKTHISMONTH is null then '无' else t1.WORKTHISMONTH end)  as WORKTHISMONTH,
+t1.`COMMENT`,
+CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' else t1.PLANSNEXTMONTH end) as PLANSNEXTMONTH,
+'monthly' as type 
+FROM `T_IBZ_MONTHLY` t1
 ```
 ### 我收到的月报(MyReceivedMonthly)<div id="IbzMonthly_MyReceivedMonthly"></div>
 ```sql
@@ -7585,6 +7638,7 @@ t1.`NEXTMONTHPLANSTASK`,
 t1.`PLANSNEXTMONTH`,
 t1.`REPORTSTATUS`,
 t1.`REPORTTO`,
+t1.`SUBMITTIME`,
 t1.`THISMONTHTASK`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
@@ -8122,6 +8176,31 @@ t1.`UPDATEMAN`,
 t1.`UPDATEMANNAME`
 FROM `T_IBZ_WEEKLY` t1 
 
+```
+### 我的周报(MyNotSubmit)<div id="IbzWeekly_MyNotSubmit"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_WEEKLYID`,
+t1.`IBZ_WEEKLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`NEXTWEEKTASK`,
+CONCAT_WS('','下周计划：',case when t1.PLANNEXTWEEK is null then '无' else t1.PLANNEXTWEEK end) AS `PLANNEXTWEEK`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.`SUBMITTIME`,
+t1.`THISWEEKTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','本周工作：',case when t1.WORKTHISWEEK is null then '无' else t1.WORKTHISWEEK end)  as WORKTHISWEEK
+FROM `T_IBZ_WEEKLY` t1
 ```
 ### 我收到的周报(MyWeekly)<div id="IbzWeekly_MyWeekly"></div>
 ```sql

@@ -53,6 +53,7 @@ public interface IIbzDailyService extends IService<IbzDaily> {
     IbzDaily submit(IbzDaily et);
     Page<IbzDaily> searchDefault(IbzDailySearchContext context);
     Page<IbzDaily> searchMyDaily(IbzDailySearchContext context);
+    Page<IbzDaily> searchMyNotSubmit(IbzDailySearchContext context);
     Page<IbzDaily> searchMySubmitDaily(IbzDailySearchContext context);
     /**
      * 自定义查询SQL

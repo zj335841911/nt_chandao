@@ -213,6 +213,28 @@ public class IbzWeeklyResource {
                 .body(new PageImpl(ibzweeklyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-searchMyNotSubmit-all') and hasPermission(#context,'pms-IbzWeekly-Get')")
+	@ApiOperation(value = "获取我的周报", tags = {"周报" } ,notes = "获取我的周报")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzweeklies/fetchmynotsubmit")
+	public ResponseEntity<List<IbzWeeklyDTO>> fetchMyNotSubmit(IbzWeeklySearchContext context) {
+        Page<IbzWeekly> domains = ibzweeklyService.searchMyNotSubmit(context) ;
+        List<IbzWeeklyDTO> list = ibzweeklyMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-searchMyNotSubmit-all') and hasPermission(#context,'pms-IbzWeekly-Get')")
+	@ApiOperation(value = "查询我的周报", tags = {"周报" } ,notes = "查询我的周报")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzweeklies/searchmynotsubmit")
+	public ResponseEntity<Page<IbzWeeklyDTO>> searchMyNotSubmit(@RequestBody IbzWeeklySearchContext context) {
+        Page<IbzWeekly> domains = ibzweeklyService.searchMyNotSubmit(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzweeklyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-searchMyWeekly-all') and hasPermission(#context,'pms-IbzWeekly-Get')")
 	@ApiOperation(value = "获取我收到的周报", tags = {"周报" } ,notes = "获取我收到的周报")
     @RequestMapping(method= RequestMethod.GET , value="/ibzweeklies/fetchmyweekly")

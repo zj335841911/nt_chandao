@@ -29,6 +29,7 @@
 |更新人名称|UPDATEMANNAME|TEXT|&nbsp;|
 |状态|REPORTSTATUS|SSCODELIST|&nbsp;|
 |建立人名称|CREATEMANNAME|TEXT|&nbsp;|
+|提交时间|SUBMITTIME|TIME|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -53,6 +54,7 @@
 |更新人名称|默认规则|内容长度必须小于等于[60]|
 |状态|默认规则|内容长度必须小于等于[60]|
 |建立人名称|默认规则|内容长度必须小于等于[60]|
+|提交时间|默认规则|默认规则|
 
 ## 状态控制
 
@@ -94,6 +96,7 @@
 | --------  | --------   | --------   | ----- |
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IbzMonthly_Default))|否|&nbsp;|
 |MyMonthly|我的月报([MYSQL5](../../appendix/query_MYSQL5.md#IbzMonthly_MyMonthly))|否|&nbsp;|
+|MyNotSubmit|我的月报（移动端）([MYSQL5](../../appendix/query_MYSQL5.md#IbzMonthly_MyNotSubmit))|否|&nbsp;|
 |MyReceivedMonthly|我收到的月报([MYSQL5](../../appendix/query_MYSQL5.md#IbzMonthly_MyReceivedMonthly))|否|&nbsp;|
 |MySubmitMonthly|我提交的月报([MYSQL5](../../appendix/query_MYSQL5.md#IbzMonthly_MySubmitMonthly))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzMonthly_View))|否|&nbsp;|
@@ -104,6 +107,7 @@
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |MyMonthly|我的月报|MyMonthly|否|&nbsp;|
+|MyNotSubmit|我的月报（移动端）|MyNotSubmit|否|&nbsp;|
 |MyReceivedMonthly|我收到的月报|MyReceivedMonthly|否|&nbsp;|
 |MySubmitMonthly|我提交的月报|MySubmitMonthly|否|&nbsp;|
 

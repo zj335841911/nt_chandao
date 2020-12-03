@@ -29,7 +29,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchDefault" 
+            fetchAction="FetchMyNotSubmit" 
             :isMutli="!isSingleSelect"
             :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
@@ -53,7 +53,7 @@
             <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
-                    <ion-icon name="create"></ion-icon>
+                    <ion-icon name="plus"></ion-icon>
                 
                 </ion-button>
                 
@@ -205,7 +205,7 @@ export default class IbzWeeklyUsr2MobMDViewBase extends Vue {
      * @type {*}
      * @memberof IbzWeeklyUsr2MobMDViewBase
      */
-    protected navParam: any = { 'n_account_eq': '%srfloginname%' };
+    protected navParam: any = { 'n_account_eq': '%srfloginname%', 'n_issubmit_eq': '0' };
 
     /**
      * 视图模型数据

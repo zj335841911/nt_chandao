@@ -332,6 +332,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[IbzMonthlyDTO](#IbzMonthlyDTO)>：月报实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取我的月报（移动端）
+#### 访问路径
+/ibzmonthlies/fetchmynotsubmit
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzMonthlySearchContext](#IbzMonthlySearchContext) | 月报查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[IbzMonthlyDTO](#IbzMonthlyDTO)>：月报实体传输对象列表 |
+
+### 查询我的月报（移动端）
+#### 访问路径
+/ibzmonthlies/searchmynotsubmit
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [IbzMonthlySearchContext](#IbzMonthlySearchContext) | 月报查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[IbzMonthlyDTO](#IbzMonthlyDTO)>：月报实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取我收到的月报
 #### 访问路径
 /ibzmonthlies/fetchmyreceivedmonthly
@@ -429,16 +465,17 @@ POST
 | 18 | updatemanname | String | 不可 | 更新人名称 |
 | 19 | reportstatus | String | 允许 | 状态 |
 | 20 | createmanname | String | 不可 | 建立人名称 |
-| 21 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 21 | submittime | Timestamp | 允许 | 提交时间<br>时间格式：HH:mm:ss |
+| 22 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzMonthlySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_ibz_monthlyname_like | String | 允许 | 条件字段：ibz_monthlyname<br>条件组合方式：`%like%` |
-| 2 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
-| 3 | n_reportto_eq | String | 允许 | 条件字段：reportto<br>条件组合方式：`=` |
-| 4 | n_issubmit_eq | String | 允许 | 条件字段：issubmit<br>条件组合方式：`=` |
-| 5 | n_reportstatus_eq | String | 允许 | 条件字段：reportstatus<br>条件组合方式：`=` |
+| 1 | n_ibz_monthlyname_like | String | 允许 | 条件字段：ibz_monthlyname<br>条件组合方式：`%like%`<br>时间格式：HH:mm:ss |
+| 2 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=`<br>时间格式：HH:mm:ss |
+| 3 | n_reportto_eq | String | 允许 | 条件字段：reportto<br>条件组合方式：`=`<br>时间格式：HH:mm:ss |
+| 4 | n_issubmit_eq | String | 允许 | 条件字段：issubmit<br>条件组合方式：`=`<br>时间格式：HH:mm:ss |
+| 5 | n_reportstatus_eq | String | 允许 | 条件字段：reportstatus<br>条件组合方式：`=`<br>时间格式：HH:mm:ss |
 | 6 | customcond | String | 允许 | 自定义查询条件 |
 | 7 | customparams | String | 允许 | 自定义查询参数 |
 | 8 | query | String | 允许 | 快速搜索 |

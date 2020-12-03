@@ -35,8 +35,10 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div  class = "fab_container">
-            <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
-                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobedit.visabled">
+            <ion-button :id="viewtag+'_bottom_button'" :style="button_style" v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobedit.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1_mobedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobedit' }, $event)" size="large">
                     <ion-icon name="edit"></ion-icon>
                 
@@ -44,7 +46,16 @@
                 
             </div>
         
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_submitmob.disabled}" v-show="righttoolbarModels.deuiaction1_submitmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_submitmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_submitmob' }, $event)" size="large">
+                    <ion-icon name="check"></ion-icon>
+                
+                </ion-button>
+                
             </div>
+        
+                </div>
+            </van-popup>
         </div>
     </ion-footer>
 </ion-page>
@@ -288,6 +299,8 @@ export default class IbzDailyDailyInfoMobEditViewBase extends Vue {
     */
     public righttoolbarModels: any = {
             deuiaction1_mobedit: { name: 'deuiaction1_mobedit', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT', uiaction: { tag: 'MobEdit', target: 'SINGLEKEY' } },
+
+            deuiaction1_submitmob: { name: 'deuiaction1_submitmob', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT', uiaction: { tag: 'submitMob', target: 'SINGLEKEY' } },
 
     };
 
@@ -581,6 +594,9 @@ export default class IbzDailyDailyInfoMobEditViewBase extends Vue {
         if (Object.is($event.tag, 'deuiaction1_mobedit')) {
             this.righttoolbar_deuiaction1_mobedit_click($event, '', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction1_submitmob')) {
+            this.righttoolbar_deuiaction1_submitmob_click($event, '', $event2);
+        }
     }
 
 
@@ -613,6 +629,38 @@ export default class IbzDailyDailyInfoMobEditViewBase extends Vue {
         const curUIService: any = await this.globaluiservice.getService('ibzdaily_ui_action');
         if (curUIService) {
             curUIService.IbzDaily_MobEdit(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyDailyInfoMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_submitmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzdaily_ui_action');
+        if (curUIService) {
+            curUIService.IbzDaily_submitMob(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 

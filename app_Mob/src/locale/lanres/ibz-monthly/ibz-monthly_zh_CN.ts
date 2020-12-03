@@ -20,6 +20,7 @@ export default {
     updatemanname: "更新人名称",
     reportstatus: "状态",
     createmanname: "建立人名称",
+    submittime: "提交时间",
   },
 	views: {
 		maininfomobeditview: {
@@ -106,6 +107,16 @@ export default {
 		tbitem1: {
 			caption: '保存',
 			tip: '保存',
+		},
+	},
+	maininfomobeditviewrighttoolbar_toolbar: {
+		deuiaction1_mobedit: {
+			caption: '修改',
+			tip: '修改',
+		},
+		deuiaction1_mobsubmit: {
+			caption: '提交',
+			tip: '提交',
 		},
 	},
 	monthlymobmdviewrighttoolbar_toolbar: {
