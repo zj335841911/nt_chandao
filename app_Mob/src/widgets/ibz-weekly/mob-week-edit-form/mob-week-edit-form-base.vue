@@ -1859,6 +1859,9 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
                 if (this.data.hasOwnProperty('account')) {
                     this.data['account'] = this.context['srfloginname'];
                 }
+                if (this.data.hasOwnProperty('issubmit')) {
+                    this.data['issubmit'] = '0';
+                }
     }
 
         /**

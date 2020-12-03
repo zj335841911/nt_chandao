@@ -64,6 +64,7 @@ export class MobWeekEditService extends FormServiceBase {
     public mergeDefaults(response:any = {}): void {
         if (response.data) {
             Object.assign(response.data, { 'account': 'srfloginname' });
+            Object.assign(response.data, { 'issubmit': '0' });
         }
     }
 
