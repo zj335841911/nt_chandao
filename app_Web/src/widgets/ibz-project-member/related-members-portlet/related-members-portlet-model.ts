@@ -51,6 +51,9 @@ export default class RelatedMembersModel {
       {
         name: 'sixthmember',
       },
+      {
+        name: 'teamembers',
+      },
     ]
   }
 
