@@ -107,31 +107,32 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
 
     @Transactional(rollbackFor = Exception.class)
     public IbzDaily submit(IbzDaily et) {
-        et.setIssubmit(StaticDict.YesNo.ITEM_1.getValue());
+        IbzDaily newDaily = new IbzDaily();
+        newDaily.setIbzdailyid(et.getIbzdailyid());
         IbzDaily old = new IbzDaily();
         CachedBeanCopier.copy(get(et.getIbzdailyid()), old);
-        String files = et.getFiles();
-        et.setSubmittime(ZTDateUtil.now());
+        newDaily.setSubmittime(ZTDateUtil.now());
+        newDaily.setIssubmit(StaticDict.YesNo.ITEM_1.getValue());
         boolean flag = (old.getWorktoday() == null && old.getTodaytask() == null) || old.getReportto() == null;
         if(flag) {
             throw new RuntimeException("请填写今日工作或今日完成任务并且指定汇报人后提交！");
         }
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("Ibz_dailyid", et.getIbzdailyid()))) {
-            return et;
+        if (!update(newDaily, (Wrapper) newDaily.getUpdateWrapper(true).eq("Ibz_dailyid", newDaily.getIbzdailyid()))) {
+            return newDaily;
         }
         CachedBeanCopier.copy(get(et.getIbzdailyid()), et);
-        fileHelper.updateObjectID(et.getIbzdailyid(), StaticDict.File__object_type.DAILY.getValue(), files, "");
         List<History> changes = ChangeUtil.diff(old, et, null, null, diffAttrs);
         if (changes.size() > 0) {
             String strAction = StaticDict.Action__type.SUBMIT.getValue();
-            Action action = actionHelper.create(StaticDict.Action__object_type.DAILY.getValue(), et.getIbzdailyid(), strAction,
+            Action action = actionHelper.create(StaticDict.Action__object_type.DAILY.getValue(), newDaily.getIbzdailyid(), strAction,
                     "", "", null, true);
             if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
             }
         }
         // 给汇报人，抄送人 待阅
-        actionHelper.sendToread(et.getIbzdailyid(), et.getIbzdailyname(), "", et.getReportto(), et.getMailto(), IIbzDailyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.DAILY.getValue(), IIbzDailyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.SUBMIT.getText());
+        String ss="已经提交给您了，请查收哦！";
+        actionHelper.sendToread(newDaily.getIbzdailyid(), newDaily.getIbzdailyname()+ss, "", newDaily.getReportto(), newDaily.getMailto(), IIbzDailyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.DAILY.getValue(), IIbzDailyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.SUBMIT.getText());
         return et;
     }
 
