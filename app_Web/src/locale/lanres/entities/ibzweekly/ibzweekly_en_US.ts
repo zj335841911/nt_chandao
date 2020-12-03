@@ -162,13 +162,9 @@ export default {
 	usr2editviewtoolbar_toolbar: {
 	},
 	editviewtoolbar_toolbar: {
-		deuiaction3_submit: {
-			caption: "提交",
-			tip: "提交",
-		},
 		deuiaction1: {
-			caption: "Save",
-			tip: "Save",
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 	editviewedittoolbar_toolbar: {
@@ -177,8 +173,8 @@ export default {
 			tip: "提交",
 		},
 		deuiaction1: {
-			caption: "Save",
-			tip: "Save",
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 	usr2gridviewtoolbar_toolbar: {

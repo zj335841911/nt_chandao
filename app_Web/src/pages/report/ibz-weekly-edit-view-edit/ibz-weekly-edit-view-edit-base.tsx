@@ -114,7 +114,7 @@ export class IbzWeeklyEditViewEditBase extends EditViewBase {
     public toolBarModels: any = {
         deuiaction3_submit: { name: 'deuiaction3_submit', caption: '提交', 'isShowCaption': true, 'isShowIcon': true, tooltip: '提交', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__WEEKLY_SUBMIT_BUT', uiaction: { tag: 'submit', target: 'SINGLEKEY', class: '' } },
 
-        deuiaction1: { name: 'deuiaction1', caption: '保存', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存', iconcls: 'fa fa-save', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'Save', target: '', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '保存并关闭', 'isShowCaption': true, 'isShowIcon': true, tooltip: '保存并关闭', iconcls: 'sx-tb-saveandclose', icon: '../sasrfex/images/default/icon_saveandclose.png', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '', class: '' } },
 
     };
 
@@ -279,11 +279,11 @@ export class IbzWeeklyEditViewEditBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.Save(datas, contextJO,paramJO,  $event, xData,this,"IBZWEEKLY");
+        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"IBZWEEKLY");
     }
 
     /**
-     * 保存
+     * 保存并关闭
      *
      * @param {any[]} args 当前数据
      * @param {any} contextJO 行为附加上下文
@@ -293,20 +293,27 @@ export class IbzWeeklyEditViewEditBase extends EditViewBase {
      * @param {*} [actionContext]  执行行为上下文
      * @memberof IbzWeeklyEditViewEditBase
      */
-    public Save(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        // 界面行为容器对象 _this
+    public SaveAndExit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
-        if (xData && xData.save instanceof Function) {
-            xData.save().then((response: any) => {
+        if (xData && xData.saveAndExit instanceof Function) {
+            xData.saveAndExit().then((response: any) => {
                 if (!response || response.status !== 200) {
                     return;
                 }
-                _this.$emit('viewdataschange', [{ ...response.data }]);
+                if(window.parent){
+                    window.parent.postMessage([{ ...response.data }],'*');
+                }
             });
-        } else if (_this.save && _this.save instanceof Function) {
-            _this.save();
+        } else if (_this.saveAndExit && _this.saveAndExit instanceof Function) {
+            _this.saveAndExit().then((response: any) => {
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                if(window.parent){
+                    window.parent.postMessage([{ ...response.data }],'*');
+                }
+            });
         }
     }
-
 
 }
