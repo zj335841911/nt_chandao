@@ -65,9 +65,9 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
     @Transactional(rollbackFor = Exception.class)
     public boolean create(IbzDaily et) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-       List<IbzDaily> dailyList = ibzDailyService.list(new QueryWrapper<IbzDaily>().eq("account",et.getAccount()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = DATE_FORMAT(now(),'%Y-%m-%d')"));
-        if (dailyList.size()>0){
-            throw new BadRequestAlertException(dateFormat.format(et.getDate())+"的日报已经存在,请勿重复创建！",StaticDict.ReportType.DAILY.getValue(),"");
+        List<IbzDaily> dailyList = ibzDailyService.list(new QueryWrapper<IbzDaily>().eq("account", et.getAccount()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = DATE_FORMAT(now(),'%Y-%m-%d')"));
+        if (dailyList.size() > 0) {
+            throw new BadRequestAlertException(dateFormat.format(et.getDate()) + "的日报已经存在,请勿重复创建！", StaticDict.ReportType.DAILY.getValue(), "");
         }
         String files = et.getFiles();
         et.setIbzdailyname(String.format("%1$s-%2$s的日报", et.getIbzdailyname(), dateFormat.format(et.getDate())));
@@ -114,14 +114,14 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
         newDaily.setSubmittime(ZTDateUtil.now());
         newDaily.setIssubmit(StaticDict.YesNo.ITEM_1.getValue());
         boolean flag = (old.getWorktoday() == null && old.getTodaytask() == null) || old.getReportto() == null;
-        if(flag) {
+        if (flag) {
             throw new RuntimeException("请填写今日工作或今日完成任务并且指定汇报人后提交！");
         }
         if (!update(newDaily, (Wrapper) newDaily.getUpdateWrapper(true).eq("Ibz_dailyid", newDaily.getIbzdailyid()))) {
             return newDaily;
         }
-        CachedBeanCopier.copy(get(et.getIbzdailyid()), et);
-        List<History> changes = ChangeUtil.diff(old, et, null, null, diffAttrs);
+        CachedBeanCopier.copy(get(newDaily.getIbzdailyid()), newDaily);
+        List<History> changes = ChangeUtil.diff(old, newDaily, null, null, diffAttrs);
         if (changes.size() > 0) {
             String strAction = StaticDict.Action__type.SUBMIT.getValue();
             Action action = actionHelper.create(StaticDict.Action__object_type.DAILY.getValue(), newDaily.getIbzdailyid(), strAction,
@@ -131,8 +131,8 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
             }
         }
         // 给汇报人，抄送人 待阅
-        String ss="已经提交给您了，请查收哦！";
-        actionHelper.sendToread(newDaily.getIbzdailyid(), newDaily.getIbzdailyname()+ss, "", newDaily.getReportto(), newDaily.getMailto(), IIbzDailyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.DAILY.getValue(), IIbzDailyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.SUBMIT.getText());
+        String ss = "已经提交给您了，请查收哦！";
+        actionHelper.sendToread(newDaily.getIbzdailyid(), newDaily.getIbzdailyname() + ss, "", newDaily.getReportto(), newDaily.getMailto(), IIbzDailyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.DAILY.getValue(), IIbzDailyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.SUBMIT.getText());
         return et;
     }
 
@@ -144,7 +144,7 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
             return et;
         }
         boolean exits = curAccount.equals(et.getReportto()) || (et.getMailto() != null && et.getMailto().contains(curAccount));
-        if(exits) {
+        if (exits) {
             List<Action> list = actionHelper.list(new QueryWrapper<Action>().eq("objecttype", StaticDict.Action__object_type.DAILY.getValue()).eq("action", StaticDict.Action__type.READ.getValue()).eq("actor", AuthenticationUser.getAuthenticationUser().getUsername()).eq("objectid", et.getIbzdailyid()));
             if (list.size() == 0) {
                 actionHelper.create(StaticDict.Action__object_type.DAILY.getValue(), et.getIbzdailyid(), StaticDict.Action__type.READ.getValue(), "", "", null, true);
@@ -223,7 +223,7 @@ public class IbzDailyHelper extends ZTBaseHelper<IbzDailyMapper, IbzDaily> {
     public IbzDaily pushUserDaily(IbzDaily et) {
         List<IbzDaily> list = this.list(new QueryWrapper<IbzDaily>().eq("issubmit", StaticDict.YesNo.ITEM_0.getValue()).last(" and DATE_FORMAT(date,'%Y-%m-%d') = DATE_FORMAT(now(),'%Y-%m-%d')"));
         for (IbzDaily ibzDaily : list) {
-            actionHelper.sendToread(ibzDaily.getIbzdailyid(), "您的"+ibzDaily.getDate()+"的日报还未提交，请及时填写！", ibzDaily.getAccount(), "", "", IIbzDailyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.DAILY.getValue(), IIbzDailyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
+            actionHelper.sendToread(ibzDaily.getIbzdailyid(), "您的" + ibzDaily.getDate() + "的日报还未提交，请及时填写！", ibzDaily.getAccount(), "", "", IIbzDailyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.DAILY.getValue(), IIbzDailyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
         }
 
         return et;
