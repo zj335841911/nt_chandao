@@ -174,22 +174,22 @@
 
 
 <app-form-item 
-    name='reportto' 
+    name='reporttopk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="reportto_item"  
-    :itemValue="this.data.reportto" 
-    v-show="detailsModel.reportto.visible" 
-    :itemRules="this.rules.reportto" 
-    :caption="$t('ibzmonthly.mobnew_form.details.reportto')"  
+    ref="reporttopk_item"  
+    :itemValue="this.data.reporttopk" 
+    v-show="detailsModel.reporttopk.visible" 
+    :itemRules="this.rules.reporttopk" 
+    :caption="$t('ibzmonthly.mobnew_form.details.reporttopk')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.reportto.disabled"
-    :error="detailsModel.reportto.error" 
+    :disabled="detailsModel.reporttopk.disabled"
+    :error="detailsModel.reporttopk.error" 
     :isEmptyCaption="false">
         <app-mob-picker
-    name='reportto'
+    name='reporttopk'
     deMajorField='personname'
     deKeyField='username'
     valueitem='reportto' 
@@ -201,10 +201,10 @@
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     :itemParam='{ }' 
-    :disabled="detailsModel.reportto.disabled"
+    :disabled="detailsModel.reporttopk.disabled"
     :service="service"
     :acParams="{ serviceName: 'sysemployee', interfaceName: 'FetchDefault'}"
-    :value="data.reportto" 
+    :value="data.reporttopk" 
     :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
     @formitemvaluechange="onFormItemValueChange">
 </app-mob-picker>
@@ -214,27 +214,27 @@
 
 
 <app-form-item 
-    name='mailto' 
+    name='mailtopk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="mailto_item"  
-    :itemValue="this.data.mailto" 
-    v-show="detailsModel.mailto.visible" 
-    :itemRules="this.rules.mailto" 
-    :caption="$t('ibzmonthly.mobnew_form.details.mailto')"  
+    ref="mailtopk_item"  
+    :itemValue="this.data.mailtopk" 
+    v-show="detailsModel.mailtopk.visible" 
+    :itemRules="this.rules.mailtopk" 
+    :caption="$t('ibzmonthly.mobnew_form.details.mailtopk')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.mailto.disabled"
-    :error="detailsModel.mailto.error" 
+    :disabled="detailsModel.mailtopk.disabled"
+    :error="detailsModel.mailtopk.error" 
     :isEmptyCaption="false">
         <app-mob-mpicker 
     :data="data"
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    :disabled="detailsModel.mailto.disabled"
-    :value="data.mailto"
-    name="mailto"
+    :disabled="detailsModel.mailtopk.disabled"
+    :value="data.mailtopk"
+    name="mailtopk"
     :context="context"
     :viewparams="viewparams"
     :service="service"
@@ -588,7 +588,9 @@ export default class MobNewBase extends Vue implements ControlInterface {
         comment: null,
         files: null,
         reportto: null,
+        reporttopk: null,
         mailto: null,
+        mailtopk: null,
         ibz_monthlyid: null,
         account: null,
         issubmit: null,
@@ -639,6 +641,10 @@ export default class MobNewBase extends Vue implements ControlInterface {
             { required: true, type: 'string', message: '本月完成任务 值不能为空', trigger: 'blur' },
         ],
         reportto: [
+            { required: true, type: 'string', message: '汇报给 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '汇报给 值不能为空', trigger: 'blur' },
+        ],
+        reporttopk: [
             { required: true, type: 'string', message: '汇报给 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '汇报给 值不能为空', trigger: 'blur' },
         ],
@@ -769,7 +775,11 @@ export default class MobNewBase extends Vue implements ControlInterface {
 , 
         reportto: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        reporttopk: new FormItemModel({ caption: '汇报给', detailType: 'FORMITEM', name: 'reporttopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        mailtopk: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         ibz_monthlyid: new FormItemModel({ caption: '月报标识', detailType: 'FORMITEM', name: 'ibz_monthlyid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -984,6 +994,18 @@ export default class MobNewBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 reporttopk 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.reporttopk')
+    onReporttopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'reporttopk', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 mailto 值
      *
      * @param {*} newVal
@@ -993,6 +1015,18 @@ export default class MobNewBase extends Vue implements ControlInterface {
     @Watch('data.mailto')
     onMailtoChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 mailtopk 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNew
+     */
+    @Watch('data.mailtopk')
+    onMailtopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailtopk', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1067,6 +1101,8 @@ export default class MobNewBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
 
 
 

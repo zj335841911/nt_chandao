@@ -96,8 +96,18 @@ export class MobNewModel {
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'reporttopk',
+                prop: 'reporttopk',
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'mailto',
                 prop: 'mailto',
+                dataType: 'SMCODELIST',
+            },
+            {
+                name: 'mailtopk',
+                prop: 'mailtopk',
                 dataType: 'SMCODELIST',
             },
             {
