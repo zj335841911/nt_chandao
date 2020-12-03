@@ -298,7 +298,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
     * @memberof IbzMonthlyMainInfoMobEditView
     */
     public righttoolbarModels: any = {
-            deuiaction1_mobedit: { name: 'deuiaction1_mobedit', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MobEdit', target: 'SINGLEKEY' } },
+            deuiaction1_mobedit: { name: 'deuiaction1_mobedit', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__MONTHLY_EDIT_BUT', uiaction: { tag: 'MobEdit', target: 'SINGLEKEY' } },
 
             deuiaction1_mobsubmit: { name: 'deuiaction1_mobsubmit', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__MONTHLY_SUBMIT_BUT', uiaction: { tag: 'MobSubmit', target: 'SINGLEKEY' } },
 
