@@ -181,7 +181,7 @@ export default class TaskMyCompleteTaskMobMDViewWeeklyBase extends Vue {
      * @type {*}
      * @memberof TaskMyCompleteTaskMobMDViewWeeklyBase
      */
-    protected navParam: any = { 'thisweektask': '%thisweektask%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据

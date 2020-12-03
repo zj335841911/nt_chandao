@@ -191,7 +191,7 @@ export default class IbzWeeklyUsr2MobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzWeeklyUsr2MobEditViewBase
      */
-    protected navContext: any = { 'thisweektask': '%thisweektask%' };
+    protected navContext: any = {};
 
     /**
      * 视图导航参数
@@ -200,7 +200,7 @@ export default class IbzWeeklyUsr2MobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzWeeklyUsr2MobEditViewBase
      */
-    protected navParam: any = { 'thisweektask': '%thisweektask%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据

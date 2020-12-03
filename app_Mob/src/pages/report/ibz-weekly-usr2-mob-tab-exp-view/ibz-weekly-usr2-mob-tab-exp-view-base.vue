@@ -184,7 +184,7 @@ export default class IbzWeeklyUsr2MobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof IbzWeeklyUsr2MobTabExpViewBase
      */
-    protected navParam: any = { 'thisweektask': '%thisweektask%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据
