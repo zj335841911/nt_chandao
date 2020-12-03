@@ -7541,7 +7541,7 @@ FROM
 WHERE t1.account = #{srf.sessioncontext.srfloginname} 
 
 ```
-### 我的月报（移动端）(MyNotSubmit)<div id="IbzMonthly_MyNotSubmit"></div>
+### 我的月报（移动端）(MyMonthlyMob)<div id="IbzMonthly_MyMonthlyMob"></div>
 ```sql
 SELECT
 t1.`ACCOUNT`,
@@ -7566,6 +7566,8 @@ t1.`COMMENT`,
 CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' else t1.PLANSNEXTMONTH end) as PLANSNEXTMONTH,
 'monthly' as type 
 FROM `T_IBZ_MONTHLY` t1
+WHERE t1.account = #{srf.sessioncontext.srfloginname} 
+
 ```
 ### 我收到的月报(MyReceivedMonthly)<div id="IbzMonthly_MyReceivedMonthly"></div>
 ```sql

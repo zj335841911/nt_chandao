@@ -511,9 +511,9 @@ mock.onGet(new RegExp(/^\/ibzmonthlies\/fetchmymonthly(\?[\w-./?%&=,]*)*$/)).rep
     return [status, records ?  records : []];
 });
     
-// FetchMyNotSubmit
-mock.onGet(new RegExp(/^\/ibzmonthlies\/fetchmynotsubmit$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibzmonthly 方法: FetchMyNotSubmit");
+// FetchMyMonthlyMob
+mock.onGet(new RegExp(/^\/ibzmonthlies\/fetchmymonthlymob$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzmonthly 方法: FetchMyMonthlyMob");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -526,9 +526,9 @@ mock.onGet(new RegExp(/^\/ibzmonthlies\/fetchmynotsubmit$/)).reply((config: any)
     return [status, mockDatas ? mockDatas : []];
 });
 
-// FetchMyNotSubmit
-mock.onGet(new RegExp(/^\/ibzmonthlies\/fetchmynotsubmit(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibzmonthly 方法: FetchMyNotSubmit");
+// FetchMyMonthlyMob
+mock.onGet(new RegExp(/^\/ibzmonthlies\/fetchmymonthlymob(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzmonthly 方法: FetchMyMonthlyMob");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];

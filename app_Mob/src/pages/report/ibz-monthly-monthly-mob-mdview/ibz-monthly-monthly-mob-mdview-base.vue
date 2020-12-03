@@ -29,7 +29,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchMyNotSubmit" 
+            fetchAction="FetchMyMonthlyMob" 
             :isMutli="!isSingleSelect"
             :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
@@ -205,7 +205,7 @@ export default class IbzMonthlyMonthlyMobMDViewBase extends Vue {
      * @type {*}
      * @memberof IbzMonthlyMonthlyMobMDViewBase
      */
-    protected navParam: any = { 'n_account_eq': '%srfloginname%', 'n_issubmit_eq': '0' };
+    protected navParam: any = { 'n_issubmit_eq': '0' };
 
     /**
      * 视图模型数据

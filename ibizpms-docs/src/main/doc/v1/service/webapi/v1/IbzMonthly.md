@@ -334,7 +334,7 @@ POST
 
 ### 获取我的月报（移动端）
 #### 访问路径
-/ibzmonthlies/fetchmynotsubmit
+/ibzmonthlies/fetchmymonthlymob
 
 #### 请求方法
 GET
@@ -352,7 +352,7 @@ GET
 
 ### 查询我的月报（移动端）
 #### 访问路径
-/ibzmonthlies/searchmynotsubmit
+/ibzmonthlies/searchmymonthlymob
 
 #### 请求方法
 POST

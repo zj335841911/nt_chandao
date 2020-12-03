@@ -1060,7 +1060,7 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 2 | [我的月报](#数据查询-我的月报（MyMonthly）) | MyMonthly | 否 |
-| 3 | [我的月报（移动端）](#数据查询-我的月报（移动端）（MyNotSubmit）) | MyNotSubmit | 否 |
+| 3 | [我的月报（移动端）](#数据查询-我的月报（移动端）（MyMonthlyMob）) | MyMonthlyMob | 否 |
 | 4 | [我收到的月报](#数据查询-我收到的月报（MyReceivedMonthly）) | MyReceivedMonthly | 否 |
 | 5 | [我提交的月报](#数据查询-我提交的月报（MySubmitMonthly）) | MySubmitMonthly | 否 |
 | 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
@@ -1136,7 +1136,7 @@ FROM
 	AND t11.action = 'read' 
 	AND t11.actor = #{srf.sessioncontext.srfloginname}
 ```
-### 数据查询-我的月报（移动端）（MyNotSubmit）
+### 数据查询-我的月报（移动端）（MyMonthlyMob）
 #### 说明
 我的月报（移动端）
 
@@ -1290,7 +1290,7 @@ FROM `T_IBZ_MONTHLY` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 2 | [我的月报](#数据集合-我的月报（MyMonthly）) | MyMonthly | 否 |
-| 3 | [我的月报（移动端）](#数据集合-我的月报（移动端）（MyNotSubmit）) | MyNotSubmit | 否 |
+| 3 | [我的月报（移动端）](#数据集合-我的月报（移动端）（MyMonthlyMob）) | MyMonthlyMob | 否 |
 | 4 | [我收到的月报](#数据集合-我收到的月报（MyReceivedMonthly）) | MyReceivedMonthly | 否 |
 | 5 | [我提交的月报](#数据集合-我提交的月报（MySubmitMonthly）) | MySubmitMonthly | 否 |
 
@@ -1322,7 +1322,7 @@ FROM `T_IBZ_MONTHLY` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我的月报（MyMonthly）](#数据查询-我的月报（MyMonthly）) |
-### 数据集合-我的月报（移动端）（MyNotSubmit）
+### 数据集合-我的月报（移动端）（MyMonthlyMob）
 #### 说明
 我的月报（移动端）
 
@@ -1335,7 +1335,7 @@ FROM `T_IBZ_MONTHLY` t1
 #### 关联的数据查询
 | 序号 | 数据查询 |
 | ---- | ---- |
-| 1 | [我的月报（移动端）（MyNotSubmit）](#数据查询-我的月报（移动端）（MyNotSubmit）) |
+| 1 | [我的月报（移动端）（MyMonthlyMob）](#数据查询-我的月报（移动端）（MyMonthlyMob）) |
 ### 数据集合-我收到的月报（MyReceivedMonthly）
 #### 说明
 我收到的月报
