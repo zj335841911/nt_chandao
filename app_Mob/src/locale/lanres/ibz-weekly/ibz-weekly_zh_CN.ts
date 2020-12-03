@@ -67,6 +67,7 @@ export default {
 			ibz_weeklyid: '周报标识', 
 			account: '用户', 
 			issubmit: '是否提交', 
+			 reportto: '', 
 		},
 		uiactions: {
 		},
@@ -99,6 +100,7 @@ export default {
 			nextweektask: '下周计划任务', 
 			ibz_weeklyid: '周报标识', 
 			issubmit: '是否提交', 
+			 reportto: '', 
 		},
 		uiactions: {
 		},

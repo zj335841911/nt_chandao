@@ -111,6 +111,9 @@ export class MobInfoMain2Model {
                 dataType: 'SSCODELIST',
             },
             {
+                name: ' reportto',
+            },
+            {
                 name: 'ibzweekly',
                 prop: 'ibzweeklyid',
                 dataType: 'FONTKEY',
