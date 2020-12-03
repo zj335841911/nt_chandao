@@ -140,37 +140,6 @@ export default class MyMonthlyBase extends Vue implements ControlInterface {
     
 
     /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_uc969861_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('ibzmonthly_ui_action');
-        if (curUIService) {
-            curUIService.IbzMonthly_MobEdit(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
      * 关闭视图
      *
      * @param {any[]} args
@@ -962,9 +931,6 @@ export default class MyMonthlyBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'uc969861')) {
-            this.mdctrl_uc969861_click();
-        }
         this.closeSlidings();
     }
 
@@ -1060,7 +1026,6 @@ export default class MyMonthlyBase extends Vue implements ControlInterface {
      * @memberof MyMonthlyBase
      */  
     public ActionModel:any ={
-        MobEdit: { name: 'MobEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'edit',isShowCaption:false,isShowIcon:true}
     };
 
     

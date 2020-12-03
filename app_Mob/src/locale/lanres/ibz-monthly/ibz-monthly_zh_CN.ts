@@ -109,6 +109,16 @@ export default {
 			tip: '保存',
 		},
 	},
+	maininfomobeditviewrighttoolbar_toolbar: {
+		deuiaction1_mobedit: {
+			caption: '修改',
+			tip: '修改',
+		},
+		deuiaction1_mobsubmit: {
+			caption: '提交',
+			tip: '提交',
+		},
+	},
 	monthlymobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
 			caption: '新建',

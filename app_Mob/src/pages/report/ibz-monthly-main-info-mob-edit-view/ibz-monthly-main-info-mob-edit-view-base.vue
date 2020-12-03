@@ -244,6 +244,7 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
      */
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
+        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
@@ -264,12 +265,29 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
+
+   /**
+    * 工具栏 IbzMonthlyMainInfoMobEditView 模型
+    *
+    * @type {*}
+    * @memberof IbzMonthlyMainInfoMobEditView
+    */
+    public righttoolbarModels: any = {
+            deuiaction1_mobedit: { name: 'deuiaction1_mobedit', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MobEdit', target: 'SINGLEKEY' } },
+
+            deuiaction1_mobsubmit: { name: 'deuiaction1_mobsubmit', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__MONTHLY_SUBMIT_BUT', uiaction: { tag: 'MobSubmit', target: 'SINGLEKEY' } },
+
+    };
+
+    
+
+
     /**
      * 工具栏模型集合名
      *
      * @memberof IbzMonthlyMainInfoMobEditViewBase
      */
-    public toolbarModelList:any = []
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
@@ -486,6 +504,86 @@ export default class IbzMonthlyMainInfoMobEditViewBase extends Vue {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1_mobedit')) {
+            this.righttoolbar_deuiaction1_mobedit_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_mobsubmit')) {
+            this.righttoolbar_deuiaction1_mobsubmit_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobedit_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzmonthly_ui_action');
+        if (curUIService) {
+            curUIService.IbzMonthly_MobEdit(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyMainInfoMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobsubmit_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzmonthly_ui_action');
+        if (curUIService) {
+            curUIService.IbzMonthly_MobSubmit(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 第三方关闭视图

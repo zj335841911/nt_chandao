@@ -109,6 +109,16 @@ export default {
 			tip: 'tbitem1',
 		},
 	},
+	maininfomobeditviewrighttoolbar_toolbar: {
+		deuiaction1_mobedit: {
+			caption: '修改',
+			tip: 'deuiaction1_mobedit',
+		},
+		deuiaction1_mobsubmit: {
+			caption: '提交',
+			tip: 'deuiaction1_mobsubmit',
+		},
+	},
 	monthlymobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
 			caption: '新建',
