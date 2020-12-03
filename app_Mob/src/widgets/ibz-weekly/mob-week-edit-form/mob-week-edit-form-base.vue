@@ -631,6 +631,10 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
             { required: true, type: 'string', message: '下周计划 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '下周计划 值不能为空', trigger: 'blur' },
         ],
+        reportto: [
+            { required: true, type: 'string', message: '汇报给 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '汇报给 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
