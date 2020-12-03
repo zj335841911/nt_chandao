@@ -12060,7 +12060,7 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":200,
-    "expression":"t1.REPORTTO",
+    "expression":"''",
     "key_field":0,
     "show_order":1000,
     "major_field":0
@@ -12075,7 +12075,7 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":200,
-    "expression":"t1.MAILTO",
+    "expression":"''",
     "key_field":0,
     "show_order":1000,
     "major_field":0
