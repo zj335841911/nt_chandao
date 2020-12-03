@@ -1889,7 +1889,7 @@ export default class MobDailyEditBase extends Vue implements ControlInterface {
      */
     public createDefault(){                    
             if (this.data.hasOwnProperty('ibz_dailyname')) {
-                    this.data['ibz_dailyname'] = this.context['srfusername'];
+                    this.data['ibz_dailyname'] = this.context['srfpersonname'];
             }
             if (this.data.hasOwnProperty('date')) {
                     this.data['date'] = this.$util.dateFormat(new Date());

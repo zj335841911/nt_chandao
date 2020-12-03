@@ -69,6 +69,7 @@ export class MobDailyEditService extends FormServiceBase {
      */
     public mergeDefaults(response:any = {}): void {
         if (response.data) {
+            Object.assign(response.data, { 'ibz_dailyname': 'srfpersonname' });
             Object.assign(response.data, { 'account': 'srfloginname' });
         }
     }

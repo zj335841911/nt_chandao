@@ -713,6 +713,11 @@
        }
         ,
        {
+            "unirescode":"MONTHLY_EDIT_BUT",
+            "uniresname":"月报编辑"
+       }
+        ,
+       {
             "unirescode":"TASK_CONSUM_BUT",
             "uniresname":"任务工时"
        }
