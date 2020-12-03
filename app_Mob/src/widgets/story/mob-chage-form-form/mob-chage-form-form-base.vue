@@ -1908,9 +1908,6 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
      * @memberof MobChageForm
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('neednotreview')) {
-                    this.data['neednotreview'] = '0';
-                }
     }
 
         /**

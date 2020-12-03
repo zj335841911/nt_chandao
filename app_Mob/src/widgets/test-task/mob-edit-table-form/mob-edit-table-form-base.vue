@@ -1991,12 +1991,9 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
      * @memberof MobEditTable
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('status')) {
-                    this.data['status'] = 'wait';
-                }
-                if (this.data.hasOwnProperty('name')) {
+            if (this.data.hasOwnProperty('name')) {
                     this.data['name'] = this.viewparams['name'];
-                }
+            }
     }
 
         /**

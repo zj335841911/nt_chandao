@@ -1954,12 +1954,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @memberof MobNewForm
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('begin')) {
-                this.data['begin'] = this.$util.dateFormat(new Date());
-                }
-                if (this.data.hasOwnProperty('type')) {
-                    this.data['type'] = 'sprint';
-                }
+            if (this.data.hasOwnProperty('begin')) {
+                    this.data['begin'] = this.$util.dateFormat(new Date());
+            }
     }
 
         /**

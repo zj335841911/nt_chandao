@@ -228,18 +228,22 @@
     :disabled="detailsModel.mailtopk.disabled"
     :error="detailsModel.mailtopk.error" 
     :isEmptyCaption="false">
-        <app-mob-span  
-    codeListType="DYNAMIC" 
-    tag="UserRealName"
-    :isCache="false" 
-    v-if="data.mailtopk"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
+        <app-mob-mpicker 
     :data="data"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    :disabled="detailsModel.mailtopk.disabled"
+    :value="data.mailtopk"
+    name="mailtopk"
     :context="context"
     :viewparams="viewparams"
-    :value="data.mailtopk" 
-    :itemParam="{}"/>
+    :service="service"
+    deMajorField='personname'
+    deKeyField='sysemployee'
+    :pickupView="{ viewname: 'sys-employee-user-tree-mob-mpickup-view', title: '人员移动端多数据选择视图（人员树）', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange" 
+    style=""/>
+
 </app-form-item>
 
 
@@ -1896,15 +1900,15 @@ export default class MobWeekEditBase extends Vue implements ControlInterface {
      * @memberof MobWeekEdit
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('date')) {
-                this.data['date'] = this.$util.dateFormat(new Date());
-                }
-                if (this.data.hasOwnProperty('account')) {
+            if (this.data.hasOwnProperty('ibz_weeklyname')) {
+                    this.data['ibz_weeklyname'] = this.context['srfusername'];
+            }
+            if (this.data.hasOwnProperty('date')) {
+                    this.data['date'] = this.$util.dateFormat(new Date());
+            }
+            if (this.data.hasOwnProperty('account')) {
                     this.data['account'] = this.context['srfloginname'];
-                }
-                if (this.data.hasOwnProperty('issubmit')) {
-                    this.data['issubmit'] = '0';
-                }
+            }
     }
 
         /**

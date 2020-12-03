@@ -1538,9 +1538,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('type')) {
-                    this.data['type'] = 'task';
-                }
     }
 
         /**

@@ -1900,12 +1900,15 @@ export default class MobNewBase extends Vue implements ControlInterface {
      * @memberof MobNew
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('date')) {
-                this.data['date'] = this.$util.dateFormat(new Date());
-                }
-                if (this.data.hasOwnProperty('account')) {
+            if (this.data.hasOwnProperty('ibzmonthlyname')) {
+                    this.data['ibzmonthlyname'] = this.context['srfusername'];
+            }
+            if (this.data.hasOwnProperty('date')) {
+                    this.data['date'] = this.$util.dateFormat(new Date());
+            }
+            if (this.data.hasOwnProperty('account')) {
                     this.data['account'] = this.context['srfloginname'];
-                }
+            }
     }
 
         /**

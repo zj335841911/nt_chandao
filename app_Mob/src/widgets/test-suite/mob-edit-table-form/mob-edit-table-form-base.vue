@@ -1558,9 +1558,6 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
      * @memberof MobEditTable
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('type')) {
-                    this.data['type'] = 'private';
-                }
     }
 
         /**

@@ -2311,15 +2311,12 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      * @memberof MobNewFrom
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('module')) {
+            if (this.data.hasOwnProperty('module')) {
                     this.data['module'] = this.viewparams['module'];
-                }
-                if (this.data.hasOwnProperty('allmodules')) {
-                    this.data['allmodules'] = '1';
-                }
-                if (this.data.hasOwnProperty('story')) {
+            }
+            if (this.data.hasOwnProperty('story')) {
                     this.data['story'] = this.viewparams['story'];
-                }
+            }
     }
 
         /**

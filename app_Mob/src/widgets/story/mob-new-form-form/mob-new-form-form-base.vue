@@ -2236,9 +2236,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @memberof MobNewForm
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('neednotreview')) {
-                    this.data['neednotreview'] = '1';
-                }
     }
 
         /**

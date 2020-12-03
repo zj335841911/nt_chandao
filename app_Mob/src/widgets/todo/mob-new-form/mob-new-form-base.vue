@@ -1736,9 +1736,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
      * @memberof MobNew
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('type')) {
-                    this.data['type'] = 'custom';
-                }
     }
 
         /**
