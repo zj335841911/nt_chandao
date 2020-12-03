@@ -4200,6 +4200,74 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-task-mob-option-view-start/test-task-mob-option-view-start.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/mycompletetaskmobmdviewnextplanweekly',
+                    name: 'task_mycompletetaskmobmdviewnextplanweekly',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdviewnextplanweekly.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdviewnextplanweekly', parameterName: 'mycompletetaskmobmdviewnextplanweekly' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-complete-task-mob-mdview-next-plan-weekly/task-my-complete-task-mob-mdview-next-plan-weekly.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/mycompletetaskmobmdviewnextplanweekly',
+                    name: 'task_mycompletetaskmobmdviewnextplanweekly',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdviewnextplanweekly.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdviewnextplanweekly', parameterName: 'mycompletetaskmobmdviewnextplanweekly' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-complete-task-mob-mdview-next-plan-weekly/task-my-complete-task-mob-mdview-next-plan-weekly.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/mycompletetaskmobmdviewnextplanweekly',
+                    name: 'task_mycompletetaskmobmdviewnextplanweekly',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdviewnextplanweekly.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdviewnextplanweekly', parameterName: 'mycompletetaskmobmdviewnextplanweekly' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-complete-task-mob-mdview-next-plan-weekly/task-my-complete-task-mob-mdview-next-plan-weekly.vue'),
+                },
+                {
+                    path: 'tasks/:task?/mycompletetaskmobmdviewnextplanweekly',
+                    name: 'task_mycompletetaskmobmdviewnextplanweekly',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdviewnextplanweekly.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdviewnextplanweekly', parameterName: 'mycompletetaskmobmdviewnextplanweekly' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-complete-task-mob-mdview-next-plan-weekly/task-my-complete-task-mob-mdview-next-plan-weekly.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/usr2mobmpickupview',
                     name: 'case_usr2mobmpickupview',
                     meta: {

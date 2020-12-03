@@ -205,6 +205,7 @@
 |-|发布移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|Bug移动端多数据视图（更新日志）|DEMOBMDVIEW9|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
+|-|任务移动端多数据视图(我的已完成任务)|DEMOBMDVIEW|&nbsp;|
 |-|周报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|系统更新日志移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|测试版本移动端多数据视图|DEMOBMDVIEW|&nbsp;|

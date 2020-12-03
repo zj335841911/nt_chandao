@@ -100,6 +100,7 @@ export const PageComponents = {
         Vue.component('story-cmob-option-view', () => import('@pages/zentao/story-cmob-option-view/story-cmob-option-view.vue'));
         Vue.component('story-rmob-option-view', () => import('@pages/ibiz/story-rmob-option-view/story-rmob-option-view.vue'));
         Vue.component('test-task-mob-option-view-start', () => import('@pages/zentao/test-task-mob-option-view-start/test-task-mob-option-view-start.vue'));
+        Vue.component('task-my-complete-task-mob-mdview-next-plan-weekly', () => import('@pages/report/task-my-complete-task-mob-mdview-next-plan-weekly/task-my-complete-task-mob-mdview-next-plan-weekly.vue'));
         Vue.component('case-usr2-mob-mpickup-view', () => import('@pages/zentao/case-usr2-mob-mpickup-view/case-usr2-mob-mpickup-view.vue'));
         Vue.component('task-estimate-mob-option-view', () => import('@pages/ibiz/task-estimate-mob-option-view/task-estimate-mob-option-view.vue'));
         Vue.component('bug-close-mob-option-view', () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'));

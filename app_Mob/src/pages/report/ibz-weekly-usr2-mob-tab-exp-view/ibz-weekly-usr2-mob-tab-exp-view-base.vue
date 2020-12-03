@@ -19,12 +19,12 @@
                             <ion-segment-button value="tabviewpanel">
                             
                             主信息</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel3">
-                            
-                            下周计划参与任务</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
                             
                             本周完成任务</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel3">
+                            
+                            计划</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
