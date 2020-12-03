@@ -73,8 +73,10 @@ export default {
 	},
 	mobinfomain2_form: {
 		details: {
+			druipart1: '', 
 			grouppanel1: '附件', 
-			grouppanel2: '操作历史', 
+			druipart2: '', 
+			grouppanel3: '操作历史', 
 			group1: '周报基本信息', 
 			formpage1: '基本信息', 
 			srfupdatedate: '更新时间', 
