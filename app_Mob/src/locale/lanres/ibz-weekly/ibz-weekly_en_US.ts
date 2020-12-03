@@ -105,13 +105,13 @@ export default {
 	},
 	mobmdviewrighttoolbar_toolbar: {
 	},
+	mobtabexpviewrighttoolbar_toolbar: {
+	},
 	mobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
 			tip: 'tbitem1',
 		},
-	},
-	mobtabexpviewrighttoolbar_toolbar: {
 	},
 	usr2mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {

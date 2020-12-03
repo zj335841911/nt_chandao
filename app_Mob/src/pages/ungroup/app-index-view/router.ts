@@ -4164,6 +4164,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-rmob-option-view/story-rmob-option-view.vue'),
                 },
                 {
+                    path: 'ibzweeklies/:ibzweekly?/mobmdview',
+                    name: 'ibzweekly_mobmdview',
+                    meta: {
+                        caption: 'ibzweekly.views.mobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-weekly-mob-mdview/ibz-weekly-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/testtasks/:testtask?/moboptionviewstart',
                     name: 'testtask_moboptionviewstart',
                     meta: {
