@@ -4503,6 +4503,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainDetailView9",
             "viewtag": "ef6cfafd09bb61ddb6fec7840f78e97d"
         },
+        "ibzdailydailyinfoeditview": {
+            "title": "日报编辑视图(日报描述)",
+            "caption": "日报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzDailyDailyInfoEditView",
+            "viewtag": "ef8e8d565d141facde985ac87181e6e3"
+        },
         "doclibusr2treeview": {
             "title": "文档库树视图",
             "caption": "文档库",

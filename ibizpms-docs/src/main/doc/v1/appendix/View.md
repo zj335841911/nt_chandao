@@ -810,6 +810,7 @@ SRFNAVPARAM.project=%project%|
 |-|项目信息|DEEDITVIEW9|&nbsp;|
 |-|执行结果|DEEDITVIEW|&nbsp;|
 |-|任务编辑视图|DEEDITVIEW9|&nbsp;|
+|-|日报编辑视图(日报描述)|DEEDITVIEW|&nbsp;|
 |-|文档库树视图|DETREEVIEW|&nbsp;|
 |-|关联Bug|DEMPICKUPVIEW|&nbsp;|
 |-|转交任务|DEOPTVIEW|&nbsp;|

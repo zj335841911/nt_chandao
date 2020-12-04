@@ -41,6 +41,10 @@ export default {
 			caption: "日报",
       		title: "日报表格视图",
 		},
+		dailyinfoeditview: {
+			caption: "日报",
+      		title: "日报编辑视图(日报描述)",
+		},
 		mydailygridview: {
 			caption: "日报",
       		title: "日报表格视图",
@@ -166,5 +170,7 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+	},
+	dailyinfoeditviewtoolbar_toolbar: {
 	},
 };
