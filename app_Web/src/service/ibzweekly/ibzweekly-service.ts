@@ -22,5 +22,21 @@ export default class IBZWEEKLYService extends IBZWEEKLYServiceBase {
         super(opts);
     }
 
+    /**
+     * CreateGetLastWeekPlanAndWork接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async CreateGetLastWeekPlanAndWork(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let msg : any = {ibzweeklyid : 0}
+        Object.assign(data,msg);
+        let res:any = Http.getInstance().post(`/ibzweeklies/0/creategetlastweekplanandwork`,data,isloading);
+        return res;
+    }
+
 
 }

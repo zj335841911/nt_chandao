@@ -22,6 +22,7 @@ import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.Action;
 import cn.ibizlab.pms.core.zentao.domain.History;
+import cn.ibizlab.pms.core.zentao.domain.Task;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
@@ -29,6 +30,7 @@ import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
+import com.google.common.base.Joiner;
 import com.google.gag.annotation.remark.Facepalm;
 import liquibase.pro.packaged.c;
 import lombok.extern.slf4j.Slf4j;
@@ -41,9 +43,7 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 @Component
@@ -54,6 +54,8 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
 
     @Autowired
     FileHelper fileHelper;
+    @Autowired
+    TaskHelper taskHelper;
     @Autowired
     ISysEmployeeService iSysEmployeeService;
 
@@ -76,20 +78,10 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
         calendar.setTime(today);
         int week = calendar.get(Calendar.WEEK_OF_MONTH); //当月第几周
 
-
-        int weekday = getMondayAndSunday(calendar,today);
-        calendar.add(Calendar.DAY_OF_MONTH,weekday == 0 ? 0 : (8-weekday));
-        Date sunday = calendar.getTime();
-        calendar.add(Calendar.DAY_OF_MONTH,-6);
-        Date monday = calendar.getTime();
-//        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().last("where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date"));
-//        for (IbzWeekly ibzWeekly : list) {
-//            if (AuthenticationUser.getAuthenticationUser().getUsername().equals(ibzWeekly.getAccount()) && ibzWeekly.getDate().getTime() >= monday.getTime() && ibzWeekly.getDate().getTime() <= sunday.getTime()){
-//                throw new BadRequestAlertException(String.format("%1$s-%2$s月第%3$s周的周报" ,et.getIbzweeklyname(), dateFormat.format(et.getDate()),week)+"已经存在，请勿重复创建！", StaticDict.ReportType.WEEKLY.getValue(), "");
-//            }
-//        }
-
-
+        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().eq("account",et.getAccount()).last("and YEARWEEK(DATE_FORMAT(DATE_SUB( date,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(now())"));
+        if (list.size() > 0){
+            throw new BadRequestAlertException(String.format("%1$s-%2$s月第%3$s周的周报" ,et.getIbzweeklyname(), dateFormat.format(et.getDate()),week)+"已经存在，请勿重复创建！", StaticDict.ReportType.WEEKLY.getValue(), "");
+        }
         et.setIbzweeklyname(String.format("%1$s-%2$s月第%3$s周的周报" ,et.getIbzweeklyname(), dateFormat.format(et.getDate()),week));
         if (!SqlHelper.retBool(this.baseMapper.insert(et))){
             return false;
@@ -165,6 +157,7 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
         String[] reportRoleIds = ibzReportRoleConfigList.get(0).getReportRole().split(",");
         for (String roleId : reportRoleIds) {
             SysUserRoleSearchContext sysRoleSearchContext = new SysUserRoleSearchContext();
+            sysRoleSearchContext.setSize(1000);
             sysRoleSearchContext.setN_sys_roleid_eq(roleId);
             Page<SysUserRole> page1 = iSysUserRoleService.searchDefault(sysRoleSearchContext);
             List<SysUserRole> sysRolesList = page1.getContent();
@@ -200,10 +193,38 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
                 ibzWeekly.setDate(now);
                 ibzWeekly.setIssubmit(StaticDict.YesNo.ITEM_0.getValue());
                 ibzWeekly.setReportstatus(StaticDict.ReportStatus.ITEM_0.getValue());
+                createGetLastWeekPlanAndWork(ibzWeekly);
                 this.create(ibzWeekly);
             }
         }
         return et;
+    }
+
+
+    //根据用户名获取上周周报，根据周报获取下周计划工作
+    public void createGetLastWeekPlanAndWork(IbzWeekly et){
+        Set<String> taskIdSet = new HashSet<>();
+        //本周已完成任务
+        List<Task> tasks = taskHelper.list(new QueryWrapper<Task>().eq("deleted","0").eq("finishedBy",et.getAccount()).last("and YEARWEEK(date_format(DATE_SUB( finishedDate,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(now()) "));//YEARWEEK(date_format(finishedDate,'%Y-%m-%d')) = YEARWEEK(now())
+        for (Task t: tasks) {
+            taskIdSet.add(t.getId().toString());
+        }
+
+
+        String lastWeekNextWeekPlan = ""; //上周周报计划工作
+        //获取上周的周报
+        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().eq("account",et.getAccount()).last(" and YEARWEEK(DATE_FORMAT(DATE_SUB( date,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(now())-1")); //
+        if (list.size() != 0){
+            String[] lastWeekPlanTask = list.get(list.size()-1).getNextweektask().split(","); //上周计划参与任务
+            taskIdSet.addAll(Arrays.asList(lastWeekPlanTask));
+            lastWeekNextWeekPlan = list.get(list.size()-1).getPlannextweek(); //上周周报计划工作
+        }
+        if (taskIdSet.size() != 0){
+            et.setThisweektask(Joiner.on(",").join(taskIdSet));
+        }
+        if (!"".equals(lastWeekNextWeekPlan)){
+            et.setWorkthisweek(lastWeekNextWeekPlan); //将上周周报的下周计划工作填充到新建周报的本周计划工作
+        }
     }
 
     public String notAccount() {
@@ -218,16 +239,13 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
 
 
         String notaccount = "";
-        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().last("where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date"));
+        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().last("where YEARWEEK(DATE_FORMAT(DATE_SUB( date,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(now())"));
         for(IbzWeekly ibzWeekly : list) {
-            long date = ibzWeekly.getDate().getTime();
-            if (date >= monday.getTime() && date <= sunday.getTime()) {
-                if ("".equals(notaccount)) {
-                    notaccount += ibzWeekly.getAccount();
-                    continue;
-                }
-                notaccount += ";" + ibzWeekly.getAccount();
+            if ("".equals(notaccount)) {
+                notaccount += ibzWeekly.getAccount();
+                continue;
             }
+            notaccount += ";" + ibzWeekly.getAccount();
         }
 
         return notaccount;
@@ -245,23 +263,10 @@ public class IbzWeeklyHelper  extends ZTBaseHelper<IbzWeeklyMapper, IbzWeekly>{
 
 
     public IbzWeekly pushUserWeekly(IbzWeekly et) {
-        Calendar c = Calendar.getInstance();
-        c.setTime(new Date());
-        int weekday = getMondayAndSunday(c,new Date());
-        c.add(Calendar.DAY_OF_MONTH,weekday == 0 ? 0 : (8-weekday));
-        Date sunday = c.getTime();
-        c.add(Calendar.DAY_OF_MONTH,-6);
-        Date monday = c.getTime();
-
-
-        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().last("where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date"));
+        List<IbzWeekly> list = this.list(new QueryWrapper<IbzWeekly>().eq("issubmit",StaticDict.YesNo.ITEM_0.getValue()).last("and YEARWEEK(DATE_FORMAT(DATE_SUB( date,INTERVAL 1 DAY),'%Y-%m-%d')) = YEARWEEK(now())"));
         for (IbzWeekly ibzWeekly : list) {
-            long date = ibzWeekly.getDate().getTime();
-            if (StaticDict.YesNo.ITEM_0.getValue().equals(ibzWeekly.getIssubmit()) && date >= monday.getTime() && date <= sunday.getTime()){
-                actionHelper.sendToread(ibzWeekly.getIbzweeklyid(), "您的"+ibzWeekly.getDate()+"的周报还未提交，请及时填写！", ibzWeekly.getAccount(), "", "", IIbzWeeklyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.WEEKLY.getValue(), IIbzDailyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
-            }
+            actionHelper.sendToread(ibzWeekly.getIbzweeklyid(), "您的"+ibzWeekly.getDate()+"的周报还未提交，请及时填写！", ibzWeekly.getAccount(), "", "", IIbzWeeklyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.WEEKLY.getValue(), IIbzDailyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
         }
-
         return et;
     }
 
