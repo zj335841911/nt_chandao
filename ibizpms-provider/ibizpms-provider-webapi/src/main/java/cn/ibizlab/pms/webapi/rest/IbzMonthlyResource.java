@@ -145,7 +145,7 @@ public class IbzMonthlyResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-EditGetCompleteTask-all')")
     @ApiOperation(value = "编辑时获取完成任务", tags = {"月报" },  notes = "编辑时获取完成任务")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/{ibzmonthly_id}/editgetcompletetask")
+	@RequestMapping(method = RequestMethod.PUT, value = "/ibzmonthlies/{ibzmonthly_id}/editgetcompletetask")
     public ResponseEntity<IbzMonthlyDTO> editGetCompleteTask(@PathVariable("ibzmonthly_id") Long ibzmonthly_id, @RequestBody IbzMonthlyDTO ibzmonthlydto) {
         IbzMonthly domain = ibzmonthlyMapping.toDomain(ibzmonthlydto);
         domain.setIbzmonthlyid(ibzmonthly_id);
