@@ -3,7 +3,6 @@ package cn.ibizlab.pms.core.util.ibizzentao.helper;
 import cn.ibizlab.pms.core.ou.domain.SysEmployee;
 import cn.ibizlab.pms.core.ou.filter.SysEmployeeSearchContext;
 import cn.ibizlab.pms.core.ou.service.ISysEmployeeService;
-import cn.ibizlab.pms.core.report.domain.IbzDaily;
 import cn.ibizlab.pms.core.report.domain.IbzMonthly;
 import cn.ibizlab.pms.core.report.domain.IbzReportRoleConfig;
 import cn.ibizlab.pms.core.report.mapper.IbzMonthlyMapper;
@@ -16,6 +15,7 @@ import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.Action;
 import cn.ibizlab.pms.core.zentao.domain.History;
+import cn.ibizlab.pms.core.zentao.domain.Task;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
@@ -23,6 +23,7 @@ import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
+import com.google.common.base.Joiner;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,7 +33,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author 吴龙虎
@@ -47,6 +51,9 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
 
     @Autowired
     FileHelper fileHelper;
+
+    @Autowired
+    TaskHelper taskHelper;
 
     @Autowired
     ISysEmployeeService iSysEmployeeService;
@@ -65,7 +72,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
         List<IbzMonthly> monthlyList = this.list(new QueryWrapper<IbzMonthly>().eq("account", et.getAccount()).last(" and DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT(now(),'%Y-%m')"));
         if (monthlyList.size() > 0) {
-            throw new BadRequestAlertException("你的" + dateFormat.format(et.getDate()) + "的月报已经存在，请勿重复创建！", StaticDict.ReportType.MONTHLY.getValue(), "");
+            throw new BadRequestAlertException("您的" + dateFormat.format(et.getDate()) + "的月报已经存在，请勿重复创建！", StaticDict.ReportType.MONTHLY.getValue(), "");
         }
 
         et.setIbzmonthlyname(String.format("%1$s-%2$s的月报" ,et.getIbzmonthlyname(), dateFormat.format(et.getDate())));
@@ -112,6 +119,9 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
         CachedBeanCopier.copy(get(et.getIbzmonthlyid()), old);
         newMonthly.setIssubmit(StaticDict.YesNo.ITEM_1.getValue());
         newMonthly.setSubmittime(ZTDateUtil.now());
+        if ((old.getThismonthtask() == null && old.getWorkthismonth() == null) || old.getReportto() == null) {
+            throw new RuntimeException("请填写今日工作或今日完成任务并且指定汇报人后提交！");
+        }
         if (!update(newMonthly, (Wrapper) newMonthly.getUpdateWrapper(true).eq("Ibz_monthlyid", newMonthly.getIbzmonthlyid()))) {
             return newMonthly;
         }
@@ -155,6 +165,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
         for (String roleId : roleIds) {
             SysUserRoleSearchContext sysUserRoleSearchContext = new SysUserRoleSearchContext();
             sysUserRoleSearchContext.setN_sys_roleid_eq(roleId);
+            sysUserRoleSearchContext.setSize(1000);
             Page<SysUserRole> userRolePage = iSysUserRoleService.searchDefault(sysUserRoleSearchContext);
             List<SysUserRole> userRoleList = userRolePage.getContent();
             if (userRoleList.size() == 0) {
@@ -192,7 +203,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
                 ibzMonthly.setDate(now);
                 ibzMonthly.setIssubmit(StaticDict.YesNo.ITEM_0.getValue());
                 ibzMonthly.setReportstatus(StaticDict.ReportStatus.ITEM_0.getValue());
-                this.create(ibzMonthly);
+                this.create(getLastMonthlyPlans(ibzMonthly));
             }
         }
         return et;
@@ -212,12 +223,35 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
         return notaccount;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public IbzMonthly pushUserMonthly(IbzMonthly et) {
         List<IbzMonthly> list = this.list(new QueryWrapper<IbzMonthly>().last(" where issubmit = '0' and DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT(now(),'%Y-%m')"));
         for (IbzMonthly ibzMonthly : list) {
             actionHelper.sendToread(ibzMonthly.getIbzmonthlyid(), "您的" + ibzMonthly.getIbzmonthlyname() + "的日报还未提交，请及时填写！", ibzMonthly.getAccount(), "", "", IIbzMonthlyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.MONTHLY.getValue(), IIbzMonthlyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
         }
+        return et;
+    }
+
+    public IbzMonthly getLastMonthlyPlans(IbzMonthly et) {
+        List<IbzMonthly> list = this.list(new QueryWrapper<IbzMonthly>().last(" where DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 MONTH),'%Y-%m')"));
+        if (list.size() > 0) {
+            IbzMonthly last = list.get(0);
+            et.setThismonthtask(last.getNextmonthplanstask());
+            et.setWorkthismonth(last.getPlansnextmonth());
+        }
+        return et;
+    }
+
+    public IbzMonthly getThisMonthlyCompleteTasks(IbzMonthly et) {
+        List<Task> list = taskHelper.list(new QueryWrapper<Task>().eq("finishedBy", AuthenticationUser.getAuthenticationUser().getUsername()).last(" and DATE_FORMAT(finishedDate,'%Y-%m') = DATE_FORMAT(NOW(),'%Y-%m')"));
+        String taskIds = et.getThismonthtask() == null ? "" : et.getThismonthtask();
+
+        Set<String> taskIdSet = new HashSet<String>(Arrays.asList(taskIds.split(",")));
+        for (Task task : list) {
+            taskIdSet.add(task.getId().toString());
+        }
+
+        et.setThismonthtask(Joiner.on(",").join(taskIdSet));
         return et;
     }
 }
