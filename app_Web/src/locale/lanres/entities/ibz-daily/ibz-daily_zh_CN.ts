@@ -151,6 +151,8 @@ export default {
 		uiactions: {
 		},
 	},
+	dailyinfoeditviewtoolbar_toolbar: {
+	},
 	dailyeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -170,7 +172,5 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
-	},
-	dailyinfoeditviewtoolbar_toolbar: {
 	},
 };

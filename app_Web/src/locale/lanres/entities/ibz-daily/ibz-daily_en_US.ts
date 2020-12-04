@@ -151,6 +151,8 @@ export default {
 		uiactions: {
 		},
 	},
+	dailyinfoeditviewtoolbar_toolbar: {
+	},
 	dailyeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
@@ -170,7 +172,5 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
-	},
-	dailyinfoeditviewtoolbar_toolbar: {
 	},
 };
