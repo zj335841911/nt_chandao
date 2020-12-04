@@ -762,9 +762,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '6b3a86f189808eac904d838523fea64f',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 'b52bf86837838dcfd5b787fad0350f22',
-                'd5dfb8e49ac109dec6ea502b80cb4419',
             ],
         },
         {
@@ -1140,6 +1140,16 @@ export const viewstate: any = {
                 '3f8c805b81dddfc3dc5c2c7e04fa68c5',
                 '0741315806513b247c661851d7746f51',
                 '58f89fab47964b5ad5b6b0f2021b188b',
+            ],
+        },
+        {
+            viewtag: '6b3a86f189808eac904d838523fea64f',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyEditMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b39f9237d088a6173a2d1889f2eaa562',
             ],
         },
         {

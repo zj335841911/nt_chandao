@@ -92,6 +92,7 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'maininfomobeditview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'mysubmitmobmdview',srfappde:'ibzmonthlies'});
+        this.allViewMap.set(':',{viewname:'editmobeditview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'maininfomobtabexpview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'monthlymobmdview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'myreceivedmobmdview',srfappde:'ibzmonthlies'});
@@ -256,7 +257,7 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-            { pathName: 'createmobeditview', parameterName: 'createmobeditview' },
+            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);

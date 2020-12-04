@@ -150,6 +150,7 @@ export const PageComponents = {
         Vue.component('story-usr2-mob-mpickup-view', () => import('@pages/zentao/story-usr2-mob-mpickup-view/story-usr2-mob-mpickup-view.vue'));
         Vue.component('bug-usr6-mob-mdview', () => import('@pages/zentao/bug-usr6-mob-mdview/bug-usr6-mob-mdview.vue'));
         Vue.component('story-usr2-mob-mdview-5219', () => import('@pages/zentao/story-usr2-mob-mdview-5219/story-usr2-mob-mdview-5219.vue'));
+        Vue.component('ibz-monthly-edit-mob-edit-view', () => import('@pages/report/ibz-monthly-edit-mob-edit-view/ibz-monthly-edit-mob-edit-view.vue'));
         Vue.component('ibz-my-territory-mob-dashboard-view', () => import('@pages/ibiz/ibz-my-territory-mob-dashboard-view/ibz-my-territory-mob-dashboard-view.vue'));
         Vue.component('ibz-weekly-mob-tab-exp-view', () => import('@pages/report/ibz-weekly-mob-tab-exp-view/ibz-weekly-mob-tab-exp-view.vue'));
         Vue.component('doc-lib-project-doc-lib-mob-tree-view', () => import('@pages/zentao/doc-lib-project-doc-lib-mob-tree-view/doc-lib-project-doc-lib-mob-tree-view.vue'));
