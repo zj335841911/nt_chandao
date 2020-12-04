@@ -163,7 +163,7 @@ export class IbzMonthlyServiceBase extends EntityService {
      * @memberof IbzMonthlyServiceBase
      */
     public async CreateGetInfo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzmonthlies/${context.ibzmonthly}/creategetinfo`,data,isloading);
+            let res:any = Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/creategetinfo`,data,isloading);
             return res;
     }
 
@@ -191,7 +191,7 @@ export class IbzMonthlyServiceBase extends EntityService {
      * @memberof IbzMonthlyServiceBase
      */
     public async EditGetCompleteTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzmonthlies/${context.ibzmonthly}/editgetcompletetask`,data,isloading);
+            let res:any = Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/editgetcompletetask`,data,isloading);
             return res;
     }
 

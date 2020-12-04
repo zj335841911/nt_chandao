@@ -234,7 +234,7 @@ mock.onPost(new RegExp(/^\/ibzmonthlies\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).
 });
         
 // CreateGetInfo
-mock.onGet(new RegExp(/^\/ibzmonthlies\/?([a-zA-Z0-9\-\;]{0,35})\/creategetinfo$/)).reply((config: any) => {
+mock.onPost(new RegExp(/^\/ibzmonthlies\/?([a-zA-Z0-9\-\;]{0,35})\/creategetinfo$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzmonthly 方法: CreateGetInfo");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
@@ -310,7 +310,7 @@ mock.onPost(new RegExp(/^\/ibzmonthlies\/?([a-zA-Z0-9\-\;]{0,35})\/createusermon
 });
         
 // EditGetCompleteTask
-mock.onGet(new RegExp(/^\/ibzmonthlies\/?([a-zA-Z0-9\-\;]{0,35})\/editgetcompletetask$/)).reply((config: any) => {
+mock.onPost(new RegExp(/^\/ibzmonthlies\/?([a-zA-Z0-9\-\;]{0,35})\/editgetcompletetask$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzmonthly 方法: EditGetCompleteTask");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
