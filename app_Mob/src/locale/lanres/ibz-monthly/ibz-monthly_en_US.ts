@@ -25,6 +25,9 @@ export default {
     mailtopk: "抄送给（选择）",
   },
 	views: {
+		mobeditview: {
+			caption: '待阅',
+		},
 		maininfomobeditview: {
 			caption: '月报',
 		},
@@ -45,6 +48,42 @@ export default {
 		},
 		createmobeditview: {
 			caption: '月报',
+		},
+	},
+	monthlyinfodingding_form: {
+		details: {
+			druipart3: '', 
+			grouppanel3: '完成任务', 
+			druipart4: '', 
+			grouppanel4: '分组面板', 
+			druipart1: '', 
+			grouppanel1: '附件', 
+			druipart2: '', 
+			grouppanel2: '操作', 
+			group1: '月报基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '更新时间', 
+			srforikey: '', 
+			srfkey: '月报标识', 
+			srfmajortext: '月报名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			account: '', 
+			ibzmonthlyname: '月报名称', 
+			date: '日期', 
+			workthismonth: '本月工作', 
+			plansnextmonth: '下月计划', 
+			comment: '其他事项', 
+			reportto: '汇报给', 
+			mailto: '抄送给', 
+			thismonthtask: '本月完成任务', 
+			nextmonthplanstask: '下月计划任务', 
+			ibz_monthlyid: '月报标识', 
+			issubmit: '是否提交', 
+		},
+		uiactions: {
 		},
 	},
 	mobmaininfo_form: {
@@ -108,6 +147,8 @@ export default {
 		},
 		uiactions: {
 		},
+	},
+	mobeditviewrighttoolbar_toolbar: {
 	},
 	editmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {

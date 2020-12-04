@@ -101,6 +101,7 @@ export default {
                 menuitem6: '汇报',
                 menuitem4: '我收到的',
                 menuitem5: '我提交的',
+                menuitem7: '菜单项',
             },
             iconstylemenu: {
                 menuitem1: '我的需求',

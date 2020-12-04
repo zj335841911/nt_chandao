@@ -90,6 +90,7 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzMonthlyUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'maininfomobeditview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'mysubmitmobmdview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'editmobeditview',srfappde:'ibzmonthlies'});

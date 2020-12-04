@@ -293,6 +293,19 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1a98f1c22b636e6c2d860064aada120e',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '2fbad11497e0fa5fbb9e5cc3db6029ff',
+                'd37be393a71ef140b65a9b75e0a2658e',
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'b52bf86837838dcfd5b787fad0350f22',
+            ],
+        },
+        {
             viewtag: '1aa28ee93f41476b61306c6a2d108d32',
             viewmodule: 'ibiz',
             viewname: 'SysUpdateFeaturesYMobMDView9',
@@ -1006,6 +1019,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1a98f1c22b636e6c2d860064aada120e',
                 '7ef67652765553e5d81c39ae576780a8',
             ],
         },
@@ -1854,6 +1868,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1a98f1c22b636e6c2d860064aada120e',
                 '7ef67652765553e5d81c39ae576780a8',
                 'd5dfb8e49ac109dec6ea502b80cb4419',
             ],
@@ -1914,6 +1929,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1a98f1c22b636e6c2d860064aada120e',
             ],
         },
         {
@@ -2135,6 +2151,7 @@ export const viewstate: any = {
                 '18b9f914b5fa7aa6e485660e3e5f2aaa',
                 '899ab4d4cfc33b089a9c4aa5118acbf3',
                 '70d570ae5cafd7af092084e6d0e6b2f7',
+                '1a98f1c22b636e6c2d860064aada120e',
                 '053879e9b47bc845598b68abbdbb2e0a',
                 'b6260b6fc6e77dc269f79d39d0b33e25',
                 '35bd5c967f7ff8d253e10cf7b12dde28',

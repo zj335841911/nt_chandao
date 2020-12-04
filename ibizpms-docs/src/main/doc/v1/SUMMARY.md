@@ -351,6 +351,7 @@
       * [我的需求](app/Mob/func/StoryMobMDView.md)
       * [项目](app/Mob/func/ProjectMobMDView.md)
       * [我收到的](app/Mob/func/IbzReportMyReMobMDView.md)
+      * [月报（待阅）](app/Mob/func/IbzMonthlyMobEditView.md)
       * [我的收藏](app/Mob/func/IbzFavoritesMobTabExpView.md)
       * [测试](app/Mob/func/ProductTestMobMDView.md)
       * [月报](app/Mob/func/IbzMonthlyMonthlyMobMDView.md)

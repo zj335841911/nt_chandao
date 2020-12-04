@@ -28,6 +28,7 @@
 |-|日报移动端多数据视图（我的）|DEMOBMDVIEW|&nbsp;|
 |-|项目图表视图|DEMOBCHARTVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|月报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|系统更新功能移动端多数据视图（优化）|DEMOBMDVIEW9|&nbsp;|
 |-|我的地盘分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|任务移动端多数据视图(我的已完成任务)|DEMOBMDVIEW|&nbsp;|
