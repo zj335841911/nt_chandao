@@ -746,7 +746,7 @@ mock.onGet(new RegExp(/^\/ibzmonthlies\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((confi
 });
 
 // EditGetCompleteTask
-mock.onGet(new RegExp(/^\/ibzmonthlies\/([a-zA-Z0-9\-\;]{1,35})\/editgetcompletetask$/)).reply((config: any) => {
+mock.onPut(new RegExp(/^\/ibzmonthlies\/([a-zA-Z0-9\-\;]{1,35})\/editgetcompletetask$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzmonthly 方法: EditGetCompleteTask");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
