@@ -178,8 +178,7 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      * @memberof IBZWEEKLYServiceBase
      */
     public async EditGetLastWeekTaskAndComTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = await Http.getInstance().get(`/ibzweeklies/${context.ibzweekly}/editgetlastweektaskandcomtask`,isloading);
-            
+            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/editgetlastweektaskandcomtask`,data,isloading);
             return res;
     }
 
@@ -193,8 +192,7 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      * @memberof IBZWEEKLYServiceBase
      */
     public async GetLastWeekPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = await Http.getInstance().get(`/ibzweeklies/${context.ibzweekly}/getlastweekplan`,isloading);
-            
+            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/getlastweekplan`,data,isloading);
             return res;
     }
 
