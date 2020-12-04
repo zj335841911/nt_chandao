@@ -64,6 +64,7 @@
 |-|任务选项操作视图（取消）|DEMOBOPTVIEW|&nbsp;|
 |-|人员移动端选择树视图|DEMOBPICKUPTREEVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|日报移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|需求移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|产品图表视图|DEMOBCHARTVIEW9|&nbsp;|
 |-|测试套件移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
@@ -546,6 +547,7 @@ SRFNAVPARAM.project=%project%|
 |-|群组表格视图|DEGRIDVIEW|&nbsp;|
 |-|用户编辑视图|DEEDITVIEW|&nbsp;|
 |-|需求模块树导航视图|DETREEEXPVIEW|&nbsp;|
+|-|月报编辑视图|DEEDITVIEW|&nbsp;|
 |-|激活任务|DEOPTVIEW|&nbsp;|
 |-|项目|DEGRIDVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW9|&nbsp;|
@@ -809,6 +811,7 @@ SRFNAVPARAM.project=%project%|
 |-|项目信息|DEEDITVIEW9|&nbsp;|
 |-|执行结果|DEEDITVIEW|&nbsp;|
 |-|任务编辑视图|DEEDITVIEW9|&nbsp;|
+|-|日报编辑视图(日报描述)|DEEDITVIEW|&nbsp;|
 |-|文档库树视图|DETREEVIEW|&nbsp;|
 |-|关联Bug|DEMPICKUPVIEW|&nbsp;|
 |-|转交任务|DEOPTVIEW|&nbsp;|

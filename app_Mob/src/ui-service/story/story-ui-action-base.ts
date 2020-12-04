@@ -1050,8 +1050,8 @@ export default class StoryUIActionBase extends EntityUIActionBase {
             delete context.srfsessionid;
         }
         // 导航参数
-        let panelNavParam= { "project": "%project%" } ;
-        let panelNavContext= { "project": "%project%" } ;
+        let panelNavParam= { "project": "%project%", "build": "%build%" } ;
+        let panelNavContext= { "build": "%build%", "story": "0", "project": "%project%" } ;
         if(Util.typeOf(_args) == 'array' && _args.length > 0){
             _args = _args[0];
         }

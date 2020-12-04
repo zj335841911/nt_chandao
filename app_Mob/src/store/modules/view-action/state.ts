@@ -263,7 +263,7 @@ export const viewstate: any = {
             refviews: [
                 '5cf685aa2765b112906a6b8ed57cdfc1',
                 '22e33232ac91bca7826742f9c85720dc',
-                '61b07d6ba0ff1c6a96f09f0fcbb4cda7',
+                '41cf3bb13ff1e45c372487b8bfa91764',
             ],
         },
         {
@@ -387,8 +387,10 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'e903ad26a5f15974177800895703623c',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 'b52bf86837838dcfd5b787fad0350f22',
+                '9e582670d841ba6cfb310f7e56ab1784',
             ],
         },
         {
@@ -671,6 +673,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'd096e8789265e730da5eefa1423479dc',
+            ],
+        },
+        {
+            viewtag: '41cf3bb13ff1e45c372487b8bfa91764',
+            viewmodule: 'report',
+            viewname: 'IbzDailyDailyCreateMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b39f9237d088a6173a2d1889f2eaa562',
             ],
         },
         {

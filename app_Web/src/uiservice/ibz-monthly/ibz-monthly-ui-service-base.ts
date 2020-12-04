@@ -304,10 +304,10 @@ export default class IbzMonthlyUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'ibz-monthly-new-monthly-edit-view', 
+                viewname: 'ibz-monthly-edit-monthly-edit-view', 
                 height: 0, 
                 width: 800,  
-                title: actionContext.$t('entities.ibzmonthly.views.newmonthlyeditview.title'),
+                title: actionContext.$t('entities.ibzmonthly.views.editmonthlyeditview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);

@@ -172,7 +172,7 @@ POST
 /ibzdailies/{ibzdaily_id}/getyeaterdaydailyplanstaskedit
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -191,7 +191,7 @@ GET
 /ibzdailies/{ibzdaily_id}/getyesterdaydailyplanstask
 
 #### 请求方法
-GET
+POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |

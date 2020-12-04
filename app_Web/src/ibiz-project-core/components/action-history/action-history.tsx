@@ -130,9 +130,25 @@ export class ActionHistory extends Vue {
                 {action.actionText}&nbsp;<strong>{fieldText}</strong>，区别为：<span><action-history-diff content={item.diff} /></span>
             </div>
         }
-        const old = isNaN(item.old) && !isNaN(Date.parse(item.old)) ? item.old.substring(0,item.old.length-2) : "\""+item.old+"\"";
-        const ibiznew = isNaN(item.ibiznew) && !isNaN(Date.parse(item.ibiznew)) ? item.ibiznew.substring(0,item.ibiznew.length-2) : "\""+item.ibiznew+"\"";
+        const old = isNaN(item.old) && !isNaN(Date.parse(item.old)) ? this.handleDate(item.old) : "\""+item.old+"\"";
+        const ibiznew = isNaN(item.ibiznew) && !isNaN(Date.parse(item.ibiznew)) ? this.handleDate(item.ibiznew) : "\""+item.ibiznew+"\"";
         return <div class="history-content">修改了&nbsp;<strong>{fieldText}</strong>，旧值为 { old }，新值为 { ibiznew }。</div>;
+    }
+
+    /**
+     * 时间处理
+     *
+     * @public
+     * @param {*} date
+     * @returns {*}
+     * @memberof ActionHistory
+     */
+    public handleDate(date: any) {
+        const reg = /\d{4}-\d{1,2}-\d{1,2} \d{1,2}:\d{1,2}:\d{1,2}/;
+        if(date.toString().search(reg) !== -1) {
+            date = date.toString().match(reg);
+        }
+        return date;
     }
 
     /**

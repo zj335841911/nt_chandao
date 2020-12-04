@@ -2391,6 +2391,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductModuleTreeExpView",
             "viewtag": "84104216ff9049079f9442c9cbd54342"
         },
+        "ibzmonthlyeditmonthlyeditview": {
+            "title": "月报编辑视图",
+            "caption": "月报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzMonthlyEditMonthlyEditView",
+            "viewtag": "842deef249d7032308b365d16cb61440"
+        },
         "taskactivationtaskview": {
             "title": "激活任务",
             "caption": "激活任务",
@@ -4494,6 +4502,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskMainDetailView9",
             "viewtag": "ef6cfafd09bb61ddb6fec7840f78e97d"
+        },
+        "ibzdailydailyinfoeditview": {
+            "title": "日报编辑视图(日报描述)",
+            "caption": "日报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzDailyDailyInfoEditView",
+            "viewtag": "ef8e8d565d141facde985ac87181e6e3"
         },
         "doclibusr2treeview": {
             "title": "文档库树视图",

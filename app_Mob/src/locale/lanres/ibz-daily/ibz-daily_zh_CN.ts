@@ -34,6 +34,9 @@ export default {
 		mobeditview: {
 			caption: '日报',
 		},
+		dailycreatemobeditview: {
+			caption: '日报',
+		},
 		reportreceivedmobmdview: {
 			caption: '日报',
 		},
@@ -123,16 +126,53 @@ export default {
 		uiactions: {
 		},
 	},
-	dailymobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: '保存',
-			tip: '保存',
+	dailyinfodingding_form: {
+		details: {
+			druipart3: '', 
+			grouppanel3: '完成任务', 
+			druipart4: '', 
+			grouppanel4: '计划参与', 
+			group1: '日报基本信息', 
+			druipart1: '', 
+			grouppanel1: '附件', 
+			druipart2: '', 
+			grouppanel2: '操作记录', 
+			formpage1: '基本信息', 
+			srfupdatedate: '更新时间', 
+			srforikey: '', 
+			srfkey: '日报标识', 
+			srfmajortext: '日报名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			account: '', 
+			ibzdailyname: '日报名称', 
+			date: '日期', 
+			worktoday: '今日工作', 
+			planstomorrow: '明日计划', 
+			comment: '其他事项', 
+			reportto: '汇报给', 
+			mailto: '抄送给', 
+			ibz_dailyid: '日报标识', 
+			todaytask: '完成任务', 
+			issubmit: '是否提交', 
 		},
+		uiactions: {
+		},
+	},
+	dailycreatemobeditviewrighttoolbar_toolbar: {
 	},
 	mymobmdviewrighttoolbar_toolbar: {
 		deuiaction1_mobcreate: {
 			caption: '新建',
 			tip: '新建',
+		},
+	},
+	dailymobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
 		},
 	},
 	dailyinfomobeditviewrighttoolbar_toolbar: {

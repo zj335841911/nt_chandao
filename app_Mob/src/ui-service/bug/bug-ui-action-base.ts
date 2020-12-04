@@ -1221,8 +1221,8 @@ export default class BugUIActionBase extends EntityUIActionBase {
             delete context.srfsessionid;
         }
         // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
+        let panelNavParam= { "product": "%product%", "project": "%project%", "srfloginname": "%srfloginname%", "build": "%srfparentkey%" } ;
+        let panelNavContext= { "bug": "0", "build": "%srfparentkey%", "srfloginname": "%srfloginname%", "project": "%project%", "product": "%product%" } ;
         if(Util.typeOf(_args) == 'array' && _args.length > 0){
             _args = _args[0];
         }

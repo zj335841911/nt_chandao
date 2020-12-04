@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import IbzDailyMobEditViewBase from './ibz-daily-mob-edit-view-base.vue';
 
-import view_form from '@widgets/ibz-daily/daily-info-mob-form/daily-info-mob-form.vue';
+import view_form from '@widgets/ibz-daily/daily-info-ding-ding-form/daily-info-ding-ding-form.vue';
 @Component({
     components: {
         view_form, 

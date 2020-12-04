@@ -2098,9 +2098,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '9ed41cee96088630f3d4b0a91e705930',
-                '371c02ab5108f29501f89e273ebd39d1',
-                'aeee411b8bffcf0c30d65557a8deeeee',
             ],
         },
         {
@@ -2675,6 +2672,15 @@ export const viewstate: any = {
                 'a9be826f6c53b091270f492be52f2519',
                 '523abe6eb852ca08fe4a3c140ff47b42',
                 '01384caaa1bc452610f056415c86aaf4',
+            ],
+        },
+        {
+            viewtag: '842deef249d7032308b365d16cb61440',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyEditMonthlyEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -3361,6 +3367,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'ef8e8d565d141facde985ac87181e6e3',
                 '6b63300dfe7c9f777eda7627fc02d822',
                 '1edacc9f865e00cd6cd2ea0475e8dd26',
             ],
@@ -4402,6 +4409,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '842deef249d7032308b365d16cb61440',
                 '8caddd30a10ec08a95cd804fa2524e14',
                 'c5aad5f12820569b3a1e8903d243aade',
             ],
@@ -5080,6 +5088,18 @@ export const viewstate: any = {
                 '9ed41cee96088630f3d4b0a91e705930',
                 'a9d151a6bb5fb2481836a7e0ed5afb7e',
                 '2e0d4fb0f3e1ba1ba5bea16a5553cc21',
+            ],
+        },
+        {
+            viewtag: 'ef8e8d565d141facde985ac87181e6e3',
+            viewmodule: 'report',
+            viewname: 'IbzDailyDailyInfoEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
+                '371c02ab5108f29501f89e273ebd39d1',
+                'aeee411b8bffcf0c30d65557a8deeeee',
             ],
         },
         {

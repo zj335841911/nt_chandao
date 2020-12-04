@@ -93,6 +93,7 @@ export default class IbzDailyUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'myremobeditview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'mymobmdview',srfappde:'ibzdailies'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'ibzdailies'});
+        this.allViewMap.set(':',{viewname:'dailycreatemobeditview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'reportreceivedmobmdview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailymobtabexpview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailymobeditview',srfappde:'ibzdailies'});
@@ -257,7 +258,7 @@ export default class IbzDailyUIActionBase extends EntityUIActionBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
-            { pathName: 'dailymobeditview', parameterName: 'dailymobeditview' },
+            { pathName: 'dailycreatemobeditview', parameterName: 'dailycreatemobeditview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);

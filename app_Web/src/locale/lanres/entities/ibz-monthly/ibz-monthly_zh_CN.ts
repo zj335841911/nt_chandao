@@ -25,6 +25,10 @@ export default {
     mailtopk: "抄送给（选择）",
   },
 	views: {
+		editmonthlyeditview: {
+			caption: "月报",
+      		title: "月报编辑视图",
+		},
 		monthlymainmsgeditview: {
 			caption: "月报实体编辑视图",
       		title: "月报编辑视图",
@@ -153,6 +157,12 @@ export default {
 			formpage1: "常规条件", 
 		},
 		uiactions: {
+		},
+	},
+	editmonthlyeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 	newmonthlyeditviewtoolbar_toolbar: {

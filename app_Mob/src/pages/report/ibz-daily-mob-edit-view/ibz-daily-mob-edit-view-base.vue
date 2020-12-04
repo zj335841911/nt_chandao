@@ -179,7 +179,7 @@ export default class IbzDailyMobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzDailyMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'srfparentkey': '%ibzdaily%' };
 
     /**
      * 视图导航参数
@@ -188,7 +188,7 @@ export default class IbzDailyMobEditViewBase extends Vue {
      * @type {*}
      * @memberof IbzDailyMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%ibzdaily%' };
 
     /**
      * 视图模型数据
