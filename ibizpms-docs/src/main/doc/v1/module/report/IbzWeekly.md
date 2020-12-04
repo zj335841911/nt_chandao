@@ -979,8 +979,8 @@ t1.mailto
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [定时生成每周周报](#实体行为-定时生成每周周报（CreateEveryWeekReport）) | createEveryWeekReport | 用户自定义 | 后台及前台 |
-| 8 | [编辑获取上周计划完成任务和本周已完成任务](#实体行为-编辑获取上周计划完成任务和本周已完成任务（EditGetLastWeekTaskAndComTask）) | EditGetLastWeekTaskAndComTask | 用户自定义 | 后台及前台 |
-| 9 | [获取上周周报的下周计划](#实体行为-获取上周周报的下周计划（GetLastWeekPlan）) | GetLastWeekPlan | 用户自定义 | 后台及前台 |
+| 8 | [获取上周周报的下周计划](#实体行为-获取上周周报的下周计划（CreateGetLastWeekPlanAndWork）) | CreateGetLastWeekPlanAndWork | 用户自定义 | 后台及前台 |
+| 9 | [编辑获取上周计划完成任务和本周已完成任务](#实体行为-编辑获取上周计划完成任务和本周已完成任务（EditGetLastWeekTaskAndComTask）) | EditGetLastWeekTaskAndComTask | 用户自定义 | 后台及前台 |
 | 10 | [已读](#实体行为-已读（HaveRead）) | haveRead | 用户自定义 | 后台及前台 |
 | 11 | [判断本周是否创建过周报](#实体行为-判断本周是否创建过周报（JugThisWeekCreateWeekly）) | JugThisWeekCreateWeekly | 用户自定义 | 后台及前台 |
 | 12 | [定时推送待阅提醒用户周报提交](#实体行为-定时推送待阅提醒用户周报提交（PushUserWeekly）) | pushUserWeekly | 用户自定义 | 后台及前台 |
@@ -1075,9 +1075,9 @@ CheckKey
 
 #### 逻辑附加
 无
-### 实体行为-编辑获取上周计划完成任务和本周已完成任务（EditGetLastWeekTaskAndComTask）
+### 实体行为-获取上周周报的下周计划（CreateGetLastWeekPlanAndWork）
 #### 说明
-编辑获取上周计划完成任务和本周已完成任务
+获取上周周报的下周计划
 
 - 行为类型
 用户自定义
@@ -1087,9 +1087,9 @@ CheckKey
 
 #### 逻辑附加
 无
-### 实体行为-获取上周周报的下周计划（GetLastWeekPlan）
+### 实体行为-编辑获取上周计划完成任务和本周已完成任务（EditGetLastWeekTaskAndComTask）
 #### 说明
-获取上周周报的下周计划
+编辑获取上周计划完成任务和本周已完成任务
 
 - 行为类型
 用户自定义

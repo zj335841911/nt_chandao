@@ -167,9 +167,9 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzWeeklyDTO](#IbzWeeklyDTO)：周报实体传输对象 |
 
-### 编辑获取上周计划完成任务和本周已完成任务
+### 获取上周周报的下周计划
 #### 访问路径
-/ibzweeklies/{ibzweekly_id}/editgetlastweektaskandcomtask
+/ibzweeklies/{ibzweekly_id}/creategetlastweekplanandwork
 
 #### 请求方法
 POST
@@ -186,9 +186,9 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzWeeklyDTO](#IbzWeeklyDTO)：周报实体传输对象 |
 
-### 获取上周周报的下周计划
+### 编辑获取上周计划完成任务和本周已完成任务
 #### 访问路径
-/ibzweeklies/{ibzweekly_id}/getlastweekplan
+/ibzweeklies/{ibzweekly_id}/editgetlastweektaskandcomtask
 
 #### 请求方法
 POST

@@ -132,6 +132,17 @@ public class IbzWeeklyResource {
         return ResponseEntity.status(HttpStatus.OK).body(ibzweeklydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-CreateGetLastWeekPlanAndWork-all')")
+    @ApiOperation(value = "获取上周周报的下周计划", tags = {"周报" },  notes = "获取上周周报的下周计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/creategetlastweekplanandwork")
+    public ResponseEntity<IbzWeeklyDTO> createGetLastWeekPlanAndWork(@PathVariable("ibzweekly_id") Long ibzweekly_id, @RequestBody IbzWeeklyDTO ibzweeklydto) {
+        IbzWeekly domain = ibzweeklyMapping.toDomain(ibzweeklydto);
+        domain.setIbzweeklyid(ibzweekly_id);
+        domain = ibzweeklyService.createGetLastWeekPlanAndWork(domain);
+        ibzweeklydto = ibzweeklyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzweeklydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-EditGetLastWeekTaskAndComTask-all')")
     @ApiOperation(value = "编辑获取上周计划完成任务和本周已完成任务", tags = {"周报" },  notes = "编辑获取上周计划完成任务和本周已完成任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/editgetlastweektaskandcomtask")
@@ -139,17 +150,6 @@ public class IbzWeeklyResource {
         IbzWeekly domain = ibzweeklyMapping.toDomain(ibzweeklydto);
         domain.setIbzweeklyid(ibzweekly_id);
         domain = ibzweeklyService.editGetLastWeekTaskAndComTask(domain);
-        ibzweeklydto = ibzweeklyMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(ibzweeklydto);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-GetLastWeekPlan-all')")
-    @ApiOperation(value = "获取上周周报的下周计划", tags = {"周报" },  notes = "获取上周周报的下周计划")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/getlastweekplan")
-    public ResponseEntity<IbzWeeklyDTO> getLastWeekPlan(@PathVariable("ibzweekly_id") Long ibzweekly_id, @RequestBody IbzWeeklyDTO ibzweeklydto) {
-        IbzWeekly domain = ibzweeklyMapping.toDomain(ibzweeklydto);
-        domain.setIbzweeklyid(ibzweekly_id);
-        domain = ibzweeklyService.getLastWeekPlan(domain);
         ibzweeklydto = ibzweeklyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibzweeklydto);
     }
