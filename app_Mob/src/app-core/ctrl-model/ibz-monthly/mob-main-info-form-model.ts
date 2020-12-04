@@ -56,7 +56,7 @@ export class MobMainInfoModel {
                 dataType: 'SSCODELIST',
             },
             {
-                name: 'ibz_monthlyname',
+                name: 'ibzmonthlyname',
                 prop: 'ibzmonthlyname',
                 dataType: 'TEXT',
             },
