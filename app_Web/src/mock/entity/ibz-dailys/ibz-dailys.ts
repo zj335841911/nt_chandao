@@ -702,7 +702,7 @@ mock.onGet(new RegExp(/^\/ibzdailies\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config:
 });
 
 // GetYeaterdayDailyPlansTaskEdit
-mock.onGet(new RegExp(/^\/ibzdailies\/([a-zA-Z0-9\-\;]{1,35})\/getyeaterdaydailyplanstaskedit$/)).reply((config: any) => {
+mock.onPost(new RegExp(/^\/ibzdailies\/([a-zA-Z0-9\-\;]{1,35})\/getyeaterdaydailyplanstaskedit$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzdaily 方法: GetYeaterdayDailyPlansTaskEdit");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
@@ -730,7 +730,7 @@ mock.onGet(new RegExp(/^\/ibzdailies\/([a-zA-Z0-9\-\;]{1,35})\/getyeaterdaydaily
 });
 
 // GetYesterdayDailyPlansTask
-mock.onGet(new RegExp(/^\/ibzdailies\/([a-zA-Z0-9\-\;]{1,35})\/getyesterdaydailyplanstask$/)).reply((config: any) => {
+mock.onPost(new RegExp(/^\/ibzdailies\/([a-zA-Z0-9\-\;]{1,35})\/getyesterdaydailyplanstask$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzdaily 方法: GetYesterdayDailyPlansTask");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
