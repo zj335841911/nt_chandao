@@ -191,7 +191,7 @@ export class IbzMonthlyServiceBase extends EntityService {
      * @memberof IbzMonthlyServiceBase
      */
     public async EditGetCompleteTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/ibzmonthlies/${context.ibzmonthly}/editgetcompletetask`,isloading);
+            let res:any = Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/editgetcompletetask`,data,isloading);
             return res;
     }
 
