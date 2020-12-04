@@ -27,7 +27,7 @@
                             产生的bug</ion-segment-button>
                             <ion-segment-button value="tabviewpanel5">
                             
-                            版本详情</ion-segment-button>
+                            详情</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>

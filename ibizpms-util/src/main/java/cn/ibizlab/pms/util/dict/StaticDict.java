@@ -1964,6 +1964,7 @@ public class StaticDict {
         DISCUSS("discuss","讨论"),
         UI("ui","界面"),
         AFFAIR("affair","事务"),
+        SERVE("serve","服务"),
         MISC("misc","其他");
 
         private String value;

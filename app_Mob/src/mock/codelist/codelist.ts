@@ -1560,6 +1560,13 @@ const datas: Array<any> = [
                 disabled: false,
             },
             {
+                id: 'serve',
+                label: '服务',
+                text: '服务',
+                value: 'serve',
+                disabled: false,
+            },
+            {
                 id: 'misc',
                 label: '其他',
                 text: '其他',

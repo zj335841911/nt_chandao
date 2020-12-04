@@ -271,16 +271,16 @@ mock.onPost(new RegExp(/^\/ibzweeklies\/?([a-zA-Z0-9\-\;]{0,35})\/createeverywee
     return [status, data];
 });
         
-// EditGetLastWeekTaskAndComTask
-mock.onPost(new RegExp(/^\/ibzweeklies\/?([a-zA-Z0-9\-\;]{0,35})\/editgetlastweektaskandcomtask$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibzweekly 方法: EditGetLastWeekTaskAndComTask");
+// CreateGetLastWeekPlanAndWork
+mock.onPost(new RegExp(/^\/ibzweeklies\/?([a-zA-Z0-9\-\;]{0,35})\/creategetlastweekplanandwork$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzweekly 方法: CreateGetLastWeekPlanAndWork");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['ibzweeklyid'];
-    const matchArray:any = new RegExp(/^\/ibzweeklies\/([a-zA-Z0-9\-\;]{1,35})\/editgetlastweektaskandcomtask$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/ibzweeklies\/([a-zA-Z0-9\-\;]{1,35})\/creategetlastweekplanandwork$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -309,16 +309,16 @@ mock.onPost(new RegExp(/^\/ibzweeklies\/?([a-zA-Z0-9\-\;]{0,35})\/editgetlastwee
     return [status, data];
 });
         
-// GetLastWeekPlan
-mock.onPost(new RegExp(/^\/ibzweeklies\/?([a-zA-Z0-9\-\;]{0,35})\/getlastweekplan$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibzweekly 方法: GetLastWeekPlan");
+// EditGetLastWeekTaskAndComTask
+mock.onPost(new RegExp(/^\/ibzweeklies\/?([a-zA-Z0-9\-\;]{0,35})\/editgetlastweektaskandcomtask$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzweekly 方法: EditGetLastWeekTaskAndComTask");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['ibzweeklyid'];
-    const matchArray:any = new RegExp(/^\/ibzweeklies\/([a-zA-Z0-9\-\;]{1,35})\/getlastweekplan$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/ibzweeklies\/([a-zA-Z0-9\-\;]{1,35})\/editgetlastweektaskandcomtask$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
