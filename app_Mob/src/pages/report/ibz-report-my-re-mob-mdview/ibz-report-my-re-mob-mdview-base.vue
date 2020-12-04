@@ -253,7 +253,7 @@ export default class IbzReportMyReMobMDViewBase extends Vue {
      * @type {*}
      * @memberof IbzReportMyReMobMDViewBase
      */
-    protected navParam: any = { 'n_account_eq': '%srfloginname%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据

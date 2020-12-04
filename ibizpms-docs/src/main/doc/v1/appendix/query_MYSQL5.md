@@ -14095,7 +14095,7 @@ t1.`DUPLICATESTORY`,
 t1.`ESTIMATE`,
 t1.`FROMBUG`,
 t1.`ID`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'story' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
+ 0 AS `ISFAVORITES`,
 ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
 t1.`KEYWORDS`,
 t1.`LASTEDITEDBY`,
@@ -14136,11 +14136,9 @@ LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID
 WHERE 
 t1.DELETED = '0' 
 AND
-	t1.id IN ( SELECT tt.story FROM zt_projectstory tt WHERE tt.project = ${srfdatacontext('project','{"defname":"PROJECT","dename":"ZT_BUILD"}')} ) 
+	t1.id IN ( SELECT tt.story FROM zt_projectstory tt WHERE tt.project = (select ttt.project from zt_build ttt where ttt.id = ${srfdatacontext('build','{"defname":"ID","dename":"ZT_BUILD"}')}) ) 
 	AND t1.product = ( SELECT t2.product FROM zt_build t2 WHERE t2.id = ${srfdatacontext('build','{"defname":"ID","dename":"ZT_BUILD"}')} )
 	and t1.id not in (select t3.id from zt_story t3, zt_build t4 where t4.id = ${srfdatacontext('build','{"defname":"ID","dename":"ZT_BUILD"}')} and FIND_IN_SET(t3.id,t4.stories))
-
-
 ```
 ### 版本可关联的需求（产品内）(BuildLinkableStories)<div id="Story_BuildLinkableStories"></div>
 ```sql
