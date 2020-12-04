@@ -32,6 +32,16 @@ public class IbzMonthlyExService extends IbzMonthlyServiceImpl {
         return super.createUserMonthly(et);
     }
     /**
+     * [GetLastMonthlyPlans:获取上月计划] 行为扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public IbzMonthly getLastMonthlyPlans(IbzMonthly et) {
+        return super.getLastMonthlyPlans(et);
+    }
+    /**
      * [HaveRead:已读] 行为扩展
      * @param et
      * @return

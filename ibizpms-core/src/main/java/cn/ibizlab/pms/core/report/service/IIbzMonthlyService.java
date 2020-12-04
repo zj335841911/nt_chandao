@@ -45,6 +45,7 @@ public interface IIbzMonthlyService extends IService<IbzMonthly> {
     IbzMonthly getDraft(IbzMonthly et);
     boolean checkKey(IbzMonthly et);
     IbzMonthly createUserMonthly(IbzMonthly et);
+    IbzMonthly getLastMonthlyPlans(IbzMonthly et);
     IbzMonthly haveRead(IbzMonthly et);
     IbzMonthly pushUserMonthly(IbzMonthly et);
     boolean save(IbzMonthly et);

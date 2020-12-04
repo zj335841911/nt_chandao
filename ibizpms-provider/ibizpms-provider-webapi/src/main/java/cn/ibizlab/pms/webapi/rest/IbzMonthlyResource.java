@@ -132,6 +132,17 @@ public class IbzMonthlyResource {
         return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-GetLastMonthlyPlans-all')")
+    @ApiOperation(value = "获取上月计划", tags = {"月报" },  notes = "获取上月计划")
+	@RequestMapping(method = RequestMethod.GET, value = "/ibzmonthlies/{ibzmonthly_id}/getlastmonthlyplans")
+    public ResponseEntity<IbzMonthlyDTO> getLastMonthlyPlans(@PathVariable("ibzmonthly_id") Long ibzmonthly_id, @RequestBody IbzMonthlyDTO ibzmonthlydto) {
+        IbzMonthly domain = ibzmonthlyMapping.toDomain(ibzmonthlydto);
+        domain.setIbzmonthlyid(ibzmonthly_id);
+        domain = ibzmonthlyService.getLastMonthlyPlans(domain);
+        ibzmonthlydto = ibzmonthlyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-HaveRead-all')")
     @ApiOperation(value = "已读", tags = {"月报" },  notes = "已读")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/{ibzmonthly_id}/haveread")

@@ -167,6 +167,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzWeeklyDTO](#IbzWeeklyDTO)：周报实体传输对象 |
 
+### 获取上周周报的下周计划
+#### 访问路径
+/ibzweeklies/{ibzweekly_id}/getlastweekplan
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzweekly_id | Long | 周报主键ID |
+| 2 | ibzweeklydto | [IbzWeeklyDTO](#IbzWeeklyDTO) | 周报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbzWeeklyDTO](#IbzWeeklyDTO)：周报实体传输对象 |
+
 ### 已读
 #### 访问路径
 /ibzweeklies/{ibzweekly_id}/haveread
