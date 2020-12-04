@@ -106,6 +106,7 @@
 |-|日报移动端编辑视图(日报描述)|DEMOBEDITVIEW|&nbsp;|
 |-|项目移动端编辑视图挂起）|DEMOBEDITVIEW|&nbsp;|
 |-|项目|DEMOBTABEXPVIEW|&nbsp;|
+|-|月报移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|日报分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|日报移动端多数据视图(完成任务)|DEMOBMDVIEW|&nbsp;|

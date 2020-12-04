@@ -169,6 +169,20 @@ export default class IBZWEEKLYServiceBase extends EntityService {
     }
 
     /**
+     * CreateGetLastWeekPlanAndWork接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async CreateGetLastWeekPlanAndWork(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/creategetlastweekplanandwork`,data,isloading);
+            return res;
+    }
+
+    /**
      * EditGetLastWeekTaskAndComTask接口方法
      *
      * @param {*} [context={}]
@@ -179,20 +193,6 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      */
     public async EditGetLastWeekTaskAndComTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/editgetlastweektaskandcomtask`,data,isloading);
-            return res;
-    }
-
-    /**
-     * GetLastWeekPlan接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof IBZWEEKLYServiceBase
-     */
-    public async GetLastWeekPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/getlastweekplan`,data,isloading);
             return res;
     }
 

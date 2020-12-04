@@ -123,14 +123,14 @@ public class IbzWeeklyServiceImpl extends ServiceImpl<IbzWeeklyMapper, IbzWeekly
 
     @Override
     @Transactional
-    public IbzWeekly editGetLastWeekTaskAndComTask(IbzWeekly et) {
+    public IbzWeekly createGetLastWeekPlanAndWork(IbzWeekly et) {
         //自定义代码
         return et;
     }
 
     @Override
     @Transactional
-    public IbzWeekly getLastWeekPlan(IbzWeekly et) {
+    public IbzWeekly editGetLastWeekTaskAndComTask(IbzWeekly et) {
         //自定义代码
         return et;
     }

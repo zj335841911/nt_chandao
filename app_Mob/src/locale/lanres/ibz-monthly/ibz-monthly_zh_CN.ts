@@ -31,6 +31,9 @@ export default {
 		mysubmitmobmdview: {
 			caption: '月报',
 		},
+		editmobeditview: {
+			caption: '月报',
+		},
 		maininfomobtabexpview: {
 			caption: '月报',
 		},
@@ -106,7 +109,7 @@ export default {
 		uiactions: {
 		},
 	},
-	createmobeditviewrighttoolbar_toolbar: {
+	editmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',
 			tip: '保存',
@@ -120,6 +123,12 @@ export default {
 		deuiaction1_mobsubmit: {
 			caption: '提交',
 			tip: '提交',
+		},
+	},
+	createmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
 		},
 	},
 	monthlymobmdviewrighttoolbar_toolbar: {

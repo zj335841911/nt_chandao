@@ -6609,6 +6609,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-usr2-mob-mdview-5219/story-usr2-mob-mdview-5219.vue'),
                 },
                 {
+                    path: 'ibzmonthlies/:ibzmonthly?/editmobeditview',
+                    name: 'ibzmonthly_editmobeditview',
+                    meta: {
+                        caption: 'ibzmonthly.views.editmobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-edit-mob-edit-view/ibz-monthly-edit-mob-edit-view.vue'),
+                },
+                {
                     path: 'ibzmyterritories/:ibzmyterritory?/mobdashboardview',
                     name: 'ibzmyterritory_mobdashboardview',
                     meta: {
