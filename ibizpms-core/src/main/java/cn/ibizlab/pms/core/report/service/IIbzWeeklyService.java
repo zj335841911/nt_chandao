@@ -45,6 +45,7 @@ public interface IIbzWeeklyService extends IService<IbzWeekly> {
     IbzWeekly getDraft(IbzWeekly et);
     boolean checkKey(IbzWeekly et);
     IbzWeekly createEveryWeekReport(IbzWeekly et);
+    IbzWeekly getLastWeekPlan(IbzWeekly et);
     IbzWeekly haveRead(IbzWeekly et);
     IbzWeekly jugThisWeekCreateWeekly(IbzWeekly et);
     IbzWeekly pushUserWeekly(IbzWeekly et);

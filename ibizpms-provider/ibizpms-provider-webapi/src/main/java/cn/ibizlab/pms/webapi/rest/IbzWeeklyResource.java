@@ -132,6 +132,17 @@ public class IbzWeeklyResource {
         return ResponseEntity.status(HttpStatus.OK).body(ibzweeklydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-GetLastWeekPlan-all')")
+    @ApiOperation(value = "获取上周周报的下周计划", tags = {"周报" },  notes = "获取上周周报的下周计划")
+	@RequestMapping(method = RequestMethod.GET, value = "/ibzweeklies/{ibzweekly_id}/getlastweekplan")
+    public ResponseEntity<IbzWeeklyDTO> getLastWeekPlan(@PathVariable("ibzweekly_id") Long ibzweekly_id, @RequestBody IbzWeeklyDTO ibzweeklydto) {
+        IbzWeekly domain = ibzweeklyMapping.toDomain(ibzweeklydto);
+        domain.setIbzweeklyid(ibzweekly_id);
+        domain = ibzweeklyService.getLastWeekPlan(domain);
+        ibzweeklydto = ibzweeklyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzweeklydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-HaveRead-all')")
     @ApiOperation(value = "已读", tags = {"周报" },  notes = "已读")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/haveread")

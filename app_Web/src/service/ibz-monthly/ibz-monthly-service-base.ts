@@ -169,6 +169,21 @@ export default class IbzMonthlyServiceBase extends EntityService {
     }
 
     /**
+     * GetLastMonthlyPlans接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async GetLastMonthlyPlans(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/ibzmonthlies/${context.ibzmonthly}/getlastmonthlyplans`,isloading);
+            
+            return res;
+    }
+
+    /**
      * HaveRead接口方法
      *
      * @param {*} [context={}]
