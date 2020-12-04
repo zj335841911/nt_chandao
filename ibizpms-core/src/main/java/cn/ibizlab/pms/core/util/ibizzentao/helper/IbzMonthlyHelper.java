@@ -106,20 +106,20 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
 
     @Transactional(rollbackFor = Exception.class)
     public IbzMonthly submit(IbzMonthly et) {
-        et.setIssubmit(StaticDict.YesNo.ITEM_1.getValue());
-        et.setSubmittime(ZTDateUtil.now());
+        IbzMonthly newMonthly = new IbzMonthly();
+        newMonthly.setIbzmonthlyid(et.getIbzmonthlyid());
         IbzMonthly old = new IbzMonthly();
         CachedBeanCopier.copy(get(et.getIbzmonthlyid()), old);
-        String files = et.getFiles();
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("Ibz_monthlyid", et.getIbzmonthlyid()))) {
-            return et;
+        newMonthly.setIssubmit(StaticDict.YesNo.ITEM_1.getValue());
+        newMonthly.setSubmittime(ZTDateUtil.now());
+        if (!update(newMonthly, (Wrapper) newMonthly.getUpdateWrapper(true).eq("Ibz_monthlyid", newMonthly.getIbzmonthlyid()))) {
+            return newMonthly;
         }
-        CachedBeanCopier.copy(get(et.getIbzmonthlyid()), et);
-        fileHelper.updateObjectID(et.getIbzmonthlyid(), StaticDict.File__object_type.MONTHLY.getValue(), files, "");
-        List<History> changes = ChangeUtil.diff(old, et, null, null, diffAttrs);
+        CachedBeanCopier.copy(get(newMonthly.getIbzmonthlyid()), newMonthly);
+        List<History> changes = ChangeUtil.diff(old, newMonthly, null, null, diffAttrs);
         if (changes.size() > 0) {
             String strAction = StaticDict.Action__type.SUBMIT.getValue();
-            Action action = actionHelper.create(StaticDict.Action__object_type.MONTHLY.getValue(), et.getIbzmonthlyid(), strAction,
+            Action action = actionHelper.create(StaticDict.Action__object_type.MONTHLY.getValue(), newMonthly.getIbzmonthlyid(), strAction,
                     "", "", null, true);
             if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
@@ -127,7 +127,8 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
         }
 
         // 给汇报人，抄送人 发送待阅
-        actionHelper.sendToread(et.getIbzmonthlyid(), et.getIbzmonthlyname(), "", et.getReportto(), et.getMailto(), IIbzMonthlyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.MONTHLY.getValue(), IIbzMonthlyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.SUBMIT.getText());
+        String ss = "已经提交给您了，请查收哦！";
+        actionHelper.sendToread(newMonthly.getIbzmonthlyid(), newMonthly.getIbzmonthlyname() + ss, "", newMonthly.getReportto(), newMonthly.getMailto(), IIbzMonthlyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.MONTHLY.getValue(), IIbzMonthlyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.SUBMIT.getText());
         return et;
     }
 
@@ -215,7 +216,7 @@ public class IbzMonthlyHelper extends ZTBaseHelper<IbzMonthlyMapper, IbzMonthly>
     public IbzMonthly pushUserMonthly(IbzMonthly et) {
         List<IbzMonthly> list = this.list(new QueryWrapper<IbzMonthly>().last(" where issubmit = '0' and DATE_FORMAT(date,'%Y-%m') = DATE_FORMAT(now(),'%Y-%m')"));
         for (IbzMonthly ibzMonthly : list) {
-            actionHelper.sendToread(ibzMonthly.getIbzmonthlyid(), ibzMonthly.getIbzmonthlyname(), ibzMonthly.getAccount(), "", "", IIbzMonthlyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.MONTHLY.getValue(), IIbzMonthlyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
+            actionHelper.sendToread(ibzMonthly.getIbzmonthlyid(), "您的" + ibzMonthly.getIbzmonthlyname() + "的日报还未提交，请及时填写！", ibzMonthly.getAccount(), "", "", IIbzMonthlyService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.MONTHLY.getValue(), IIbzMonthlyService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REMIND.getText());
         }
         return et;
     }

@@ -146,7 +146,6 @@ export default {
 		uiactions: {
 			ibzmonthly_edit: "修改",
 			ibzmonthly_submit: "提交",
-			exit: "返回",
 		},
 	},
 	default_searchform: {
