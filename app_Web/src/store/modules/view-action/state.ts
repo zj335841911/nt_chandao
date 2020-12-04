@@ -2678,6 +2678,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '842deef249d7032308b365d16cb61440',
+            viewmodule: 'report',
+            viewname: 'IbzMonthlyEditMonthlyEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '843526ee13bf0af6fe937470853bf36b',
             viewmodule: 'zentao',
             viewname: 'TaskActivationTaskView',
@@ -4402,6 +4411,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '842deef249d7032308b365d16cb61440',
                 '8caddd30a10ec08a95cd804fa2524e14',
                 'c5aad5f12820569b3a1e8903d243aade',
             ],

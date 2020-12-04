@@ -2391,6 +2391,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductModuleTreeExpView",
             "viewtag": "84104216ff9049079f9442c9cbd54342"
         },
+        "ibzmonthlyeditmonthlyeditview": {
+            "title": "月报编辑视图",
+            "caption": "月报",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "report",
+            "viewname": "IbzMonthlyEditMonthlyEditView",
+            "viewtag": "842deef249d7032308b365d16cb61440"
+        },
         "taskactivationtaskview": {
             "title": "激活任务",
             "caption": "激活任务",

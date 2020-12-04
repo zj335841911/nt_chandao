@@ -14443,6 +14443,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-bug-tree-exp-view/product-bug-tree-exp-view.vue'),
                 },
                 {
+                    path: 'ibzmonthlies/:ibzmonthly?/editmonthlyeditview/:editmonthlyeditview?',
+                    meta: {
+                        caption: 'entities.ibzmonthly.views.editmonthlyeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+                            { pathName: 'editmonthlyeditview', parameterName: 'editmonthlyeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-monthly-edit-monthly-edit-view/ibz-monthly-edit-monthly-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/donetaskview/:donetaskview?',
                     meta: {
                         caption: 'entities.task.views.donetaskview.caption',

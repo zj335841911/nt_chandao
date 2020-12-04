@@ -2979,6 +2979,16 @@
         "viewtag": "84104216ff9049079f9442c9cbd54342",
         "memo": ""
     },
+    "ibzmonthlyeditmonthlyeditview": {
+        "title": "月报编辑视图",
+        "caption": "月报",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "report",
+        "viewname": "IbzMonthlyEditMonthlyEditView",
+        "viewfilename": "ibz-monthly-edit-monthly-edit-view",
+        "viewtag": "842deef249d7032308b365d16cb61440",
+        "memo": ""
+    },
     "taskactivationtaskview": {
         "title": "激活任务",
         "caption": "激活任务",
