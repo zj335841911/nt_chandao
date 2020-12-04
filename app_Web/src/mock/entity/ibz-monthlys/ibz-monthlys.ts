@@ -233,6 +233,44 @@ mock.onPost(new RegExp(/^\/ibzmonthlies\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).
     return [status, data];
 });
         
+// CreateGetInfo
+mock.onPost(new RegExp(/^\/ibzmonthlies\/?([a-zA-Z0-9\-\;]{0,35})\/creategetinfo$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzmonthly 方法: CreateGetInfo");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['ibzmonthlyid'];
+    const matchArray:any = new RegExp(/^\/ibzmonthlies\/([a-zA-Z0-9\-\;]{1,35})\/creategetinfo$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.ibzmonthlyid, tempValue.ibzmonthlyid));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['ibzmonthlyid'] == tempValue['ibzmonthlyid'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+        
 // CreateUserMonthly
 mock.onPost(new RegExp(/^\/ibzmonthlies\/?([a-zA-Z0-9\-\;]{0,35})\/createusermonthly$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzmonthly 方法: CreateUserMonthly");
@@ -707,16 +745,16 @@ mock.onGet(new RegExp(/^\/ibzmonthlies\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((confi
     return [status, _items?_items:{}];
 });
 
-// GetLastMonthlyPlans
-mock.onGet(new RegExp(/^\/ibzmonthlies\/([a-zA-Z0-9\-\;]{1,35})\/getlastmonthlyplans$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibzmonthly 方法: GetLastMonthlyPlans");
+// EditGetCompleteTask
+mock.onGet(new RegExp(/^\/ibzmonthlies\/([a-zA-Z0-9\-\;]{1,35})\/editgetcompletetask$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzmonthly 方法: EditGetCompleteTask");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['ibzmonthlyid'];
-    const matchArray:any = new RegExp(/^\/ibzmonthlies\/([a-zA-Z0-9\-\;]{1,35})\/getlastmonthlyplans$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/ibzmonthlies\/([a-zA-Z0-9\-\;]{1,35})\/editgetcompletetask$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
