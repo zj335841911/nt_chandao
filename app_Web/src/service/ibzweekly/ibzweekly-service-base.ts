@@ -169,6 +169,21 @@ export default class IBZWEEKLYServiceBase extends EntityService {
     }
 
     /**
+     * EditGetLastWeekTaskAndComTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async EditGetLastWeekTaskAndComTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/ibzweeklies/${context.ibzweekly}/editgetlastweektaskandcomtask`,isloading);
+            
+            return res;
+    }
+
+    /**
      * GetLastWeekPlan接口方法
      *
      * @param {*} [context={}]

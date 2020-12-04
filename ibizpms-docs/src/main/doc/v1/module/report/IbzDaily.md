@@ -981,7 +981,7 @@ t1.MAILTO
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [定时生成用户日报](#实体行为-定时生成用户日报（CreateUserDaily）) | CreateUserDaily | 用户自定义 | 后台及前台 |
-| 8 | [获取前一天日报计划参与任务](#实体行为-获取前一天日报计划参与任务（GetYesterdayDailyPlansTask）) | getYesterdayDailyPlansTask | 用户自定义 | 后台及前台 |
+| 8 | [获取前一天日报计划参与任务（新建）](#实体行为-获取前一天日报计划参与任务（新建）（GetYesterdayDailyPlansTask）) | getYesterdayDailyPlansTask | 用户自定义 | 后台及前台 |
 | 9 | [已读](#实体行为-已读（HaveRead）) | HaveRead | 用户自定义 | 后台及前台 |
 | 10 | [关联完成任务](#实体行为-关联完成任务（LinkCompleteTask）) | LinkCompleteTask | 用户自定义 | 后台及前台 |
 | 11 | [定时推送待阅提醒用户日报](#实体行为-定时推送待阅提醒用户日报（PushUserDaily）) | PushUserDaily | 用户自定义 | 后台及前台 |
@@ -1072,9 +1072,9 @@ CheckKey
 
 #### 逻辑附加
 无
-### 实体行为-获取前一天日报计划参与任务（GetYesterdayDailyPlansTask）
+### 实体行为-获取前一天日报计划参与任务（新建）（GetYesterdayDailyPlansTask）
 #### 说明
-获取前一天日报计划参与任务
+获取前一天日报计划参与任务（新建）
 
 - 行为类型
 用户自定义
