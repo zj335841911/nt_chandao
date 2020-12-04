@@ -676,6 +676,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '41cf3bb13ff1e45c372487b8bfa91764',
+            viewmodule: 'report',
+            viewname: 'IbzDailyDailyCreateMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '42217665efecfb18bd26480ca0e2780a',
             viewmodule: 'ibiz',
             viewname: 'StoryMobPickupMDView',

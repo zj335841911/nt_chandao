@@ -590,9 +590,9 @@ SELECT
 FROM
 	`zt_bug` t1
 WHERE t1.DELETED = '0' 
-t1.product = ( SELECT product FROM zt_build WHERE project =  #{srf.datacontext.project}
+t1.product = ( SELECT product FROM zt_build WHERE project =  (select ttt.project from zt_build ttt where ttt.id = #{srf.datacontext.project})
 		AND id = #{srf.datacontext.build} ) 
-	AND t1.project = #{srf.datacontext.project} 
+	AND t1.project = (select ttt.project from zt_build ttt where ttt.id = #{srf.datacontext.project}) 
 	AND t1.`status` <> 'closed' 
 	AND t1.id NOT IN ( SELECT t3.id FROM zt_bug t3, zt_build t4  WHERE
 		t4.id = #{srf.datacontext.build} AND FIND_IN_SET( t3.id, t4.bugs ) ) 

@@ -1,5 +1,5 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'ibz-daily-daily-mob-edit-view': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'ibz-daily-daily-create-mob-edit-view': true }">
     
     <ion-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
@@ -10,6 +10,12 @@
                 </ion-button>
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <ion-buttons slot="end">
+                                <div class="app-toolbar-container ">
+                    <div class="app-quick-toolbar toolbar-right-bottons">
+                    </div>
+                </div>
+            </ion-buttons>
         </ion-toolbar>
 
     
@@ -18,7 +24,7 @@
     <ion-content >
                 <view_form
             :viewState="viewState"
-            viewName="IbzDailyDailyMobEditView"  
+            viewName="IbzDailyDailyCreateMobEditView"  
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
@@ -27,7 +33,7 @@
             updateAction="Update"
             removeAction="Remove"
             loaddraftAction="GetDraft"
-            loadAction="GetYeaterdayDailyPlansTaskEdit"
+            loadAction="Get"
             createAction="Create"
             WFSubmitAction=""
             WFStartAction=""
@@ -42,20 +48,6 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
-    <ion-footer class="view-footer">
-                <div  class = "fab_container">
-            <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
-                <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
-                <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" size="large">
-                    <ion-icon name="checkmark-outline"></ion-icon>
-                
-                </ion-button>
-                
-            </div>
-        
-            </div>
-        </div>
-    </ion-footer>
 </ion-page>
 </template>
 
@@ -73,13 +65,13 @@ import { AnimationService } from '@ibiz-core/service/animation-service'
     components: {
     },
 })
-export default class IbzDailyDailyMobEditViewBase extends Vue {
+export default class IbzDailyDailyCreateMobEditViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -87,7 +79,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * 实体服务对象
      *
      * @type {IbzDailyService}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected appEntityService: IbzDailyService = new IbzDailyService();
 
@@ -95,7 +87,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * 实体UI服务对象
      *
      * @type IbzDailyUIService
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     public appUIService: IbzDailyUIService = new IbzDailyUIService(this.$store);
 
@@ -104,7 +96,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -115,7 +107,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     @Prop() protected _context!: string;
 
@@ -123,7 +115,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -131,7 +123,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -139,15 +131,15 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof IbzDailyDailyMobEditViewBase
+	 * @memberof IbzDailyDailyCreateMobEditViewBase
 	 */
-	protected viewtag: string = '61b07d6ba0ff1c6a96f09f0fcbb4cda7';
+	protected viewtag: string = '41cf3bb13ff1e45c372487b8bfa91764';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected context: any = {};
 
@@ -155,7 +147,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected viewparams: any = {};
 
@@ -163,7 +155,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
@@ -171,14 +163,14 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * 是否为门户嵌入视图
      *
      * @type {boolean}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     public titleStatus :boolean = true;
 
@@ -187,7 +179,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected navContext: any = {};
 
@@ -196,7 +188,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected navParam: any = {};
 
@@ -204,14 +196,14 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected model: any = {
-        srfTitle: '日报移动端编辑视图（编辑）',
-        srfCaption: 'ibzdaily.views.dailymobeditview.caption',
+        srfTitle: '日报移动端编辑视图（新建）',
+        srfCaption: 'ibzdaily.views.dailycreatemobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'ibzdaily.dailymobeditview',
+        viewname:'ibzdaily.dailycreatemobeditview',
         iconcls: '',
         icon: ''
     }
@@ -221,7 +213,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  IbzDailyDailyMobEditViewBase
+     * @memberof  IbzDailyDailyCreateMobEditViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -250,7 +242,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -263,18 +255,18 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected containerModel: any = {
-        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
         view_form: { name: 'form', type: 'FORM' },
+        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -283,82 +275,35 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
 
+
    /**
-    * 工具栏 IbzDailyDailyMobEditView 模型
+    * 工具栏 IbzDailyDailyCreateMobEditView 模型
     *
     * @type {*}
-    * @memberof IbzDailyDailyMobEditView
+    * @memberof IbzDailyDailyCreateMobEditView
     */
     public righttoolbarModels: any = {
-            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '' } },
-
     };
 
-    /**
-     * 工具栏显示状态
-     *
-     * @type {boolean}
-     * @memberof IbzDailyDailyMobEditView 
-     */
-    public righttoolbarShowState: boolean = false;
-
-    /**
-     * 工具栏权限
-     *
-     * @type {boolean}
-     * @memberof IbzDailyDailyMobEditView 
-     */
-    get getToolBarLimit() {
-        let toolBarVisable:boolean = false;
-        if(this.righttoolbarModels){
-            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
-                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
-                    toolBarVisable = true;
-                    return;
-                }
-            })
-        }
-        return toolBarVisable;
-    }
-
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof IbzDailyDailyMobEditView 
-     */
-    public showGrop = false;
-
-    /**
-     * 工具栏分组是否显示的方法
-     *
-     * @type {boolean}
-     * @memberof IbzDailyDailyMobEditView 
-     */
-    public popUpGroup (falg:boolean = false) {
-        this.showGrop = falg;
-    }
-
     
-
 
 
     /**
      * 工具栏模型集合名
      *
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
      *
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -371,7 +316,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -385,14 +330,14 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected engine: MobEditViewEngine = new MobEditViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected engineInit(): void {
         this.engine.init({
@@ -407,7 +352,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected created() {
         this.afterCreated();
@@ -416,7 +361,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -436,7 +381,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -445,10 +390,9 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     public activated() {
-        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -457,23 +401,17 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected mounted() {
         this.afterMounted();
     }
 
-    /**
-     * 底部按钮样式
-     * 
-     * @memberof IbzDailyDailyMobEditViewBase
-     */
-    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -483,14 +421,12 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
         }
         this.thirdPartyInit();
 
-        // 拖动样式
-        AnimationService.draggable(document.getElementById(this.viewtag+'_bottom_button'),(style:any)=>{this.button_style = style});
     }
 
     /**
      * 第三方容器初始化
      * 
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -502,7 +438,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -511,7 +447,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -525,24 +461,11 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
     }
 
     /**
-     * righttoolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof IbzDailyDailyMobEditViewBase
-     */
-    protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'tbitem1')) {
-            this.righttoolbar_tbitem1_click($event, '', $event2);
-        }
-    }
-
-    /**
      * form 部件 save 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected form_save($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'save', $event);
@@ -553,7 +476,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected form_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforeload', $event);
@@ -564,7 +487,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected form_remove($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'remove', $event);
@@ -575,7 +498,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected form_beforesave($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforesave', $event);
@@ -586,7 +509,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected form_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'load', $event);
@@ -594,39 +517,10 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
 
 
     /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof IbzDailyDailyMobEditViewBase
-     */
-    protected async righttoolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        this.globaluiservice.SaveAndExit(datas, contextJO, paramJO, $event, xData, this);
-    }
-
-    /**
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -650,7 +544,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.$store.state.searchformStatus){
@@ -680,7 +574,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -692,7 +586,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -714,7 +608,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * @param {*} val
      * @param {boolean} isCreate
      * @returns
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
@@ -726,7 +620,7 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
      * 保存
      *
      * @protected
-     * @memberof IbzDailyDailyMobEditViewBase
+     * @memberof IbzDailyDailyCreateMobEditViewBase
      */
     protected defSave(): void {
         const _this: any = this;
@@ -770,5 +664,5 @@ export default class IbzDailyDailyMobEditViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './ibz-daily-daily-mob-edit-view.less';
+@import './ibz-daily-daily-create-mob-edit-view.less';
 </style>

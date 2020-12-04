@@ -64,6 +64,7 @@
 |-|任务选项操作视图（取消）|DEMOBOPTVIEW|&nbsp;|
 |-|人员移动端选择树视图|DEMOBPICKUPTREEVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|日报移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|需求移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|产品图表视图|DEMOBCHARTVIEW9|&nbsp;|
 |-|测试套件移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
