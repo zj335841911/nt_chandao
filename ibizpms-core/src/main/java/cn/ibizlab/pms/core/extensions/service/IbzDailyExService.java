@@ -32,7 +32,7 @@ public class IbzDailyExService extends IbzDailyServiceImpl {
         return super.createUserDaily(et);
     }
     /**
-     * [GetYesterdayDailyPlansTask:获取前一天日报计划参与任务] 行为扩展
+     * [GetYesterdayDailyPlansTask:获取前一天日报计划参与任务（新建）] 行为扩展
      * @param et
      * @return
      */

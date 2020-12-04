@@ -167,7 +167,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzDailyDTO](#IbzDailyDTO)：日报实体传输对象 |
 
-### 获取前一天日报计划参与任务
+### 获取前一天日报计划参与任务（新建）
 #### 访问路径
 /ibzdailies/{ibzdaily_id}/getyesterdaydailyplanstask
 
