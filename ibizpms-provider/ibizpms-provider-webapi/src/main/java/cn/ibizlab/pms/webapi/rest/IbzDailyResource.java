@@ -134,7 +134,7 @@ public class IbzDailyResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzDaily-GetYeaterdayDailyPlansTaskEdit-all')")
     @ApiOperation(value = "获取前一天日报计划参与任务（编辑）", tags = {"日报" },  notes = "获取前一天日报计划参与任务（编辑）")
-	@RequestMapping(method = RequestMethod.GET, value = "/ibzdailies/{ibzdaily_id}/getyeaterdaydailyplanstaskedit")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzdailies/{ibzdaily_id}/getyeaterdaydailyplanstaskedit")
     public ResponseEntity<IbzDailyDTO> getYeaterdayDailyPlansTaskEdit(@PathVariable("ibzdaily_id") Long ibzdaily_id, @RequestBody IbzDailyDTO ibzdailydto) {
         IbzDaily domain = ibzdailyMapping.toDomain(ibzdailydto);
         domain.setIbzdailyid(ibzdaily_id);
@@ -145,7 +145,7 @@ public class IbzDailyResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzDaily-GetYesterdayDailyPlansTask-all')")
     @ApiOperation(value = "获取前一天日报计划参与任务（新建）", tags = {"日报" },  notes = "获取前一天日报计划参与任务（新建）")
-	@RequestMapping(method = RequestMethod.GET, value = "/ibzdailies/{ibzdaily_id}/getyesterdaydailyplanstask")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzdailies/{ibzdaily_id}/getyesterdaydailyplanstask")
     public ResponseEntity<IbzDailyDTO> getYesterdayDailyPlansTask(@PathVariable("ibzdaily_id") Long ibzdaily_id, @RequestBody IbzDailyDTO ibzdailydto) {
         IbzDaily domain = ibzdailyMapping.toDomain(ibzdailydto);
         domain.setIbzdailyid(ibzdaily_id);

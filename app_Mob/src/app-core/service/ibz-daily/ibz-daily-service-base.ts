@@ -177,8 +177,7 @@ export class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async GetYeaterdayDailyPlansTaskEdit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = await Http.getInstance().get(`/ibzdailies/${context.ibzdaily}/getyeaterdaydailyplanstaskedit`,isloading);
-            
+            let res:any = Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/getyeaterdaydailyplanstaskedit`,data,isloading);
             return res;
     }
 
@@ -192,8 +191,7 @@ export class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async GetYesterdayDailyPlansTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = await Http.getInstance().get(`/ibzdailies/${context.ibzdaily}/getyesterdaydailyplanstask`,isloading);
-            
+            let res:any = Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/getyesterdaydailyplanstask`,data,isloading);
             return res;
     }
 
