@@ -153,7 +153,7 @@ POST
 /ibzmonthlies/{ibzmonthly_id}/creategetinfo
 
 #### 请求方法
-POST
+GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -191,7 +191,7 @@ POST
 /ibzmonthlies/{ibzmonthly_id}/editgetcompletetask
 
 #### 请求方法
-PUT
+GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
