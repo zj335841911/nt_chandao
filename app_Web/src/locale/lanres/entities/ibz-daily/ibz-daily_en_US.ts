@@ -147,40 +147,24 @@ export default {
 		uiactions: {
 		},
 	},
+	dailyeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	dailygridviewtoolbar_toolbar: {
-		deuiaction3_createuserdaily: {
+		deuiaction1_createuserdaily: {
 			caption: "生成日报",
 			tip: "生成日报",
-		},
-		seperator2: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction1: {
-			caption: "New",
-			tip: "New",
 		},
 		seperator1: {
 			caption: "",
 			tip: "",
 		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction4: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
-		},
-	},
-	dailyeditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
+		deuiaction2_create: {
+			caption: "新建",
+			tip: "新建",
 		},
 	},
 };
