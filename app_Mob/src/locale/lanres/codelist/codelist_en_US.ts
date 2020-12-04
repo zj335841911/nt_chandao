@@ -304,6 +304,7 @@ export default {
         'discuss': '讨论',
         'ui': '界面',
         'affair': '事务',
+        'serve': '服务',
         'misc': '其他',
         empty: '',
     },
