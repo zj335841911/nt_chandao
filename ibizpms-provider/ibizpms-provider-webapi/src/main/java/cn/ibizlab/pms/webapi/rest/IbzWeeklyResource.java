@@ -134,7 +134,7 @@ public class IbzWeeklyResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-EditGetLastWeekTaskAndComTask-all')")
     @ApiOperation(value = "编辑获取上周计划完成任务和本周已完成任务", tags = {"周报" },  notes = "编辑获取上周计划完成任务和本周已完成任务")
-	@RequestMapping(method = RequestMethod.GET, value = "/ibzweeklies/{ibzweekly_id}/editgetlastweektaskandcomtask")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/editgetlastweektaskandcomtask")
     public ResponseEntity<IbzWeeklyDTO> editGetLastWeekTaskAndComTask(@PathVariable("ibzweekly_id") Long ibzweekly_id, @RequestBody IbzWeeklyDTO ibzweeklydto) {
         IbzWeekly domain = ibzweeklyMapping.toDomain(ibzweeklydto);
         domain.setIbzweeklyid(ibzweekly_id);
@@ -145,7 +145,7 @@ public class IbzWeeklyResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzWeekly-GetLastWeekPlan-all')")
     @ApiOperation(value = "获取上周周报的下周计划", tags = {"周报" },  notes = "获取上周周报的下周计划")
-	@RequestMapping(method = RequestMethod.GET, value = "/ibzweeklies/{ibzweekly_id}/getlastweekplan")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzweeklies/{ibzweekly_id}/getlastweekplan")
     public ResponseEntity<IbzWeeklyDTO> getLastWeekPlan(@PathVariable("ibzweekly_id") Long ibzweekly_id, @RequestBody IbzWeeklyDTO ibzweeklydto) {
         IbzWeekly domain = ibzweeklyMapping.toDomain(ibzweeklydto);
         domain.setIbzweeklyid(ibzweekly_id);

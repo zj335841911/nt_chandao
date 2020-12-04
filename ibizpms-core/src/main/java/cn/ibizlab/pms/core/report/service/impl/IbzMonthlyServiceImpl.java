@@ -107,10 +107,11 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
     public boolean checkKey(IbzMonthly et) {
         return (!ObjectUtils.isEmpty(et.getIbzmonthlyid())) && (!Objects.isNull(this.getById(et.getIbzmonthlyid())));
     }
-        @Override
+    @Override
     @Transactional
     public IbzMonthly createGetInfo(IbzMonthly et) {
-  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).createGetInfo(et);
+        //自定义代码
+        return et;
     }
 
         @Override
@@ -119,10 +120,11 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).createUserMonthly(et);
     }
 
-        @Override
+    @Override
     @Transactional
     public IbzMonthly editGetCompleteTask(IbzMonthly et) {
-  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzMonthlyHelper.class).editGetCompleteTask(et);
+        //自定义代码
+        return et;
     }
 
         @Override

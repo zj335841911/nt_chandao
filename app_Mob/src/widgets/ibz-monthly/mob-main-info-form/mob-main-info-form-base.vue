@@ -621,7 +621,7 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         account: null,
-        ibz_monthlyname: null,
+        ibzmonthlyname: null,
         date: null,
         workthismonth: null,
         plansnextmonth: null,
@@ -793,7 +793,7 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
 , 
         account: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
-        ibz_monthlyname: new FormItemModel({ caption: '月报名称', detailType: 'FORMITEM', name: 'ibz_monthlyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        ibzmonthlyname: new FormItemModel({ caption: '月报名称', detailType: 'FORMITEM', name: 'ibzmonthlyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -926,15 +926,15 @@ export default class MobMainInfoBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 ibz_monthlyname 值
+     * 监控表单属性 ibzmonthlyname 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobMainInfo
      */
-    @Watch('data.ibz_monthlyname')
-    onIbz_monthlynameChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'ibz_monthlyname', newVal: newVal, oldVal: oldVal });
+    @Watch('data.ibzmonthlyname')
+    onIbzmonthlynameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'ibzmonthlyname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
