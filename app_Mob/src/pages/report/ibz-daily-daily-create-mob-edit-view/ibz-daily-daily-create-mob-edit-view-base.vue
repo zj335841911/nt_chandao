@@ -32,7 +32,7 @@
             :showBusyIndicator="true"
             updateAction="Update"
             removeAction="Remove"
-            loaddraftAction="GetDraft"
+            loaddraftAction="GetYesterdayDailyPlansTask"
             loadAction="Get"
             createAction="Create"
             WFSubmitAction=""

@@ -2081,6 +2081,20 @@ const router = new Router({
                     component: () => import('@pages/ou/sys-employee-tree-mob-pickup-view/sys-employee-tree-mob-pickup-view.vue'),
                 },
                 {
+                    path: 'ibzdailies/:ibzdaily?/dailymobeditview',
+                    name: 'ibzdaily_dailymobeditview',
+                    meta: {
+                        caption: 'ibzdaily.views.dailymobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'dailymobeditview', parameterName: 'dailymobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-daily-mob-edit-view/ibz-daily-daily-mob-edit-view.vue'),
+                },
+                {
                     path: 'doclibs/:doclib?/mobproducttreeview',
                     name: 'doclib_mobproducttreeview',
                     meta: {
@@ -2121,20 +2135,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/report/ibz-monthly-monthly-mob-mdview/ibz-monthly-monthly-mob-mdview.vue'),
-                },
-                {
-                    path: 'ibzdailies/:ibzdaily?/dailymobeditview',
-                    name: 'ibzdaily_dailymobeditview',
-                    meta: {
-                        caption: 'ibzdaily.views.dailymobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
-                            { pathName: 'dailymobeditview', parameterName: 'dailymobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/report/ibz-daily-daily-mob-edit-view/ibz-daily-daily-mob-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/rmoboptionview',
@@ -6771,6 +6771,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/ibz-my-territory-mob-dashboard-view/ibz-my-territory-mob-dashboard-view.vue'),
+                },
+                {
+                    path: 'ibzdailies/:ibzdaily?/dailycreatemobeditview',
+                    name: 'ibzdaily_dailycreatemobeditview',
+                    meta: {
+                        caption: 'ibzdaily.views.dailycreatemobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+                            { pathName: 'dailycreatemobeditview', parameterName: 'dailycreatemobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/ibz-daily-daily-create-mob-edit-view/ibz-daily-daily-create-mob-edit-view.vue'),
                 },
                 {
                     path: 'ibzweeklies/:ibzweekly?/mobtabexpview',
