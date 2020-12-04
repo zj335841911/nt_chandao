@@ -147,12 +147,6 @@ export default {
 		uiactions: {
 		},
 	},
-	dailyeditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-	},
 	dailygridviewtoolbar_toolbar: {
 		deuiaction3_createuserdaily: {
 			caption: "生成日报",
@@ -181,6 +175,12 @@ export default {
 		deuiaction4: {
 			caption: "导出",
 			tip: "导出",
+		},
+	},
+	dailyeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 };

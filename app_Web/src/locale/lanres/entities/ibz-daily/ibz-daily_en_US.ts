@@ -147,12 +147,6 @@ export default {
 		uiactions: {
 		},
 	},
-	dailyeditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
-		},
-	},
 	dailygridviewtoolbar_toolbar: {
 		deuiaction3_createuserdaily: {
 			caption: "生成日报",
@@ -181,6 +175,12 @@ export default {
 		deuiaction4: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+	},
+	dailyeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
 		},
 	},
 };

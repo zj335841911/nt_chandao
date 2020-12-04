@@ -238,11 +238,11 @@ export default class IbzDailyUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'ibz-daily-daily-edit-view', 
+                viewname: 'ibz-dailymain-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.ibzdaily.views.dailyeditview.title'),
-                placement: 'DRAWER_RIGHT',
+                title: actionContext.$t('entities.ibzdaily.views.maineditview.title'),
+                placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
     }
