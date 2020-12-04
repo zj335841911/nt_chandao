@@ -155,6 +155,20 @@ export default class IbzMonthlyServiceBase extends EntityService {
     }
 
     /**
+     * CreateGetInfo接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async CreateGetInfo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/creategetinfo`,data,isloading);
+            return res;
+    }
+
+    /**
      * CreateUserMonthly接口方法
      *
      * @param {*} [context={}]
@@ -169,7 +183,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
     }
 
     /**
-     * GetLastMonthlyPlans接口方法
+     * EditGetCompleteTask接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -177,8 +191,8 @@ export default class IbzMonthlyServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof IbzMonthlyServiceBase
      */
-    public async GetLastMonthlyPlans(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = await Http.getInstance().get(`/ibzmonthlies/${context.ibzmonthly}/getlastmonthlyplans`,isloading);
+    public async EditGetCompleteTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/ibzmonthlies/${context.ibzmonthly}/editgetcompletetask`,isloading);
             
             return res;
     }

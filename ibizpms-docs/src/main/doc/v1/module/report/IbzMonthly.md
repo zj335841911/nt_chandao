@@ -979,12 +979,13 @@ t1.MAILTO
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [定时生成用户月报](#实体行为-定时生成用户月报（CreateUserMonthly）) | CreateUserMonthly | 用户自定义 | 后台及前台 |
-| 8 | [获取上月计划](#实体行为-获取上月计划（GetLastMonthlyPlans）) | GetLastMonthlyPlans | 用户自定义 | 后台及前台 |
-| 9 | [已读](#实体行为-已读（HaveRead）) | HaveRead | 用户自定义 | 后台及前台 |
-| 10 | [定时推送待阅提醒用户月报](#实体行为-定时推送待阅提醒用户月报（PushUserMonthly）) | PushUserMonthly | 用户自定义 | 后台及前台 |
-| 11 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 12 | [提交](#实体行为-提交（Submit）) | Submit | 用户自定义 | 后台及前台 |
+| 7 | [新建时获取信息](#实体行为-新建时获取信息（CreateGetInfo）) | CreateGetInfo | 用户自定义 | 后台及前台 |
+| 8 | [定时生成用户月报](#实体行为-定时生成用户月报（CreateUserMonthly）) | CreateUserMonthly | 用户自定义 | 后台及前台 |
+| 9 | [编辑时获取完成任务](#实体行为-编辑时获取完成任务（EditGetCompleteTask）) | EditGetCompleteTask | 用户自定义 | 后台及前台 |
+| 10 | [已读](#实体行为-已读（HaveRead）) | HaveRead | 用户自定义 | 后台及前台 |
+| 11 | [定时推送待阅提醒用户月报](#实体行为-定时推送待阅提醒用户月报（PushUserMonthly）) | PushUserMonthly | 用户自定义 | 后台及前台 |
+| 12 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 13 | [提交](#实体行为-提交（Submit）) | Submit | 用户自定义 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -1058,6 +1059,18 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-新建时获取信息（CreateGetInfo）
+#### 说明
+新建时获取信息
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
 ### 实体行为-定时生成用户月报（CreateUserMonthly）
 #### 说明
 定时生成用户月报
@@ -1070,9 +1083,9 @@ CheckKey
 
 #### 逻辑附加
 无
-### 实体行为-获取上月计划（GetLastMonthlyPlans）
+### 实体行为-编辑时获取完成任务（EditGetCompleteTask）
 #### 说明
-获取上月计划
+编辑时获取完成任务
 
 - 行为类型
 用户自定义

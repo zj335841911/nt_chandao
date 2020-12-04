@@ -121,6 +121,17 @@ public class IbzMonthlyResource {
         return  ResponseEntity.status(HttpStatus.OK).body(ibzmonthlyService.checkKey(ibzmonthlyMapping.toDomain(ibzmonthlydto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-CreateGetInfo-all')")
+    @ApiOperation(value = "新建时获取信息", tags = {"月报" },  notes = "新建时获取信息")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/{ibzmonthly_id}/creategetinfo")
+    public ResponseEntity<IbzMonthlyDTO> createGetInfo(@PathVariable("ibzmonthly_id") Long ibzmonthly_id, @RequestBody IbzMonthlyDTO ibzmonthlydto) {
+        IbzMonthly domain = ibzmonthlyMapping.toDomain(ibzmonthlydto);
+        domain.setIbzmonthlyid(ibzmonthly_id);
+        domain = ibzmonthlyService.createGetInfo(domain);
+        ibzmonthlydto = ibzmonthlyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-CreateUserMonthly-all')")
     @ApiOperation(value = "定时生成用户月报", tags = {"月报" },  notes = "定时生成用户月报")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/{ibzmonthly_id}/createusermonthly")
@@ -132,13 +143,13 @@ public class IbzMonthlyResource {
         return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlydto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-GetLastMonthlyPlans-all')")
-    @ApiOperation(value = "获取上月计划", tags = {"月报" },  notes = "获取上月计划")
-	@RequestMapping(method = RequestMethod.GET, value = "/ibzmonthlies/{ibzmonthly_id}/getlastmonthlyplans")
-    public ResponseEntity<IbzMonthlyDTO> getLastMonthlyPlans(@PathVariable("ibzmonthly_id") Long ibzmonthly_id, @RequestBody IbzMonthlyDTO ibzmonthlydto) {
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-EditGetCompleteTask-all')")
+    @ApiOperation(value = "编辑时获取完成任务", tags = {"月报" },  notes = "编辑时获取完成任务")
+	@RequestMapping(method = RequestMethod.GET, value = "/ibzmonthlies/{ibzmonthly_id}/editgetcompletetask")
+    public ResponseEntity<IbzMonthlyDTO> editGetCompleteTask(@PathVariable("ibzmonthly_id") Long ibzmonthly_id, @RequestBody IbzMonthlyDTO ibzmonthlydto) {
         IbzMonthly domain = ibzmonthlyMapping.toDomain(ibzmonthlydto);
         domain.setIbzmonthlyid(ibzmonthly_id);
-        domain = ibzmonthlyService.getLastMonthlyPlans(domain);
+        domain = ibzmonthlyService.editGetCompleteTask(domain);
         ibzmonthlydto = ibzmonthlyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlydto);
     }

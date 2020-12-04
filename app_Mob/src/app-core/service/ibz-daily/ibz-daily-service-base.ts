@@ -168,6 +168,21 @@ export class IbzDailyServiceBase extends EntityService {
     }
 
     /**
+     * GetYesterdayDailyPlansTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async GetYesterdayDailyPlansTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/ibzdailies/${context.ibzdaily}/getyesterdaydailyplanstask`,isloading);
+            
+            return res;
+    }
+
+    /**
      * HaveRead接口方法
      *
      * @param {*} [context={}]
