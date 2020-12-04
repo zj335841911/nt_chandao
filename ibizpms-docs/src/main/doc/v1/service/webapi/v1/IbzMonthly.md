@@ -148,6 +148,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
+### 新建时获取信息
+#### 访问路径
+/ibzmonthlies/{ibzmonthly_id}/creategetinfo
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | ibzmonthly_id | Long | 月报主键ID |
+| 2 | ibzmonthlydto | [IbzMonthlyDTO](#IbzMonthlyDTO) | 月报实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [IbzMonthlyDTO](#IbzMonthlyDTO)：月报实体传输对象 |
+
 ### 定时生成用户月报
 #### 访问路径
 /ibzmonthlies/{ibzmonthly_id}/createusermonthly
@@ -167,9 +186,9 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzMonthlyDTO](#IbzMonthlyDTO)：月报实体传输对象 |
 
-### 获取上月计划
+### 编辑时获取完成任务
 #### 访问路径
-/ibzmonthlies/{ibzmonthly_id}/getlastmonthlyplans
+/ibzmonthlies/{ibzmonthly_id}/editgetcompletetask
 
 #### 请求方法
 GET

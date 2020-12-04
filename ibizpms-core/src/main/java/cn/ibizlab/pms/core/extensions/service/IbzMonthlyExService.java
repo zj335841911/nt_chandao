@@ -22,6 +22,16 @@ public class IbzMonthlyExService extends IbzMonthlyServiceImpl {
     }
 
     /**
+     * [CreateGetInfo:新建时获取信息] 行为扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public IbzMonthly createGetInfo(IbzMonthly et) {
+        return super.createGetInfo(et);
+    }
+    /**
      * [CreateUserMonthly:定时生成用户月报] 行为扩展
      * @param et
      * @return
@@ -32,14 +42,14 @@ public class IbzMonthlyExService extends IbzMonthlyServiceImpl {
         return super.createUserMonthly(et);
     }
     /**
-     * [GetLastMonthlyPlans:获取上月计划] 行为扩展
+     * [EditGetCompleteTask:编辑时获取完成任务] 行为扩展
      * @param et
      * @return
      */
     @Override
     @Transactional
-    public IbzMonthly getLastMonthlyPlans(IbzMonthly et) {
-        return super.getLastMonthlyPlans(et);
+    public IbzMonthly editGetCompleteTask(IbzMonthly et) {
+        return super.editGetCompleteTask(et);
     }
     /**
      * [HaveRead:已读] 行为扩展
