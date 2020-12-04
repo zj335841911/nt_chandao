@@ -32,6 +32,16 @@ public class IbzDailyExService extends IbzDailyServiceImpl {
         return super.createUserDaily(et);
     }
     /**
+     * [GetYeaterdayDailyPlansTaskEdit:获取前一天日报计划参与任务（编辑）] 行为扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public IbzDaily getYeaterdayDailyPlansTaskEdit(IbzDaily et) {
+        return super.getYeaterdayDailyPlansTaskEdit(et);
+    }
+    /**
      * [GetYesterdayDailyPlansTask:获取前一天日报计划参与任务（新建）] 行为扩展
      * @param et
      * @return

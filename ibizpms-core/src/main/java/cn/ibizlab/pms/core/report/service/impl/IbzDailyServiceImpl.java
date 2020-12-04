@@ -113,6 +113,13 @@ public class IbzDailyServiceImpl extends ServiceImpl<IbzDailyMapper, IbzDaily> i
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzDailyHelper.class).createUserDaily(et);
     }
 
+    @Override
+    @Transactional
+    public IbzDaily getYeaterdayDailyPlansTaskEdit(IbzDaily et) {
+        //自定义代码
+        return et;
+    }
+
         @Override
     @Transactional
     public IbzDaily getYesterdayDailyPlansTask(IbzDaily et) {
