@@ -271,6 +271,82 @@ mock.onPost(new RegExp(/^\/ibzweeklies\/?([a-zA-Z0-9\-\;]{0,35})\/createeverywee
     return [status, data];
 });
         
+// EditGetLastWeekTaskAndComTask
+mock.onPost(new RegExp(/^\/ibzweeklies\/?([a-zA-Z0-9\-\;]{0,35})\/editgetlastweektaskandcomtask$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzweekly 方法: EditGetLastWeekTaskAndComTask");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['ibzweeklyid'];
+    const matchArray:any = new RegExp(/^\/ibzweeklies\/([a-zA-Z0-9\-\;]{1,35})\/editgetlastweektaskandcomtask$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.ibzweeklyid, tempValue.ibzweeklyid));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['ibzweeklyid'] == tempValue['ibzweeklyid'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+        
+// GetLastWeekPlan
+mock.onPost(new RegExp(/^\/ibzweeklies\/?([a-zA-Z0-9\-\;]{0,35})\/getlastweekplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:ibzweekly 方法: GetLastWeekPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['ibzweeklyid'];
+    const matchArray:any = new RegExp(/^\/ibzweeklies\/([a-zA-Z0-9\-\;]{1,35})\/getlastweekplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.ibzweeklyid, tempValue.ibzweeklyid));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['ibzweeklyid'] == tempValue['ibzweeklyid'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+        
 // HaveRead
 mock.onPost(new RegExp(/^\/ibzweeklies\/?([a-zA-Z0-9\-\;]{0,35})\/haveread$/)).reply((config: any) => {
     console.groupCollapsed("实体:ibzweekly 方法: HaveRead");
@@ -639,62 +715,6 @@ mock.onGet(new RegExp(/^\/ibzweeklies\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config
     }    
     const paramArray:Array<any> = ['ibzweeklyid'];
     const matchArray:any = new RegExp(/^\/ibzweeklies\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
-    let tempValue: any = {};
-    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
-        paramArray.forEach((item: any, index: number) => {
-            Object.defineProperty(tempValue, item, {
-                enumerable: true,
-                value: matchArray[index + 1]
-            });
-        });
-    }
-    let items = mockDatas ? mockDatas : [];
-    let _items = items.find((item: any) => Object.is(item.ibzweeklyid, tempValue.ibzweeklyid));
-    console.groupCollapsed("response数据  status: "+status+" data: ");
-    console.table(_items?_items:{});
-    console.groupEnd();
-    console.groupEnd();
-    return [status, _items?_items:{}];
-});
-
-// EditGetLastWeekTaskAndComTask
-mock.onGet(new RegExp(/^\/ibzweeklies\/([a-zA-Z0-9\-\;]{1,35})\/editgetlastweektaskandcomtask$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibzweekly 方法: EditGetLastWeekTaskAndComTask");
-    console.table({url:config.url, method: config.method, data:config.data});
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }    
-    const paramArray:Array<any> = ['ibzweeklyid'];
-    const matchArray:any = new RegExp(/^\/ibzweeklies\/([a-zA-Z0-9\-\;]{1,35})\/editgetlastweektaskandcomtask$/).exec(config.url);
-    let tempValue: any = {};
-    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
-        paramArray.forEach((item: any, index: number) => {
-            Object.defineProperty(tempValue, item, {
-                enumerable: true,
-                value: matchArray[index + 1]
-            });
-        });
-    }
-    let items = mockDatas ? mockDatas : [];
-    let _items = items.find((item: any) => Object.is(item.ibzweeklyid, tempValue.ibzweeklyid));
-    console.groupCollapsed("response数据  status: "+status+" data: ");
-    console.table(_items?_items:{});
-    console.groupEnd();
-    console.groupEnd();
-    return [status, _items?_items:{}];
-});
-
-// GetLastWeekPlan
-mock.onGet(new RegExp(/^\/ibzweeklies\/([a-zA-Z0-9\-\;]{1,35})\/getlastweekplan$/)).reply((config: any) => {
-    console.groupCollapsed("实体:ibzweekly 方法: GetLastWeekPlan");
-    console.table({url:config.url, method: config.method, data:config.data});
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }    
-    const paramArray:Array<any> = ['ibzweeklyid'];
-    const matchArray:any = new RegExp(/^\/ibzweeklies\/([a-zA-Z0-9\-\;]{1,35})\/getlastweekplan$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
