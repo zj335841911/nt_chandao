@@ -169,6 +169,21 @@ export default class IbzDailyServiceBase extends EntityService {
     }
 
     /**
+     * GetYeaterdayDailyPlansTaskEdit接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async GetYeaterdayDailyPlansTaskEdit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/ibzdailies/${context.ibzdaily}/getyeaterdaydailyplanstaskedit`,isloading);
+            
+            return res;
+    }
+
+    /**
      * GetYesterdayDailyPlansTask接口方法
      *
      * @param {*} [context={}]

@@ -79,7 +79,7 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			account: '', 
-			ibz_dailyname: '日报名称', 
+			ibzdailyname: '日报名称', 
 			date: '日期', 
 			worktoday: '今日工作', 
 			planstomorrow: '明日计划', 

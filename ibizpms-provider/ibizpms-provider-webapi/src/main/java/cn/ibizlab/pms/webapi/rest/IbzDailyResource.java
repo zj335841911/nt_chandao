@@ -132,6 +132,17 @@ public class IbzDailyResource {
         return ResponseEntity.status(HttpStatus.OK).body(ibzdailydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzDaily-GetYeaterdayDailyPlansTaskEdit-all')")
+    @ApiOperation(value = "获取前一天日报计划参与任务（编辑）", tags = {"日报" },  notes = "获取前一天日报计划参与任务（编辑）")
+	@RequestMapping(method = RequestMethod.GET, value = "/ibzdailies/{ibzdaily_id}/getyeaterdaydailyplanstaskedit")
+    public ResponseEntity<IbzDailyDTO> getYeaterdayDailyPlansTaskEdit(@PathVariable("ibzdaily_id") Long ibzdaily_id, @RequestBody IbzDailyDTO ibzdailydto) {
+        IbzDaily domain = ibzdailyMapping.toDomain(ibzdailydto);
+        domain.setIbzdailyid(ibzdaily_id);
+        domain = ibzdailyService.getYeaterdayDailyPlansTaskEdit(domain);
+        ibzdailydto = ibzdailyMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzdailydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzDaily-GetYesterdayDailyPlansTask-all')")
     @ApiOperation(value = "获取前一天日报计划参与任务（新建）", tags = {"日报" },  notes = "获取前一天日报计划参与任务（新建）")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzdailies/{ibzdaily_id}/getyesterdaydailyplanstask")

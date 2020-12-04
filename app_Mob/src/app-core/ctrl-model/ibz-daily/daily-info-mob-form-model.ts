@@ -56,7 +56,7 @@ export class DailyInfoMobModel {
                 dataType: 'SSCODELIST',
             },
             {
-                name: 'ibz_dailyname',
+                name: 'ibzdailyname',
                 prop: 'ibzdailyname',
                 dataType: 'TEXT',
             },

@@ -621,7 +621,7 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         account: null,
-        ibz_dailyname: null,
+        ibzdailyname: null,
         date: null,
         worktoday: null,
         planstomorrow: null,
@@ -792,7 +792,7 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
 , 
         account: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
-        ibz_dailyname: new FormItemModel({ caption: '日报名称', detailType: 'FORMITEM', name: 'ibz_dailyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        ibzdailyname: new FormItemModel({ caption: '日报名称', detailType: 'FORMITEM', name: 'ibzdailyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -923,15 +923,15 @@ export default class DailyInfoMobBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 ibz_dailyname 值
+     * 监控表单属性 ibzdailyname 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof DailyInfoMob
      */
-    @Watch('data.ibz_dailyname')
-    onIbz_dailynameChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'ibz_dailyname', newVal: newVal, oldVal: oldVal });
+    @Watch('data.ibzdailyname')
+    onIbzdailynameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'ibzdailyname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
