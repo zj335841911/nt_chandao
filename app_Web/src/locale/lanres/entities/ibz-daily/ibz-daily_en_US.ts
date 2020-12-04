@@ -158,13 +158,13 @@ export default {
 			caption: "生成日报",
 			tip: "生成日报",
 		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
 		deuiaction2_create: {
 			caption: "新建",
 			tip: "新建",
+		},
+		deuiaction7: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 };

@@ -129,7 +129,7 @@ export class IbzDailyDailyGridViewBase extends GridViewBase {
         deuiaction1_createuserdaily: { name: 'deuiaction1_createuserdaily', caption: '生成日报', 'isShowCaption': false, 'isShowIcon': true, tooltip: '生成日报', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__ADMIN', uiaction: { tag: 'CreateUserDaily', target: 'NONE', class: '' } },
 
         seperator1: {  name: 'seperator1', type: 'SEPERATOR', visible: true, dataaccaction: '', uiaction: { } },
-        deuiaction2_create: { name: 'deuiaction2_create', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'create', target: 'SINGLEKEY', class: '' } },
+        deuiaction2_create: { name: 'deuiaction2_create', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'create', target: 'NONE', class: '' } },
 
     };
 
