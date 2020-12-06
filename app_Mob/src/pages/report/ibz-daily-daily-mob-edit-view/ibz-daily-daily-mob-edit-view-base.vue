@@ -27,7 +27,7 @@
             updateAction="Update"
             removeAction="Remove"
             loaddraftAction="GetDraft"
-            loadAction="GetYeaterdayDailyPlansTaskEdit"
+            loadAction="Get"
             createAction="Create"
             WFSubmitAction=""
             WFStartAction=""
