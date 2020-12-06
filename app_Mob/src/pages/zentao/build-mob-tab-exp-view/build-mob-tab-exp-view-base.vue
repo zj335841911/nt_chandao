@@ -17,13 +17,13 @@
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel2">
-                            <ion-badge color="danger">{{counter.counterData.stories?counter.counterData.stories:''}}</ion-badge>
+                            
                             完成的需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel4">
-                            <ion-badge color="danger">{{counter.counterData.bugs?counter.counterData.bugs:''}}</ion-badge>
+                            
                             解决的bug</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
-                            <ion-badge color="danger">{{counter.counterData.createbugcnt?counter.counterData.createbugcnt:''}}</ion-badge>
+                            
                             产生的bug</ion-segment-button>
                             <ion-segment-button value="tabviewpanel5">
                             

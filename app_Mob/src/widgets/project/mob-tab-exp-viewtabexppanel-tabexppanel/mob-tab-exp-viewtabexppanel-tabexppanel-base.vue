@@ -55,17 +55,6 @@
                 @closeview="closeView($event)">
             </view_tabviewpanel3>
         </span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel7'">
-                        <view_tabviewpanel7
-                :viewState="viewState"
-                viewName="ProjectMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel7"  
-                ref='tabviewpanel7' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel7>
-        </span>
     </span>
 </template>
 

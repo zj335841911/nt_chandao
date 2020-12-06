@@ -31,10 +31,6 @@
                             <ion-segment-button value="tabviewpanel3">
                             <ion-badge color="danger">{{counter.counterData.teamcnt?counter.counterData.teamcnt:''}}</ion-badge>
                             团队</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel7">
-                              <ion-icon name="folder"></ion-icon>
-                            
-                            文档</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -284,7 +280,6 @@ export default class ProjectMobTabExpViewBase extends Vue {
      * @memberof ProjectMobTabExpViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
-
 
 
 
