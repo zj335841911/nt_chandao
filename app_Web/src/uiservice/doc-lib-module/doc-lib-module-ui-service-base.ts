@@ -310,8 +310,8 @@ export default class DocLibModuleUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{PROJECT:"%project%",SRFROOT:"%doclib%",PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%",project:"%project%",srfroot:"%doclib%"});
+        Object.assign(context,{PROJECT:"%project%",SRFROOT:"%doclib%",SRFPARENT:"%doclibmodule%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%",srfparent:"%doclibmodule%",srfroot:"%doclib%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { doclibmodule: '%doclibmodule%' });
@@ -344,10 +344,10 @@ export default class DocLibModuleUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'doc-lib-module-tree-exp-view', 
+                viewname: 'doc-lib-module-child-wei-hui-tree-exp-view', 
                 height: 600, 
                 width: 800,  
-                title: actionContext.$t('entities.doclibmodule.views.treeexpview.title'),
+                title: actionContext.$t('entities.doclibmodule.views.childweihuitreeexpview.title'),
             };
             openPopupModal(view, data);
     }

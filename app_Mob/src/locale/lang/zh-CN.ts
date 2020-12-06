@@ -3,6 +3,7 @@ import branch_zh_CN from '@locale/lanres/branch/branch_zh_CN';
 import sysorganization_zh_CN from '@locale/lanres/sys-organization/sys-organization_zh_CN';
 import file_zh_CN from '@locale/lanres/file/file_zh_CN';
 import user_zh_CN from '@locale/lanres/user/user_zh_CN';
+import ibzdaily_zh_CN from '@locale/lanres/ibz-daily/ibz-daily_zh_CN';
 import ibzfavorites_zh_CN from '@locale/lanres/ibz-favorites/ibz-favorites_zh_CN';
 import projectteam_zh_CN from '@locale/lanres/project-team/project-team_zh_CN';
 import build_zh_CN from '@locale/lanres/build/build_zh_CN';
@@ -11,8 +12,10 @@ import taskestimate_zh_CN from '@locale/lanres/task-estimate/task-estimate_zh_CN
 import ibzdoc_zh_CN from '@locale/lanres/ibz-doc/ibz-doc_zh_CN';
 import systeammember_zh_CN from '@locale/lanres/sys-team-member/sys-team-member_zh_CN';
 import module_zh_CN from '@locale/lanres/module/module_zh_CN';
+import ibzweekly_zh_CN from '@locale/lanres/ibz-weekly/ibz-weekly_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/dyna-dashboard/dyna-dashboard_zh_CN';
+import ibzmonthly_zh_CN from '@locale/lanres/ibz-monthly/ibz-monthly_zh_CN';
 import storyspec_zh_CN from '@locale/lanres/story-spec/story-spec_zh_CN';
 import action_zh_CN from '@locale/lanres/action/action_zh_CN';
 import casestep_zh_CN from '@locale/lanres/case-step/case-step_zh_CN';
@@ -31,6 +34,7 @@ import testmodule_zh_CN from '@locale/lanres/test-module/test-module_zh_CN';
 import doclibmodule_zh_CN from '@locale/lanres/doc-lib-module/doc-lib-module_zh_CN';
 import sysupdatefeatures_zh_CN from '@locale/lanres/sys-update-features/sys-update-features_zh_CN';
 import doccontent_zh_CN from '@locale/lanres/doc-content/doc-content_zh_CN';
+import ibzreport_zh_CN from '@locale/lanres/ibz-report/ibz-report_zh_CN';
 import productplan_zh_CN from '@locale/lanres/product-plan/product-plan_zh_CN';
 import ibztaskestimate_zh_CN from '@locale/lanres/ibz-taskestimate/ibz-taskestimate_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/project-stats/project-stats_zh_CN';
@@ -77,11 +81,28 @@ export default {
             appindexview: {
                 caption: 'iBiz软件生产管理',
             },
+            appportalview2: {
+                caption: '我的',
+            },
             appportalview: {
                 caption: '工作台',
             },
         },
         menus: {
+            reportreceived: {
+                menuitem1: '日报',
+                menuitem2: '周报',
+                menuitem3: '月报',
+            },
+            reportnew: {
+                menuitem1: '日报',
+                menuitem2: '周报',
+                menuitem3: '月报',
+                menuitem6: '汇报',
+                menuitem4: '我收到的',
+                menuitem5: '我提交的',
+                menuitem7: '月报（待阅）',
+            },
             iconstylemenu: {
                 menuitem1: '我的需求',
                 menuitem2: '我的任务',
@@ -106,6 +127,11 @@ export default {
                 menuitem8: '更新日志',
                 menuitem9: '登录地图test',
             },
+            my: {
+                menuitem6: '我的待办',
+                menuitem5: '仪表盘',
+                menuitem15: '我的工作',
+            },
             listmenu: {
                 menuitem1: '电脑',
                 menuitem8: '个人信息',
@@ -115,6 +141,11 @@ export default {
                 menuitem5: '相机',
                 menuitem6: '望远镜',
                 menuitem7: '更多',
+            },
+            reportsubmit: {
+                menuitem1: '日报',
+                menuitem2: '周报',
+                menuitem3: '月报',
             },
             imgswipestylemenu: {
                 menuitem1: '京东',
@@ -189,6 +220,7 @@ export default {
     sysorganization: sysorganization_zh_CN,
     file: file_zh_CN,
     user: user_zh_CN,
+    ibzdaily: ibzdaily_zh_CN,
     ibzfavorites: ibzfavorites_zh_CN,
     projectteam: projectteam_zh_CN,
     build: build_zh_CN,
@@ -197,8 +229,10 @@ export default {
     ibzdoc: ibzdoc_zh_CN,
     systeammember: systeammember_zh_CN,
     module: module_zh_CN,
+    ibzweekly: ibzweekly_zh_CN,
     product: product_zh_CN,
     dynadashboard: dynadashboard_zh_CN,
+    ibzmonthly: ibzmonthly_zh_CN,
     storyspec: storyspec_zh_CN,
     action: action_zh_CN,
     casestep: casestep_zh_CN,
@@ -217,6 +251,7 @@ export default {
     doclibmodule: doclibmodule_zh_CN,
     sysupdatefeatures: sysupdatefeatures_zh_CN,
     doccontent: doccontent_zh_CN,
+    ibzreport: ibzreport_zh_CN,
     productplan: productplan_zh_CN,
     ibztaskestimate: ibztaskestimate_zh_CN,
     projectstats: projectstats_zh_CN,

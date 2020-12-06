@@ -213,6 +213,9 @@ export default class TabExpViewtabviewpanelModel {
       {
         name: 'ibiz_sourcename',
       },
+      {
+        name: 'storypoints',
+      },
     ]
   }
 

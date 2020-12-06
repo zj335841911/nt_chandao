@@ -41,8 +41,7 @@ import ProductUIService from '@/ui-service/product/product-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class ProductStatusChartMobBase extends Vue implements ControlInterface {
 
@@ -163,7 +162,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
 
     /**

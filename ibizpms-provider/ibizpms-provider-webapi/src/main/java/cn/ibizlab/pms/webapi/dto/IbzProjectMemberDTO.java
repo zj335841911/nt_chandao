@@ -137,6 +137,15 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String sixthmember;
 
+    /**
+     * 属性 [TEAMEMBERS]
+     *
+     */
+    @JSONField(name = "teamembers")
+    @JsonProperty("teamembers")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String teamembers;
+
 
     /**
      * 设置 [NAME]

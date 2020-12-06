@@ -21,6 +21,12 @@ export default {
         'public': '公开',
         empty: '',
     },
+    ReportType: {
+        'weekly': '周报',
+        'daily': '日报',
+        'monthly': '月报',
+        empty: '',
+    },
     RelatedStory: {
         empty: '',
     },
@@ -57,6 +63,9 @@ export default {
     BugCodeList2: {
         'All': '所有',
         'active': '未解决',
+        empty: '',
+    },
+    MyPlanTask: {
         empty: '',
     },
     Project__status: {
@@ -116,6 +125,11 @@ export default {
         empty: '',
     },
     SysOperator: {
+        empty: '',
+    },
+    ReportStatus: {
+        '0': '未读',
+        '1': '已读',
         empty: '',
     },
     YesNo: {
@@ -290,6 +304,7 @@ export default {
         'discuss': '讨论',
         'ui': '界面',
         'affair': '事务',
+        'serve': '服务',
         'misc': '其他',
         empty: '',
     },
@@ -576,6 +591,9 @@ export default {
         'linkparentstory': '关联到父需求',
         'unlinkparentstory': '从父需求取消关联',
         'deletechildrenstory': '删除子需求',
+        'submit': '提交',
+        'read': '已读了',
+        'remind': '提醒',
         empty: '',
     },
     CurCaseVersion: {
@@ -610,6 +628,9 @@ export default {
         'testreport': '报告',
         'entry': '应用',
         'webhook': 'Webhook',
+        'daily': '日报',
+        'weekly': '周报',
+        'monthly': '月报',
         empty: '',
     },
     CaseTestTaskQuickpachet: {
@@ -667,6 +688,15 @@ export default {
         'EXPIREDBUG': '过期Bug',
         empty: '',
     },
+    Story__color: {
+        '#3da7f5': '#3da7f5',
+        '#75c941': '#75c941',
+        '#2dbdb2': '#2dbdb2',
+        '#797ec9': '#797ec9',
+        '#ffaf38': '#ffaf38',
+        '#ff4e3e': '#ff4e3e',
+        empty: '',
+    },
     Bug__severity_mob: {
         '1': '1',
         '2': '2',
@@ -706,6 +736,9 @@ export default {
         empty: '',
     },
     CurStory: {
+        empty: '',
+    },
+    MyCompleteTask: {
         empty: '',
     },
     Testrun__result: {

@@ -3,9 +3,9 @@
     <div class="app-actionbar-item" v-for="(item,index) in items" :key="index">
       <template v-if="item.counterService&&item.counterService.counterData">
           <ion-badge color="success">{{ item.counterService.counterData[item.counterId] }}</ion-badge>
-          <ion-button color="light" @click="handleClick(item.viewlogicname)">{{item.actionName}}</ion-button>
+          <ion-button color="light" @click="handleClick(item.viewlogicname)">{{item.name}}</ion-button>
       </template>
-      <ion-button v-else color="light" @click="handleClick(item.viewlogicname)">{{item.actionName}}</ion-button>
+      <ion-button v-else color="light" @click="handleClick(item.viewlogicname)">{{item.name}}</ion-button>
     </div>
   </div>
 </template>
@@ -33,7 +33,6 @@ export default class AppActionBar extends Vue {
   public handleClick($event:any){
     this.$emit('itemClick',$event);
   }
-
 
 }
 </script>

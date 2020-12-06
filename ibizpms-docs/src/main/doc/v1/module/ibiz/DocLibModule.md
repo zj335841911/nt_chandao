@@ -39,6 +39,7 @@
 | 16 | [上级模块](#属性-上级模块（MODULENAME）) | MODULENAME | 外键值文本 | 否 | 是 | 是 |
 | 17 | [查询类型](#属性-查询类型（DOCQTYPE）) | DOCQTYPE | 文本，可指定长度 | 否 | 是 | 是 |
 | 18 | [是否已收藏](#属性-是否已收藏（ISFAVOURITES）) | ISFAVOURITES | 文本，可指定长度 | 否 | 是 | 是 |
+| 19 | [文档数](#属性-文档数（DOCCNT）) | DOCCNT | 整型 | 否 | 是 | 是 |
 
 ### 属性-叶子模块（ISLEAF）
 #### 属性说明
@@ -821,6 +822,49 @@ String
 | 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-文档数（DOCCNT）
+#### 属性说明
+文档数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id)
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [查询类型](#属性-查询类型（DOCQTYPE）)<br>（DOCQTYPE） | [是否已收藏](#属性-是否已收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 默认 |
@@ -1166,13 +1210,15 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（AllDoclibModule_Custom）) | AllDoclibModule_Custom | 否 |
 | 2 | [子模块目录](#数据查询-子模块目录（ChildModuleByParent）) | ChildModuleByParent | 否 |
-| 3 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 4 | [数据查询](#数据查询-数据查询（DefaultDoclib）) | DefaultDoclib | 否 |
-| 5 | [父模块](#数据查询-父模块（ParentModule）) | ParentModule | 否 |
-| 6 | [所有根模块目录](#数据查询-所有根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
-| 7 | [根模块目录动态](#数据查询-根模块目录动态（RootModuleMuLuByRoot）) | RootModuleMuLuByRoot | 否 |
-| 8 | [根模块目录动态](#数据查询-根模块目录动态（RootModuleMuLuBysrfparentkey）) | RootModuleMuLuBysrfparentkey | 否 |
-| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [文档库分类子模块](#数据查询-文档库分类子模块（ChildModuleByRealParent）) | ChildModuleByRealParent | 否 |
+| 4 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
+| 5 | [数据查询](#数据查询-数据查询（DefaultDoclib）) | DefaultDoclib | 否 |
+| 6 | [我的收藏](#数据查询-我的收藏（MyFavourites）) | MyFavourites | 否 |
+| 7 | [父模块](#数据查询-父模块（ParentModule）) | ParentModule | 否 |
+| 8 | [所有根模块目录](#数据查询-所有根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 9 | [根模块目录动态](#数据查询-根模块目录动态（RootModuleMuLuByRoot）) | RootModuleMuLuByRoot | 否 |
+| 10 | [根模块目录动态](#数据查询-根模块目录动态（RootModuleMuLuBysrfparentkey）) | RootModuleMuLuBysrfparentkey | 否 |
+| 11 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（AllDoclibModule_Custom）
 #### 说明
@@ -1246,6 +1292,41 @@ LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
 
 ```
+### 数据查询-文档库分类子模块（ChildModuleByRealParent）
+#### 说明
+文档库分类下维护分类专属
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`BRANCH`,
+t1.`DELETED`,
+t11.`NAME` AS `DOCLIBNAME`,
+t1.`GRADE`,
+t1.`ID`,
+(CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
+t21.`NAME` AS `MODULENAME`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`OWNER`,
+t1.`PARENT`,
+t1.`PATH`,
+t1.`ROOT`,
+t1.`SHORT`,
+t1.`TYPE`, 
+'module' AS `DOCQTYPE`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`
+FROM `zt_module` t1 
+LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
+LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
+```
 ### 数据查询-数据查询（Default）
 #### 说明
 数据查询
@@ -1262,6 +1343,7 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 SELECT
 t1.`BRANCH`,
 t1.`DELETED`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) AS `DOCCNT`,
 t11.`NAME` AS `DOCLIBNAME`,
 t1.`GRADE`,
 t1.`ID`,
@@ -1316,6 +1398,38 @@ FROM `zt_module` t1
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
 
+```
+### 数据查询-我的收藏（MyFavourites）
+#### 说明
+我的收藏
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.`BRANCH`,
+	t1.`DELETED`,
+	t1.`GRADE`,
+	t1.`ID`,
+	'module' AS `DOCQTYPE`,
+	1 AS `ISFAVOURITES`,
+	( CASE WHEN EXISTS ( SELECT 1 FROM ZT_MODULE WHERE PARENT = t1.`ID` ) THEN FALSE ELSE TRUE END ) AS `ISLEAF`,
+	t1.`NAME`,
+	t1.`ORDER`,
+	t1.`OWNER`,
+	t1.`PARENT`,
+	t1.`PATH`,
+	t1.`ROOT`,
+	t1.`SHORT`,
+	t1.`TYPE` 
+FROM
+	`zt_module` t1
 ```
 ### 数据查询-父模块（ParentModule）
 #### 说明
@@ -1383,7 +1497,8 @@ t1.`ROOT`,
 t1.`SHORT`,
 'module'  as `TYPE`,
 'module' AS `DOCQTYPE`,
-( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) as doccnt
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -1479,6 +1594,7 @@ SELECT
 t1.`BRANCH`,
 t1.`COLLECTOR`,
 t1.`DELETED`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) AS `DOCCNT`,
 t11.`NAME` AS `DOCLIBNAME`,
 t1.`GRADE`,
 t1.`ID`,
@@ -1505,11 +1621,13 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 | 1 | [自定义文档库的模块](#数据集合-自定义文档库的模块（AllDocLibModule_Custom）) | AllDocLibModule_Custom | 否 |
 | 2 | [所有文档库模块](#数据集合-所有文档库模块（AllDoclibModule）) | AllDoclibModule | 否 |
 | 3 | [子模块目录](#数据集合-子模块目录（ChildModuleByParent）) | ChildModuleByParent | 否 |
-| 4 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
-| 5 | [父集合](#数据集合-父集合（ParentModule）) | ParentModule | 否 |
-| 6 | [所有根模块目录](#数据集合-所有根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
-| 7 | [根模块目录](#数据集合-根模块目录（RootModuleMuLuByRoot）) | RootModuleMuLuByRoot | 否 |
-| 8 | [根模块目录动态](#数据集合-根模块目录动态（RootModuleMuLuBysrfparentkey）) | RootModuleMuLuBysrfparentkey | 否 |
+| 4 | [文档库分类子模块](#数据集合-文档库分类子模块（ChildModuleByRealParent）) | ChildModuleByRealParent | 否 |
+| 5 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 6 | [我的收藏](#数据集合-我的收藏（MyFavourites）) | MyFavourites | 否 |
+| 7 | [父集合](#数据集合-父集合（ParentModule）) | ParentModule | 否 |
+| 8 | [所有根模块目录](#数据集合-所有根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 9 | [根模块目录](#数据集合-根模块目录（RootModuleMuLuByRoot）) | RootModuleMuLuByRoot | 否 |
+| 10 | [根模块目录动态](#数据集合-根模块目录动态（RootModuleMuLuBysrfparentkey）) | RootModuleMuLuBysrfparentkey | 否 |
 
 ### 数据集合-自定义文档库的模块（AllDocLibModule_Custom）
 #### 说明
@@ -1553,6 +1671,20 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [子模块目录（ChildModuleByParent）](#数据查询-子模块目录（ChildModuleByParent）) |
+### 数据集合-文档库分类子模块（ChildModuleByRealParent）
+#### 说明
+文档库分类子模块
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [文档库分类子模块（ChildModuleByRealParent）](#数据查询-文档库分类子模块（ChildModuleByRealParent）) |
 ### 数据集合-数据集（Default）
 #### 说明
 数据集
@@ -1567,6 +1699,20 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（Default）](#数据查询-数据查询（Default）) |
+### 数据集合-我的收藏（MyFavourites）
+#### 说明
+我的收藏
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我的收藏（MyFavourites）](#数据查询-我的收藏（MyFavourites）) |
 ### 数据集合-父集合（ParentModule）
 #### 说明
 父集合

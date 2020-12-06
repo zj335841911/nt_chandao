@@ -105,9 +105,10 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         assignedto: null,
         neednotreview: null,
         title: null,
-        color: null,
         pri: null,
+        storypoints: null,
         estimate: null,
+        color: null,
         spec: null,
         verify: null,
         files: null,
@@ -135,6 +136,20 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
+            prodoctname: [
+                {
+                    required: this.detailsModel.prodoctname.required,
+                    type: 'string',
+                    message: '所属产品 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.prodoctname.required,
+                    type: 'string',
+                    message: '所属产品 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
             title: [
                 {
                     required: this.detailsModel.title.required,
@@ -246,7 +261,7 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
 
         prodoctname: new FormItemModel({
     caption: '所属产品', detailType: 'FORMITEM', name: 'prodoctname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
@@ -314,13 +329,6 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        color: new FormItemModel({
-    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
         pri: new FormItemModel({
     caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -328,8 +336,22 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        storypoints: new FormItemModel({
+    caption: '故事点', detailType: 'FORMITEM', name: 'storypoints', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         estimate: new FormItemModel({
     caption: '预计', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -452,6 +474,7 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.assignedto.setDisabled(!ret);
         }
+
 
 
 

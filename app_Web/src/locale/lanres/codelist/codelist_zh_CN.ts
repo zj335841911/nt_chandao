@@ -1,4 +1,18 @@
 export default {
+    StoryPoints: {
+        "0": "0",
+        "0.5": "1/2",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "5": "5",
+        "8": "8",
+        "13": "13",
+        "20": "20",
+        "40": "40",
+        "100": "100",
+        "empty": "",
+    },
     BugCreateResolve: {
         "1": "创建",
         "empty": "",
@@ -72,6 +86,9 @@ export default {
     RealNameProjectM: {
         "empty": "",
     },
+    MyPlanTask: {
+        "empty": "",
+    },
     ProjectCodeList: {
         "empty": "",
     },
@@ -128,6 +145,11 @@ export default {
     },
     UserRealNameW: {
         "empty": "未指派",
+    },
+    ReportStatus: {
+        "0": "未读",
+        "1": "已读",
+        "empty": "",
     },
     Bug__os: {
         "all": "全部",
@@ -497,6 +519,9 @@ export default {
         "testreport": "报告",
         "entry": "应用",
         "webhook": "Webhook",
+        "daily": "日报",
+        "weekly": "周报",
+        "monthly": "月报",
         "empty": "",
     },
     ProductPlan: {
@@ -512,6 +537,12 @@ export default {
         "2": "2",
         "3": "3",
         "4": "4",
+        "empty": "",
+    },
+    UserTplType: {
+        "story": "需求",
+        "task": "任务",
+        "bug": "Bug",
         "empty": "",
     },
     Release__status: {
@@ -620,6 +651,12 @@ export default {
         "public": "公开",
         "empty": "",
     },
+    ReportType: {
+        "weekly": "周报",
+        "daily": "日报",
+        "monthly": "月报",
+        "empty": "",
+    },
     RelatedStory: {
         "empty": "",
     },
@@ -656,6 +693,13 @@ export default {
         "open": "默认设置(有产品视图权限，即可访问)",
         "private": "私有产品(相关负责人和项目团队成员才能访问)",
         "custom": "自定义白名单(团队成员和白名单的成员可以访问)",
+        "empty": "",
+    },
+    UserTplQuickGroup: {
+        "all": "所有",
+        "story": "需求",
+        "task": "任务",
+        "bug": "Bug",
         "empty": "",
     },
     BugCodeList2: {
@@ -715,6 +759,9 @@ export default {
         "empty": "",
     },
     UserRealNameTask: {
+        "empty": "",
+    },
+    AllRole: {
         "empty": "",
     },
     CodeList47: {
@@ -815,6 +862,9 @@ export default {
         "testreport": "报告",
         "entry": "应用",
         "webhook": "Webhook",
+        "daily": "日报",
+        "weekly": "周报",
+        "monthly": "月报",
         "empty": "",
     },
     Module__type: {
@@ -898,6 +948,7 @@ export default {
         "discuss": "讨论",
         "ui": "界面",
         "affair": "事务",
+        "serve": "服务",
         "misc": "其他",
         "empty": "",
     },
@@ -1034,6 +1085,9 @@ export default {
         "linkparentstory": "关联到父需求",
         "unlinkparentstory": "从父需求取消关联",
         "deletechildrenstory": "删除子需求",
+        "submit": "提交",
+        "read": "已读了",
+        "remind": "提醒",
         "empty": "",
     },
     User__gender: {
@@ -1150,6 +1204,9 @@ export default {
     Company__guest: {
         "1": "允许",
         "0": "不允许",
+        "empty": "",
+    },
+    MyCompleteTask: {
         "empty": "",
     },
     Testrun__result: {

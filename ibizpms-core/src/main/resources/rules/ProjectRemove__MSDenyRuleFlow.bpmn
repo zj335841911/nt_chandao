@@ -32,7 +32,7 @@
             $projectremove__msdenydefault:Project();
             $projectremove__msdenytemp:Project();
             eval($projectremove__msdenydefault==projectremove__msdenydefault && $projectremove__msdenytemp==projectremove__msdenytemp);
-                eval((RuleUtils.test($projectremove__msdenytemp.get("STATUS"),"EQ","closed"))&&(RuleUtils.test($projectremove__msdenytemp.get("ISTOP"),"EQ","1")))
+                eval((RuleUtils.test($projectremove__msdenytemp.get("status"),"EQ","closed"))&&(RuleUtils.test($projectremove__msdenytemp.get("istop"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -41,7 +41,7 @@
             $projectremove__msdenydefault:Project();
             $projectremove__msdenytemp:Project();
             eval($projectremove__msdenydefault==projectremove__msdenydefault && $projectremove__msdenytemp==projectremove__msdenytemp);
-                eval((RuleUtils.test($projectremove__msdenytemp.get("STATUS"),"EQ","doing"))&&(RuleUtils.test($projectremove__msdenytemp.get("ISTOP"),"EQ","1")))
+                eval((RuleUtils.test($projectremove__msdenytemp.get("status"),"EQ","doing"))&&(RuleUtils.test($projectremove__msdenytemp.get("istop"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -50,7 +50,7 @@
             $projectremove__msdenydefault:Project();
             $projectremove__msdenytemp:Project();
             eval($projectremove__msdenydefault==projectremove__msdenydefault && $projectremove__msdenytemp==projectremove__msdenytemp);
-                eval((RuleUtils.test($projectremove__msdenytemp.get("STATUS"),"EQ","suspended"))&&(RuleUtils.test($projectremove__msdenytemp.get("ISTOP"),"EQ","0")))
+                eval((RuleUtils.test($projectremove__msdenytemp.get("status"),"EQ","suspended"))&&(RuleUtils.test($projectremove__msdenytemp.get("istop"),"EQ","0")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -59,7 +59,7 @@
             $projectremove__msdenydefault:Project();
             $projectremove__msdenytemp:Project();
             eval($projectremove__msdenydefault==projectremove__msdenydefault && $projectremove__msdenytemp==projectremove__msdenytemp);
-                eval((RuleUtils.test($projectremove__msdenytemp.get("STATUS"),"EQ","wait"))&&(RuleUtils.test($projectremove__msdenytemp.get("ISTOP"),"EQ","1")))
+                eval((RuleUtils.test($projectremove__msdenytemp.get("status"),"EQ","wait"))&&(RuleUtils.test($projectremove__msdenytemp.get("istop"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>

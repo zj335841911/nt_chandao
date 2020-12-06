@@ -1,4 +1,4 @@
-# 我的地盘
+# 仪表盘
 
 我的地盘移动端数据看板视图(IbzMyTerritoryMobDashboardView)
 
@@ -6,7 +6,7 @@
 
 digraph IbzMyTerritoryMobDashboardView {
 
-label="我的地盘";    
+label="仪表盘";    
 
 #rankdir=LR;
 
@@ -19,7 +19,7 @@ own [shape=none, margin=0,size="6,6", label=<
 <TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
 </TR>
 <TR>
-<TD BORDER="0" COLSPAN="4" CELLPADDING="10">我的地盘<BR/><BR/></TD>
+<TD BORDER="0" COLSPAN="4" CELLPADDING="10">仪表盘<BR/><BR/></TD>
 </TR>
 </TABLE>
 >];

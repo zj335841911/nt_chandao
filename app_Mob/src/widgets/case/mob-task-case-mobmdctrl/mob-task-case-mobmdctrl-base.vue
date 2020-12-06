@@ -98,8 +98,7 @@ import CaseUIService from '@/ui-service/case/case-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class Mob_Task_CaseBase extends Vue implements ControlInterface {
 
@@ -220,7 +219,7 @@ export default class Mob_Task_CaseBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 视图类型

@@ -12,6 +12,7 @@ export default {
     fourthmember: "团队成员（四）",
     fifthmember: "团队成员（五）",
     sixthmember: "团队成员（六）",
+    teamembers: "全部成员",
   },
 	views: {
 		editview9: {

@@ -31,7 +31,7 @@ public class ImConferenceactionSearchContext extends QueryWrapperContext<ImConfe
 	public void setN_type_eq(String n_type_eq) {
         this.n_type_eq = n_type_eq;
         if(!ObjectUtils.isEmpty(this.n_type_eq)){
-            this.getSearchCond().eq("type", n_type_eq);
+            this.getSearchCond().eq("`type`", n_type_eq);
         }
     }
 

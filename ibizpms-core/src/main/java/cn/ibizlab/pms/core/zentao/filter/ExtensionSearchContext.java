@@ -31,7 +31,7 @@ public class ExtensionSearchContext extends QueryWrapperContext<Extension> {
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
-            this.getSearchCond().like("name", n_name_like);
+            this.getSearchCond().like("`name`", n_name_like);
         }
     }
 
@@ -44,7 +44,7 @@ public class ExtensionSearchContext extends QueryWrapperContext<Extension> {
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("name", query)   
+                     wrapper.like("`name`", query)
             );
 		 }
 	}

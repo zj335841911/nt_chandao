@@ -61,14 +61,16 @@
     :isEmptyCaption="false"
     labelPos="NONE"
 >
-    <input-box 
+    <app-color-picker
     v-model="data.name"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.name.disabled" 
-    type='text' 
-    style="">
-</input-box>
+    @enter="onEnter($event)"
+    :data="data"
+    :disabled="detailsModel.name.disabled"
+    :formState="formState"
+    color="color"
+    style=""
+    @colorChange="(val) => {onFormItemValueChange(val)}">
+</app-color-picker>
 
 </app-form-item>
 

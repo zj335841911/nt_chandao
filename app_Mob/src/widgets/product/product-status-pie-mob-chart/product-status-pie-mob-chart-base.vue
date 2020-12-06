@@ -24,8 +24,7 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class ProductStatusPieMobBase extends Vue implements ControlInterface {
 
@@ -146,7 +145,7 @@ export default class ProductStatusPieMobBase extends Vue implements ControlInter
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 获取多项数据

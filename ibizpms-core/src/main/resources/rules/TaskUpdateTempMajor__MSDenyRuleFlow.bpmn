@@ -188,7 +188,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","10")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","10")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -197,7 +197,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","20")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","20")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -206,7 +206,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","30")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","30")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -215,7 +215,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","40")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","40")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -224,7 +224,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","10")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","10")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -233,7 +233,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","20")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","20")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -242,7 +242,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","30")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","30")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -251,7 +251,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","40")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","cancel"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","40")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -260,7 +260,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","10")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","10")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -269,7 +269,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","20")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","20")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -278,7 +278,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","30")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","30")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -287,7 +287,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","40")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","40")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -296,7 +296,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","10")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","10")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -305,7 +305,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","20")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","20")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -314,7 +314,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","30")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","30")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -323,7 +323,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","40")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","closed"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","40")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -332,7 +332,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","10")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","10")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -341,7 +341,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","20")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","20")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -350,7 +350,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","30")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","30")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -359,7 +359,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","40")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","40")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -368,7 +368,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","10")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","10")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -377,7 +377,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","20")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","20")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -386,7 +386,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","30")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","30")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -395,7 +395,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","40")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","doing"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","40")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -404,7 +404,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","10")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","10")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -413,7 +413,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","20")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","20")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -422,7 +422,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","30")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","30")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -431,7 +431,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","40")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","40")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -440,7 +440,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","10")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","10")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -449,7 +449,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","20")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","20")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -458,7 +458,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","30")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","30")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -467,7 +467,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","40")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","done"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","40")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -476,7 +476,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","10")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","10")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -485,7 +485,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","20")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","20")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -494,7 +494,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","30")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","30")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -503,7 +503,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","40")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","40")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -512,7 +512,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","10")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","10")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -521,7 +521,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","20")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","20")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -530,7 +530,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","30")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","30")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -539,7 +539,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","40")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","pause"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","40")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -548,7 +548,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","10")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","10")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -557,7 +557,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","20")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","20")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -566,7 +566,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","30")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","30")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -575,7 +575,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","40")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","40")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -584,7 +584,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","10")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","10")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -593,7 +593,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","20")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","20")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -602,7 +602,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","30")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","30")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -611,7 +611,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","40")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","storychange"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","40")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -620,7 +620,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","10")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","10")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -629,7 +629,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","20")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","20")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -638,7 +638,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","30")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","30")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -647,7 +647,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","40")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","0"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","40")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -656,7 +656,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","10")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","10")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -665,7 +665,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","20")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","20")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -674,7 +674,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","30")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","30")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -683,7 +683,7 @@
             $taskupdatetempmajor__msdenydefault:Task();
             $taskupdatetempmajor__msdenytemp:Task();
             eval($taskupdatetempmajor__msdenydefault==taskupdatetempmajor__msdenydefault && $taskupdatetempmajor__msdenytemp==taskupdatetempmajor__msdenytemp);
-                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("STATUS1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("TASKTYPE"),"EQ","40")))
+                eval((RuleUtils.test($taskupdatetempmajor__msdenytemp.get("status1"),"EQ","wait"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("isfavorites"),"EQ","1"))&&(RuleUtils.test($taskupdatetempmajor__msdenytemp.get("tasktype"),"EQ","40")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>

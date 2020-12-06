@@ -6,6 +6,7 @@
 |zentao|[基础管理模块](zentao.md)||
 |ibizpro|[iBizPro模块](ibizpro.md)||
 |ibizplugin|[iBiz插件模块](ibizplugin.md)||
+|report|[汇报模块](report.md)||
 |ibizsysmodel|[iBiz系统模型](ibizsysmodel.md)||
 |uaa|[uaa权限模块](uaa.md)||
 |ou|[ou组织用户管理模块](ou.md)||
@@ -689,6 +690,33 @@ hide members
 
 {% plantuml %}
 
+package 汇报模块 {
+
+class 日报 {
+}
+
+class 月报 {
+}
+
+class 汇报 {
+}
+
+class 汇报角色配置 {
+}
+
+class 周报 {
+}
+
+
+
+}
+
+hide members
+
+{% endplantuml %}
+
+{% plantuml %}
+
 package iBiz系统模型 {
 
 class 实体属性 {
@@ -807,6 +835,24 @@ hide members
 {% plantuml %}
 
 package uaa权限模块 {
+
+class 系统角色 {
+}
+
+class 系统用户 {
+}
+
+class 用户角色关系 {
+}
+
+
+系统角色 *-- 系统角色 
+
+
+系统角色 *-- 用户角色关系 
+
+
+系统用户 *-- 用户角色关系 
 
 
 

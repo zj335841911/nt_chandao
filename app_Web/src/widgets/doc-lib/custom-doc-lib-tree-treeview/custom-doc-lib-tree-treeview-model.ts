@@ -75,6 +75,12 @@ export default class CustomDocLibTreeModel {
       {
         name: 'root',
       },
+      {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
     ]
   }
 

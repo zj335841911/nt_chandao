@@ -28,8 +28,7 @@ import SysUpdateFeaturesUIService from '@/ui-service/sys-update-features/sys-upd
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MOBYBase extends Vue implements ControlInterface {
 
@@ -150,7 +149,7 @@ export default class MOBYBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 视图类型

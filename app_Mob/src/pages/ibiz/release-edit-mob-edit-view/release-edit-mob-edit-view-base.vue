@@ -241,9 +241,10 @@ export default class ReleaseEditMobEditViewBase extends Vue {
      * @returns
      * @memberof IBizChart
      */
-    @Watch('_viewparams')
+    @Watch('_viewparams',{immediate: true, deep: true})
     on_viewparams(newVal: string, oldVal: string) {
         this.parseViewParam();
+        
     }
 
     /**

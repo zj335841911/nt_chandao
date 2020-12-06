@@ -16,7 +16,7 @@
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $testtaskgetproductbuilddefault:TestTask();
             eval($testtaskgetproductbuilddefault==testtaskgetproductbuilddefault);
-                eval((RuleUtils.test($testtaskgetproductbuilddefault.get("PRODUCT"),"ISNOTNULL","")))
+                eval((RuleUtils.test($testtaskgetproductbuilddefault.get("product"),"ISNOTNULL","")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -24,7 +24,7 @@
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $testtaskgetproductbuilddefault:TestTask();
             eval($testtaskgetproductbuilddefault==testtaskgetproductbuilddefault);
-                eval((RuleUtils.test($testtaskgetproductbuilddefault.get("PROJECT"),"ISNOTNULL","")))
+                eval((RuleUtils.test($testtaskgetproductbuilddefault.get("project"),"ISNOTNULL","")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>

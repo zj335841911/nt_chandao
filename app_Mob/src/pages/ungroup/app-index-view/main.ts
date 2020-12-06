@@ -16,7 +16,13 @@ import { ionicInitialize } from '../../../ionic-initialize';
 import { ibizMobileComponentsInitialize } from '../../../ibiz-mobile-components-initialize';
 ionicInitialize({ mode: 'ios' });
 ibizMobileComponentsInitialize();
+import { Lazyload } from 'vant';
 
+Vue.use(Lazyload,{
+    preLoad: 1,
+    attempt: 1,
+    error: 'https://gitee.com/kk_ah/images/raw/master/images/20201126175359.png',
+});
 import VueAMap from "vue-amap";
 Vue.use(VueAMap);
 VueAMap.initAMapApiLoader({
@@ -72,6 +78,9 @@ Vue.component('v-calendar', Calendar);
 // 手势滑动
 import VueTouch from 'vue-touch'
 Vue.use(VueTouch, {name: 'v-touch'});
+VueTouch.config.press = {
+    time: 700
+  }
 router.beforeEach((to: any, from: any, next: any) => {
     if (to.meta && !to.meta.ignoreAddPage) {
         router.app.$store.commit('addPage', to);

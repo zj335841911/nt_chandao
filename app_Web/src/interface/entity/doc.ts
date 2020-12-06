@@ -277,4 +277,12 @@ export interface Doc {
      * @memberof Doc
      */
     myfavouritecnt?: any;
+
+    /**
+     * 文档数
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    doccnt?: any;
 }

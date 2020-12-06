@@ -231,6 +231,11 @@ export default class FavoriteMainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'color',
+          prop: 'color',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'entry',
           prop: 'entry',
           dataType: 'PICKUP',

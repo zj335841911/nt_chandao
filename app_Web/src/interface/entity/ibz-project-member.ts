@@ -101,4 +101,12 @@ export interface IbzProjectMember {
      * @memberof IbzProjectMember
      */
     sixthmember?: any;
+
+    /**
+     * 全部成员
+     *
+     * @returns {*}
+     * @memberof IbzProjectMember
+     */
+    teamembers?: any;
 }

@@ -34,6 +34,7 @@ export default {
     recentaddcnt: "最近添加数量",
     mydoccnt: "我的文档数量",
     myfavouritecnt: "我的收藏数量",
+    doccnt: "文档数",
   },
 	views: {
 		basiceditview9: {
@@ -63,6 +64,10 @@ export default {
 		docstatuseditview: {
 			caption: "嵌入文档库主页",
       		title: "文档编辑视图",
+		},
+		moremyfavouritestreeview: {
+			caption: "我的收藏",
+      		title: "文档树视图",
 		},
 		myfavouritegridview: {
 			caption: "我的收藏",
@@ -96,6 +101,10 @@ export default {
 			caption: "最近更新",
       		title: "文档表格视图",
 		},
+		morerecentupdatetreeview: {
+			caption: "最近更新",
+      		title: "文档树视图",
+		},
 		docmodulegridview: {
 			caption: "文档",
       		title: "doc表格视图",
@@ -107,6 +116,10 @@ export default {
 		modulegridview: {
 			caption: "文档",
       		title: "doc表格视图",
+		},
+		moremydoctreeview: {
+			caption: "我的文档",
+      		title: "文档树视图",
 		},
 	},
 	createeditform_form: {
@@ -293,7 +306,17 @@ export default {
 		uiactions: {
 		},
 	},
-	morerecentupdate_grid: {
+	myfavourite_grid: {
+		nodata: "",
+		columns: {
+			title: "文档标题",
+			addedby: "由谁添加",
+			editeddate: "更新时间",
+		},
+		uiactions: {
+		},
+	},
+	moremyfavourite_grid: {
 		nodata: "",
 		columns: {
 			id: "文档编号",
@@ -312,17 +335,7 @@ export default {
 			doc_uncollect: "取消收藏",
 		},
 	},
-	myfavourite_grid: {
-		nodata: "",
-		columns: {
-			title: "文档标题",
-			addedby: "由谁添加",
-			editeddate: "更新时间",
-		},
-		uiactions: {
-		},
-	},
-	moremyfavourite_grid: {
+	morerecentupdate_grid: {
 		nodata: "",
 		columns: {
 			id: "文档编号",
@@ -367,24 +380,6 @@ export default {
 			tip: "过滤",
 		},
 	},
-	recentmoregridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-	},
-	mymoregridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-	},
-	myfavouritegridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-	},
 	createeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -401,6 +396,24 @@ export default {
 			tip: "过滤",
 		},
 	},
+	myfavouritegridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
+	recentmoregridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
+	mymoregridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
 	modulegridviewtoolbar_toolbar: {
 		deuiaction7: {
 			caption: "导出",
@@ -409,6 +422,47 @@ export default {
 		deuiaction3_togglefilter: {
 			caption: "过滤",
 			tip: "过滤",
+		},
+	},
+	morerecentupdatetree_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+			doc_edit: "编辑",
+			doc_delete: "删除",
+			doc_onlycollectdoc: "收藏",
+			doc_onlyuncollectdoc: "取消收藏",
+		},
+	},
+	moremydoctree_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+			doc_edit: "编辑",
+			doc_delete: "删除",
+			doc_onlycollectdoc: "收藏",
+			doc_onlyuncollectdoc: "取消收藏",
+		},
+	},
+	moremyfavouritestree_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+			doc_edit: "编辑",
+			doc_delete: "删除",
+			doc_onlycollectdoc: "收藏",
+			doc_onlyuncollectdoc: "取消收藏",
+			doclib_editdoclib: "编辑",
+			doclib_weihufenlei: "维护分类",
+			doclib_uncollect: "取消收藏",
+			doclib_collect: "收藏",
+			doclibmodule_edit: "编辑",
+			doclibmodule_weihufenlei: "维护分类",
+			doclibmodule_favorite: "收藏",
+			doclibmodule_nfavorite: "取消收藏",
 		},
 	},
 };

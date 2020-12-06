@@ -8,8 +8,9 @@
             :placeholder="placeholder"
             >
             <template slot="suffix">
-                <el-color-picker v-model="colorValue" @change="colorChange" size="small">
+                <el-color-picker ref="picker" v-model="colorValue" @change="colorChange" size="small">
                 </el-color-picker>
+                <Icon type="md-color-palette" @click="iconClick" />
             </template>
         </el-input>
     </div>
@@ -19,8 +20,8 @@
 import { Vue, Component, Watch, Prop, Model } from 'vue-property-decorator';
 import CodeListService from '@service/app/codelist-service';
 import { Subject, Subscription } from 'rxjs';
-@Component({
-})
+
+@Component({})
 export default class AppColorPicker extends Vue {
 
     /**
@@ -121,13 +122,6 @@ export default class AppColorPicker extends Vue {
      * @memberof AppColorPicker
      */
     public created() {
-        if(this.formState) {
-            this.formState.subscribe(({type, data}) => {
-                if(Object.is(type, 'load')) {
-                    this.handleData();
-                }
-            })
-        }
         this.handleData();
     }
 
@@ -136,6 +130,7 @@ export default class AppColorPicker extends Vue {
      * 
      * @memberof AppColorPicker
      */
+    @Watch('value')
     public handleData() {
         if(!this.value && !this.color) {
             return;
@@ -165,6 +160,20 @@ export default class AppColorPicker extends Vue {
         if(picker) {
             let child: any = picker.$el.children[0];
             child.style.color = color;
+        }
+    }
+
+    /**
+     * 模拟点击事件
+     * 
+     * @memberof AppColorPicker
+     */
+    public iconClick() {
+        let picker: any = this.$refs.picker;
+        let e: any = document.createEvent('MouseEvent');
+        e.initEvent('click', true, true);
+        if(picker) {
+            picker.$el.children[0].dispatchEvent(e);
         }
     }
 }

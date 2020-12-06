@@ -498,6 +498,28 @@ public class ProjectResource {
                 .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchUnDoneProject-all') and hasPermission(#context,'pms-Project-Get')")
+	@ApiOperation(value = "获取未完成项目", tags = {"项目" } ,notes = "获取未完成项目")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/fetchundoneproject")
+	public ResponseEntity<List<ProjectDTO>> fetchUnDoneProject(ProjectSearchContext context) {
+        Page<Project> domains = projectService.searchUnDoneProject(context) ;
+        List<ProjectDTO> list = projectMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchUnDoneProject-all') and hasPermission(#context,'pms-Project-Get')")
+	@ApiOperation(value = "查询未完成项目", tags = {"项目" } ,notes = "查询未完成项目")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/searchundoneproject")
+	public ResponseEntity<Page<ProjectDTO>> searchUnDoneProject(@RequestBody ProjectSearchContext context) {
+        Page<Project> domains = projectService.searchUnDoneProject(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

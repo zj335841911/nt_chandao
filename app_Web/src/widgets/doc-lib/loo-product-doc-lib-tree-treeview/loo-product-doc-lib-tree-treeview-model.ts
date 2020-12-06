@@ -75,6 +75,12 @@ export default class LooProductDocLibTreeModel {
       {
         name: 'root',
       },
+      {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
     ]
   }
 

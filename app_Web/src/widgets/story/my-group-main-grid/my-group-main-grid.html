@@ -85,22 +85,12 @@
                        </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link
-                            deKeyField="story"
-                            :context="JSON.parse(JSON.stringify(context))"
-                            :viewparams="JSON.parse(JSON.stringify(viewparams))"
-                            :data="row"
-                            :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-            ,parameters: [
-            { pathName: 'stories', parameterName: 'story' },
-            { pathName: 'mainview', parameterName: 'mainview' }
-            ]}"
-                            valueitem="srfkey"
-                        >
-                            <span>{{row.title}}</span>
-                        </app-column-link>
+                        <template >
+                                  <span><app-column-link deKeyField='story' :context="JSON.parse(JSON.stringify(context))" :localParam="{product: '%product%'}" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.build.views.maintabexpview.title'),placement: 'DRAWER_TOP', isRedirectView: false}" valueitem="srfkey">
+            <span :style="{'color':row.color}">{{row.title}}</span>
+            </app-column-link>
+            </span>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
@@ -199,7 +189,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.story.mygroupmain_grid.columns.uagridcolumn1')" :width="220"  :align="'center'">
+                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.story.mygroupmain_grid.columns.uagridcolumn1')" :width="260"  :align="'center'">
                     <template v-slot:header="{column}">
                        <span class="column-header ">
                         {{$t('entities.story.mygroupmain_grid.columns.uagridcolumn1')}}
@@ -207,6 +197,11 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
+                            <a v-show="scope.row.StoryToBug.visible" :disabled="scope.row.StoryToBug.disabled" @click="uiAction(scope.row, 'StoryToBug', $event)" :title="$t('entities.story.mygroupmain_grid.uiactions.story_storytobug')">
+                                <i class="fa fa-bug"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.ChangeStoryDetail.visible" type="vertical"></divider>
                             <a v-show="scope.row.ChangeStoryDetail.visible" :disabled="scope.row.ChangeStoryDetail.disabled" @click="uiAction(scope.row, 'ChangeStoryDetail', $event)" :title="$t('entities.story.mygroupmain_grid.uiactions.story_changestorydetail')">
                                 <i class="fa fa-exchange"></i>
                                 

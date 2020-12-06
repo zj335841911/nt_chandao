@@ -353,6 +353,9 @@ export default class DocChildProductTreeViewService extends ControlService {
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
             }
+            if(filter.srfnodefilter){
+                Object.assign(searchFilter,{query:filter.srfnodefilter});
+            }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});
             }
@@ -427,6 +430,11 @@ export default class DocChildProductTreeViewService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
+
+            if (Object.is(filter.strNodeType, this.TREENODE_CHILDMODULE)) {
+                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
+            }
+
             Object.assign(searchFilter, { total: false });
             let bFirst: boolean = true;
             let records: any[] = [];
@@ -485,6 +493,9 @@ export default class DocChildProductTreeViewService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
+            }
+            if(filter.srfnodefilter){
+                Object.assign(searchFilter,{query:filter.srfnodefilter});
             }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});

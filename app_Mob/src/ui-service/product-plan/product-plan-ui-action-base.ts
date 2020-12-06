@@ -137,7 +137,7 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { productplan: '%productplan%' });
         Object.assign(paramJO, { id: '%productplan%' });
@@ -159,6 +159,9 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('productplan');

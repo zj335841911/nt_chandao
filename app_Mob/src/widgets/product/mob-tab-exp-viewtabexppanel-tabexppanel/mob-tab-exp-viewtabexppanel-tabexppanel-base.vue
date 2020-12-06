@@ -64,8 +64,7 @@ import  ProductTestMobCounterCounterService  from '@/app-core/counter/product-te
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobTabExpViewtabexppanelBase extends Vue implements ControlInterface {
 
@@ -186,7 +185,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
     
     /**
      * ProductTestMobCounterCounterService计数器服务对象

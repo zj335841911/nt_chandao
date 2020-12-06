@@ -76,6 +76,11 @@ export default class ReviewModel {
         dataType: 'NSCODELIST',
       },
       {
+        name: 'storypoints',
+        prop: 'storypoints',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'estimate',
         prop: 'estimate',
         dataType: 'FLOAT',

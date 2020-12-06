@@ -75,6 +75,12 @@ export default class RootDoclibProjectTreeVeiwModel {
       {
         name: 'root',
       },
+      {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
     ]
   }
 

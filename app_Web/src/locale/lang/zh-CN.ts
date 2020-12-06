@@ -1,8 +1,10 @@
 import { Util } from '@/utils/util/util';
 import zhCNUser from '../user/zh-CN.user';
 import productplan_zh_CN from '@locale/lanres/entities/product-plan/product-plan_zh_CN';
+import ibzreportroleconfig_zh_CN from '@locale/lanres/entities/ibz-report-role-config/ibz-report-role-config_zh_CN';
 import projectproduct_zh_CN from '@locale/lanres/entities/project-product/project-product_zh_CN';
 import case_zh_CN from '@locale/lanres/entities/case/case_zh_CN';
+import sysuser_zh_CN from '@locale/lanres/entities/sys-user/sys-user_zh_CN';
 import ibztaskteam_zh_CN from '@locale/lanres/entities/ibztask-team/ibztask-team_zh_CN';
 import product_zh_CN from '@locale/lanres/entities/product/product_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/entities/task-team/task-team_zh_CN';
@@ -11,12 +13,14 @@ import ibzprostorymodule_zh_CN from '@locale/lanres/entities/ibzpro-story-module
 import productsum_zh_CN from '@locale/lanres/entities/product-sum/product-sum_zh_CN';
 import ibzlibcasesteps_zh_CN from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_zh_CN';
 import ibzlib_zh_CN from '@locale/lanres/entities/ibz-lib/ibz-lib_zh_CN';
+import ibzdaily_zh_CN from '@locale/lanres/entities/ibz-daily/ibz-daily_zh_CN';
 import suitecase_zh_CN from '@locale/lanres/entities/suite-case/suite-case_zh_CN';
 import burn_zh_CN from '@locale/lanres/entities/burn/burn_zh_CN';
 import substory_zh_CN from '@locale/lanres/entities/sub-story/sub-story_zh_CN';
 import subproductplan_zh_CN from '@locale/lanres/entities/sub-product-plan/sub-product-plan_zh_CN';
 import employeeload_zh_CN from '@locale/lanres/entities/emp-loyeeload/emp-loyeeload_zh_CN';
 import doccontent_zh_CN from '@locale/lanres/entities/doc-content/doc-content_zh_CN';
+import ibzreport_zh_CN from '@locale/lanres/entities/ibz-report/ibz-report_zh_CN';
 import storyspec_zh_CN from '@locale/lanres/entities/story-spec/story-spec_zh_CN';
 import usertpl_zh_CN from '@locale/lanres/entities/user-tpl/user-tpl_zh_CN';
 import taskstats_zh_CN from '@locale/lanres/entities/task-stats/task-stats_zh_CN';
@@ -49,10 +53,12 @@ import doclib_zh_CN from '@locale/lanres/entities/doc-lib/doc-lib_zh_CN';
 import productmodule_zh_CN from '@locale/lanres/entities/product-module/product-module_zh_CN';
 import module_zh_CN from '@locale/lanres/entities/module/module_zh_CN';
 import testmodule_zh_CN from '@locale/lanres/entities/test-module/test-module_zh_CN';
+import sysuserrole_zh_CN from '@locale/lanres/entities/sys-user-role/sys-user-role_zh_CN';
 import ibizprokeyword_zh_CN from '@locale/lanres/entities/ibizpro-keyword/ibizpro-keyword_zh_CN';
 import doclibmodule_zh_CN from '@locale/lanres/entities/doc-lib-module/doc-lib-module_zh_CN';
 import productlife_zh_CN from '@locale/lanres/entities/product-life/product-life_zh_CN';
 import usercontact_zh_CN from '@locale/lanres/entities/user-contact/user-contact_zh_CN';
+import sysrole_zh_CN from '@locale/lanres/entities/sys-role/sys-role_zh_CN';
 import task_zh_CN from '@locale/lanres/entities/task/task_zh_CN';
 import build_zh_CN from '@locale/lanres/entities/build/build_zh_CN';
 import testresult_zh_CN from '@locale/lanres/entities/test-result/test-result_zh_CN';
@@ -66,10 +72,12 @@ import pssyssfpub_zh_CN from '@locale/lanres/entities/pssys-sfpub/pssys-sfpub_zh
 import testreport_zh_CN from '@locale/lanres/entities/test-report/test-report_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/entities/project-stats/project-stats_zh_CN';
 import testrun_zh_CN from '@locale/lanres/entities/test-run/test-run_zh_CN';
+import ibzmonthly_zh_CN from '@locale/lanres/entities/ibz-monthly/ibz-monthly_zh_CN';
 import ibzmyterritory_zh_CN from '@locale/lanres/entities/ibz-my-territory/ibz-my-territory_zh_CN';
 import sysupdatelog_zh_CN from '@locale/lanres/entities/sys-update-log/sys-update-log_zh_CN';
 import doc_zh_CN from '@locale/lanres/entities/doc/doc_zh_CN';
 import bug_zh_CN from '@locale/lanres/entities/bug/bug_zh_CN';
+import ibzweekly_zh_CN from '@locale/lanres/entities/ibzweekly/ibzweekly_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/entities/project-module/project-module_zh_CN';
 import ibzdoc_zh_CN from '@locale/lanres/entities/ibz-doc/ibz-doc_zh_CN';
 import pssysapp_zh_CN from '@locale/lanres/entities/pssys-app/pssys-app_zh_CN';
@@ -85,6 +93,11 @@ import userCustom_zh_CN from '@locale/lanres/userCustom/userCustom_zh_CN';
 
 const data: any = {
     app: {
+        directoryTree:{
+            loading: "数据加载中",
+            placeholder: "文件名",
+            noData: "暂无数据"
+        },
         commonWords:{
             error: "失败",
             success: "成功",
@@ -228,6 +241,7 @@ const data: any = {
                 menuitem7: "iBiz软件生产管理",
                 menuitem8: "更新日志",
                 menuitem17: "插件管理",
+                menuitem19: "汇报角色角色",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
                 menuitem5: "项目",
@@ -340,8 +354,10 @@ const data: any = {
     },
     entities: {
         productplan: productplan_zh_CN,
+        ibzreportroleconfig: ibzreportroleconfig_zh_CN,
         projectproduct: projectproduct_zh_CN,
         case: case_zh_CN,
+        sysuser: sysuser_zh_CN,
         ibztaskteam: ibztaskteam_zh_CN,
         product: product_zh_CN,
         taskteam: taskteam_zh_CN,
@@ -350,12 +366,14 @@ const data: any = {
         productsum: productsum_zh_CN,
         ibzlibcasesteps: ibzlibcasesteps_zh_CN,
         ibzlib: ibzlib_zh_CN,
+        ibzdaily: ibzdaily_zh_CN,
         suitecase: suitecase_zh_CN,
         burn: burn_zh_CN,
         substory: substory_zh_CN,
         subproductplan: subproductplan_zh_CN,
         employeeload: employeeload_zh_CN,
         doccontent: doccontent_zh_CN,
+        ibzreport: ibzreport_zh_CN,
         storyspec: storyspec_zh_CN,
         usertpl: usertpl_zh_CN,
         taskstats: taskstats_zh_CN,
@@ -388,10 +406,12 @@ const data: any = {
         productmodule: productmodule_zh_CN,
         module: module_zh_CN,
         testmodule: testmodule_zh_CN,
+        sysuserrole: sysuserrole_zh_CN,
         ibizprokeyword: ibizprokeyword_zh_CN,
         doclibmodule: doclibmodule_zh_CN,
         productlife: productlife_zh_CN,
         usercontact: usercontact_zh_CN,
+        sysrole: sysrole_zh_CN,
         task: task_zh_CN,
         build: build_zh_CN,
         testresult: testresult_zh_CN,
@@ -405,10 +425,12 @@ const data: any = {
         testreport: testreport_zh_CN,
         projectstats: projectstats_zh_CN,
         testrun: testrun_zh_CN,
+        ibzmonthly: ibzmonthly_zh_CN,
         ibzmyterritory: ibzmyterritory_zh_CN,
         sysupdatelog: sysupdatelog_zh_CN,
         doc: doc_zh_CN,
         bug: bug_zh_CN,
+        ibzweekly: ibzweekly_zh_CN,
         projectmodule: projectmodule_zh_CN,
         ibzdoc: ibzdoc_zh_CN,
         pssysapp: pssysapp_zh_CN,

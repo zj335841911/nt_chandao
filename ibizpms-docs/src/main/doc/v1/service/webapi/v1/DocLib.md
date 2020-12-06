@@ -474,6 +474,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[DocLibDTO](#DocLibDTO)>：文档库实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取我的收藏
+#### 访问路径
+/doclibs/fetchmyfavourites
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocLibSearchContext](#DocLibSearchContext) | 文档库查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[DocLibDTO](#DocLibDTO)>：文档库实体传输对象列表 |
+
+### 查询我的收藏
+#### 访问路径
+/doclibs/searchmyfavourites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocLibSearchContext](#DocLibSearchContext) | 文档库查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[DocLibDTO](#DocLibDTO)>：文档库实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取根目录
 #### 访问路径
 /doclibs/fetchrootmodulemulu
@@ -535,7 +571,9 @@ POST
 | 18 | orgid | String | 允许 | 组织标识 |
 | 19 | mdeptid | String | 允许 | 部门标识 |
 | 20 | root | String | 允许 | Root |
-| 21 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 21 | modulecnt | Integer | 允许 | 文件夹数 |
+| 22 | openeddate | Timestamp | 允许 | 创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DocLibSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

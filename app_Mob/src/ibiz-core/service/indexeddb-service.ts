@@ -27,7 +27,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
         if (IndexedDBService.instance) {
             return IndexedDBService.instance;
         }
-        super('Nov 26, 2020');
+        super('Dec 6, 2020');
     }
 
     /**
@@ -42,6 +42,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
         this.entityConfigs.push({ name: 'sysorganization', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'file', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'user', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'ibzdaily', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'ibzfavorites', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'projectteam', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'build', keyPath: 'srfsessionkey' });
@@ -50,8 +51,10 @@ export class IndexedDBService extends IndexedDBServiceBase {
         this.entityConfigs.push({ name: 'ibzdoc', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'systeammember', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'module', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'ibzweekly', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'product', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'dynadashboard', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'ibzmonthly', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'storyspec', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'action', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'casestep', keyPath: 'srfsessionkey' });
@@ -70,6 +73,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
         this.entityConfigs.push({ name: 'doclibmodule', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'sysupdatefeatures', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'doccontent', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'ibzreport', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'productplan', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'ibztaskestimate', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'projectstats', keyPath: 'srfsessionkey' });

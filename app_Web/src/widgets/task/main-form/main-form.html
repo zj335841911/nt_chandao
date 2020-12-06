@@ -391,8 +391,8 @@
     :style="{}"
     
     
-    :lg="{ span: 14, offset: 0 }"
-    :xl="{ span: 14, offset: 0 }"
+    :lg="{ span: 15, offset: 0 }"
+    :xl="{ span: 15, offset: 0 }"
 >
     <app-form-item
     name="name"
@@ -407,56 +407,17 @@
     :isEmptyCaption="false"
     labelPos="LEFT"
 >
-    <input-box 
+    <app-color-picker
     v-model="data.name"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.name.disabled" 
-    type='text' 
-    style="">
-</input-box>
-
-</app-form-item>
-
-</i-col>
-<i-col
-    class="form-layout-container"
-    v-show="detailsModel.color.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 2, offset: 0 }"
->
-    <app-form-item
-    name="color"
-    :itemRules="this.rules().color"
-    class=""
-
-    :caption="$t('entities.task.main_form.details.color')"
-    uiStyle="DEFAULT"
-    :labelWidth="5"
-    :isShowCaption="true"
-    :error="detailsModel.color.error"
-    :isEmptyCaption="true"
-    labelPos="LEFT"
->
-    
-<dropdown-list 
-    v-model="data.color"
+    @enter="onEnter($event)"
     :data="data"
-    :context="context"
+    :disabled="detailsModel.name.disabled"
     :formState="formState"
-    :viewparams="viewparams"
-    :localContext='{ }' 
-    :localParam='{ }' 
-    :disabled="detailsModel.color.disabled"
-    valueType="string"
-    tag="Task__color"
-    codelistType="STATIC"
-    placeholder="请选择..."
+    color="color"
+    style=""
+    @colorChange="(val) => {onFormItemValueChange(val)}">
+</app-color-picker>
 
-></dropdown-list>
 </app-form-item>
 
 </i-col>
@@ -507,8 +468,8 @@
     :style="{}"
     
     
-    :lg="{ span: 4, offset: 0 }"
-    :xl="{ span: 4, offset: 0 }"
+    :lg="{ span: 5, offset: 0 }"
+    :xl="{ span: 5, offset: 0 }"
 >
     <app-form-item
     name="estimate"

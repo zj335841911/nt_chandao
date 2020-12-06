@@ -168,9 +168,9 @@ export default class AppFileUpload extends Vue {
      */
     @Watch('value')
     onValueChange(newval: any, val: any) {
-        if (this.ignorefieldvaluechange) {
-            return;
-        }
+        // if (this.ignorefieldvaluechange) {
+        //     return;
+        // }
         this.getParams();
         this.setFiles(newval);
         this.dataProcess();

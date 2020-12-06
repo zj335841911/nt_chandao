@@ -311,6 +311,28 @@ public class DocLibResource {
                 .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchMyFavourites-all') and hasPermission(#context,'pms-DocLib-Get')")
+	@ApiOperation(value = "获取我的收藏", tags = {"文档库" } ,notes = "获取我的收藏")
+    @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchmyfavourites")
+	public ResponseEntity<List<DocLibDTO>> fetchMyFavourites(DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchMyFavourites(context) ;
+        List<DocLibDTO> list = doclibMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchMyFavourites-all') and hasPermission(#context,'pms-DocLib-Get')")
+	@ApiOperation(value = "查询我的收藏", tags = {"文档库" } ,notes = "查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/doclibs/searchmyfavourites")
+	public ResponseEntity<Page<DocLibDTO>> searchMyFavourites(@RequestBody DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchMyFavourites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchRootModuleMuLu-all') and hasPermission(#context,'pms-DocLib-Get')")
 	@ApiOperation(value = "获取根目录", tags = {"文档库" } ,notes = "获取根目录")
     @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchrootmodulemulu")

@@ -112,6 +112,7 @@ export default class ProductBranch {
             Object.assign(itemdata,{value:item.id});
             Object.assign(itemdata,{text:item.name});
             Object.assign(itemdata,{label:item.name});
+            Object.assign(itemdata,{icon:''});
             
             _items.push(itemdata);
         });

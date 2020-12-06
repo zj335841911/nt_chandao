@@ -109,7 +109,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     @JsonProperty("taskuserid")
     private String taskuserid;
     /**
-     * 第三方应用待办标识
+     * 第三方应用待办标识
      */
     @TableField(value = "`apptaskid`")
     @JSONField(name = "apptaskid")
@@ -163,7 +163,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [第三方应用待办标识]
+     * 设置 [第三方应用待办标识]
      */
     public void setApptaskid(String apptaskid) {
         this.apptaskid = apptaskid;

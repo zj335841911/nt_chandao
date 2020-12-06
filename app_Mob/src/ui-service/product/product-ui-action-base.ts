@@ -185,7 +185,7 @@ export default class ProductUIActionBase extends EntityUIActionBase {
      * @memberof ProductUIService
      */
     public async Product_CancelProductTop(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { product: '%product%' });
         Object.assign(paramJO, { id: '%product%' });
@@ -207,6 +207,9 @@ export default class ProductUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('product');
@@ -243,7 +246,7 @@ export default class ProductUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { product: '%product%' });
         Object.assign(paramJO, { id: '%product%' });
@@ -265,6 +268,9 @@ export default class ProductUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
               container.closeView(null);
         const backend = async () => {
@@ -347,7 +353,7 @@ export default class ProductUIActionBase extends EntityUIActionBase {
      * @memberof ProductUIService
      */
     public async Product_ProductTop(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { product: '%product%' });
         Object.assign(paramJO, { id: '%product%' });
@@ -369,6 +375,9 @@ export default class ProductUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('product');

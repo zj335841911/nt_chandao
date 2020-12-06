@@ -533,4 +533,12 @@ export interface SubStory {
      * @memberof SubStory
      */
     ibiz_sourcename?: any;
+
+    /**
+     * 故事点
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    storypoints?: any;
 }

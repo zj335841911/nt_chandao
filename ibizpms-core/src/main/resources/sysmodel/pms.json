@@ -9,6 +9,8 @@
     "table_name":"zt_action",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"EXTRA" ,
@@ -374,6 +376,8 @@
     "table_name":"zt_block",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"HEIGHT" ,
@@ -545,6 +549,8 @@
     "table_name":"zt_branch",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"NAME" ,
@@ -695,6 +701,8 @@
     "table_name":"zt_bug",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"SEVERITY" ,
@@ -2001,6 +2009,8 @@
     "table_name":"zt_bug",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -2391,6 +2401,8 @@
     "table_name":"zt_build",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"NAME" ,
@@ -2793,6 +2805,8 @@
     "table_name":"zt_burn",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"DATE" ,
@@ -2950,6 +2964,8 @@
     "table_name":"zt_case",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"LASTEDITEDDATE" ,
@@ -3940,6 +3956,8 @@
     "table_name":"zt_casestep",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"TYPE" ,
@@ -4155,6 +4173,8 @@
     "table_name":"zt_company",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ADMINS" ,
@@ -4325,6 +4345,8 @@
     "table_name":"zt_compile",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"QUEUE" ,
@@ -4524,6 +4546,8 @@
     "table_name":"zt_config",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -4622,6 +4646,8 @@
     "table_name":"zt_cron",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -4802,6 +4828,8 @@
     "table_name":"zt_dept",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"MANAGER" ,
@@ -4989,6 +5017,8 @@
     "table_name":"zt_doc",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"GROUPS" ,
@@ -5495,6 +5525,19 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"DOCCNT" ,
+    "codename":"Doccnt",
+    "field_logic_name":"文档数",
+    "entity_name":"Doc",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -5540,6 +5583,8 @@
     "table_name":"zt_doccontent",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"FILES" ,
@@ -5677,6 +5722,8 @@
     "table_name":"zt_doclib",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"TYPE" ,
@@ -5980,6 +6027,34 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"MODULECNT" ,
+    "codename":"Modulecnt",
+    "field_logic_name":"文件夹数",
+    "entity_name":"DocLib",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id)",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"OPENEDDATE" ,
+    "codename":"OpenedDate",
+    "field_logic_name":"创建时间",
+    "entity_name":"DocLib",
+    "field_type":"DATETIME",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"DATETIME",
+    "expression":"(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created')",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -6019,6 +6094,8 @@
     "table_name":"zt_module",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ISLEAF" ,
@@ -6288,6 +6365,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"DOCCNT" ,
+    "codename":"Doccnt",
+    "field_logic_name":"文档数",
+    "entity_name":"DocLibModule",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id)",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -6321,6 +6412,8 @@
     "table_name":"T_DYNADASHBOARD",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"DYNADASHBOARDID" ,
@@ -6482,6 +6575,8 @@
     "table_name":"zt_effort",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"USER" ,
@@ -6649,6 +6744,8 @@
     "table_name":"ZT_TASK",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -6888,6 +6985,8 @@
     "table_name":"zt_entry",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"DELETED" ,
@@ -7103,6 +7202,8 @@
     "table_name":"zt_extension",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"DIRS" ,
@@ -7326,6 +7427,8 @@
     "table_name":"zt_file",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"PATHNAME" ,
@@ -7505,7 +7608,7 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":200,
-    "expression":"CONCAT_WS('',ROUND(t1.size/1024, 1),'k')",
+    "expression":"CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end)",
     "key_field":0,
     "show_order":1000,
     "major_field":0
@@ -7544,6 +7647,8 @@
     "table_name":"zt_group",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ACL" ,
@@ -7629,6 +7734,8 @@
     "table_name":"zt_grouppriv",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"GROUP" ,
@@ -7700,6 +7807,8 @@
     "table_name":"zt_history",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"DIFF" ,
@@ -7808,6 +7917,8 @@
     "table_name":"T_IBIZPRO_KEYWORD",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizplugin",
+    "module_name":"iBiz插件模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -7837,6 +7948,8 @@
     "table_name":"T_IBIZPRO_MESSAGE",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizplugin",
+    "module_name":"iBiz插件模块",
     "fields":[
     {
     "fieldname":"RETRYTIMES" ,
@@ -8130,6 +8243,8 @@
     "table_name":"T_IBIZPRO_PLUGIN",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizplugin",
+    "module_name":"iBiz插件模块",
     "fields":[
     {
     "fieldname":"TYPE" ,
@@ -8346,6 +8461,8 @@
     "table_name":"T_IBIZPRO_TAG",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizplugin",
+    "module_name":"iBiz插件模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -8375,6 +8492,8 @@
     "table_name":"zt_product",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizpro",
+    "module_name":"iBizPro模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -8458,6 +8577,8 @@
     "table_name":"zt_story",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizpro",
+    "module_name":"iBizPro模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -9099,6 +9220,8 @@
     "table_name":"zt_module",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizpro",
+    "module_name":"iBizPro模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -9349,6 +9472,8 @@
     "table_name":"T_IBZPRO_SYSTPL",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizpro",
+    "module_name":"iBizPro模块",
     "fields":[
     {
     "fieldname":"IBZPRO_SYSTPLID" ,
@@ -9536,6 +9661,8 @@
     "table_name":"T_IBZPRO_SYSTEM",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizpro",
+    "module_name":"iBizPro模块",
     "fields":[
     {
     "fieldname":"IBZPRO_SYSTEMID" ,
@@ -9641,6 +9768,8 @@
     "table_name":"T_IBZ_DOC",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"IBZ_DOCID" ,
@@ -9873,6 +10002,8 @@
     "table_name":"zt_user",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"REALNAME" ,
@@ -9958,6 +10089,8 @@
     "table_name":"zt_case",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ORDER" ,
@@ -10384,12 +10517,368 @@
  }
     ,
     {
+    "entity_name":"IBZ_DAILY",
+    "logic_name":"日报",
+    "code_name":"IbzDaily",
+    "table_name":"T_IBZ_DAILY",
+    "system_id":"pms",
+    "system_name":"pms",
+    "module_id":"report",
+    "module_name":"汇报模块",
+    "fields":[
+    {
+    "fieldname":"CREATEMAN" ,
+    "codename":"CreateMan",
+    "field_logic_name":"建立人",
+    "entity_name":"IbzDaily",
+    "field_type":"TEXT",
+    "dict":"SysOperator",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"CREATEMAN",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"IBZ_DAILYID" ,
+    "codename":"IbzDailyId",
+    "field_logic_name":"日报标识",
+    "entity_name":"IbzDaily",
+    "field_type":"ACID",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":100,
+    "key_field":1,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"IBZ_DAILYNAME" ,
+    "codename":"IbzDailyName",
+    "field_logic_name":"日报名称",
+    "entity_name":"IbzDaily",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":1
+    },
+    {
+    "fieldname":"UPDATEDATE" ,
+    "codename":"UpdateDate",
+    "field_logic_name":"更新时间",
+    "entity_name":"IbzDaily",
+    "field_type":"DATETIME",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "data_length":8,
+    "predefined":"UPDATEDATE",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEDATE" ,
+    "codename":"CreateDate",
+    "field_logic_name":"建立时间",
+    "entity_name":"IbzDaily",
+    "field_type":"DATETIME",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "data_length":8,
+    "predefined":"CREATEDATE",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEMAN" ,
+    "codename":"UpdateMan",
+    "field_logic_name":"更新人",
+    "entity_name":"IbzDaily",
+    "field_type":"TEXT",
+    "dict":"SysOperator",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"UPDATEMAN",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"DATE" ,
+    "codename":"Date",
+    "field_logic_name":"日期",
+    "entity_name":"IbzDaily",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ACCOUNT" ,
+    "codename":"Account",
+    "field_logic_name":"用户",
+    "entity_name":"IbzDaily",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"WORKTODAY" ,
+    "codename":"Worktoday",
+    "field_logic_name":"今日工作",
+    "entity_name":"IbzDaily",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"MAILTO" ,
+    "codename":"Mailto",
+    "field_logic_name":"抄送给",
+    "entity_name":"IbzDaily",
+    "field_type":"SMCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":2000,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"FILES" ,
+    "codename":"Files",
+    "field_logic_name":"附件",
+    "entity_name":"IbzDaily",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TODAYTASK" ,
+    "codename":"Todaytask",
+    "field_logic_name":"完成任务",
+    "entity_name":"IbzDaily",
+    "field_type":"SMCODELIST",
+    "dict":"MyCompleteTask",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":2000,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ISSUBMIT" ,
+    "codename":"Issubmit",
+    "field_logic_name":"是否提交",
+    "entity_name":"IbzDaily",
+    "field_type":"SSCODELIST",
+    "dict":"YesNo",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"PLANSTOMORROW" ,
+    "codename":"Planstomorrow",
+    "field_logic_name":"明日计划",
+    "entity_name":"IbzDaily",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TOMORROWPLANSTASK" ,
+    "codename":"Tomorrowplanstask",
+    "field_logic_name":"明日计划任务",
+    "entity_name":"IbzDaily",
+    "field_type":"SMCODELIST",
+    "dict":"MyPlanTask",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":2000,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"REPORTTO" ,
+    "codename":"Reportto",
+    "field_logic_name":"汇报给",
+    "entity_name":"IbzDaily",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"COMMENT" ,
+    "codename":"Comment",
+    "field_logic_name":"其他事项",
+    "entity_name":"IbzDaily",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEMANNAME" ,
+    "codename":"CreateManName",
+    "field_logic_name":"建立人名称",
+    "entity_name":"IbzDaily",
+    "field_type":"TEXT",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"CREATEMANNAME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEMANNAME" ,
+    "codename":"UpdateManName",
+    "field_logic_name":"更新人名称",
+    "entity_name":"IbzDaily",
+    "field_type":"TEXT",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"UPDATEMANNAME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"REPORTSTATUS" ,
+    "codename":"Reportstatus",
+    "field_logic_name":"状态",
+    "entity_name":"IbzDaily",
+    "field_type":"SSCODELIST",
+    "dict":"ReportStatus",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"SUBMITTIME" ,
+    "codename":"Submittime",
+    "field_logic_name":"提交时间",
+    "entity_name":"IbzDaily",
+    "field_type":"TIME",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"REPORTTOPK" ,
+    "codename":"Reporttopk",
+    "field_logic_name":"汇报给（选择）",
+    "entity_name":"IbzDaily",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"t1.REPORTTO",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"MAILTOPK" ,
+    "codename":"Mailtopk",
+    "field_logic_name":"抄送给（选择）",
+    "entity_name":"IbzDaily",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"t1.MAILTO",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    ]
+ }
+    ,
+    {
     "entity_name":"IBZ_FAVORITES",
     "logic_name":"收藏",
     "code_name":"IbzFavorites",
     "table_name":"T_IBZ_FAVORITES",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"CREATEMAN" ,
@@ -10537,6 +11026,8 @@
     "table_name":"zt_testsuite",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"DESC" ,
@@ -10710,6 +11201,8 @@
     "table_name":"ZT_CASESTEP",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -10810,6 +11303,8 @@
     "table_name":"zt_casestep",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"VERSION" ,
@@ -10982,6 +11477,8 @@
     "table_name":"zt_module",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"BRANCH" ,
@@ -11237,12 +11734,368 @@
  }
     ,
     {
+    "entity_name":"IBZ_MONTHLY",
+    "logic_name":"月报",
+    "code_name":"IbzMonthly",
+    "table_name":"T_IBZ_MONTHLY",
+    "system_id":"pms",
+    "system_name":"pms",
+    "module_id":"report",
+    "module_name":"汇报模块",
+    "fields":[
+    {
+    "fieldname":"IBZ_MONTHLYID" ,
+    "codename":"IbzMonthlyId",
+    "field_logic_name":"月报标识",
+    "entity_name":"IbzMonthly",
+    "field_type":"ACID",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":100,
+    "key_field":1,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEMAN" ,
+    "codename":"CreateMan",
+    "field_logic_name":"建立人",
+    "entity_name":"IbzMonthly",
+    "field_type":"TEXT",
+    "dict":"SysOperator",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"CREATEMAN",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEMAN" ,
+    "codename":"UpdateMan",
+    "field_logic_name":"更新人",
+    "entity_name":"IbzMonthly",
+    "field_type":"TEXT",
+    "dict":"SysOperator",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"UPDATEMAN",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEDATE" ,
+    "codename":"CreateDate",
+    "field_logic_name":"建立时间",
+    "entity_name":"IbzMonthly",
+    "field_type":"DATETIME",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "data_length":8,
+    "predefined":"CREATEDATE",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"IBZ_MONTHLYNAME" ,
+    "codename":"IbzMonthlyName",
+    "field_logic_name":"月报名称",
+    "entity_name":"IbzMonthly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":1
+    },
+    {
+    "fieldname":"UPDATEDATE" ,
+    "codename":"UpdateDate",
+    "field_logic_name":"更新时间",
+    "entity_name":"IbzMonthly",
+    "field_type":"DATETIME",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "data_length":8,
+    "predefined":"UPDATEDATE",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"DATE" ,
+    "codename":"Date",
+    "field_logic_name":"日期",
+    "entity_name":"IbzMonthly",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ACCOUNT" ,
+    "codename":"Account",
+    "field_logic_name":"用户",
+    "entity_name":"IbzMonthly",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"WORKTHISMONTH" ,
+    "codename":"Workthismonth",
+    "field_logic_name":"本月工作",
+    "entity_name":"IbzMonthly",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"PLANSNEXTMONTH" ,
+    "codename":"Plansnextmonth",
+    "field_logic_name":"下月计划",
+    "entity_name":"IbzMonthly",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"REPORTTO" ,
+    "codename":"Reportto",
+    "field_logic_name":"汇报给",
+    "entity_name":"IbzMonthly",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"MAILTO" ,
+    "codename":"Mailto",
+    "field_logic_name":"抄送给",
+    "entity_name":"IbzMonthly",
+    "field_type":"SMCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":2000,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"COMMENT" ,
+    "codename":"Comment",
+    "field_logic_name":"其他事项",
+    "entity_name":"IbzMonthly",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"THISMONTHTASK" ,
+    "codename":"Thismonthtask",
+    "field_logic_name":"本月完成任务",
+    "entity_name":"IbzMonthly",
+    "field_type":"SMCODELIST",
+    "dict":"MyCompleteTask",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":2000,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"NEXTMONTHPLANSTASK" ,
+    "codename":"Nextmonthplanstask",
+    "field_logic_name":"下月计划任务",
+    "entity_name":"IbzMonthly",
+    "field_type":"SMCODELIST",
+    "dict":"MyPlanTask",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":2000,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"FILES" ,
+    "codename":"Files",
+    "field_logic_name":"附件",
+    "entity_name":"IbzMonthly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ISSUBMIT" ,
+    "codename":"Issubmit",
+    "field_logic_name":"是否提交",
+    "entity_name":"IbzMonthly",
+    "field_type":"SSCODELIST",
+    "dict":"YesNo",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEMANNAME" ,
+    "codename":"UpdateManName",
+    "field_logic_name":"更新人名称",
+    "entity_name":"IbzMonthly",
+    "field_type":"TEXT",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"UPDATEMANNAME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"REPORTSTATUS" ,
+    "codename":"Reportstatus",
+    "field_logic_name":"状态",
+    "entity_name":"IbzMonthly",
+    "field_type":"SSCODELIST",
+    "dict":"ReportStatus",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEMANNAME" ,
+    "codename":"CreateManName",
+    "field_logic_name":"建立人名称",
+    "entity_name":"IbzMonthly",
+    "field_type":"TEXT",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"CREATEMANNAME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"SUBMITTIME" ,
+    "codename":"Submittime",
+    "field_logic_name":"提交时间",
+    "entity_name":"IbzMonthly",
+    "field_type":"TIME",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"REPORTTOPK" ,
+    "codename":"Reporttopk",
+    "field_logic_name":"汇报给（选择）",
+    "entity_name":"IbzMonthly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"t1.REPORTTO",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"MAILTOPK" ,
+    "codename":"Mailtopk",
+    "field_logic_name":"抄送给（选择）",
+    "entity_name":"IbzMonthly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"t1.MAILTO",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    ]
+ }
+    ,
+    {
     "entity_name":"IBZ_MYTERRITORY",
     "logic_name":"我的地盘",
     "code_name":"IbzMyTerritory",
     "table_name":"zt_user",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"FAILS" ,
@@ -11913,6 +12766,8 @@
     "table_name":"zt_project",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -12101,6 +12956,525 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"TEAMEMBERS" ,
+    "codename":"Teamembers",
+    "field_logic_name":"全部成员",
+    "entity_name":"IbzProjectMember",
+    "field_type":"SMCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"(select GROUP_CONCAT(t.account order by t.`order` asc) from zt_team t where t.type = 'project' and t.root = t1.id GROUP BY t.root)",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    ]
+ }
+    ,
+    {
+    "entity_name":"IBZ_REPORT",
+    "logic_name":"汇报",
+    "code_name":"IbzReport",
+    "table_name":"t_ibz_daily",
+    "system_id":"pms",
+    "system_name":"pms",
+    "module_id":"report",
+    "module_name":"汇报模块",
+    "fields":[
+    {
+    "fieldname":"UPDATEDATE" ,
+    "codename":"UpdateDate",
+    "field_logic_name":"更新时间",
+    "entity_name":"IbzReport",
+    "field_type":"DATETIME",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "data_length":8,
+    "predefined":"UPDATEDATE",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"WORKTODAY" ,
+    "codename":"Worktoday",
+    "field_logic_name":"工作",
+    "entity_name":"IbzReport",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TODAYTASK" ,
+    "codename":"Todaytask",
+    "field_logic_name":"完成任务",
+    "entity_name":"IbzReport",
+    "field_type":"SMCODELIST",
+    "dict":"AllTask",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":2000,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TOMORROWPLANSTASK" ,
+    "codename":"Tomorrowplanstask",
+    "field_logic_name":"计划任务",
+    "entity_name":"IbzReport",
+    "field_type":"SMCODELIST",
+    "dict":"AllTask",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":2000,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEMAN" ,
+    "codename":"CreateMan",
+    "field_logic_name":"建立人",
+    "entity_name":"IbzReport",
+    "field_type":"TEXT",
+    "dict":"SysOperator",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"CREATEMAN",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"REPORTTO" ,
+    "codename":"Reportto",
+    "field_logic_name":"汇报给",
+    "entity_name":"IbzReport",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEDATE" ,
+    "codename":"CreateDate",
+    "field_logic_name":"建立时间",
+    "entity_name":"IbzReport",
+    "field_type":"DATETIME",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "data_length":8,
+    "predefined":"CREATEDATE",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"DATE" ,
+    "codename":"Date",
+    "field_logic_name":"日期",
+    "entity_name":"IbzReport",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ISSUBMIT" ,
+    "codename":"Issubmit",
+    "field_logic_name":"是否提交",
+    "entity_name":"IbzReport",
+    "field_type":"SSCODELIST",
+    "dict":"YesNo",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEMANNAME" ,
+    "codename":"UpdateManName",
+    "field_logic_name":"更新人名称",
+    "entity_name":"IbzReport",
+    "field_type":"TEXT",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"UPDATEMANNAME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"FILES" ,
+    "codename":"Files",
+    "field_logic_name":"附件",
+    "entity_name":"IbzReport",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEMAN" ,
+    "codename":"UpdateMan",
+    "field_logic_name":"更新人",
+    "entity_name":"IbzReport",
+    "field_type":"TEXT",
+    "dict":"SysOperator",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"UPDATEMAN",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"REPORTSTATUS" ,
+    "codename":"Reportstatus",
+    "field_logic_name":"状态",
+    "entity_name":"IbzReport",
+    "field_type":"SSCODELIST",
+    "dict":"ReportStatus",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"COMMENT" ,
+    "codename":"Comment",
+    "field_logic_name":"其他事项",
+    "entity_name":"IbzReport",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"MAILTO" ,
+    "codename":"Mailto",
+    "field_logic_name":"抄送给",
+    "entity_name":"IbzReport",
+    "field_type":"SMCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":2000,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"IBZ_DAILYID" ,
+    "codename":"IbzDailyId",
+    "field_logic_name":"汇报标识",
+    "entity_name":"IbzReport",
+    "field_type":"ACID",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":100,
+    "key_field":1,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"PLANSTOMORROW" ,
+    "codename":"Planstomorrow",
+    "field_logic_name":"计划",
+    "entity_name":"IbzReport",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ACCOUNT" ,
+    "codename":"Account",
+    "field_logic_name":"用户",
+    "entity_name":"IbzReport",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEMANNAME" ,
+    "codename":"CreateManName",
+    "field_logic_name":"建立人名称",
+    "entity_name":"IbzReport",
+    "field_type":"TEXT",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"CREATEMANNAME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"IBZ_DAILYNAME" ,
+    "codename":"IbzDailyName",
+    "field_logic_name":"汇报名称",
+    "entity_name":"IbzReport",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":1
+    },
+    {
+    "fieldname":"TYPE" ,
+    "codename":"Type",
+    "field_logic_name":"类型",
+    "entity_name":"IbzReport",
+    "field_type":"SSCODELIST",
+    "dict":"ReportType",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"DAILYCNT" ,
+    "codename":"Dailycnt",
+    "field_logic_name":"未读日报数",
+    "entity_name":"IbzReport",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"MONTHLYCNT" ,
+    "codename":"MonthlyCnt",
+    "field_logic_name":"未读月报数",
+    "entity_name":"IbzReport",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"SUBMITTIME" ,
+    "codename":"Submittime",
+    "field_logic_name":"提交时间",
+    "entity_name":"IbzReport",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    ]
+ }
+    ,
+    {
+    "entity_name":"IBZ_REPORT_ROLE_CONFIG",
+    "logic_name":"汇报角色配置",
+    "code_name":"IbzReportRoleConfig",
+    "table_name":"T_IBZ_REPORT_ROLE_CONFIG",
+    "system_id":"pms",
+    "system_name":"pms",
+    "module_id":"report",
+    "module_name":"汇报模块",
+    "fields":[
+    {
+    "fieldname":"IBZ_REPORT_ROLE_CONFIGNAME" ,
+    "codename":"IbzReportRoleConfigName",
+    "field_logic_name":"汇报角色配置名称",
+    "entity_name":"IbzReportRoleConfig",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":1
+    },
+    {
+    "fieldname":"IBZ_REPORT_ROLE_CONFIGID" ,
+    "codename":"IbzReportRoleConfigId",
+    "field_logic_name":"汇报角色配置标识",
+    "entity_name":"IbzReportRoleConfig",
+    "field_type":"GUID",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":1,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEDATE" ,
+    "codename":"CreateDate",
+    "field_logic_name":"建立时间",
+    "entity_name":"IbzReportRoleConfig",
+    "field_type":"DATETIME",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "data_length":8,
+    "predefined":"CREATEDATE",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEMAN" ,
+    "codename":"CreateMan",
+    "field_logic_name":"建立人",
+    "entity_name":"IbzReportRoleConfig",
+    "field_type":"TEXT",
+    "dict":"SysOperator",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"CREATEMAN",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEMAN" ,
+    "codename":"UpdateMan",
+    "field_logic_name":"更新人",
+    "entity_name":"IbzReportRoleConfig",
+    "field_type":"TEXT",
+    "dict":"SysOperator",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"UPDATEMAN",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEDATE" ,
+    "codename":"UpdateDate",
+    "field_logic_name":"更新时间",
+    "entity_name":"IbzReportRoleConfig",
+    "field_type":"DATETIME",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "data_length":8,
+    "predefined":"UPDATEDATE",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"REPORT_ROLE" ,
+    "codename":"Report_role",
+    "field_logic_name":"角色",
+    "entity_name":"IbzReportRoleConfig",
+    "field_type":"SMCODELIST",
+    "dict":"AllRole",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":2000,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TYPE" ,
+    "codename":"Type",
+    "field_logic_name":"类型",
+    "entity_name":"IbzReportRoleConfig",
+    "field_type":"SSCODELIST",
+    "dict":"ReportType",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -12116,6 +13490,8 @@
     "table_name":"T_IBZ_TOP",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"IBZ_TOPID" ,
@@ -12271,12 +13647,369 @@
  }
     ,
     {
+    "entity_name":"IBZ_WEEKLY",
+    "logic_name":"周报",
+    "code_name":"IbzWeekly",
+    "table_name":"T_IBZ_WEEKLY",
+    "system_id":"pms",
+    "system_name":"pms",
+    "module_id":"report",
+    "module_name":"汇报模块",
+    "fields":[
+    {
+    "fieldname":"IBZ_WEEKLYNAME" ,
+    "codename":"IbzWeeklyName",
+    "field_logic_name":"周报名称",
+    "entity_name":"IbzWeekly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":1
+    },
+    {
+    "fieldname":"IBZ_WEEKLYID" ,
+    "codename":"IbzWeeklyId",
+    "field_logic_name":"周报标识",
+    "entity_name":"IbzWeekly",
+    "field_type":"ACID",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":100,
+    "key_field":1,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEMAN" ,
+    "codename":"CreateMan",
+    "field_logic_name":"建立人",
+    "entity_name":"IbzWeekly",
+    "field_type":"TEXT",
+    "dict":"SysOperator",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"CREATEMAN",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEDATE" ,
+    "codename":"CreateDate",
+    "field_logic_name":"建立时间",
+    "entity_name":"IbzWeekly",
+    "field_type":"DATETIME",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "data_length":8,
+    "predefined":"CREATEDATE",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEMAN" ,
+    "codename":"UpdateMan",
+    "field_logic_name":"更新人",
+    "entity_name":"IbzWeekly",
+    "field_type":"TEXT",
+    "dict":"SysOperator",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"UPDATEMAN",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEDATE" ,
+    "codename":"UpdateDate",
+    "field_logic_name":"更新时间",
+    "entity_name":"IbzWeekly",
+    "field_type":"DATETIME",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "data_length":8,
+    "predefined":"UPDATEDATE",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ACCOUNT" ,
+    "codename":"Account",
+    "field_logic_name":"用户",
+    "entity_name":"IbzWeekly",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"MAILTO" ,
+    "codename":"Mailto",
+    "field_logic_name":"抄送给",
+    "entity_name":"IbzWeekly",
+    "field_type":"SMCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":2000,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"FILES" ,
+    "codename":"Files",
+    "field_logic_name":"附件",
+    "entity_name":"IbzWeekly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ISSUBMIT" ,
+    "codename":"Issubmit",
+    "field_logic_name":"是否提交",
+    "entity_name":"IbzWeekly",
+    "field_type":"SSCODELIST",
+    "dict":"YesNo",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"REPORTTO" ,
+    "codename":"Reportto",
+    "field_logic_name":"汇报给",
+    "entity_name":"IbzWeekly",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"COMMENT" ,
+    "codename":"Comment",
+    "field_logic_name":"其他事项",
+    "entity_name":"IbzWeekly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"DATE" ,
+    "codename":"Date",
+    "field_logic_name":"日期",
+    "entity_name":"IbzWeekly",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"WORKTHISWEEK" ,
+    "codename":"Workthisweek",
+    "field_logic_name":"本周工作",
+    "entity_name":"IbzWeekly",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"PLANNEXTWEEK" ,
+    "codename":"Plannextweek",
+    "field_logic_name":"下周计划",
+    "entity_name":"IbzWeekly",
+    "field_type":"SMCODELIST",
+    "dict":"MyPlanTask",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":4000,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"THISWEEKTASK" ,
+    "codename":"Thisweektask",
+    "field_logic_name":"本周完成任务",
+    "entity_name":"IbzWeekly",
+    "field_type":"SMCODELIST",
+    "dict":"MyCompleteTask",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"NEXTWEEKTASK" ,
+    "codename":"Nextweektask",
+    "field_logic_name":"下周计划任务",
+    "entity_name":"IbzWeekly",
+    "field_type":"SMCODELIST",
+    "dict":"MyPlanTask",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEMANNAME" ,
+    "codename":"UpdateManName",
+    "field_logic_name":"更新人名称",
+    "entity_name":"IbzWeekly",
+    "field_type":"TEXT",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"UPDATEMANNAME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEMANNAME" ,
+    "codename":"CreateManName",
+    "field_logic_name":"建立人名称",
+    "entity_name":"IbzWeekly",
+    "field_type":"TEXT",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"CREATEMANNAME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"REPORTSTATUS" ,
+    "codename":"Reportstatus",
+    "field_logic_name":"状态",
+    "entity_name":"IbzWeekly",
+    "field_type":"SSCODELIST",
+    "dict":"ReportStatus",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"SUBMITTIME" ,
+    "codename":"Submittime",
+    "field_logic_name":"提交时间",
+    "entity_name":"IbzWeekly",
+    "field_type":"TIME",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"REPORTTOPK" ,
+    "codename":"Reporttopk",
+    "field_logic_name":"汇报给(选择)",
+    "entity_name":"IbzWeekly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"t1.reportto",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"MAILTOPK" ,
+    "codename":"Mailtopk",
+    "field_logic_name":"抄送给(选择)",
+    "entity_name":"IbzWeekly",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"t1.mailto",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    ]
+ }
+    ,
+    {
     "entity_name":"ZT_IM_CHAT",
     "logic_name":"ImChat",
     "code_name":"ImChat",
     "table_name":"zt_im_chat",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ADMINS" ,
@@ -12483,6 +14216,8 @@
     "table_name":"zt_im_chatuser",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -12651,6 +14386,8 @@
     "table_name":"zt_im_client",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"EDITEDDATE" ,
@@ -12818,6 +14555,8 @@
     "table_name":"zt_im_conference",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"STATUS" ,
@@ -12929,6 +14668,8 @@
     "table_name":"zt_im_conferenceaction",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"RID" ,
@@ -13012,6 +14753,8 @@
     "table_name":"zt_im_message",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"USER" ,
@@ -13181,6 +14924,8 @@
     "table_name":"zt_im_messagestatus",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"MESSAGE" ,
@@ -13252,6 +14997,8 @@
     "table_name":"zt_im_queue",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"PROCESSDATE" ,
@@ -13362,6 +15109,8 @@
     "table_name":"zt_jenkins",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"NAME" ,
@@ -13529,6 +15278,8 @@
     "table_name":"zt_job",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"DELETED" ,
@@ -13824,6 +15575,8 @@
     "table_name":"zt_lang",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"MODULE" ,
@@ -13937,6 +15690,8 @@
     "table_name":"zt_log",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"URL" ,
@@ -14074,6 +15829,8 @@
     "table_name":"zt_module",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ROOT" ,
@@ -14382,6 +16139,8 @@
     "table_name":"zt_notify",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"CREATEDDATE" ,
@@ -14574,6 +16333,8 @@
     "table_name":"T_PSDEFIELD",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSDEFIELDID" ,
@@ -15918,6 +17679,8 @@
     "table_name":"T_PSDATAENTITY",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSDATAENTITYNAME" ,
@@ -17276,6 +19039,8 @@
     "table_name":"T_PSMODULE",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSMODULENAME" ,
@@ -17753,6 +19518,8 @@
     "table_name":"T_PSSUBSYSSADE",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSUBSYSSADEID" ,
@@ -18101,6 +19868,8 @@
     "table_name":"T_PSSUBSYSSERVICEAPI",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSUBSYSSERVICEAPINAME" ,
@@ -18330,6 +20099,8 @@
     "table_name":"T_PSSYSAPP",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSYSAPPID" ,
@@ -19225,6 +20996,8 @@
     "table_name":"T_PSSYSREQITEM",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSYSREQITEMID" ,
@@ -19691,6 +21464,8 @@
     "table_name":"T_PSSYSREQMODULE",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSYSREQMODULENAME" ,
@@ -20116,6 +21891,8 @@
     "table_name":"T_PSSYSRUNSESSION",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSYSRUNSESSIONNAME" ,
@@ -20677,6 +22454,8 @@
     "table_name":"T_PSSYSSFPUB",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSYSSFPUBNAME" ,
@@ -21221,6 +23000,8 @@
     "table_name":"T_PSSYSSERVICEAPI",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSYSSERVICEAPIID" ,
@@ -21901,6 +23682,8 @@
     "table_name":"T_PSSYSTEMDBCFG",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibizsysmodel",
+    "module_name":"iBiz系统模型",
     "fields":[
     {
     "fieldname":"PSSYSTEMDBCFGNAME" ,
@@ -22396,6 +24179,8 @@
     "table_name":"zt_product",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"QD" ,
@@ -23201,6 +24986,8 @@
     "table_name":"T_IBZ_PRODUCTLIFE",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"BRANCH" ,
@@ -23416,6 +25203,8 @@
     "table_name":"T_IBZ_PRODUCTLINE",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"IBZ_PRODUCTLINENAME" ,
@@ -23521,6 +25310,8 @@
     "table_name":"zt_module",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"PATH" ,
@@ -23814,6 +25605,8 @@
     "table_name":"zt_productplan",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"TITLE" ,
@@ -24181,6 +25974,8 @@
     "table_name":"zt_product",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -24634,6 +26429,8 @@
     "table_name":"zt_product",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -25113,6 +26910,8 @@
     "table_name":"zt_project",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"OPENEDVERSION" ,
@@ -26275,6 +28074,8 @@
     "table_name":"zt_module",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"TYPE" ,
@@ -26568,6 +28369,8 @@
     "table_name":"zt_projectproduct",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -26748,6 +28551,8 @@
     "table_name":"zt_project",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -27220,6 +29025,8 @@
     "table_name":"zt_projectstory",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -27353,6 +29160,8 @@
     "table_name":"zt_team",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"JOIN" ,
@@ -27600,6 +29409,8 @@
     "table_name":"zt_relation",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"BID" ,
@@ -27777,6 +29588,8 @@
     "table_name":"zt_release",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"STORIES" ,
@@ -28194,6 +30007,8 @@
     "table_name":"zt_repo",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"SCM" ,
@@ -28436,6 +30251,8 @@
     "table_name":"zt_repobranch",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"REVISION" ,
@@ -28506,6 +30323,8 @@
     "table_name":"zt_repofiles",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"PATH" ,
@@ -28632,6 +30451,8 @@
     "table_name":"zt_repohistory",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"COMMITTER" ,
@@ -28741,6 +30562,8 @@
     "table_name":"zt_score",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"METHOD" ,
@@ -28877,6 +30700,8 @@
     "table_name":"zt_story",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ASSIGNEDTO" ,
@@ -29872,6 +31697,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"STORYPOINTS" ,
+    "codename":"Storypoints",
+    "field_logic_name":"故事点",
+    "entity_name":"Story",
+    "field_type":"SSCODELIST",
+    "dict":"StoryPoints",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -29983,6 +31823,8 @@
     "table_name":"zt_storyspec",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"SPEC" ,
@@ -30101,6 +31943,8 @@
     "table_name":"zt_storystage",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -30217,6 +32061,8 @@
     "table_name":"zt_suitecase",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -30338,6 +32184,8 @@
     "table_name":"T_SYS_DEPT",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ou",
+    "module_name":"ou组织用户管理模块",
     "fields":[
     {
     "fieldname":"DEPTID" ,
@@ -30666,6 +32514,8 @@
     "table_name":"T_IBZEMP",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ou",
+    "module_name":"ou组织用户管理模块",
     "fields":[
     {
     "fieldname":"USERID" ,
@@ -31135,6 +32985,8 @@
     "table_name":"T_SYS_ORG",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ou",
+    "module_name":"ou组织用户管理模块",
     "fields":[
     {
     "fieldname":"ORGID" ,
@@ -31350,6 +33202,8 @@
     "table_name":"IBZPOST",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ou",
+    "module_name":"ou组织用户管理模块",
     "fields":[
     {
     "fieldname":"POSTID" ,
@@ -31435,12 +33289,189 @@
  }
     ,
     {
+    "entity_name":"SYS_ROLE",
+    "logic_name":"系统角色",
+    "code_name":"SysRole",
+    "table_name":"IBZROLE",
+    "system_id":"pms",
+    "system_name":"pms",
+    "module_id":"uaa",
+    "module_name":"uaa权限模块",
+    "fields":[
+    {
+    "fieldname":"SYS_ROLEID" ,
+    "codename":"RoleId",
+    "field_logic_name":"角色标识",
+    "entity_name":"SysRole",
+    "field_type":"GUID",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":1,
+    "show_order":1,
+    "major_field":0
+    },
+    {
+    "fieldname":"SYS_ROLENAME" ,
+    "codename":"RoleName",
+    "field_logic_name":"角色名称",
+    "entity_name":"SysRole",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "show_order":2,
+    "major_field":1
+    },
+    {
+    "fieldname":"MEMO" ,
+    "codename":"Memo",
+    "field_logic_name":"备注",
+    "entity_name":"SysRole",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":3,
+    "major_field":0
+    },
+    {
+    "fieldname":"PROLEID" ,
+    "codename":"PRoleId",
+    "field_logic_name":"父角色标识",
+    "entity_name":"SysRole",
+    "ref_de":"SYS_ROLE",
+    "ref_field_name":"SYS_ROLEID",
+    "relation_name":"DER1N_SYS_ROLE_SYS_ROLE_PROLEID",
+    "relation_codename":"Parent",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":7,
+    "major_field":0
+    },
+    {
+    "fieldname":"PROLENAME" ,
+    "codename":"PRoleName",
+    "field_logic_name":"父角色名称",
+    "entity_name":"SysRole",
+    "ref_de":"SYS_ROLE",
+    "ref_field_name":"SYS_ROLENAME",
+    "relation_name":"DER1N_SYS_ROLE_SYS_ROLE_PROLEID",
+    "relation_codename":"Parent",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "show_order":8,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEDATE" ,
+    "codename":"CreateDate",
+    "field_logic_name":"建立时间",
+    "entity_name":"SysRole",
+    "field_type":"DATETIME",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "data_length":8,
+    "predefined":"CREATEDATE",
+    "key_field":0,
+    "show_order":11,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEDATE" ,
+    "codename":"UpdateDate",
+    "field_logic_name":"更新时间",
+    "entity_name":"SysRole",
+    "field_type":"DATETIME",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "data_length":8,
+    "predefined":"UPDATEDATE",
+    "key_field":0,
+    "show_order":12,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEMAN" ,
+    "codename":"CreateMan",
+    "field_logic_name":"建立人",
+    "entity_name":"SysRole",
+    "field_type":"TEXT",
+    "dict":"SysOperator",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"CREATEMAN",
+    "key_field":0,
+    "show_order":13,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEMAN" ,
+    "codename":"UpdateMan",
+    "field_logic_name":"更新人",
+    "entity_name":"SysRole",
+    "field_type":"TEXT",
+    "dict":"SysOperator",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "predefined":"UPDATEMAN",
+    "key_field":0,
+    "show_order":14,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    {"name":"DER1N_SYS_ROLE_SYS_ROLE_PROLEID",
+     "relation_type":"DER1N",
+     "code_name":"Parent",
+     "entity_name":"SYS_ROLE",
+     "ref_entity_name":"SYS_ROLE"
+    },
+    {"name":"DER1N_SYS_USER_ROLE_SYS_ROLE_SYS_ROLEID",
+     "relation_type":"DER1N",
+     "code_name":"Role",
+     "entity_name":"SYS_USER_ROLE",
+     "ref_entity_name":"SYS_ROLE"
+    }
+    ],
+    "parentEntitys":[
+    {"name":"DER1N_SYS_ROLE_SYS_ROLE_PROLEID",
+     "relation_type":"DER1N",
+     "code_name":"Parent",
+     "entity_name":"SYS_ROLE",
+     "ref_entity_name":"SYS_ROLE"
+    }
+    ]
+ }
+    ,
+    {
     "entity_name":"SYS_TEAM",
     "logic_name":"组",
     "code_name":"SysTeam",
     "table_name":"IBZTEAM",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ou",
+    "module_name":"ou组织用户管理模块",
     "fields":[
     {
     "fieldname":"TEAMID" ,
@@ -31518,6 +33549,8 @@
     "table_name":"IBZTEAMMEMBER",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ou",
+    "module_name":"ou组织用户管理模块",
     "fields":[
     {
     "fieldname":"TEAMMEMBERID" ,
@@ -31723,6 +33756,8 @@
     "table_name":"T_SYS_UPDATE_FEATURES",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"SYS_UPDATE_FEATURESNAME" ,
@@ -31926,6 +33961,8 @@
     "table_name":"T_SYS_UPDATE_LOG",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"SYS_UPDATE_LOGID" ,
@@ -32101,12 +34138,688 @@
  }
     ,
     {
+    "entity_name":"SYS_USER",
+    "logic_name":"系统用户",
+    "code_name":"SysUser",
+    "table_name":"IBZUSER",
+    "system_id":"pms",
+    "system_name":"pms",
+    "module_id":"uaa",
+    "module_name":"uaa权限模块",
+    "fields":[
+    {
+    "fieldname":"USERID" ,
+    "codename":"UserId",
+    "field_logic_name":"用户标识",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":1,
+    "show_order":1,
+    "major_field":0
+    },
+    {
+    "fieldname":"USERNAME" ,
+    "codename":"UserName",
+    "field_logic_name":"用户全局名",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "show_order":2,
+    "major_field":0
+    },
+    {
+    "fieldname":"PERSONNAME" ,
+    "codename":"PersonName",
+    "field_logic_name":"用户姓名",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":3,
+    "major_field":1
+    },
+    {
+    "fieldname":"PASSWORD" ,
+    "codename":"Password",
+    "field_logic_name":"密码",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":4,
+    "major_field":0
+    },
+    {
+    "fieldname":"USERCODE" ,
+    "codename":"UserCode",
+    "field_logic_name":"用户工号",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":4,
+    "major_field":0
+    },
+    {
+    "fieldname":"LOGINNAME" ,
+    "codename":"LoginName",
+    "field_logic_name":"登录名",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":5,
+    "major_field":0
+    },
+    {
+    "fieldname":"DOMAINS" ,
+    "codename":"Domains",
+    "field_logic_name":"区属",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":7,
+    "major_field":0
+    },
+    {
+    "fieldname":"MDEPTID" ,
+    "codename":"MdeptId",
+    "field_logic_name":"主部门",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":8,
+    "major_field":0
+    },
+    {
+    "fieldname":"MDEPTCODE" ,
+    "codename":"MDeptCode",
+    "field_logic_name":"主部门代码",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":9,
+    "major_field":0
+    },
+    {
+    "fieldname":"MDEPTNAME" ,
+    "codename":"MDeptName",
+    "field_logic_name":"主部门名称",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":10,
+    "major_field":0
+    },
+    {
+    "fieldname":"BCODE" ,
+    "codename":"BCode",
+    "field_logic_name":"业务编码",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":11,
+    "major_field":0
+    },
+    {
+    "fieldname":"POSTID" ,
+    "codename":"PostId",
+    "field_logic_name":"岗位标识",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":12,
+    "major_field":0
+    },
+    {
+    "fieldname":"POSTCODE" ,
+    "codename":"PostCode",
+    "field_logic_name":"岗位代码",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":13,
+    "major_field":0
+    },
+    {
+    "fieldname":"POSTNAME" ,
+    "codename":"PostName",
+    "field_logic_name":"岗位名称",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":14,
+    "major_field":0
+    },
+    {
+    "fieldname":"ORGID" ,
+    "codename":"OrgId",
+    "field_logic_name":"单位",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "predefined":"ORGID",
+    "key_field":0,
+    "show_order":15,
+    "major_field":0
+    },
+    {
+    "fieldname":"ORGCODE" ,
+    "codename":"OrgCode",
+    "field_logic_name":"单位代码",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":16,
+    "major_field":0
+    },
+    {
+    "fieldname":"ORGNAME" ,
+    "codename":"OrgName",
+    "field_logic_name":"单位名称",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "predefined":"ORGNAME",
+    "key_field":0,
+    "show_order":17,
+    "major_field":0
+    },
+    {
+    "fieldname":"NICKNAME" ,
+    "codename":"NickName",
+    "field_logic_name":"昵称别名",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":18,
+    "major_field":0
+    },
+    {
+    "fieldname":"SEX" ,
+    "codename":"Sex",
+    "field_logic_name":"性别",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":20,
+    "key_field":0,
+    "show_order":19,
+    "major_field":0
+    },
+    {
+    "fieldname":"BIRTHDAY" ,
+    "codename":"Birthday",
+    "field_logic_name":"出生日期",
+    "entity_name":"SysUser",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":20,
+    "major_field":0
+    },
+    {
+    "fieldname":"CERTCODE" ,
+    "codename":"CertCode",
+    "field_logic_name":"证件号码",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":21,
+    "major_field":0
+    },
+    {
+    "fieldname":"PHONE" ,
+    "codename":"Phone",
+    "field_logic_name":"联系方式",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":22,
+    "major_field":0
+    },
+    {
+    "fieldname":"EMAIL" ,
+    "codename":"Email",
+    "field_logic_name":"邮件",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":23,
+    "major_field":0
+    },
+    {
+    "fieldname":"AVATAR" ,
+    "codename":"Avatar",
+    "field_logic_name":"社交账号",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":24,
+    "major_field":0
+    },
+    {
+    "fieldname":"ADDR" ,
+    "codename":"Addr",
+    "field_logic_name":"地址",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":255,
+    "key_field":0,
+    "show_order":25,
+    "major_field":0
+    },
+    {
+    "fieldname":"USERICON" ,
+    "codename":"UserIcon",
+    "field_logic_name":"照片",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":255,
+    "key_field":0,
+    "show_order":26,
+    "major_field":0
+    },
+    {
+    "fieldname":"THEME" ,
+    "codename":"Theme",
+    "field_logic_name":"样式",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":27,
+    "major_field":0
+    },
+    {
+    "fieldname":"LANG" ,
+    "codename":"Lang",
+    "field_logic_name":"语言",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":28,
+    "major_field":0
+    },
+    {
+    "fieldname":"FONTSIZE" ,
+    "codename":"FontSize",
+    "field_logic_name":"字号",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":10,
+    "key_field":0,
+    "show_order":29,
+    "major_field":0
+    },
+    {
+    "fieldname":"MEMO" ,
+    "codename":"Memo",
+    "field_logic_name":"备注",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":255,
+    "key_field":0,
+    "show_order":30,
+    "major_field":0
+    },
+    {
+    "fieldname":"RESERVER" ,
+    "codename":"Reserver",
+    "field_logic_name":"保留",
+    "entity_name":"SysUser",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":255,
+    "key_field":0,
+    "show_order":31,
+    "major_field":0
+    },
+    {
+    "fieldname":"SUPERUSER" ,
+    "codename":"SuperUser",
+    "field_logic_name":"超级管理员",
+    "entity_name":"SysUser",
+    "field_type":"YESNO",
+    "dict":"YesNo3",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":40,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    {"name":"DER1N_SYS_USER_ROLE_SYS_USER_SYS_USERID",
+     "relation_type":"DER1N",
+     "code_name":"User",
+     "entity_name":"SYS_USER_ROLE",
+     "ref_entity_name":"SYS_USER"
+    }
+    ],
+    "parentEntitys":[
+    ]
+ }
+    ,
+    {
+    "entity_name":"SYS_USER_ROLE",
+    "logic_name":"用户角色关系",
+    "code_name":"SysUserRole",
+    "table_name":"IBZUSER_ROLE",
+    "system_id":"pms",
+    "system_name":"pms",
+    "module_id":"uaa",
+    "module_name":"uaa权限模块",
+    "fields":[
+    {
+    "fieldname":"SYS_USER_ROLEID" ,
+    "codename":"UserRoleId",
+    "field_logic_name":"用户角色关系标识",
+    "entity_name":"SysUserRole",
+    "field_type":"GUID",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":1,
+    "show_order":1,
+    "major_field":0
+    },
+    {
+    "fieldname":"SYS_ROLEID" ,
+    "codename":"RoleId",
+    "field_logic_name":"角色标识",
+    "entity_name":"SysUserRole",
+    "ref_de":"SYS_ROLE",
+    "ref_field_name":"SYS_ROLEID",
+    "relation_name":"DER1N_SYS_USER_ROLE_SYS_ROLE_SYS_ROLEID",
+    "relation_codename":"Role",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "union_key":"KEY1",
+    "show_order":3,
+    "major_field":0
+    },
+    {
+    "fieldname":"SYS_ROLENAME" ,
+    "codename":"RoleName",
+    "field_logic_name":"角色名称",
+    "entity_name":"SysUserRole",
+    "ref_de":"SYS_ROLE",
+    "ref_field_name":"SYS_ROLENAME",
+    "relation_name":"DER1N_SYS_USER_ROLE_SYS_ROLE_SYS_ROLEID",
+    "relation_codename":"Role",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":4,
+    "major_field":0
+    },
+    {
+    "fieldname":"SYS_USERID" ,
+    "codename":"UserId",
+    "field_logic_name":"用户标识",
+    "entity_name":"SysUserRole",
+    "ref_de":"SYS_USER",
+    "ref_field_name":"USERID",
+    "relation_name":"DER1N_SYS_USER_ROLE_SYS_USER_SYS_USERID",
+    "relation_codename":"User",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "union_key":"KEY2",
+    "show_order":5,
+    "major_field":1
+    },
+    {
+    "fieldname":"SYS_USERNAME" ,
+    "codename":"PersonName",
+    "field_logic_name":"用户名称",
+    "entity_name":"SysUserRole",
+    "ref_de":"SYS_USER",
+    "ref_field_name":"PERSONNAME",
+    "relation_name":"DER1N_SYS_USER_ROLE_SYS_USER_SYS_USERID",
+    "relation_codename":"User",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":6,
+    "major_field":0
+    },
+    {
+    "fieldname":"LOGINNAME" ,
+    "codename":"LoginName",
+    "field_logic_name":"登录名",
+    "entity_name":"SysUserRole",
+    "ref_de":"SYS_USER",
+    "ref_field_name":"LOGINNAME",
+    "relation_name":"DER1N_SYS_USER_ROLE_SYS_USER_SYS_USERID",
+    "relation_codename":"User",
+    "field_type":"PICKUPDATA",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":7,
+    "major_field":0
+    },
+    {
+    "fieldname":"ORGNAME" ,
+    "codename":"OrgName",
+    "field_logic_name":"单位",
+    "entity_name":"SysUserRole",
+    "ref_de":"SYS_USER",
+    "ref_field_name":"ORGNAME",
+    "relation_name":"DER1N_SYS_USER_ROLE_SYS_USER_SYS_USERID",
+    "relation_codename":"User",
+    "field_type":"PICKUPDATA",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "predefined":"ORGNAME",
+    "key_field":0,
+    "show_order":8,
+    "major_field":0
+    },
+    {
+    "fieldname":"MDEPTNAME" ,
+    "codename":"MDeptName",
+    "field_logic_name":"主部门",
+    "entity_name":"SysUserRole",
+    "ref_de":"SYS_USER",
+    "ref_field_name":"MDEPTNAME",
+    "relation_name":"DER1N_SYS_USER_ROLE_SYS_USER_SYS_USERID",
+    "relation_codename":"User",
+    "field_type":"PICKUPDATA",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":9,
+    "major_field":0
+    },
+    {
+    "fieldname":"CREATEDATE" ,
+    "codename":"CreateDate",
+    "field_logic_name":"建立时间",
+    "entity_name":"SysUserRole",
+    "field_type":"DATETIME",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "data_length":8,
+    "predefined":"CREATEDATE",
+    "key_field":0,
+    "show_order":11,
+    "major_field":0
+    },
+    {
+    "fieldname":"UPDATEDATE" ,
+    "codename":"UpdateDate",
+    "field_logic_name":"更新时间",
+    "entity_name":"SysUserRole",
+    "field_type":"DATETIME",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "data_length":8,
+    "predefined":"UPDATEDATE",
+    "key_field":0,
+    "show_order":12,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    {"name":"DER1N_SYS_USER_ROLE_SYS_ROLE_SYS_ROLEID",
+     "relation_type":"DER1N",
+     "code_name":"Role",
+     "entity_name":"SYS_USER_ROLE",
+     "ref_entity_name":"SYS_ROLE"
+    },
+    {"name":"DER1N_SYS_USER_ROLE_SYS_USER_SYS_USERID",
+     "relation_type":"DER1N",
+     "code_name":"User",
+     "entity_name":"SYS_USER_ROLE",
+     "ref_entity_name":"SYS_USER"
+    }
+    ]
+ }
+    ,
+    {
     "entity_name":"ZT_TASK",
     "logic_name":"任务",
     "code_name":"Task",
     "table_name":"zt_task",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"CANCELEDBY" ,
@@ -33248,6 +35961,8 @@
     "table_name":"zt_taskestimate",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ACCOUNT" ,
@@ -33381,6 +36096,8 @@
     "table_name":"T_TASKMSGRECORD",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"TASKMSGRECORDID" ,
@@ -33504,7 +36221,7 @@
     {
     "fieldname":"APPTASKID" ,
     "codename":"Apptaskid",
-    "field_logic_name":"第三方应用待办标识",
+    "field_logic_name":"第三方应用待办标识",
     "entity_name":"TaskMsgRecord",
     "field_type":"TEXT",
     "nullable":1,
@@ -33585,6 +36302,8 @@
     "table_name":"zt_task",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"PROJECTNAME" ,
@@ -33727,6 +36446,8 @@
     "table_name":"zt_team",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ROLE" ,
@@ -33961,6 +36682,8 @@
     "table_name":"zt_team",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ESTIMATE" ,
@@ -34155,6 +36878,8 @@
     "table_name":"zt_module",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"PATH" ,
@@ -34428,6 +37153,8 @@
     "table_name":"zt_testreport",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"OBJECTID" ,
@@ -34824,6 +37551,8 @@
     "table_name":"zt_testresult",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"LASTRUNNER" ,
@@ -35153,6 +37882,8 @@
     "table_name":"zt_testrun",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"LASTRUNRESULT" ,
@@ -35326,6 +38057,8 @@
     "table_name":"zt_testsuite",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"NAME" ,
@@ -35523,6 +38256,8 @@
     "table_name":"zt_testtask",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"END" ,
@@ -35931,6 +38666,8 @@
     "table_name":"zt_todo",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -36429,6 +39166,8 @@
     "table_name":"zt_user",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"PASSWORD" ,
@@ -36914,6 +39653,8 @@
     "table_name":"zt_usercontact",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"USERLIST" ,
@@ -36985,6 +39726,8 @@
     "table_name":"zt_usergroup",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ACCOUNT" ,
@@ -37042,6 +39785,8 @@
     "table_name":"zt_userquery",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -37155,11 +39900,13 @@
     "table_name":"zt_usertpl",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"TITLE" ,
     "codename":"Title",
-    "field_logic_name":"title",
+    "field_logic_name":"模板标题",
     "entity_name":"UserTpl",
     "field_type":"TEXT",
     "nullable":0,
@@ -37203,6 +39950,7 @@
     "field_logic_name":"type",
     "entity_name":"UserTpl",
     "field_type":"SSCODELIST",
+    "dict":"UserTplType",
     "nullable":1,
     "physical_field":1,
     "data_type":"VARCHAR",
@@ -37217,10 +39965,12 @@
     "field_logic_name":"account",
     "entity_name":"UserTpl",
     "field_type":"TEXT",
+    "dict":"UserRealName",
     "nullable":1,
     "physical_field":1,
     "data_type":"VARCHAR",
     "data_length":30,
+    "predefined":"CREATEMANNAME",
     "key_field":0,
     "show_order":1000,
     "major_field":0
@@ -37228,10 +39978,10 @@
     {
     "fieldname":"PUBLIC" ,
     "codename":"IBizPublic",
-    "field_logic_name":"public",
+    "field_logic_name":"公开",
     "entity_name":"UserTpl",
     "field_type":"SSCODELIST",
-    "dict":"YesNo2",
+    "dict":"YesNo",
     "nullable":1,
     "physical_field":1,
     "data_type":"VARCHAR",
@@ -37254,6 +40004,8 @@
     "table_name":"zt_userview",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -37326,6 +40078,8 @@
     "table_name":"zt_user",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"ibiz",
+    "module_name":"iBiz增强模块",
     "fields":[
     {
     "fieldname":"ID" ,
@@ -38038,6 +40792,8 @@
     "table_name":"zt_webhook",
     "system_id":"pms",
     "system_name":"pms",
+    "module_id":"zentao",
+    "module_name":"基础管理模块",
     "fields":[
     {
     "fieldname":"SECRET" ,

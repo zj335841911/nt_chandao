@@ -28,6 +28,7 @@
 | 10 | [团队成员（四）](#属性-团队成员（四）（FOURTHMEMBER）) | FOURTHMEMBER | 文本，可指定长度 | 否 | 否 | 是 |
 | 11 | [团队成员（五）](#属性-团队成员（五）（FIFTHMEMBER）) | FIFTHMEMBER | 文本，可指定长度 | 否 | 否 | 是 |
 | 12 | [团队成员（六）](#属性-团队成员（六）（SIXTHMEMBER）) | SIXTHMEMBER | 文本，可指定长度 | 否 | 否 | 是 |
+| 13 | [全部成员](#属性-全部成员（TEAMEMBERS）) | TEAMEMBERS | 多项选择(文本值) | 否 | 否 | 是 |
 
 ### 属性-编号（ID）
 #### 属性说明
@@ -473,6 +474,43 @@ String
 #### 关系属性
 无
 
+### 属性-全部成员（TEAMEMBERS）
+#### 属性说明
+全部成员
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+多项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -617,6 +655,7 @@ t1.QD AS `QD`,
 t1.RD AS `RD`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 1,1) AS `SECONDMEMBER`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 5,1) AS `SIXTHMEMBER`,
+(select GROUP_CONCAT(t.account order by t.`order` asc) from zt_team t where t.type = 'project' and t.root = t1.id GROUP BY t.root) AS `TEAMEMBERS`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 2,1) AS `THIRDMEMBER`
 FROM `zt_project` t1 
 
@@ -646,6 +685,7 @@ t1.QD AS `QD`,
 t1.RD AS `RD`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 1,1) AS `SECONDMEMBER`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 5,1) AS `SIXTHMEMBER`,
+(select GROUP_CONCAT(t.account order by t.`order` asc) from zt_team t where t.type = 'project' and t.root = t1.id GROUP BY t.root) AS `TEAMEMBERS`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 2,1) AS `THIRDMEMBER`
 FROM `zt_project` t1 
 

@@ -213,6 +213,9 @@ export default class MainPanelModel {
       {
         name: 'ibiz_sourcename',
       },
+      {
+        name: 'storypoints',
+      },
     ]
   }
 

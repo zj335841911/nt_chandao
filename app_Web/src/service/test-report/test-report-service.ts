@@ -58,6 +58,9 @@ export default class TestReportService extends TestReportServiceBase {
         if(context.project && context.testreport){
             let masterData:any = {};
             Object.assign(data,masterData);
+            context.testreport = 0;
+            data.id = 0;
+            data.project = context.project;
             let res:any = await Http.getInstance().put(`/projects/${context.project}/testreports/${context.testreport}/getinfotesttaskproject`,data,isloading);
 
             return res;
@@ -65,6 +68,9 @@ export default class TestReportService extends TestReportServiceBase {
         if(context.product && context.testreport){
             let masterData:any = {};
             Object.assign(data,masterData);
+            context.testreport = 0;
+            data.id = 0;
+            data.project = context.project;
             let res:any = await Http.getInstance().put(`/products/${context.product}/testreports/${context.testreport}/getinfotesttaskproject`,data,isloading);
 
             return res;
@@ -89,6 +95,10 @@ export default class TestReportService extends TestReportServiceBase {
         if(context.project && context.testreport){
             let masterData:any = {};
             Object.assign(data,masterData);
+            context.testreport = 0;
+            data.id = 0;
+            data.project = context.project;
+            data.tasks = context.tasks;
             let res:any = await Http.getInstance().put(`/projects/${context.project}/testreports/${context.testreport}/getinfotesttasks`,data,isloading);
 
             return res;
@@ -96,6 +106,10 @@ export default class TestReportService extends TestReportServiceBase {
         if(context.product && context.testreport){
             let masterData:any = {};
             Object.assign(data,masterData);
+            context.testreport = 0;
+            data.id = 0;
+            data.project = context.project;
+            data.tasks = context.tasks;
             let res:any = await Http.getInstance().put(`/products/${context.product}/testreports/${context.testreport}/getinfotesttasks`,data,isloading);
 
             return res;
@@ -121,6 +135,10 @@ export default class TestReportService extends TestReportServiceBase {
         if(context.project && context.testreport){
             let masterData:any = {};
             Object.assign(data,masterData);
+            context.testreport = 0;
+            data.id = 0;
+            data.project = context.project;
+            data.tasks = context.tasks;
             let res:any = await Http.getInstance().put(`/projects/${context.project}/testreports/${context.testreport}/getinfotesttaskr`,data,isloading);
 
             return res;
@@ -128,6 +146,10 @@ export default class TestReportService extends TestReportServiceBase {
         if(context.product && context.testreport){
             let masterData:any = {};
             Object.assign(data,masterData);
+            context.testreport = 0;
+            data.id = 0;
+            data.project = context.project;
+            data.tasks = context.tasks;
             let res:any = await Http.getInstance().put(`/products/${context.product}/testreports/${context.testreport}/getinfotesttaskr`,data,isloading);
 
             return res;

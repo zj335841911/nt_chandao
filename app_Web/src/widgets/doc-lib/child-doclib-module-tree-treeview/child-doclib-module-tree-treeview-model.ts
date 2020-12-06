@@ -75,6 +75,12 @@ export default class ChildDoclibModuleTreeModel {
       {
         name: 'root',
       },
+      {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
     ]
   }
 

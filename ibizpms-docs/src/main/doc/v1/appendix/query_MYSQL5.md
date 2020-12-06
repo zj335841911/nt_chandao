@@ -23,7 +23,7 @@ FROM `zt_action` t1
 ```
 ### 动态(根据类型过滤)(MobType)<div id="Action_MobType"></div>
 ```sql
-SELECT t1.`ACTION`, t1.`actor` as actor, t1.`DATE`, t1.`ID`, t1.`OBJECTID`, t1.id as srfkey,t1.`OBJECTTYPE`, t1.`PRODUCT`, t1.`PROJECT`, t1.`READ`, t1.`comment`, t1.extra, case when t1.objectType in ('bug','story','release') and t1.action in ('changestatus','resolved','closed', 'reviewed') and t1.extra <> '' then CONCAT_WS('_',t1.objectType,t1.action,t1.extra) else '' end as ActionManner FROM `zt_action` t1  WHERE ( t1.`OBJECTID` = ${srfdatacontext('srfparentkey','{"defname":"OBJECTID","dename":"ZT_ACTION"}')} AND t1.`OBJECTTYPE` = ${srfdatacontext('objecttype','{"defname":"OBJECTTYPE","dename":"ZT_ACTION"}')} )
+SELECT t1.`ACTION`, t1.`actor` as actor, t1.`DATE`, t1.`ID`, t1.`OBJECTID`, t1.id as srfkey,(case when t1.`OBJECTTYPE` in ('daily','weekly','monthly') then CONCAT_WS('','ibz',t1.objectType) else t1.objectType end ) as OBJECTTYPE, t1.`PRODUCT`, t1.`PROJECT`, t1.`READ`, t1.`comment`, t1.extra, case when t1.objectType in ('bug','story','release') and t1.action in ('changestatus','resolved','closed', 'reviewed') and t1.extra <> '' then CONCAT_WS('_',t1.objectType,t1.action,t1.extra) else '' end as ActionManner FROM `zt_action` t1  WHERE ( t1.`OBJECTID` = ${srfdatacontext('srfparentkey','{"defname":"OBJECTID","dename":"ZT_ACTION"}')} AND t1.`OBJECTTYPE` = ${srfdatacontext('objecttype','{"defname":"OBJECTTYPE","dename":"ZT_ACTION"}')} )
 ```
 ### 项目动态(我的)(MyTrends)<div id="Action_MyTrends"></div>
 ```sql
@@ -177,7 +177,7 @@ t1.`DATE`,
 t1.`ID`,
 t1.id as srfkey,
 t1.`OBJECTID`,
-t1.`OBJECTTYPE`,
+(case when t1.`OBJECTTYPE` in ('daily','weekly','monthly') then CONCAT_WS('','ibz',t1.objectType) else t1.objectType end ) as OBJECTTYPE,
 t1.`PRODUCT`,
 t1.`PROJECT`,
 t1.`READ`,
@@ -590,9 +590,9 @@ SELECT
 FROM
 	`zt_bug` t1
 WHERE t1.DELETED = '0' 
-t1.product = ( SELECT product FROM zt_build WHERE project =  #{srf.datacontext.project}
+t1.product = ( SELECT product FROM zt_build WHERE project =  (select ttt.project from zt_build ttt where ttt.id = #{srf.datacontext.project})
 		AND id = #{srf.datacontext.build} ) 
-	AND t1.project = #{srf.datacontext.project} 
+	AND t1.project = (select ttt.project from zt_build ttt where ttt.id = #{srf.datacontext.project}) 
 	AND t1.`status` <> 'closed' 
 	AND t1.id NOT IN ( SELECT t3.id FROM zt_bug t3, zt_build t4  WHERE
 		t4.id = #{srf.datacontext.build} AND FIND_IN_SET( t3.id, t4.bugs ) ) 
@@ -3857,7 +3857,7 @@ t1.`FROMCASEID`,
 t1.`FROMCASEVERSION`,
 t1.`HOWRUN`,
 t1.`ID`,
-0 AS `ISFAVORITES`,
+1 AS `ISFAVORITES`,
 t1.`KEYWORDS`,
 t1.`LASTEDITEDBY`,
 t1.`LASTEDITEDDATE`,
@@ -5177,6 +5177,7 @@ t2.product as `PRODUCT`,
 t1.`name` as `TITLE`,
 'module' as `TYPE`,
 1 as `VERSION`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) as doccnt,
 '' as `VIEWS`, 'module' as DOCQTYPE from zt_module t1 
 LEFT JOIN zt_doclib t2 on t2.id = t1.root
 where t1.deleted = '0' and t1.type = 'doc'  and t1.parent =  (case when ${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} is null then '0' else 
@@ -5205,6 +5206,7 @@ t11.`NAME` AS `PROJECTNAME`,
 t1.`TITLE`,
 t1.`TYPE`,
 t1.`VERSION`,
+0 as doccnt,
 t1.`VIEWS`,
 'doc' as DOCQTYPE
 FROM `zt_doc` t1 
@@ -5404,7 +5406,7 @@ FROM
 		NULL AS `addedDate`,
 		NULL AS `editedBy`,
 		NULL AS `editedDate`,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'doclib' as DOCQTYPE
 	FROM
 		zt_doclib t1 
@@ -5418,7 +5420,7 @@ FROM
 		NULL AS `addedDate`,
 		NULL AS `editedBy`,
 		NULL AS `editedDate`,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t2.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'module' as DOCQTYPE 
 	FROM
 		zt_module t2 
@@ -5432,7 +5434,7 @@ FROM
 		t3.addedDate,
 		t3.editedBy,
 		t3.editedDate,
-		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t3.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		1 AS `ISFAVOURITES`, 
 		'doc' as DOCQTYPE 
 	FROM
 		zt_doc t3 
@@ -5440,6 +5442,34 @@ FROM
 		t3.collector LIKE CONCAT_WS( '', '%,', #{srf.sessioncontext.srfloginname}, '%,' ) 
 	AND t3.deleted = '0' 
 	) t1
+```
+### 我的收藏(MyFavouritesOnlyDoc)<div id="Doc_MyFavouritesOnlyDoc"></div>
+```sql
+SELECT
+	t1.`ACL`,
+	t1.`ADDEDBY`,
+	t1.`ADDEDDATE`,
+	t1.`DELETED`,
+	'doc' AS `DOCQTYPE`,
+	t1.`EDITEDBY`,
+	t1.`EDITEDDATE`,
+	t1.`GROUPS`,
+	t1.`ID`,
+	1 AS `ISFAVOURITES`,
+	t1.`KEYWORDS`,
+	t1.`LIB`,
+	t1.`MODULE`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`TITLE`,
+	t1.`TYPE`,
+	t1.`VERSION`,
+	t1.`VIEWS` 
+FROM
+	`zt_doc` t1
+WHERE t1.deleted = '0' 
+FIND_IN_SET(#{srf.sessioncontext.srfloginname}, t1.collector ) > 0 
+
 ```
 ### 子目录文档(NotRootDoc)<div id="Doc_NotRootDoc"></div>
 ```sql
@@ -5598,7 +5628,9 @@ t1.`ID`,
 ( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
+(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id) AS `MODULECNT`,
 t1.`NAME`,
+(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created') AS `OPENEDDATE`,
 t1.`ORDER`,
 t1.`ORGID`,
 t1.`PRODUCT`,
@@ -5670,6 +5702,8 @@ FROM
 		t1.`DELETED`,
 		t1.`GROUPS`,
 		t1.`ID`,
+(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id) as modulecnt,
+(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created') as openedDate,
 		t1.`MAIN`,
 		t1.`NAME`,
 		t1.`ORDER`,
@@ -5805,7 +5839,9 @@ t1.`ID`,
 ( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
+(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id) AS `MODULECNT`,
 t1.`NAME`,
+(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created') AS `OPENEDDATE`,
 t1.`ORDER`,
 t1.`ORGID`,
 t1.`PRODUCT`,
@@ -5819,6 +5855,29 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 
 WHERE t1.DELETED = '0' 
 ( t1.`ORGID` =  ${srfsessioncontext('SRFORGID','{"defname":"ORGID","dename":"ZT_DOCLIB"}')} ) 
+
+```
+### 我的收藏(MyFavourites)<div id="DocLib_MyFavourites"></div>
+```sql
+SELECT
+	t1.`ACL`,
+	t1.`DELETED`,
+	'doc' AS `DOCLIBTYPE`,
+	t1.`GROUPS`,
+	t1.`ID`,
+	'1' AS `ISFAVOURITES`,
+	t1.`MAIN`,
+	t1.`MDEPTID`,
+	t1.`NAME`,
+	t1.`ORDER`,
+	t1.`ORGID`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`TYPE` 
+FROM
+	zt_doclib t1
+WHERE t1.deleted = '0' 
+FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 
 
 ```
 ### 根目录(RootModuleMuLu)<div id="DocLib_RootModuleMuLu"></div>
@@ -5858,7 +5917,9 @@ t1.`ID`,
 ( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
+(select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.parent = 0 and t.root = t1.id) AS `MODULECNT`,
 t1.`NAME`,
+(select t.date from zt_action t where t.objectID = t1.id and t.objectType = 'doclib' and t.action = 'created') AS `OPENEDDATE`,
 t1.`ORDER`,
 t1.`ORGID`,
 t1.`PRODUCT`,
@@ -5934,11 +5995,40 @@ t1.type = 'doc'
 t1.parent = ${srfdatacontext('srfparentkey','{"defname":"ROOT","dename":"ZT_MODULE"}')} 
 
 ```
+### 文档库分类子模块(ChildModuleByRealParent)<div id="DocLibModule_ChildModuleByRealParent"></div>
+```sql
+SELECT
+t1.`BRANCH`,
+t1.`DELETED`,
+t11.`NAME` AS `DOCLIBNAME`,
+t1.`GRADE`,
+t1.`ID`,
+(CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
+t21.`NAME` AS `MODULENAME`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`OWNER`,
+t1.`PARENT`,
+t1.`PATH`,
+t1.`ROOT`,
+t1.`SHORT`,
+t1.`TYPE`, 
+'module' AS `DOCQTYPE`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`
+FROM `zt_module` t1 
+LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
+LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
+WHERE t1.deleted = '0' 
+t1.type = 'doc' 
+t1.parent = ${srfdatacontext('srfparent','{"defname":"ROOT","dename":"ZT_MODULE"}')} 
+
+```
 ### 数据查询(DEFAULT)<div id="DocLibModule_Default"></div>
 ```sql
 SELECT
 t1.`BRANCH`,
 t1.`DELETED`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) AS `DOCCNT`,
 t11.`NAME` AS `DOCLIBNAME`,
 t1.`GRADE`,
 t1.`ID`,
@@ -5986,6 +6076,30 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 
 WHERE t1.DELETED = '0' 
 t1.type = 'doc' 
+
+```
+### 我的收藏(MyFavourites)<div id="DocLibModule_MyFavourites"></div>
+```sql
+SELECT
+	t1.`BRANCH`,
+	t1.`DELETED`,
+	t1.`GRADE`,
+	t1.`ID`,
+	'module' AS `DOCQTYPE`,
+	1 AS `ISFAVOURITES`,
+	( CASE WHEN EXISTS ( SELECT 1 FROM ZT_MODULE WHERE PARENT = t1.`ID` ) THEN FALSE ELSE TRUE END ) AS `ISLEAF`,
+	t1.`NAME`,
+	t1.`ORDER`,
+	t1.`OWNER`,
+	t1.`PARENT`,
+	t1.`PATH`,
+	t1.`ROOT`,
+	t1.`SHORT`,
+	t1.`TYPE` 
+FROM
+	`zt_module` t1
+WHERE t1.deleted = '0' 
+FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 
 
 ```
 ### 父模块(ParentModule)<div id="DocLibModule_ParentModule"></div>
@@ -6036,7 +6150,8 @@ t1.`ROOT`,
 t1.`SHORT`,
 'module'  as `TYPE`,
 'module' AS `DOCQTYPE`,
-( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) as doccnt
 FROM `zt_module` t1 
 LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
@@ -6110,6 +6225,7 @@ SELECT
 t1.`BRANCH`,
 t1.`COLLECTOR`,
 t1.`DELETED`,
+(select count(1) from zt_doc t where t.deleted = '0' and t.module = t1.id) + (select count(1) from zt_module t where t.deleted = '0' and t.type = 'doc' and t.root = t1.root and t.parent = t1.id) AS `DOCCNT`,
 t11.`NAME` AS `DOCLIBNAME`,
 t1.`GRADE`,
 t1.`ID`,
@@ -6377,7 +6493,7 @@ t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
 t1.`SIZE`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') AS `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) AS `STRSIZE`,
 t1.`TITLE`
 FROM `zt_file` t1 
 
@@ -6397,7 +6513,7 @@ t1.`ID`,
 t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') as `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) as `STRSIZE`,
 t1.size,
 CONCAT_WS('',t1.`TITLE`,' [',UPPER(t1.objectType),' #',t1.objectID,']') AS `TITLE`,
 'file' as doclibtype
@@ -6419,7 +6535,7 @@ t1.`ID`,
 t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') as `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) as `STRSIZE`,
 t1.size,
 CONCAT_WS('',t1.`TITLE`,' [',UPPER(t1.objectType),' #',t1.objectID,']') AS `TITLE`,
 'file' as doclibtype
@@ -6442,7 +6558,7 @@ t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
 t1.`SIZE`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') AS `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) AS `STRSIZE`,
 t1.`TITLE`
 FROM `zt_file` t1 
 
@@ -6464,7 +6580,7 @@ t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
 t1.`SIZE`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') AS `STRSIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) AS `STRSIZE`,
 t1.`TITLE`
 FROM `zt_file` t1 
 
@@ -7055,6 +7171,129 @@ LEFT JOIN zt_testsuite t21 ON t1.LIB = t21.ID
 
 ```
 
+# **日报**(IBZ_DAILY)
+
+### 数据查询(DEFAULT)<div id="IbzDaily_Default"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.REPORTTO AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_DAILY` t1 
+
+```
+### 我收到的日报(MyDaily)<div id="IbzDaily_MyDaily"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+(case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_DAILY` t1 left join zt_action t11 on t11.objectID = t1.IBZ_DAILYID and t11.objectType = 'daily' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+WHERE t1.issubmit = '1' 
+(t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO)) 
+
+```
+### 我的日报(MyNotSubmit)<div id="IbzDaily_MyNotSubmit"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.SUBMITTIME as `SUBMITTIME`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','今日工作：',case when t1.WORKTODAY is null then '无' else t1.WORKTODAY end) as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','明日计划：',case when t1.PLANSTOMORROW is null then '无' else t1.PLANSTOMORROW end) AS PLANSTOMORROW,
+'daily' as type 
+FROM `T_IBZ_DAILY` t1
+```
+### 我提交的日报(MySubmitDaily)<div id="IbzDaily_MySubmitDaily"></div>
+```sql
+SELECT
+	t1. IBZ_DAILYID,
+	t1.IBZ_DAILYNAME,
+	t1.ACCOUNT,
+	t1.DATE,
+	t1.ISSUBMIT,
+	t1.REPORTTO,
+	t1.REPORTSTATUS
+FROM
+	t_ibz_daily t1 
+
+
+WHERE t1.account=#{srf.sessioncontext.srfloginname} 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzDaily_View"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
+t1.`PLANSTOMORROW`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.REPORTTO AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+t1.`WORKTODAY`
+FROM `T_IBZ_DAILY` t1 
+
+```
+
 # **收藏**(IBZ_FAVORITES)
 
 ### 数据查询(DEFAULT)<div id="IbzFavorites_Default"></div>
@@ -7246,6 +7485,176 @@ t1.`SHORT`,
 t1.`TYPE`
 FROM `zt_module` t1 
 LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID 
+
+```
+
+# **月报**(IBZ_MONTHLY)
+
+### 数据查询(DEFAULT)<div id="IbzMonthly_Default"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_MONTHLYID`,
+t1.`IBZ_MONTHLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
+t1.`NEXTMONTHPLANSTASK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.REPORTTO AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`THISMONTHTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_MONTHLY` t1 
+
+```
+### 我的月报(MyMonthly)<div id="IbzMonthly_MyMonthly"></div>
+```sql
+SELECT
+	t1.`ACCOUNT`,
+	t1.`CREATEDATE`,
+	t1.`CREATEMAN`,
+	t1.`CREATEMANNAME`,
+	t1.`DATE`,
+	t1.`IBZ_MONTHLYID`,
+	t1.`IBZ_MONTHLYNAME`,
+	t1.`ISSUBMIT`,
+	t1.`MAILTO`,
+	( CASE WHEN t11.id IS NOT NULL THEN '1' ELSE '0' END ) AS `REPORTSTATUS`,
+	t1.`REPORTTO`,
+	t1.`THISMONTHTASK`,
+	t1.`NEXTMONTHPLANSTASK`,
+	t1.`UPDATEDATE`,
+	t1.`UPDATEMAN`,
+	t1.`UPDATEMANNAME` 
+FROM
+	`t_ibz_monthly` t1
+	LEFT JOIN zt_action t11 ON t11.objectID = t1.IBZ_MONTHLYID 
+	AND t11.objectType = 'monthly' 
+	AND t11.action = 'read' 
+	AND t11.actor = #{srf.sessioncontext.srfloginname}
+WHERE t1.account = #{srf.sessioncontext.srfloginname} 
+
+```
+### 我的月报（移动端）(MyMonthlyMob)<div id="IbzMonthly_MyMonthlyMob"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_MONTHLYID` AS IBZ_MONTHLYID,
+t1.`IBZ_MONTHLYNAME` AS IBZ_MONTHLYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.SUBMITTIME as `SUBMITTIME`,
+t1.`THISMONTHTASK` AS THISMONTHTASK,
+t1.`NEXTMONTHPLANSTASK` AS NEXTMONTHPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','本月工作：',case when t1.WORKTHISMONTH is null then '无' else t1.WORKTHISMONTH end)  as WORKTHISMONTH,
+t1.`COMMENT`,
+CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' else t1.PLANSNEXTMONTH end) as PLANSNEXTMONTH,
+'monthly' as type 
+FROM `T_IBZ_MONTHLY` t1
+WHERE t1.account = #{srf.sessioncontext.srfloginname} 
+
+```
+### 我收到的月报(MyReceivedMonthly)<div id="IbzMonthly_MyReceivedMonthly"></div>
+```sql
+SELECT
+	t1.`ACCOUNT`,
+	t1.`CREATEDATE`,
+	t1.`CREATEMAN`,
+	t1.`CREATEMANNAME`,
+	t1.`DATE`,
+	t1.`IBZ_MONTHLYID`,
+	t1.`IBZ_MONTHLYNAME`,
+	t1.`ISSUBMIT`,
+	t1.`MAILTO`,
+	( CASE WHEN t11.id IS NOT NULL THEN '1' ELSE '0' END ) AS `REPORTSTATUS`,
+	t1.`REPORTTO`,
+	t1.`THISMONTHTASK`,
+	t1.`NEXTMONTHPLANSTASK`,
+	t1.`UPDATEDATE`,
+	t1.`UPDATEMAN`,
+	t1.`UPDATEMANNAME` 
+FROM
+	`t_ibz_monthly` t1
+	LEFT JOIN zt_action t11 ON t11.objectID = t1.IBZ_MONTHLYID 
+	AND t11.objectType = 'monthly' 
+	AND t11.action = 'read' 
+	AND t11.actor = #{srf.sessioncontext.srfloginname}
+WHERE t1.issubmit = '1' 
+(t1.REPORTTO = #{srf.sessioncontext.srfloginname} OR FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.MAILTO )) 
+
+```
+### 我提交的月报(MySubmitMonthly)<div id="IbzMonthly_MySubmitMonthly"></div>
+```sql
+SELECT
+	t1.`ACCOUNT`,
+	t1.`CREATEDATE`,
+	t1.`CREATEMAN`,
+	t1.`CREATEMANNAME`,
+	t1.`DATE`,
+	t1.`IBZ_MONTHLYID`,
+	t1.`IBZ_MONTHLYNAME`,
+	t1.`ISSUBMIT`,
+	t1.`MAILTO`,
+	( CASE WHEN t11.id IS NOT NULL THEN '1' ELSE '0' END ) AS `REPORTSTATUS`,
+	t1.`REPORTTO`,
+	t1.`THISMONTHTASK`,
+	t1.`NEXTMONTHPLANSTASK`,
+	t1.`UPDATEDATE`,
+	t1.`UPDATEMAN`,
+	t1.`UPDATEMANNAME` 
+FROM
+	`t_ibz_monthly` t1
+	LEFT JOIN zt_action t11 ON t11.objectID = t1.IBZ_MONTHLYID 
+	AND t11.objectType = 'monthly' 
+	AND t11.action = 'read' 
+	AND t11.actor = #{srf.sessioncontext.srfloginname}
+WHERE t1.issubmit = '1' 
+t1.account = #{srf.sessioncontext.srfloginname} 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzMonthly_View"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_MONTHLYID`,
+t1.`IBZ_MONTHLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
+t1.`NEXTMONTHPLANSTASK`,
+t1.`PLANSNEXTMONTH`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.REPORTTO AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`THISMONTHTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+t1.`WORKTHISMONTH`
+FROM `T_IBZ_MONTHLY` t1 
 
 ```
 
@@ -7452,6 +7861,7 @@ t1.QD AS `QD`,
 t1.RD AS `RD`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 1,1) AS `SECONDMEMBER`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 5,1) AS `SIXTHMEMBER`,
+(select GROUP_CONCAT(t.account order by t.`order` asc) from zt_team t where t.type = 'project' and t.root = t1.id GROUP BY t.root) AS `TEAMEMBERS`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 2,1) AS `THIRDMEMBER`
 FROM `zt_project` t1 
 
@@ -7470,8 +7880,250 @@ t1.QD AS `QD`,
 t1.RD AS `RD`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 1,1) AS `SECONDMEMBER`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 5,1) AS `SIXTHMEMBER`,
+(select GROUP_CONCAT(t.account order by t.`order` asc) from zt_team t where t.type = 'project' and t.root = t1.id GROUP BY t.root) AS `TEAMEMBERS`,
 (select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 2,1) AS `THIRDMEMBER`
 FROM `zt_project` t1 
+
+```
+
+# **汇报**(IBZ_REPORT)
+
+### 汇报汇总(AllReport)<div id="IbzReport_AllReport"></div>
+```sql
+select t1.* from (SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','今日工作：',case when t1.WORKTODAY is null then '无' else t1.WORKTODAY end) as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','明日计划：',case when t1.PLANSTOMORROW is null then '无' else t1.PLANSTOMORROW end) AS PLANSTOMORROW,
+'daily' as type 
+FROM `T_IBZ_DAILY` t1 
+where t1.ISSUBMIT = '1'
+UNION
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_WEEKLYID` as IBZ_DAILYID,
+t1.`IBZ_WEEKLYNAME` as IBZ_DAILYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+t1.`THISWEEKTASK` as TODAYTASK,
+t1.`NEXTWEEKTASK` as TOMORROWPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','本周工作：',case when t1.WORKTHISWEEK is null then '无' else t1.WORKTHISWEEK end)  as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','下周计划：',case when t1.PLANNEXTWEEK is null then '无' else t1.PLANNEXTWEEK end) as PLANSTOMORROW,
+'weekly' as type 
+FROM `T_IBZ_WEEKLY` t1 
+where t1.ISSUBMIT = '1'
+UNION
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_MONTHLYID` AS IBZ_DAILYID,
+t1.`IBZ_MONTHLYNAME` AS IBZ_DAILYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+t1.`THISMONTHTASK` AS TODAYTASK,
+t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','本月工作：',case when t1.WORKTHISMONTH is null then '无' else t1.WORKTHISMONTH end)  as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' else t1.PLANSNEXTMONTH end) as PLANSTOMORROW,
+'monthly' as type 
+FROM `T_IBZ_MONTHLY` t1
+where t1.ISSUBMIT = '1'
+) t1
+```
+### 数据查询(DEFAULT)<div id="IbzReport_Default"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `t_ibz_daily` t1 
+
+```
+### 汇报汇总（我收到的）(MyReAllReport)<div id="IbzReport_MyReAllReport"></div>
+```sql
+select t1.* from (SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+(case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.SUBMITTIME,'%H:%i') as `SUBMITTIME`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','今日工作：',case when t1.WORKTODAY is null then '无' else t1.WORKTODAY end) as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','明日计划：',case when t1.PLANSTOMORROW is null then '无' else t1.PLANSTOMORROW end) AS PLANSTOMORROW,
+'daily' as type 
+FROM `T_IBZ_DAILY` t1 
+left join zt_action t11 on t11.objectID = t1.IBZ_DAILYID and t11.objectType = 'daily' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+where t1.ISSUBMIT = '1'
+UNION
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_WEEKLYID` as IBZ_DAILYID,
+t1.`IBZ_WEEKLYNAME` as IBZ_DAILYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+(case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+t1.`THISWEEKTASK` as TODAYTASK,
+t1.`NEXTWEEKTASK` as TOMORROWPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','本周工作：',case when t1.WORKTHISWEEK is null then '无' else t1.WORKTHISWEEK end)  as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','下周计划：',case when t1.PLANNEXTWEEK is null then '无' else t1.PLANNEXTWEEK end) as PLANSTOMORROW,
+'weekly' as type 
+FROM `T_IBZ_WEEKLY` t1 left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'daily' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+where t1.ISSUBMIT = '1'
+UNION
+SELECT
+t1.`ACCOUNT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+DATE_FORMAT(t1.DATE,'%Y-%m-%d') as `DATE`,
+t1.`IBZ_MONTHLYID` AS IBZ_DAILYID,
+t1.`IBZ_MONTHLYNAME` AS IBZ_DAILYNAME,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+(case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
+t1.`REPORTTO`,
+DATE_FORMAT(t1.date,'%H:%i') as `SUBMITTIME`,
+t1.`THISMONTHTASK` AS TODAYTASK,
+t1.`NEXTMONTHPLANSTASK` AS TOMORROWPLANSTASK,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','本月工作：',case when t1.WORKTHISMONTH is null then '无' else t1.WORKTHISMONTH end)  as WORKTODAY,
+t1.`COMMENT`,
+CONCAT_WS('','下月计划：',case when t1.PLANSNEXTMONTH is null then '无' else t1.PLANSNEXTMONTH end) as PLANSTOMORROW,
+'monthly' as type 
+FROM `T_IBZ_MONTHLY` t1
+left join zt_action t11 on t11.objectID = t1.IBZ_MONTHLYID and t11.objectType = 'daily' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+where t1.ISSUBMIT = '1'
+) t1
+WHERE (t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO)) 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzReport_View"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_DAILYID`,
+t1.`IBZ_DAILYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`PLANSTOMORROW`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.`TODAYTASK`,
+t1.`TOMORROWPLANSTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+t1.`WORKTODAY`
+FROM `t_ibz_daily` t1 
+
+```
+
+# **汇报角色配置**(IBZ_REPORT_ROLE_CONFIG)
+
+### 数据查询(DEFAULT)<div id="IbzReportRoleConfig_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZ_REPORT_ROLE_CONFIGID`,
+t1.`IBZ_REPORT_ROLE_CONFIGNAME`,
+t1.`REPORT_ROLE`,
+t1.`TYPE`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_REPORT_ROLE_CONFIG` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzReportRoleConfig_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`IBZ_REPORT_ROLE_CONFIGID`,
+t1.`IBZ_REPORT_ROLE_CONFIGNAME`,
+t1.`REPORT_ROLE`,
+t1.`TYPE`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_IBZ_REPORT_ROLE_CONFIG` t1 
 
 ```
 
@@ -7507,6 +8159,116 @@ t1.`TYPE`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_TOP` t1 
+
+```
+
+# **周报**(IBZ_WEEKLY)
+
+### 数据查询(DEFAULT)<div id="IbzWeekly_Default"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_WEEKLYID`,
+t1.`IBZ_WEEKLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.mailto AS `MAILTOPK`,
+t1.`NEXTWEEKTASK`,
+t1.`PLANNEXTWEEK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.reportto AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`THISWEEKTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_WEEKLY` t1 
+
+```
+### 我的周报(MyNotSubmit)<div id="IbzWeekly_MyNotSubmit"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_WEEKLYID`,
+t1.`IBZ_WEEKLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`NEXTWEEKTASK`,
+CONCAT_WS('','下周计划：',case when t1.PLANNEXTWEEK is null then '无' else t1.PLANNEXTWEEK end) AS `PLANNEXTWEEK`,
+'1' as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.`SUBMITTIME`,
+t1.`THISWEEKTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+CONCAT_WS('','本周工作：',case when t1.WORKTHISWEEK is null then '无' else t1.WORKTHISWEEK end)  as WORKTHISWEEK
+FROM `T_IBZ_WEEKLY` t1
+```
+### 我收到的周报(MyWeekly)<div id="IbzWeekly_MyWeekly"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_WEEKLYID`,
+t1.`IBZ_WEEKLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.`NEXTWEEKTASK`,
+t1.`PLANNEXTWEEK`,
+(case when t11.id is not null then '1' else '0' end ) as `REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.`THISWEEKTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`
+FROM `T_IBZ_WEEKLY` t1 
+left join zt_action t11 on t11.objectID = t1.IBZ_WEEKLYID and t11.objectType = 'weekly' and t11.action = 'read' and t11.actor = #{srf.sessioncontext.srfloginname}
+WHERE t1.issubmit = '1' 
+(t1.REPORTTO = #{srf.sessioncontext.srfloginname} or FIND_IN_SET(#{srf.sessioncontext.srfloginname},t1.MAILTO)) 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbzWeekly_View"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMENT`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`CREATEMANNAME`,
+t1.`DATE`,
+t1.`IBZ_WEEKLYID`,
+t1.`IBZ_WEEKLYNAME`,
+t1.`ISSUBMIT`,
+t1.`MAILTO`,
+t1.mailto AS `MAILTOPK`,
+t1.`NEXTWEEKTASK`,
+t1.`PLANNEXTWEEK`,
+t1.`REPORTSTATUS`,
+t1.`REPORTTO`,
+t1.reportto AS `REPORTTOPK`,
+t1.`SUBMITTIME`,
+t1.`THISWEEKTASK`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDATEMANNAME`,
+t1.`WORKTHISWEEK`
+FROM `T_IBZ_WEEKLY` t1 
 
 ```
 
@@ -11639,6 +12401,110 @@ select concat(t1.`name`, '  ' ,t.ACCOUNTS) accounts,t1.id ,t1.`name`  from zt_pr
 WHERE t1.id in ( select tt.project from zt_task tt where tt.deleted = '0' and tt.story = ${srfdatacontext('story','{"defname":"PRODUCT","dename":"ZT_PROJECTPRODUCT"}')} ) 
 
 ```
+### 未完成项目(UnDoneProject)<div id="Project_UnDoneProject"></div>
+```sql
+select t1.* from (SELECT
+t1.MDEPTID,
+t1.orgid,
+t1.`ACL`,
+t1.`BEGIN`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
+t1.`CANCELEDBY`,
+(select count(1) + 1 from zt_doclib where type = 'project' and project = t1.`id`) as `DOCLIBCNT`,
+t1.`CANCELEDDATE`,
+t1.`CATID`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CODE`,
+t1.`DAYS`,
+t1.`DELETED`,
+t1.`END`,
+t1.`ID`,
+t1.`ISCAT`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`OPENEDVERSION`,
+t1.`ORDER`,
+(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE  t1.`ORDER` END) as `ORDER1`,
+	(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END) as `ISTOP`,
+t1.`PARENT`,
+t11.`NAME` AS `PARENTNAME`,
+t1.`PM`,
+t1.`PO`,
+t1.`PRI`,
+t1.`QD`,
+t1.`RD`,
+t1.`STATGE`,
+t1.`STATUS`,
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
+t1.`SUBSTATUS`,
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+t1.`TEAM`,
+(SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
+(SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
+(select sum(days * hours)  from zt_team tt where type = 'project' and root = t1.id) AS `TOTALHOURS`,
+(SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' and `status` in ('doing','wait','pause') AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
+((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
+t1.`TYPE`
+FROM `zt_project` t1 
+left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
+LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+where t1.deleted = '0' and (t1.acl = 'open' or t1.OPENEDBY = #{srf.sessioncontext.srfloginname} or  t1.pm =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} )
+union 
+SELECT
+t1.MDEPTID,
+t1.orgid,
+t1.`ACL`,
+t1.`BEGIN`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
+t1.`CANCELEDBY`,
+(select count(1) + 1 from zt_doclib where type = 'project' and project = t1.`id`) as `DOCLIBCNT`,
+t1.`CANCELEDDATE`,
+t1.`CATID`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CODE`,
+t1.`DAYS`,
+t1.`DELETED`,
+t1.`END`,
+t1.`ID`,
+t1.`ISCAT`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`OPENEDVERSION`,
+t1.`ORDER`,
+(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE  t1.`ORDER` END) as `ORDER1`,
+	(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END) as `ISTOP`,
+t1.`PARENT`,
+t11.`NAME` AS `PARENTNAME`,
+t1.`PM`,
+t1.`PO`,
+t1.`PRI`,
+t1.`QD`,
+t1.`RD`,
+t1.`STATGE`,
+t1.`STATUS`,
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
+t1.`SUBSTATUS`,
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+t1.`TEAM`,
+(SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
+(SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
+(select sum(days * hours)  from zt_team tt where type = 'project' and root = t1.id) AS `TOTALHOURS`,
+(SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' and `status` in ('doing','wait','pause') AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
+((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
+t1.`TYPE`
+FROM `zt_project` t1 
+left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
+LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+where t1.deleted = '0' and t1.acl = 'private' and t1.id in (select t3.root from zt_team t3 where t3.account = #{srf.sessioncontext.srfloginname}  
+and t3.type = 'project')) t1
+WHERE t1.orgid = #{srf.sessioncontext.srforgid} 
+t1.`status` <> 'closed' 
+
+```
 ### 默认（全部数据）(VIEW)<div id="Project_View"></div>
 ```sql
 SELECT
@@ -13229,7 +14095,7 @@ t1.`DUPLICATESTORY`,
 t1.`ESTIMATE`,
 t1.`FROMBUG`,
 t1.`ID`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'story' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
+ 0 AS `ISFAVORITES`,
 ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
 t1.`KEYWORDS`,
 t1.`LASTEDITEDBY`,
@@ -13270,11 +14136,9 @@ LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID
 WHERE 
 t1.DELETED = '0' 
 AND
-	t1.id IN ( SELECT tt.story FROM zt_projectstory tt WHERE tt.project = ${srfdatacontext('project','{"defname":"PROJECT","dename":"ZT_BUILD"}')} ) 
+	t1.id IN ( SELECT tt.story FROM zt_projectstory tt WHERE tt.project = (select ttt.project from zt_build ttt where ttt.id = ${srfdatacontext('build','{"defname":"ID","dename":"ZT_BUILD"}')}) ) 
 	AND t1.product = ( SELECT t2.product FROM zt_build t2 WHERE t2.id = ${srfdatacontext('build','{"defname":"ID","dename":"ZT_BUILD"}')} )
 	and t1.id not in (select t3.id from zt_story t3, zt_build t4 where t4.id = ${srfdatacontext('build','{"defname":"ID","dename":"ZT_BUILD"}')} and FIND_IN_SET(t3.id,t4.stories))
-
-
 ```
 ### 版本可关联的需求（产品内）(BuildLinkableStories)<div id="Story_BuildLinkableStories"></div>
 ```sql
@@ -13610,6 +14474,7 @@ t1.`SOURCEOBJECT`,
 t1.`STAGE`,
 t1.`STAGEDBY`,
 t1.`STATUS`,
+t1.`STORYPOINTS`,
 t1.`SUBSTATUS`,
 t1.`TITLE`,
 t1.`TOBUG`,
@@ -13679,6 +14544,7 @@ t1.`SOURCEOBJECT`,
 t1.`STAGE`,
 t1.`STAGEDBY`,
 t1.`STATUS`,
+t1.`STORYPOINTS`,
 t1.`SUBSTATUS`,
 t1.`TITLE`,
 t1.`TOBUG`,
@@ -13991,6 +14857,7 @@ t1.`SOURCEOBJECT`,
 t1.`STAGE`,
 t1.`STAGEDBY`,
 t1.`STATUS`,
+t1.`STORYPOINTS`,
 t1.`SUBSTATUS`,
 t1.`TITLE`,
 t1.`TOBUG`,
@@ -14066,6 +14933,7 @@ t1.`SOURCEOBJECT`,
 t1.`STAGE`,
 t1.`STAGEDBY`,
 t1.`STATUS`,
+t1.`STORYPOINTS`,
 t1.`SUBSTATUS`,
 t1.`TITLE`,
 t1.`TOBUG`,
@@ -14323,6 +15191,7 @@ t1.`SOURCEOBJECT`,
 t1.`STAGE`,
 t1.`STAGEDBY`,
 t1.`STATUS`,
+t1.`STORYPOINTS`,
 t1.`SUBSTATUS`,
 t1.`TITLE`,
 t1.`TOBUG`,
@@ -14450,6 +15319,7 @@ t1.`SOURCEOBJECT`,
 t1.`STAGE`,
 t1.`STAGEDBY`,
 t1.`STATUS`,
+t1.`STORYPOINTS`,
 t1.`SUBSTATUS`,
 t1.`TITLE`,
 t1.`TOBUG`,
@@ -14888,6 +15758,41 @@ FROM `IBZPOST` t1
 
 ```
 
+# **系统角色**(SYS_ROLE)
+
+### 数据查询(DEFAULT)<div id="SysRole_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`MEMO`,
+t1.`PROLEID`,
+t11.`SYS_ROLENAME` AS `PROLENAME`,
+t1.`SYS_ROLEID`,
+t1.`SYS_ROLENAME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `IBZROLE` t1 
+LEFT JOIN IBZROLE t11 ON t1.PROLEID = t11.SYS_ROLEID 
+
+```
+### 默认（全部数据）(VIEW)<div id="SysRole_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`MEMO`,
+t1.`PROLEID`,
+t11.`SYS_ROLENAME` AS `PROLENAME`,
+t1.`SYS_ROLEID`,
+t1.`SYS_ROLENAME`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `IBZROLE` t1 
+LEFT JOIN IBZROLE t11 ON t1.PROLEID = t11.SYS_ROLEID 
+
+```
+
 # **组**(SYS_TEAM)
 
 ### 数据查询(DEFAULT)<div id="SysTeam_Default"></div>
@@ -15024,6 +15929,124 @@ t1.`UPDATEDATE`,
 t1.`UPDATEMAN`,
 t1.`UPDESC`
 FROM `T_SYS_UPDATE_LOG` t1 
+
+```
+
+# **系统用户**(SYS_USER)
+
+### 数据查询(DEFAULT)<div id="SysUser_Default"></div>
+```sql
+SELECT
+t1.`ADDR`,
+t1.`AVATAR`,
+t1.`BCODE`,
+t1.`BIRTHDAY`,
+t1.`CERTCODE`,
+t1.`DOMAINS`,
+t1.`EMAIL`,
+t1.`FONTSIZE`,
+t1.`LANG`,
+t1.`LOGINNAME`,
+t1.`MDEPTCODE`,
+t1.`MDEPTID`,
+t1.`MDEPTNAME`,
+t1.`MEMO`,
+t1.`NICKNAME`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGNAME`,
+t1.`PASSWORD`,
+t1.`PERSONNAME`,
+t1.`PHONE`,
+t1.`POSTCODE`,
+t1.`POSTID`,
+t1.`POSTNAME`,
+t1.`RESERVER`,
+t1.`SEX`,
+t1.`SUPERUSER`,
+t1.`THEME`,
+t1.`USERCODE`,
+t1.`USERICON`,
+t1.`USERID`,
+t1.`USERNAME`
+FROM `IBZUSER` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="SysUser_View"></div>
+```sql
+SELECT
+t1.`ADDR`,
+t1.`AVATAR`,
+t1.`BCODE`,
+t1.`BIRTHDAY`,
+t1.`CERTCODE`,
+t1.`DOMAINS`,
+t1.`EMAIL`,
+t1.`FONTSIZE`,
+t1.`LANG`,
+t1.`LOGINNAME`,
+t1.`MDEPTCODE`,
+t1.`MDEPTID`,
+t1.`MDEPTNAME`,
+t1.`MEMO`,
+t1.`NICKNAME`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGNAME`,
+t1.`PASSWORD`,
+t1.`PERSONNAME`,
+t1.`PHONE`,
+t1.`POSTCODE`,
+t1.`POSTID`,
+t1.`POSTNAME`,
+t1.`RESERVER`,
+t1.`SEX`,
+t1.`SUPERUSER`,
+t1.`THEME`,
+t1.`USERCODE`,
+t1.`USERICON`,
+t1.`USERID`,
+t1.`USERNAME`
+FROM `IBZUSER` t1 
+
+```
+
+# **用户角色关系**(SYS_USER_ROLE)
+
+### 数据查询(DEFAULT)<div id="SysUserRole_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t21.`LOGINNAME`,
+t21.`MDEPTNAME`,
+t21.`ORGNAME`,
+t1.`SYS_ROLEID`,
+t11.`SYS_ROLENAME`,
+t1.`SYS_USERID`,
+t21.`PERSONNAME` AS `SYS_USERNAME`,
+t1.`SYS_USER_ROLEID`,
+t1.`UPDATEDATE`
+FROM `IBZUSER_ROLE` t1 
+LEFT JOIN IBZROLE t11 ON t1.SYS_ROLEID = t11.SYS_ROLEID 
+LEFT JOIN IBZUSER t21 ON t1.SYS_USERID = t21.USERID 
+
+```
+### 默认（全部数据）(VIEW)<div id="SysUserRole_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t21.`LOGINNAME`,
+t21.`MDEPTNAME`,
+t21.`ORGNAME`,
+t1.`SYS_ROLEID`,
+t11.`SYS_ROLENAME`,
+t1.`SYS_USERID`,
+t21.`PERSONNAME` AS `SYS_USERNAME`,
+t1.`SYS_USER_ROLEID`,
+t1.`UPDATEDATE`
+FROM `IBZUSER_ROLE` t1 
+LEFT JOIN IBZROLE t11 ON t1.SYS_ROLEID = t11.SYS_ROLEID 
+LEFT JOIN IBZUSER t21 ON t1.SYS_USERID = t21.USERID 
 
 ```
 
@@ -15216,7 +16239,7 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 LEFT JOIN zt_user t61 on t61.account = t1.assignedTo
 WHERE t1.deleted = '0' 
-t1.project = #{srf.webcontext.project} 
+(t1.project = #{srf.webcontext.project} or t1.project = #{srf.webcontext.curproject}) 
 
 ```
 ### 通过模块查询(ByModule)<div id="Task_ByModule"></div>
@@ -15504,6 +16527,7 @@ t1.`LEFT`,
 t1.`MODULE`,
 t11.`NAME` AS `MODULENAME`,
 (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
 t1.`NAME`,
 t1.`OPENEDBY`,
@@ -15599,6 +16623,277 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
 
 ```
+### 我完成的任务（汇报）(MyCompleteTask)<div id="Task_MyCompleteTask"></div>
+```sql
+SELECT
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`CONSUMED`,
+t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+t1.`DELETED`,
+(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
+t1.`ESTIMATE`,
+t1.`ESTSTARTED`,
+t1.`FINISHEDBY`,
+t1.`FINISHEDDATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+0 AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LEFT`,
+t1.`MAILTO`,
+'' AS `MAILTOPK`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
+( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.CONSUMED AS `MYCONSUMED`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t51.`NAME` AS `PARENTNAME`,
+t11.`PATH`,
+t1.`PRI`,
+t21.`PRODUCT`,
+t41.`NAME` AS `PRODUCTNAME`,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
+t1.`PROJECT`,
+t31.`NAME` AS `PROJECTNAME`,
+t1.`REALSTARTED`,
+t1.`STATUS`,
+(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
+t1.`STORY`,
+t21.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
+t1.`TYPE`,
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
+FROM `zt_task` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
+LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
+LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
+LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
+
+WHERE t1.DELETED = '0' 
+( ( ( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} )  OR  ( t1.`FINISHEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"FINISHEDBY","dename":"ZT_TASK"}')} ) ) ) 
+
+```
+### 已完成任务（移动端）(MyCompleteTaskMob)<div id="Task_MyCompleteTaskMob"></div>
+```sql
+SELECT
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`CONSUMED`,
+t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+t1.`DELETED`,
+(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
+t1.`ESTIMATE`,
+t1.`ESTSTARTED`,
+t1.`FINISHEDBY`,
+t1.`FINISHEDDATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+0 AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LEFT`,
+t1.`MAILTO`,
+'' AS `MAILTOPK`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
+( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.CONSUMED AS `MYCONSUMED`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t51.`NAME` AS `PARENTNAME`,
+t11.`PATH`,
+t1.`PRI`,
+t21.`PRODUCT`,
+t41.`NAME` AS `PRODUCTNAME`,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
+t1.`PROJECT`,
+t31.`NAME` AS `PROJECTNAME`,
+t1.`REALSTARTED`,
+t1.`STATUS`,
+(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
+t1.`STORY`,
+t21.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
+t1.`TYPE`,
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
+FROM `zt_task` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
+LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
+LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
+LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+WHERE FIND_IN_SET(t1.id,(select TODAYTASK from t_ibz_daily where IBZ_dailyID = ${srfdatacontext('srfparentkey')}))
+ 
+t1.deleted='0' 
+
+```
+### 我完成的任务（移动端月报）(MyCompleteTaskMobMonthly)<div id="Task_MyCompleteTaskMobMonthly"></div>
+```sql
+SELECT
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`CONSUMED`,
+t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+t1.`DELETED`,
+(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
+t1.`ESTIMATE`,
+t1.`ESTSTARTED`,
+t1.`FINISHEDBY`,
+t1.`FINISHEDDATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+0 AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LEFT`,
+t1.`MAILTO`,
+'' AS `MAILTOPK`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
+( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.CONSUMED AS `MYCONSUMED`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t51.`NAME` AS `PARENTNAME`,
+t11.`PATH`,
+t1.`PRI`,
+t21.`PRODUCT`,
+t41.`NAME` AS `PRODUCTNAME`,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
+t1.`PROJECT`,
+t31.`NAME` AS `PROJECTNAME`,
+t1.`REALSTARTED`,
+t1.`STATUS`,
+(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
+t1.`STORY`,
+t21.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
+t1.`TYPE`,
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
+FROM `zt_task` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
+LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
+LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
+LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+WHERE t1.DELETED = '0' 
+FIND_IN_SET(t1.id,(select thismonthtask from t_ibz_monthly where IBZ_MONTHLYID = ${srfdatacontext('srfparentkey')} )) 
+
+```
+### 我完成的任务（汇报）(MyCompleteTaskZS)<div id="Task_MyCompleteTaskZS"></div>
+```sql
+SELECT
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`CONSUMED`,
+t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+t1.`DELETED`,
+(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
+t1.`ESTIMATE`,
+t1.`ESTSTARTED`,
+t1.`FINISHEDBY`,
+t1.`FINISHEDDATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+0 AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LEFT`,
+t1.`MAILTO`,
+'' AS `MAILTOPK`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
+( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.CONSUMED AS `MYCONSUMED`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t51.`NAME` AS `PARENTNAME`,
+t11.`PATH`,
+t1.`PRI`,
+t21.`PRODUCT`,
+t41.`NAME` AS `PRODUCTNAME`,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
+t1.`PROJECT`,
+t31.`NAME` AS `PROJECTNAME`,
+t1.`REALSTARTED`,
+t1.`STATUS`,
+(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
+t1.`STORY`,
+t21.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
+t1.`TYPE`,
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
+FROM `zt_task` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
+LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
+LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
+LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
+
+WHERE t1.DELETED = '0' 
+( t1.`ID` IN (${srfwebcontext('todaytask','{"defname":"ID","dename":"ZT_TASK"}')}) ) 
+
+```
 ### 我的收藏(MyFavorites)<div id="Task_MyFavorites"></div>
 ```sql
 SELECT
@@ -15660,6 +16955,348 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 WHERE t1.DELETED = '0' 
 t1.id in (select t.OBJECTID from T_IBZ_FAVORITES t where t.type = 'task' and t.account = #{srf.sessioncontext.srfloginname}) 
+
+```
+### 我计划参与的任务（移动端月报）(MyPlansTaskMobMonthly)<div id="Task_MyPlansTaskMobMonthly"></div>
+```sql
+SELECT
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`CONSUMED`,
+t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+t1.`DELETED`,
+(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
+t1.`ESTIMATE`,
+t1.`ESTSTARTED`,
+t1.`FINISHEDBY`,
+t1.`FINISHEDDATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+0 AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LEFT`,
+t1.`MAILTO`,
+'' AS `MAILTOPK`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
+( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.CONSUMED AS `MYCONSUMED`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t51.`NAME` AS `PARENTNAME`,
+t11.`PATH`,
+t1.`PRI`,
+t21.`PRODUCT`,
+t41.`NAME` AS `PRODUCTNAME`,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
+t1.`PROJECT`,
+t31.`NAME` AS `PROJECTNAME`,
+t1.`REALSTARTED`,
+t1.`STATUS`,
+(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
+t1.`STORY`,
+t21.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
+t1.`TYPE`,
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
+FROM `zt_task` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
+LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
+LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
+LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+WHERE t1.DELETED = '0' 
+FIND_IN_SET(t1.id,(select nextmonthplanstask from t_ibz_monthly where IBZ_MONTHLYID = ${srfdatacontext('srfparentkey')} )) 
+
+```
+### 我计划参与的任务（汇报）(MyTomorrowPlanTask)<div id="Task_MyTomorrowPlanTask"></div>
+```sql
+SELECT
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`CONSUMED`,
+t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+t1.`DELETED`,
+(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
+t1.`ESTIMATE`,
+t1.`ESTSTARTED`,
+t1.`FINISHEDBY`,
+t1.`FINISHEDDATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+0 AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LEFT`,
+t1.`MAILTO`,
+'' AS `MAILTOPK`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
+( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.CONSUMED AS `MYCONSUMED`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t51.`NAME` AS `PARENTNAME`,
+t11.`PATH`,
+t1.`PRI`,
+t21.`PRODUCT`,
+t41.`NAME` AS `PRODUCTNAME`,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
+t1.`PROJECT`,
+t31.`NAME` AS `PROJECTNAME`,
+t1.`REALSTARTED`,
+t1.`STATUS`,
+(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
+t1.`STORY`,
+t21.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
+t1.`TYPE`,
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
+FROM `zt_task` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
+LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
+LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
+LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
+
+WHERE t1.DELETED = '0' 
+( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} ) 
+
+```
+### 我计划参与的任务（汇报）(MyTomorrowPlanTaskMobDaily)<div id="Task_MyTomorrowPlanTaskMobDaily"></div>
+```sql
+SELECT
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`CONSUMED`,
+t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+t1.`DELETED`,
+(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
+t1.`ESTIMATE`,
+t1.`ESTSTARTED`,
+t1.`FINISHEDBY`,
+t1.`FINISHEDDATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+0 AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LEFT`,
+t1.`MAILTO`,
+'' AS `MAILTOPK`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
+( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.CONSUMED AS `MYCONSUMED`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t51.`NAME` AS `PARENTNAME`,
+t11.`PATH`,
+t1.`PRI`,
+t21.`PRODUCT`,
+t41.`NAME` AS `PRODUCTNAME`,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
+t1.`PROJECT`,
+t31.`NAME` AS `PROJECTNAME`,
+t1.`REALSTARTED`,
+t1.`STATUS`,
+(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
+t1.`STORY`,
+t21.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
+t1.`TYPE`,
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
+FROM `zt_task` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
+LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
+LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
+LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
+
+WHERE t1.DELETED = '0' 
+FIND_IN_SET(t1.id,(select TOMORROWPLANSTASK  from t_ibz_daily where IBZ_dailyID = ${srfdatacontext('srfparentkey')})) 
+
+```
+### 本周完成的任务(汇报)(NextWeekCompleteTaskZS)<div id="Task_NextWeekCompleteTaskZS"></div>
+```sql
+SELECT
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`CONSUMED`,
+t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+t1.`DELETED`,
+(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
+t1.`ESTIMATE`,
+t1.`ESTSTARTED`,
+t1.`FINISHEDBY`,
+t1.`FINISHEDDATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+0 AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LEFT`,
+t1.`MAILTO`,
+'' AS `MAILTOPK`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
+( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.CONSUMED AS `MYCONSUMED`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t51.`NAME` AS `PARENTNAME`,
+t11.`PATH`,
+t1.`PRI`,
+t21.`PRODUCT`,
+t41.`NAME` AS `PRODUCTNAME`,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
+t1.`PROJECT`,
+t31.`NAME` AS `PROJECTNAME`,
+t1.`REALSTARTED`,
+t1.`STATUS`,
+(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
+t1.`STORY`,
+t21.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
+t1.`TYPE`,
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
+FROM `zt_task` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
+LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
+LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
+LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
+
+WHERE t1.DELETED = '0' 
+( t1.`ID` IN (   
+case when  ${srfwebcontext('nextweektask','{"defname":"ID","dename":"ZT_TASK"}')} is null then 0
+else ${srfwebcontext('nextweektask','{"defname":"ID","dename":"ZT_TASK"}')} end 
+) ) 
+
+```
+### 下周计划完成任务(汇报)(NextWeekPlanCompleteTask)<div id="Task_NextWeekPlanCompleteTask"></div>
+```sql
+SELECT
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`CONSUMED`,
+t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+t1.`DELETED`,
+(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
+t1.`ESTIMATE`,
+t1.`ESTSTARTED`,
+t1.`FINISHEDBY`,
+t1.`FINISHEDDATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+0 AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LEFT`,
+t1.`MAILTO`,
+'' AS `MAILTOPK`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
+( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.CONSUMED AS `MYCONSUMED`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t51.`NAME` AS `PARENTNAME`,
+t11.`PATH`,
+t1.`PRI`,
+t21.`PRODUCT`,
+t41.`NAME` AS `PRODUCTNAME`,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
+t1.`PROJECT`,
+t31.`NAME` AS `PROJECTNAME`,
+t1.`REALSTARTED`,
+t1.`STATUS`,
+(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
+t1.`STORY`,
+t21.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
+t1.`TYPE`,
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
+FROM `zt_task` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
+LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
+LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
+LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
+
+WHERE t1.DELETED = '0' 
+( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} ) 
 
 ```
 ### 项目任务(ProjectTask)<div id="Task_ProjectTask"></div>
@@ -15784,6 +17421,145 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 LEFT JOIN zt_user t61 on t1.ASSIGNEDTO =  t61.ACCOUNT
 WHERE t1.DELETED = '0' 
 t1.`PARENT` in(0,-1) 
+
+```
+### 本周完成的任务(汇报)(ThisWeekCompleteTask)<div id="Task_ThisWeekCompleteTask"></div>
+```sql
+SELECT
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`CONSUMED`,
+t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+t1.`DELETED`,
+(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
+t1.`ESTIMATE`,
+t1.`ESTSTARTED`,
+t1.`FINISHEDBY`,
+t1.`FINISHEDDATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+0 AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LEFT`,
+t1.`MAILTO`,
+'' AS `MAILTOPK`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
+( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.CONSUMED AS `MYCONSUMED`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t51.`NAME` AS `PARENTNAME`,
+t11.`PATH`,
+t1.`PRI`,
+t21.`PRODUCT`,
+t41.`NAME` AS `PRODUCTNAME`,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
+t1.`PROJECT`,
+t31.`NAME` AS `PROJECTNAME`,
+t1.`REALSTARTED`,
+t1.`STATUS`,
+(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
+t1.`STORY`,
+t21.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
+t1.`TYPE`,
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
+FROM `zt_task` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
+LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
+LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
+LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
+
+WHERE t1.DELETED = '0' 
+( ( ( t1.`STATUS` IN ('doing','wait')  AND  t1.`ASSIGNEDTO` =  ${srfsessioncontext('srfloginname','{"defname":"ASSIGNEDTO","dename":"ZT_TASK"}')} )  OR  ( t1.`FINISHEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"FINISHEDBY","dename":"ZT_TASK"}')} ) ) ) 
+
+```
+### 本周完成的任务(汇报)(ThisWeekCompleteTaskZS)<div id="Task_ThisWeekCompleteTaskZS"></div>
+```sql
+SELECT
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`CONSUMED`,
+t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+t1.`DELETED`,
+(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
+t1.`ESTIMATE`,
+t1.`ESTSTARTED`,
+t1.`FINISHEDBY`,
+t1.`FINISHEDDATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+0 AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LEFT`,
+t1.`MAILTO`,
+'' AS `MAILTOPK`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+(case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
+( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.CONSUMED AS `MYCONSUMED`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t51.`NAME` AS `PARENTNAME`,
+t11.`PATH`,
+t1.`PRI`,
+t21.`PRODUCT`,
+t41.`NAME` AS `PRODUCTNAME`,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
+t1.`PROJECT`,
+t31.`NAME` AS `PROJECTNAME`,
+t1.`REALSTARTED`,
+t1.`STATUS`,
+(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) AS `STATUS1`,
+case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when  t1.`status` = 'done' then 30 when  t1.`status` = 'closed' then 40 when  t1.`status` = 'cancel' then 50  else 60 end AS `STATUSORDER`,
+t1.`STORY`,
+t21.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
+t1.`TYPE`,
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
+FROM `zt_task` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
+LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
+LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
+LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
+
+WHERE t1.DELETED = '0' 
+( t1.`ID` IN (
+case when  ${srfwebcontext('thisweektask','{"defname":"ID","dename":"ZT_TASK"}')} is null then 0
+else ${srfwebcontext('thisweektask','{"defname":"ID","dename":"ZT_TASK"}')} end 
+) ) 
 
 ```
 ### todo任务列表查询(TodoListTask)<div id="Task_TodoListTask"></div>
@@ -17311,6 +19087,20 @@ t1.`TYPE`
 FROM `zt_usertpl` t1 
 
 WHERE ( ( t1.`PUBLIC` = '1'  OR  t1.`ACCOUNT` =  ${srfwebcontext('account','{"defname":"ACCOUNT","dename":"ZT_USERTPL"}')} )  AND  t1.`TYPE` =  ${srfwebcontext('type','{"defname":"TYPE","dename":"ZT_USERTPL"}')} ) 
+
+```
+### 我的模板(MyUserTpl)<div id="UserTpl_MyUserTpl"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CONTENT`,
+t1.`ID`,
+t1.`PUBLIC`,
+t1.`TITLE`,
+t1.`TYPE`
+FROM `zt_usertpl` t1 
+
+WHERE ( t1.`ACCOUNT` =  ${srfsessioncontext('srfloginname','{"defname":"ACCOUNT","dename":"ZT_USERTPL"}')} ) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="UserTpl_View"></div>

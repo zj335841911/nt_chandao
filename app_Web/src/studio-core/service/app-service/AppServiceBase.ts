@@ -157,4 +157,30 @@ export class AppServiceBase {
     public clearToken(): void {
         Util.clearCookie('ibzuaa-token', true);
     }
+
+    /**
+     * 刷新token
+     *
+     * @private
+     * @param {*} [data={}]
+     * @memberof AppServiceBase
+     */
+    public refreshToken(data:any = {}):void{
+        if(data && data.config && (data.config.url == "/uaa/refreshToken")){
+            return;
+        }
+        Http.getInstance().post('/uaa/refreshToken',this.getToken(),false).then((response: any) => {
+            if (response && response.status === 200) {
+                const data = response.data;
+                if (data) {
+                    this.setToken(data);
+                }
+            }else{
+                console.log("刷新token出错");
+            }
+        }).catch((error: any) => {
+            console.log("刷新token出错");
+        });
+    }
+
 }

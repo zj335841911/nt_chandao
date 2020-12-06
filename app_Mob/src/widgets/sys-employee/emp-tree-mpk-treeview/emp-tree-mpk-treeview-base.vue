@@ -54,6 +54,10 @@
                 </ion-item>
             </template>
         </ion-radio-group>
+        <app-mob-context-menu ref="contextmenu">
+         <div slot="content" >
+        </div>
+        </app-mob-context-menu>
     </div>
 </template>
 <script lang='ts'>
@@ -72,8 +76,7 @@ import { Util } from '@ibiz-core/utils'
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class EmpTreeMpkBase extends Vue implements ControlInterface {
 
@@ -194,7 +197,7 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 视图类型
@@ -329,6 +332,84 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
               }
             }
             this.setDefaultSelection(AllnodesArray);
+        }
+    }
+
+    /**
+     * 备份树节点上下文菜单
+     * 
+     * @type any
+     * @memberof MainTreeBase
+     */
+    public copyActionModel:any;
+
+    /**
+     * 树节点上下文菜单集合
+     *
+     * @type {string[]}
+     * @memberof EmpTreeMpkBase
+     */
+     public actionModel: any = {
+    }
+
+    /**
+     * 显示上下文菜单
+     * 
+     * @param data 节点数据
+     * @param event 事件源
+     * @memberof DocLibTreeProductMobBase
+     */
+    public showContext(data:any,event:any){
+        let _this:any = this;
+        this.copyActionModel = {};
+        const tags: string[] = data.id.split(';');
+        Object.values(this.actionModel).forEach((item:any) =>{
+            if(Object.is(item.nodeOwner,tags[0])){
+                this.copyActionModel[item.name] = item;
+            }
+        })
+        if(Object.keys(this.copyActionModel).length === 0){
+            return;
+        }
+        this.computeNodeState(data,data.nodeType,data.appEntityName).then((result:any) => {
+            let flag:boolean = false;
+            if(Object.values(result).length>0){
+                flag =Object.values(result).some((item:any) =>{
+                    return item.visabled === true;
+                })
+            }
+            if(flag){
+                (_this.$refs.contextmenu as any).openContextMenu();
+            }
+        });
+    }
+
+    /**
+     * 计算节点右键权限
+     *
+     * @param {*} node 节点数据
+     * @param {*} nodeType 节点类型
+     * @param {*} appEntityName 应用实体名称  
+     * @returns
+     * @memberof EmpTreeMpkBase
+     */
+    public async computeNodeState(node:any,nodeType:string,appEntityName:string) {
+        if(Object.is(nodeType,"STATIC")){
+            return this.copyActionModel;
+        }
+        let service:any = await this.appEntityService.getService(appEntityName);
+        if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
+            if(service['Get'] && service['Get'] instanceof Function){
+                let tempContext:any = Util.deepCopy(this.context);
+                tempContext[appEntityName] = node.srfkey;
+                let targetData = await service.Get(tempContext,{}, false);
+                let uiservice:any = await this.globaluiservice.getService(appEntityName+'_ui_action');
+                this.$viewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
+                return this.copyActionModel;
+            }else{
+                console.warn("获取数据异常");
+                return this.copyActionModel;
+            }
         }
     }
 
@@ -859,24 +940,7 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
             this.selectedNodes = this.selectedNodes.concat(leafNodes);
             this.$emit('selectionchange', this.selectedNodes);
         }
-    } 
-
-    /**
-     * 绘制右击菜单
-     *
-     * @param {*} node
-     * @returns
-     * @memberof EmpTreeMpkBase
-     */
-    public renderContextMenu(node: any) {
-        let content;
-        if (node && node.data) {
-            const data: any = JSON.parse(JSON.stringify(node.data));
-            this.currentselectedNode = { ...data };
-            const tags: string[] = data.id.split(';');
-        }
-        return content;
-    }
+    }   
 
     /**
      * 设置选中高亮
@@ -948,6 +1012,47 @@ export default class EmpTreeMpkBase extends Vue implements ControlInterface {
             }
         }
         this.$emit('selectchange', this.selectedNodes);
+    }
+
+    /**
+     * 激活节点
+     *
+     * @memberof EmpTreeMpkBase
+     */
+    public activeNode = "";
+
+    /**
+     * 节点长按
+     *
+     * @memberof EmpTreeMpkBase
+     */
+    public node_touch(item:any){
+        this.activeNode  = item.id.split(';')[0];
+        this.currentselectedNode = Object.assign(JSON.parse(JSON.stringify(item.curData)),item);
+        this.showContext(item,{})
+    }
+
+    /**
+     * 树前端搜索
+     *
+     * @memberof EmpTreeMpkBase
+     */
+    public webLoad(query:string){
+        let reNodes:any = [];
+        for (let index = 0; index < this.nodes.length; index++) {
+            const node = this.nodes[index];
+            if(node.srfmajortext.indexOf(query) != -1){
+                reNodes.push(node);
+            }
+        }
+        this.parseNodes(reNodes);
+    }
+
+    /**
+     * 上下文菜单点击
+     */
+    public context_menu_click() {
+        (this.$refs.contextmenu as any).closeContextMenu();
     }
 
     /**

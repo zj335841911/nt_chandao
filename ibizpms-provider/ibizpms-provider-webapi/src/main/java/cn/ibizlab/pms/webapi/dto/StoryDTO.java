@@ -620,6 +620,15 @@ public class StoryDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String ibizSourcename;
 
+    /**
+     * 属性 [STORYPOINTS]
+     *
+     */
+    @JSONField(name = "storypoints")
+    @JsonProperty("storypoints")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String storypoints;
+
 
     /**
      * 设置 [ASSIGNEDTO]
@@ -923,6 +932,14 @@ public class StoryDTO extends DTOBase implements Serializable {
     public void setIbizSourcename(String  ibizSourcename){
         this.ibizSourcename = ibizSourcename ;
         this.modify("ibiz_sourcename",ibizSourcename);
+    }
+
+    /**
+     * 设置 [STORYPOINTS]
+     */
+    public void setStorypoints(String  storypoints){
+        this.storypoints = storypoints ;
+        this.modify("storypoints",storypoints);
     }
 
 

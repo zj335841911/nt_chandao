@@ -47,6 +47,7 @@ public interface IUserTplService extends IService<UserTpl> {
     boolean save(UserTpl et);
     void saveBatch(List<UserTpl> list);
     Page<UserTpl> searchDefault(UserTplSearchContext context);
+    Page<UserTpl> searchMyUserTpl(UserTplSearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

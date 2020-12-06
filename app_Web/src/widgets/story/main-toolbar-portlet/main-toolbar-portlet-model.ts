@@ -213,6 +213,9 @@ export default class MainToolbarModel {
       {
         name: 'ibiz_sourcename',
       },
+      {
+        name: 'storypoints',
+      },
     ]
   }
 

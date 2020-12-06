@@ -1,4 +1,4 @@
-# 我的地盘
+# 我的工作
 
 我的地盘分页导航视图(IbzMyTerritoryMobTabExpView)
 
@@ -6,7 +6,7 @@
 
 digraph IbzMyTerritoryMobTabExpView {
 
-label="我的地盘";    
+label="我的工作";    
 
 #rankdir=LR;
 
@@ -19,7 +19,7 @@ own [shape=none, margin=0,size="6,6", label=<
 <TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
 </TR>
 <TR>
-<TD BORDER="0" COLSPAN="4" CELLPADDING="10">我的地盘<BR/><BR/></TD>
+<TD BORDER="0" COLSPAN="4" CELLPADDING="10">我的工作<BR/><BR/></TD>
 </TR>
 </TABLE>
 >];

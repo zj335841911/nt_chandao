@@ -31,8 +31,7 @@ import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territ
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobDashboardViewdashboard_container9Base extends Vue implements ControlInterface {
 
@@ -153,7 +152,7 @@ export default class MobDashboardViewdashboard_container9Base extends Vue implem
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
 
     /**

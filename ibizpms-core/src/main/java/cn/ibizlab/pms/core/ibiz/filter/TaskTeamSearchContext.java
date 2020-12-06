@@ -31,28 +31,28 @@ public class TaskTeamSearchContext extends QueryWrapperContext<TaskTeam> {
 	public void setN_root_eq(Long n_root_eq) {
         this.n_root_eq = n_root_eq;
         if(!ObjectUtils.isEmpty(this.n_root_eq)){
-            this.getSearchCond().eq("root", n_root_eq);
+            this.getSearchCond().eq("`root`", n_root_eq);
         }
     }
 	private String n_limited_eq;//[受限用户]
 	public void setN_limited_eq(String n_limited_eq) {
         this.n_limited_eq = n_limited_eq;
         if(!ObjectUtils.isEmpty(this.n_limited_eq)){
-            this.getSearchCond().eq("limited", n_limited_eq);
+            this.getSearchCond().eq("`limited`", n_limited_eq);
         }
     }
 	private String n_type_eq;//[团队类型]
 	public void setN_type_eq(String n_type_eq) {
         this.n_type_eq = n_type_eq;
         if(!ObjectUtils.isEmpty(this.n_type_eq)){
-            this.getSearchCond().eq("type", n_type_eq);
+            this.getSearchCond().eq("`type`", n_type_eq);
         }
     }
 	private String n_account_like;//[用户]
 	public void setN_account_like(String n_account_like) {
         this.n_account_like = n_account_like;
         if(!ObjectUtils.isEmpty(this.n_account_like)){
-            this.getSearchCond().like("account", n_account_like);
+            this.getSearchCond().like("`account`", n_account_like);
         }
     }
 
@@ -65,7 +65,7 @@ public class TaskTeamSearchContext extends QueryWrapperContext<TaskTeam> {
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("account", query)   
+                     wrapper.like("`account`", query)
             );
 		 }
 	}

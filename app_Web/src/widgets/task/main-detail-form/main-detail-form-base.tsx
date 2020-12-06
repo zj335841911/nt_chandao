@@ -115,6 +115,7 @@ export class MainDetailEditFormBase extends EditFormControlBase {
         story: null,
         id: null,
         name: null,
+        color: null,
         desc: null,
         task: null,
     };
@@ -285,6 +286,13 @@ export class MainDetailEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         desc: new FormItemModel({
     caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
     required:false,
@@ -325,6 +333,7 @@ export class MainDetailEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel1.setVisible(ret);
         }
+
 
 
 

@@ -139,6 +139,20 @@ export class BuildBugNewEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
+            productname: [
+                {
+                    required: this.detailsModel.productname.required,
+                    type: 'string',
+                    message: '产品 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.productname.required,
+                    type: 'string',
+                    message: '产品 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
             openedbuild: [
                 {
                     required: this.detailsModel.openedbuild.required,
@@ -252,7 +266,7 @@ export class BuildBugNewEditFormBase extends EditFormControlBase {
 
         productname: new FormItemModel({
     caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),

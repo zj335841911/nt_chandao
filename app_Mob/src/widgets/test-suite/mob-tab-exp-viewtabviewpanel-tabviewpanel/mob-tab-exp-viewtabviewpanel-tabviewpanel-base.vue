@@ -26,8 +26,7 @@ import TestSuiteUIService from '@/ui-service/test-suite/test-suite-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobTabExpViewtabviewpanelBase extends Vue implements ControlInterface {
 
@@ -148,7 +147,7 @@ export default class MobTabExpViewtabviewpanelBase extends Vue implements Contro
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 面板导航参数

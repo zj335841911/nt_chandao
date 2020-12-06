@@ -75,6 +75,12 @@ export default class DocLibTreeCustChildModel {
       {
         name: 'root',
       },
+      {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
     ]
   }
 

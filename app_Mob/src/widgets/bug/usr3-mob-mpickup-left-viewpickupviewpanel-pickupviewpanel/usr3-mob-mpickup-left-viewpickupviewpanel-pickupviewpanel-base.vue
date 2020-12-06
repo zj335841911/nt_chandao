@@ -34,8 +34,7 @@ import BugUIService from '@/ui-service/bug/bug-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class Usr3MobMPickupLeftViewpickupviewpanelBase extends Vue implements ControlInterface {
 
@@ -156,7 +155,7 @@ export default class Usr3MobMPickupLeftViewpickupviewpanelBase extends Vue imple
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 面板导航参数

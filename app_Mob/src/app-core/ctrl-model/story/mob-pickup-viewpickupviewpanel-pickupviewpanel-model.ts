@@ -213,6 +213,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'ibiz_sourcename',
       },
+      {
+        name: 'storypoints',
+      },
     ]
   }
 

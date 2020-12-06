@@ -71,6 +71,11 @@ export default class MainInfoModel {
         dataType: 'INT',
       },
       {
+        name: 'color',
+        prop: 'color',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'precondition',
         prop: 'precondition',
         dataType: 'LONGTEXT',

@@ -27,6 +27,7 @@ public interface DocMapper extends BaseMapper<Doc> {
     Page<Doc> searchDocStatus(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper);
     Page<Doc> searchModuleDocChild(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper);
     Page<Doc> searchMyFavourite(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper);
+    Page<Doc> searchMyFavouritesOnlyDoc(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper);
     Page<Doc> searchNotRootDoc(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper);
     Page<Doc> searchRootDoc(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper);
     @Override

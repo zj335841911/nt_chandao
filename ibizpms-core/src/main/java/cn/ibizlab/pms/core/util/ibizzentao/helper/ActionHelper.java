@@ -14,12 +14,14 @@ import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.Arrays;
 import java.util.List;
 
@@ -139,7 +141,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
             param.put(PARAM_ACTION_TEXT_NAME, actiontextname);
             ibizProMessage.setParam(param.toJSONString());
             iibizProMessageService.send(ibizProMessage);
-            log.info("待办消息发送成功！");
+            log.info("待阅消息发送成功！");
         }catch (RuntimeException e) {
             log.error(e.getMessage());
             log.error("待阅消息发送失败！");
@@ -161,8 +163,11 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     public void sendTodo(Long id, String name, String noticeusers, String touser, String ccuser, String logicname, String type, String path, String actiontextname) {
         try {
             String noticeuserss = "";
+            if(touser!= null && !"".equals(touser)) {
+                noticeuserss += touser + MULTIPLE_CHOICE;
+            }
             JSONObject param = new JSONObject();
-            if(noticeusers != null & !"".equals(noticeusers)) {
+            if(noticeusers != null && !"".equals(noticeusers)) {
                 noticeuserss += noticeusers;
             }
             if(ccuser != null && !"".equals(ccuser) && noticeuserss.length() == 0) {
@@ -171,28 +176,57 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
             else if(ccuser != null && !"".equals(ccuser) && noticeuserss.length() > 0) {
                 noticeuserss += MULTIPLE_CHOICE + ccuser;
             }
-            if("".equals(touser) && "".equals(noticeuserss)) {
+            if(noticeuserss.length() == 0) {
                 return;
             }
-
             IBIZProMessage ibizProMessage = new IBIZProMessage();
+
             ibizProMessage.setCc(noticeuserss);
-            ibizProMessage.setTo(touser);
+
             ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUsername());
 
-            ibizProMessage.setType(StaticDict.Message__type.TODO.getValue());
+            ibizProMessage.setType(StaticDict.Message__type.TOREAD.getValue());
             ibizProMessage.setIbizpromessagename(name);
-            param.put(PARAM_OBJECT_ID, id);
-            param.put(PARAM_OBJECT_TYPE, type);
-            param.put(PARAM_OBJECT_SOURCE_PATH, path);
-            param.put(PARAM_OBJECT_TEXT_NAME, logicname);
-            param.put(PARAM_ACTION_TEXT_NAME, actiontextname);
+            param.put("objectid", id);
+            param.put("objecttype", type);
+            param.put("objectsourcepath", path);
+            param.put("objecttextname", logicname);
+            param.put("actiontextname", actiontextname);
             ibizProMessage.setParam(param.toJSONString());
             iibizProMessageService.send(ibizProMessage);
             log.info("待办消息发送成功！");
         }catch (RuntimeException e) {
             log.error(e.getMessage());
             log.error("待办消息发送失败！");
+        }
+    }
+
+
+    public void sendMarkDone(Long id, String name, String toUser,String logicname, String type, String path, String actiontextname){
+        try {
+            if (toUser == null || toUser.equals("")){
+                return;
+            }
+            User to = userHelper.getOne(new QueryWrapper<User>().eq("account",toUser));
+            User from = userHelper.getOne(new QueryWrapper<User>().eq("account",AuthenticationUser.getAuthenticationUser().getUsername()));
+
+            IBIZProMessage ibizProMessage = new IBIZProMessage();
+            ibizProMessage.setTo(to.getId().toString());
+
+            ibizProMessage.setFrom(from.toString());
+            ibizProMessage.setIbizpromessagename(name);
+            ibizProMessage.setType("已办");
+            JSONObject param = new JSONObject();
+            param.put(PARAM_OBJECT_ID, id);
+            param.put(PARAM_OBJECT_TYPE, type);
+            param.put(PARAM_OBJECT_SOURCE_PATH, path);
+            param.put(PARAM_OBJECT_TEXT_NAME, logicname);
+            param.put(PARAM_ACTION_TEXT_NAME, actiontextname);
+            ibizProMessage.setParam(param.toJSONString());
+            iibizProMessageService.markDone(ibizProMessage);
+        }catch (RuntimeException e){
+            log.error(e.getMessage());
+            log.error("已办消息发送失败！");
         }
     }
 

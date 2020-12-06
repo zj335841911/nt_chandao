@@ -175,7 +175,7 @@ export default class DocLibUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'myfavouritegridview', parameterName: 'myfavouritegridview' },
+            { pathName: 'moremyfavouritestreeview', parameterName: 'moremyfavouritestreeview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
@@ -220,7 +220,7 @@ export default class DocLibUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'recentmoregridview', parameterName: 'recentmoregridview' },
+            { pathName: 'morerecentupdatetreeview', parameterName: 'morerecentupdatetreeview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
@@ -504,7 +504,7 @@ export default class DocLibUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'mymoregridview', parameterName: 'mymoregridview' },
+            { pathName: 'moremydoctreeview', parameterName: 'moremydoctreeview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);

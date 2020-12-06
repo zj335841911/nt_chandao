@@ -94,6 +94,7 @@ export class MainEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         title: null,
+        color: null,
         id: null,
         case: null,
     };
@@ -214,6 +215,13 @@ export class MainEditFormBase extends EditFormControlBase {
         title: new FormItemModel({
     caption: '用例标题', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:true,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
     disabled: false,
     enableCond: 3,
 }),

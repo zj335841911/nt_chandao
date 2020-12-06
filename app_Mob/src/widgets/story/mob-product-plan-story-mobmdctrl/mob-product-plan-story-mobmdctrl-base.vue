@@ -112,8 +112,7 @@ import StoryUIService from '@/ui-service/story/story-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class Mob_ProductPlan_StoryBase extends Vue implements ControlInterface {
 
@@ -265,7 +264,7 @@ export default class Mob_ProductPlan_StoryBase extends Vue implements ControlInt
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 视图类型

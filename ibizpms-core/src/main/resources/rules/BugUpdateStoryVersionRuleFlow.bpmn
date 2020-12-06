@@ -18,7 +18,7 @@
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $bugupdatestoryversiondefault:Bug();
             eval($bugupdatestoryversiondefault==bugupdatestoryversiondefault);
-                eval((RuleUtils.test($bugupdatestoryversiondefault.get("STORY"),"ISNOTNULL",""))&&(RuleUtils.test($bugupdatestoryversiondefault.get("STORY"),"NOTEQ","0")))
+                eval((RuleUtils.test($bugupdatestoryversiondefault.get("story"),"ISNOTNULL",""))&&(RuleUtils.test($bugupdatestoryversiondefault.get("story"),"NOTEQ","0")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -26,7 +26,7 @@
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $bugupdatestoryversiondefault:Bug();
             eval($bugupdatestoryversiondefault==bugupdatestoryversiondefault);
-                eval(((RuleUtils.test($bugupdatestoryversiondefault.get("STORY"),"EQ","0"))||(RuleUtils.test($bugupdatestoryversiondefault.get("STORY"),"ISNULL",""))))
+                eval(((RuleUtils.test($bugupdatestoryversiondefault.get("story"),"EQ","0"))||(RuleUtils.test($bugupdatestoryversiondefault.get("story"),"ISNULL",""))))
                 ]]>
             </conditionExpression>
      </sequenceFlow>

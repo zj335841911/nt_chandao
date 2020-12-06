@@ -329,6 +329,7 @@ export default class DocLibTreeCustService extends ControlService {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -386,6 +387,9 @@ export default class DocLibTreeCustService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
+            }
+            if(filter.srfnodefilter){
+                Object.assign(searchFilter,{query:filter.srfnodefilter});
             }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});
@@ -492,6 +496,7 @@ export default class DocLibTreeCustService extends ControlService {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -549,6 +554,9 @@ export default class DocLibTreeCustService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
+            }
+            if(filter.srfnodefilter){
+                Object.assign(searchFilter,{query:filter.srfnodefilter});
             }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});
@@ -630,6 +638,7 @@ export default class DocLibTreeCustService extends ControlService {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -687,6 +696,9 @@ export default class DocLibTreeCustService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
+            }
+            if(filter.srfnodefilter){
+                Object.assign(searchFilter,{query:filter.srfnodefilter});
             }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});
@@ -763,6 +775,7 @@ export default class DocLibTreeCustService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -820,6 +833,9 @@ export default class DocLibTreeCustService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
+            }
+            if(filter.srfnodefilter){
+                Object.assign(searchFilter,{query:filter.srfnodefilter});
             }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});
@@ -926,6 +942,7 @@ export default class DocLibTreeCustService extends ControlService {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -983,6 +1000,9 @@ export default class DocLibTreeCustService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             if(filter.viewparams){
                 Object.assign(searchFilter,filter.viewparams);
+            }
+            if(filter.srfnodefilter){
+                Object.assign(searchFilter,{query:filter.srfnodefilter});
             }
             if(!searchFilter.page){
                 Object.assign(searchFilter,{page:0});

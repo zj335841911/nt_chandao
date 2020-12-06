@@ -228,6 +228,18 @@
 
     * [标签](module/ibizplugin/IBIZProTag.md) 
 
+  * [汇报模块](module/report.md) 
+
+    * [日报](module/report/IbzDaily.md) 
+
+    * [月报](module/report/IbzMonthly.md) 
+
+    * [汇报](module/report/IbzReport.md) 
+
+    * [汇报角色配置](module/report/IbzReportRoleConfig.md) 
+
+    * [周报](module/report/IbzWeekly.md) 
+
   * [iBiz系统模型](module/ibizsysmodel.md) 
 
     * [实体属性](module/ibizsysmodel/PSDEField.md) 
@@ -256,6 +268,12 @@
 
   * [uaa权限模块](module/uaa.md) 
 
+    * [系统角色](module/uaa/SysRole.md) 
+
+    * [系统用户](module/uaa/SysUser.md) 
+
+    * [用户角色关系](module/uaa/SysUserRole.md) 
+
   * [ou组织用户管理模块](module/ou.md) 
 
     * [部门](module/ou/SysDepartment.md) 
@@ -275,6 +293,8 @@
   
   * [插件接入接口](client/PluginClientAPI.md) 
 
+  * [ibzuaa-api](client/IbzUaaSysAPI.md) 
+
   * [iBiz平台系统模型接口](client/iBizPSSysModelAPI.md) 
 
   * [ibzou-api](client/IbzOuSysAPI.md) 
@@ -293,30 +313,53 @@
 
   * [iBiz软件生产管理（Mob）](app/Mob/app_index.md) 
 
+    * [汇报（我收到）](app/Mob/reportReceived.md)
+  
+    * [汇报](app/Mob/reportNew.md)
+  
     * [图标菜单](app/Mob/IconStyleMenu.md)
   
     * [应用首页视图默认菜单](app/Mob/AppIndexView.md)
   
+    * [我的](app/Mob/My.md)
+  
     * [列表菜单](app/Mob/ListMenu.md)
+  
+    * [汇报（我提交）](app/Mob/reportSubmit.md)
   
     * [图片滑动菜单](app/Mob/ImgswipeStyleMenu.md)
   
     * 应用功能
       * [我的任务](app/Mob/func/TaskMobMDView.md)
       * [产品](app/Mob/func/ProductMobMDView.md)
+      * [周报(我收到的)](app/Mob/func/IbzWeeklyMobMDView.md)
+      * [我的工作](app/Mob/func/IbzMyTerritoryMobCalendarView.md)
       * [产品总览](app/Mob/func/ProductMobChartView.md)
+      * [月报（我提交的）](app/Mob/func/IbzMonthlyMySubmitMobMDView.md)
       * [更新日志](app/Mob/func/SysUpdateLogMobMDView.md)
+      * [仪表盘](app/Mob/func/IbzMyTerritoryMobDashboardView.md)
+      * [我的待办](app/Mob/func/TodoMobMDView.md)
+      * [日报（新建）](app/Mob/func/IbzDailyMyMobMDView.md)
+      * [月报（新建）](app/Mob/func/IbzMonthlyCreateMobEditView.md)
       * [打开看板](app/Mob/func/AppPortalView.md)
       * [个人中心](app/Mob/func/UserUserCenterMobEditView.md)
+      * [汇报（我提交的）](app/Mob/func/IbzReportMobMDView.md)
+      * [日报（我收到的）](app/Mob/func/IbzDailyReportReceivedMobMDView.md)
       * [用户选择](app/Mob/func/UserMobPickupView.md)
-      * [我的地盘](app/Mob/func/IbzMyTerritoryMobDashboardView.md)
+      * [我的地盘](app/Mob/func/AppPortalView2.md)
       * [人员登录地图](app/Mob/func/ActionMobMapView.md)
       * [我的需求](app/Mob/func/StoryMobMDView.md)
       * [项目](app/Mob/func/ProjectMobMDView.md)
+      * [我收到的](app/Mob/func/IbzReportMyReMobMDView.md)
+      * [月报（待阅）](app/Mob/func/IbzMonthlyMobEditView.md)
       * [我的收藏](app/Mob/func/IbzFavoritesMobTabExpView.md)
       * [测试](app/Mob/func/ProductTestMobMDView.md)
+      * [月报](app/Mob/func/IbzMonthlyMonthlyMobMDView.md)
       * [产品统计](app/Mob/func/ProductStatsMobMDView.md)
-      * [我的地盘](app/Mob/func/IbzMyTerritoryMobTabExpView.md)
+      * [我的地盘](app/Mob/func/AppPortalView2.md)
+      * [我的周报](app/Mob/func/IbzWeeklyUsr2MobMDView.md)
+      * [日报（我提交的）](app/Mob/func/IbzDailyDailyReportSubmitMobMDView.md)
+      * [月报（我收到的）](app/Mob/func/IbzMonthlyMyReceivedMobMDView.md)
 
   * [iBiz软件生产管理](app/Web/app_index.md) 
 
@@ -332,6 +375,7 @@
       * [Pro模块](app/Web/func/IBZProStoryModuleGridView.md)
       * [用例库](app/Web/func/IbzLibGridView.md)
       * [iBiz软件生产管理](app/Web/func/ProductHtmlView.md)
+      * [汇报填写角色](app/Web/func/IbzReportRoleConfigGridView.md)
       * [bug主数据视图（链接）](app/Web/func/Bugmaindashboardview_link.md)
       * [项目边栏](app/Web/func/ProjectLeftSidebarListView.md)
       * [打开测试主页](app/Web/func/TestPortalView.md)

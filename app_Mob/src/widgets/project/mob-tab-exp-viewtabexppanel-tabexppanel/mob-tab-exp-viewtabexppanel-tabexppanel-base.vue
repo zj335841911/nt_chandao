@@ -75,8 +75,7 @@ import  ProjectCounterCounterService  from '@/app-core/counter/project-counter/p
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobTabExpViewtabexppanelBase extends Vue implements ControlInterface {
 
@@ -197,7 +196,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
     
     /**
      * ProjectCounterCounterService计数器服务对象

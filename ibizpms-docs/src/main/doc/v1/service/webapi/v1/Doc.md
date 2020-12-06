@@ -586,6 +586,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[DocDTO](#DocDTO)>：文档实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取我的收藏
+#### 访问路径
+/docs/fetchmyfavouritesonlydoc
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocSearchContext](#DocSearchContext) | 文档查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[DocDTO](#DocDTO)>：文档实体传输对象列表 |
+
+### 查询我的收藏
+#### 访问路径
+/docs/searchmyfavouritesonlydoc
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocSearchContext](#DocSearchContext) | 文档查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[DocDTO](#DocDTO)>：文档实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取子目录文档
 #### 访问路径
 /docs/fetchnotrootdoc
@@ -697,7 +733,8 @@ POST
 | 32 | recentaddcnt | Integer | 允许 | 最近添加数量 |
 | 33 | mydoccnt | Integer | 允许 | 我的文档数量 |
 | 34 | myfavouritecnt | Integer | 允许 | 我的收藏数量 |
-| 35 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 35 | doccnt | Integer | 允许 | 文档数 |
+| 36 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DocSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

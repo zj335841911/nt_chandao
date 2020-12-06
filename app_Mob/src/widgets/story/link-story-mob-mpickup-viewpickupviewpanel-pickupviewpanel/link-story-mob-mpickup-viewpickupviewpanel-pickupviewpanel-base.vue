@@ -34,8 +34,7 @@ import StoryUIService from '@/ui-service/story/story-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class LinkStoryMobMPickupViewpickupviewpanelBase extends Vue implements ControlInterface {
 
@@ -156,7 +155,7 @@ export default class LinkStoryMobMPickupViewpickupviewpanelBase extends Vue impl
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 面板导航参数

@@ -258,9 +258,10 @@ export default class BugUsr4MobMDViewBase extends Vue {
      * @returns
      * @memberof IBizChart
      */
-    @Watch('_viewparams')
+    @Watch('_viewparams',{immediate: true, deep: true})
     on_viewparams(newVal: string, oldVal: string) {
         this.parseViewParam();
+        
     }
 
     /**
@@ -620,7 +621,7 @@ export default class BugUsr4MobMDViewBase extends Vue {
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this.$refs.mdctrl;
         if (xData.getDatas && xData.getDatas instanceof Function) {
             datas = [...xData.getDatas()];

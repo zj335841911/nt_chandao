@@ -156,6 +156,15 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
         return new PageImpl<UserTpl>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 我的模板
+     */
+    @Override
+    public Page<UserTpl> searchMyUserTpl(UserTplSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserTpl> pages=baseMapper.searchMyUserTpl(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<UserTpl>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

@@ -105,10 +105,11 @@ export class ForwardEditFormBase extends EditFormControlBase {
         project: null,
         assignedto: null,
         left: null,
+        id: null,
         multiple: null,
+        status: null,
         noticeusers: null,
         comment: null,
-        id: null,
         task: null,
     };
 
@@ -265,8 +266,22 @@ export class ForwardEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        id: new FormItemModel({
+    caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 0,
+}),
+
         multiple: new FormItemModel({
     caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        status: new FormItemModel({
+    caption: '任务状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -284,13 +299,6 @@ export class ForwardEditFormBase extends EditFormControlBase {
     required:false,
     disabled: false,
     enableCond: 3,
-}),
-
-        id: new FormItemModel({
-    caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 0,
 }),
 
     };

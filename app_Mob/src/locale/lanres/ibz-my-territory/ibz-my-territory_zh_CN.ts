@@ -51,7 +51,7 @@ export default {
   },
 	views: {
 		mobcalendarview: {
-			caption: '我的地盘',
+			caption: '我的工作',
 		},
 		mobmdview9: {
 			caption: '我的地盘',
@@ -60,6 +60,12 @@ export default {
 			caption: '我的地盘',
 		},
 		mobdashboardview: {
+			caption: '仪表盘',
+		},
+		dailymobtabexpview: {
+			caption: '我的地盘',
+		},
+		reportmobtabexpview: {
 			caption: '我的地盘',
 		},
 	},

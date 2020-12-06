@@ -28,8 +28,7 @@ import SysUpdateLogUIService from '@/ui-service/sys-update-log/sys-update-log-ui
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobBase extends Vue implements ControlInterface {
 
@@ -150,7 +149,7 @@ export default class MobBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 视图类型

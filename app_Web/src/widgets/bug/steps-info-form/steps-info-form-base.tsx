@@ -114,6 +114,7 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
         id: null,
         title: null,
         steps: null,
+        color: null,
         bug: null,
     };
 
@@ -232,6 +233,13 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
 
         steps: new FormItemModel({
     caption: '', detailType: 'FORMITEM', name: 'steps', visible: true, isShowCaption: false, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

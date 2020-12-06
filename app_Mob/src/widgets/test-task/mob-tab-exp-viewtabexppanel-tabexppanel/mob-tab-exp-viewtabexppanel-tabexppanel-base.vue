@@ -42,8 +42,7 @@ import  MobTestTaskCounterCounterService  from '@/app-core/counter/mob-test-task
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobTabExpViewtabexppanelBase extends Vue implements ControlInterface {
 
@@ -164,7 +163,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
     
     /**
      * MobTestTaskCounterCounterService计数器服务对象

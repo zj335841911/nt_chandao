@@ -21,6 +21,7 @@ export class AppEntityServiceConstructor extends ServiceConstructorBase {
         this.allService.set('sysorganization', () => import('@/app-core/service/sys-organization/sys-organization-service'));
         this.allService.set('file', () => import('@/app-core/service/file/file-service'));
         this.allService.set('user', () => import('@/app-core/service/user/user-service'));
+        this.allService.set('ibzdaily', () => import('@/app-core/service/ibz-daily/ibz-daily-service'));
         this.allService.set('ibzfavorites', () => import('@/app-core/service/ibz-favorites/ibz-favorites-service'));
         this.allService.set('projectteam', () => import('@/app-core/service/project-team/project-team-service'));
         this.allService.set('build', () => import('@/app-core/service/build/build-service'));
@@ -29,8 +30,10 @@ export class AppEntityServiceConstructor extends ServiceConstructorBase {
         this.allService.set('ibzdoc', () => import('@/app-core/service/ibz-doc/ibz-doc-service'));
         this.allService.set('systeammember', () => import('@/app-core/service/sys-team-member/sys-team-member-service'));
         this.allService.set('module', () => import('@/app-core/service/module/module-service'));
+        this.allService.set('ibzweekly', () => import('@/app-core/service/ibz-weekly/ibz-weekly-service'));
         this.allService.set('product', () => import('@/app-core/service/product/product-service'));
         this.allService.set('dynadashboard', () => import('@/app-core/service/dyna-dashboard/dyna-dashboard-service'));
+        this.allService.set('ibzmonthly', () => import('@/app-core/service/ibz-monthly/ibz-monthly-service'));
         this.allService.set('storyspec', () => import('@/app-core/service/story-spec/story-spec-service'));
         this.allService.set('action', () => import('@/app-core/service/action/action-service'));
         this.allService.set('casestep', () => import('@/app-core/service/case-step/case-step-service'));
@@ -49,6 +52,7 @@ export class AppEntityServiceConstructor extends ServiceConstructorBase {
         this.allService.set('doclibmodule', () => import('@/app-core/service/doc-lib-module/doc-lib-module-service'));
         this.allService.set('sysupdatefeatures', () => import('@/app-core/service/sys-update-features/sys-update-features-service'));
         this.allService.set('doccontent', () => import('@/app-core/service/doc-content/doc-content-service'));
+        this.allService.set('ibzreport', () => import('@/app-core/service/ibz-report/ibz-report-service'));
         this.allService.set('productplan', () => import('@/app-core/service/product-plan/product-plan-service'));
         this.allService.set('ibztaskestimate', () => import('@/app-core/service/ibz-taskestimate/ibz-taskestimate-service'));
         this.allService.set('projectstats', () => import('@/app-core/service/project-stats/project-stats-service'));

@@ -41,8 +41,7 @@ import ProjectUIService from '@/ui-service/project/project-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class ProjectStatusBarMobBBase extends Vue implements ControlInterface {
 
@@ -163,7 +162,7 @@ export default class ProjectStatusBarMobBBase extends Vue implements ControlInte
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
 
     /**

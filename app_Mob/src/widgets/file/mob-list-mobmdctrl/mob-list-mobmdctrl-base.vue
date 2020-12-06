@@ -28,8 +28,7 @@ import FileUIService from '@/ui-service/file/file-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobListBase extends Vue implements ControlInterface {
 
@@ -150,7 +149,7 @@ export default class MobListBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 视图类型

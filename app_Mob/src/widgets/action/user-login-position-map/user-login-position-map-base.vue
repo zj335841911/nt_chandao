@@ -21,8 +21,7 @@ import { Http } from "@/ibiz-core/utils";
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class UserLoginPositionBase extends Vue implements ControlInterface {
 
@@ -143,7 +142,7 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 获取多项数据

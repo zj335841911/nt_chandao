@@ -487,8 +487,7 @@ import {  Util } from '@/ibiz-core/utils';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobNewFromBase extends Vue implements ControlInterface {
 
@@ -609,7 +608,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 工作流审批意见控件绑定值
@@ -2312,15 +2311,12 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      * @memberof MobNewFrom
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('module')) {
+            if (this.data.hasOwnProperty('module')) {
                     this.data['module'] = this.viewparams['module'];
-                }
-                if (this.data.hasOwnProperty('allmodules')) {
-                    this.data['allmodules'] = '1';
-                }
-                if (this.data.hasOwnProperty('story')) {
+            }
+            if (this.data.hasOwnProperty('story')) {
                     this.data['story'] = this.viewparams['story'];
-                }
+            }
     }
 
         /**

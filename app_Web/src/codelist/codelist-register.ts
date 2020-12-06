@@ -43,6 +43,7 @@ export class CodeListRegister {
         this.allCodeList.set('ProductBranch_Cache', () => import('@/codelist/product-branch-cache'));
         this.allCodeList.set('Backendservicesystem', () => import('@/codelist/backendservicesystem'));
         this.allCodeList.set('RealNameProjectM', () => import('@/codelist/real-name-project-m'));
+        this.allCodeList.set('MyPlanTask', () => import('@/codelist/my-plan-task'));
         this.allCodeList.set('ProjectCodeList', () => import('@/codelist/project-code-list'));
         this.allCodeList.set('SQLBuild', () => import('@/codelist/sqlbuild'));
         this.allCodeList.set('TaskTeamUserTemp', () => import('@/codelist/task-team-user-temp'));
@@ -69,6 +70,7 @@ export class CodeListRegister {
         this.allCodeList.set('PlanCodeList', () => import('@/codelist/plan-code-list'));
         this.allCodeList.set('CurProductPlan', () => import('@/codelist/cur-product-plan'));
         this.allCodeList.set('UserRealNameTask', () => import('@/codelist/user-real-name-task'));
+        this.allCodeList.set('AllRole', () => import('@/codelist/all-role'));
         this.allCodeList.set('AllTask', () => import('@/codelist/all-task'));
         this.allCodeList.set('CurDocVersion', () => import('@/codelist/cur-doc-version'));
         this.allCodeList.set('AllTestTask', () => import('@/codelist/all-test-task'));
@@ -81,6 +83,7 @@ export class CodeListRegister {
         this.allCodeList.set('RealDept', () => import('@/codelist/real-dept'));
         this.allCodeList.set('CurProductProject', () => import('@/codelist/cur-product-project'));
         this.allCodeList.set('CurStory', () => import('@/codelist/cur-story'));
+        this.allCodeList.set('MyCompleteTask', () => import('@/codelist/my-complete-task'));
     }
 
     /**

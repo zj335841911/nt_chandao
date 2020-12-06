@@ -1,5 +1,144 @@
  [
         {
+        "srfkey": "StoryPoints",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "0",
+                "label": "0",
+                "text": "0",
+                "class":"",
+                "data":"",
+                "codename":"Item_0",
+                "value": "0",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "0.5",
+                "label": "1/2",
+                "text": "1/2",
+                "class":"",
+                "data":"",
+                "codename":"Item_05",
+                "value": "0.5",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "1",
+                "label": "1",
+                "text": "1",
+                "class":"",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "2",
+                "label": "2",
+                "text": "2",
+                "class":"",
+                "data":"",
+                "codename":"Item_2",
+                "value": "2",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "3",
+                "label": "3",
+                "text": "3",
+                "class":"",
+                "data":"",
+                "codename":"Item_3",
+                "value": "3",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "5",
+                "label": "5",
+                "text": "5",
+                "class":"",
+                "data":"",
+                "codename":"Item_5",
+                "value": "5",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "8",
+                "label": "8",
+                "text": "8",
+                "class":"",
+                "data":"",
+                "codename":"Item_8",
+                "value": "8",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "13",
+                "label": "13",
+                "text": "13",
+                "class":"",
+                "data":"",
+                "codename":"Item_13",
+                "value": "13",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "20",
+                "label": "20",
+                "text": "20",
+                "class":"",
+                "data":"",
+                "codename":"Item_20",
+                "value": "20",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "40",
+                "label": "40",
+                "text": "40",
+                "class":"",
+                "data":"",
+                "codename":"Item_40",
+                "value": "40",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "100",
+                "label": "100",
+                "text": "100",
+                "class":"",
+                "data":"",
+                "codename":"Item_100",
+                "value": "100",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "BugCreateResolve",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -513,6 +652,14 @@
         "items": []
     }, 
     {
+        "srfkey": "MyPlanTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyTomorrowPlanTask",
+        "items": []
+    }, 
+    {
         "srfkey": "ProjectCodeList",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -910,6 +1057,38 @@
         "appdataentity":"SysEmployee",
         "appdedataset":"FetchDefault",
         "items": []
+    }, 
+    {
+        "srfkey": "ReportStatus",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "0",
+                "label": "未读",
+                "text": "未读",
+                "class":"",
+                "data":"",
+                "codename":"Item_0",
+                "color": "rgba(244, 15, 15, 1)",
+                "value": "0",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "1",
+                "label": "已读",
+                "text": "已读",
+                "class":"",
+                "data":"",
+                "codename":"Item_1",
+                "value": "1",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
     }, 
     {
         "srfkey": "Bug__os",
@@ -4319,6 +4498,42 @@
                 "disabled": false,
                 "default": false
             }
+            , {
+                "id": "daily",
+                "label": "日报",
+                "text": "日报",
+                "class":"",
+                "data":"",
+                "codename":"Daily",
+                "value": "daily",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "weekly",
+                "label": "周报",
+                "text": "周报",
+                "class":"",
+                "data":"",
+                "codename":"Weekly",
+                "value": "weekly",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "monthly",
+                "label": "月报",
+                "text": "月报",
+                "class":"",
+                "data":"",
+                "codename":"Monthly",
+                "value": "monthly",
+                
+                "disabled": false,
+                "default": false
+            }
         ]
     }, 
     {
@@ -4411,6 +4626,49 @@
                 "data":"",
                 "codename":"Item_4",
                 "value": 4,
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "UserTplType",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "story",
+                "label": "需求",
+                "text": "需求",
+                "class":"",
+                "data":"",
+                "codename":"Story",
+                "value": "story",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "task",
+                "label": "任务",
+                "text": "任务",
+                "class":"",
+                "data":"",
+                "codename":"Task",
+                "value": "task",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "bug",
+                "label": "Bug",
+                "text": "Bug",
+                "class":"",
+                "data":"",
+                "codename":"Bug",
+                "value": "bug",
                 
                 "disabled": false,
                 "default": false
@@ -5222,6 +5480,49 @@
         ]
     }, 
     {
+        "srfkey": "ReportType",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "weekly",
+                "label": "周报",
+                "text": "周报",
+                "class":"",
+                "data":"",
+                "codename":"Weekly",
+                "value": "weekly",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "daily",
+                "label": "日报",
+                "text": "日报",
+                "class":"",
+                "data":"",
+                "codename":"Daily",
+                "value": "daily",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "monthly",
+                "label": "月报",
+                "text": "月报",
+                "class":"",
+                "data":"",
+                "codename":"Monthly",
+                "value": "monthly",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "RelatedStory",
         "emptytext": "",
         "codelisttype":"dynamic",
@@ -5471,6 +5772,61 @@
                 "data":"",
                 "codename":"Custom",
                 "value": "custom",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "UserTplQuickGroup",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "all",
+                "label": "所有",
+                "text": "所有",
+                "class":"",
+                "data":{},
+                "codename":"All",
+                "value": "all",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "story",
+                "label": "需求",
+                "text": "需求",
+                "class":"",
+                "data":{"n_type_eq":"story"},
+                "codename":"Story",
+                "value": "story",
+                
+                "disabled": false,
+                "default": true
+            }
+            , {
+                "id": "task",
+                "label": "任务",
+                "text": "任务",
+                "class":"",
+                "data":{"n_type_eq":"task"},
+                "codename":"Task",
+                "value": "task",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "bug",
+                "label": "Bug",
+                "text": "Bug",
+                "class":"",
+                "data":{"n_type_eq":"bug"},
+                "codename":"Bug",
+                "value": "bug",
                 
                 "disabled": false,
                 "default": false
@@ -5983,6 +6339,14 @@
         "codelisttype":"dynamic",
         "appdataentity":"SysEmployee",
         "appdedataset":"FetchProjectTeamUserTask",
+        "items": []
+    }, 
+    {
+        "srfkey": "AllRole",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysRole",
+        "appdedataset":"FetchDefault",
         "items": []
     }, 
     {
@@ -6953,6 +7317,42 @@
                 "disabled": false,
                 "default": false
             }
+            , {
+                "id": "daily",
+                "label": "日报",
+                "text": "日报",
+                "class":"",
+                "data":"",
+                "codename":"Daily",
+                "value": "daily",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "weekly",
+                "label": "周报",
+                "text": "周报",
+                "class":"",
+                "data":"",
+                "codename":"Weekly",
+                "value": "weekly",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "monthly",
+                "label": "月报",
+                "text": "月报",
+                "class":"",
+                "data":"",
+                "codename":"Monthly",
+                "value": "monthly",
+                
+                "disabled": false,
+                "default": false
+            }
         ]
     }, 
     {
@@ -7556,6 +7956,18 @@
                 "data":"",
                 "codename":"Affair",
                 "value": "affair",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "serve",
+                "label": "服务",
+                "text": "服务",
+                "class":"",
+                "data":"",
+                "codename":"Serve",
+                "value": "serve",
                 
                 "disabled": false,
                 "default": false
@@ -8849,6 +9261,42 @@
                 "disabled": false,
                 "default": false
             }
+            , {
+                "id": "submit",
+                "label": "提交",
+                "text": "提交",
+                "class":"",
+                "data":"",
+                "codename":"Submit",
+                "value": "submit",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "read",
+                "label": "已读了",
+                "text": "已读了",
+                "class":"",
+                "data":"",
+                "codename":"Read",
+                "value": "read",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "remind",
+                "label": "提醒",
+                "text": "提醒",
+                "class":"",
+                "data":"",
+                "codename":"Remind",
+                "value": "remind",
+                
+                "disabled": false,
+                "default": false
+            }
         ]
     }, 
     {
@@ -9760,6 +10208,14 @@
                 "default": false
             }
         ]
+    }, 
+    {
+        "srfkey": "MyCompleteTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Task",
+        "appdedataset":"FetchMyCompleteTask",
+        "items": []
     }, 
     {
         "srfkey": "Testrun__result",

@@ -200,7 +200,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      * @memberof StoryUIService
      */
     public async Story_MobReleaseLinkStory(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -219,6 +219,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -362,7 +365,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { story: '%story%' });
         Object.assign(paramJO, { id: '%story%' });
@@ -384,6 +387,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "srfparentkey": "%productplan%", "productplan": "%productplan%" } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -416,7 +422,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      * @memberof StoryUIService
      */
     public async Story_StoryNFavoritesMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { story: '%story%' });
         Object.assign(paramJO, { id: '%story%' });
@@ -438,6 +444,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -470,7 +479,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      * @memberof StoryUIService
      */
     public async Story_StoryFavoritesMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { story: '%story%' });
         Object.assign(paramJO, { id: '%story%' });
@@ -492,6 +501,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -578,7 +590,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      * @memberof StoryUIService
      */
     public async Story_releaseUnlinkStory(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { story: '%story%' });
         Object.assign(paramJO, { id: '%story%' });
@@ -600,6 +612,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "release": "%release%" } ;
         let panelNavContext= { "release": "%release%" } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -734,7 +749,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { story: '%story%' });
         Object.assign(paramJO, { id: '%story%' });
@@ -756,6 +771,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "build": "%build%" } ;
         let panelNavContext= { "build": "%build%" } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -888,7 +906,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      * @memberof StoryUIService
      */
     public async Story_MobProductLinkStory(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -907,6 +925,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "productplan": "%productplan%" } ;
         let panelNavContext= { "productplan": "%productplan%", "story": "0" } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -954,7 +975,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { story: '%story%' });
         Object.assign(paramJO, { id: '%story%' });
@@ -976,6 +997,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
               container.closeView(null);
         const backend = async () => {
@@ -1009,7 +1033,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      * @memberof StoryUIService
      */
     public async Story_MobBuildLinkStory(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -1026,8 +1050,11 @@ export default class StoryUIActionBase extends EntityUIActionBase {
             delete context.srfsessionid;
         }
         // 导航参数
-        let panelNavParam= { "project": "%project%" } ;
-        let panelNavContext= { "project": "%project%" } ;
+        let panelNavParam= { "project": "%project%", "build": "%build%" } ;
+        let panelNavContext= { "build": "%build%", "story": "0", "project": "%project%" } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -1122,7 +1149,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         if (!state) {
             return Promise.reject();
         }
-        const _args: any[] = Util.deepCopy(args);
+        let _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { story: '%story%' });
         Object.assign(paramJO, { id: '%story%' });
@@ -1144,6 +1171,9 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');

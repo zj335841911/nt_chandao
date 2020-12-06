@@ -511,6 +511,7 @@ hide footbox
 |MyProject|我的项目([MYSQL5](../../appendix/query_MYSQL5.md#Project_MyProject))|否|&nbsp;|
 |ProjectTeam|项目团队([MYSQL5](../../appendix/query_MYSQL5.md#Project_ProjectTeam))|否|&nbsp;|
 |StoryProject|需求影响项目([MYSQL5](../../appendix/query_MYSQL5.md#Project_StoryProject))|否|&nbsp;|
+|UnDoneProject|未完成项目([MYSQL5](../../appendix/query_MYSQL5.md#Project_UnDoneProject))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Project_View))|否|&nbsp;|
 
 * **数据集合**
@@ -526,6 +527,7 @@ hide footbox
 |MyProject|我的项目|MyProject|否|&nbsp;|
 |ProjectTeam|项目团队|ProjectTeam|否|&nbsp;|
 |StoryProject|需求影响项目|StoryProject|否|&nbsp;|
+|UnDoneProject|未完成项目|UnDoneProject|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

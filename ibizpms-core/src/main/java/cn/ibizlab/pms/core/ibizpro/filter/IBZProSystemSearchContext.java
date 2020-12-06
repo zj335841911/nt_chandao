@@ -31,7 +31,7 @@ public class IBZProSystemSearchContext extends QueryWrapperContext<IBZProSystem>
 	public void setN_ibzpro_systemname_like(String n_ibzpro_systemname_like) {
         this.n_ibzpro_systemname_like = n_ibzpro_systemname_like;
         if(!ObjectUtils.isEmpty(this.n_ibzpro_systemname_like)){
-            this.getSearchCond().like("ibzpro_systemname", n_ibzpro_systemname_like);
+            this.getSearchCond().like("`ibzpro_systemname`", n_ibzpro_systemname_like);
         }
     }
 
@@ -44,7 +44,7 @@ public class IBZProSystemSearchContext extends QueryWrapperContext<IBZProSystem>
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("ibzpro_systemname", query)   
+                     wrapper.like("`ibzpro_systemname`", query)
             );
 		 }
 	}

@@ -276,11 +276,29 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     }
 
     /**
+     * 查询集合 文档库分类子模块
+     */
+    @Override
+    public Page<DocLibModule> searchChildModuleByRealParent(DocLibModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchChildModuleByRealParent(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 数据集
      */
     @Override
     public Page<DocLibModule> searchDefault(DocLibModuleSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的收藏
+     */
+    @Override
+    public Page<DocLibModule> searchMyFavourites(DocLibModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchMyFavourites(context.getPages(), context, context.getSelectCond());
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

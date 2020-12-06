@@ -122,8 +122,7 @@ import BugUIService from '@/ui-service/bug/bug-ui-action';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MOB_Release_YiLiuBugBase extends Vue implements ControlInterface {
 
@@ -275,7 +274,7 @@ export default class MOB_Release_YiLiuBugBase extends Vue implements ControlInte
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 视图类型

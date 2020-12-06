@@ -114,9 +114,9 @@ export class MainEditFormBase extends EditFormControlBase {
         usernames: null,
         storyname: null,
         name: null,
-        color: null,
         pri: null,
         estimate: null,
+        color: null,
         desc: null,
         noticeusers: null,
         files: null,
@@ -371,13 +371,6 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
-        color: new FormItemModel({
-    caption: '', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
         pri: new FormItemModel({
     caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -387,6 +380,13 @@ export class MainEditFormBase extends EditFormControlBase {
 
         estimate: new FormItemModel({
     caption: '预计', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -542,7 +542,6 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
-
         if (Object.is(name, '') || Object.is(name, 'multiple')) {
             let ret = false;
             const _multiple = this.data.multiple;
@@ -551,6 +550,7 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.estimate.setDisabled(!ret);
         }
+
 
 
 

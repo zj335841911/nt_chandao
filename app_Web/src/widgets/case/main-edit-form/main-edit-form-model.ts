@@ -61,6 +61,11 @@ export default class MainEditModel {
         dataType: 'TEXT',
       },
       {
+        name: 'color',
+        prop: 'color',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'precondition',
         prop: 'precondition',
         dataType: 'LONGTEXT',

@@ -37,4 +37,7 @@
 | 21 | testreport | 报告 |  |  | 否 | 否 | 报告 |
 | 22 | entry | 应用 |  |  | 否 | 否 | 应用 |
 | 23 | webhook | Webhook |  |  | 否 | 否 | Webhook |
+| 24 | daily | 日报 |  |  | 否 | 否 | 日报 |
+| 25 | weekly | 周报 |  |  | 否 | 否 | 周报 |
+| 26 | monthly | 月报 |  |  | 否 | 否 | 月报 |
 

@@ -107,6 +107,7 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
         project: null,
         title: null,
         pri: null,
+        storypoints: null,
         estimate: null,
         color: null,
         spec: null,
@@ -136,6 +137,20 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
+            prodoctname: [
+                {
+                    required: this.detailsModel.prodoctname.required,
+                    type: 'string',
+                    message: '所属产品 值不能为空',
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.prodoctname.required,
+                    type: 'string',
+                    message: '所属产品 值不能为空',
+                    trigger: 'blur',
+                },
+        ],
             title: [
                 {
                     required: this.detailsModel.title.required,
@@ -245,7 +260,7 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
 
         prodoctname: new FormItemModel({
     caption: '所属产品', detailType: 'FORMITEM', name: 'prodoctname', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
+    required:true,
     disabled: false,
     enableCond: 3,
 }),
@@ -322,6 +337,13 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
 
         pri: new FormItemModel({
     caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        storypoints: new FormItemModel({
+    caption: '故事点', detailType: 'FORMITEM', name: 'storypoints', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -446,6 +468,7 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.assignedto.setDisabled(!ret);
         }
+
 
 
 

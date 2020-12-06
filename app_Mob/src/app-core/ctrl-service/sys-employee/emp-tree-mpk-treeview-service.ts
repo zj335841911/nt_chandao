@@ -450,6 +450,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"sysdepartment" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -583,6 +584,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -669,6 +671,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"systeammember" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -801,6 +804,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"usercontact" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -943,6 +947,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"project" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1090,6 +1095,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"sysemployee" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1211,6 +1217,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -1297,6 +1304,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"sysemployee" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1429,6 +1437,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"sysorganization" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1581,6 +1590,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"sysemployee" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1713,6 +1723,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"syspost" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1844,6 +1855,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -1913,6 +1925,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -1980,6 +1993,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });
@@ -2058,6 +2072,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"systeam" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -2188,6 +2203,7 @@ export class EmpTreeMpkService extends TreeViewServiceBase {
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
             list.push(treeNode);
             resolve(list);
         });

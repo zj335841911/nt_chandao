@@ -96,6 +96,24 @@ export default class UserTplUIServiceBase extends UIService {
      * @memberof  UserTplUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'usertpls',
+            component: 'user-tpl-grid-view',
+            openmode: '',
+            title: '用户模板',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'usertpls',
+            component: 'user-tpl-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '用户模板',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

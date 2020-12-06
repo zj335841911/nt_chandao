@@ -108,6 +108,7 @@ export class AssignFormEditFormBase extends EditFormControlBase {
         left: null,
         noticeusers: null,
         comment: null,
+        status: null,
         id: null,
         task: null,
     };
@@ -303,6 +304,13 @@ export class AssignFormEditFormBase extends EditFormControlBase {
 
         comment: new FormItemModel({
     caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        status: new FormItemModel({
+    caption: '任务状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

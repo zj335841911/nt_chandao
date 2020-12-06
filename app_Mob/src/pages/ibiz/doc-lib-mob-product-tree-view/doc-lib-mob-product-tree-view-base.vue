@@ -2,6 +2,7 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtreeview': true, 'doc-lib-mob-product-tree-view': true }">
     
     <ion-header>
+        <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="false"></app-search-history>
 
     
     </ion-header>
@@ -212,9 +213,10 @@ export default class DocLibMobProductTreeViewBase extends Vue {
      * @returns
      * @memberof IBizChart
      */
-    @Watch('_viewparams')
+    @Watch('_viewparams',{immediate: true, deep: true})
     on_viewparams(newVal: string, oldVal: string) {
         this.parseViewParam();
+        
     }
 
     /**
@@ -255,6 +257,12 @@ export default class DocLibMobProductTreeViewBase extends Vue {
      * @memberof DocLibMobProductTreeViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
+
+
+
+
+
 
 
     /**
@@ -553,6 +561,35 @@ export default class DocLibMobProductTreeViewBase extends Vue {
     }
 
 
+
+    /**
+     * 搜索值
+     *
+     * @type {string}
+     * @memberof DocLibMobProductTreeViewBase
+     */
+    public query: string = '';
+
+    /**
+     * 快速搜索值变化
+     *
+     * @param {*} event
+     * @returns
+     * @memberof DocLibMobProductTreeViewBase
+     */
+    public async quickValueChange(event: any) {
+        let { detail } = event;
+        if (!detail) {
+            return;
+        }
+        let { value } = detail;
+        this.query = value;
+
+        const tree: any = this.$refs.tree;
+        if (tree) {
+            tree.webLoad(this.query);
+        }
+    }
 
 }
 </script>

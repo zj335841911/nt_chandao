@@ -19,6 +19,7 @@ export class AuthServiceConstructor extends ServiceConstructorBase {
         this.allService.set('sysorganization', () => import('@/app-core/auth-service/sys-organization/sys-organization-auth-service'));
         this.allService.set('file', () => import('@/app-core/auth-service/file/file-auth-service'));
         this.allService.set('user', () => import('@/app-core/auth-service/user/user-auth-service'));
+        this.allService.set('ibzdaily', () => import('@/app-core/auth-service/ibz-daily/ibz-daily-auth-service'));
         this.allService.set('ibzfavorites', () => import('@/app-core/auth-service/ibz-favorites/ibz-favorites-auth-service'));
         this.allService.set('projectteam', () => import('@/app-core/auth-service/project-team/project-team-auth-service'));
         this.allService.set('build', () => import('@/app-core/auth-service/build/build-auth-service'));
@@ -27,8 +28,10 @@ export class AuthServiceConstructor extends ServiceConstructorBase {
         this.allService.set('ibzdoc', () => import('@/app-core/auth-service/ibz-doc/ibz-doc-auth-service'));
         this.allService.set('systeammember', () => import('@/app-core/auth-service/sys-team-member/sys-team-member-auth-service'));
         this.allService.set('module', () => import('@/app-core/auth-service/module/module-auth-service'));
+        this.allService.set('ibzweekly', () => import('@/app-core/auth-service/ibz-weekly/ibz-weekly-auth-service'));
         this.allService.set('product', () => import('@/app-core/auth-service/product/product-auth-service'));
         this.allService.set('dynadashboard', () => import('@/app-core/auth-service/dyna-dashboard/dyna-dashboard-auth-service'));
+        this.allService.set('ibzmonthly', () => import('@/app-core/auth-service/ibz-monthly/ibz-monthly-auth-service'));
         this.allService.set('storyspec', () => import('@/app-core/auth-service/story-spec/story-spec-auth-service'));
         this.allService.set('action', () => import('@/app-core/auth-service/action/action-auth-service'));
         this.allService.set('casestep', () => import('@/app-core/auth-service/case-step/case-step-auth-service'));
@@ -47,6 +50,7 @@ export class AuthServiceConstructor extends ServiceConstructorBase {
         this.allService.set('doclibmodule', () => import('@/app-core/auth-service/doc-lib-module/doc-lib-module-auth-service'));
         this.allService.set('sysupdatefeatures', () => import('@/app-core/auth-service/sys-update-features/sys-update-features-auth-service'));
         this.allService.set('doccontent', () => import('@/app-core/auth-service/doc-content/doc-content-auth-service'));
+        this.allService.set('ibzreport', () => import('@/app-core/auth-service/ibz-report/ibz-report-auth-service'));
         this.allService.set('productplan', () => import('@/app-core/auth-service/product-plan/product-plan-auth-service'));
         this.allService.set('ibztaskestimate', () => import('@/app-core/auth-service/ibz-taskestimate/ibz-taskestimate-auth-service'));
         this.allService.set('projectstats', () => import('@/app-core/auth-service/project-stats/project-stats-auth-service'));

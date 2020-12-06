@@ -18,8 +18,13 @@ export default {
     modulename: "上级模块",
     docqtype: "查询类型",
     isfavourites: "是否已收藏",
+    doccnt: "文档数",
   },
 	views: {
+		childweihuitreeexpview: {
+			caption: "文档库分类实体树导航视图",
+      		title: "文档库分类树导航视图",
+		},
 		mpickupview: {
 			caption: "文档库分类",
       		title: "文档库分类数据多项选择视图",
@@ -232,6 +237,15 @@ export default {
 		nodes: {
 			allmodule: "所有分类",
 			root: "默认根节点",
+		},
+		uiactions: {
+        refreshall: "刷新",
+		},
+	},
+	moduleweihu_treeview: {
+		nodes: {
+			root: "默认根节点",
+			allmodule: "所有分类",
 		},
 		uiactions: {
         refreshall: "刷新",

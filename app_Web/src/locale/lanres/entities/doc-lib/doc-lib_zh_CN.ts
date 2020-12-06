@@ -20,6 +20,8 @@ export default {
     orgid: "组织标识",
     mdeptid: "部门标识",
     root: "Root",
+    modulecnt: "文件夹数",
+    openeddate: "创建时间",
   },
 	views: {
 		projecttreeexpview: {
@@ -29,6 +31,10 @@ export default {
 		usr3treeview: {
 			caption: "文档库",
       		title: "文档库树视图",
+		},
+		undoneprojecttreeexpview: {
+			caption: "未完成项目",
+      		title: "文档库树导航视图",
 		},
 		treeview: {
 			caption: "文档库",
@@ -194,12 +200,6 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	undoneprojectgridviewtoolbar_toolbar: {
-		deuiaction1_togglefilter: {
-			caption: "过滤",
-			tip: "过滤",
-		},
-	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -238,6 +238,12 @@ export default {
 			tip: "过滤",
 		},
 	},
+	undoneprojectgridviewtoolbar_toolbar: {
+		deuiaction1_togglefilter: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
 	productgridviewtoolbar_toolbar: {
 		deuiaction1_togglefilter: {
 			caption: "过滤",
@@ -249,14 +255,14 @@ export default {
 			root: "默认根节点",
 		},
 		uiactions: {
-			doc_edit: "编辑",
-			doc_delete: "删除",
-			doc_onlycollectdoc: "收藏",
-			doc_onlyuncollectdoc: "取消收藏",
 			doclibmodule_edit: "编辑",
 			doclibmodule_weihufenlei: "维护分类",
 			doclibmodule_favorite: "收藏",
 			doclibmodule_nfavorite: "取消收藏",
+			doc_edit: "编辑",
+			doc_delete: "删除",
+			doc_onlycollectdoc: "收藏",
+			doc_onlyuncollectdoc: "取消收藏",
 		},
 	},
 	doclibtreeproject_treeview: {
@@ -269,7 +275,6 @@ export default {
 			doclib_weihufenlei: "维护分类",
 			doclib_uncollect: "取消收藏",
 			doclib_collect: "收藏",
-			file_look: "查看",
 			file_ibzdownload: "下载",
 			file_delete: "删除",
 			doc_edit: "编辑",
@@ -305,8 +310,6 @@ export default {
 		},
 		uiactions: {
 			refreshall: "刷新",
-			doclib_editcustomdoclib: "编辑",
-			doclib_weihufenlei: "维护分类",
 		},
 	},
 	doclibchildtreeview_treeview: {
@@ -349,7 +352,6 @@ export default {
 			doc_delete: "删除",
 			doc_onlycollectdoc: "收藏",
 			doc_onlyuncollectdoc: "取消收藏",
-			file_look: "查看",
 			file_ibzdownload: "下载",
 			file_delete: "删除",
 			doclibmodule_edit: "编辑",
@@ -369,9 +371,7 @@ export default {
 			all: "所有文档库",
 		},
 		uiactions: {
-			doclib_editcustomdoclib: "编辑",
 			refreshall: "刷新",
-			doclib_weihufenlei: "维护分类",
 		},
 	},
 	projectdoclibtree_treeview: {
@@ -381,10 +381,15 @@ export default {
 			files: "附件库",
 		},
 		uiactions: {
-			doclib_editdoclib: "编辑",
-			doclib_weihufenlei: "维护分类",
-			doclib_uncollect: "取消收藏",
-			doclib_collect: "收藏",
+		},
+	},
+	undoneprojectdoclibtree_treeview: {
+		nodes: {
+			allundoneproject: "所有未关闭项目",
+			root: "默认根节点",
+			files: "附件库",
+		},
+		uiactions: {
 		},
 	},
 	looproductdoclibtree_treeview: {
@@ -394,10 +399,6 @@ export default {
 			allproduct: "所有产品",
 		},
 		uiactions: {
-			doclib_editdoclib: "编辑",
-			doclib_weihufenlei: "维护分类",
-			doclib_uncollect: "取消收藏",
-			doclib_collect: "收藏",
 		},
 	},
 	doclibtreecustchild_treeview: {

@@ -113,6 +113,7 @@ export default class CurCaseVersion {
             Object.assign(itemdata,{value:item.version});
             Object.assign(itemdata,{text:item.expect});
             Object.assign(itemdata,{label:item.expect});
+            Object.assign(itemdata,{icon:''});
             
             _items.push(itemdata);
         });

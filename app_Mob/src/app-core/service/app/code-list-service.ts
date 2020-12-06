@@ -1,6 +1,7 @@
 import { HttpResponse } from '@/ibiz-core/utils';
 import  RelatedStory  from '@/app-core/code-list/related-story';
 import  ProductBranch_Cache  from '@/app-core/code-list/product-branch-cache';
+import  MyPlanTask  from '@/app-core/code-list/my-plan-task';
 import  CurProductPlan  from '@/app-core/code-list/cur-product-plan';
 import  SysOperator  from '@/app-core/code-list/sys-operator';
 import  UserRealName  from '@/app-core/code-list/user-real-name';
@@ -13,6 +14,7 @@ import  CurCaseVersion  from '@/app-core/code-list/cur-case-version';
 import  ProductPlan  from '@/app-core/code-list/product-plan';
 import  UserRealNameProject  from '@/app-core/code-list/user-real-name-project';
 import  CurStory  from '@/app-core/code-list/cur-story';
+import  MyCompleteTask  from '@/app-core/code-list/my-complete-task';
 import  UserRealNameTaskTeam  from '@/app-core/code-list/user-real-name-task-team';
 
 /**
@@ -55,6 +57,8 @@ export class CodeListService {
         RelatedStory: new RelatedStory(),
         // 产品平台（动态）_缓存
         ProductBranch_Cache: new ProductBranch_Cache(),
+        // 我计划参与的任务（汇报）
+        MyPlanTask: new MyPlanTask(),
         // 当前产品计划（动态）_缓存
         CurProductPlan: new CurProductPlan(),
         // 云系统操作者
@@ -79,6 +83,8 @@ export class CodeListService {
         UserRealNameProject: new UserRealNameProject(),
         // 当前需求版本（动态）
         CurStory: new CurStory(),
+        // 我完成的任务（汇报）
+        MyCompleteTask: new MyCompleteTask(),
         // 用户真实名称（任务团队）
         UserRealNameTaskTeam: new UserRealNameTaskTeam(),
     };

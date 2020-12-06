@@ -101,6 +101,10 @@ export default {
 			caption: "任务",
       		title: "任务编辑视图",
 		},
+		zsgridview9: {
+			caption: "展示",
+      		title: "任务表格视图（展示）",
+		},
 		restarttaskview: {
 			caption: "继续任务",
       		title: "继续任务",
@@ -153,6 +157,10 @@ export default {
 			caption: "任务",
       		title: "任务表格视图",
 		},
+		zsgridview9week: {
+			caption: "展示",
+      		title: "任务表格视图（展示）",
+		},
 		kanbanview: {
 			caption: "任务",
       		title: "任务看板视图",
@@ -197,6 +205,10 @@ export default {
 			caption: "更多",
       		title: "任务分页导航视图（更多）",
 		},
+		reportmpickupview: {
+			caption: "汇报",
+      		title: "任务数据多项选择视图（汇报）",
+		},
 		chartview9: {
 			caption: "任务",
       		title: "任务图表视图",
@@ -229,6 +241,10 @@ export default {
 			caption: "日历航显示",
       		title: "任务编辑视图（日历航显示）",
 		},
+		usr2gridview: {
+			caption: "任务",
+      		title: "任务表格视图",
+		},
 		donetaskview: {
 			caption: "完成任务",
       		title: "完成任务",
@@ -236,6 +252,10 @@ export default {
 		pritaskgroupgridview: {
 			caption: "优先级分组",
       		title: "任务表格视图（优先级分组）",
+		},
+		reportpickupgridview: {
+			caption: "汇报",
+      		title: "任务选择表格视图（汇报）",
 		},
 		editview: {
 			caption: "任务",
@@ -270,6 +290,7 @@ export default {
 			left: "预计剩余", 
 			noticeusers: "消息通知用户", 
 			comment: "备注", 
+			status: "任务状态", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -422,6 +443,7 @@ export default {
 			id: "编号", 
 			name: "任务名称", 
 			multiple: "多人任务", 
+			color: "标题颜色", 
 			desc: "任务描述", 
 			noticeusers: "消息通知用户", 
 			comment: "备注", 
@@ -489,9 +511,9 @@ export default {
 			usernames: "团队用户", 
 			storyname: "相关需求", 
 			name: "任务名称", 
-			color: "", 
 			pri: "优先级", 
 			estimate: "预计", 
+			color: "标题颜色", 
 			desc: "任务描述", 
 			noticeusers: "消息通知用户", 
 			files: "附件", 
@@ -529,6 +551,7 @@ export default {
 			story: "相关需求", 
 			id: "", 
 			name: "", 
+			color: "标题颜色", 
 			desc: "任务描述", 
 		},
 		uiactions: {
@@ -551,10 +574,11 @@ export default {
 			project: "所属项目", 
 			assignedto: "转交给", 
 			left: "预计剩余", 
+			id: "编号", 
 			multiple: "多人任务", 
+			status: "任务状态", 
 			noticeusers: "消息通知用户", 
 			comment: "备注", 
-			id: "编号", 
 		},
 		uiactions: {
 		},
@@ -867,6 +891,7 @@ export default {
 			projectname: "所属项目",
     },
 		uiactions: {
+			task_tasktobug: "提缺陷",
 			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
@@ -921,6 +946,7 @@ export default {
 		},
 		uiactions: {
 			task_assigntask: "指派",
+			task_tasktobug: "提缺陷",
 			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
@@ -952,6 +978,7 @@ export default {
 		},
 		uiactions: {
 			task_assigntask: "指派",
+			task_tasktobug: "提缺陷",
 			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
@@ -982,6 +1009,7 @@ export default {
 		},
 		uiactions: {
 			task_assigntask: "指派",
+			task_tasktobug: "提缺陷",
 			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
@@ -1012,6 +1040,7 @@ export default {
 		},
 		uiactions: {
 			task_assigntask: "指派",
+			task_tasktobug: "提缺陷",
 			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
@@ -1042,6 +1071,7 @@ export default {
 		},
 		uiactions: {
 			task_assigntask: "指派",
+			task_tasktobug: "提缺陷",
 			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
@@ -1061,6 +1091,26 @@ export default {
 			id: "编号",
 			name: "任务名称",
 			projectname: "所属项目",
+		},
+		uiactions: {
+		},
+	},
+	reportmainzs_grid: {
+		nodata: "",
+		columns: {
+			id: "ID",
+			pri: "P",
+			productname: "产品",
+			projectname: "所属项目",
+			name: "任务名称",
+			status1: "任务状态",
+			assignedto: "指派给",
+			finishedby: "完成者",
+			estimate: "预计",
+			consumed: "消耗",
+			left: "剩余",
+			progressrate: "%",
+			deadline: "截止日期",
 		},
 		uiactions: {
 		},
@@ -1101,7 +1151,7 @@ export default {
 			projectname: "所属项目",
     },
 		uiactions: {
-			task_assigntask: "指派",
+			task_tasktobug: "提缺陷",
 			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
@@ -1113,6 +1163,9 @@ export default {
 			copy: "拷贝",
 			task_taskfavorites: "收藏",
 			task_tasknfavorites: "取消收藏",
+			task_checkforward: "转交",
+			task_forward: "转交",
+			task_assigntask: "指派",
 		},
 	},
 	main2my_grid: {
@@ -1180,7 +1233,7 @@ export default {
 			projectname: "所属项目",
     },
 		uiactions: {
-			task_assigntask: "指派",
+			task_tasktobug: "提缺陷",
 			task_confirmstorychange: "确认",
 			task_mstarttaskdash1: "开始",
 			task_starttask: "开始",
@@ -1192,6 +1245,9 @@ export default {
 			copy: "拷贝",
 			task_taskfavorites: "收藏",
 			task_tasknfavorites: "取消收藏",
+			task_checkforward: "转交",
+			task_forward: "转交",
+			task_assigntask: "指派",
 		},
 	},
 	projectrelated_grid: {
@@ -1203,6 +1259,26 @@ export default {
 			status1: "任务状态",
 			consumed: "总计消耗",
 			left: "预计剩余",
+		},
+		uiactions: {
+		},
+	},
+	reportmain_grid: {
+		nodata: "",
+		columns: {
+			id: "ID",
+			pri: "P",
+			productname: "产品",
+			projectname: "所属项目",
+			name: "任务名称",
+			status1: "任务状态",
+			assignedto: "指派给",
+			finishedby: "完成者",
+			estimate: "预计",
+			consumed: "消耗",
+			left: "剩余",
+			progressrate: "%",
+			deadline: "截止日期",
 		},
 		uiactions: {
 		},
@@ -1301,14 +1377,6 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
-		seperator4: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
-			caption: "过滤",
-			tip: "过滤",
-		},
 	},
 	typetaskgroupgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1330,14 +1398,6 @@ export default {
 		deuiaction4: {
 			caption: "导出",
 			tip: "导出",
-		},
-		seperator4: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
-			caption: "过滤",
-			tip: "过滤",
 		},
 	},
 	taskgroupgridviewtoolbar_toolbar: {
@@ -1361,14 +1421,6 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
-		seperator4: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
-			caption: "过滤",
-			tip: "过滤",
-		},
 	},
 	pritaskgroupgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1391,14 +1443,6 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
-		seperator4: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
-			caption: "过滤",
-			tip: "过滤",
-		},
 	},
 	storytaskgroupgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1420,14 +1464,6 @@ export default {
 		deuiaction4: {
 			caption: "导出",
 			tip: "导出",
-		},
-		seperator4: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction5: {
-			caption: "过滤",
-			tip: "过滤",
 		},
 	},
 	myfavoritegridviewtoolbar_toolbar: {
@@ -1475,6 +1511,8 @@ export default {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
 		},
+	},
+	usr2gridviewtoolbar_toolbar: {
 	},
 	taskgrouptree_treeview: {
 		nodes: {

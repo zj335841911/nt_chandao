@@ -112,6 +112,7 @@ export default class BugModule {
             Object.assign(itemdata,{value:item.id});
             Object.assign(itemdata,{text:item.name});
             Object.assign(itemdata,{label:item.name});
+            Object.assign(itemdata,{icon:''});
             Object.assign(itemdata,{pvalue:item.parent});
             _items.push(itemdata);
         });

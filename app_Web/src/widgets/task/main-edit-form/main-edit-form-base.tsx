@@ -105,6 +105,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
         id: null,
         name: null,
         multiple: null,
+        color: null,
         desc: null,
         noticeusers: null,
         comment: null,
@@ -304,6 +305,13 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
         multiple: new FormItemModel({
     caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,
@@ -630,6 +638,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.multiple.setVisible(ret);
         }
+
 
 
 

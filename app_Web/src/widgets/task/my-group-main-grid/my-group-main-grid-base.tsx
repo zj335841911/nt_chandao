@@ -74,7 +74,7 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_assignedto_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u228da18_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -91,7 +91,7 @@ export class MyGroupMainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_AssignTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+        curUIService.Task_TaskToBug(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -346,6 +346,62 @@ export class MyGroupMainGridBase extends GridControlBase {
     }
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_tasktype_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_CheckForward(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_color_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_AssignTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
      * 拷贝
      *
      * @param {any[]} args 当前数据
@@ -382,7 +438,7 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @memberof MyGroupMainBase
      */  
     public ActionModel: any = {
-        AssignTask: { name: 'AssignTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', actiontarget: 'SINGLEKEY'},
+        TaskToBug: { name: 'TaskToBug',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CREATE_BUT', actiontarget: 'SINGLEKEY'},
         confirmStoryChange: { name: 'confirmStoryChange',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', actiontarget: 'SINGLEKEY'},
         MStartTaskDash1: { name: 'MStartTaskDash1',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
         StartTask: { name: 'StartTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
@@ -393,7 +449,10 @@ export class MyGroupMainGridBase extends GridControlBase {
         NewSubTask: { name: 'NewSubTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_SUBTASKS_BUT', actiontarget: 'SINGLEKEY'},
         Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
         TaskFavorites: { name: 'TaskFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
-        TaskNFavorites: { name: 'TaskNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
+        TaskNFavorites: { name: 'TaskNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', actiontarget: 'SINGLEKEY'},
+        CheckForward: { name: 'CheckForward',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_FORWARD_BUT', actiontarget: 'SINGLEKEY'},
+        Forward: { name: 'Forward',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FORWARD_BUT', actiontarget: 'SINGLEKEY'},
+        AssignTask: { name: 'AssignTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -916,8 +975,8 @@ export class MyGroupMainGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
-        if(Object.is('AssignTask', tag)) {
-            this.grid_assignedto_click(row, tag, $event);
+        if(Object.is('TaskToBug', tag)) {
+            this.grid_uagridcolumn1_u228da18_click(row, tag, $event);
         }
         if(Object.is('confirmStoryChange', tag)) {
             this.grid_uagridcolumn1_u94afee5_click(row, tag, $event);
@@ -945,6 +1004,12 @@ export class MyGroupMainGridBase extends GridControlBase {
         }
         if(Object.is('TaskNFavorites', tag)) {
             this.grid_uagridcolumn1_u9190267_click(row, tag, $event);
+        }
+        if(Object.is('CheckForward', tag)) {
+            this.grid_tasktype_click(row, tag, $event);
+        }
+        if(Object.is('AssignTask', tag)) {
+            this.grid_color_click(row, tag, $event);
         }
     }
 
@@ -1047,9 +1112,6 @@ export class MyGroupMainGridBase extends GridControlBase {
                 projectname:'',
                 name:'',
                 status1:'',
-                AssignTask:{
-                    visible: false
-                },
                 assignedto:'',
                 finishedby:'',
                 estimate:'',
@@ -1057,6 +1119,9 @@ export class MyGroupMainGridBase extends GridControlBase {
                 left:'',
                 progressrate:'',
                 deadline:'',
+                TaskToBug:{
+                    visible: false
+                },
                 confirmStoryChange:{
                     visible: false
                 },
@@ -1114,9 +1179,6 @@ export class MyGroupMainGridBase extends GridControlBase {
             projectname:'',
             name:'',
             status1:'',
-            AssignTask:{
-                visible: false
-            },
             assignedto:'',
             finishedby:'',
             estimate:'',
@@ -1124,6 +1186,9 @@ export class MyGroupMainGridBase extends GridControlBase {
             left:'',
             progressrate:'',
             deadline:'',
+            TaskToBug:{
+                visible: false
+            },
             confirmStoryChange:{
                 visible: false
             },
@@ -1217,9 +1282,6 @@ export class MyGroupMainGridBase extends GridControlBase {
                 projectname:'',
                 name:'',
                 status1:'',
-                AssignTask:{
-                    visible: false
-                },
                 assignedto:'',
                 finishedby:'',
                 estimate:'',
@@ -1227,6 +1289,9 @@ export class MyGroupMainGridBase extends GridControlBase {
                 left:'',
                 progressrate:'',
                 deadline:'',
+                TaskToBug:{
+                    visible: false
+                },
                 confirmStoryChange:{
                     visible: false
                 },

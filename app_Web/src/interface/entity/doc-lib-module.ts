@@ -149,4 +149,12 @@ export interface DocLibModule {
      * @memberof DocLibModule
      */
     isfavourites?: any;
+
+    /**
+     * 文档数
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    doccnt?: any;
 }

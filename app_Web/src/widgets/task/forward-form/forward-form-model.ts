@@ -71,9 +71,19 @@ export default class ForwardModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
+      },
+      {
         name: 'multiple',
         prop: 'multiple',
         dataType: 'TEXT',
+      },
+      {
+        name: 'status',
+        prop: 'status',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'noticeusers',
@@ -84,11 +94,6 @@ export default class ForwardModel {
         name: 'comment',
         prop: 'comment',
         dataType: 'HTMLTEXT',
-      },
-      {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
       },
       {
         name: 'task',

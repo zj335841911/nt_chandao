@@ -200,6 +200,9 @@ export default class AppQuickGroup extends Vue {
      * @memberof AppQuickGroup
      */
     public handleClick($event: any, isswitch: boolean = true): void {
+        if((this.selectedUiItem && (this.selectedUiItem.id === $event.id)) || $event.children) {
+            return;
+        }
         if (isswitch) {
             this.selectedUiItem = $event;
         }

@@ -114,6 +114,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
         id: null,
         title: null,
         version: null,
+        color: null,
         precondition: null,
         case: null,
     };
@@ -240,6 +241,13 @@ export class MainInfoEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        color: new FormItemModel({
+    caption: '标题颜色', detailType: 'FORMITEM', name: 'color', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         precondition: new FormItemModel({
     caption: '前置条件', detailType: 'FORMITEM', name: 'precondition', visible: false, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -258,6 +266,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string; newVal: any; oldVal: any }): Promise<void> {
                 
+
 
 
 

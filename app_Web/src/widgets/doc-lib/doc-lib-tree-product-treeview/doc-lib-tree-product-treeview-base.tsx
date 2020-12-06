@@ -8,6 +8,7 @@ import DocUIService from '@/uiservice/doc/doc-ui-service';
 import FileUIService from '@/uiservice/file/file-ui-service';
 import DocLibModuleUIService from '@/uiservice/doc-lib-module/doc-lib-module-ui-service';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
+import { Environment } from '@/environments/environment';
 
 /**
  * tree部件基类
@@ -164,9 +165,6 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      * @memberof DocLibTreeProductTreeBase
      */
     public file_cm_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.file_cm_deuiaction1_click(null, 'file_cm', $event2);
-        }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.file_cm_deuiaction2_click(null, 'file_cm', $event2);
         }
@@ -311,35 +309,6 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
         // 界面行为
         const curUIService:DocUIService  = new DocUIService();
         curUIService.Doc_OnlyUnCollectDoc(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public file_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:FileUIService  = new FileUIService();
-        curUIService.File_Look(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -942,7 +911,7 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
     @Prop() public createAction!: string;
 
     /**
-     * 过滤属性
+     * 过滤值
      *
      * @type {string}
      * @memberof DocLibTreeProductBase
@@ -950,12 +919,20 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
     public srfnodefilter: string = '';
 
     /**
-     * 当前文件夹所含文件
+     * 当前文件夹所有符合条件的文件
      *  
      * @type {Array<any>}
      * @memberof DocLibTreeProductBase
      */
     public items: any[] = [];
+
+    /**
+     * loading状态
+     *  
+     * @type {Boolean}
+     * @memberof DocLibTreeProductBase
+     */
+    public loading: boolean = false;
 
     /**
      * 面包屑数据(默认第一项为图标)
@@ -982,35 +959,74 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
     public currentNode = {};
 
     /**
+     * 分页条数默认20
+     *
+     * @type {number}
+     * @memberof DocLibTreeProductBase
+     */
+    public limit: number = 20;
+
+    /**
+     * 总条数默认0
+     *
+     * @type {number}
+     * @memberof DocLibTreeProductBase
+     */
+    public totalRecord: number = 0;
+
+    /**
+     * 当前页默认1
+     *
+     * @type {number}
+     * @memberof DocLibTreeProductBase
+     */
+    public curPage: number = 1;
+
+    /**
+     * 当前页数据
+     *
+     * @type {Array<any>}
+     * @memberof DocLibTreeProductBase
+     */
+    public curPageItems: any[] = [];
+
+    /**
+     * 图片加载路径
+     *
+     * @type {string}
+     * @memberof DocLibTreeProductBase
+     */
+    public downloadUrl = Environment.BaseUrl + Environment.ExportFile;
+
+    /**
      * 树节点上下文菜单集合
      *
      * @type {string[]}
      * @memberof DocLibTreeProductBase
      */
      public actionModel: any = {
-        ChildDocLibModule_deuiaction1: {ctrlname: 'childdoclibmodule_cm',name:'deuiaction1',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        ChildDocLibModule_deuiaction4: {ctrlname: 'childdoclibmodule_cm',name:'deuiaction4',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
-        ChildDocLibModule_deuiaction2: {ctrlname: 'childdoclibmodule_cm',name:'deuiaction2',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        ChildDocLibModule_deuiaction3: {ctrlname: 'childdoclibmodule_cm',name:'deuiaction3',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
-        docLib_deuiaction1: {ctrlname: 'doclib_cm',name:'deuiaction1',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'EditDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        docLib_deuiaction2: {ctrlname: 'doclib_cm',name:'deuiaction2',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
-        docLib_deuiaction3: {ctrlname: 'doclib_cm',name:'deuiaction3',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
-        docLib_deuiaction4: {ctrlname: 'doclib_cm',name:'deuiaction4',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        DocLibModule_deuiaction1: {ctrlname: 'doclibmodule_cm',name:'deuiaction1',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        DocLibModule_deuiaction4: {ctrlname: 'doclibmodule_cm',name:'deuiaction4',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: ''},
-        DocLibModule_deuiaction2: {ctrlname: 'doclibmodule_cm',name:'deuiaction2',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        DocLibModule_deuiaction3: {ctrlname: 'doclibmodule_cm',name:'deuiaction3',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
-        DocLibDoc_deuiaction1: {ctrlname: 'doclibdoc_cm',name:'deuiaction1',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        DocLibDoc_deuiaction4: {ctrlname: 'doclibdoc_cm',name:'deuiaction4',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: ''},
-        DocLibDoc_deuiaction2: {ctrlname: 'doclibdoc_cm',name:'deuiaction2',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        DocLibDoc_deuiaction3: {ctrlname: 'doclibdoc_cm',name:'deuiaction3',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
-        File_deuiaction1: {ctrlname: 'file_cm',name:'deuiaction1',nodeOwner:'File',type: 'DEUIACTION', tag: 'Look', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false,imgclass: '',caption: ''},
-        File_deuiaction2: {ctrlname: 'file_cm',name:'deuiaction2',nodeOwner:'File',type: 'DEUIACTION', tag: 'ibzdownload', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__FILE_DOWNLOAD_BUT', visible: true, disabled: false,imgclass: 'fa fa-download',caption: ''},
-        File_deuiaction3: {ctrlname: 'file_cm',name:'deuiaction3',nodeOwner:'File',type: 'DEUIACTION', tag: 'delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__FILE_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: ''},
-        ModuleDoc_deuiaction1: {ctrlname: 'moduledoc_cm',name:'deuiaction1',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: ''},
-        ModuleDoc_deuiaction4: {ctrlname: 'moduledoc_cm',name:'deuiaction4',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: ''},
-        ModuleDoc_deuiaction2: {ctrlname: 'moduledoc_cm',name:'deuiaction2',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: ''},
-        ModuleDoc_deuiaction3: {ctrlname: 'moduledoc_cm',name:'deuiaction3',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: ''},
+        ChildDocLibModule_deuiaction1: {ctrlname: 'childdoclibmodule_cm',name:'deuiaction1',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doclibmodule_edit'},
+        ChildDocLibModule_deuiaction4: {ctrlname: 'childdoclibmodule_cm',name:'deuiaction4',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doclibmodule_weihufenlei'},
+        ChildDocLibModule_deuiaction2: {ctrlname: 'childdoclibmodule_cm',name:'deuiaction2',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doclibmodule_favorite'},
+        ChildDocLibModule_deuiaction3: {ctrlname: 'childdoclibmodule_cm',name:'deuiaction3',nodeOwner:'ChildDocLibModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doclibmodule_nfavorite'},
+        docLib_deuiaction1: {ctrlname: 'doclib_cm',name:'deuiaction1',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'EditDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doclib_editdoclib'},
+        docLib_deuiaction2: {ctrlname: 'doclib_cm',name:'deuiaction2',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doclib_weihufenlei'},
+        docLib_deuiaction3: {ctrlname: 'doclib_cm',name:'deuiaction3',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doclib_uncollect'},
+        docLib_deuiaction4: {ctrlname: 'doclib_cm',name:'deuiaction4',nodeOwner:'docLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doclib_collect'},
+        DocLibModule_deuiaction1: {ctrlname: 'doclibmodule_cm',name:'deuiaction1',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doclibmodule_edit'},
+        DocLibModule_deuiaction4: {ctrlname: 'doclibmodule_cm',name:'deuiaction4',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doclibmodule_weihufenlei'},
+        DocLibModule_deuiaction2: {ctrlname: 'doclibmodule_cm',name:'deuiaction2',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doclibmodule_favorite'},
+        DocLibModule_deuiaction3: {ctrlname: 'doclibmodule_cm',name:'deuiaction3',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doclibmodule_nfavorite'},
+        DocLibDoc_deuiaction1: {ctrlname: 'doclibdoc_cm',name:'deuiaction1',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doc_edit'},
+        DocLibDoc_deuiaction4: {ctrlname: 'doclibdoc_cm',name:'deuiaction4',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doc_delete'},
+        DocLibDoc_deuiaction2: {ctrlname: 'doclibdoc_cm',name:'deuiaction2',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doc_onlycollectdoc'},
+        DocLibDoc_deuiaction3: {ctrlname: 'doclibdoc_cm',name:'deuiaction3',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doc_onlyuncollectdoc'},
+        File_deuiaction2: {ctrlname: 'file_cm',name:'deuiaction2',nodeOwner:'File',type: 'DEUIACTION', tag: 'ibzdownload', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__FILE_DOWNLOAD_BUT', visible: true, disabled: false,imgclass: 'fa fa-download',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.file_ibzdownload'},
+        File_deuiaction3: {ctrlname: 'file_cm',name:'deuiaction3',nodeOwner:'File',type: 'DEUIACTION', tag: 'delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__FILE_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.file_delete'},
+        ModuleDoc_deuiaction1: {ctrlname: 'moduledoc_cm',name:'deuiaction1',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doc_edit'},
+        ModuleDoc_deuiaction4: {ctrlname: 'moduledoc_cm',name:'deuiaction4',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doc_delete'},
+        ModuleDoc_deuiaction2: {ctrlname: 'moduledoc_cm',name:'deuiaction2',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doc_onlycollectdoc'},
+        ModuleDoc_deuiaction3: {ctrlname: 'moduledoc_cm',name:'deuiaction3',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.doclibtreeproduct_treeview.uiactions.doc_onlyuncollectdoc'},
     }
 
     /**
@@ -1034,8 +1050,7 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
                     return;
                 }
                 if (Object.is('load', action)) {
-                    this.breadcrumbs.splice(1);
-                    this.mode = 'chart';
+                    this.initData();
                     this.load();
                 }
                 if (Object.is('filter', action)) {
@@ -1050,6 +1065,20 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
                 }
             });
         }
+    }
+
+    /**
+     * 初始化目录树参数
+     * 
+     * @memberof DocLibTreeProductBase
+     */
+    public initData(){
+        this.breadcrumbs.splice(1);
+        this.mode = 'chart';
+        this.curPage = 1;
+        this.totalRecord = 0;
+        this.limit = 20;
+        this.srfnodefilter = '';
     }
 
     /**
@@ -1090,6 +1119,7 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      * @memberof DocLibTreeProductBase
      */
     public async load(node: any = {}, resolve?: any) {
+        this.loading = true;
         this.items = [];
         this.currentNode = node;
         if (node.data && node.data.children) {
@@ -1118,9 +1148,22 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
             return;
         }
         const _items = response.data;
-        await this.computeAllNodeState(_items);
-        this.items = _items; 
+        this.items = [..._items];
+        this.totalRecord = _items.length; 
+        await this.computeCurPageNodeState();
+        this.loading = false;
         this.$emit("load", _items);
+    }
+
+    /**
+     * 搜索
+     * 
+     * @param query 搜索值
+     * @memberof DocLibTreeProductBase
+     */
+    public onSearch(query: string){
+        const node = this.currentNode;
+        this.load(node);
     }
 
     /**
@@ -1179,6 +1222,7 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      */
     public handleLink(node: any) {
         this.removeBreadcrumbs(node);
+        this.srfnodefilter = '';
         this.load({data: node});
     }
 
@@ -1190,6 +1234,25 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      */
     public modeChange(mode: string) {
         this.mode = mode;
+        this.computeCurPageNodeState();
+    }
+
+    /**
+     * 计算当前页显示数据(若为list模式则计算当前页的工具栏权限状态)
+     * 
+     * @memberof DocLibTreeProductBase
+     */
+    public async computeCurPageNodeState(){
+        this.curPageItems = [];
+        let curPageItems: Array<any> = [];
+        const start = (this.curPage-1) * this.limit;
+        let end = this.curPage * this.limit;
+        end = end > this.items.length ? this.items.length : end;
+        curPageItems = this.items.slice(start,end);
+        if (Object.is(this.mode,'list')) {
+            await this.computeAllNodeState(curPageItems);
+        }
+        this.curPageItems = [...curPageItems];
     }
 
     /**
@@ -1200,18 +1263,21 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      */
     public openNode(node: any) {
         this.addBreadcrumbs(node);
+        this.srfnodefilter = '';
         this.load({data: node});
     }
 
     /**
-     * 计算当前文件夹的所有文件工具栏状态
+     * 计算指定文件的工具栏状态
      * 
      * @memberof DocLibTreeProductBase
      */
     public async computeAllNodeState(items: Array<any>) {
         if (items && items.length > 0) {
             for (let i=0; i < items.length; i++) {
-                await this.getNodeState(items[i]);
+                if (!items[i].curData || !items[i].curData.copyActionModel) {
+                    await this.getNodeState(items[i]);
+                }
             }
         }
     }
@@ -1252,19 +1318,13 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
         if(Object.is(nodeType,"STATIC")){
             return this.copyActionModel;
         }
-        let service:any = await this.appEntityService.getService(appEntityName);
         if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
-            if(service['Get'] && service['Get'] instanceof Function){
-                let tempContext:any = this.$util.deepCopy(this.context);
-                tempContext[appEntityName] = node.srfkey;
-                let targetData = await service.Get(tempContext,{}, false);
-                let uiservice:any = await this.appUIService.getService(appEntityName);
-                let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
-                return this.copyActionModel;
-            }else{
-                console.warn("获取数据异常");
-                return this.copyActionModel;
-            }
+            let tempContext:any = this.$util.deepCopy(this.context);
+            tempContext[appEntityName] = node.srfkey;
+            let targetData = node.curData;
+            let uiservice:any = await this.appUIService.getService(appEntityName);
+            let result: any[] = ViewTool.calcActionItemAuthState(targetData,this.copyActionModel,uiservice);
+            return this.copyActionModel;
         }
     }
 
@@ -1274,7 +1334,11 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
      * @param {*} index 工具栏标识
      * @memberof DocLibTreeProductBase
      */
-    public showToolBar(index: number){
+    public async showToolBar(item: any,index: number){
+        if(!item.curData || !item.curData.copyActionModel){
+            await this.getNodeState(item);
+            this.$forceUpdate();
+        }
         let el: any = this.$el.getElementsByClassName('chart-item-operate-'+index)[0];
         if (el) {
             el.style.display = 'block'; 
@@ -1292,6 +1356,46 @@ export class DocLibTreeProductTreeBase extends MainControlBase {
         if (el) {
             el.style.display = 'none'; 
         }
+    }
+
+    /**
+     * 页面变化
+     *
+     * @param {*} $event
+     * @returns {void}
+     * @memberof GridControlBase
+     */
+    public pageOnChange($event: any): void {
+        if (!$event || $event === this.curPage) {
+            return;
+        }
+        this.curPage = $event;
+        this.computeCurPageNodeState();
+    }
+
+    /**
+     * 分页条数变化
+     *
+     * @param {*} $event
+     * @returns {void}
+     * @memberof DocLibTreeProductBase
+     */
+    public onPageSizeChange($event: any): void {
+        if (!$event || $event === this.limit) {
+            return;
+        }
+        this.limit = $event;
+        this.computeCurPageNodeState();
+    }
+
+    /**
+     * 分页刷新
+     *
+     * @memberof GridControlBase
+     */
+    public pageRefresh(): void {
+        const node = this.currentNode;
+        this.load(node);
     }
 
     /**

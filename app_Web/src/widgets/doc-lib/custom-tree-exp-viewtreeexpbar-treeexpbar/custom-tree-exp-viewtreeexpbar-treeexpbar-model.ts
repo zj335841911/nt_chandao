@@ -75,6 +75,12 @@ export default class CustomTreeExpViewtreeexpbarModel {
       {
         name: 'root',
       },
+      {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
     ]
   }
 

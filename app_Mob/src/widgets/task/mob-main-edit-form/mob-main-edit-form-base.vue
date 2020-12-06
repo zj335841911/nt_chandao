@@ -1016,8 +1016,8 @@
     :disabled="detailsModel.files.disabled" 
     :context="context" 
     :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}' 
+    :uploadParam='{objecttype:"task",objectid:"0",version:"1"}' 
+    :exportParam='{objecttype:"task",objectid:"0",version:"1"}' 
     @formitemvaluechange="onFormItemValueChange" />
 </app-form-item>
 
@@ -1096,8 +1096,7 @@ import {  Util } from '@/ibiz-core/utils';
 
 
 @Component({
-    components: {
-    }
+    components: { }
 })
 export default class MobMainEditBase extends Vue implements ControlInterface {
 
@@ -1218,7 +1217,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
+    
 
     /**
      * 工作流审批意见控件绑定值
